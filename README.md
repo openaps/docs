@@ -4,11 +4,7 @@
 `#OpenAPS` is a development tool, which provides an interface for users to build custom apps. A basic structure in to which a user can drop modules and content is provided. This tool fosters creativity as we collaborate and evaluate our work, by programming a custom solution to fit our needs, with the creation of an open source artificial pancreas, as patients with diabetes. A command-line interface is used and a graphical user interface (GUI) is unnecessary and not recommended. In this tutorial, you will learn all the information you need to use the Linux interface.
 
 
-=============================
-
-**** Required Hardware ****
-
-=============================
+# Required Hardware 
 
 *** Recommended Raspberry Pi, Peripherals, and Diabetes Equipment ***
 
@@ -22,15 +18,12 @@
 
 Eventually, once you have an entire #OpenAPS system implemented, it is recommended that you have backup sets of equipment, in case of failure.
 
-Additionally, for the Raspberry Pi and peripherals, verified sets of working hardware can be found here [http://elinux.org/RPi_VerifiedPeripherals]]
+Additionally, for the Raspberry Pi and peripherals, verified sets of working hardware can be found here [http://elinux.org/RPi_VerifiedPeripherals]
 
-===========================
+# Hardware Details
 
-**** Hardware Details****
 
-===========================
-
-*** Raspberry Pi 2, Model B ***
+*** Raspberry Pi 2 Model B ***
 
 The Raspberry Pi 2 (RPi2) model B is a credit-card sized single-board computer which is used as a development board, used to prototype various applications of #OpenAPS. The RPi2 primarily uses Linux kernel based operating systems, which must be installed by the user onto a micro SD card for the RPi2 to work. The RPi2 currently only supports Ubuntu, Raspbian, OpenELEC, and RISC OS. We recommend installing either Ubuntu or Raspbian. In this tutorial, you will learn how to do a "cableless" and "headless" install of Raspbian, so you may access and control the RPi2 via a SSH client on Windows/Mac OS X/Linux/iOS/Android.
  
@@ -46,11 +39,11 @@ A minimalistic, unobrtusive WiFi USB adapter is recommended, to avoid damage to 
 
 *** 2.1 Amp USB Battery Power Supply ***
 
-A large capacity power supply that is greater than 8000 mAh (milliamp hours) is recommended for full day use. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full #OpenAPS system implemented and working, you will want to have acquired multiple batteries to rotate and recharge.
+A large capacity power supply that is greater than 8000 mAh (milliamp hours) is recommended for full day use. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full `#OpenAPS` system implemented and working, you will want to have acquired multiple batteries to rotate and recharge.
 
 *** CareLink USB Stick ***
 
-Currently, the only supported device for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development.
+Currently, the only supported device for uploading pump data and interfacing on the `#OpenAPS` is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development.
 
 *** Dexcom G4 Platinum System -- with or without Share ***
 
@@ -59,13 +52,10 @@ The Dexcom G4 Platinum system, with or without Share features is required to use
 
 *** Medtronic 522/722, 515/715, or 512/712 Series Insulin Pump ***
 
-These specific models of the Medtronic Paradigm series insulin pumps are the only compatible pumps that will work with #OpenAPS. Any other pump will not work. Security features have been added to any pump after the Medtronic 522 or 722 series insulin pumps making remote adjustments in insulin unfeasible at this point of time. However, with collaboration from industry, we hope to find partners who will let us use our pumps as we want to as patients.
+These specific models of the Medtronic Paradigm series insulin pumps are the only compatible pumps that will work with `#OpenAPS`. Any other pump will not work. Security features have been added to any pump after the Medtronic 522 or 722 series insulin pumps making remote adjustments in insulin unfeasible at this point of time. However, with collaboration from industry, we hope to find partners who will let us use our pumps as we want to as patients.
 
-======================================
 
-**** Setting up the Raspberry Pi 2****
-
-======================================
+#Setting up the Raspberry Pi 2
 
 In order to use the RPi2 with #OpenAPS development tools, the RPi2 must have an operating system installed and be set up in a very specific way. By far, the most convenient approach for setting up the RPi2 is by avoiding the use of cables, which is also known as a headless install. This is the quickest way to get up and running with your RPi2 and avoids frustration.
 
