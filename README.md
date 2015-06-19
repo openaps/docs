@@ -6,8 +6,6 @@
 
 # Required Hardware 
 
-*** Recommended Raspberry Pi, Peripherals, and Diabetes Equipment ***
-
 1. The Raspberry Pi 2 kit with peripherals [http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2]
 2. A low-profile WiFi dongle [http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150]
 3. 2.1 Amp USB power supply [http://www.amazon.com/Anker-10000mAh-Portable-External-Technology/dp/B009USAJCC/ref=sr_1_8?ie=UTF8&qid=1434523594&sr=8-8&keywords=intocircuit+compact+battery]
