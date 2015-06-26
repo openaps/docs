@@ -209,6 +209,7 @@ Edit its config file
 
 >`sudo nano /etc/watchdog.conf`
 <br />
+<br />
 
 >`# uncomment the following: (remove the # from the following lines)`
 <br />
