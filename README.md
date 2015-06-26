@@ -84,7 +84,7 @@ For the install, you will need:
 3. **Configuring WiFi Settings** Mac users: You can’t access EXT4 partitions without using 3rd party software. The easiest alternative it is to temporarily connect RPi to router with ethernet cable, SSH in (see below) and continue setting things up in /etc/network/interfaces to get the wifi running.     <br />
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
-`/path/to/sd/card/etc/network/interfaces`
+>`/path/to/sd/card/etc/network/interfaces`
 
 Edit the file so it looks like this: 
 
@@ -112,27 +112,27 @@ Now, put the SD card into the RPi2. Plug the compatible USB WiFi adapter in to t
 
 4.: **Testing SSH Access**
 
-`Windows:` Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY here [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html]. Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
+**Windows:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY here [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html]. Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 
-`Mac OS X:` Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
-
-Open Terminal and enter this command:
-
-`ssh pi@raspberrypi.lan`
-
-Default password for the user `pi` is `raspberry`
-
-`Linux:` Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
+**Mac OS X:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
 
 Open Terminal and enter this command:
 
-`ssh pi@raspberrypi.lan`
+>`ssh pi@raspberrypi.lan`
 
 Default password for the user `pi` is `raspberry`
 
-`iOS:` First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.lan` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
+**Linux:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
 
-`Android:` First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.lan` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH.
+Open Terminal and enter this command:
+
+>`ssh pi@raspberrypi.lan`
+
+Default password for the user `pi` is `raspberry`
+
+**iOS:** First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.lan` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
+
+**Android:** First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.lan` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH.
 
 If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
 
@@ -140,7 +140,7 @@ If connecting to the RPi2 fails at this point, the easiest alternative it is to 
 
 Run
 
-`sudo raspi-config` 
+>`sudo raspi-config` 
 
 to expand filesystem, change user password and set timezone (in internalization options)
 
@@ -148,11 +148,11 @@ to expand filesystem, change user password and set timezone (in internalization 
 
 Secure your RPi2. Log out by executing
 
-`exit`
+>`exit`
 
 and copy your public SSH key into your RPi2 by entering
 
-`ssh-copy-id pi@raspberrypi.lan`
+>`ssh-copy-id pi@raspberrypi.lan`
 
 Now you should be able to log in without a password. Repeat `step 4` and try to SSH into the RPi2 without a password.
 
@@ -160,9 +160,9 @@ Now you should be able to log in without a password. Repeat `step 4` and try to 
 
 7.: **sshd configuration**
 
-Since we have no password, we need to disable password login.
+Since we have no password, we need to disable password login. Open this file in nano text editor
 
-`sudo nano /etc/ssh/sshd_config`
+>`sudo nano /etc/ssh/sshd_config`
 
 Change the following
 
@@ -187,23 +187,23 @@ Be patient while the packages install.
 
 Enter in:
 
-`sudo apt-get install watchdog`
+>`sudo apt-get install watchdog`
 
 Then enter:
 
-`sudo modprobe bcm2708_wdog`
+>`sudo modprobe bcm2708_wdog`
 
 Then enter this line to open up the following file:
 
-`sudo nano /etc/modules`
+>`sudo nano /etc/modules`
 
 At the bottom of the file add
 
-`bcm2708_wdog`
+>`bcm2708_wdog`
 
 Add watchdog to startup applications
 
-`sudo update-rc.d watchdog defaults`
+>`sudo update-rc.d watchdog defaults`
 
 Edit its config file
 
@@ -218,7 +218,7 @@ Edit its config file
 
 Start watchdog by entering
 
-`sudo service watchdog start`
+>`sudo service watchdog start`
 
 ----------
 
@@ -230,7 +230,7 @@ Setting up OpenAPS
 
 Type in 
 
-`sudo apt-get install git`
+>`sudo apt-get install git`
 
 and press enter
 
@@ -238,13 +238,13 @@ and press enter
 
 Type in 
 
-`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy`
+>`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy`
 
 and press enter
 
 3.: Install PyPi and OpenAPS
 
-`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy && sudo easy_install -ZU openaps`
+>`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy && sudo easy_install -ZU openaps`
 
 and press enter
 
@@ -252,7 +252,7 @@ and press enter
 
 Type in 
 
-`sudo openaps-install-udev-rules`
+>`sudo openaps-install-udev-rules`
 
 and press enter
 
@@ -260,13 +260,13 @@ and press enter
 
 Type in
 
-`sudo activate-global-python-argcomplete`
+>`sudo activate-global-python-argcomplete`
 
 and press enter
 
 6.: In the future, in order to update OpenAPS, type in
 
-`sudo easy_install -ZU openaps`
+>`sudo easy_install -ZU openaps`
 
 and press enter
 
@@ -279,7 +279,7 @@ In order to have a fully operating OpenAPS, you will need to execute OpenAPS wit
 
 You can create and support plugins for OpenAPS, specifically, as a "process" type of plugin. So by typing for example 
 
-`openaps device add calciob process --require input node iob.js` 
+>`openaps device add calciob process --require input node iob.js` 
 
 tells OpenAPS that `iob.js` is a "node script". This also means that it takes a single input, which we will call `input` and to internally name that as a device called `calciob`. So now the plugin shows up under `openaps use calciob -h` and if your run the use case there, as stated in the getting started guide, it actually runs the node script with the required arguments.
 
