@@ -85,14 +85,22 @@ Keep the SD card in the reader in your computer. In this step, the WiFi interfac
 Edit the file so it looks like this: 
 
 >auto lo
+<br />
 >iface lo inet loopback
+<br />
 >iface eth0 inet dhcp
+<br />
 
 >auto wlan0
+<br />
 >allow-hotplug wlan0
+<br />
 >iface wlan0 inet dhcp
+<br />
 >wpa-ssid "your-network-name"
+<br />
 >wpa-psk "password-here"
+<br />
 
 Obviously the quotes are removed when you enter your configuration information. Save the file (without adding any additional extensions to the end of the filename).
 
