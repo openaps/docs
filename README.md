@@ -27,29 +27,29 @@ Additionally, for the Raspberry Pi and peripherals, verified sets of working har
 
 Hardware Details
 -------------------
-**Raspberry Pi 2 Model B **
+**Raspberry Pi 2 Model B**
 
 The Raspberry Pi 2 (RPi2) model B is a credit-card sized single-board computer which is used as a development board, used to prototype various applications of #OpenAPS. The RPi2 primarily uses Linux kernel based operating systems, which must be installed by the user onto a micro SD card for the RPi2 to work. The RPi2 currently only supports Ubuntu, Raspbian, OpenELEC, and RISC OS. We recommend installing either Ubuntu or Raspbian. In this tutorial, you will learn how to do a "cableless" and "headless" install of Raspbian, so you may access and control the RPi2 via a SSH client on Windows/Mac OS X/Linux/iOS/Android.
  
 The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will need to access the USB ports, micro USB power-in jack, and possibly the Ethernet jack (if failure occurs).
 
-**Micro SD Card **
+**Micro SD Card**
 
 An 8 GB micro SDHC card is recommended, that is class-4 or greater, and is a recognized name brand like SanDisk or Kingston. A list of verified working hardware (including SD cards) can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
 
-**WiFi Adapter **
+**WiFi Adapter**
 
 A minimalistic, unobrtusive WiFi USB adapter is recommended, to avoid damage to both the RPi2 and the adapter, since the RPi2 is being transported everywhere with the patient.
 
-**2.1 Amp USB Battery Power Supply **
+**2.1 Amp USB Battery Power Supply**
 
 A large capacity power supply that is greater than 8000 mAh (milliAmp hours) is recommended for full day use. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full #OpenAPS system implemented and working, you will want to have acquired multiple batteries to rotate and recharge.
 
-**CareLink USB Stick **
+**CareLink USB Stick**
 
 Currently, the only supported device for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development.
 
-**Dexcom G4 Platinum System -- with or without Share **
+**Dexcom G4 Platinum System -- with or without Share**
 
 The Dexcom G4 Platinum system, with or without Share features is required to use #OpenAPS. However, the Share platform is not used in #OpenAPS as the system is designed to operate without an Internet connection. In order to get the data, a micro USB to USB cable must be connected to the RPi2 to upload the data at specified times.
 
