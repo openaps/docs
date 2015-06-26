@@ -163,9 +163,13 @@ Since we have no password, we need to disable password login.
 Change the following
 
 >`# change it to no`
-`PermitRootLogin yes`
-`# uncomment and change it to no (remove the # sign in the following line)`
-`# PasswordAuthentication yes`
+<br />
+>`PermitRootLogin yes`
+<br />
+>`# uncomment and change it to no (remove the # sign in the following line)`
+<br />
+>`# PasswordAuthentication yes`
+<br />
 
 From now on you will be able to SSH in with your private SSH key only!
 
@@ -177,9 +181,15 @@ Be patient while the packages install.
 
 9.: **Watchdog** Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
 
+Enter in:
+
 `sudo apt-get install watchdog`
 
+Then enter:
+
 `sudo modprobe bcm2708_wdog`
+
+Then enter this line to open up the following file:
 
 `sudo nano /etc/modules`
 
@@ -194,9 +204,12 @@ Add watchdog to startup applications
 Edit its config file
 
 >`sudo nano /etc/watchdog.conf`
+<br />
 
 >`# uncomment the following: (remove the # from the following lines)`
+<br />
 >`max-load-1`
+<br />
 >`watchdog-device`
 
 Start watchdog by entering
