@@ -108,7 +108,7 @@ Edit the file so it looks like this:
 
 Obviously the quotes are removed when you enter your configuration information. Save the file (without adding any additional extensions to the end of the filename).
 
-Now, put the SD card into the RPi2. Plug the compatible USB WiFi adapter in to the RPi2. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply. 
+Now, put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply. 
 
 4.: **Testing SSH Access**
 
