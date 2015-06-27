@@ -205,10 +205,12 @@ Add watchdog to startup applications
 
 >`sudo update-rc.d watchdog defaults`
 
-Edit its config file
+Edit its config file by opening up nano text editor
 
 >`sudo nano /etc/watchdog.conf`  <br />
 <br />
+
+Make these lines look like this:
 
 >`# uncomment the following: (remove the # from the following lines)`
 <br />
