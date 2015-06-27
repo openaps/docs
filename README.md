@@ -112,7 +112,7 @@ Now, put the SD card into the RPi2. Plug the compatible USB WiFi adapter in to t
 
 4.: **Testing SSH Access**
 
-**Windows:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY here [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html]. Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
+**Windows:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 
 **Mac OS X:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
 
