@@ -11,7 +11,7 @@ Required Hardware
 
 > * The Raspberry Pi 2 kit with peripherals [Amazon Link](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2)
 > * A low-profile WiFi dongle [Amazon Link](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
-> * 2.1 Amp USB power supply [Amazon Link](http://www.amazon.com/Anker-10000mAh-Portable-External-Technology/dp/B009USAJCC/ref=sr_1_8?ie=UTF8&qid=1434523594&sr=8-8&keywords=intocircuit+compact+battery)
+> * 2.1 Amp USB power supply [Amazon Link](http://www.amazon.com/dp/B00M6V0R2C/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=2OYKR43UGE0YB&coliid=IC4EHVFRTC117&psc=1)
 > * Medtronic CareLink USB stick [American Diabetes Wholesale Link](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
 > * Medtronic 522/722, 515/715, or 512/712 series insulin pump
 > * Dexcom G4 Platinum System (Receiver and transmitter) or Dexcom G4 Platinum with Share System (receiver and transmitter)
