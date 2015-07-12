@@ -1,5 +1,7 @@
-Setting up the Raspberry Pi 2
--------------
+# Setup
+
+## Setting up the Raspberry Pi 2
+
 In order to use the RPi2 with #OpenAPS development tools, the RPi2 must have an operating system installed and be set up in a very specific way. By far, the most convenient approach for setting up the RPi2 is by avoiding the use of cables, which is also known as a headless install. This is the quickest way to get up and running with your RPi2 and avoids frustration.
 
 For the install, you will need:
