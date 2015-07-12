@@ -1,6 +1,5 @@
 # Using openaps Tools
 
-## Working with OpenAPS
 
 For getting started, please follow this [guide](https://github.com/openaps/openaps):
 
