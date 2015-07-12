@@ -8,11 +8,11 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 Required
 * Raspberry Pi 2 Model B
 * 8 GB (or greater) micro SD card
-* Low-profile WiFi adapter
+* Low-profile USB WiFi adapter
 * 2.1 Amp (or greater) USB power supply
 * Medtronic CareLink USB stick
 * Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower) 
-* Dexcom G4 Platinum System (Receiver and transmitter) or Dexcom G4 Platinum with Share System (receiver and transmitter)
+* Dexcom G4 Platinum or Platinum with Share system (receiver and transmitter)
 * Two USB cables with a right-angled micro USB end
 
 Optional
@@ -26,7 +26,7 @@ Additionally, for the Raspberry Pi and peripherals, verified sets of working har
 
 Eventually, once you have an entire OpenAPS build up and running, it is recommended that you have backup sets of equipment in case of failure.
 
-## Hardware Details
+## Hardware Details & Recommendations
 
 **Raspberry Pi 2 Model B**
 
