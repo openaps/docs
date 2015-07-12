@@ -4,11 +4,13 @@ This section describes how to go from using the openaps tools in isolation to bu
 
 In each phase, I'm looking to accomplish a set of goals as well as gain some further abilities to contribute back to the OpenAPS community. For me, there are five phases:
 
-* Phase 0: Initial Setup
+
+* [Phase 0: Initial Setup](
 * Phase 1: Data Collection
 * Phase 2: Recommendation Engine
 * Phase 3: Closing the Loop
 * Phase 4: Getting Fancy
+
 
 
 
