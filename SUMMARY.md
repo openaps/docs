@@ -9,6 +9,8 @@
    * [Ways to Contribute](Overview/contribute.md)
 * [Hardware](Hardware/hardware.md)
 * [Setup](Setup/setup.md)
+    * [Raspberry Pi](Setup/rpi.md)
+    * [openaps](Setup/openaps.md)
 * [Using openaps Tools](Using-openaps-Tools/using.md)
 * [Building an OpenAPS Implementation](Building-a-system/building.md)
     * [Phase 0: Initial Setup](Building-a-system/initial-setup.md)
