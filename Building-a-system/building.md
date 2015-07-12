@@ -5,33 +5,17 @@ This section describes how to go from using the openaps tools in isolation to bu
 In each phase, I'm looking to accomplish a set of goals as well as gain some further abilities to contribute back to the OpenAPS community. For me, there are five phases:
 
 
-* [Phase 0: Initial Setup](
-* Phase 1: Data Collection
-* Phase 2: Recommendation Engine
-* Phase 3: Closing the Loop
-* Phase 4: Getting Fancy
+* [Phase 0: Initial Setup](Building-a-system/initial-setup.md)
+* [Phase 1: Data Collection](Building-a-system/data-collection.md)
+* [Phase 2: Recommendation Engine](Building-a-system/recommendation-engine.md)
+* [Phase 3: Closing the Loop](Building-a-system/closing-the-loop.md)
+* [Phase 4: Getting Fancy](Building-a-system/getting-fancy.md)
 
 
 
 
 ### Phase 0: Initial Setup
 
-* Upon Completion
-    * Possess hardware and software tools necessary to build an OpenAPS implementation
-    * Have gone through the setup process and be able to help others do the same
-
-
-* Phase Tasks
-    * Procure hardware
-    * Download and install software and tools
-    * Test a subset of tools to make sure they work as expected
-    
-* Community Contribution
-    * Provide feedback on ...
-        * Hardware procurement (cheap deals, alternatives)
-        * Difficulties with installation process (‘this looked different on my system” or “I couldn’t locate that menu” or “I ran into this error”)
-        * Solutions to overcome setup difficulties, especially for systems that are not yet covered (some different flavor of Linux, for example)
-    * Help edit instructions for Phase 0 for accuracy, coverage, ease of understanding
 
 ### Phase 1: Data Collection
 Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the pump and CGM.
