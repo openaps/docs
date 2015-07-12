@@ -6,12 +6,15 @@ In each phase, look to accomplish a set of goals relating to the functionality o
 
 
 * [Phase 0: Initial Setup](Building-a-system/initial-setup.md)<br>
-afgdfg
+stuff
 * [Phase 1: Data Collection](Building-a-system/data-collection.md)<br>
 stuff
-* [Phase 2: Recommendation Engine](Building-a-system/recommendation-engine.md)
-* [Phase 3: Closing the Loop](Building-a-system/closing-the-loop.md)
-* [Phase 4: Getting Fancy](Building-a-system/getting-fancy.md)
+* [Phase 2: Recommendation Engine](Building-a-system/recommendation-engine.md)<br>
+stuff
+* [Phase 3: Closing the Loop](Building-a-system/closing-the-loop.md)<br>
+stuff
+* [Phase 4: Getting Fancy](Building-a-system/getting-fancy.md)<br>
+stuff
 
 Each subsection has three components:
 * Upon Completion
