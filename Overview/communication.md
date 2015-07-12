@@ -1,6 +1,6 @@
 # Communication Channels
 
- - Gitter: nightscout/inted-to-bolus
+ - Gitter: https://gitter.im/nightscout/intend-to-bolus
  - Google Groups: #OpenAPS
  - Issues on openaps GitHub
 
