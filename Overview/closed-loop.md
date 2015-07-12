@@ -1,4 +1,4 @@
-#What is closed loop? 
+#What is Closed Loop? 
 Different types of closed loop.
 
 These steps are well-documented on the Juvenile Diabetes Research Foundation (JDRF) [Artificial Pancreas Project Plan](http://jdrf.org/research/treat/artificial-pancreas-project/) page.
