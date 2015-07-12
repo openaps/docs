@@ -8,12 +8,12 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 Required
 * Raspberry Pi 2 Model B
 * 8 GB (or greater) micro SD card
-* A low-profile WiFi adapter [Amazon Link](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
+* Low-profile WiFi adapter
 * 2.1 Amp (or greater) USB power supply
 * Medtronic CareLink USB stick
-* Medtronic 522/722, 515/715, or 512/712 series insulin pump
+* Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower) 
 * Dexcom G4 Platinum System (Receiver and transmitter) or Dexcom G4 Platinum with Share System (receiver and transmitter)
-* Two USB cables with a right-angled micro USB end [Amazon Link](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
+* Two USB cables with a right-angled micro USB end
 
 Optional
 * Battery with USB output
@@ -79,3 +79,8 @@ The Dexcom G4 Platinum system, with or without Share features is required to use
 **Medtronic 522/722, 515/715, or 512/712 Series Insulin Pump**
 
 These specific models of the Medtronic Paradigm series insulin pumps are the only compatible pumps that will work with #OpenAPS. Any other pump will not work. Security features have been added to any pump after the Medtronic 522 or 722 series insulin pumps making remote adjustments in insulin unfeasible at this point of time. However, with collaboration from industry, we hope to find partners who will let us use our pumps as we want to as patients.
+
+
+**USB Cables**
+
+[Amazon Link](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
