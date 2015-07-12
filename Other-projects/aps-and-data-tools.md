@@ -11,6 +11,7 @@ A custom designed Bluetooth Smart (BLE) to 916MHz module. It can be used to brid
 
 * simPancreas (http://bustavo.com/category/simpancreas/)
 
-* Tidepool (http://tidepool.org/)
+* **Tidepool** (http://tidepool.org/)</br>
+Notably, work on Boston University iLet UI (https://github.com/tidepool-org/bionicpancreas)
 
 * Perceptus / GlucoDyn (http://perceptus.org)
