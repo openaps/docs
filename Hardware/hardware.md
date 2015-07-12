@@ -1,4 +1,8 @@
 
+# Hardware
+This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made, 
+
+
 ## Required Hardware
 
 * The Raspberry Pi 2 kit with peripherals [Amazon Link](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2)
