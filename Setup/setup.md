@@ -20,29 +20,23 @@ For the install, you will need:
 3. **Configuring WiFi Settings** Mac users: You can’t access EXT4 partitions without using 3rd party software. The easiest alternative it is to temporarily connect RPi to router with ethernet cable, SSH in (see below) and continue setting things up in /etc/network/interfaces to get the wifi running.     <br />
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
->`/path/to/sd/card/etc/network/interfaces`
+`/path/to/sd/card/etc/network/interfaces`
 
 Edit the file so it looks like this: 
 
->auto lo
-<br />
->iface lo inet loopback
-<br />
->iface eth0 inet dhcp
-<br />
+```
+auto lo
+iface lo inet loopback
+iface eth0 inet dhcp
 
->auto wlan0
-<br />
->allow-hotplug wlan0
-<br />
->iface wlan0 inet dhcp
-<br />
->wpa-ssid "your-network-name"
-<br />
->wpa-psk "password-here"
-<br />
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+wpa-ssid <your-network-name>
+wpa-psk <your-password>
+```
 
-Obviously the quotes are removed when you enter your configuration information. Save the file (without adding any additional extensions to the end of the filename).
+Replace `<your-network-name>` and `<your-password>` with your own credentials. Save the file (without adding any additional extensions to the end of the filename).
 
 Now, put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply. 
 
@@ -54,7 +48,7 @@ Now, put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into
 
 Open Terminal and enter this command:
 
->`ssh pi@raspberrypi.lan`
+`ssh pi@raspberrypi.lan`
 
 Default password for the user `pi` is `raspberry`
 
@@ -62,7 +56,7 @@ Default password for the user `pi` is `raspberry`
 
 Open Terminal and enter this command:
 
->`ssh pi@raspberrypi.lan`
+`ssh pi@raspberrypi.lan`
 
 Default password for the user `pi` is `raspberry`
 
