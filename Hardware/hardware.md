@@ -71,7 +71,7 @@ Currently, the only supported device for uploading pump data and interfacing on 
  [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
 
-**Dexcom G4 Platinum System -- with or without Share**
+**CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
 
 The Dexcom G4 Platinum system, with or without Share features is required to use #OpenAPS. However, the Share platform is not used in #OpenAPS as the system is designed to operate without an Internet connection. In order to get the data, a micro USB to USB cable must be connected to the RPi2 to upload the data at specified times.
 
