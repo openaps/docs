@@ -12,8 +12,8 @@ Required
 * 2.1 Amp (or greater) USB power supply
 * Medtronic CareLink USB stick
 * Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower) 
-* Dexcom G4 Platinum or Platinum with Share system (receiver and transmitter)
-* Two USB cables with a right-angled micro USB end
+* Dexcom CGM (G4 Platinum or Platinum with Share system) OR Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
+* Micro USB cable(s)
 
 Optional
 * Battery with USB output
@@ -82,5 +82,7 @@ These specific models of the Medtronic Paradigm series insulin pumps are the onl
 
 
 **USB Cables**
+
+Two USB cables with a right-angled micro USB end
 
 [Amazon Link](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
