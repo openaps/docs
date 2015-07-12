@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [Overview](Overview/overview.md)
    * [#OpenAPS & openaps](Overview/openaps.md)
    * [What is Closed Loop?](Overview/closed-loop.md)
@@ -11,6 +12,7 @@
 * [Using `openaps` Tools](Using-openaps-Tools/using.md)
 * [Building an OpenAPS Implementation](Building-a-system/building.md)
 * [Other Projects](Other-projects/other-projects.md)
-    * [APS and Data Tools](Other-projects/aps-and-data-tools.md)
-    * [Commercial APS Efforts](Other-projects/commercial)
+   * [APS and Data Tools](Other-projects/aps-and-data-tools.md)
+   * [Commercial APS Efforts](Other-projects/commercial.md)
 * [Resources](Resources/resources.md)
+
