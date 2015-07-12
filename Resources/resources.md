@@ -1,7 +1,9 @@
 # Resources
 
+### Raspberry Pi
 
-## ## Git and GitHub
+### Git and GitHub
 
+### Linux Shell
 
-
+### Python
