@@ -5,7 +5,7 @@ This section describes how to go from using the openaps tools in isolation to bu
 In each phase, look to accomplish a set of goals relating to the functionality of your system as well as gain some further abilities to contribute back to the OpenAPS community. Five phases:
 
 
-* [Phase 0: Initial Setup](Building-a-system/initial-setup.md)</br>
+* [Phase 0: Initial Setup](Building-a-system/initial-setup.md)<br>
 afgdfg
 * [Phase 1: Data Collection](Building-a-system/data-collection.md)<br>
 stuff
