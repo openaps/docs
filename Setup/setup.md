@@ -4,15 +4,12 @@ In order to use the RPi2 with #OpenAPS development tools, the RPi2 must have an 
 
 For the install, you will need:
 
->* Raspberry Pi 2
-<br />
->* 8 GB SD Card
-<br />
->* Low Profile USB WiFi Adapter
-<br />
->* 2.1 Amp USB Power Supply
-<br />
->* Micro USB cable 
+* Raspberry Pi 2
+* 8 GB SD Card
+* Low Profile USB WiFi Adapter
+* 2.1 Amp USB Power Supply
+* Micro USB cable 
+
 
 1. **Getting Raspbian.** Raspbian is the recommended operating system for `#OpenAPS`. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
 
