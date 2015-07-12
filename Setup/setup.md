@@ -21,12 +21,13 @@ For the install, you will need:
 
 3. **Configuring WiFi Settings**
 <br>_(a note for Mac users: You cannot access EXT4 partitions without using 3rd party software. The easiest alternative it is to temporarily connect RPi to a router with and ethernet cable, SSH in (see below), and continue setting things up in /etc/network/interfaces to get the wifi running.)_
-<br>
+<br><br>
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
-
+<br><br>
 `/path/to/sd/card/etc/network/interfaces`
-
+<br><br>
 Edit the file so it looks like this: 
+<br>
 
 ```
 auto lo
@@ -41,9 +42,9 @@ wpa-psk <your-password>
 ```
 
 Replace `<your-network-name>` and `<your-password>` with your own credentials. Save the file (without adding any additional extensions to the end of the filename).
-
+<br><br>
 Now, put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply. 
-
+<br><br>
 4. **Testing SSH Access**
 
 **Windows:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
