@@ -10,6 +10,7 @@
     * Download and install software and tools
     * Test a subset of tools to make sure they work as expected
     
+
 * Community Contribution
     * Provide feedback on ...
         * Hardware procurement (cheap deals, alternatives)
