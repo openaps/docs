@@ -11,4 +11,6 @@
 * [Using `openaps` Tools](Using-openaps-Tools/using.md)
 * [Building an OpenAPS Implementation](Building-a-system/building.md)
 * [Other Projects](Other-projects/other-projects.md)
+    * [APS and Data Tools](Other-projects/aps-and-data-tools.md)
+    * [Commercial APS Efforts](Other-projects/commercial)
 * [Resources](Resources/resources.md)
