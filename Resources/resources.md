@@ -1,6 +1,4 @@
-
 # Resources
-
 
 
 Git and GitHub
