@@ -16,10 +16,3 @@ Each subsection has three components:
 * Phase Tasks
 * Community Contribution
 
-
-Phase III: Close the Loop
-
-I won't bother go into the details here as they aren't relevant to the write-up I'm suggesting
-Phase IV: Gild the Lily
-
-This is all the awesome stuff that everyone dreams of (and is certainly worthwhile) but tends to distract in the early stages; again, I won't jump into this at the moment
