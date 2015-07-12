@@ -6,9 +6,9 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 ## Recommended Hardware
 
 Required
-* Raspberry Pi 2 model B 
+* Raspberry Pi 2 Model B 
 * A low-profile WiFi adapter [Amazon Link](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
-* 2.1 Amp (or greater) USB power supply [Amazon Link](http://www.amazon.com/dp/B00M6V0R2C/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=2OYKR43UGE0YB&coliid=IC4EHVFRTC117&psc=1)
+* 2.1 Amp (or greater) USB power supply
 * Medtronic CareLink USB stick [American Diabetes Wholesale Link](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
 * Medtronic 522/722, 515/715, or 512/712 series insulin pump
 * Dexcom G4 Platinum System (Receiver and transmitter) or Dexcom G4 Platinum with Share System (receiver and transmitter)
@@ -33,17 +33,33 @@ The Raspberry Pi 2 (RPi2) model B is a credit-card sized single-board computer w
  
 The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will need to access the USB ports, micro USB power-in jack, and possibly the Ethernet jack (if failure occurs).
 
+[Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
+
+
 **Micro SD Card**
 
-An 8 GB micro SDHC card is recommended, that is class-4 or greater, and is a recognized name brand like SanDisk or Kingston. A list of verified working hardware (including SD cards) can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
+An 8 or 16 GB micro SDHC card is recommended, that is class-4 or greater, and is a recognized name brand like SanDisk or Kingston. A list of verified working hardware (including SD cards) can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
+
+(http://www.amazon.com/Sony-Class-Memory-SR16UYA-TQMN/dp/B00BW6KCW2/ref=pd_cart_vw_2_2_p?ie=UTF8&refRID=1TTJ5M09NCV3A9SPZCD0)
 
 **WiFi Adapter**
 
 A minimalistic, unobrtusive WiFi USB adapter is recommended, to avoid damage to both the RPi2 and the adapter, since the RPi2 is being transported everywhere with the patient.
 
+[Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
+
+[Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&qid=1432614150&sr=8-1&keywords=edimax)
+
+
 **2.1 Amp USB Battery Power Supply**
 
 A large capacity power supply that is greater than 8000 mAh (milliAmp hours) is recommended for full day use. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full #OpenAPS system implemented and working, you will want to have acquired multiple batteries to rotate and recharge.
+
+ [Power Bank 12000mAh Vinsic Genius External Mobile Battery Charger Pack](http://www.amazon.com/dp/B00M6V0R2C/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=2OYKR43UGE0YB&coliid=IC4EHVFRTC117&psc=1)
+ 
+ 
+ 
+ 
 
 **CareLink USB Stick**
 
