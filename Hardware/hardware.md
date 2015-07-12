@@ -36,14 +36,14 @@ The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-
 
 [Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 
-
+<br>
 **Micro SD Card**
 
 An 8 or 16 GB micro SDHC card is recommended, that is class-4 or greater, and is a recognized name brand like SanDisk Kingston. A list of verified working hardware (including SD cards) can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8/ref=dp_ob_title_ce)
 
-
+<br>
 **WiFi Adapter**
 
 A minimalistic, unobrtusive WiFi USB adapter is recommended, to avoid damage to both the RPi2 and the adapter, since the RPi2 is being transported everywhere with the patient.
@@ -52,7 +52,7 @@ A minimalistic, unobrtusive WiFi USB adapter is recommended, to avoid damage to 
 
 [Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&qid=1432614150&sr=8-1&keywords=edimax)
 
-
+<br>
 **2.1 Amp USB Battery Power Supply**
 
 A large capacity power supply that is greater than 8000 mAh (milliAmp-hours) is recommended for full day use. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full #OpenAPS system implemented and working, you will want to have multiple batteries to rotate and recharge.
@@ -61,7 +61,7 @@ A large capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
  
  [Anker 2nd Gen Astro E3 Ultra Compact 10000mAh External Battery](http://www.amazon.com/gp/product/B009USAJCC/ref=od_aui_detailpages00?ie=UTF8&psc=1)
 
-
+<br>
 **CareLink USB Stick**
 
 Currently, the only supported device for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development.
@@ -70,17 +70,21 @@ Currently, the only supported device for uploading pump data and interfacing on 
 
  [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
-
+<br>
 **CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
 
 The Dexcom G4 Platinum system, with or without Share features is required to use #OpenAPS. However, the Share platform is not used in #OpenAPS as the system is designed to operate without an Internet connection. In order to get the data, a micro USB to USB cable must be connected to the RPi2 to upload the data at specified times.
 
+[Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
 
+[Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
+
+<br>
 **Medtronic 522/722, 515/715, or 512/712 Series Insulin Pump**
 
 These specific models of the Medtronic Paradigm series insulin pumps are the only compatible pumps that will work with #OpenAPS. Any other pump will not work. Security features have been added to any pump after the Medtronic 522 or 722 series insulin pumps making remote adjustments in insulin unfeasible at this point of time. However, with collaboration from industry, we hope to find partners who will let us use our pumps as we want to as patients.
 
-
+<br>
 **USB Cables**
 
 Two USB cables with a right-angled micro USB end
