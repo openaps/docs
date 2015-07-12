@@ -1,9 +1,15 @@
 # Summary
 
-* [Introduction](README.md)
-* [What is OpenAps?](what/README.md)
-* [Getting Started](getting-started/README.md)
-   * [Installing](getting-started/installing.md)
-* [How `openaps` works](getting-started/how-openaps-works.md)
-* [Using `openaps`](getting-started/using-openaps.md)
-
+* [Introduction](Introduction/introduction.md)
+* [Overview](Overview/overview.md)
+   * [#OpenAPS & openaps](Overview/openaps.md)
+   * [What is Closed Loop?](Overview/closed-loop.md)
+   * [Project History](Overview/history.md)
+   * [Communication Channels](Overview/communication.md)
+   * [Ways to Contribute](Overview/contribute.md)
+* [Hardware](Hardare/hardware.md)
+* [Setup](Setup/setup.md)
+* [Using `openaps` Tools](Using-openaps-Tools/using.md)
+* [Building an OpenAPS Implementation](Building-a-system/building.md)
+* [Other Projects](Other-projects/other-projects.md)
+* [Resources](Resources/resources.md)
