@@ -13,7 +13,7 @@ For the install, you will need:
 * Micro USB cable 
 
 
-1. **Getting Raspbian.** Raspbian is the recommended operating system for `#OpenAPS`. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
+1. **Getting Raspbian.** Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
 
 2. **Writing Raspbian to the Micro SD Card.** Please read this [excellent guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
