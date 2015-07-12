@@ -2,7 +2,14 @@
 
 This section describes how to go from using the openaps tools in isolation to building your own OpenAPS implementation. For a number or reasons, this document can neither provide explicit instructions on how to construct a functional artificial pancreas nor recommend that you use the openaps tools for dosing insulin. What can be provided is an approach that can help guide this transition through a series of phases. 
 
-In each phase, I'm looking to accomplish a set of goals as well as gain some further abilities to contribute back to the OpenAPS community. For me, there are five phases, which I annoyingly indexed to zero and then switched to Roman numerals:
+In each phase, I'm looking to accomplish a set of goals as well as gain some further abilities to contribute back to the OpenAPS community. For me, there are five phases:
+
+* Phase 0: Initial Setup
+* Phase 1: Data Collection
+* Phase 2: Recommendation Engine
+* Phase 3: Closing the Loop
+* Phase 4: Getting Fancy
+
 
 
 ### Phase 0: Initial Setup
@@ -16,14 +23,13 @@ In each phase, I'm looking to accomplish a set of goals as well as gain some fur
     * Procure hardware
     * Download and install software and tools
     * Test a subset of tools to make sure they work as expected
-
-
-    * Community Contribution
-        * Provide feedback on ...
-Hardware procurement (cheap deals, alternatives)
-Difficulties with installation process (‘this looked different on my system” or “I couldn’t locate that menu” or “I ran into this error”)
-Solutions to overcome setup difficulties, especially for systems that are not yet covered (some different flavor of Linux, for example)
-Help edit instructions for Phase 0 for accuracy, coverage, ease of understanding
+    
+* Community Contribution
+    * Provide feedback on ...
+        * Hardware procurement (cheap deals, alternatives)
+        * Difficulties with installation process (‘this looked different on my system” or “I couldn’t locate that menu” or “I ran into this error”)
+        * Solutions to overcome setup difficulties, especially for systems that are not yet covered (some different flavor of Linux, for example)
+    * Help edit instructions for Phase 0 for accuracy, coverage, ease of understanding
 
 ### Phase 1: Data Collection
 Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the pump and CGM.
@@ -51,7 +57,7 @@ Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the 
         * Using software tools
         * Following guides to accomplish above phase tasks
     * Help edit instructions for Phase I
-    * Provide improved or alternative implementations (e.g. a better battery
+    * Provide improved or alternative implementations
 
 Phase II: Recommendation Engine
 
