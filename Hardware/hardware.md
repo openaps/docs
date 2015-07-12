@@ -10,7 +10,7 @@ Required
 * 8 GB (or greater) micro SD card
 * A low-profile WiFi adapter [Amazon Link](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
 * 2.1 Amp (or greater) USB power supply
-* Medtronic CareLink USB stick [American Diabetes Wholesale Link](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
+* Medtronic CareLink USB stick
 * Medtronic 522/722, 515/715, or 512/712 series insulin pump
 * Dexcom G4 Platinum System (Receiver and transmitter) or Dexcom G4 Platinum with Share System (receiver and transmitter)
 * Two USB cables with a right-angled micro USB end [Amazon Link](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
@@ -66,6 +66,10 @@ A large capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 
 Currently, the only supported device for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development.
 
+[Medtronic](https://medtronicdiabetes.secure.force.com/store/carelink-usb--remotes/usb-wireless-upload-device)
+
+ [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
+ 
 
 **Dexcom G4 Platinum System -- with or without Share**
 
