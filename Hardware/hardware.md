@@ -52,5 +52,3 @@ The Dexcom G4 Platinum system, with or without Share features is required to use
 **Medtronic 522/722, 515/715, or 512/712 Series Insulin Pump**
 
 These specific models of the Medtronic Paradigm series insulin pumps are the only compatible pumps that will work with #OpenAPS. Any other pump will not work. Security features have been added to any pump after the Medtronic 522 or 722 series insulin pumps making remote adjustments in insulin unfeasible at this point of time. However, with collaboration from industry, we hope to find partners who will let us use our pumps as we want to as patients.
-
-----------
