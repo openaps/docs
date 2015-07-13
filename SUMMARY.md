@@ -21,4 +21,5 @@
    * [APS & Data Tools](Other-projects/aps-and-data-tools.md)
    * [Commercial APS Efforts](Other-projects/commercial.md)
 * [Resources](Resources/resources.md)
+* [Glossary](Glossary/glossary.md)
 
