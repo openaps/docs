@@ -1,5 +1,7 @@
 # Phase 2: Recommendation Engine
 
+If you haven't already done so, this is also an excellent time to calibrate your inputs—ISF, CR, basal rates, etc.
+
 * Upon Completion
     * Have a set of algorithms designed to control blood glucose via temp basals
     * Have patient-specific inputs required for these algorithms
