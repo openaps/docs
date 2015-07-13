@@ -20,7 +20,7 @@ Examples of openaps usage and output.
 An suggested process for building a functional OpenAPS implementation.
 
 **[Other Projects & Tools](Other-projects/other-projects.md)**<br>
-
+Additional work focused on open-source diabetes treatment and data management as well as a summary of commerical artificial pancreas development.
 
 
 **[Resources](Resources/resources.md)**<br>
