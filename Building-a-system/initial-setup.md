@@ -1,6 +1,6 @@
 # Phase 0: Initial Setup
 
-Phase 0 focuses on getting everything required for an OpenAPS implementation procured, installed, and ready to 
+Phase 0 focuses on getting everything required for an OpenAPS implementation procured, installed, and ready for tinkering. This is primarily accomplished through following steps in the [Hardware](../Hardware/hardware.md) and [Setup](../Setup/setup.md) sections.  
 
 
 * Upon Completion
