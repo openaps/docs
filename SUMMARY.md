@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](Introduction/introduction.md)
 * [Overview](Overview/overview.md)
    * [#OpenAPS & openaps](Overview/openaps.md)
    * [What is Closed Loop?](Overview/closed-loop.md)
