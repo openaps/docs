@@ -9,8 +9,10 @@ A brief introduction to the #OpenAPS project, including some notes on nomenclatu
 Descriptions and links for all of the necessary hardware components to build an OpenAPS implementation.
 
 **[Setup](../Setup/setup.md)**<br>
+Step-by-step guides for getting the hardware configured properly and the openaps tools installed.
 
 **[Using openaps Tools](Using-openaps-Tools/using.md)**<br>
+
 
 **[Building an OpenAPS Implementation](Building-a-system/building.md)**<br>
 
