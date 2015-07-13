@@ -3,6 +3,6 @@
 "description": "Documenation for openaps tools and getting started with an OpenAPS implementation",
 "language": "en",
 "structure": {
-        "readme": "Introduction/introduction.md"
+        "readme": "../Introduction/introduction.md"
     }
 }
