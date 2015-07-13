@@ -16,5 +16,7 @@ Macdown
 
 StackEdit
 
+GitBooks editor
+
 ### GitBooks
 https://www.gitbook.com/
