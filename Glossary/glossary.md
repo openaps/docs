@@ -14,3 +14,11 @@ CR
 
 ISF
 
+Bolus
+
+Basal
+
+APS
+
+CGM
+
