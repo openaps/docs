@@ -1,5 +1,8 @@
 # Phase 0: Initial Setup
 
+Phase 0 focuses on getting everything required for an OpenAPS implementation procured, installed, and ready to 
+
+
 * Upon Completion
     * Possess hardware and software tools necessary to build an OpenAPS implementation
     * Have gone through the setup process and be able to help others do the same
@@ -16,4 +19,4 @@
         * Hardware procurement (cheap deals, alternatives)
         * Difficulties with installation process (‘this looked different on my system” or “I couldn’t locate that menu” or “I ran into this error”)
         * Solutions to overcome setup difficulties, especially for systems that are not yet covered (some different flavor of Linux, for example)
-    * Help edit instructions for Phase 0 for accuracy, coverage, ease of understanding
+    * Help edit setup instructions for accuracy, coverage, ease of understanding
