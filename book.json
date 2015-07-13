@@ -1,6 +1,6 @@
 {"gitbook": ">=2.0.0",
 "title": "OpenAPS Documentation",
-"description": "Documenation for openaps tools and getting started with an OpenAPS implementation",
+"description": "Documentation for openaps tools and getting started with an OpenAPS implementation",
 "language": "en",
 "structure": {
         "readme": "introduction.md"
