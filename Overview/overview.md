@@ -2,6 +2,8 @@
 
 This document serves as an introduction to the openaps suite of tools and a reference for building an OpenAPS implementation.
 
+Please note that this document is fully searchable using the magnifying glass icon at the top of the screen.
+
 **[Overview](../Overview/overview.md)**<br>
 A brief introduction to the #OpenAPS project, including some notes on nomenclature, history, and how to get involved. 
 
@@ -12,9 +14,10 @@ Descriptions and links for all of the necessary hardware components to build an 
 Step-by-step guides for getting the hardware configured properly and the openaps tools installed.
 
 **[Using openaps Tools](Using-openaps-Tools/using.md)**<br>
-
+Examples of openaps usage and output.
 
 **[Building an OpenAPS Implementation](Building-a-system/building.md)**<br>
+An suggested process for building a functional OpenAPS implementation.
 
 **[Other Projects & Tools](Other-projects/other-projects.md)**<br>
 
