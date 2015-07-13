@@ -11,3 +11,10 @@ Pi Filler, Pi Finder, and Pi Copier (http://ivanx.com/raspberrypi/)
 
 ### Markdown
 http://daringfireball.net/projects/markdown/
+
+Macdown
+
+StackEdit
+
+### GitBooks
+https://www.gitbook.com/
