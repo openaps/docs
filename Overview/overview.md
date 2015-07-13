@@ -13,18 +13,18 @@ Descriptions and links for all of the necessary hardware components to build an 
 **[Setup](../Setup/setup.md)**<br>
 Step-by-step guides for getting the hardware configured properly and the openaps tools installed.
 
-**[Using openaps Tools](Using-openaps-Tools/using.md)**<br>
+**[Using openaps Tools](../Using-openaps-Tools/using.md)**<br>
 Examples of openaps usage and output.
 
-**[Building an OpenAPS Implementation](Building-a-system/building.md)**<br>
+**[Building an OpenAPS Implementation](../Building-a-system/building.md)**<br>
 An suggested process for building a functional OpenAPS implementation.
 
-**[Other Projects & Tools](Other-projects/other-projects.md)**<br>
+**[Other Projects & Tools](../Other-projects/other-projects.md)**<br>
 Additional work focused on open-source diabetes treatment and data management as well as a summary of commerical artificial pancreas development.
 
 
-**[Resources](Resources/resources.md)**<br>
+**[Resources](../Resources/resources.md)**<br>
 A collection of resources, including introductions to many of the tools used in this project.
 
-**[Glossary](Glossary/glossary.md)**<br>
+**[Glossary](../Glossary/glossary.md)**<br>
 Definitions and illustrative links for terms used in this document that may be unfamiliar. 
