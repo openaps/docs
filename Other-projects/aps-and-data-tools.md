@@ -1,4 +1,4 @@
-## APS and Diabetes Data Tools
+## APS & Diabetes Data Tools
 
 * **\#DIYPS** (http://diyps.org/)
 
