@@ -10,4 +10,12 @@ Descriptions and links for all of the necessary hardware components to build an 
 
 **[Setup](../Setup/setup.md)**<br>
 
-**[Using openaps Tools](../**<br>
+**[Using openaps Tools](Using-openaps-Tools/using.md)**<br>
+
+**[Building an OpenAPS Implementation](Building-a-system/building.md)**<br>
+
+**[Other Projects & Tools](Other-projects/other-projects.md)**<br>
+
+**[Resources](Resources/resources.md)**<br>
+
+**[Glossary](Glossary/glossary.md)**<br>
