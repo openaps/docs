@@ -22,6 +22,7 @@ An suggested process for building a functional OpenAPS implementation.
 **[Other Projects & Tools](Other-projects/other-projects.md)**<br>
 
 
+
 **[Resources](Resources/resources.md)**<br>
 A collection of resources, including introductions to many of the tools used in this project.
 
