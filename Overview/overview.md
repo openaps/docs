@@ -19,5 +19,7 @@ Step-by-step guides for getting the hardware configured properly and the openaps
 **[Other Projects & Tools](Other-projects/other-projects.md)**<br>
 
 **[Resources](Resources/resources.md)**<br>
+A collection of resources
 
 **[Glossary](Glossary/glossary.md)**<br>
+Definitions and illustrative links for terms used in this document that may be unfamiliar. 
