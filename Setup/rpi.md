@@ -73,7 +73,7 @@ Default password for the user `pi` is `raspberry`
 
 Run
 
->`sudo raspi-config` 
+`sudo raspi-config` 
 
 to expand filesystem, change user password and set timezone (in internalization options)
 
@@ -81,11 +81,11 @@ to expand filesystem, change user password and set timezone (in internalization 
 
 Secure your RPi2. Log out by executing
 
->`exit`
+`exit`
 
 and copy your public SSH key into your RPi2 by entering
 
->`ssh-copy-id pi@raspberrypi.lan`
+`ssh-copy-id pi@raspberrypi.lan`
 
 Now you should be able to log in without a password. Repeat `step 4` and try to SSH into the RPi2 without a password.
 
