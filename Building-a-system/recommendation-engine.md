@@ -24,6 +24,6 @@ If you haven't already done so, this is also an excellent time to calibrate your
 
 * Community Contributions
     * Provide feedback on ...
-    * Help edit instructions for Phase II
+    * Help edit instructions for Phase 2
     * Provide results of testing for comparing and contrasting with others
     * Summarize research findings and synthesize them into jump-off points for others' research
