@@ -1,6 +1,6 @@
 # Setting up openaps
 
-1.: Install Git
+1.: **Install Git**
 
 Type in 
 
@@ -8,7 +8,7 @@ Type in
 
 and press enter
 
-2.: Installing Python packages, system wide
+2.: **Installing Python packages, system wide**
 
 Type in 
 
@@ -16,13 +16,13 @@ Type in
 
 and press enter
 
-3.: Install PyPi and OpenAPS
+3.: **Install PyPi and OpenAPS**
 
 `sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy && sudo easy_install -ZU openaps`
 
 and press enter
 
-4.: Install udev-rules
+4.: **Install udev-rules**
 
 Type in 
 
@@ -30,7 +30,7 @@ Type in
 
 and press enter
 
-5.: Enable tab completion for efficiency.
+5.: **Enable tab completion for efficiency**
 
 Type in
 
@@ -38,7 +38,9 @@ Type in
 
 and press enter
 
-6.: In the future, in order to update OpenAPS, type in
+6.: **Update openaps**
+
+In the future, in order to update openaps, type in
 
 `sudo easy_install -ZU openaps`
 
