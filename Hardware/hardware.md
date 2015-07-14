@@ -73,16 +73,16 @@ Currently, the only supported device for uploading pump data and interfacing on 
 <br>
 **CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
 
-The Dexcom G4 Platinum system, with or without Share features is required to use #OpenAPS. However, the Share platform is not used in #OpenAPS as the system is designed to operate without an Internet connection. In order to get the data, a micro USB to USB cable must be connected to the RPi2 to upload the data at specified times.
+The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum system (with or without the Share functionality) and the Medtronic system. With Dexcom, the Share platform is not required as communication with the receiver is accomplished via USB. The Medtronic CGM system communicates directly with its associated pump, so the data can be retrieved using the CareLink USB stick.
 
 [Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
 
 [Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
 
 <br>
-**Medtronic 522/722, 515/715, or 512/712 Series Insulin Pump**
+**Medtronic Insulin Pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)**
 
-These specific models of the Medtronic Paradigm series insulin pumps are the only compatible pumps that will work with #OpenAPS. Any other pump will not work. Security features have been added to any pump after the Medtronic 522 or 722 series insulin pumps making remote adjustments in insulin unfeasible at this point of time. However, with collaboration from industry, we hope to find partners who will let us use our pumps as we want to as patients.
+Due to changes in the firmware, the openaps tools are able to function on the above pump models. Each pump series is slightly different and therefore Security features were added in firmware version 2.5A that prevent making remote adjustments via the CareLink USB stick. There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the #OpenAPS Google Group.
 
 <br>
 **USB Cables**
