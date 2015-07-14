@@ -1,11 +1,13 @@
 # Phase 2: Recommendation Engine
 
-If you haven't already done so, this is also an excellent time to calibrate your inputs—ISF, CR, basal rates, etc.
+Phase 2 focuses on developing a suitable algorithm to recommend changes to insulin dosages. This is essentially a practice closed-loop system, with you completing the loop. This can be performed in real time or by using historical data and making retroactive suggestions. Pay special attention to situations where CGM readings are not smooth or there are issues with data connectivity or fidelity.
+
+If you haven't already done so, this is also an excellent time to calibrate your inputs, such as insulin sensitivity factor (ISF), carbohydrate ratio (CR), basal rates, et cetera.
 
 * Upon Completion
     * Have a set of algorithms designed to control blood glucose via temp basals
     * Have patient-specific inputs required for these algorithms
-    * Have those algorithms coded so as to take the data collection built in Phase I as input
+    * Have those algorithms coded so as to take the data collection built in Phase 1 as input
     * Have the code output recommendations as to how it would change temp basal rates
     * Have the ability to utilize code on real-time and historical data to evaluate efficacy
     * Have implemented, tested, and tuned one or more set of algorithms and be able to help others do the same
