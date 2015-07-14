@@ -3,7 +3,7 @@
 There are several ways to communicate with other participants and contributors in the #OpenAPS project.
 
 **Gitter**<br> 
-https://gitter.im/nightscout/intend-to-bolus
+[Gitter](https://gitter.im/) is https://gitter.im/nightscout/intend-to-bolus
 
 **Google Groups**<br> https://groups.google.com/d/forum/openaps-dev
 
