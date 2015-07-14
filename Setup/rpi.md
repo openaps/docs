@@ -93,69 +93,70 @@ Now you should be able to log in without a password. Repeat `step 4` and try to 
 
 7.: **SSH configuration**
 
-Since we have no password, we need to disable password login. Open the `ssh-config` file in nano text editor as follows
+Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
 
 `sudo nano /etc/ssh/sshd_config`
 
 Change the following
 
 ```
-`PermitRootLogin yes`
-`# PasswordAuthentication yes`
+PermitRootLogin yes
+# PasswordAuthentication yes
 ```
 
 to
 
 ```
-`PermitRootLogin no`
-`PasswordAuthentication no`
+PermitRootLogin no
+PasswordAuthentication no
 ```
 
 (note that the second line was previously commented out).
 
 From now on you will be able to SSH in with your private SSH key only.
 
-8.: **Update** Update the RPi2.
+8.: **Update** 
+<br>Update the RPi2.
 
-> `sudo apt-get update && sudo apt-get upgrade`
+`sudo apt-get update && sudo apt-get upgrade`
 
 Be patient while the packages install.
 
-9.: **Watchdog** Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
+9.: **Watchdog**
+<br>Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
 
 Enter in:
 
->`sudo apt-get install watchdog`
+`sudo apt-get install watchdog`
 
 Then enter:
 
->`sudo modprobe bcm2708_wdog`
+`sudo modprobe bcm2708_wdog`
 
 Then enter this line to open up the following file:
 
->`sudo nano /etc/modules`
+`sudo nano /etc/modules`
 
 At the bottom of the file add
 
->`bcm2708_wdog`
+`bcm2708_wdog`
 
 Add watchdog to startup applications
 
->`sudo update-rc.d watchdog defaults`
+`sudo update-rc.d watchdog defaults`
 
 Edit its config file by opening up nano text editor
 
->`sudo nano /etc/watchdog.conf`  <br />
+`sudo nano /etc/watchdog.conf`  <br />
 <br />
 
-Make these lines look like this:
+Uncomment the following: (remove the # from the following lines):
 
->`# uncomment the following: (remove the # from the following lines)`
-<br />
->`max-load-1`
-<br />
->`watchdog-device`
+```
+max-load-1
+watchdog-device
+```
 
 Start watchdog by entering
 
->`sudo service watchdog start`
+`sudo service watchdog start`
