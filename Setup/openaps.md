@@ -26,7 +26,7 @@ and press enter
 
 Type in 
 
->`sudo openaps-install-udev-rules`
+`sudo openaps-install-udev-rules`
 
 and press enter
 
@@ -34,12 +34,12 @@ and press enter
 
 Type in
 
->`sudo activate-global-python-argcomplete`
+`sudo activate-global-python-argcomplete`
 
 and press enter
 
 6.: In the future, in order to update OpenAPS, type in
 
->`sudo easy_install -ZU openaps`
+`sudo easy_install -ZU openaps`
 
 and press enter
