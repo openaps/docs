@@ -4,7 +4,7 @@
 
 Type in 
 
->`sudo apt-get install git`
+`sudo apt-get install git`
 
 and press enter
 
@@ -12,13 +12,13 @@ and press enter
 
 Type in 
 
->`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy`
+`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy`
 
 and press enter
 
 3.: Install PyPi and OpenAPS
 
->`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy && sudo easy_install -ZU openaps`
+`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy && sudo easy_install -ZU openaps`
 
 and press enter
 
