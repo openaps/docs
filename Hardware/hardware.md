@@ -82,11 +82,11 @@ The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum 
 <br>
 **Medtronic Insulin Pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)**
 
-Due to changes in the firmware, the openaps tools are able to function on the above pump models. Each pump series is slightly different and therefore Security features were added in firmware version 2.5A that prevent making remote adjustments via the CareLink USB stick. There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the #OpenAPS Google Group.
+Due to changes in the firmware, the openaps tools are able to function on the above pump models. Each pump series is slightly different and therefore Security features were added in firmware version 2.5A that prevent making remote adjustments via the CareLink USB stick. There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
 
 <br>
 **USB Cables**
 
-Two USB cables with a right-angled micro USB end
+USB cables are used to connect the power supply and the Dexcom receiver to the RPi2. Most cables will work fine, so but some prefer to select lengths and/or features (such as right-angled connectors) to improve portability.
 
-[Amazon Link](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
+[Rerii Black Golden Plated 15 cm Length Micro-B Male Left Angle USB cable](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
