@@ -1,8 +1,6 @@
 # Overview
 
-This document serves as an introduction to the openaps suite of tools and a reference for building an OpenAPS implementation.
-
-Please note that this document is fully searchable using the magnifying glass icon at the top of the screen.
+This document serves as an introduction to the openaps suite of tools and a reference for building an OpenAPS implementation. It is broken up into several sections to enable quick access to relevant information. Please note that this document is also fully searchable using the magnifying glass icon at the top of the screen.
 
 **[Overview](../Overview/overview.md)**<br>
 A brief introduction to the #OpenAPS project, including some notes on nomenclature, history, and how to get involved. 
