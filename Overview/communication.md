@@ -1,7 +1,12 @@
 # Communication Channels
 
- - Gitter: https://gitter.im/nightscout/intend-to-bolus
- - Google Groups: https://groups.google.com/d/forum/openaps-dev
- - Issues on openaps GitHub: https://github.com/openaps/openaps/issues
+There are several ways to communicate with other participants and contributors in the #OpenAPS project.
 
-see also the [Resources](../Resources/resources.md) section
+**Gitter**<br> 
+https://gitter.im/nightscout/intend-to-bolus
+
+**Google Groups**<br> https://groups.google.com/d/forum/openaps-dev
+
+**Issues on openaps GitHub**<br> https://github.com/openaps/openaps/issues
+
+See also the [Resources](../Resources/resources.md) section.
