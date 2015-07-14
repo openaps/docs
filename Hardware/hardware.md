@@ -39,7 +39,7 @@ The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-
 <br>
 **Micro SD Card**
 
-An 8 or 16 GB micro SDHC card is recommended, that is class-4 or greater, and is a recognized name brand like SanDisk Kingston. A list of verified working hardware (including SD cards) can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
+An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater and is a recognized name brand, such as SanDisk, Kingston, or Sony. A list of verified working hardware (including SD cards) can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8/ref=dp_ob_title_ce)
 
