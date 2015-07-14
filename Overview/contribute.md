@@ -7,6 +7,6 @@ Not everyone has the coding chops to dive in and start hacking away. That should
 * Test the openaps tools for different use cases and report back with your findings. Logs files and, if you're comfortable, associated device data (CareLink CSV files, for example) are extremely helpful for debugging.
 * Submit issues on GitHub and work with other contributors to get them resolved.
 * Develop a plugin to enhance the functionality or ease-of-use of openaps.
-* Spread the word about #OpenAPS and get
+* Spread the word about #OpenAPS and get others involved; the more, the merrier.
 
 If you would like to work on the core openaps code, take a look at the openaps [contributing guidelines](https://github.com/openaps/openaps/blob/master/CONTRIBUTING.md).
