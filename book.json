@@ -1,0 +1,5 @@
+{"gitbook": ">=2.0.0",
+"title": "OpenAPS Documentation",
+"description": "Documentation for openaps tools and getting started with an OpenAPS implementation",
+"language": "en"
+}
