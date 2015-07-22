@@ -11,7 +11,7 @@
 * **RileyLink** (https://github.com/ps2/rileylink)<br>
 A custom designed Bluetooth Smart (BLE) to 916MHz module. It can be used to bridge any BLE capable smartphone to the world of 916Mhz based devices. This project is focused on talking to Medtronic insulin pumps and sensors. There is also a Gitter channel dedicated to discussion on the RileyLink [here](https://gitter.im/ps2/rileylink).
 
-* **Tidepool** (http://tidepool.org/)<br>
-Notably, work on Boston University iLet UI (https://github.com/tidepool-org/bionicpancreas)
+* **Tidepool** (http://tidepool.org/ and https://github.com/tidepool-org)<br>
+Notably, work on Boston University iLet UI (https://github.com/tidepool-org/bionicpancreas) and open-source tools for visualization.
 
 * **Perceptus** (http://perceptus.org)
