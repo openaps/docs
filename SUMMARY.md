@@ -3,6 +3,7 @@
 * [Overview](Overview/overview.md)
    * [#OpenAPS & openaps](Overview/openaps.md)
    * [What is Closed Loop?](Overview/closed-loop.md)
+   * [Example OpenAPS Build](Overview/example-build.md)
    * [Project History](Overview/history.md)
    * [Communication Channels](Overview/communication.md)
    * [Ways to Contribute](Overview/contribute.md)
