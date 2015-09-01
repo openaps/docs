@@ -1,17 +1,23 @@
 # Resources
 
 ### Raspberry Pi
+[Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/)
+
 Pi Filler, Pi Finder, and Pi Copier (http://ivanx.com/raspberrypi/)
 
 ### Git and GitHub
 
-https://git-scm.com/doc
+[Official Git Documentation](https://git-scm.com/doc)
 
-https://www.atlassian.com/git/
+[Atlassian (BitBucket) Git Tutorials](https://www.atlassian.com/git/)
 
-https://try.github.io/
+[Code School Interactive Git Introduction](https://try.github.io/)
 
-### Linux Shell
+### Linux Shell / Terminal
+
+[Learn UNIX in 10 Minutes](http://freeengineer.org/learnUNIXin10minutes.html)
+
+[Codecademy Command Line Course](https://www.codecademy.com/en/courses/learn-the-command-line)
 
 ### Python
 
