@@ -6,13 +6,13 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 ## Recommended Hardware
 
 Required
+* Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
+* Medtronic CareLink USB stick
+* Dexcom CGM (G4 Platinum or Platinum with Share system) OR Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * Raspberry Pi 2 Model B
 * 8 GB (or greater) micro SD card
 * Low-profile USB WiFi adapter
 * 2.1 Amp (or greater) USB power supply
-* Medtronic CareLink USB stick
-* Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower) 
-* Dexcom CGM (G4 Platinum or Platinum with Share system) OR Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * Micro USB cable(s)
 
 Optional
@@ -27,6 +27,38 @@ Additionally, for the Raspberry Pi and peripherals, verified sets of working har
 Eventually, once you have an entire OpenAPS build up and running, it is recommended that you have backup sets of equipment in case of failure.
 
 ## Hardware Details & Recommendations
+
+**Medtronic Insulin Pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)**
+
+Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. If you need to acquire an appropriate pump, check CraigsList or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev). 
+
+There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
+
+<br>
+**CareLink USB Stick**
+
+Currently, the only supported device for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development. Additionally, due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions.
+
+[Medtronic](https://medtronicdiabetes.secure.force.com/store/carelink-usb--remotes/usb-wireless-upload-device)
+
+ [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
+ 
+![Medtronic CareLink USB stick](http://www.diashop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/0/30138873.jpg)
+ 
+<br>
+**CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
+
+The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum system (with or without the Share functionality) and the Medtronic system. With Dexcom, the Share platform is not required as communication with the receiver is accomplished via USB. The Medtronic CGM system communicates directly with its associated pump, so the data can be retrieved using the CareLink USB stick.
+
+[Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
+
+[Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
+
+![Dexcom G4 Platinum with Share](http://www.dexcom.com/sites/dexcom.com/files/media-categories/BLUE-CGM_Sensor_1_rev3_0.jpg)
+
+![Medtronic Enlite Sensor](http://www.opli.co.il/img/magazine/eo/2011/news/enlite.jpg)
+
+<br>
 
 **Raspberry Pi 2 Model B**
 
@@ -44,6 +76,8 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 [SanDisk Ultra 16GB Ultra Micro SDHC UHS-I/Class 10 Card with Adapter](http://www.amazon.com/gp/product/B010Q57SEE)
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8)
+
+![SanDisk Ultra 16GB Ultra Micro SDHC UHS-I/Class 10 Card with Adapter](http://ecx.images-amazon.com/images/I/71B1jimSsaL._SL1500_.jpg)
 
 <br>
 **WiFi Adapter**
@@ -71,31 +105,6 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 [Anker 2nd Gen Astro E3 Ultra Compact 10000mAh External Battery](http://www.amazon.com/gp/product/B009USAJCC)
 
 ![TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://ecx.images-amazon.com/images/I/51H389PgqtL._SL1500_.jpg)
-
-<br>
-**CareLink USB Stick**
-
-Currently, the only supported device for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development. Additionally, due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions.
-
-[Medtronic](https://medtronicdiabetes.secure.force.com/store/carelink-usb--remotes/usb-wireless-upload-device)
-
- [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
- 
-<br>
-**CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
-
-The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum system (with or without the Share functionality) and the Medtronic system. With Dexcom, the Share platform is not required as communication with the receiver is accomplished via USB. The Medtronic CGM system communicates directly with its associated pump, so the data can be retrieved using the CareLink USB stick.
-
-[Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
-
-[Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
-
-<br>
-**Medtronic Insulin Pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)**
-
-Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. If you need to acquire an appropriate pump, check CraigsList or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev). 
-
-There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
 
 <br>
 **USB Cables**
