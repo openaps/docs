@@ -3,22 +3,18 @@
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made, but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or have a notable alternative, feel free to edit this document with your suggestions.
 
 
-## Recommended Hardware
+## Required  Hardware
 
-Required
 * Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
 * Medtronic CareLink USB stick
 * Dexcom CGM (G4 Platinum or Platinum with Share system) OR Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * Raspberry Pi 2 Model B
 * 8 GB (or greater) micro SD card
 * Low-profile USB WiFi adapter
-* 2.1 Amp (or greater) USB power supply
+* 2.1 Amp (or greater) USB power supply or battery
 * Micro USB cable(s)
-
-Optional
-* Battery with USB output
-* Cat5 or Cat6 ethernet cable
-* HDMI cable
+* Cat5 or Cat6 ethernet cable [optional]
+* HDMI cable [optional]
 
 A mostly complete kit recommended by several #OpenAPS contributors can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2). This kit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micros USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
 
