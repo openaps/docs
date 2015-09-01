@@ -21,14 +21,13 @@ Pi Filler, Pi Finder, and Pi Copier (http://ivanx.com/raspberrypi/)
 
 ### Python
 
-### Markdown
-http://daringfireball.net/projects/markdown/
+### Markdown & GitBook
+[Daring Fireball (John Gruber) Markdown Introduction](http://daringfireball.net/projects/markdown/)
 
-Macdown
+[Macdown](http://macdown.uranusjr.com/): Open-source Markdown editor for OS X
 
-StackEdit
+[StackEdit](https://stackedit.io/): Online Markdown editor
 
-GitBooks editor
+[GitBook editor](https://www.gitbook.com/)
 
-### GitBooks
-https://www.gitbook.com/
+[GitBook Help](http://help.gitbook.com/)
