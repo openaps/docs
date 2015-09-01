@@ -59,6 +59,8 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 
 [TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://www.amazon.com/gp/product/B00FBD3O2M)
 
+[Teck](http://ecx.images-amazon.com/images/I/51H389PgqtL._SL1500_.jpg)
+
 [The following batteries work but do not allow for simultaneous charging and discharging]
 
  [Power Bank 12000mAh Vinsic Genius External Mobile Battery Charger Pack](http://www.amazon.com/dp/B00M6V0R2C)
