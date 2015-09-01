@@ -48,9 +48,9 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 
 A minimalistic, unobtrusive WiFi USB adapter is recommended. The low-profile helps to avoid damage to both the RPi2 and the adapter as the RPi2 will be transported everywhere with the patient.
 
-[Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
-
 [Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&qid=1432614150&sr=8-1&keywords=edimax)
+
+[Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
 
 <br>
 **2.1 Amp USB Battery Power Supply**
@@ -58,8 +58,7 @@ A minimalistic, unobtrusive WiFi USB adapter is recommended. The low-profile hel
 A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is recommended for full day use. Make sure that the battery has at least one 2.1 Amp USB output. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full #OpenAPS system implemented and working, you will want to have multiple batteries to rotate and recharge. A battery that can deliver power while it charges is ideal as you will be able to charge it on-the-fly without shutting down and restarting the RPi2.
 
 [TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://www.amazon.com/gp/product/B00FBD3O2M)
-
-[Teck](http://ecx.images-amazon.com/images/I/51H389PgqtL._SL1500_.jpg)
+![TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://ecx.images-amazon.com/images/I/51H389PgqtL._SL1500_.jpg)
 
 [The following batteries work but do not allow for simultaneous charging and discharging]
 
