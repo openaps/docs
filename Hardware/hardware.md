@@ -43,7 +43,7 @@ Currently, the only supported device for uploading pump data and interfacing on 
 
  [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
-![Medtronic CareLink USB stick](http://www.diashop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/0/30138873.jpg)
+![Medtronic CareLink USB stick](../Images/CareLink_USB.jpg)
  
 <br>
 **CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
@@ -54,9 +54,9 @@ The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum 
 
 [Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
 
-![Dexcom G4 Platinum with Share](http://www.dexcom.com/sites/dexcom.com/files/media-categories/BLUE-CGM_Sensor_1_rev3_0.jpg)
+![Dexcom G4 Platinum with Share](../Images/Dexcom_G4.jpg)
 
-![Medtronic Enlite Sensor](http://www.opli.co.il/img/magazine/eo/2011/news/enlite.jpg)
+![Medtronic Enlite Sensor](../Images/Enlite_Sensor.jpg)
 
 <br>
 
@@ -77,7 +77,7 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8)
 
-![SanDisk Ultra 16GB Ultra Micro SDHC UHS-I/Class 10 Card with Adapter](http://ecx.images-amazon.com/images/I/71B1jimSsaL._SL1500_.jpg)
+![SanDisk Ultra 16GB Ultra Micro SDHC UHS-I/Class 10 Card with Adapter](../Images/SD_Card.jpg)
 
 <br>
 **WiFi Adapter**
@@ -88,7 +88,7 @@ A minimalistic, unobtrusive WiFi USB adapter is recommended. The low-profile hel
 
 [Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
 
-![Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](http://ecx.images-amazon.com/images/I/71P8Pfd7npL._SL1500_.jpg)
+![Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](../Images/Wifi_Adapter.jpg)
 
 <br>
 **2.1 Amp USB Battery Power Supply**
@@ -104,7 +104,7 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
  
 [Anker 2nd Gen Astro E3 Ultra Compact 10000mAh External Battery](http://www.amazon.com/gp/product/B009USAJCC)
 
-![TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://ecx.images-amazon.com/images/I/51H389PgqtL._SL1500_.jpg)
+![TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](../Images/Battery.jpg)
 
 <br>
 **USB Cables**
