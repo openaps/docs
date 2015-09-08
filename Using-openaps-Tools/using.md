@@ -1,4 +1,4 @@
-# Using openaps Tools
+# Learning to use openaps tools
 
 
 For getting started, please follow this [guide](https://github.com/openaps/openaps):
