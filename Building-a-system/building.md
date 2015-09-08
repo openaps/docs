@@ -5,19 +5,19 @@ This section describes how to go from [learning to use the openaps tools in isol
 In each phase, look to accomplish a set of goals relating to the functionality of your system as well as gain some further abilities to contribute back to the OpenAPS community. Five phases:
 
 
-* [Phase 0: Initial Setup](Building-a-system/initial-setup.md)<br>
+* [Phase 0: Initial Setup](../Building-a-system/initial-setup.md)<br>
 Acquire and configuring hardware, install software, and become familiar with the openaps environment
 
-* [Phase 1: Data Collection](Building-a-system/data-collection.md)<br>
+* [Phase 1: Data Collection](../Building-a-system/data-collection.md)<br>
 Build a system for logging and analyzing pump and CGM data
 
-* [Phase 2: Recommendation Engine](Building-a-system/recommendation-engine.md)<br>
+* [Phase 2: Recommendation Engine](../Building-a-system/recommendation-engine.md)<br>
 Use the logged data to suggest insulin dosage adjustment, review and refine algorithms, test different scenarios for safety
 
-* [Phase 3: Closing the Loop](Building-a-system/closing-the-loop.md)<br>
+* [Phase 3: Closing the Loop](../Building-a-system/closing-the-loop.md)<br>
 Apply the recommendations, automatically and in real time
 
-* [Phase 4: Getting Fancy](Building-a-system/getting-fancy.md)<br>
+* [Phase 4: Getting Fancy](../Building-a-system/getting-fancy.md)<br>
 Improve the functionality of the implementation with additional software or hardware development
 
 The document subsection for each phase has three components outlined:
