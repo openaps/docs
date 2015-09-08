@@ -4,4 +4,4 @@
 
 openaps or `openaps`, on the other hand, is the core suite of software tools under development by the #OpenAPS community for use in an OpenAPS implementation.
 
-This document will use \#OpenAPS to refer to the movement, openaps to refer to the software suite, and OpenAPS (no \#) to refer to an example build of the system. Context should make this disambiguation unnecessary.
+This document will use \#OpenAPS to refer to the movement, `openaps` to refer to the software suite, and OpenAPS (no \#) to refer to an example build of the system. Context should make this disambiguation unnecessary.
