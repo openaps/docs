@@ -31,3 +31,19 @@ Pi Filler, Pi Finder, and Pi Copier (http://ivanx.com/raspberrypi/)
 [GitBook editor](https://www.gitbook.com/)
 
 [GitBook Help](http://help.gitbook.com/)
+
+### People
+
+These people have publicly identified as either supporting or running OpenAPS implementations and are sharing their experiences publicly. See below links. 
+
+<b>Dana Lewis</b> - blogs about personal experience at [DIYPS.org](http://DIYPS.org) and shares on Twitter as [@DanaMLewis](http://twitter.com/danamlewis). 
+
+<b>Scott Leibrand</b> - contributes to Dana's instance of OpenAPS, and is on Twitter as [@ScottLeibrand](http://twitter.com/scottleibrand). (Scott and Dana collectively maintain [OpenAPS.org](http://openaps.org).)
+
+<b>Ali Mazaheri</b> - shares on Twitter as [@AliMazaheri](http://twitter.com/alimazaheri)
+
+<b>Chris Hannemann</b> - shares on Twitter as [@hannemannemann](http://twitter.com/hannemannemann)
+
+<b>Nate Racklyeft</b> - shares on Twitter as [@LoudNate](http://twitter.com/loudnate)
+
+<b>Ben West</b> - author of decoding-carelink and much of the openaps toolkit - on Twitter as [@bewestisdoing](http://twitter.com/bewestisdoing)
