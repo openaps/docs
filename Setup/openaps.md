@@ -1,4 +1,4 @@
-# Setting up openaps
+# Setting Up openaps
 
 1.: **Install Git**
 
