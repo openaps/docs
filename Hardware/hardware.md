@@ -40,7 +40,6 @@ Currently, the only supported device* for uploading pump data and interfacing on
 
  [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
-![Medtronic CareLink USB stick](../Images/CareLink_USB.jpg)
 
 <i>*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the Carelink stick & Raspberry Pi to communicate with a pump, but is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not recommended.</i>
  
@@ -53,9 +52,6 @@ The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum 
 
 [Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
 
-![Dexcom G4 Platinum with Share](../Images/Dexcom_G4.jpg)
-
-![Medtronic Enlite Sensor](../Images/Enlite_Sensor.jpg)
 
 <br>
 
@@ -76,7 +72,6 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8)
 
-![SanDisk Ultra 16GB Ultra Micro SDHC UHS-I/Class 10 Card with Adapter](../Images/SD_Card.jpg)
 
 <br>
 **WiFi Adapter**
@@ -87,7 +82,6 @@ A minimalistic, unobtrusive WiFi USB adapter is recommended. The low-profile hel
 
 [Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
 
-![Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](../Images/Wifi_Adapter.jpg)
 
 <br>
 **2.1 Amp USB Battery Power Supply**
@@ -98,8 +92,6 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 
 [Power Bank 12000mAh Vinsic Genius External Mobile Battery Charger Pack](http://www.amazon.com/dp/B00M6V0R2C)
 
-
-![TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](../Images/Battery.jpg)
 
 <br>
 **USB Cables**
