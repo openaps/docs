@@ -1,6 +1,7 @@
 # Project History
 
 *Author's Note: It would be nice to offer a brief history of #OpenAPS, decoding-carelink, insulaudit, et cetera here. To be honest, this is background information that I do not fully possess. I know some of this is covered in the "Why We Are Building" section of the [OpenAPS.org](http://openaps.org/) homepage. I'd be happy to have some attributions to the early contributors and instigators as well as the tie-ins with #WeAreNotWaiting and Nightscout—not to assign credit necessarily, but rather to give some appropriate context. Shout-outs to other projects will go in the [Other Projects & Tools](../Other-projects/aps-and-data-tools.md) section closer to the end.*
+</br>*DML note: added history on 9/8/15, pulling heavily from OpenAPS.org, open to it being shortened if people think it's too long*
 
 In order to relieve the incredible burden of T1D, many research teams and manufacturers have developed and are testing Artificial Pancreas Systems (APSs) that connect CGMs to insulin pumps and use various algorithms to automatically adjust insulin dosing (and sometimes dose glucagon, a counter-regulatory hormone) to attempt to mimic some of the functions of a healthy pancreas, and keep blood sugar levels in a safe range. While quite successful in clinical trials so far, current APS systems have been in development for many years, and are still likely at least 3 years away from FDA approval. It is also unclear whether first-generation APS technology will be suitable for, or available to, all patients, even in rich countries.
 
