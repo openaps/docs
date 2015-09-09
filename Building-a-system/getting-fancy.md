@@ -1,8 +1,8 @@
-# Phase 4: Getting Fancy
+# Phase 4: Additional modifications
 
-... also known as "gilding the lily" or "all the awesome stuff that everyone dreams of" or "the modifications that are required before you'd really want to show off your APS". These efforts are certainly worthwhile and bring out the best in technological creativity, but they also tend to distract in the early stages of development. 
+These efforts are certainly worthwhile and bring out the best in technological creativity, but they also tend to distract in the early stages of development.
 
-Some examples include:
+After you've closed the loop, are running consistently and successfully and want to go to the next level, consider any of the following projects, in addition to contributing back with improvements to algorithms and tools in OpenAPS:
 
 * Data visualization
 * Smartphone integration

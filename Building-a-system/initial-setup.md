@@ -6,12 +6,14 @@ Phase 0 focuses on getting everything required for an OpenAPS implementation pro
 * Upon Completion
     * Possess hardware and software tools necessary to build an OpenAPS implementation
     * Have gone through the setup process and be able to help others do the same
+    * Have collected some of your own baseline data to use for future analysis
 
 
 * Phase Tasks
     * Procure hardware
     * Download and install software and tools
     * Test a subset of tools to make sure they work as expected
+    * Store at least 30 days of CGM data and/or a recent A1c
     
 
 * Community Contribution
