@@ -18,9 +18,8 @@ Note: If you ordered the recommended CanaKit, your SD card will already come ima
 2.: **Writing Raspbian to the Micro SD Card**
 <br>Please read this [excellent guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
-3a.: **PC Configuring WiFi Settings**
-<br>_
-<br><br>
+3a.: **For PC Users: Configuring WiFi Settings**
+<br>
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 <br><br>
 `/path/to/sd/card/etc/network/interfaces`
@@ -44,7 +43,7 @@ Replace `<your-network-name>` and `<your-password>` with your own credentials. S
 
 Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to step 4.
 
-3b. **Mac: Configuring WiFi Settings**
+3b. **For Mac Users: Configuring WiFi Settings**
 
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
