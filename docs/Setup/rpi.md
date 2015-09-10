@@ -52,7 +52,7 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 
 (It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
 
-Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
+Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)<br><br>
 4. **Testing SSH Access**
 <br><br>*Windows:* Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 <br>*Mac OS X:* Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
@@ -75,16 +75,14 @@ Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_pa
 
 *Android:* <br>First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.lan` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH.
 
-Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
-
+Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.<br><br>
 5. **raspi-config**
 
 Run
 
 `sudo raspi-config` 
 
-to expand filesystem, change user password and set timezone (in internalization options)
-
+to expand filesystem, change user password and set timezone (in internalization options)<br><br>
 6. **Optional:Password-less login**
 
 *For PC (Mac users see below)*
@@ -105,8 +103,7 @@ First `ssh-keygen` (keep hitting enter to accept all the defaults)
 
 Next  `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
 
-Finally `ssh pi@raspberrypi.local`
-
+Finally `ssh pi@raspberrypi.local`<br><br>
 7. **SSH configuration**
 Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
 
@@ -128,16 +125,14 @@ PasswordAuthentication no
 
 (note that the second line was previously commented out).
 
-From now on you will be able to SSH in with your private SSH key only.
-
+From now on you will be able to SSH in with your private SSH key only.<br><br>
 8. **Update** 
 
 Update the RPi2.
 
 `sudo apt-get update && sudo apt-get -y upgrade`
 
-The packages will take some time to install.
-
+The packages will take some time to install.<br><br>
 9. **Watchdog**
 
 Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
