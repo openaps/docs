@@ -19,13 +19,13 @@ Note: If you ordered the recommended CanaKit, your SD card will already come ima
 <br>If needed, use this [guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
 3. **3a. For PC Users: Configuring WiFi Settings**
-<br>
+
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
-<br><br>
+
 `/path/to/sd/card/etc/network/interfaces`
-<br><br>
+
 Edit the file so it looks like this: 
-<br>
+
 
 ```
 auto lo
@@ -49,14 +49,15 @@ First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB W
 
 You cannot do 3a on a Mac, aka access EXT4 partitions without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable, SSH in (see below), and continue setting things up as described below (here in 3b) to get the wifi running. The below method will help you set up two or more wifi networks. This is highly recommended so you can add your home wifi network and your phone's hotspot network to use on the go.
 
-<br>Do `sudo bash` and hit enter
-<br>Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where `<my_SSID_hotspot>` is the name of your phone's hotspot and `<my_hotspot_password>` is the password).
+Do `sudo bash` and hit enter
 
-Should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`
+Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where `<my_SSID_hotspot>` is the name of your phone's hotspot and `<my_hotspot_password>` is the password).
 
-<br>Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
+(It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
 
-  4. **Testing SSH Access**
+Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
+
+4. **Testing SSH Access**
 
 **Windows:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 
