@@ -53,7 +53,6 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 (It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
 
 Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
-
 4. **Testing SSH Access**
 <br><br>*Windows:* Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 <br>*Mac OS X:* Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
@@ -86,7 +85,7 @@ Run
 
 to expand filesystem, change user password and set timezone (in internalization options)
 
-  6. **Optional:Password-less login**
+6. **Optional:Password-less login**
 
 *For PC (Mac users see below)*
 <br>Secure your RPi2. Log out by executing
@@ -108,8 +107,7 @@ Next  `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
 
 Finally `ssh pi@raspberrypi.local`
 
-  7. **SSH configuration**
-
+7. **SSH configuration**
 Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
 
 `sudo nano /etc/ssh/sshd_config`
