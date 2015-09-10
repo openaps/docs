@@ -12,13 +12,13 @@ For the install, you will need:
 
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to first getting the image in step 1.
 
-1.: **Getting Raspbian**
+1. **Getting Raspbian**
 <br>Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
 
-2.: **Writing Raspbian to the Micro SD Card**
+2. **Writing Raspbian to the Micro SD Card**
 <br>Please read this [excellent guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
-3a.: **For PC Users: Configuring WiFi Settings**
+3a. **For PC Users: Configuring WiFi Settings**
 <br>
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 <br><br>
@@ -56,11 +56,7 @@ Should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /et
 
 <br>3. Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
-
-4.: 
-<br><br>
-
-5.: **Testing SSH Access**
+4. **Testing SSH Access**
 
 **Windows:** Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.lan` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 
@@ -86,7 +82,7 @@ Default password for the user `pi` is `raspberry`
 
 **Note:** If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
 
-6.: **raspi-config**
+5. **raspi-config**
 
 Run
 
@@ -94,7 +90,7 @@ Run
 
 to expand filesystem, change user password and set timezone (in internalization options)
 
-7.: **Optional:Password-less login**
+6. **Optional:Password-less login**
 
 *For PC (Mac users see below)*
 <br>Secure your RPi2. Log out by executing
@@ -115,8 +111,7 @@ Now you should be able to log in without a password. Repeat `step 4` and try to 
 <br>3. `ssh pi@raspberrypi.local`
 
 
-
-8.: **SSH configuration**
+7. **SSH configuration**
 
 Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
 
@@ -140,14 +135,14 @@ PasswordAuthentication no
 
 From now on you will be able to SSH in with your private SSH key only.
 
-9.: **Update** 
+8. **Update** 
 <br>Update the RPi2.
 
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.
 
-10.: **Watchdog**
+9. **Watchdog**
 <br>Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
 
 Enter in:
