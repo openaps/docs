@@ -26,7 +26,6 @@ Keep the SD card in the reader in your computer. In this step, the WiFi interfac
 
 Edit the file so it looks like this: 
 
-
 ```
 auto lo
 iface lo inet loopback
@@ -91,7 +90,7 @@ Run
 
 to expand filesystem, change user password and set timezone (in internalization options)
 
-6. **Optional:Password-less login**
+  6. **Optional:Password-less login**
 
 *For PC (Mac users see below)*
 <br>Secure your RPi2. Log out by executing
@@ -107,12 +106,13 @@ Now you should be able to log in without a password. Repeat `step 4` and try to 
 *Don't have an SSH key?* Follow this guide from GitHub to obtain one. [Link](https://help.github.com/articles/generating-ssh-keys/)
 
 **For Mac and Linux**
-<br>1. `ssh-keygen` (keep hitting enter to accept all the defaults)
-<br>2. `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
-<br>3. `ssh pi@raspberrypi.local`
+First `ssh-keygen` (keep hitting enter to accept all the defaults)
 
+Next  `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
 
-7. **SSH configuration**
+Finally `ssh pi@raspberrypi.local`
+
+  7. **SSH configuration**
 
 Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
 
@@ -137,14 +137,16 @@ PasswordAuthentication no
 From now on you will be able to SSH in with your private SSH key only.
 
 8. **Update** 
-<br>Update the RPi2.
+
+Update the RPi2.
 
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.
 
 9. **Watchdog**
-<br>Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
+
+Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
 
 Enter in:
 
@@ -162,8 +164,6 @@ Create a new file 8192cu.conf in /etc/modprobe.d/:
 Add this line to the file (paste it in):
 `options 8192cu rtw_power_mgnt=0 rtw_enusbss=0` (Look at hints on bottom of screen; Control x to exit, yes to save, enter)
 
-
-
 Then enter this line to open up the following file:
 
 `sudo nano /etc/modules`
@@ -178,8 +178,7 @@ Next, add watchdog to startup applications:
 
 Edit the config file by opening up nano text editor
 
-`sudo nano /etc/watchdog.conf`  <br />
-<br />
+`sudo nano /etc/watchdog.conf`  
 
 Uncomment the following: (remove the # from the following lines, scroll down as needed to find them):
 
