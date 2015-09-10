@@ -82,7 +82,7 @@ Run
 
 `sudo raspi-config` 
 
-to expand filesystem, change user password and set timezone (in internalization options)<br><br>
+to expand filesystem, change user password and set timezone (in internationalization options)<br><br>
 6. **Optional:Password-less login**
 
 *For PC (Mac users see below)*
