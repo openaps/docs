@@ -50,9 +50,10 @@ First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB W
 You cannot do 3a on a Mac, aka access EXT4 partitions without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable, SSH in (see below), and continue setting things up as described below (here in 3b) to get the wifi running. The below method will help you set up two or more wifi networks. This is highly recommended so you can add your home wifi network and your phone's hotspot network to use on the go.
 
 <br>1. Do `sudo bash` and hit enter
-<br>2. Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where <my_SSID_hotspot> is the name of your phone's hotspot and <my_hotspot_password is the password).
+<br>2. Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where `<my_SSID_hotspot>` is the name of your phone's hotspot and `<my_hotspot_password>` is the password).
 
 Should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`
+
 <br>3. Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
 
@@ -157,30 +158,40 @@ Then enter:
 
 `sudo modprobe bcm2708_wdog`
 
+
+Create a new file 8192cu.conf in /etc/modprobe.d/:
+
+`sudo nano /etc/modprobe.d/8192cu.conf`
+
+Add this line to the file (paste it in):
+`options 8192cu rtw_power_mgnt=0 rtw_enusbss=0` (Look at hints on bottom of screen; Control x to exit, yes to save, enter)
+
+
+
 Then enter this line to open up the following file:
 
 `sudo nano /etc/modules`
 
-At the bottom of the file add
+At the bottom of the file copy and paste:
 
-`bcm2708_wdog`
+`bcm2708_wdog` (Look at hints on bottom of screen; Control x to exit, yes to save, enter)
 
-Add watchdog to startup applications
+Next, add watchdog to startup applications:
 
 `sudo update-rc.d watchdog defaults`
 
-Edit its config file by opening up nano text editor
+Edit the config file by opening up nano text editor
 
 `sudo nano /etc/watchdog.conf`  <br />
 <br />
 
-Uncomment the following: (remove the # from the following lines):
+Uncomment the following: (remove the # from the following lines, scroll down as needed to find them):
 
 ```
 max-load-1
 watchdog-device
 ```
 
-Start watchdog by entering
+Finally, start watchdog by entering:
 
 `sudo service watchdog start`
