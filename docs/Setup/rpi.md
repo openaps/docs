@@ -1,6 +1,6 @@
 # Setting Up the Raspberry Pi 2
 
-In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. By far, the most convenient approach for setting up the RPi2 is by avoiding the use of cables, which is also known as a headless install. This is the quickest way to get up and running with your RPi2 and avoids frustration.
+In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. By far, the most convenient approach for setting up the RPi2 is by avoiding the use of cables. This is the quickest way to get up and running with your RPi2 and avoids frustration.
 
 For the install, you will need:
 
@@ -46,7 +46,7 @@ Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi ad
 
 You cannot do 3a on a Mac, aka access EXT4 partitions without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable, SSH in (see below), and continue setting things up as described below (here in 3b) to get the wifi running. The below method will help you set up two or more wifi networks. This is highly recommended so you can add your home wifi network and your phone's hotspot network to use on the go.
 
-Do `sudo bash` and hit enter
+Type `sudo bash` and hit enter
 
 Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where `<my_SSID_hotspot>` is the name of your phone's hotspot and `<my_hotspot_password>` is the password).
 
@@ -71,9 +71,9 @@ Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_pa
 
   Default password for the user `pi` is `raspberry`
 
-*iOS:* <br>First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
+*iOS:* <br>You probably want to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
 
-*Android:* <br>First, you need to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH.
+*Android:* <br>You probably want to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH.
 
 Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.<br><br>
 5. **raspi-config**
