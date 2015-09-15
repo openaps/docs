@@ -9,13 +9,15 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 * <b>To talk to the pump</b>: Medtronic CareLink USB stick
 * <b>Continuous Glucose Monitor (CGM)</b>: Dexcom CGM (G4 Platinum or Platinum with Share system) OR Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * <b>Other supplies</b>:
- * Raspberry Pi 2 Model B*
- * 8 GB (or greater) micro SD card*
+ * Raspberry Pi 2 Model B ("RPi2")*
+ * 8 GB (or greater) micro SD card [optional, but reccomended is a micro SD card to regular SD card converter so that you can use the micro SD card in a regular sized SD card drive]*
  * Low-profile USB WiFi adapter*
  * 2.1 Amp (or greater) USB power supply* or battery
  * Micro USB cable(s)
  * Cat5 or Cat6 ethernet cable [optional]
- * HDMI cable [optional]
+ * HDMI cable [optional, used for connecting the RPi2 to a screen for initial setup ease]
+ * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
+ * USB Mouse [optional, for the same purpose]
 
 *A mostly complete kit recommended by several #OpenAPS contributors can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2). This kit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micros USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
 
