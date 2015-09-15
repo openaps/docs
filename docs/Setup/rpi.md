@@ -133,9 +133,9 @@ Update the RPi2.
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.<br><br>
-9. **Watchdog**
+9. **Optional: Watchdog**
 
-Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
+Now you can consider installing watchdog, which restarts the RPi2 if it becomes unresponsive.
 
 Enter in:
 
