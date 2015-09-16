@@ -1,14 +1,27 @@
 # Setting Up the Raspberry Pi 2
 
-In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. By far, the most convenient approach for setting up the RPi2 is by avoiding the use of cables, which is also known as a headless install. This is the quickest way to get up and running with your RPi2 and avoids frustration.
+In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system instalation and WIFI setup.  Path 1 is reccomended for beginners that are very new to using command prompts or "terminal" on the Mac.  If you choose Path 1, it is recomended that you purchase your RPi2 as a Cana Kit, which includes  Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
 
-For the install, you will need:
+Forth the Path 1 GUI install you will need:
+
+* A Raspberry Pi 2 Cana Kit, which includes several essential accessories in one package.  
+* USB Keyboard 
+* USB Mouse 
+* A TV or other screen with HDMI input  
+
+For the Path 2 Headless install, you will need:
 
 * Raspberry Pi 2
-* 8 GB micro SD Card
+* 8 GB micro SD Card [and optional adapter so that you can plug in the micro SD Card into your computer]
 * Low Profile USB WiFi Adapter
 * 2.1 Amp USB Power Supply
 * Micro USB cable 
+* Raspberry Pi 2 Cana Kit
+
+Path 1: GUI Setup
+
+
+
 
 
 1.: **Getting Raspbian**
