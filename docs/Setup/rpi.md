@@ -161,7 +161,7 @@ From now on you will be able to SSH in with your private SSH key only.
 <br>
 ## Watchdog [optional]
 
-Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
+Now you can consider installing watchdog, which restarts the RPi2 if it becomes unresponsive.
 
 Enter in:
 
