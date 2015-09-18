@@ -1,8 +1,49 @@
 # Learning to Use openaps Tools
 
 
-For getting started, please follow this [guide](https://github.com/openaps/openaps):
+This section provides and introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop.
 
+The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
+
+Some notes on conventions used in this guide:
+* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `Barney` as your  `<my_pump_name>`, you must use `Barney` every time you see `<my_pump_name>`. Choose carefully ...
+* You will see a `$ ` at the beginning of many of the lines of code. This indicates that it is to be entered and executed at the terminal prompt. Do not type in the `$`.  
+
+<br>
+## Configure openaps
+
+### Initialize a new openaps environment
+
+`$ openaps init <my_openaps>`
+
+Now that it has been created, move into the new openaps directory
+
+`$ cd <my_openaps>`
+
+This folder is mostly empty at the moment, 
+
+### Add pump as device
+
+`$ openaps device add <my_pump_name> medtronic <my_serial_number>`
+
+### Add Dexcom CGM receiver as device
+Note: this step not required if using Medtronic CGM
+
+`$ openaps device add <my_dexcom_name> dexcom`
+
+### Check that the devices are all added properly
+
+`$ openaps device show`
+
+should return something like:
+
+```
+medtronic://pump
+dexcom://cgms
+```
+Here, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_name>`. The names you selected should appear in their place.
+
+<br>
 ### Usage
 
     usage: openaps [-h] [-c C C] [-C CONFIG] [--version] [command] ...
