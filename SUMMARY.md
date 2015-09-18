@@ -20,8 +20,6 @@
    * [Phase 3: Closing the Loop](./docs/Building-a-system/closing-the-loop.md)
    * [Phase 4: Getting Fancy](./docs/Building-a-system/getting-fancy.md)
 * [Other Projects & Tools](./docs/Other-projects/other-projects.md)
-   * [APS & Data Tools](./docs/Other-projects/aps-and-data-tools.md)
-   * [Commercial APS Efforts](./docs/Other-projects/commercial.md)
 * [Resources](./docs/Resources/resources.md)
 * [Glossary](./docs/Glossary/glossary.md)
 
