@@ -95,6 +95,12 @@ Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_
 
 It is important to note that your pump's serial number also serves as its security key, so be careful with the openaps.ini file. If you need to share it for some reason, be sure and remove your serial number first.
 
+If you made a mistake while adding your devices or simply don't like the name you used, you can go back and remove the devices as well. For example, to remove the pump:
+
+`$ openaps device remove <my_pump_name>`
+
+Then, you can add your pump again with a different name or serial number.
+
 ### Check that you can communicate with your pump
 
 Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
@@ -173,6 +179,10 @@ At this point, you should be comfortable communicating with your pump and cgm re
 
 prints *a lot* of data to the terminal. It would be great to save that data somewhere so that it can be used for logging historical records, performing calculations, and verifying actions. That is what `report` does.
 
+<br>
+------
+[EVERYTHING BELOW IS NOTES]
+
 You'll notice that everything after the format specifier—in this case, `JSON`—looks exactly like what you would have in the analagous `use` command. In fact,
 
 `$ openaps use <my_pump_name> iter_glucose_hours 4`
@@ -185,6 +195,7 @@ and
 
 produce the same output, the only difference being that the former prints it to the terminal window and the latter saves it to a file named `last_four_hours_glucose.json` (when invoked).
 
+Discuss ...
 - overwriting files
 - git and diffs
 - aliases
