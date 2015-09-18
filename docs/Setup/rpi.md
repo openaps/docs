@@ -97,9 +97,9 @@ Run
 
 to expand filesystem, change user password and set timezone (in internationalization options)
 
-### Setup Password-less login [optional]
+## Setup Password-less login [optional]
 
-#### Windows
+### Windows
 Secure your RPi2. Log out by executing
 
 `exit`
@@ -112,7 +112,7 @@ Now you should be able to log in without a password. Repeat `step 4` and try to 
 
 *Don't have an SSH key?* Follow [this guide](https://help.github.com/articles/generating-ssh-keys/) from GitHub to obtain one.
 
-#### Mac and Linux
+### Mac and Linux
 First `ssh-keygen` (keep hitting enter to accept all the defaults)
 
 Next  `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
