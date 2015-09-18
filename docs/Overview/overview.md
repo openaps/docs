@@ -11,7 +11,7 @@ Descriptions and links for all of the necessary hardware components to build an 
 **[Setup](../Setup/setup.md)**<br>
 Step-by-step guides for getting the hardware configured properly and the openaps tools installed.
 
-**[Using openaps Tools](../Using-openaps-Tools/using.md)**<br>
+**[Configuring and Learning to Use openaps Tools](../Using-openaps-Tools/using.md)**<br>
 Examples of openaps usage and output.
 
 **[Building an OpenAPS Implementation](../Building-a-system/building.md)**<br>
