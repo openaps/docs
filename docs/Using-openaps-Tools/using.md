@@ -11,6 +11,8 @@ Some conventions used in this guide:
 * Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `Barney` as your  `<my_pump_name>`, you must use `Barney` every time you see `<my_pump_name>`. Choose carefully. Do not include the `< >` brackets in your name.
 * You will see a `$ ` at the beginning of many of the lines of code. This indicates that it is to be entered and executed at the terminal prompt. Do not type in the `$`.  
 
+One helpful thing to do before starting is to log your terminal session. This will allow you to go back and see what you did at a later date. This will also be immensely helpful if you request help from other OpenAPS contributors as you will be able to provide an entire history of the commands you used. To enable this, just run `$ script <filename>` at the beginning of your session. It will inform you that `Script started, file is <filename>`. When you are done, simply `$ exit` and it will announce `Script done, file is <filename>`. At that point, you can review the file as necessary.
+
 <br>
 ## Configuring openaps
 
@@ -260,7 +262,4 @@ For this backup method, we will take advantage of the fact that your openaps ins
 [Bitbucket](https://bitbucket.org/) offers a similar service but permits users to create free private repositories. Go ahead and sign up and then create a repository. You can call it whatever you like, but makes sure that on the "Create a new repository" setup page you leave the "This is a private repository" box checked. Once created, you will be directed to a "Repository setup" page. Under the "Command line" section, click on the "I have an existing project" option and follow the instructions.
 
 Once you have completed this step, all of the files in your `<my_openaps>` directory will be saved in your online Bitbucket repository. Whenever you would like to update your backup, simply go into your `<my_openaps>` directory and `$ git push`. This process can be automated, but we'll save that for another day.
-
-
-- Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help) (I believe the command is `script`, but I'm not certain)
 
