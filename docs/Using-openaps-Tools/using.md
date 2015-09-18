@@ -20,7 +20,17 @@ Now that it has been created, move into the new openaps directory
 
 `$ cd <my_openaps>`
 
-This folder is mostly empty at the moment, 
+This folder is mostly empty at the moment, as can been seen by running the list files command:
+
+```
+$ ls
+openaps.ini
+```
+That `openaps.ini` file is the configuration file for this particular instance of openaps. It will contain all of your devices information, plugin information, report, and alias . In the subsequent sections, you will be configuring your openaps instance to add these components. For now, however, it is blank. Go ahead and take a look:
+
+`$ cat openaps.ini`
+
+Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files.
 
 ### Add pump as device
 
