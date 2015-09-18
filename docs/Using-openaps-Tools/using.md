@@ -54,11 +54,11 @@ In order to communicate with the pump and cgm receiver, they must first be added
 
 Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
 
-**Important:** Never share your 6-digit pump serial number and never post this online. If someone had access to this number, and was in radio reach of your pump, this could be used to communicate with your pump without your knowledge. While this is a feature when you want to build an OpenAPS, it is a flaw and a security issue if someone else can do this to you.
+**Important:** Never share your 6-digit pump serial number and never post it online. If someone had access to this number, and was in radio reach of your pump, this could be used to communicate with your pump without your knowledge. While this is a feature when you want to build an OpenAPS, it is a flaw and a security issue if someone else can do this to you.
 
 ### Add Dexcom CGM receiver as device
 
-Now you will do this for the Dexcom CGM receiver.
+Now you will do this for the Dexcom CGM receiver:
 
 `$ openaps device add <my_dexcom_name> dexcom`
 
