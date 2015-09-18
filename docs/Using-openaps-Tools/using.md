@@ -72,7 +72,7 @@ should return something like:
 medtronic://pump
 dexcom://cgms
 ```
-Here, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_name>`. The names you selected should appear in their place.
+Here, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. The names you selected should appear in their place.
 
 Your `openaps.ini` file now has some content; go ahead and take another look:
 
