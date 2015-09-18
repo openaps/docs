@@ -55,6 +55,27 @@ dexcom://cgms
 ```
 Here, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_name>`. The names you selected should appear in their place.
 
+Your `openaps.ini` file now has some content; go ahead and take another look:
+
+`$ cat openaps.ini`
+
+Now, both of your devices are in this configuration file:
+
+```
+[device "pump"]
+serial = 123456
+vendor = openaps.vendors.medtronic
+expires = 2015-09-17T23:21:06.310008
+model = 723
+
+[device "cgms"]
+vendor = openaps.vendors.dexcom
+```
+
+Again, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_name>`. Your pump model should also 
+
+It is important to note that your pump's serial number also serves as its security key, so be careful with the openaps.ini file. If you need to share it for some reason, be sure and remove your serial number first.
+
 ### Check that you can talk with your pump
 
 `$ openaps use <my_pump_name> model`
