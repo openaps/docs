@@ -34,14 +34,19 @@ Didn't return much, did it? By the way, that `cat` command will be very useful a
 
 ### Add pump as device
 
+In order to communicate with the pump and cgm receiver, they must first be added as devices to the openaps configuration. To do this for the pump:
+
 `$ openaps device add <my_pump_name> medtronic <my_serial_number>`
 
 Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
 
 ### Add Dexcom CGM receiver as device
-Note: this step not required if using a Medtronic CGM
+
+Now you will do this for the Dexcom CGM receiver.
 
 `$ openaps device add <my_dexcom_name> dexcom`
+
+Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.
 
 ### Check that the devices are all added properly
 
