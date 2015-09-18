@@ -179,3 +179,8 @@ and
 
 produce the same output, the only difference being that the former prints it to the terminal window and the latter saves it to a file named `last_four_hours_glucose.json` (when invoked).
 
+- overwriting files
+- git and diffs
+- aliases
+- plugins (vendors)
+
