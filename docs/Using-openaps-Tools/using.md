@@ -253,6 +253,8 @@ Aliases are not limited to reports, but we will leave that up to you to explore.
 <br>
 ## Backing Up Your openaps Instance
 
+There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in 
+
 <br>
 ------
 [EVERYTHING BELOW IS JUST NOTES AT THE MOMENT]
