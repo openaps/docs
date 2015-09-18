@@ -1,7 +1,7 @@
 # Configuring and Learning to Use openaps Tools
 
 
-This section provides and introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. 
+This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](./docs/Setup/rpi.md) and [Setting Up openaps](./docs/Setup/openaps.md) sections prior to starting.
 
 The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
@@ -261,10 +261,6 @@ For this backup method, we will take advantage of the fact that your openaps ins
 
 Once you have completed this step, all of the files in your `<my_openaps>` directory will be saved in your online Bitbucket repository. Whenever you would like to update your backup, simply go into your `<my_openaps>` directory and `$ git push`. This process can be automated, but we'll save that for another day.
 
-<br>
-------
-[EVERYTHING BELOW IS JUST NOTES AT THE MOMENT]
 
-- plugins (vendors)
 - Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help) (I believe the command is `script`, but I'm not certain)
 
