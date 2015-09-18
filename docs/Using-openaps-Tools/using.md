@@ -181,7 +181,7 @@ prints *a lot* of data to the terminal. It would be great to save that data some
 
 <br>
 ------
-[EVERYTHING BELOW IS NOTES]
+[EVERYTHING BELOW IS JUST NOTES AT THE MOMENT]
 
 You'll notice that everything after the format specifier—in this case, `JSON`—looks exactly like what you would have in the analagous `use` command. In fact,
 
