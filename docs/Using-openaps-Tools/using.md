@@ -78,11 +78,32 @@ It is important to note that your pump's serial number also serves as its securi
 
 ### Check that you can talk with your pump
 
+Now that you have added these devices, let's see if we can establish communication with them. 
+
 `$ openaps use <my_pump_name> model`
 
 should return something like:
 
 `"723"`
+
+Pretty cool, right? Congratulations, you just pulled data from your pump! The `model` command is a very useful one to verify whether you can communicate with the pump. It is not, however, the only thing you can do. Take a look at the help file to see all of the possibilities:
+
+`$ openaps use <my_pump_name> -h`
+
+This returns a healthy bit of useful information, including a list of all the commands that can be done with `$ openaps use <my_pump_name>`. Of course, each one of those uses has its own help file as well:
+
+```
+$ openaps use <my_pump_name> model -h
+usage: openaps-use pump model [-h]
+
+ Get model number
+  
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
+
+The `-h` argument is your friends, in openaps and most other Unix commands. If you ever forget what command does, what arguments it requires, or what options it has, `-h` should be your first resource.
 
 ### Check that you can talk with your Dexcom receiver
 
