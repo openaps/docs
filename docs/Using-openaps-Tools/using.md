@@ -14,13 +14,17 @@ Some notes on conventions used in this guide:
 
 ### Initialize a new openaps environment
 
-To get started, create a new instance of openaps in a new directory:
+To get started, go to your home directory:
+
+`$ cd`
+
+Create a new instance of openaps in a new directory.
 
 `$ openaps init <my_openaps>`
 
 As mentioned above, `<my_openaps>` can be anything you'd like: `myopenaps`, `awesome-openaps`, `openaps4ever`, `bob`, etc.
 
-Now that it has been created, move into the new openaps directory
+Now that it has been created, move into the new openaps directory:
 
 `$ cd <my_openaps>`
 
