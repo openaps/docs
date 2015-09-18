@@ -104,6 +104,26 @@ Run
 to expand filesystem, change user password and set timezone (in internationalization options)
 
 <br>
+## Update the Raspberry Pi
+
+Update the RPi2.
+
+`sudo apt-get update && sudo apt-get -y upgrade`
+
+The packages will take some time to install.
+
+<br>
+## Setup Git
+
+In order to set your git account's default identity, you will need to run the following two commands:
+
+`git config --global user.email "you@example.com"`
+
+`git config --global user.name "Your Name"`
+
+replace `you@example.com` and `Your Name` with your own information, but keep the quotes.
+
+<br>
 ## Setup Password-less Login [optional]
 
 ### Windows
@@ -148,15 +168,6 @@ PasswordAuthentication no
 Note that the second line was previously commented out.
 
 From now on you will be able to SSH in with your private SSH key only.
-
-<br>
-## Update the Raspberry Pi
-
-Update the RPi2.
-
-`sudo apt-get update && sudo apt-get -y upgrade`
-
-The packages will take some time to install.
 
 <br>
 ## Watchdog [optional]
