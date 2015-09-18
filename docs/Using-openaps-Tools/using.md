@@ -26,6 +26,8 @@ This folder is mostly empty at the moment,
 
 `$ openaps device add <my_pump_name> medtronic <my_serial_number>`
 
+Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
+
 ### Add Dexcom CGM receiver as device
 Note: this step not required if using a Medtronic CGM
 
@@ -67,6 +69,8 @@ should return something like:
   }
 ]
 ```
+Hint: if this doesn't work, check to make sure that your Dexcom receiver is plugged into your RPi ;-)
+
 
 <br>
 ### Usage
