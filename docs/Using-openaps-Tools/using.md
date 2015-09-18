@@ -27,7 +27,7 @@ This folder is mostly empty at the moment,
 `$ openaps device add <my_pump_name> medtronic <my_serial_number>`
 
 ### Add Dexcom CGM receiver as device
-Note: this step not required if using Medtronic CGM
+Note: this step not required if using a Medtronic CGM
 
 `$ openaps device add <my_dexcom_name> dexcom`
 
@@ -42,6 +42,31 @@ medtronic://pump
 dexcom://cgms
 ```
 Here, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_name>`. The names you selected should appear in their place.
+
+### Check that you can talk with your pump
+
+`$ openaps use <my_pump_name> model`
+
+should return something like:
+
+`"723"`
+
+### Check that you can talk with your Dexcom receiver
+
+`$ openaps use <my_dexcom_name> iter_glucose 1`
+
+should return something like:
+
+```
+[
+  {
+    "trend_arrow": "FLAT", 
+    "system_time": "2015-08-23T21:45:29", 
+    "display_time": "2015-08-23T13:46:21", 
+    "glucose": 137
+  }
+]
+```
 
 <br>
 ### Usage
