@@ -22,6 +22,7 @@ Run
 
 `sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy python-pip`
 
+This installs a number of packages required by openaps.
 
 <br>
 ## Install openaps
