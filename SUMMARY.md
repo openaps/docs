@@ -12,7 +12,7 @@
 * [Setup](./docs/Setup/setup.md)
    * [Raspberry Pi](./docs/Setup/rpi.md)
    * [openaps](./docs/Setup/openaps.md)
-* [Using openaps Tools](./docs/Using-openaps-Tools/using.md)
+* [Learning to Use openaps Tools](./docs/Using-openaps-Tools/using.md)
 * [Building an OpenAPS Implementation](./docs/Building-a-system/building.md)
    * [Phase 0: Initial Setup](./docs/Building-a-system/initial-setup.md)
    * [Phase 1: Data Collection](./docs/Building-a-system/data-collection.md)
