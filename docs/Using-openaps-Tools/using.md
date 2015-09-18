@@ -44,7 +44,7 @@ That `openaps.ini` file is the configuration file for this particular instance o
 
 `$ cat openaps.ini`
 
-Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`).
+Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`). Similarly, if you see a command that you are unfamiliar with, such as `cat` or `cd`, Google it to understand what it does. The same goes for error messages—you are likely not the first one to encounter whatever error is holding you back.
 
 ### Add pump as device
 
@@ -53,6 +53,8 @@ In order to communicate with the pump and cgm receiver, they must first be added
 `$ openaps device add <my_pump_name> medtronic <my_serial_number>`
 
 Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
+
+**Important:** Never share your 6-digit pump serial number and never post this online. If someone had access to this number, and was in radio reach of your pump, this could be used to communicate with your pump without your knowledge. While this is a feature when you want to build an OpenAPS, it is a flaw and a security issue if someone else can do this to you.
 
 ### Add Dexcom CGM receiver as device
 
@@ -93,7 +95,7 @@ vendor = openaps.vendors.dexcom
 
 Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
 
-It is important to note that your pump's serial number also serves as its security key, so be careful with the openaps.ini file. If you need to share it for some reason, be sure and remove your serial number first.
+Remember that, because your pump's serial number also serves as its security key, you must be careful with the `openaps.ini` file. If you need to share it for some reason, be sure and remove your serial number first.
 
 If you made a mistake while adding your devices or simply don't like the name you used, you can go back and remove the devices as well. For example, to remove the pump:
 
@@ -212,6 +214,12 @@ Again, the terminal output will be minimal:
 `reporting last_four_pump_hours.json`
 
 This time, however, a new file will be created. Check and see using `$ ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `$ cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to ther terminal window when you performed `$ openaps use <my_pump_name> iter_pump_hours 4`.
+
+Each time you add a new report to your configuration, you should immediately invoke it and check the resulting file. This means **open the file and actually check to make sure the output is what you expect**. Don't assume that it worked just because you didn't see an error.
+
+The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file.
+
+Go ahead and create (and check) some reports for the the commands you have been using the most.
 
 <br>
 ## Aliases
