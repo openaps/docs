@@ -111,7 +111,7 @@ should return something like:
 
 `"723"`
 
-Pretty cool, right? Congratulations, you just pulled data from your pump! The `model` command is a very useful one to verify whether you can communicate with the pump. It is not, however, the only thing you can do. Take a look at the help file to see all of the possibilities:
+Congratulations, you just pulled data from your pump! The `model` command is a very useful one to verify whether you can communicate with the pump. It is not, however, the only thing you can do. Take a look at the help file to see all of the possibilities:
 
 `$ openaps use <my_pump_name> -h`
 
