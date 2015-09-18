@@ -1,4 +1,4 @@
-# Learning to Use openaps Tools
+# Configuring and Learning to Use openaps Tools
 
 
 This section provides and introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop.
