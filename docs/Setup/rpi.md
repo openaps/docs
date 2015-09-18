@@ -12,12 +12,15 @@ For the install, you will need:
 
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to first getting the image in step 1.
 
-## Getting Raspbian
+<br>
+## Downloading Raspbian
 Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
 
+<br>
 ## Writing Raspbian to the Micro SD Card
 If needed, use this [guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
+<br>
 ## Configuring WiFi Settings
 
 ### Windows
@@ -54,8 +57,9 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 
 (It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
 
-Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)<br><br>
+Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
+<br>
 ## Testing SSH Access
 
 ### Windows
@@ -65,7 +69,8 @@ Make sure that the computer is connected to the same WiFi router that the RPi2 i
 ### Mac OS X
 
 Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
-<br>  Open Terminal and enter this command:
+
+Open Terminal and enter this command:
 
   `ssh pi@raspberrypi.local`
 
@@ -89,6 +94,7 @@ You probably want to make your phone a hotspot and configure the WiFi connection
 
 Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
 
+<br>
 ## Configuring the Raspberry Pi
 
 Run
@@ -97,6 +103,7 @@ Run
 
 to expand filesystem, change user password and set timezone (in internationalization options)
 
+<br>
 ## Setup Password-less login [optional]
 
 ### Windows
@@ -119,6 +126,7 @@ Next  `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
 
 Finally `ssh pi@raspberrypi.local`
 
+<br>
 ## SSH configuration
 Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
 
@@ -142,6 +150,7 @@ Note that the second line was previously commented out.
 
 From now on you will be able to SSH in with your private SSH key only.
 
+<br>
 ## Update
 
 Update the RPi2.
@@ -150,6 +159,7 @@ Update the RPi2.
 
 The packages will take some time to install.
 
+<br>
 ## Watchdog [optional]
 
 Now we are going to install watchdog, which restarts the RPi2 if it becomes unresponsive.
