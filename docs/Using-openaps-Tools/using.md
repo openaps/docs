@@ -173,27 +173,38 @@ optional arguments:
 <br>
 ## Adding and Invoking Reports
 
-At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. These are great for learning and for experimenting, but they lack the ability to generate output files. You'll notice that running
+At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. This is great for learning and for experimenting, but it lacks the ability to generate output files. You'll notice that running
 
 `$ openaps use <my_dexcom_name> iter_glucose 100`
 
 prints *a lot* of data to the terminal. It would be great to save that data somewhere so that it can be used for logging historical records, performing calculations, and verifying actions. That is what `report` does.
 
+Generating reports involves two steps: adding the report structures to your openaps configuration and invoking the reports to produce the desired outcome. As an example, let's suppose you would like to gather the last four hours of records from your pump. With the `use` command, that would be:
+
+`$ openaps use <my_pump_name> iter_pump_hours 4`
+
+This dumps the past four hours of pump records directly to the terminal.
+
+Now, let's add this as a report:
+
+`$ openaps report add last_four_pump_hours.json JSON use <my_pump_name> iter_glucose_hours 4`
+
+If done correctly, the only thing returned in the terminal is:
+
+Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `use <my_pump_name> iter_glucose_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window. The report is simply running that same command and writing the output to the file you specified in the format you specified.
+
+Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`.
+
+Adding the report does not actually generate the output file. To do this, you need to `invoke` the report:
+
+`$ openaps report invoke last_four_pump_hours.json`
+
+
+
 <br>
 ------
 [EVERYTHING BELOW IS JUST NOTES AT THE MOMENT]
 
-You'll notice that everything after the format specifier—in this case, `JSON`—looks exactly like what you would have in the analagous `use` command. In fact,
-
-`$ openaps use <my_pump_name> iter_glucose_hours 4`
-
-and
-
-`$ openaps report add last_four_hours_glucose.json JSON use <my_pump_name> iter_glucose_hours 4`
-
-`$ openaps report invoke last_four_hours_glucose.json`
-
-produce the same output, the only difference being that the former prints it to the terminal window and the latter saves it to a file named `last_four_hours_glucose.json` (when invoked).
 
 Discuss ...
 - overwriting files
