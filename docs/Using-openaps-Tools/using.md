@@ -78,7 +78,7 @@ It is important to note that your pump's serial number also serves as its securi
 
 ### Check that you can talk with your pump
 
-Now that you have added these devices, let's see if we can establish communication with them. 
+Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
 
 `$ openaps use <my_pump_name> model`
 
@@ -103,7 +103,9 @@ optional arguments:
   -h, --help  show this help message and exit
 ```
 
-The `-h` argument is your friends, in openaps and most other Unix commands. If you ever forget what command does, what arguments it requires, or what options it has, `-h` should be your first resource.
+The `-h` argument is your friend. If you ever forget what command does, what arguments it requires, or what options it has, `-h` should be your first resource.
+
+Go ahead and try some more pump uses to see what they do.
 
 ### Check that you can talk with your Dexcom receiver
 
