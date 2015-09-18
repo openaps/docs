@@ -18,7 +18,7 @@
    * [Phase 1: Data Collection](./docs/Building-a-system/data-collection.md)
    * [Phase 2: Recommendation Engine](./docs/Building-a-system/recommendation-engine.md)
    * [Phase 3: Closing the Loop](./docs/Building-a-system/closing-the-loop.md)
-   * [Phase 4: Getting Fancy](./docs/Building-a-system/getting-fancy.md)
+   * [Phase 4: Additional Modifications](./docs/Building-a-system/getting-fancy.md)
 * [Other Projects & Tools](./docs/Other-projects/other-projects.md)
 * [Resources](./docs/Resources/resources.md)
 * [Glossary](./docs/Glossary/glossary.md)
