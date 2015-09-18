@@ -253,15 +253,18 @@ Aliases are not limited to reports, but we will leave that up to you to explore.
 <br>
 ## Backing Up Your openaps Instance
 
-There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2]() and [Setting Up openaps]()), but it will enable you to skip all of the configuration steps above if something happens.
+There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](./docs/Setup/rpi.md) and [Setting Up openaps](./docs/Setup/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
+
+For this backup method, we will take advantage of the fact that your openaps instanace is a git repository. We won't go over git here, but take a look at the references on the [Resources](./docs/Resources/resources.md) page to get familiar with the basics. Typically, we would do this backup using GitHub, since that is where most of the openaps repositories are located and you should already have an account. However, GitHub only provides free repositories if they are public, and since this repository has your `openaps.ini` file—and thus your pump's serial number—in it, we want to make sure it is private. You can [purchase a monthly GitHub plan](https://github.com/pricing), but there is another way.
+
+[Bitbucket](https://bitbucket.org/) offers a similar service but permits users to create free private repositories. Go ahead and sign up and then create a repository. You can call it whatever you like, but makes sure that on the "Create a new repository" setup page you leave the "This is a private repository" box checked. Once created, you will be directed to a "Repository setup" page. Under the "Command line" section, click on the "I have an existing project" option and follow the instructions.
+
+Once you have completed this step, all of the files in your `<my_openaps>` directory will be saved in your online Bitbucket repository. Whenever you would like to update your backup, simply go into your `<my_openaps>` directory and `$ git push`. This process can be automated, but we'll save that for another day.
 
 <br>
 ------
 [EVERYTHING BELOW IS JUST NOTES AT THE MOMENT]
 
-
-Discuss ...
-- git and diffs
 - plugins (vendors)
 - Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help) (I believe the command is `script`, but I'm not certain)
 
