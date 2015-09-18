@@ -12,7 +12,7 @@ Some conventions used in this guide:
 * You will see a `$ ` at the beginning of many of the lines of code. This indicates that it is to be entered and executed at the terminal prompt. Do not type in the `$`.  
 
 <br>
-## Configure openaps
+## Configuring openaps
 
 ### Initialize a new openaps environment
 
@@ -179,7 +179,11 @@ At this point, you should be comfortable communicating with your pump and cgm re
 
 prints *a lot* of data to the terminal. It would be great to save that data somewhere so that it can be used for logging historical records, performing calculations, and verifying actions. That is what `report` does.
 
-Generating reports involves two steps: adding the report structures to your openaps configuration and invoking the reports to produce the desired outcome. As an example, let's suppose you would like to gather the last four hours of records from your pump. With the `use` command, that would be:
+Generating reports involves two steps: adding the report structures to your openaps configuration and invoking the reports to produce the desired outcome.
+
+### Adding Reports
+
+As an example, let's suppose you would like to gather the last four hours of records from your pump. With the `use` command, that would be:
 
 `$ openaps use <my_pump_name> iter_pump_hours 4`
 
@@ -187,19 +191,33 @@ This dumps the past four hours of pump records directly to the terminal.
 
 Now, let's add this as a report:
 
-`$ openaps report add last_four_pump_hours.json JSON use <my_pump_name> iter_glucose_hours 4`
+`$ openaps report add last_four_pump_hours.json JSON use <my_pump_name> iter_pump_hours 4`
 
 If done correctly, the only thing returned in the terminal is:
 
-Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `use <my_pump_name> iter_glucose_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window. The report is simply running that same command and writing the output to the file you specified in the format you specified.
+`added pump://JSON/iter_pump_hours/last_four_pump_hours.json`
+
+Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `use <my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window. The report is simply running that same command and writing the output to the file you specified in the format you specified.
 
 Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`.
 
-Adding the report does not actually generate the output file. To do this, you need to `invoke` the report:
+### Invoking Reports
+
+Adding the report does not actually generate the output file. To do this, you need to invoke the report:
 
 `$ openaps report invoke last_four_pump_hours.json`
 
+Again, the terminal output will be minimal:
 
+`reporting last_four_pump_hours.json`
+
+This time, however, a new file will be created. Check and see using `$ ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `$ cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to ther terminal window when you performed `$ openaps use <my_pump_name> iter_pump_hours 4`.
+
+<br>
+## Aliases
+
+<br>
+## Backing Up Your openaps Instance
 
 <br>
 ------
