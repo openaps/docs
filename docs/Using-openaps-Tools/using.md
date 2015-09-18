@@ -38,7 +38,7 @@ That `openaps.ini` file is the configuration file for this particular instance o
 
 `$ cat openaps.ini`
 
-Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files.
+Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`).
 
 ### Add pump as device
 
@@ -118,7 +118,7 @@ optional arguments:
 
 The `-h` argument is your friend. If you ever forget what command does, what arguments it requires, or what options it has, `-h` should be your first resource.
 
-Go ahead and try some more pump uses to see what they do.
+Go ahead and try some more pump uses to see what they do. Note that some of the commands require additional inputs; these are detailed in the specific help files.
 
 ### Check that you can communicate with your Dexcom receiver
 
@@ -138,7 +138,7 @@ should return something like:
   }
 ]
 ```
-Hint: if this doesn't work, check to make sure that your Dexcom receiver is plugged into your RPi ;-)
+Hint: if this doesn't work, check to make sure that your Dexcom receiver is plugged into your Raspberry Pi ;-)
 
 Just like with the pump, you can use the `-h` argument to call the help files. For example:
 
@@ -158,3 +158,7 @@ optional arguments:
 * iter_glucose 2 - read last 2 records
 ```
 
+<br>
+## Adding and Invoking Reports
+
+At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. 
