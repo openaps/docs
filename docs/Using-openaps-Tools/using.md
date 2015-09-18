@@ -81,7 +81,7 @@ Again, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_
 
 It is important to note that your pump's serial number also serves as its security key, so be careful with the openaps.ini file. If you need to share it for some reason, be sure and remove your serial number first.
 
-### Check that you can talk with your pump
+### Check that you can communicate with your pump
 
 Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
 
@@ -112,7 +112,7 @@ The `-h` argument is your friend. If you ever forget what command does, what arg
 
 Go ahead and try some more pump uses to see what they do.
 
-### Check that you can talk with your Dexcom receiver
+### Check that you can communicate with your Dexcom receiver
 
 `$ openaps use <my_dexcom_name> iter_glucose 1`
 
