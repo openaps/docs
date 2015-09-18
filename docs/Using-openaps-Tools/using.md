@@ -1,7 +1,7 @@
 # Configuring and Learning to Use openaps Tools
 
 
-This section provides and introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Some familiarity with using the terminal will go a long way, so if you aren't comfortable with `cd`, `ls`, and 
+This section provides and introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Some familiarity with using the terminal will go a long way, so if you aren't comfortable with `cd`, `ls`, and , take a look at some of the 
 
 The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
