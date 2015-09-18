@@ -16,11 +16,11 @@ Some conventions used in this guide:
 
 ### Initialize a new openaps environment
 
-To get started, go to your home directory:
+To get started, SSH into your Raspberry Pi. Go to your home directory:
 
 `$ cd`
 
-Create a new instance of openaps in a new directory.
+Create a new instance of openaps in a new directory:
 
 `$ openaps init <my_openaps>`
 
@@ -30,7 +30,11 @@ Now that it has been created, move into the new openaps directory:
 
 `$ cd <my_openaps>`
 
-This folder is mostly empty at the moment, as can been seen by running the list files command:
+All subsequent openaps commands must be run in this directory. If you try to run an openaps command in a different directory, you will receive an error:
+
+`Not an openaps environment, run: openaps init`
+
+The directory you just created and initialized as an openaps environment is mostly empty at the moment, as can been seen by running the list files command:
 
 ```
 $ ls
@@ -118,9 +122,9 @@ optional arguments:
   -h, --help  show this help message and exit
 ```
 
-The `-h` argument is your friend. If you ever forget what command does, what arguments it requires, or what options it has, `-h` should be your first resource.
+The `-h` argument is your friend. If you ever forget what a command does, what arguments it requires, or what options it has, `-h` should be your first resource.
 
-Go ahead and try some more pump uses to see what they do. Note that some of the commands require additional inputs; these are detailed in the specific help files.
+Go ahead and try some more pump uses to find out what they do. Note that some of the commands require additional inputs; these are detailed in the specific help files.
 
 ### Check that you can communicate with your Dexcom receiver
 
