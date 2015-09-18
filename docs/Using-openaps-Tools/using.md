@@ -248,7 +248,7 @@ You will see that it invokes each of the reports you specified in the order you 
 
 Just like with devices and reports, the alias is now part of your openaps configuration. You can view all of your aliases with `$ cat openaps.ini` or by using `$ openaps alias show`. Similarly, you can remove aliases with `$ openaps alias remove <alias_name>`.
 
-
+Aliases are not limited to reports, but we will leave that up to you to explore.
 
 <br>
 ## Backing Up Your openaps Instance
@@ -259,7 +259,6 @@ Just like with devices and reports, the alias is now part of your openaps config
 
 
 Discuss ...
-- overwriting files
 - git and diffs
 - plugins (vendors)
 - Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help) (I believe the command is `script`, but I'm not certain)
