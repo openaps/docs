@@ -227,6 +227,17 @@ Go ahead and create (and check) some reports for the the commands you have been 
 <br>
 ## Aliases
 
+Now that you have some reports added, you may notice that you end up calling some of them in combinations. For example, you might always want to get your updated pump records and your updated cgm records. To do that, you would normally run two commands each time:
+
+```
+$ openaps report invoke last_four_pump_hours.json
+$ openaps report invoke last_four_cgm_hours.json
+```
+
+For this example, we assume that you have added a second report called `last_four_cgm_hours.json` that is similar to the `last_four_pump_hours.json` we walked through previously, except that it is using your `<my_dexcom_name>` device and the `iter_glucose_hours` command. Go ahead and do that so you can follow along.
+
+Calling two sequential commands for each update is a bit annoying, but imagine calling five or ten. Luckily, openaps has a built-in way to group these commands: aliases.
+
 
 
 <br>
@@ -241,5 +252,5 @@ Discuss ...
 - overwriting files
 - git and diffs
 - plugins (vendors)
-- Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help)
+- Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help) (I believe the command is `script`, but I'm not certain)
 
