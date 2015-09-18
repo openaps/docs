@@ -132,3 +132,21 @@ should return something like:
 ```
 Hint: if this doesn't work, check to make sure that your Dexcom receiver is plugged into your RPi ;-)
 
+Just like with the pump, you can use the `-h` argument to call the help files. For example:
+
+```
+$ openaps use <my_dexcom_name> iter_glucose -h
+usage: openaps-use cgms iter_glucose [-h] [count]
+
+ read last <count> glucose records, default 100, eg:
+
+positional arguments:
+  count       Number of glucose records to read.
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+* iter_glucose   - read last 100 records
+* iter_glucose 2 - read last 2 records
+```
+
