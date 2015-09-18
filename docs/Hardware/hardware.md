@@ -5,21 +5,29 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 
 ## Required  Hardware
 
-* <b>Pump</b>: Medtronic insulin pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
-* <b>To talk to the pump</b>: Medtronic CareLink USB stick
-* <b>Continuous Glucose Monitor (CGM)</b>: Dexcom CGM (G4 Platinum or Platinum with Share system) OR Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
-* <b>Other supplies</b>:
+* <b>Insulin Pump</b>: Medtronic MiniMed model # ...
+ * 512/712
+ * 515/715
+ * 522/722
+ * 523/723 (with firmware 2.4A or lower)
+* <b>Pump Communication</b>:
+ * Medtronic CareLink USB stick
+* <b>Continuous Glucose Monitor (CGM)</b>:
+ * Dexcom CGM (G4 Platinum or Platinum with Share system) OR
+ * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
+* <b>Other Supplies</b>:
  * Raspberry Pi 2 Model B ("RPi2")*
- * 8 GB (or greater) micro SD card [optional, but reccomended is a micro SD card to regular SD card converter so that you can use the micro SD card in a regular sized SD card drive]*
- * Low-profile USB WiFi adapter*
- * 2.1 Amp (or greater) USB power supply* or battery
+ * 8 GB (or greater) micro SD card
+ * micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
+ * Low-profile USB WiFi adapter
+ * 2.1 Amp (or greater) USB power supply or battery
  * Micro USB cable(s)
- * Cat5 or Cat6 ethernet cable [optional]
+ * Cat5 or Cat6 Ethernet cable [optional]
  * HDMI cable [optional, used for connecting the RPi2 to a screen for initial setup ease]
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
  * USB Mouse [optional, for the same purpose]
 
-*A mostly complete kit recommended by several #OpenAPS contributors can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2). This kit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micros USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
+*A mostly-complete kit recommended by several #OpenAPS contributors can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2). This kit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micros USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
 
 Additionally, for the Raspberry Pi and peripherals, verified sets of working hardware can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
 
@@ -43,7 +51,7 @@ Currently, the only supported device* for uploading pump data and interfacing on
  [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
 
-<i>*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the Carelink stick & Raspberry Pi to communicate with a pump, but is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not recommended.</i>
+_*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. At the time of writing,  but is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not recommended._
  
 <br>
 **CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic **
