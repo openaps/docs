@@ -101,7 +101,7 @@ Run
 
 `sudo raspi-config` 
 
-to expand filesystem, change user password and set timezone (in internationalization options)
+to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so it is a good idea to go ahead and run `sudo reboot` now.
 
 <br>
 ## Update the Raspberry Pi
