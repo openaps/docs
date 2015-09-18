@@ -77,7 +77,7 @@ model = 723
 vendor = openaps.vendors.dexcom
 ```
 
-Again, `pump` was used for `<my_pump_name>` and 'cgms' was used for `<my_dexcom_name>`. Your pump model should also 
+Again, `pump` was used for `<my_pump_name>` and `cgms' was used for `<my_dexcom_name>`. Your pump model should also match your pump.
 
 It is important to note that your pump's serial number also serves as its security key, so be careful with the openaps.ini file. If you need to share it for some reason, be sure and remove your serial number first.
 
@@ -113,6 +113,8 @@ The `-h` argument is your friend. If you ever forget what command does, what arg
 Go ahead and try some more pump uses to see what they do.
 
 ### Check that you can communicate with your Dexcom receiver
+
+Now let's try communicating with the Dexcom receiver:
 
 `$ openaps use <my_dexcom_name> iter_glucose 1`
 
