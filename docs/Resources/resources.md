@@ -1,7 +1,5 @@
 # Resources
 
-These links provide 
-
 ## Raspberry Pi
 [Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/)
 
