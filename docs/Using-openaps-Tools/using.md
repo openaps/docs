@@ -161,4 +161,21 @@ optional arguments:
 <br>
 ## Adding and Invoking Reports
 
-At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. 
+At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. These are great for learning and for experimenting, but they lack the ability to generate output files. You'll notice that running
+
+`$ openaps use <my_dexcom_name> iter_glucose 100`
+
+prints *a lot* of data to the terminal. It would be great to save that data somewhere so that it can be used for logging historical records, performing calculations, and verifying actions. That is what `report` does.
+
+You'll notice that everything after the format specifier—in this case, `JSON`—looks exactly like what you would have in the analagous `use` command. In fact,
+
+`$ openaps use <my_pump_name> iter_glucose_hours 4`
+
+and
+
+`$ openaps report add last_four_hours_glucose.json JSON use <my_pump_name> iter_glucose_hours 4`
+
+`$ openaps report invoke last_four_hours_glucose.json`
+
+produce the same output, the only difference being that the former prints it to the terminal window and the latter saves it to a file named `last_four_hours_glucose.json` (when invoked).
+
