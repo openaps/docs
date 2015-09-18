@@ -227,6 +227,5 @@ This time, however, a new file will be created. Check and see using `$ ls`; you 
 Discuss ...
 - overwriting files
 - git and diffs
-- aliases
 - plugins (vendors)
 
