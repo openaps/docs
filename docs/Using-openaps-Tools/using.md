@@ -193,13 +193,13 @@ This dumps the past four hours of pump records directly to the terminal.
 
 Now, let's add this as a report:
 
-`$ openaps report add last_four_pump_hours.json JSON use <my_pump_name> iter_pump_hours 4`
+`$ openaps report add last_four_pump_hours.json JSON <my_pump_name> iter_pump_hours 4`
 
 If done correctly, the only thing returned in the terminal is:
 
 `added pump://JSON/iter_pump_hours/last_four_pump_hours.json`
 
-Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `use <my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window. The report is simply running that same command and writing the output to the file you specified in the format you specified.
+Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `<my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window, except there it was done with the `use` command. The report is simply running that same command and writing the output to the file you specified in the format you specified.
 
 Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`.
 
@@ -217,12 +217,14 @@ This time, however, a new file will be created. Check and see using `$ ls`; you 
 
 Each time you add a new report to your configuration, you should immediately invoke it and check the resulting file. This means **open the file and actually check to make sure the output is what you expect**. Don't assume that it worked just because you didn't see an error.
 
-The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file.
+The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file. If you would like to see when the file was last edited, use the command `$ ls -l`. This will help you make sure you are getting up-to-data data.
 
 Go ahead and create (and check) some reports for the the commands you have been using the most.
 
 <br>
 ## Aliases
+
+
 
 <br>
 ## Backing Up Your openaps Instance
@@ -236,4 +238,5 @@ Discuss ...
 - overwriting files
 - git and diffs
 - plugins (vendors)
+- Consider telling them how to `history` somewhere (or whatever you're supposed to type at the beginning of your session to save the whole history so if you run into snafus, you can spit back a copy of what you've done for trouble shooting help)
 
