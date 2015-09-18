@@ -1,47 +1,48 @@
 # Setting Up openaps
+This section provides information on installing the base openaps toolkit and its dependencies.
 
-1.: **Install Git**
+## Install Git
 
-Type in 
+Run 
 
 `sudo apt-get install git`
 
-and press enter
+In order to set your git account's default identity, you will need to run the following two commands:
 
-2.: **Installing Python packages, system wide**
+`git config --global user.email "you@example.com"`
 
-Type in 
+`git config --global user.name "Your Name"`
 
-`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy`
+replace `you@example.com` and `Your Name` with your own information, but keep the quotes.
 
-and press enter
+<br>
+## Install Python Packages System-Wide
 
-3.: **Install PyPi and OpenAPS**
+Run 
 
-`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy && sudo easy_install -ZU openaps`
+`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy python-pip`
 
-and press enter
 
-4.: **Install udev-rules**
+<br>
+## Install openaps
 
-Type in 
-
-`sudo openaps-install-udev-rules`
-
-and press enter
-
-5.: **Enable tab completion for efficiency**
-
-Type in
-
-`sudo activate-global-python-argcomplete`
-
-and press enter
-
-6.: **Update openaps**
-
-In the future, in order to update openaps, type in
+Run
 
 `sudo easy_install -ZU openaps`
 
-and press enter
+Running this command will also update openaps on your system if a newer version is available.
+
+<br>
+## Install udev-rules
+
+Run
+
+`sudo openaps-install-udev-rules`
+
+
+<br>
+## Enable Tab Completion
+
+Run
+
+`sudo activate-global-python-argcomplete`
