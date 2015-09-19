@@ -17,7 +17,7 @@ Use the logged data to suggest insulin dosage adjustment, review and refine algo
 * [Phase 3: Closing the Loop](../Building-a-system/closing-the-loop.md)<br>
 Apply the recommendations, automatically and in real time
 
-* [Phase 4: Getting Fancy](../Building-a-system/getting-fancy.md)<br>
+* [Phase 4: Additional Modifications](../Building-a-system/getting-fancy.md)<br>
 Improve the functionality of the implementation with additional software or hardware development
 
 The document subsection for each phase has three components outlined:

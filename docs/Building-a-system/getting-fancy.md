@@ -1,4 +1,4 @@
-# Phase 4: Additional modifications
+# Phase 4: Additional Modifications
 
 These efforts are certainly worthwhile and bring out the best in technological creativity, but they also tend to distract in the early stages of development.
 

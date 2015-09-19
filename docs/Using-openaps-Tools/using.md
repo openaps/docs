@@ -1,271 +1,265 @@
-# Learning to use openaps tools
+# Configuring and Learning to Use openaps Tools
 
 
-For getting started, please follow this [guide](https://github.com/openaps/openaps):
+This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](./docs/Setup/rpi.md) and [Setting Up openaps](./docs/Setup/openaps.md) sections prior to starting.
 
-### Usage
+The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
-    usage: openaps [-h] [-c C C] [-C CONFIG] [--version] [command] ...
+Some familiarity with using the terminal will go a long way, so if you aren't comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell / Terminal links on the [Resources](./docs/Resources/resources.md) page.
 
-#### openaps - openaps: a toolkit for DIY artificial pancreas system
+Some conventions used in this guide:
+* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `Barney` as your  `<my_pump_name>`, you must use `Barney` every time you see `<my_pump_name>`. Choose carefully. Do not include the `< >` brackets in your name.
+* You will see a `$ ` at the beginning of many of the lines of code. This indicates that it is to be entered and executed at the terminal prompt. Do not type in the `$`.  
 
-##### positional arguments:
-  * command
-  * args
+One helpful thing to do before starting is to log your terminal session. This will allow you to go back and see what you did at a later date. This will also be immensely helpful if you request help from other OpenAPS contributors as you will be able to provide an entire history of the commands you used. To enable this, just run `$ script <filename>` at the beginning of your session. It will inform you that `Script started, file is <filename>`. When you are done, simply `$ exit` and it will announce `Script done, file is <filename>`. At that point, you can review the file as necessary.
+
+<br>
+## Configuring openaps
+
+### Initialize a new openaps environment
+
+To get started, SSH into your Raspberry Pi. Go to your home directory:
+
+`$ cd`
+
+Create a new instance of openaps in a new directory:
+
+`$ openaps init <my_openaps>`
+
+As mentioned above, `<my_openaps>` can be anything you'd like: `myopenaps`, `awesome-openaps`, `openaps4ever`, `bob`, etc.
+
+Now that it has been created, move into the new openaps directory:
+
+`$ cd <my_openaps>`
+
+All subsequent openaps commands must be run in this directory. If you try to run an openaps command in a different directory, you will receive an error:
+
+`Not an openaps environment, run: openaps init`
+
+The directory you just created and initialized as an openaps environment is mostly empty at the moment, as can been seen by running the list files command:
+
+```
+$ ls
+openaps.ini
+```
+That `openaps.ini` file is the configuration file for this particular instance of openaps. It will contain all of your device information, plugin information, reports, and aliases. In the subsequent sections, you will be configuring your openaps instance to add these components. For now, however, it is blank. Go ahead and take a look:
+
+`$ cat openaps.ini`
+
+Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`). Similarly, if you see a command that you are unfamiliar with, such as `cat` or `cd`, Google it to understand what it does. The same goes for error messages—you are likely not the first one to encounter whatever error is holding you back.
+
+### Add pump as device
+
+In order to communicate with the pump and cgm receiver, they must first be added as devices to the openaps configuration. To do this for the pump:
+
+`$ openaps device add <my_pump_name> medtronic <my_serial_number>`
+
+Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
+
+**Important:** Never share your 6-digit pump serial number and never post it online. If someone had access to this number, and was in radio reach of your pump, this could be used to communicate with your pump without your knowledge. While this is a feature when you want to build an OpenAPS, it is a flaw and a security issue if someone else can do this to you.
+
+### Add Dexcom CGM receiver as device
+
+Now you will do this for the Dexcom CGM receiver:
+
+`$ openaps device add <my_dexcom_name> dexcom`
+
+Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.
+
+### Check that the devices are all added properly
+
+`$ openaps device show`
+
+should return something like:
+
+```
+medtronic://pump
+dexcom://cgms
+```
+Here, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. The names you selected should appear in their place.
+
+Your `openaps.ini` file now has some content; go ahead and take another look:
+
+`$ cat openaps.ini`
+
+Now, both of your devices are in this configuration file:
+
+```
+[device "pump"]
+serial = 123456
+vendor = openaps.vendors.medtronic
+expires = 2015-09-17T23:21:06.310008
+model = 723
+
+[device "cgms"]
+vendor = openaps.vendors.dexcom
+```
+
+Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
+
+Remember that, because your pump's serial number also serves as its security key, you must be careful with the `openaps.ini` file. If you need to share it for some reason, be sure and remove your serial number first.
+
+If you made a mistake while adding your devices or simply don't like the name you used, you can go back and remove the devices as well. For example, to remove the pump:
+
+`$ openaps device remove <my_pump_name>`
+
+Then, you can add your pump again with a different name or serial number.
+
+### Check that you can communicate with your pump
+
+Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
+
+`$ openaps use <my_pump_name> model`
+
+should return something like:
+
+`"723"`
+
+Congratulations, you just pulled data from your pump! The `model` command is a very useful one to verify whether you can communicate with the pump. It is not, however, the only thing you can do. Take a look at the help file to see all of the possibilities:
+
+`$ openaps use <my_pump_name> -h`
+
+This returns a healthy bit of useful information, including a list of all the commands that can be done with `$ openaps use <my_pump_name>`. Of course, each one of those uses has its own help file as well:
+
+```
+$ openaps use <my_pump_name> model -h
+usage: openaps-use pump model [-h]
+
+ Get model number
+  
 
 optional arguments:
+  -h, --help  show this help message and exit
+```
 
-    -h, --help            show this help message and exit
-    -c C C
-    -C CONFIG, --config CONFIG
-    --version             show program's version number and exit
+The `-h` argument is your friend. If you ever forget what a command does, what arguments it requires, or what options it has, `-h` should be your first resource.
 
-  Utilities for developing an artificial pancreas system.
-  openaps helps you manage and structure reports for various devices.
+Go ahead and try some more pump uses to find out what they do. Note that some of the commands require additional inputs; these are detailed in the specific help files.
 
+### Check that you can communicate with your Dexcom receiver
 
-All of the `device` and `report` `add` and `show` commands modify
-`openaps.ini` in the current working directory, which is assumed to be
-a git repo explicitily dedicated to helping develop and configure a
-`DIY` artificial pancreas system.  This means `openaps` is an SDK for
-an artificial pancreas system, not an artificial pancreas system.
+Now let's try communicating with the Dexcom receiver:
 
-See `openaps init` for setting up a brand new instance of your own
-`openaps`, or see the notes below for details on how to convert an
-existing git repo into an instance of `openaps`.
+`$ openaps use <my_dexcom_name> iter_glucose 1`
 
-## Common workflows:
+should return something like:
 
-    openaps init
-    openaps device <cmd>
-      
-      Device commands allow you to match a device driver, with a name
-      and a configuration.
-      
-      add     - add device config to `openaps.ini`
-      remove  - remove device from `openaps.ini`
-      show    - print device uri, list all by default
+```
+[
+  {
+    "trend_arrow": "FLAT", 
+    "system_time": "2015-08-23T21:45:29", 
+    "display_time": "2015-08-23T13:46:21", 
+    "glucose": 137
+  }
+]
+```
+Hint: if this doesn't work, check to make sure that your Dexcom receiver is plugged into your Raspberry Pi ;-)
 
-    openaps use [--format <json,stdout,text>]
-                [--output <filename>]
-            <device>
-            <use>
-            [use-args...]
+Just like with the pump, you can use the `-h` argument to call the help files. For example:
 
-      For each device registered, the vendor implementation provides a
-      number of uses.  This allows users to experiment with reports.
+```
+$ openaps use <my_dexcom_name> iter_glucose -h
+usage: openaps-use cgms iter_glucose [-h] [count]
 
-    openaps report <cmd>
+ read last <count> glucose records, default 100, eg:
 
-      Reports match a device use to a format and filename.
+positional arguments:
+  count       Number of glucose records to read.
 
-      add     - add report config to `openaps.ini`
-      remove  - remove report from `openaps.ini`
-      show    - print report uri, list all by default
-      invoke  - run and save report in file
+optional arguments:
+  -h, --help  show this help message and exit
 
-### Init new openaps environment
+* iter_glucose   - read last 100 records
+* iter_glucose 2 - read last 2 records
+```
 
-Do not use `openaps` commands in the the openaps repo.  Only use the
-`openaps` directory for hacking on the core library, or for managing
-upgrades through git.  Instead change to a new directory, not managed
-by git: `cd ~/Documents`.
+<br>
+## Adding and Invoking Reports
 
-Setup of new instance:  
+At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. This is great for learning and for experimenting, but it lacks the ability to generate output files. You'll notice that running
 
-    openaps init myopenaps    - this creates an instance of openaps in a new
-                                directory, called myopenaps
-    
+`$ openaps use <my_dexcom_name> iter_glucose 100`
 
-    cd myopenaps - change directory to root of new repo
+prints *a lot* of data to the terminal. It would be great to save that data somewhere so that it can be used for logging historical records, performing calculations, and verifying actions. That is what `report` does.
 
-A valid instance of openaps is a git repo with a file called
-`openaps.ini` present.
+Generating reports involves two steps: adding the report structures to your openaps configuration and invoking the reports to produce the desired outcome.
 
-`openaps` will track configuration and some status information inside of
-`openaps.ini`.
+### Adding Reports
 
-### Init existing git repo as openaps-environment 
+As an example, let's suppose you would like to gather the last four hours of records from your pump. With the `use` command, that would be:
 
-If you already have a git repo which you would like to
-become a valid openaps environent, in the root of your repo, run:
+`$ openaps use <my_pump_name> iter_pump_hours 4`
 
-    touch openaps.ini
-    git add openaps.ini
-    git commit -avm 'init openaps'
+This dumps the past four hours of pump records directly to the terminal.
 
-Now, wth a valid `openaps` environment, you can register **device**s for
-use.  A **device** is implemented by a **vendor**.  `openaps` provides a
-modular, language and process independent environment for creating
-vendors and devices.
+Now, let's add this as a report instead:
 
-### Managing devices
+`$ openaps report add last_four_pump_hours.json JSON <my_pump_name> iter_pump_hours 4`
 
-To register devices for use, see `openaps device` commands:
+If done correctly, the only thing returned in the terminal is:
 
-    openaps device -h
-    openaps device add <name> <vendor> [opts...]
-    eg:
-    # register a medtronic device named pump
-    openaps device add pump medtronic 665455
-    # register a dexcom device named cgm
-    openaps device add cgm dexcom
-
-### Using devices
-Now that devices are known, and we have a variety of commands
-available.  We can explore how to produce reports by using devices
-with the `openaps use` command:
-
-    openaps use <device-name> <use-name> [opts]
-
-`openaps use` commands can only be used after devices have been added to
-the `openaps.ini` config using `openaps device add`.
-Eg:
-
-    openaps use pump -h        - show available commands for the
-                                 device known as "pump"
-    openaps use pump iter_pump 100 - get last 100 pump history records
-                                 from the device called pump
-    openaps use cgm -h         - show available commands for the
-                                 device known as "cgm"
-    openaps use cgm glucose
-
-### Save reports
-After experimenting with `openaps use` commands, users can save reports
-using the `openaps report` commands.
-`openaps report` commands map `openaps use` commands to filenames:
-
-#### `openaps report add`
-
-Adding a report means configuring a `use` command with a format and a
-output, most commonly, a filename is used as the output.
-
-    openaps report add <report-name> <report-formatter> <device> <use> [opts]
-
-    # add a report, saved in a file called pump-history.json, which is
-    # JSON format, from device pump using use iter_pump.
-    openaps report add pump-history.json JSON pump iter_pump 100
-
-    # add a report, saved in a file called glucose.json, which is
-    # JSON format, from device cgm using use glucose.
-    openaps report add glucose.json JSON cgm glucose
-
-### `invoke` reports to run and save the results of the `use`
-
-#### `openaps report invoke`
-
-Invoking a report means running a `use` command according to it's
-configuration.
-
-    # invoke the report to create glucose.json
-    openaps report invoke glucose.json
-
-    # invoke the report to create pump-history.json
-    openaps report invoke pump-history.json
-
-All commands support tab completion, and -h help options to help
-explore the live help system.
-
-
-### Sample `use` commands
-
-#### `medtronic`
-
-Assuming device is named `pump`:
-
-    usage: openaps-use pump [-h]
-                            {Session, bolus, iter_glucose, iter_pump,
-                            model, mytest, read_basal_profile_A,
-                            read_basal_profile_B,
-                            read_basal_profile_std, read_carb_ratios,
-                            read_clock, read_current_glucose_pages,
-                            read_current_history_pages,
-                            read_glucose_data, read_history_data,
-                            read_selected_basal_profile,
-                            read_settings, read_status,
-                            read_temp_basal, reservoir, resume_pump,
-                            scan, set_temp_basal, settings, status,
-                            suspend_pump}
-                            ...
-
-    positional arguments:
-      {Session, bolus, iter_glucose, iter_pump, model, mytest,
-      read_basal_profile_A, read_basal_profile_B,
-      read_basal_profile_std, read_carb_ratios, read_clock,
-      read_current_glucose_pages, read_current_history_pages,
-      read_glucose_data, read_history_data,
-      read_selected_basal_profile, read_settings, read_status,
-      read_temp_basal, reservoir, resume_pump, scan, set_temp_basal,
-      settings, status, suspend_pump}
-                            Operation
-        Session             session for pump
-        bolus               Send bolus.
-        iter_glucose        Read latest 100 glucose records
-        iter_pump           Read latest 100 pump records
-        model               Get model number
-        mytest              Testing read_settings
-        read_basal_profile_A
-                            Read basal profile A.
-        read_basal_profile_B
-                            Read basal profile B.
-        read_basal_profile_std
-                            Read default basal profile.
-        read_carb_ratios    Read carb_ratios.
-        read_clock          Read date/time of pump
-        read_current_glucose_pages
-                            Read current glucose pages.
-        read_current_history_pages
-                            Read current history pages.
-        read_glucose_data   Read pump glucose page
-        read_history_data   Read pump history page
-        read_selected_basal_profile
-                            Fetch the currently selected basal profile.
-        read_settings       Read settings.
-        read_status         Get pump status
-        read_temp_basal     Read temporary basal rates.
-        reservoir           Get pump remaining insulin
-        resume_pump         resume pumping.
-        scan                scan for usb stick
-        set_temp_basal      Set temporary basal rates.
-        settings            Get pump settings
-        status              Get pump status (alias for read_status)
-        suspend_pump        Suspend pumping.
-
-    optional arguments:
-      -h, --help            show this help message and exit
-
-Some commands like `read_glucose_data`, `read_history_data` take a
-`page` parameter, describing which page to fetch.
-
-Some commands like `bolus`, `set_temp_basal`, take an `input`
-parameter which may be `-` for `stdin` or a filename containing a json
-data structure which represents the request.
-
-All commands support `-h` and `--help` output.
-
-#### `dexcom`
-
-
-    usage: openaps-use cgm [-h] {glucose,iter_glucose,scan} ...
-
-    positional arguments:
-      {glucose,iter_glucose,scan}
-                            Operation
-        glucose             glucose (will pull all records)
-        iter_glucose <n>       glucose ('n' for the number of records you want)
-        scan                scan for usb stick
-
-    optional arguments:
-      -h, --help            show this help message and exit
-
-
-
-#### Further integration:
-
-In order to have a fully operating OpenAPS, you will need to execute OpenAPS with your preprogrammed scripts, either in Python or JavaScript, as a bash shell script, using cron, to schedule the OpenAPS to make dosing changes at a specified time. See this tutorial on [cron](https://en.wikipedia.org/wiki/Cron). A tutorial on bash shell scripts is [here](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
-
-You can create and support plugins for OpenAPS, specifically, as a "process" type of plugin. So by typing for example 
-
-`openaps device add calciob process --require input node iob.js` 
-
-tells OpenAPS that `iob.js` is a "node script". This also means that it takes a single input, which we will call `input` and to internally name that as a device called `calciob`. So now the plugin shows up under `openaps use calciob -h` and if your run the use case there, as stated in the getting started guide, it actually runs the node script with the required arguments.
+`added pump://JSON/iter_pump_hours/last_four_pump_hours.json`
+
+Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `<my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window, except there it was done with the `use` command. The report is simply running that same command and writing the output to the file you specified in the format you specified.
+
+Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`. Similarly, you can remove aliases with `$ openaps report remove <report_name>`.
+
+### Invoking Reports
+
+Adding the report does not actually generate the output file. To do this, you need to invoke the report:
+
+`$ openaps report invoke last_four_pump_hours.json`
+
+Again, the terminal output will be minimal:
+
+```
+pump://JSON/iter_pump_hours/last_four_pump_hours.json
+reporting last_four_pump_hours.json
+```
+
+This time, however, a new file was created. Check and see using `$ ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `$ cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to ther terminal window when you performed `$ openaps use <my_pump_name> iter_pump_hours 4`.
+
+Each time you add a new report to your configuration, you should immediately invoke it and check the resulting file. This means **open the file and actually check to make sure the output is what you expect**. Don't assume that it worked just because you didn't see an error.
+
+The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file. If you would like to see when the file was last edited, use the command `$ ls -l`. This will help you make sure you are getting up-to-data data.
+
+Go ahead and create (and check) some reports for the the commands you have been using the most.
+
+<br>
+## Aliases
+
+Now that you have some reports added, you may notice that you end up calling some of them in combinations. For example, you might always want to get your updated pump records and your updated cgm records. To do that, you would normally run two commands each time:
+
+```
+$ openaps report invoke last_four_pump_hours.json
+$ openaps report invoke last_four_cgm_hours.json
+```
+
+For this example, we assume that you have added a second report called `last_four_cgm_hours.json` that is similar to the `last_four_pump_hours.json` we walked through previously, except that it is using your `<my_dexcom_name>` device and the `iter_glucose_hours` command. Go ahead and do that so you can follow along.
+
+Calling two sequential commands for each update is a bit annoying, but imagine calling five or ten. Luckily, openaps has a built-in way to group these commands: aliases. Aliases allow generation of single-word commands to invoke a series of reports. For this example, create an alias called `last_four_hours`:
+
+`$ openaps alias add last_four_hours "report invoke last_four_pump_hours.json last_four_cgm_hours.json"`
+
+Go ahead and execute this command:
+
+`$ openaps last_four_hours`
+
+You will see that it invokes each of the reports you specified in the order you specified. It prints each step out to the terminal window, and you will find that the corresponding output files have been created.
+
+Just like with devices and reports, the alias is now part of your openaps configuration. You can view all of your aliases with `$ cat openaps.ini` or by using `$ openaps alias show`. Similarly, you can remove aliases with `$ openaps alias remove <alias_name>`.
+
+Aliases are not limited to reports, but we will leave that up to you to explore.
+
+<br>
+## Backing Up Your openaps Instance
+
+There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](./docs/Setup/rpi.md) and [Setting Up openaps](./docs/Setup/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
+
+For this backup method, we will take advantage of the fact that your openaps instanace is a git repository. We won't go over git here, but take a look at the references on the [Resources](./docs/Resources/resources.md) page to get familiar with the basics. Typically, we would do this backup using GitHub, since that is where most of the openaps repositories are located and you should already have an account. However, GitHub only provides free repositories if they are public, and since this repository has your `openaps.ini` file—and thus your pump's serial number—in it, we want to make sure it is private. You can [purchase a monthly GitHub plan](https://github.com/pricing), but there is another way.
+
+[Bitbucket](https://bitbucket.org/) offers a similar service but permits users to create free private repositories. Go ahead and sign up and then create a repository. You can call it whatever you like, but makes sure that on the "Create a new repository" setup page you leave the "This is a private repository" box checked. Once created, you will be directed to a "Repository setup" page. Under the "Command line" section, click on the "I have an existing project" option and follow the instructions.
+
+Once you have completed this step, all of the files in your `<my_openaps>` directory will be saved in your online Bitbucket repository. Whenever you would like to update your backup, simply go into your `<my_openaps>` directory and `$ git push`. This process can be automated, but we'll save that for another day.
+
