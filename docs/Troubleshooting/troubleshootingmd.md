@@ -37,3 +37,5 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 dmesg shows you all the kernel output since boot. It’s pretty difficult to read - but sometimes you see things in there about the wifi getting disconnected and so forth; generally someone that knows linux and knows what to look out for will have to read it
 
 `uptime`
+
+[add something for decocare raw logging]
