@@ -19,6 +19,8 @@
 
 [Codecademy Command Line Course](https://www.codecademy.com/en/courses/learn-the-command-line)
 
+[Cron How To Guide](https://help.ubuntu.com/community/CronHowto)
+
 ## Python
 
 [Official Python Documentation](https://docs.python.org/2/)
