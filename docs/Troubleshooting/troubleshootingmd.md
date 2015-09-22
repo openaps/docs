@@ -8,6 +8,10 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 `$ cd`
 
+`$ pwd`
+
+`$ sudo <command>`
+
 `$ tail -f /var/log/syslog`
 
 `$ df -h`
@@ -16,9 +20,13 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 `$ cat <filename>`
 
+`$ nano <filename>`
+
 `$ stat <filename>`
 
-`dmesg`
+`$ pip freeze`
+
+`$ dmesg`
 
 dmesg shows you all the kernel output since boot. It’s pretty difficult to read - but sometimes you see things in there about the wifi getting disconnected and so forth; generally someone that knows linux and knows what to look out for will have to read it
 
