@@ -4,6 +4,8 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 ## Useful linux commands
 
+[add link to references, more general and comprehensive command list here]
+
 `$ ls -alt`
 
 `$ cd`
@@ -25,6 +27,10 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 `$ stat <filename>`
 
 `$ pip freeze`
+
+`$ sudo reboot`
+
+`$ sudo shutdown -h now`
 
 `$ dmesg`
 
