@@ -4,7 +4,7 @@
 
 <b>CGM</b> - continuous glucose monitor, a temporary glucose sensor that is injected into your skin (the needle is removed) for 3-7 days and, with twice a day calibrations, provides BG readings approximately every 5 minutes.
 
-<b>\#OpenAPS</b> - stands for Open A(rtificial) P(ancreas) S(ystem). It is an open-source movement to develop an artificial pancreas using commercial medical devices, a few pieces of inexpensive hardware, and freely-available software. A full description of the #OpenAPS project can be found at openaps.org. \#OpenAPS (with the hashtag) generally refers to the broad project and open source movement.
+<b>#OpenAPS</b> - stands for Open A(rtificial) P(ancreas) S(ystem). It is an open-source movement to develop an artificial pancreas using commercial medical devices, a few pieces of inexpensive hardware, and freely-available software. A full description of the #OpenAPS project can be found at openaps.org. \#OpenAPS (with the hashtag) generally refers to the broad project and open source movement.
 
 <b>OpenAPS</b> - refers to an example build of the system when used without a hashtag (\#)
 
