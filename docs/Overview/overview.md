@@ -17,7 +17,7 @@ Examples of openaps usage and output.
 **[Building an OpenAPS Implementation](../Building-a-system/building.md)**<br>
 An suggested process for building a functional OpenAPS implementation.
 
-**[Troubleshooting](../Troubleshooting/troubleshootin.md)**<br>
+**[Troubleshooting](../Troubleshooting/troubleshooting.md)**<br>
 Tools and tips to help with common issues.
 
 **[Other Projects & Tools](../Other-projects/other-projects.md)**<br>
