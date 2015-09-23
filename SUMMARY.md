@@ -19,7 +19,7 @@
    * [Phase 2: Recommendation Engine](docs/Building-a-system/recommendation-engine.md)
    * [Phase 3: Closing the Loop](docs/Building-a-system/closing-the-loop.md)
    * [Phase 4: Additional Modifications](docs/Building-a-system/getting-fancy.md)
-* [Toubleshooting](docs/Troubleshooting/troubleshootingmd.md)
+* [Toubleshooting](docs/Troubleshooting/troubleshooting.md)
 * [Other Projects & Tools](docs/Other-projects/other-projects.md)
 * [Resources](docs/Resources/resources.md)
 * [Glossary](docs/Glossary/glossary.md)
