@@ -4,7 +4,6 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 
 (If you're interested in working on communication for another pump (Omnipod, etc.), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.)
 
-
 ## Required  Hardware
 
 * **Insulin Pump**: Medtronic MiniMed model # ...
@@ -37,7 +36,7 @@ Additionally, for the Raspberry Pi and peripherals, verified sets of working har
 
 Eventually, once you have an entire OpenAPS build up and running, it is recommended that you have backup sets of equipment in case of failure.
 
-<br>
+
 ## Hardware Details & Recommendations
 
 ### Medtronic Insulin Pump: 512/712*, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
