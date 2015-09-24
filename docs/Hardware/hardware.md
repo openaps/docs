@@ -19,7 +19,7 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 * **Other Supplies**:
  * Raspberry Pi 2 Model B ("RPi2")**(see note below)
  * 8 GB (or greater) micro SD card
- * micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
+ * Micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
  * Low-profile USB WiFi adapter
  * 2.1 Amp (or greater) USB power supply or battery
  * Micro USB cable(s)
@@ -27,6 +27,9 @@ This section describes the hardware components required for a 'typical' OpenAPS 
  * HDMI cable [optional, used for connecting the RPi2 to a screen for initial setup ease]
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
  * USB Mouse [optional, for the same purpose]
+ * Raspberry Pi Case [optional]
+ * Mobile Rig Case [optional]
+
 
 Notes:
 
@@ -113,3 +116,16 @@ USB cables with a micro connector on one end and a standard (Type A) connector o
 [Rerii Black Golden Plated 15 cm Length Micro-B Male Left Angle USB cable](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O)
 
 [Monoprice Premium USB to Micro USB Charge, Sync Cable - 3ft](http://www.monoprice.com/Product?c_id=103&cp_id=10303&cs_id=1030307&p_id=9763&seq=1&format=2)
+
+
+### Cases
+
+The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but some examples of what others are using in their OpenAPS builds.
+
+[JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
+
+Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well.
+
+[FlipBelt](https://flipbelt.com/)
+
+[Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20)
