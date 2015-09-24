@@ -238,7 +238,13 @@ $ openaps report invoke last_four_cgm_hours.json
 
 For this example, we assume that you have added a second report called `last_four_cgm_hours.json` that is similar to the `last_four_pump_hours.json` we walked through previously, except that it is using your `<my_dexcom_name>` device and the `iter_glucose_hours` command. Go ahead and do that so you can follow along.
 
-Calling two sequential commands for each update is a bit annoying, but imagine calling five or ten. Luckily, openaps has a built-in way to group these commands: aliases. Aliases allow generation of single-word commands to invoke a series of reports. For this example, create an alias called `last_four_hours`:
+Calling two sequential commands for each update is a bit annoying, but imagine calling five or ten. Alternatively, you can concatenate additional reports onto a single `invoke` call:
+
+`$ openaps report invoke last_four_pump_hours.json last_four_cgm_hours.json`
+
+This will invoke both reports in sequence, just like the two commands above.
+
+A further simplification of repeated commands is available in openaps: aliases. Aliases allow generation of single-word commands to invoke a series of reports. For this example, create an alias called `last_four_hours`:
 
 `$ openaps alias add last_four_hours "report invoke last_four_pump_hours.json last_four_cgm_hours.json"`
 
