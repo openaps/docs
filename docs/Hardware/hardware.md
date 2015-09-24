@@ -46,6 +46,8 @@ If you need to acquire an appropriate pump, check CraigsList, talk to friends (o
 
 There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
 
+A note on batteries: frequent communication between the pump and the CareLink USB stick will drain the pump's battery rapidly. With typical alkaline AAA batteries, this could require changing the battery every 4-5 days (depending on the frequency of communication). For some example data on battery longevity in an OpenAPS closed loop, see [this report](https://gist.github.com/channemann/0a81661b78703fcb8da6).
+
 ### CareLink USB Stick
 
 Currently, the only supported device* for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development. Additionally, due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions.
