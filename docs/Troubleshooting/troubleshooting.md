@@ -42,6 +42,8 @@ dmesg shows you all the kernel output since boot. It’s pretty difficult to rea
 
 ## CareLink USB Stick
 
-fix-stick.sh
+test model with `$ openaps use <my_pump_name> model`. The `model` command is a quick way to verify whether you can communicate with the pump. If you can't ...
+
+Stick issue: fix-stick.sh, unplug/replug
 
 Range issues: range is crap, orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00).
