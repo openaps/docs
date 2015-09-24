@@ -44,4 +44,4 @@ dmesg shows you all the kernel output since boot. It’s pretty difficult to rea
 
 fix-stick.sh
 
-Range issues: range is crap, orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00#file-a-carelink-range-2-md).
+Range issues: range is crap, orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00).
