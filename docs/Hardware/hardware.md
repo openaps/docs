@@ -2,6 +2,8 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made, but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or have a notable alternative, feel free to edit this document with your suggestions.
 
+(If you're interested in working on communication for another pump (Omnipod, etc.), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.)
+
 
 ## Required  Hardware
 
@@ -16,7 +18,7 @@ This section describes the hardware components required for a 'typical' OpenAPS 
  * Dexcom CGM (G4 Platinum or Platinum with Share system) OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * <b>Other Supplies</b>:
- * Raspberry Pi 2 Model B ("RPi2")*
+ * Raspberry Pi 2 Model B ("RPi2")**(see note below)
  * 8 GB (or greater) micro SD card
  * micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
  * Low-profile USB WiFi adapter
@@ -27,7 +29,8 @@ This section describes the hardware components required for a 'typical' OpenAPS 
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
  * USB Mouse [optional, for the same purpose]
 
-*A mostly-complete kit recommended by several #OpenAPS contributors can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2). This kit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micros USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
+* Notes:
+</br>**A mostly-complete kit recommended by several #OpenAPS contributors can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2). This kit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micros USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
 
 Additionally, for the Raspberry Pi and peripherals, verified sets of working hardware can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
 
@@ -35,9 +38,11 @@ Eventually, once you have an entire OpenAPS build up and running, it is recommen
 
 ## Hardware Details & Recommendations
 
-### Medtronic Insulin Pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
+### Medtronic Insulin Pump: 512/712*, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
 
-Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. If you need to acquire an appropriate pump, check CraigsList, talk to friends (or online) in your local community, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone's found extra. 
+Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop ([see example here](http://bit.ly/1itCsRl)).
+
+If you need to acquire an appropriate pump, check CraigsList, talk to friends (or online) in your local community, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone's found extra. 
 
 There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
 
@@ -50,7 +55,7 @@ Currently, the only supported device* for uploading pump data and interfacing on
  [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
 
-_*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. At the time of writing,  but is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not recommended._
+_*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. It is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not currently recommended._
  
  
 ### CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic
