@@ -252,6 +252,16 @@ Just like with devices and reports, the alias is now part of your openaps config
 
 Aliases are not limited to reports, but we will leave that up to you to explore.
 
+## Putting the Pieces Together
+
+Take a moment to consider putting these commands to work in the larger context of a closed-loop system. Components of that system that you might need to `add` and `invoke` would be recent glucose data, recent pump history, the time, battery status, pump settings, carb ratios, the current basal profile, insulin sensitivities, blood glucose targets, and the status of the pump. 
+
+Go ahead and add and invoke reports for these components of a future closed-loop system. 
+
+Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history. 
+
+Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. 
+
 <br>
 ## Backing Up Your openaps Instance
 
