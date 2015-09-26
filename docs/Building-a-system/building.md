@@ -2,8 +2,6 @@
 
 ### Prerequisites
 
-**First:**
-
 * Learn how to to go from [learning to use the openaps tools in isolation](../Using-openaps-Tools/using.md) to building your own OpenAPS system. 
 
 * [Why you might take a DIY approach](http://bit.ly/1NBbZtO) for creating new tools and using the OpenAPS system development phases.
