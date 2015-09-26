@@ -24,9 +24,10 @@ This is a set of development tools to support a self-driven DIY implementation. 
 
 * a growth mindset to learn what are essentially "building blocks" to implement an OpenAPS system. 
 	
-	* This is not a "set and forget" system; `OpenAPS` requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
+	* This is not a "set and forget" system; `openaps` requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
 
 **This community of contributors believes in paying it forward, and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contribute in other ways.**
+
 
 
 
