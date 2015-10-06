@@ -10,7 +10,7 @@ For the install, you will need:
 * 2.1 Amp USB Power Supply
 * Micro USB cable 
 
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to first getting the image in step 1.
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian. To initiate this installation you will need to follow the directions that came with it, which requires a monitor and keyboard (but then allows you to skip the next two steps).
 
 <br>
 ## Download Raspbian
@@ -23,7 +23,7 @@ If needed, use this [guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please vi
 <br>
 ## Configure WiFi Settings
 
-### Windows
+### Windows and Linux
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
 `/path/to/sd/card/etc/network/interfaces`
@@ -42,14 +42,14 @@ wpa-ssid <your-network-name>
 wpa-psk <your-password>
 ```
 
-Replace `<your-network-name>` and `<your-password>` with your own credentials. Save the file (without adding any additional extensions to the end of the filename).
+Replace `<your-network-name>` and `<your-password>` with your own credentials (just text, no quotes). Save the file (without adding any additional extensions to the end of the filename).
 
-Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to step 4.
+Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to [Test ssh access](rpi.md#Test SSH Access).
 
 ### Mac OS X
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
-You cannot do 3a on a Mac, aka access EXT4 partitions without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable, SSH in (see below), and continue setting things up as described below (here in 3b) to get the wifi running. The below method will help you set up two or more wifi networks. This is highly recommended so you can add your home wifi network and your phone's hotspot network to use on the go.
+You cannot do the above step on a Mac (read files on EXT4 partitions without using 3rd party software). The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable, SSH in (see below), and continue setting things up as described below to get the wifi running. The below method will help you set up two or more wifi networks. This is highly recommended so you can add your home wifi network and your phone's hotspot network to use on the go.
 
 Type `sudo bash` and hit enter
 
@@ -59,7 +59,6 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 
 Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
-<br>
 ## Test SSH Access
 
 ### Windows
@@ -72,19 +71,19 @@ Make sure that the computer is connected to the same WiFi router that the RPi2 i
 
 Open Terminal and enter this command:
 
-  `ssh pi@raspberrypi.local`
+`ssh pi@raspberrypi.local`
 
-  Default password for the user `pi` is `raspberry`
+Default password for the user `pi` is `raspberry`
 
 ### Linux 
 
 Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
 
-  Open Terminal and enter this command:
+Open Terminal and enter this command:
 
-  `ssh pi@raspberrypi.local`
+`ssh pi@raspberrypi.local`
 
-  Default password for the user `pi` is `raspberry`
+Default password for the user `pi` is `raspberry`
 
 ### iOS
 You probably want to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
@@ -94,7 +93,6 @@ You probably want to make your phone a hotspot and configure the WiFi connection
 
 Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
 
-<br>
 ## Configure the Raspberry Pi
 
 Run

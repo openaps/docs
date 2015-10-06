@@ -2,7 +2,7 @@
 
 The setup process is broken into two parts: [configuring the Raspberry Pi](../Setup/rpi.md) and [installing the openaps tools and dependencies](../Setup/openaps.md). After completing these steps, you will be able to use the openaps tools to communicate with your insulin pump and CGM.
 
-Note: At this stage, you may want to begin documenting each step that you take. This will help in two ways. 
+At this stage, you may want to begin documenting each step that you take. This will help in two ways. 
 
 First, this enables you to better ask for assistance if you run into errors, bugs, etc. By explaining where you are in the documentation and what you're seeing (by copying and pasting your last command and the output), someone can better provide tips on what you should consider next. 
 
