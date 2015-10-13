@@ -49,7 +49,11 @@ Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi ad
 ### Mac OS X
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
-You cannot do 3a on a Mac, aka access EXT4 partitions without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable, SSH in (see below), and continue setting things up as described below (here in 3b) to get the wifi running. The below method will help you set up two or more wifi networks. This is highly recommended so you can add your home wifi network and your phone's hotspot network to use on the go.
+You cannot access EXT4 partitions on a Mac without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable and SSH in (see below) to configure wifi.
+
+Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
+
+To configure wifi:
 
 Type `sudo bash` and hit enter
 
@@ -66,21 +70,11 @@ Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_pa
 
 Make sure that the computer is connected to the same WiFi router that the RPi2 is using. Download PuTTY [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Hostname is `pi@raspberrypi.local` and default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. Click `Open` to initiate the SSH session.
 
-### Mac OS X
+### Mac OS X / Linux
 
 Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
 
 Open Terminal and enter this command:
-
-  `ssh pi@raspberrypi.local`
-
-  Default password for the user `pi` is `raspberry`
-
-### Linux 
-
-Make sure that the computer is connected to the same WiFi router that the RPi2 is using.
-
-  Open Terminal and enter this command:
 
   `ssh pi@raspberrypi.local`
 
