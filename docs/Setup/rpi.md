@@ -20,7 +20,7 @@ For the Path 2 Headless install, you will need:
 * Micro USB cable 
 * Raspberry Pi 2 CanaKit
 
-Path 1: GUI Setup
+## Path 1: GUI Setup
 
 1.:  **Plug in Applicable peripherals**
 First, insert your USB keyboard and USB mouse into the RPi2.  Then insert the included USB WIFI into the RPi2.  Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.  Next, insert the Micro SD Card included with your CanaKit into the RPi2.  Finally connect your RPi2 using the power adapter.  You should see the GUI appear on sceen.  
@@ -33,17 +33,18 @@ Once you have installed Rasbian and connected to WIFI, you can disconnect the mo
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to first getting the image in step 1.
 
 <br>
-## Download Raspbian
+## Path 2: Headless Install
+### Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
 
 <br>
-## Write Raspbian to the Micro SD Card
+### Write Raspbian to the Micro SD Card
 If needed, use this [guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
 <br>
-## Configure WiFi Settings
+### Configure WiFi Settings
 
-### Windows
+#### Windows
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
 `/path/to/sd/card/etc/network/interfaces`
@@ -68,7 +69,7 @@ If you are unable to access this file on your computer, connect your Pi to your 
 
 Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to step 4. <???Where is step 4 listed???>
 
-### Mac OS X
+#### Mac OS X
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
 You cannot access EXT4 partitions on a Mac without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable and SSH in (see below) to configure wifi.
