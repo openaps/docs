@@ -1,37 +1,31 @@
 # Introduction 
 
-Welcome to the documentation for [openaps](https://github.com/openaps/openaps).
-
-This is part of a series of tools to support a self-driven DIY
-implementation based on the OpenAPS reference design. The tools may be
-categorized as *monitor* (collecting data about the environment, and
-operational status of devices and/or aggregating as much data as is
-relevant into one place), *predict* (make predictions about what should
-happen next), or *control* (enacting changes, and feeding more data back
-into the *monitor*). 
-
-By proceeding to use these tools or any piece within, you agree to the
-copyright (see LICENSE.txt for more information) and release any
-contributors from liability. 
-
+Welcome to the [openaps](https://github.com/openaps/openaps) documentation!
 
 ![Example OpenAPS Setup](./docs/IMG_1112.jpg)
 
+`openaps` is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/).
+
+The tools may be categorized as:
+
+*  **monitor**—collecting data and operational status from devices, and/or aggregating as much data as is relevant into one place
+
+* **predict**—make predictions about what will happen next
+
+* **control**—enacting changes, and feeding more data back into the **monitor**, closing the loop.
+
+By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
+
+##Note
+
+This is a set of development tools to support a self-driven DIY implementation. Any person choosing to use these tools is solely responsible for testing and implementing these tools independently or together as a system.  
+
+**The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO).** While formal training or experience as an engineer or a developer is not required, **what is required:**
+
+* a growth mindset to learn what are essentially "building blocks" to implement an OpenAPS system. 
+	
+	* This is not a "set and forget" system; `openaps` requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
+
+**This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.**
 
 
-**Note:** This is intended to be a set of tools to support a self-driven DIY
-implementation and any person choosing to use these tools is solely
-responsible for testing and implementing these tools independently or
-together as a system.  The [DIY part of OpenAPS is important]
-(http://bit.ly/1NBbZtO). While formal training or experience as an
-engineer or a developer is not required, what *is* required is a growth
-mindset to learn what are essentially "building blocks" to implement an
-OpenAPS instance. This is not a "set and forget" system; it requires
-diligent and consistent testing and monitoring to ensure each piece of
-the system is monitoring, predicting, and performing as desired.  The
-performance and quality of your system lies solely with you.
-
-Additionally, this community of contributors believes in "paying it
-forward," and individuals who are implementing these tools are asked to
-contribute by asking questions, helping improve documentation, and
-contributing in other ways.
