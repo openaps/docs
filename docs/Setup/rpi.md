@@ -30,16 +30,18 @@ At this point you can consult the color instruction pamphlet included with your 
 
 Once you have installed Rasbian and connected to WIFI, you can disconnect the mouse, keyboard and HDMI cable.  You can now skip to Step #4 and SSH into your RPi2.  Remember to keep your RPi2 plugged in, just disconnect peripherals.  Also remember to never disconnect your RPi2, without shutting it down properly using the sudo shutdown -h now command
 
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to first getting the image in step 1.
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to Download and Write Raspbian to the MicroSD card.
 
 <br>
 ## Path 2: Headless Install
 ### Download Raspbian
-Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
+Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
+Make sure to extract the disk .img from the ZIP file.
 
 <br>
 ### Write Raspbian to the Micro SD Card
-If needed, use this [guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
+Erase (format) your SD card using https://www.sdcard.org/downloads/formatter_4/
+Write the Raspbian .img you extracted from the ZIP file above to the SD card using the instructions at https://www.raspberrypi.org/documentation/installation/installing-images/
 
 <br>
 ### Configure WiFi Settings
