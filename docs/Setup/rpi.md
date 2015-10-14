@@ -22,8 +22,7 @@ For the Path 2 Headless install, you will need:
 
 ## Path 1: GUI Setup
 
-1.  **Plug in Applicable peripherals**
-
+1:  **Plug in Applicable peripherals**
 * First, insert your USB keyboard and USB mouse into the RPi2.
 * Then insert the included USB WIFI into the RPi2.
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
@@ -31,7 +30,7 @@ For the Path 2 Headless install, you will need:
 * Finally connect your RPi2 using the power adapter.
 * You should see the GUI appear on sceen.  
 
-2.  **Install Raspbian and Connect WIFI**
+2:  **Install Raspbian and Connect WIFI**
 
 At this point you can consult the color instruction pamphlet included with your CanaKit, which will walk you through installing Raspbian and connecting the RPi2 to your WIFI router.  
 
