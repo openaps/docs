@@ -22,7 +22,8 @@ For the Path 2 Headless install, you will need:
 
 ## Path 1: GUI Setup
 
-1.:  **Plug in Applicable peripherals**
+1.  **Plug in Applicable peripherals**
+
 * First, insert your USB keyboard and USB mouse into the RPi2.
 * Then insert the included USB WIFI into the RPi2.
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
@@ -30,14 +31,16 @@ For the Path 2 Headless install, you will need:
 * Finally connect your RPi2 using the power adapter.
 * You should see the GUI appear on sceen.  
 
-2.:  **Install Raspbian and Connect WIFI**
+2.  **Install Raspbian and Connect WIFI**
+
 At this point you can consult the color instruction pamphlet included with your CanaKit, which will walk you through installing Raspbian and connecting the RPi2 to your WIFI router.  
 
 Once you have installed Rasbian and connected to WIFI, you can disconnect the mouse, keyboard and HDMI cable.  You can now skip to "Test SSH Access" and SSH into your RPi2.  Remember to keep your RPi2 plugged in, just disconnect peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
 
+## Path 2: Headless Install
+
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to Download and Write Raspbian to the MicroSD card.
 
-## Path 2: Headless Install
 ### Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
 Make sure to extract the disk .img from the ZIP file.
