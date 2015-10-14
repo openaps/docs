@@ -64,7 +64,9 @@ wpa-psk <your-password>
 
 Replace `<your-network-name>` and `<your-password>` with your own credentials. Save the file (without adding any additional extensions to the end of the filename).
 
-Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to step 4.
+If you are unable to access this file on your computer, connect your Pi to your computer with an ethernet cable and boot your Pi (as described below in Section XXXX). Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22. Accept the security key in the popup window. The login is `pi` and the password is `raspberry`. In the directory `/path/to/sd/card/etc/network`, type `sudo nano interfaces` and edit the file as described in Section XXXX above. 
+
+Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to step 4. <???Where is step 4 listed???>
 
 ### Mac OS X
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
