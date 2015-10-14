@@ -51,7 +51,7 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 
 ### Configure WiFi Settings
 
-#### Windows
+#### Headless WiFi configuration (Windows)
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
 `/path/to/sd/card/etc/network/interfaces`
@@ -72,14 +72,17 @@ wpa-psk <your-password>
 
 Replace `<your-network-name>` and `<your-password>` with your own credentials. Save the file (without adding any additional extensions to the end of the filename).
 
-If you are unable to access this file on your computer, connect your Pi to your computer with an ethernet cable and boot your Pi (as described below in Section XXXX). Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22. Accept the security key in the popup window. The login is `pi` and the password is `raspberry`. In the directory `/path/to/sd/card/etc/network`, type `sudo nano interfaces` and edit the file as described in Section XXXX above. 
+Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
-Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to step 4. <???Where is step 4 listed???>
+If you are unable to access this file on your computer, connect your Pi to your computer with an ethernet cable and boot your Pi (as described below). Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22. Accept the security key in the popup window. The login is `pi` and the password is `raspberry`. In the directory `/path/to/sd/card/etc/network`, type `sudo nano interfaces` and edit the file as described above, or follow the OS X directions below. 
 
-#### Mac OS X
+#### Logged-in WiFi configuration (Mac OS X)
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
-You cannot access EXT4 partitions on a Mac without using 3rd party software. The easiest alternative it is to a) get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)) or b) temporarily connect RPi to a router with an ethernet cable and SSH in (see below) to configure wifi.
+On a Mac, you cannot access EXT4 partitions (like the Raspberry Pi uses) without using 3rd party software. To log into the Raspberry Pi and configure wi-fi, you'll need to use one of these methods:
+* Get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf))
+* temporarily connect RPi to a router with an ethernet cable and SSH in (see below)
+* use a keyboard, mouse, and monitor (see Path 1 above)
 
 Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
 
