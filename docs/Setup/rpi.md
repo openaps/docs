@@ -146,27 +146,31 @@ The packages will take some time to install.
 ## Setup Password-less Login [optional]
 
 ### Windows
-Secure your RPi2. Log out by executing
 
-`exit`
+If you don't already have an SSH key, follow [this guide](https://help.github.com/articles/generating-ssh-keys/) from GitHub to create one.
+
+Create a .ssh directory on the Pi: run `mkdir .ssh`
+
+Log out by typing `exit`
 
 and copy your public SSH key into your RPi2 by entering
 
 `ssh-copy-id pi@raspberrypi.local`
 
-Now you should be able to log in without a password. Repeat `step 4` and try to SSH into the RPi2 without a password.
+Now you should be able to log in without a password. Try to SSH into the RPi2 again, this time without a password.
 
-*Don't have an SSH key?* Follow [this guide](https://help.github.com/articles/generating-ssh-keys/) from GitHub to obtain one.
 
 ### Mac and Linux
-First `ssh-keygen` (keep hitting enter to accept all the defaults)
+If you don't already have an ssh key, then on your local computer ( *not* on the Pi ), by running `ssh-keygen` (keep hitting enter to accept all the defaults)
 
-Next  `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
+Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local`, enter your password, and run `mkdir .ssh`
 
-Finally `ssh pi@raspberrypi.local`
+Next copy your public key to the Pi: `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
 
-### All Systems
-Since we have no password, we need to disable password login. Open the `sshd_config` file in nano text editor as follows
+Finally `ssh pi@raspberrypi.local` to make sure you can log in without a password.
+
+### Disabling password login [optional]
+To secure the Pi, you should either set a password (using `sudo raspi-config` above, or with `sudo passwd`), or disable password login completely. If you want to disable password login (so you can only log in with your ssh key), open the `sshd_config` file in nano text editor on the Pi as follows
 
 `sudo nano /etc/ssh/sshd_config`
 
