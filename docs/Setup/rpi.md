@@ -192,34 +192,25 @@ Note that the second line was previously commented out.
 
 From now on you will be able to SSH in with your private SSH key only.
 
-<br>
+## Wifi reliability tweaks [optional]
+
+Many people have reported power issues with the 8192cu wireless chip found in many wifi adapters when used with the Raspberry Pi.  As a workaround, we can disable the power management features (which this chip doesn't have anyway) as follows:
+
+`sudo bash -c 'echo "options 8192cu rtw_power_mgnt=0 rtw_enusbss=0" >> /etc/modprobe.d/8192cu.conf'`
+
 ## Watchdog [optional]
 
 Now you can consider installing watchdog, which restarts the RPi2 if it becomes unresponsive.
 
-Enter in:
-
-`sudo apt-get install watchdog`
-
-Then enter:
+Enable the built-in hardware watchdog chip on the Raspberry Pi:
 
 `sudo modprobe bcm2708_wdog`
 
+`sudo bash -c 'echo "bcm2708_wdog" >> /etc/modules'`
 
-Create a new file 8192cu.conf in /etc/modprobe.d/:
+Install the watchdog package, which controls the conditions under which the hardware watchdog restarts the Pi:
 
-`sudo nano /etc/modprobe.d/8192cu.conf`
-
-Add this line to the file (paste it in):
-`options 8192cu rtw_power_mgnt=0 rtw_enusbss=0` (Look at hints on bottom of screen; Control x to exit, yes to save, enter)
-
-Then enter this line to open up the following file:
-
-`sudo nano /etc/modules`
-
-At the bottom of the file copy and paste:
-
-`bcm2708_wdog` (Look at hints on bottom of screen; Control x to exit, yes to save, enter)
+`sudo apt-get install watchdog`
 
 Next, add watchdog to startup applications:
 
