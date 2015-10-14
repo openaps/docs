@@ -1,14 +1,34 @@
 # Setting Up the Raspberry Pi 2
 
-In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. By far, the most convenient approach for setting up the RPi2 is by avoiding the use of cables. This is the quickest way to get up and running with your RPi2 and avoids frustration.
+In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system instalation and WIFI setup.  Path 1 is reccomended for beginners that are very new to using command prompts or "terminal" on the Mac. 
+Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
+Either way, it is recomended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install. 
 
-For the install, you will need:
+For the Path 1 GUI install you will need:
+
+* A Raspberry Pi 2 CanaKit, which includes several essential accessories in one package (See e.g. http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW)
+* USB Keyboard 
+* USB Mouse 
+* A TV or other screen with HDMI input  
+
+For the Path 2 Headless install, you will need:
 
 * Raspberry Pi 2
-* 8 GB micro SD Card (see note below)
+* 8 GB micro SD Card [and optional adapter so that you can plug in the micro SD Card into your computer]
 * Low Profile USB WiFi Adapter
 * 2.1 Amp USB Power Supply
 * Micro USB cable 
+* Raspberry Pi 2 CanaKit
+
+Path 1: GUI Setup
+
+1.:  **Plug in Applicable peripherals**
+First, insert your USB keyboard and USB mouse into the RPi2.  Then insert the included USB WIFI into the RPi2.  Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.  Next, insert the Micro SD Card included with your CanaKit into the RPi2.  Finally connect your RPi2 using the power adapter.  You should see the GUI appear on sceen.  
+
+2.:  **Install Raspbian and Connect WIFI**
+At this point you can consult the color instruction pamphlet included with your CanaKit, which will walk you through installing Raspbian and connecting the RPi2 to your WIFI router.  
+
+Once you have installed Rasbian and connected to WIFI, you can disconnect the mouse, keyboard and HDMI cable.  You can now skip to Step #4 and SSH into your RPi2.  Remember to keep your RPi2 plugged in, just disconnect peripherals.  Also remember to never disconnect your RPi2, without shutting it down properly using the sudo shutdown -h now command
 
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, rather than having to first getting the image in step 1.
 
