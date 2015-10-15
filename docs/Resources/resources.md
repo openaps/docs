@@ -13,6 +13,8 @@
 
 [Code School Interactive Git Introduction](https://try.github.io/)
 
+[Codecademy Git Course](https://www.codecademy.com/en/courses/learn-git)
+
 ## Linux Shell / Terminal
 
 [Learn UNIX in 10 Minutes](http://freeengineer.org/learnUNIXin10minutes.html)
