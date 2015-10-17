@@ -10,17 +10,14 @@ For the install, you will need:
 * 2.1 Amp USB Power Supply
 * Micro USB cable 
 
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian. To initiate this installation you will need to follow the directions that came with it, which requires a monitor and keyboard (but then allows you to skip the next two steps).
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspbian. To initiate this installation you will need to follow the directions that came with it, using a monitor and keyboard to follow install prompts. If you take this route, jump to [configure](rpi.md#configure-wifi-settings). With no keyboard and monitor you could continue as if the SD card were blank.
 
-<br>
 ## Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). Make sure to extract the ZIP file.
 
-<br>
 ## Write Raspbian to the Micro SD Card
 If needed, use this [guide](http://elinux.org/RPi_Easy_SD_Card_Setup). Please view the sections on flashing the SD card using Windows, Mac OS X, or Linux, depending on which operating system you use.
 
-<br>
 ## Configure WiFi Settings
 
 ### Windows and Linux
@@ -44,7 +41,7 @@ wpa-psk <your-password>
 
 Replace `<your-network-name>` and `<your-password>` with your own credentials (just text, no quotes). Save the file (without adding any additional extensions to the end of the filename).
 
-Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to [Test ssh access](rpi.md#Test SSH Access).
+Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.) Skip to [Test ssh access](rpi.md#test-ssh-access).
 
 ### Mac OS X
 First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
@@ -86,10 +83,13 @@ Open Terminal and enter this command:
 Default password for the user `pi` is `raspberry`
 
 ### iOS
-You probably want to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
+Make sure that the iOS device is connected to the same WiFi network that the RPi2 is using. Download Serverauditor or Prompt 2 (use this if you have a visual impairment). Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. 
 
+You probably also want to make your phone a hotspot and configure the WiFi connection (as above) to use the hotspot. 
 ### Android
-You probably want to make your phone a hotspot and configure the WiFi connection in `step 3` to use the hotspot. Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH.
+Make sure that the Android device is connected to the same WiFi network that the RPi2 is using. Download an SSH client in the Google Play store. Hostname is `pi@raspberrypi.local` and the default password for the user `pi` is `raspberry`. The port should be set to 22 (by default), and the connection type should be set to SSH. You may need to ssh using the ip address instead; the app "Fing - Network Tools" will tell you what the address is if needed.
+
+You probably also want to make your phone a hotspot and configure the WiFi connection (as above) to use the hotspot. 
 
 Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
 
