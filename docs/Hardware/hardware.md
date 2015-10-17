@@ -54,6 +54,8 @@ Currently, the only supported device\* for uploading pump data and interfacing o
 
 [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
+A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are trasmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick. Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
+
 _*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. It is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not currently recommended._
  
 
