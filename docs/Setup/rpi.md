@@ -85,7 +85,7 @@ First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB W
 On a Mac, you cannot access EXT4 partitions (like the Raspberry Pi uses) without using 3rd party software. To log into the Raspberry Pi and configure wi-fi, you'll need to use one of these methods:
 * Get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf))
 * Temporarily connect RPi to a router with an ethernet cable and SSH in (see below)
-* Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)and SSH in (see below)
+* Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
 * Use a keyboard, mouse, and monitor (see Path 1 above)
 
 Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
