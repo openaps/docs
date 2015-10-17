@@ -85,7 +85,7 @@ First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB W
 On a Mac, you cannot access EXT4 partitions (like the Raspberry Pi uses) without using 3rd party software. To log into the Raspberry Pi and configure wi-fi, you'll need to use one of these methods:
 * Get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf))
 * Temporarily connect RPi to a router with an ethernet cable and SSH in (see below)
-* Connect the RPi directly to your computer with an ethernet cable and SSH in (see below)
+* Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)and SSH in (see below)
 * Use a keyboard, mouse, and monitor (see Path 1 above)
 
 Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
@@ -125,7 +125,7 @@ Make sure that the Android device is connected to the same WiFi network that the
 
 You probably also want to make your phone a hotspot and configure the WiFi connection (as above) to use the hotspot. 
 
-Note: If connecting to the RPi2 fails at this point, the easiest alternative it is to temporarily connect RPi to router with ethernet cable, and SSH in, given both the computer and the RPi2 are connected to the same router.
+Note: If connecting to the RPi2 fails at this point, the easiest alternative is to temporarily connect RPi to your router with an ethernet cable and SSH in, making sure both the computer and the RPi2 are connected to the same router.
 
 ## Configure the Raspberry Pi
 
@@ -135,7 +135,6 @@ Run
 
 to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so it is a good idea to go ahead and run `sudo reboot` now.
 
-<br>
 ## Update the Raspberry Pi
 
 Update the RPi2.
@@ -144,7 +143,6 @@ Update the RPi2.
 
 The packages will take some time to install.
 
-<br>
 ## Setup Password-less Login [optional]
 
 ### Windows
