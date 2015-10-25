@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install -y git python python-dev python-setuptools python-software-properties python-numpy python-pip nodejs-legacy npm watchdog && \
+sudo ( apt-get install -y git python python-dev python-setuptools python-software-properties python-numpy python-pip nodejs-legacy npm watchdog ) && \
 (mkdir src; cd src && \
 git clone git://github.com:bewest/decoding-carelink.git && \
 git clone git://github.com:bewest/dexcom_reader.git && \
