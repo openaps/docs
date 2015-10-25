@@ -5,7 +5,7 @@ This section provides information on installing the base openaps toolkit and its
 
 Run
 
-`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy python-pip npm`
+`sudo apt-get install python python-dev python-setuptools python-software-properties python-numpy python-pip nodejs-legacy npm`
 
 This installs a number of packages required by openaps.
 
@@ -48,9 +48,3 @@ In order to set your git account's default identity, you will need to run the fo
 
 replace `you@example.com` and `Your Name` with your own information, but keep the quotes.
 
-<br>
-## Alias 'nodejs' to 'node' for oref0 (optional)
-
-Run
-
-`sudo ln -s /usr/bin/nodejs /usr/bin/node`
