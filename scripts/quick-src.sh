@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get install -y git python python-dev python-setuptools python-software-properties python-numpy python-pip nodejs-legacy npm watchdog && \
-(mkdir src && cd src && \
+(mkdir src; cd src && \
 git clone -b bewest/dev git@github.com:bewest/decoding-carelink.git && \
 git clone git@github.com:bewest/dexcom_reader.git && \
 git clone git@github.com:openaps/openaps.git && \
@@ -16,7 +16,8 @@ sudo python setup.py develop
 sudo python setup.py develop
 )
 ) && \
-test -d src/ && sudo chown -R $USER src/
+test -d src/ && sudo chown -R $USER src/ && \
+npm install -g json && \
 test -d src/oref0 && (cd src/oref0
 npm install && \
 sudo npm install -g && \

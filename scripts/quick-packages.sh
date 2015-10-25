@@ -6,7 +6,7 @@ sudo easy_install -ZU setuptools && \
 sudo easy_install -ZU openaps && \
 sudo openaps-install-udev-rules && \
 sudo activate-global-python-argcomplete && \
-sudo npm install -g oref0 && \
+sudo npm install -g json oref0 && \
 echo openaps installed
 openaps --version
 
