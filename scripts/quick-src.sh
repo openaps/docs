@@ -18,7 +18,7 @@ sudo python setup.py develop
 )
 ) && \
 test -d src/ && sudo chown -R $USER src/ && \
-npm install -g json && \
+sudo npm install -g json && \
 test -d src/oref0 && (cd src/oref0
 npm install && \
 sudo npm install -g && \
