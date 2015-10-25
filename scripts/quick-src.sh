@@ -19,7 +19,7 @@ cd src && \
     git clone git://github.com/openaps/oref0.git && \
     test -d src/ && sudo chown -R $USER src/ && \
     sudo npm install -g json && \
-    test -d src/oref0 &&
+    test -d src/oref0 && \
     (
         cd src/oref0
         npm install && \
