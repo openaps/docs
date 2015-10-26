@@ -8,15 +8,15 @@ mkdir src
     (cd decoding-carelink && \
     sudo python setup.py develop
     )
-    git clone git://github.com/bewest/dexcom_reader.git
+    git clone -b dev git://github.com/bewest/dexcom_reader.git
     (cd dexcom_reader && \
     sudo python setup.py develop
     )
-    git clone git://github.com/openaps/openaps.git
+    git clone -b dev git://github.com/openaps/openaps.git
     (cd openaps && \
     sudo python setup.py develop
     )
-    git clone git://github.com/openaps/oref0.git
+    git clone -b dev git://github.com/openaps/oref0.git
 )
 test -d src/oref0 && \
 cd src/oref0 && \
