@@ -7,15 +7,15 @@ This section provides information on installing the base openaps toolkit and its
 
 This is the recommended way to install:
 
-`curl -s https://github.com/openaps/docs/blob/setuptools-npm/scripts/quick-packages.sh | bash -`
+`curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
-This uses [this script](https://github.com/openaps/docs/blob/setuptools-npm/scripts/quick-packages.sh) to install all the dependencies in one step.
+This uses [this script](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh) to install all the dependencies in one step.
 
 ### Installing from source
 
 It's possible to use the package manager to install development branches.  If you are hacking on the code, you'll need a way to develop using versions you control.  Here's a quick way to do that:
 
-`curl -s https://github.com/openaps/docs/blob/setuptools-npm/scripts/quick-src.sh | bash -`
+`curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh | bash -`
 
 ## Manual install
 ### Install Python and Node.js Packages System-Wide
