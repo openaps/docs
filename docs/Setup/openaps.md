@@ -17,8 +17,8 @@ It's possible to use the package manager to install development branches.  If yo
 
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh | bash -`
 
-## Manual install
-### Install Python and Node.js Packages System-Wide
+## Manual install [optional]
+### Install Python and Node.js Packages System-Wide [optional]
 
 Run
 
@@ -27,7 +27,7 @@ Run
 This installs a number of packages required by openaps.
 
 <br>
-### Install openaps
+### Install openaps [optional]
 
 Run
 
@@ -37,7 +37,7 @@ Run
 Running this command will also update openaps on your system if a newer version is available.
 
 <br>
-### Install udev-rules
+### Install udev-rules [optional]
 
 Run
 
@@ -45,7 +45,7 @@ Run
 
 
 <br>
-### Enable Tab Completion
+### Enable Tab Completion [optional]
 
 Run
 
