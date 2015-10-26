@@ -9,7 +9,7 @@ mkdir src
     (cd decoding-carelink && \
     sudo python setup.py develop
     )
-    git clone -b dev git://github.com/bewest/dexcom_reader.git
+    git clone git://github.com/bewest/dexcom_reader.git
     (cd dexcom_reader && \
     sudo python setup.py develop
     )
