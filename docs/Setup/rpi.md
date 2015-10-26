@@ -135,14 +135,6 @@ Run
 
 to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so it is a good idea to go ahead and run `sudo reboot` now.
 
-## Update the Raspberry Pi
-
-Update the RPi2.
-
-`sudo apt-get update && sudo apt-get -y upgrade`
-
-The packages will take some time to install.
-
 ## Setup Password-less Login [optional]
 
 ### Windows
@@ -230,3 +222,11 @@ watchdog-device
 Finally, start watchdog by entering:
 
 `sudo service watchdog start`
+
+## Update the Raspberry Pi [optional]
+
+Update the RPi2.
+
+`sudo apt-get update && sudo apt-get -y upgrade`
+
+The packages will take some time to install.
