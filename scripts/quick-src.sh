@@ -2,6 +2,7 @@
 
 sudo apt-get install -y git python python-dev python-setuptools python-software-properties python-numpy python-pip nodejs-legacy npm watchdog && \
 sudo npm install -g json && \
+sudo easy_install -ZU setuptools && \
 mkdir src
 ( cd src && \
     git clone -b dev git://github.com/bewest/decoding-carelink.git
