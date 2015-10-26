@@ -1,7 +1,24 @@
 # Setting Up openaps
 This section provides information on installing the base openaps toolkit and its dependencies.
 
-## Install Python and Node.js Packages System-Wide
+## Easy install of openaps and dependencies
+
+### Using the package manager
+
+This is the recommended way to install:
+
+`curl -s https://github.com/openaps/docs/blob/setuptools-npm/scripts/quick-packages.sh | bash -`
+
+This uses [this script](https://github.com/openaps/docs/blob/setuptools-npm/scripts/quick-packages.sh) to install all the dependencies in one step.
+
+### Installing from source
+
+It's possible to use the package manager to install development branches.  If you are hacking on the code, you'll need a way to develop using versions you control.  Here's a quick way to do that:
+
+`curl -s https://github.com/openaps/docs/blob/setuptools-npm/scripts/quick-src.sh | bash -`
+
+## Manual install
+### Install Python and Node.js Packages System-Wide
 
 Run
 
@@ -10,7 +27,7 @@ Run
 This installs a number of packages required by openaps.
 
 <br>
-## Install openaps
+### Install openaps
 
 Run
 
@@ -20,7 +37,7 @@ Run
 Running this command will also update openaps on your system if a newer version is available.
 
 <br>
-## Install udev-rules
+### Install udev-rules
 
 Run
 
@@ -28,7 +45,7 @@ Run
 
 
 <br>
-## Enable Tab Completion
+### Enable Tab Completion
 
 Run
 
