@@ -41,7 +41,7 @@ Once you have installed Rasbian and connected to WIFI, you can disconnect the mo
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, but if you don't follow Path 1, just treat it as a blank SD card and continue here.
 
 ### Download Raspbian
-Raspbian is the recommended operating system for OpenAPS. You can download the latest version of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
+Raspbian is the recommended operating system for OpenAPS. You can download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
 Make sure to extract the disk .img from the ZIP file.
 
 ### Write Raspbian to the Micro SD Card
