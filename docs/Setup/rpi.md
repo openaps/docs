@@ -1,6 +1,6 @@
 # Setting Up the Raspberry Pi 2
 
-In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system instalation and WIFI setup.  Path 1 is reccomended for beginners that are very new to using command prompts or "terminal" on the Mac. 
+In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system instalation and WIFI setup.  Path 1 is recommended for beginners that are very new to using command prompts or "terminal" on the Mac. 
 Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
 Either way, it is recomended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install. 
 
