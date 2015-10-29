@@ -18,6 +18,10 @@ mkdir src
     (cd openaps && \
     sudo python setup.py develop
     )
+    git clone -b dev git://github.com/openaps/openaps-contrib.git
+    (cd openaps-contrib && \
+    sudo python setup.py develop
+    )
     git clone -b dev git://github.com/openaps/oref0.git
 )
 test -d src/oref0 && \
