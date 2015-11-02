@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo apt-get install -y git python python-dev python-setuptools python-software-properties python-numpy python-pip nodejs-legacy npm watchdog && \
+sudo apt-get install -y git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog && \
+( curl -s https://bootstrap.pypa.io/ez_setup.py | sudo python ) && \
 sudo npm install -g json && \
 sudo easy_install -ZU setuptools && \
 mkdir src
@@ -15,6 +16,10 @@ mkdir src
     )
     git clone -b dev git://github.com/openaps/openaps.git
     (cd openaps && \
+    sudo python setup.py develop
+    )
+    git clone -b dev git://github.com/openaps/openaps-contrib.git
+    (cd openaps-contrib && \
     sudo python setup.py develop
     )
     git clone -b dev git://github.com/openaps/oref0.git
