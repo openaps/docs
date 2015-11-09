@@ -5,7 +5,8 @@ sudo apt-get install -y git python python-dev python-software-properties python-
 sudo npm install -g json && \
 sudo easy_install -ZU setuptools && \
 mkdir src
-( cd src && \
+cd src && \
+(
     git clone -b dev git://github.com/bewest/decoding-carelink.git
     (cd decoding-carelink && \
     sudo python setup.py develop
@@ -33,5 +34,4 @@ sudo npm link oref0
 
 sudo openaps-install-udev-rules && \
 sudo activate-global-python-argcomplete && \
-echo openaps installed
 openaps --version
