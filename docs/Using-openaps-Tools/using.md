@@ -86,18 +86,28 @@ Now, both of your devices are in this configuration file:
 
 ```
 [device "pump"]
-serial = 123456
 vendor = openaps.vendors.medtronic
-expires = 2015-09-17T23:21:06.310008
-model = 723
+extra = pump.ini
 
 [device "cgms"]
 vendor = openaps.vendors.dexcom
+extra = cgms.ini
 ```
 
 Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
 
-Remember that, because your pump's serial number also serves as its security key, you must be careful with the `openaps.ini` file. If you need to share it for some reason, be sure and remove your serial number first.
+Because your pump's serial number also serves as its security key, that information is now stored in a separate ini file (here noted as `pump.ini`) that was created when you created the pump device. This makes it easier for sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini` more secure. Be careful with these files. Open the pump's ini file now (use the name reported to you in the line labeled `extra` in the `openaps.ini` file).
+
+`$ cat pump.ini`
+
+It should show something like this:
+
+```
+[device "pump"]
+serial = 123456
+```
+
+The serial number should match that of your pump. 
 
 If you made a mistake while adding your devices or simply don't like the name you used, you can go back and remove the devices as well. For example, to remove the pump:
 
@@ -203,7 +213,7 @@ If done correctly, the only thing returned in the terminal is:
 
 Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `<my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window, except there it was done with the `use` command. The report is simply running that same command and writing the output to the file you specified in the format you specified.
 
-Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`. Similarly, you can remove aliases with `$ openaps report remove <report_name>`.
+Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`. Similarly, you can remove reports with `$ openaps report remove <report_name>`.
 
 ### Invoking Reports
 
@@ -267,9 +277,9 @@ Take some time to create aliases for groups of reports that would be called at t
 
 There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](../Setup/rpi.md) and [Setting Up openaps](../Setup/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
 
-For this backup method, we will take advantage of the fact that your openaps instanace is a git repository. We won't go over git here, but take a look at the references on the [Resources](../Resources/resources.md) page to get familiar with the basics. Typically, we would do this backup using GitHub, since that is where most of the openaps repositories are located and you should already have an account. However, GitHub only provides free repositories if they are public, and since this repository has your `openaps.ini` file—and thus your pump's serial number—in it, we want to make sure it is private. You can [purchase a monthly GitHub plan](https://github.com/pricing), but there is another way.
+For this backup method, we will take advantage of the fact that your openaps instanace is a git repository. We won't go over git here, but take a look at the references on the [Resources](../Resources/resources.md) page to get familiar with the basics. Typically, we would do this backup using GitHub, since that is where most of the openaps repositories are located and you should already have an account. However, GitHub only provides free repositories if they are public, and since this repository has your `<my_pump_name>.ini` file—and thus your pump's serial number—in it, we want to make sure it is private. You can [purchase a monthly GitHub plan](https://github.com/pricing), but there is another way.
 
-[Bitbucket](https://bitbucket.org/) offers a similar service but permits users to create free private repositories. Go ahead and sign up and then create a repository. You can call it whatever you like, but makes sure that on the "Create a new repository" setup page you leave the "This is a private repository" box checked. Once created, you will be directed to a "Repository setup" page. Under the "Command line" section, click on the "I have an existing project" option and follow the instructions.
+[Bitbucket](https://bitbucket.org/) offers a similar service but permits users to create free private repositories. Go ahead and sign up and then create a repository. You can call it whatever you like, but make sure that on the "Create a new repository" setup page you leave the "This is a private repository" box checked. Once created, you will be directed to a "Repository setup" page. Under the "Command line" section, click on the "I have an existing project" option and follow the instructions.
 
 Once you have completed this step, all of the files in your `<my_openaps>` directory will be saved in your online Bitbucket repository. Whenever you would like to update your backup, simply go into your `<my_openaps>` directory and `$ git push`. This process can be automated, but we'll save that for another day.
 
