@@ -4,6 +4,8 @@ In order to use the RPi2 with openaps development tools, the RPi2 must have an o
 Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
 Either way, it is recomended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install. 
 
+**Important: if you purchased a Raspberry Pi 2 with a preformatted SD Card, then it will run some version of the operating system Rasbian (based off of the Linux Debian).  In order for OpenAPS to run, you must be on release 8.0 codename Jessie.  If you are on the older version 7.8 codename Wheezy, you must go through Path 3 listed below.  Check the documentation for Path 3 to determine what version of Raspian you were sent.**
+
 For the Path 1 GUI install you will need:
 
 * A Raspberry Pi 2 CanaKit, which includes several essential accessories in one package (See e.g. http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW)
@@ -32,6 +34,8 @@ For the Path 2 Headless install, you will need:
 
 2:  **Install Raspbian and Connect WIFI**
 
+3: [Determine Rasbian Version](#determine-version)
+
 At this point you can consult the color instruction pamphlet included with your CanaKit, which will walk you through installing Raspbian and connecting the RPi2 to your WIFI router.  
 
 Once you have installed Rasbian and connected to WIFI, you can disconnect the mouse, keyboard and HDMI cable.  You can now skip to "Test SSH Access" and SSH into your RPi2.  Remember to keep your RPi2 plugged in, just disconnect peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
@@ -41,7 +45,7 @@ Once you have installed Rasbian and connected to WIFI, you can disconnect the mo
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, but if you don't follow Path 1, just treat it as a blank SD card and continue here.
 
 ### Download Raspbian
-Raspbian is the recommended operating system for OpenAPS. You can download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
+Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
 Make sure to extract the disk .img from the ZIP file.
 
 ### Write Raspbian to the Micro SD Card
@@ -99,6 +103,34 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 (It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
 
 Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
+
+## Path 3: Upgrade to Rasbian version 8 codename Jessie <a id="determine-version"></a>
+
+### Determine your Raspian Version 
+* In order to do this, you must have done Path 1 or Path 2 above so that you have an environment to interact with
+* Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
+* Type `lsb_release -a`
+* If it says anything about Release / Jessie, you are done and can go down to "Test SSH Access"
+* If it says anything else, you need to "Put Jessie on your Micro SD Card"
+
+### Put Jessie on your Micro SD Card - Windows Instructions
+* First, format your card to take advantage of the full size it offers
+	* If you got your through CanaKit, when you put it in your PC it will look like it is 1GB in size despite saying it is 8GB
+* Download and install: https://www.sdcard.org/downloads/formatter_4/
+* Run SDFormatter
+	* Make sure your Micro SD Card is out of your Raspberry PI (shut it down first) and attached to your computer
+	* Choose the drive where your card is and hit "Options"
+	* Format Type:  Change to Full (Erase)
+	* This will erase your old Rasbian OS and make sure you are using the full SD card's available memory
+	* ![Example OpenAPS Setup](../Images/SDFormatter.png)
+	* Format the card
+* Download Rasbian 8 / Jessie
+	* https://www.raspberrypi.org/downloads/raspbian/
+	* Extract the IMG file
+* Follow the instruction here to write the IMG to your SD card
+	* https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+* After writing to the SD card, safely remove it from your computer and put it back into your RPi2 and power it up
+* You can now run `sudo raspi-config` to set your password and make any other localizations changes you want 
 
 ## Test SSH Access
 
