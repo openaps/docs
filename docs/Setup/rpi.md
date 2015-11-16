@@ -110,7 +110,7 @@ Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_pa
 * In order to do this, you must have done Path 1 or Path 2 above so that you have an environment to interact with
 * Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
 * Type `lsb_release -a`
-* If it says anything about Release / Jessie, you are done and can go down to "Test SSH Access"
+* If it says anything about Release 8 / Jessie, you are done and can go down to "Test SSH Access"
 * If it says anything else, you need to "Put Jessie on your Micro SD Card"
 
 ### Put Jessie on your Micro SD Card - Windows Instructions
