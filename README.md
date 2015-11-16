@@ -18,7 +18,7 @@ By proceeding to use these tools or any piece within, you agree to the copyright
 
 You may also find this flowchart helpful to further break down the areas of `monitor, predict, and control` into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
-
+![OpenAPS phase visualization](https://github.com/danamlewis/docs/blob/master/OpenAPS%20phase%20visualization_Nov%2015%202015.png)
 
 
 ##Note
@@ -41,19 +41,19 @@ This is a set of development tools to support a self-driven DIY implementation. 
 
 The 5 phases build upon the openaps development tools towards a working OpenAPS system:
 
-* [Phase 0: General Setup](../Building-a-system/initial-setup.md)<br>
+* [Phase 0: General Setup](docs/Overview/initial-setup.md)<br>
 Record baseline data; acquire and configure hardware, install software, and become familiar with the openaps environment
 
-* [Phase 1: Logging, cleaning and analyzing your data](../Building-a-system/data-collection.md)<br>
+* [Phase 1: Logging, cleaning and analyzing your data](docs/Overview/data-collection.md)<br>
 Create tools for logging and analyzing pump and CGM data
 
-* [Phase 2: Build a manual system](../Building-a-system/recommendation-engine.md)<br>
+* [Phase 2: Build a manual system](docs/Overview/manual-system.md)<br>
 Use the logged data with oref0 tools to suggest insulin dose adjustments, review and refine algorithms, test different scenarios for safety; prepare for creating a loop and implementing retry logic
 
-* [Phase 3: Automate your system](../Building-a-system/closing-the-loop.md)<br>
+* [Phase 3: Automate your system](docs/Overview/automate-system.md)<br>
 Apply the recommendations automatically and in real time by creating a schedule and continuing to validate and assess outputs
 
-* [Phase 4: Iterate and improve](../Building-a-system/getting-fancy.md)<br>
+* [Phase 4: Iterate and improve](docs/Overview/iterate-improve.md)<br>
 Improve the functionality of the system with additional software or hardware development
 
 ## Phase Structure
