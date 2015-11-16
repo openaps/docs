@@ -1,9 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Phase 0: Initial Setup](docs/Building-a-system/initial-setup.md)
 * [Building an OpenAPS Implementation](docs/Building-a-system/building.md)
-   * [Phase 0: Initial Setup](docs/Building-a-system/initial-setup.md)
    * [Phase 1: Data Collection](docs/Building-a-system/data-collection.md)
    * [Phase 2: Recommendation Engine](docs/Building-a-system/recommendation-engine.md)
    * [Phase 3: Closing the Loop](docs/Building-a-system/closing-the-loop.md)
