@@ -25,8 +25,8 @@ cd src && \
     )
     git clone -b dev git://github.com/openaps/oref0.git
 )
-test -d src/oref0 && \
-cd src/oref0 && \
+test -d oref0 && \
+cd oref0 && \
 npm install && \
 sudo npm install -g && \
 sudo npm link && \
