@@ -151,7 +151,7 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 ## Configure the Raspberry Pi
 
 ### Verify your Raspian Version 
-* In order to do this, you must have done Path 1 or Path 2 below so that you have an environment to interact with
+* In order to do this, you must have done Path 1 or Path 2 above so that you have an environment to interact with
 * Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
 * Type `lsb_release -a`
 * If it says anything about Release 8 / Jessie, you have the correct version and can continue.
