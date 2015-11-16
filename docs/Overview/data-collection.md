@@ -28,3 +28,4 @@ Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the 
         * Following guides to accomplish above phase tasks
     * Provide improved or alternative implementations
 
+Next: [Phase 2](manual-system.md)

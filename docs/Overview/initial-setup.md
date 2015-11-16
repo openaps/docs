@@ -23,4 +23,4 @@ Phase 0 focuses on getting everything required for an OpenAPS implementation pro
         * Solutions to overcome setup difficulties, especially for systems that are not yet covered (some different flavor of Linux, for example)
     * Help edit setup instructions for accuracy, coverage, ease of understanding
 
-Next: [Phase 1](docs/Overview/data-collection.md)
+Next: [Phase 1](data-collection.md)
