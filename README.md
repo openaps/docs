@@ -1,6 +1,6 @@
 # Introduction 
 
-Welcome to the [openaps](https://github.com/openaps/openaps) documentation!
+Welcome to the [openaps](https://github.com/openaps/) documentation!
 
 ![Example OpenAPS Setup](./docs/IMG_1112.jpg)
 
@@ -8,15 +8,15 @@ Welcome to the [openaps](https://github.com/openaps/openaps) documentation!
 
 The tools may be categorized as:
 
-*  **monitor**collecting data and operational status from devices, and/or aggregating as much data as is relevant into one place
+*  **monitor** collecting data and operational status from devices, and/or aggregating as much data as is relevant into one place
 
-* **predict**make predictions about what will happen next
+* **predict** make predictions about what will happen next
 
-* **control**enacting changes, and feeding more data back into the **monitor**, closing the loop.
+* **control** enacting changes, and feeding more data back into the **monitor**, closing the loop.
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
-You may also find this flowchart helpful to further break down the areas of `monitor, predict, and control` into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
+You may also find this flowchart helpful to further break down the areas of `monitor`, `predict`, and `control` into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
 ![OpenAPS phase visualization](https://github.com/danamlewis/docs/blob/master/OpenAPS%20phase%20visualization_Nov%2015%202015.png)
 
@@ -67,4 +67,35 @@ The document subsection for each phase has three components outlined:
 * Community Contribution--Users should be able to contribute to the **#OpenAPS** project and/or openaps development tool set during and after the phase.
 
 The recommended phase descriptions serve as one possible path to step through the development process in a structured way.
+
+
+# Table of Contents
+
+* [Introduction](README.md)
+   * [Phase 0](docs/Overview/initial-setup.md) 
+   * [Phase 1](docs/Overview/data-collection.md)
+   * [Phase 2](docs/Overview/manual-system.md)
+   * [Phase 3](docs/Overview/automate-system.md)
+   * [Phase 4](docs/Overview/iterate-improve.md)
+   * [Ways to contribute](docs/Overview/contribute.md)
+   * [Where to go for help](docs/Overview/communication-support-channels.md)
+* [Getting started](docs/getting-started/setup.md)
+   * [Storing 30 days of data and an a1c](docs/getting-started/baseline-data.md)
+   * [Hardware](docs/getting-started/hardware.md)
+   * [Setting up your raspberry Pi](docs/getting-started/rpi.md)
+   * [Setting up openaps and dependencies](docs/getting-started/openaps.md)
+* [Logging, cleaning, and analyzing your data](docs/Log-clean-analyze-with-openaps-tools/using.md)
+* [Build a manual system](docs/Build-manual-system/considerations.md)
+   * [Using oref0 tools](docs/Build-manual-system/Using-oref0-tools.md)
+   * [Creating a loop and retry logic](docs/Build-manual-system/loop-and-retry-logic.md)
+* [Automate your system](docs/Automate-system/considerations.md)
+   * [Creating a schedule](docs/Automate-system/create-schedule.md)
+   * [Validating outputs, outcomes, and other testing](docs/Automate-system/validate-output.md)
+* [Iterate and improve](docs/Iterate-improve/improvement-projects.md)
+* [Resources](docs/Resources/resources.md)
+   * [Technical resources](docs/Resources/technical-resources.md)
+   * [#OpenAPS overview and project history](docs/Resources/history.md)
+   * [Other projects, people & tools](docs/Resources/other-projects.md)
+   * [FAQs](docs/Resources/faq.md)
+* [Glossary](docs/Glossary/glossary.md)
 
