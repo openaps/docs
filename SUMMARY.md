@@ -9,5 +9,4 @@
 * [Other Projects & Tools](docs/Other-projects/other-projects.md)
 * [Resources](docs/Resources/resources.md)
 * [Glossary](docs/Glossary/glossary.md)
-* Introduction
 
