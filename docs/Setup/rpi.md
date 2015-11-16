@@ -1,8 +1,8 @@
 # Setting Up the Raspberry Pi 2
 
-In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system instalation and WIFI setup.  Path 1 is recommended for beginners that are very new to using command prompts or "terminal" on the Mac. 
+In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system instalation and WiFI setup.  Path 1 is recommended for beginners that are very new to using command prompts or "terminal" on the Mac. 
 Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
-Either way, it is recomended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install. 
+Either way, it is recommended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install. 
 
 For the Path 1 GUI install you will need:
 
@@ -19,39 +19,80 @@ For the Path 2 Headless install, you will need:
 * 2.1 Amp USB Power Supply
 * Micro USB cable 
 * Raspberry Pi 2 CanaKit
+* Console cable, ethernet cable, or Windows/Linux PC that can write ext4 filesystems
 
-## Path 1: GUI Setup
+## Download and Install Raspbian Jessie
 
-1:  **Plug in Applicable peripherals**
-* First, insert your USB keyboard and USB mouse into the RPi2.
-* Then insert the included USB WIFI into the RPi2.
-* Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
-* Next, insert the Micro SD Card included with your CanaKit into the RPi2.
-* Finally connect your RPi2 using the power adapter.
-* You should see the GUI appear on sceen.  
-
-2:  **Install Raspbian and Connect WIFI**
-
-At this point you can consult the color instruction pamphlet included with your CanaKit, which will walk you through installing Raspbian and connecting the RPi2 to your WIFI router.  
-
-Once you have installed Rasbian and connected to WIFI, you can disconnect the mouse, keyboard and HDMI cable.  You can now skip to "Test SSH Access" and SSH into your RPi2.  Remember to keep your RPi2 plugged in, just disconnect peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
-
-## Path 2: Headless Install
-
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged and ready to install Raspian, but if you don't follow Path 1, just treat it as a blank SD card and continue here.
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspian-version)), just treat it as a blank SD card and download and install the latest versian of Raspbian (currently version 8.0, codename Jessie).
 
 ### Download Raspbian
-Raspbian is the recommended operating system for OpenAPS. You can download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
-Make sure to extract the disk .img from the ZIP file.
+Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
+Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip] (http://www.7-zip.org/) on Windows and [The Unarchiver] (https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).
 
 ### Write Raspbian to the Micro SD Card
 Erase (format) your SD card using https://www.sdcard.org/downloads/formatter_4/
 
 Write the Raspbian .img you extracted from the ZIP file above to the SD card using the instructions at https://www.raspberrypi.org/documentation/installation/installing-images/
 
-### Configure WiFi Settings
+#### Detailed Windows Instructions
+* First, format your card to take advantage of the full size it offers
+	* If you got your through CanaKit, when you put it in your PC it will look like it is 1GB in size despite saying it is 8GB
+* Download and install: https://www.sdcard.org/downloads/formatter_4/
+* Run SDFormatter
+	* Make sure your Micro SD Card is out of your Raspberry PI (shut it down first) and attached to your computer
+	* Choose the drive where your card is and hit "Options"
+	* Format Type:  Change to Full (Erase)
+	* This will erase your old Rasbian OS and make sure you are using the full SD card's available memory
+	* ![Example OpenAPS Setup](../Images/SDFormatter.png)
+	* Format the card
+* Download Rasbian 8 / Jessie
+	* https://www.raspberrypi.org/downloads/raspbian/
+	* Extract the IMG file
+* Follow the instruction here to write the IMG to your SD card
+	* https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+* After writing to the SD card, safely remove it from your computer and put it back into your RPi2 and power it up
 
-#### Headless WiFi configuration (Windows)
+## Connect and configure WiFi
+
+* Insert the included USB WiFI into the RPi2.
+* Next, insert the Micro SD Card into the RPi2.
+
+### Path 1: Keyboard, Mouse, and HDMI monitor/TV
+
+* First, insert your USB keyboard and USB mouse into the RPi2.
+* Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
+* Finally connect your RPi2 using the power adapter.
+* You should see the GUI appear on sceen.  
+* Configure WiFi per the instruction pamphlet included with your CanaKit.
+* Once you have installed Rasbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable. 
+
+Remember to keep your RPi2 plugged in, just disconnect the peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
+
+You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2. 
+
+### Path 2: Console or Ethernet cable
+
+* Get and connect a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)), 
+* Temporarily connect RPi to a router with an ethernet cable and SSH in (see below), or
+* Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
+
+#### Configure WiFi Settings
+
+Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
+
+To configure wifi:
+
+Type `sudo bash` and hit enter
+
+Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where `<my_SSID_hotspot>` is the name of your phone's hotspot and `<my_hotspot_password>` is the password).
+
+(It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
+
+Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
+
+You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2. 
+
+### Path 3: Headless WiFi configuration (Windows/Linux only)
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
 `/path/to/sd/card/etc/network/interfaces`
@@ -79,26 +120,6 @@ If you are unable to access this file on your computer:
 * Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22.  The login is `pi` and the password is `raspberry`.
 * Type `sudo nano /etc/network/interfaces` and edit the file as described above, or follow the OS X directions below. 
 
-#### Logged-in WiFi configuration (Mac OS X)
-First boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
-
-On a Mac, you cannot access EXT4 partitions (like the Raspberry Pi uses) without using 3rd party software. To log into the Raspberry Pi and configure wi-fi, you'll need to use one of these methods:
-* Get a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf))
-* Temporarily connect RPi to a router with an ethernet cable and SSH in (see below)
-* Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
-* Use a keyboard, mouse, and monitor (see Path 1 above)
-
-Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
-
-To configure wifi:
-
-Type `sudo bash` and hit enter
-
-Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` and hit enter (where `<my_SSID_hotspot>` is the name of your phone's hotspot and `<my_hotspot_password>` is the password).
-
-(It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
-
-Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
 ## Test SSH Access
 
@@ -129,11 +150,19 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 
 ## Configure the Raspberry Pi
 
+### Verify your Raspian Version 
+* In order to do this, you must have done Path 1 or Path 2 above so that you have an environment to interact with
+* Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
+* Type `lsb_release -a`
+* If it says anything about Release 8 / Jessie, you have the correct version and can continue.
+* If it says anything else, you need to go back to [Download and Install Raspbian Jessie](#download-and-install-raspbian-jessie) 
+
+### Run raspi-config
 Run
 
 `sudo raspi-config` 
 
-to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so it is a good idea to go ahead and run `sudo reboot` now.
+to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
 
 ## Setup Password-less Login [optional]
 
