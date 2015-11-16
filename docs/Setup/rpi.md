@@ -154,8 +154,8 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 * In order to do this, you must have done Path 1 or Path 2 below so that you have an environment to interact with
 * Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
 * Type `lsb_release -a`
-* If it says anything about Release 8 / Jessie, you are done and can go down to "Test SSH Access"
-* If it says anything else, you need to go back to "Put Jessie on your Micro SD Card"
+* If it says anything about Release 8 / Jessie, you have the correct version and can continue.
+* If it says anything else, you need to go back to [Download and Install Raspbian Jessie](#download-and-install-raspbian-jessie) 
 
 ### Run raspi-config
 Run
