@@ -13,8 +13,11 @@ Additionally, you may want to consider some unit testing. There is a basic unit 
 If you'd like to help out with defining all the desired behaviors in the form of unit test cases:
 
 1) Please clone / checkout [oref0] (https://github.com/openaps/oref0)
+
 2) Type `sudo npm install -g mocha` and `sudo npm install -g should`
+
 3) You should then be able to run `make` (or something like `mocha -c tests/determine-basal.test.js 2>&1 | less -r`) from the openaps-js directory to run all of the existing unit tests
+
 4) As you add additional unit tests, you'll want to run `make` again after each one. 
 
 ###How to add more test cases:
