@@ -21,10 +21,9 @@ For the Path 2 Headless install, you will need:
 * Raspberry Pi 2 CanaKit
 * Console cable, ethernet cable, or Windows/Linux PC that can write ext4 filesystems
 
-<a id="download-install-jessie"></a>
 ## Download and Install Raspbian Jessie
 
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-version)), just treat it as a blank SD card and download and install the latest versian of Raspbian (currently version 8.0, codename Jessie).
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspian-version)), just treat it as a blank SD card and download and install the latest versian of Raspbian (currently version 8.0, codename Jessie).
 
 ### Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
@@ -58,7 +57,6 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 * Insert the included USB WiFI into the RPi2.
 * Next, insert the Micro SD Card into the RPi2.
 
-<a id="path1"></a>
 ### Path 1: Keyboard, Mouse, and HDMI monitor/TV
 
 * First, insert your USB keyboard and USB mouse into the RPi2.
@@ -70,16 +68,14 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 
 Remember to keep your RPi2 plugged in, just disconnect the peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
 
-You can now skip to [Test SSH Access](#test-ssh) and SSH into your RPi2. 
+You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2. 
 
-<a id="path2"></a>
 ### Path 2: Console or Ethernet cable
 
 * Get and connect a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)), 
 * Temporarily connect RPi to a router with an ethernet cable and SSH in (see below), or
 * Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
 
-<a id="configure-wifi"></a>
 #### Configure WiFi Settings
 
 Once you connect to the Pi, you'll want to set up your wifi network(s). It is recommended to add both your home wifi network and your phone's hotspot network if you want to use OpenAPS on the go.
@@ -94,9 +90,8 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 
 Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
-You can now skip to [Test SSH Access](#test-ssh) and SSH into your RPi2. 
+You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2. 
 
-<a id="headless-windows"></a>
 ### Path 3: Headless WiFi configuration (Windows/Linux only)
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
@@ -126,7 +121,6 @@ If you are unable to access this file on your computer:
 * Type `sudo nano /etc/network/interfaces` and edit the file as described above, or follow the OS X directions below. 
 
 
-<a id="test-ssh"></a>
 ## Test SSH Access
 
 ### Windows
@@ -154,10 +148,8 @@ You probably also want to make your phone a hotspot and configure the WiFi conne
 
 Note: If connecting to the RPi2 fails at this point, the easiest alternative is to temporarily connect RPi to your router with an ethernet cable and SSH in, making sure both the computer and the RPi2 are connected to the same router.
 
-<a id="configure-pi"></a>
 ## Configure the Raspberry Pi
 
-<a id="verify-version"></a>
 ### Verify your Raspian Version 
 * In order to do this, you must have done Path 1 or Path 2 below so that you have an environment to interact with
 * Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
@@ -165,7 +157,6 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 * If it says anything about Release 8 / Jessie, you are done and can go down to "Test SSH Access"
 * If it says anything else, you need to go back to "Put Jessie on your Micro SD Card"
 
-<a id="raspi-config"></a>
 ### Run raspi-config
 Run
 
