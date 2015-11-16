@@ -165,11 +165,13 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 * If it says anything about Release 8 / Jessie, you are done and can go down to "Test SSH Access"
 * If it says anything else, you need to go back to "Put Jessie on your Micro SD Card"
 
+<a id="raspi-config"></a>
+### Run raspi-config
 Run
 
 `sudo raspi-config` 
 
-to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so it is a good idea to go ahead and run `sudo reboot` now.
+to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
 
 ## Setup Password-less Login [optional]
 
