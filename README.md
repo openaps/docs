@@ -18,7 +18,7 @@ By proceeding to use these tools or any piece within, you agree to the copyright
 
 You may also find this flowchart helpful to further break down the areas of `monitor`, `predict`, and `control` into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
-![OpenAPS phase visualization](https://github.com/danamlewis/docs/blob/master/OpenAPS%20phase%20visualization_Nov%2015%202015.png)
+![OpenAPS phase visualization](https://github.com/danamlewis/docs/blob/master/OpenAPS_phase_visualization_Nov152015.png)
 
 
 ##Note

@@ -1,6 +1,6 @@
 # Communication Channels
 
-There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](docs/Resources/resources.md) section for additional assistance.
+There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](../Resources/resources.md) section for additional assistance.
 
 ### Gitter
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. The [nightscout/intend-to-bolus]( https://gitter.im/nightscout/intend-to-bolus) channel is where you will find active #OpenAPS discussions ranging from technical issues with openaps tools to control theory to general information. It is a great place to introduce yourself and get some help from those who are a few steps further down the road.
