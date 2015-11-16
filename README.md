@@ -31,7 +31,7 @@ This is a set of development tools to support a self-driven DIY implementation. 
 
 # Building an OpenAPS Implementation
 
-* Before deciding to close the loop, you will first [learn how to use the openaps tools](../Using-openaps-Tools/using.md) before building a system based on the OpenAPS reference design (which has related tools named under Òoref0Ó, which stands for ÒOpenAPS Reference Design 0Ó). 
+* Before deciding to close the loop, you will first [learn how to use the openaps tools](docs/Log-clean-analyze-with-openaps-tools/using.md) before building a system based on the OpenAPS reference design (which has related tools named under Òoref0Ó, which stands for ÒOpenAPS Reference Design 0Ó). 
 
 
 * [Again, make sure you understand why the DIY approach](http://bit.ly/1NBbZtO) for creating new tools and using the OpenAPS system development phases is a critical part of building a system.
