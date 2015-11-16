@@ -99,4 +99,4 @@ The recommended phase descriptions serve as one possible path to step through th
    * [FAQs](docs/Resources/faq.md)
 * [Glossary](docs/Glossary/glossary.md)
 
-[Next](docs/Overview/initial-setup.md) 
+Next: [Phase 0](docs/Overview/initial-setup.md) 
