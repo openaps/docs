@@ -42,7 +42,8 @@ Note: If you ordered the recommended CanaKit, your SD card will already come ima
 
 ### Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. You can download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
-Make sure to extract the disk .img from the ZIP file.
+
+Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip] (http://www.7-zip.org/) on Windows and [The Unarchiver] (https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).
 
 ### Write Raspbian to the Micro SD Card
 Erase (format) your SD card using https://www.sdcard.org/downloads/formatter_4/
