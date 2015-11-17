@@ -15,7 +15,7 @@
    * [Setting Up openaps and Dependencies](docs/getting-started/openaps.md)
 * [Phase 1: Logging, Cleaning, and Analyzing Your Data](docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
    * [Configuring and Learning to Use openaps Tools](docs/Log-clean-analyze-with-openaps-tools/using.md)
-* [Build a manual system](docs/Build-manual-system/considerations.md)
+* [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
    * [Using oref0 tools](docs/Build-manual-system/Using-oref0-tools.md)
    * [Creating a loop and retry logic](docs/Build-manual-system/loop-and-retry-logic.md)
 * [Automate your system](docs/Automate-system/considerations.md)
