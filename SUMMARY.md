@@ -7,7 +7,7 @@
    * [Phase 3](docs/Overview/automate-system.md)
    * [Phase 4](docs/Overview/iterate-improve.md)
    * [Conventions](docs/Overview/conventions.md)
-   * [Ways to contribute](docs/Overview/contribute.md)
+   * [Ways to Contribute](docs/Overview/contribute.md)
    * [Where to Go for Help](docs/Overview/communication-support-channels.md)
 * [Phase 0: General Setup](docs/getting-started/setup.md)
    * [Baseline Data](docs/getting-started/baseline-data.md)
