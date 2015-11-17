@@ -84,9 +84,9 @@ vendor = openaps.vendors.dexcom
 extra = cgms.ini
 ```
 
-Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
+Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`.
 
-Because your pump's serial number also serves as its security key, that information is now stored in a separate ini file (here noted as `pump.ini`) that was created when you created the pump device. This makes it easier for sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini` more secure. Be careful with these files. Open the pump's ini file now (use the name reported to you in the line labeled `extra` in the `openaps.ini` file).
+Because your pump's serial number also serves as its security key, that information is now stored in a separate .ini file (here noted as `pump.ini`) that was created when you created the pump device. This makes it easier for sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini` more secure. Be careful with these files. Open the pump's .ini file now (use the name reported to you in the line labeled `extra` in the `openaps.ini` file):
 
 `$ cat pump.ini`
 
