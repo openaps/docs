@@ -29,13 +29,10 @@ The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). There are very go
 
 This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.
 
-* [Again, make sure you understand why the DIY approach](http://bit.ly/1NBbZtO) for creating new tools and using the OpenAPS system development phases is a critical part of building a system.
-
 
 ## OpenAPS System Development Phases
 
-
-This documenation has been organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. The phases are as follows: 
+This documenation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. The phases are as follows: 
 
 * [Phase 0: General Setup](docs/Overview/initial-setup.md)<br>
 Record baseline data; acquire and configure hardware, install software, and become familiar with the openaps environment
