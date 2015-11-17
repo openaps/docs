@@ -25,6 +25,7 @@ If you're interested in working on communication for another pump (Omnipod, etc)
  * 2.1 Amp (or greater) USB power supply or battery
  * Micro USB cable(s)
  * AAA batteries (for pump)
+ * Case [optional]
  * Cat5 or Cat6 Ethernet cable [optional]
  * HDMI cable [optional, used for connecting the RPi2 to a screen for initial setup ease]
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
