@@ -21,7 +21,7 @@
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a schedule](docs/Automate-system/create-schedule.md)
    * [Validating and Testing](docs/Automate-system/validate-output.md)
-* [Phase 4 :Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
+* [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
 * [Resources](docs/Resources/resources.md)
    * [Technical Resources](docs/Resources/technical-resources.md)
    * [Troubleshooting](docs/Resources/troubleshooting.md)
