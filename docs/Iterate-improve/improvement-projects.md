@@ -1,6 +1,6 @@
 # Iterating and Improving
 
-At this point, you're probably familiar enough to understand some of the limitations or usability frustrations of this DIY system. (You get 1 point for having your own complaint, one point for hearing Dana complain about "frying a Pi", and one point to hear someone talking about using an Edison or a "RileyLink" or another tool to cut down on the size of their openAPS implementation.) The main point here is that this is still not a set-and-forget system, and there's lots to improve on. This page will serve as a landing page to point out to various other projects, or notes on how people might be improving the system.
+At this point, you're probably familiar enough to understand some of the limitations or usability frustrations of this DIY system. (You get one point for having your own complaint, one point for hearing Dana complain about "frying a Pi", and one point to hear someone talking about using an Edison or a "RileyLink" or another tool to cut down on the size of their openAPS implementation.) The main point here is that this is still not a set-and-forget system, and there's lots to improve on. This page will serve as a landing page to point out to various other projects, or notes on how people might be improving the system.
 
 ### Using other pumps
 
