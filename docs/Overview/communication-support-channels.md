@@ -1,4 +1,4 @@
-# Communication Channels
+# Where to Go for Help
 
 There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](../Resources/resources.md) section for additional assistance.
 
