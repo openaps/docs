@@ -8,4 +8,4 @@ Before getting started, we ask that you store at least 30 days of CGM data. For 
 
 ## Recent A1c
 
-Go ahead and document your most recent A1c and keep it somewhere handy so you can keep track of it in the future and/or be able to share it if you choose once there is a request from OpenAPS researchers who may aggregate anonymous data to show what happens when people use OpenAPS.
+Go ahead and document your most recent A1c and keep it somewhere handy. This will allow you to compare your before/after results as well as be able to share it (if you choose) once there is a request from OpenAPS researchers, who may aggregate anonymous data to show what happens when people use OpenAPS.
