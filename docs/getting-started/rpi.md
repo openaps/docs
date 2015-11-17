@@ -6,7 +6,7 @@ Either way, it is recommended that you purchase your RPi2 as a CanaKit, which in
 
 For the Path 1 GUI install you will need:
 
-* A Raspberry Pi 2 CanaKit, which includes several essential accessories in one package (See e.g. http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW)
+* A Raspberry Pi 2 CanaKit, which includes several essential accessories in one package
 * USB Keyboard 
 * USB Mouse 
 * A TV or other screen with HDMI input  
