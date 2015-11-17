@@ -8,7 +8,7 @@
    * [Phase 4](docs/Overview/iterate-improve.md)
    * [Conventions](docs/Overview/conventions.md)
    * [Ways to contribute](docs/Overview/contribute.md)
-   * [Where to go for help](docs/Overview/communication-support-channels.md)
+   * [Where to Go for Help](docs/Overview/communication-support-channels.md)
 * [Phase 0: General Setup](docs/getting-started/setup.md)
    * [Baseline Data](docs/getting-started/baseline-data.md)
    * [Hardware](docs/getting-started/hardware.md)
