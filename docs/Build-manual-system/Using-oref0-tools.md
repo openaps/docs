@@ -1,4 +1,4 @@
-#Using oref0 tools
+#Using oref0 Tools
 
 ##Adding devices 
 The first step in using oref0 is adding your devices, if you haven't already. 
