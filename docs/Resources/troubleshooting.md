@@ -4,7 +4,7 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 ## Useful linux commands
 
-[add link to references, more general and comprehensive command list here]
+More comprehensive command line references can be found [here](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html) and [here](http://www.pixelbeat.org/cmdline.html).
 
 `$ ls -alt`
 
@@ -32,9 +32,11 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 `$ sudo shutdown -h now`
 
+The correct way to shut down the Raspberry Pi from the command line. Wait for the green light to stop blinking before removing the power supply.
+
 `$ dmesg`
 
-dmesg shows you all the kernel output since boot. It’s pretty difficult to read - but sometimes you see things in there about the wifi getting disconnected and so forth; generally someone that knows linux and knows what to look out for will have to read it
+Displayss all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.
 
 `uptime`
 
@@ -42,8 +44,10 @@ dmesg shows you all the kernel output since boot. It’s pretty difficult to rea
 
 ## CareLink USB Stick
 
-test model with `$ openaps use <my_pump_name> model`. The `model` command is a quick way to verify whether you can communicate with the pump. If you can't ...
+The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `$ openaps use <my_pump_name> model`.
 
-Stick issue: fix-stick.sh, unplug/replug
+If you can't get a response, it may be a range issue. The range of the CareLink radio is not particularly good, and orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for more information.
 
-Range issues: range is crap, orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00).
+If you still can't get a response, trying unplugging and replugging the CareLink stick.
+
+
