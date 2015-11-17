@@ -29,8 +29,6 @@ The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). While formal trai
 
 This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.
 
-* Before deciding to close the loop, you will first [learn how to use the openaps tools](docs/Log-clean-analyze-with-openaps-tools/using.md) before building a system based on the OpenAPS reference design (which has related tools named under "oref0", which stands for "OpenAPS Reference Design 0"). 
-
 
 * [Again, make sure you understand why the DIY approach](http://bit.ly/1NBbZtO) for creating new tools and using the OpenAPS system development phases is a critical part of building a system.
 
