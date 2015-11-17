@@ -13,7 +13,8 @@
    * [Hardware](docs/getting-started/hardware.md)
    * [Seting Up Your Raspberry Pi](docs/getting-started/rpi.md)
    * [Setting Up openaps and Dependencies](docs/getting-started/openaps.md)
-* [Logging, cleaning, and analyzing your data](docs/Log-clean-analyze-with-openaps-tools/using.md)
+* [Phase 1: Data Collection]
+    * [Configuring and Learning to Use openaps Tools](docs/Log-clean-analyze-with-openaps-tools/using.md)
 * [Build a manual system](docs/Build-manual-system/considerations.md)
    * [Using oref0 tools](docs/Build-manual-system/Using-oref0-tools.md)
    * [Creating a loop and retry logic](docs/Build-manual-system/loop-and-retry-logic.md)
