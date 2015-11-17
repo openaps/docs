@@ -18,7 +18,7 @@
 * [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
    * [Using oref0 tools](docs/Build-manual-system/Using-oref0-tools.md)
    * [Creating a loop and retry logic](docs/Build-manual-system/loop-and-retry-logic.md)
-* [Automate your system](docs/Automate-system/considerations.md)
+* [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a schedule](docs/Automate-system/create-schedule.md)
    * [Validating outputs, outcomes, and other testing](docs/Automate-system/validate-output.md)
 * [Iterate and improve](docs/Iterate-improve/improvement-projects.md)
