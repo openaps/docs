@@ -35,13 +35,13 @@ This community of contributors believes in "paying it forward," and individuals 
 This documenation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. The phases are as follows: 
 
 * [Phase 0: General Setup](docs/Overview/initial-setup.md)<br>
-Record baseline data; acquire and configure hardware, install software, and become familiar with the openaps environment
+Record baseline data, acquire and configure hardware, install software, and become familiar with the openaps environment
 
 * [Phase 1: Logging, Cleaning, and Analyzing Your Data](docs/Overview/data-collection.md)<br>
 Create tools for logging and analyzing pump and CGM data
 
 * [Phase 2: Build a Manual System](docs/Overview/manual-system.md)<br>
-Use the logged data with oref0 tools to suggest insulin dose adjustments, review and refine algorithms, test different scenarios for safety; prepare for creating a loop and implementing retry logic
+Use the logged data with oref0 tools to suggest insulin dose adjustments, review and refine algorithms, test different scenarios for safety, prepare for creating a loop and implementing retry logic
 
 * [Phase 3: Automate Your System](docs/Overview/automate-system.md)<br>
 Apply the recommendations automatically and in real time by creating a schedule and continuing to validate and assess outputs
@@ -51,8 +51,8 @@ Improve the functionality of the system with additional software or hardware dev
 
 At the beginning of each phase, an outline summarizes:
 
-* Upon Completion--The capabilities that the user and system should have after completing the phase
+* Upon Completion—The capabilities that the user and system should have after completing the phase
 	
-* Phase Tasks--Tasks or steps to take during the phase
+* Phase Tasks—Tasks or steps to take during the phase
 
-* Community Contribution--Users should be able to contribute to the **#OpenAPS** project and/or openaps development tool set during and after the phase.
+* Community Contribution—How users should be able to contribute to the #OpenAPS project and/or openaps development tool set during and after the phase
