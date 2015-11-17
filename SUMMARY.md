@@ -23,6 +23,7 @@
 * [Iterate and improve](docs/Iterate-improve/improvement-projects.md)
 * [Resources](docs/Resources/resources.md)
    * [Technical resources](docs/Resources/technical-resources.md)
+   * [Troubleshooting](docs/Resources/troubleshooting.md)
    * [#OpenAPS overview and project history](docs/Resources/history.md)
    * [Other projects, people & tools](docs/Resources/other-projects.md)
    * [FAQs](docs/Resources/faq.md)
