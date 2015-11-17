@@ -20,7 +20,7 @@
    * [Creating a loop and retry logic](docs/Build-manual-system/loop-and-retry-logic.md)
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a schedule](docs/Automate-system/create-schedule.md)
-   * [Validating outputs, outcomes, and other testing](docs/Automate-system/validate-output.md)
+   * [Validating and Testing](docs/Automate-system/validate-output.md)
 * [Iterate and improve](docs/Iterate-improve/improvement-projects.md)
 * [Resources](docs/Resources/resources.md)
    * [Technical resources](docs/Resources/technical-resources.md)
