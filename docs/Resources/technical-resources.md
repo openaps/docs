@@ -1,4 +1,4 @@
-# Resources
+# Technical Resources
 
 These represent a small selection of guides, tutorials, and quick references for some of the tools used to develop and document OpenAPS.
 
