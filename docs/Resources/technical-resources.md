@@ -1,5 +1,7 @@
 # Resources
 
+These represent a small selection of guides, tutorials, and quick references for some of the tools used to develop and document OpenAPS.
+
 ## Raspberry Pi
 [Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/)
 
