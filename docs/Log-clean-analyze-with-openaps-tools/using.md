@@ -16,7 +16,7 @@ Create a new instance of openaps in a new directory:
 
 `$ openaps init <my_openaps>`
 
-As mentioned in the [Conventions](docs/Overview/conventions.md) section, `<my_openaps>` can be anything you'd like: `myopenaps`, `awesome-openaps`, `openaps4ever`, `bob`, etc.
+As mentioned in the [Conventions](docs/Overview/conventions.md) section, `<my_openaps>` can be anything you'd like: `myopenaps`, `awesome-openaps`, `openaps4ever`, `bob`, etc, as long as you stay consistent throughout your setup.
 
 Now that it has been created, move into the new openaps directory:
 
