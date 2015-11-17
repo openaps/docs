@@ -1,4 +1,4 @@
-#Considerations before buildling a manual system
+## Considerations before buildling a manual system
 
 oref0 ("OpenAPS Reference Design 0") is our first (zero-th) implementation of the OpenAPS Reference Design. It consists of a number of "Lego Block" tools that, when combined with the core "openaps" toolset to create a full closed loop artificial pancreas system (an OpenAPS implementation).
 
