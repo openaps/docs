@@ -4,7 +4,9 @@ Welcome to the [openaps](https://github.com/openaps/) documentation!
 
 ![Example OpenAPS Setup](./docs/IMG_1112.jpg)
 
-`openaps` is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/).
+openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/).
+
+By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
 The tools may be categorized as:
 
@@ -12,22 +14,20 @@ The tools may be categorized as:
 
 * **predict** make predictions about what will happen next
 
-* **control** enacting changes, and feeding more data back into the **monitor**, closing the loop.
+* **control** enacting changes, and feeding more data back into the **monitor**, closing the loop
 
-By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
-
-You may also find this flowchart helpful to further break down the areas of `monitor`, `predict`, and `control` into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
+You may also find this flowchart helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
 ![OpenAPS phase visualization](./docs/OpenAPS_phase_visualization_Nov152015.png)
 
 
-##Note
+## A Note on DIY and the "Open" Part of OpenAPS
 
 This is a set of development tools to support a self-driven DIY implementation. Any person choosing to use these tools is solely responsible for testing and implementing these tools independently or together as a system.  
 
-The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). While formal training or experience as an engineer or a developer is not required, a growth mindset is required to learn to work with the "building blocks" that will help you develop your OpenAPS instance. Remember as you consider this project that this is not a "set and forget" system; `openaps` requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
+The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). While formal training or experience as an engineer or a developer is not required, a growth mindset is required to learn to work with the "building blocks" that will help you develop your OpenAPS instance. Remember as you consider this project that this is not a "set and forget" system; and OpenAPS implementation requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
 
-**This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.**
+This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.
 
 * Before deciding to close the loop, you will first [learn how to use the openaps tools](docs/Log-clean-analyze-with-openaps-tools/using.md) before building a system based on the OpenAPS reference design (which has related tools named under "oref0", which stands for "OpenAPS Reference Design 0"). 
 
