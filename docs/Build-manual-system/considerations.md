@@ -9,6 +9,7 @@ By this stage, you should have already set up your pump and cgm as openaps devic
 
 If you haven't already done so, this is also an excellent time to calibrate your inputs, such as insulin sensitivity factor (ISF), carbohydrate ratio (CR), basal rates, et cetera.
 
+### Outline of Phase 2
 
 * Upon Completion
     * Have a set of algorithms designed to keep blood glucose in target range with temp basals
