@@ -1,11 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * [Phase 0](docs/Overview/initial-setup.md)
-   * [Phase 1](docs/Overview/data-collection.md)
-   * [Phase 2](docs/Overview/manual-system.md)
-   * [Phase 3](docs/Overview/automate-system.md)
-   * [Phase 4](docs/Overview/iterate-improve.md)
    * [Conventions](docs/Overview/conventions.md)
    * [Ways to Contribute](docs/Overview/contribute.md)
    * [Where to Go for Help](docs/Overview/communication-support-channels.md)
