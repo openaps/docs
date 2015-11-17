@@ -6,6 +6,7 @@
    * [Phase 2](docs/Overview/manual-system.md)
    * [Phase 3](docs/Overview/automate-system.md)
    * [Phase 4](docs/Overview/iterate-improve.md)
+   * [Conventions](docs/Overview/conventions.md)
    * [Ways to contribute](docs/Overview/contribute.md)
    * [Where to go for help](docs/Overview/communication-support-channels.md)
 * [Phase 0: General Setup](docs/getting-started/setup.md)
