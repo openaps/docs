@@ -8,7 +8,7 @@
    * [Phase 4](docs/Overview/iterate-improve.md)
    * [Ways to contribute](docs/Overview/contribute.md)
    * [Where to go for help](docs/Overview/communication-support-channels.md)
-* [Getting started](docs/getting-started/setup.md)
+* [Phase 0: General Setup](docs/getting-started/setup.md)
    * [Storing 30 days of data and an a1c](docs/getting-started/baseline-data.md)
    * [Hardware](docs/getting-started/hardware.md)
    * [Setting up your raspberry Pi](docs/getting-started/rpi.md)
