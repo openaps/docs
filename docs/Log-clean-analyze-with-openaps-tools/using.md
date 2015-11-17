@@ -4,7 +4,6 @@ This section provides an introduction to intializing, configuring, and using the
 
 The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
-<br>
 ## Configuring openaps
 
 ### Initialize a new openaps environment
@@ -175,7 +174,6 @@ optional arguments:
 * iter_glucose 2 - read last 2 records
 ```
 
-<br>
 ## Adding and Invoking Reports
 
 At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. This is great for learning and for experimenting, but it lacks the ability to generate output files. You'll notice that running
