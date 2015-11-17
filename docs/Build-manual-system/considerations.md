@@ -1,4 +1,4 @@
-# Phase 2: Build a manual system
+# Phase 2: Build a Manual System
 
 Phase 2 focuses on deploying a suitable algorithm to recommend necessary changes to basal rates. This is essentially a practice closed-loop system, with you completing the loop by manually calculating what you would do in that scenario. This can be performed in real time or by using historical data and making retroactive suggestions. Pay special attention to situations where CGM readings are not smooth (after calibration, with a new sensor, or with errors such as ???) or when there are issues with data connectivity or fidelity. Assume there will be issues with connectivity.
 
