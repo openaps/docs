@@ -1,6 +1,6 @@
 # Baseline data
 
-
+There is no requirement to share your data to use the openaps toolset or participate in the OpenAPS project. Individuals within the project who share their data do so at will and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. 
 
 ## CGM Data
 
