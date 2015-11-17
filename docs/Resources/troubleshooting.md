@@ -8,9 +8,13 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `$ ls -alt`
 
+List all of the files in the current directory with additional details.
+
 `$ cd`
 
 `$ pwd`
+
+Show the present working directory (your current location within the filesystem).
 
 `$ sudo <command>`
 
@@ -22,7 +26,11 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `$ cat <filename>`
 
+Display the contents of the file.
+
 `$ nano <filename>`
+
+Open and edit the file in the nano text editor.
 
 `$ stat <filename>`
 
