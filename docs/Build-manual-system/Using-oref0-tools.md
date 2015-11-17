@@ -3,17 +3,19 @@
 ## Add the oref0 Virtual Devices 
 In [Phase 1]((docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md), you added two physical medical devices to openaps—your pump and your cgm.
 
-This was done using the commands `openaps device add` and then specifying the device name, type, and parameters. For oref0 virtual devices, you can add a catch-all oref0 device using
+This was done using the commands `openaps device add` and then specifying the device name, type, and parameters. Since their is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
-`openaps device add oref0 process oref0`
+You can add a catch-all oref0 device using
+
+`$ openaps device add oref0 process oref0`
 
 and then you can be more specific and add individual oref0 processes as devices using commands like
 
-`openaps device add iob process --require "pumphistory profile clock" oref0 calculate-iob, openaps device add get-profile process --require "settings bg_targets isf basal_profile max_iob" oref0 get-profile`
-
-and
-
-`openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal`.
+```
+$ openaps device add iob process --require "pumphistory profile clock" oref0 calculate-iob
+$ openaps device add get-profile process --require "settings bg_targets isf basal_profile max_iob" oref0 get-profile`
+$ openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal
+```
 
 In that syntax, the `--require` specifies which arguments are required in order to successfully run each command.
 
