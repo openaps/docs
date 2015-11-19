@@ -31,6 +31,8 @@ Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the 
         * Following guides to accomplish above phase tasks
     * Provide improved or alternative implementations
 
+# Summary
+
 * [Introduction](README.md)
 * [Phase 0: General Setup](../../docs/getting-started/setup.md)
 * [Phase 1: Logging, Cleaning, and Analyzing Your Data](../../docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)

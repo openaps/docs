@@ -8,6 +8,8 @@ First, this enables you to better ask for assistance if you run into errors, bug
 
 Second, this will enable you to help us improve our documentation. Did we skip a step, or not explain clearly? After you get through the setup instructions, you should consider forking a copy of these docs, editing with any changes you think should be made, and submitting a pull request (PR) back to the master. Others will be able to review & discuss any edits, make further changes, and pull this edits into the main file. This helps us all "pay it forward" as we go!
 
+# Summary
+
 * [Introduction](README.md)
 * [Phase 0: General Setup](../../docs/getting-started/setup.md)
    * [Baseline Data](../../docs/getting-started/baseline-data.md)
