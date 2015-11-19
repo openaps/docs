@@ -39,6 +39,14 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [NumPy for MATLAB Users](http://mathesaurus.sourceforge.net/matlab-numpy.html)
 
+## Useful Apps
+
+[Fing](http://www.overlooksoft.com/download) (Android and Apple): Identify IP address of devices on a network. Useful for finding the IP address of RPi on new networks.
+
+[Hotspot Manager](https://play.google.com/store/apps/details?id=com.etustudio.android.hotspotmanager&hl=en) (Android):  Itentify IP address of devices on a hotspot. Useful for finding the IP address of RPi on hotspots. 
+
+[JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en) (Android): SSH client for Android devices
+
 ## Markdown & GitBook
 [Daring Fireball (John Gruber) Markdown Introduction](http://daringfireball.net/projects/markdown/)
 
