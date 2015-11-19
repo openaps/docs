@@ -1,4 +1,5 @@
-# Setting Up openaps
+# Setting Up openaps and Dependencies
+
 This section provides information on installing the base openaps toolkit and its dependencies.
 
 ## Easy install of openaps and dependencies
