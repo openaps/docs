@@ -79,5 +79,5 @@ At the beginning of each phase, an outline summarizes:
    * [#OpenAPS Overview and Project History](docs/Resources/history.md)
    * [Other Projects, People & Tools](docs/Resources/other-projects.md)
    * [FAQs](docs/Resources/faq.md)
-* [Glossary](docs/Glossary/glossary.md)
+   * [Glossary](docs/Resources/glossary.md)
 

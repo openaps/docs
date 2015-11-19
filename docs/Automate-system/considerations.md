@@ -19,3 +19,15 @@ At this stage, you should have a suitable algorithm to manually recommend necess
 		* Provide results of testing (including start date for first overnight evaluation, please share with Dana) for comparing and contrasting with others
 		* Summarize research findings and synthesize them into jump-off points for others' research
 
+
+# Summary
+
+* [Introduction](README.md)
+* [Phase 0: General Setup](docs/getting-started/setup.md)
+* [Phase 1: Logging, Cleaning, and Analyzing Your Data](docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
+* [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
+* [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
+   * [Creating a Schedule](docs/Automate-system/create-schedule.md)
+   * [Validating and Testing](docs/Automate-system/validate-output.md)
+* [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
+* [Resources](docs/Resources/resources.md)
