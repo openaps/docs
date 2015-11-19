@@ -1,7 +1,7 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices 
-In [Phase 1](docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md), you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. Since their is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
+In [Phase 1](docs/Overview/data-collection.md), you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. Since their is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 You can add a catch-all oref0 device using
 
