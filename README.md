@@ -51,3 +51,33 @@ At the beginning of each phase, an outline summarizes:
 * Phase Tasks—Tasks or steps to take during the phase
 
 * Community Contribution—How users should be able to contribute to the #OpenAPS project and/or openaps development tool set during and after the phase
+
+# Summary
+
+* [Introduction](README.md)
+   * [Table of Contents](docs/Overview/table-of-contents.md)
+   * [Conventions](docs/Overview/conventions.md)
+   * [Ways to Contribute](docs/Overview/contribute.md)
+   * [Where to Go for Help](docs/Overview/communication-support-channels.md)
+* [Phase 0: General Setup](docs/getting-started/setup.md)
+   * [Baseline Data](docs/getting-started/baseline-data.md)
+   * [Hardware](docs/getting-started/hardware.md)
+   * [Seting Up Your Raspberry Pi](docs/getting-started/rpi.md)
+   * [Setting Up openaps and Dependencies](docs/getting-started/openaps.md)
+* [Phase 1: Logging, Cleaning, and Analyzing Your Data](docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
+   * [Configuring and Learning to Use openaps Tools](docs/Log-clean-analyze-with-openaps-tools/using.md)
+* [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
+   * [Using oref0 Tools](docs/Build-manual-system/Using-oref0-tools.md)
+   * [Creating a Loop and Retry Logic](docs/Build-manual-system/loop-and-retry-logic.md)
+* [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
+   * [Creating a Schedule](docs/Automate-system/create-schedule.md)
+   * [Validating and Testing](docs/Automate-system/validate-output.md)
+* [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
+* [Resources](docs/Resources/resources.md)
+   * [Technical Resources](docs/Resources/technical-resources.md)
+   * [Troubleshooting](docs/Resources/troubleshooting.md)
+   * [#OpenAPS Overview and Project History](docs/Resources/history.md)
+   * [Other Projects, People & Tools](docs/Resources/other-projects.md)
+   * [FAQs](docs/Resources/faq.md)
+* [Glossary](docs/Glossary/glossary.md)
+
