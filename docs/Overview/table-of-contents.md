@@ -1,7 +1,5 @@
 # Table of Contents
 
-# Summary
-
 * [Introduction](README.md)
    * [Table of Contents](docs/Overview/table-of-contents.md)
    * [Conventions](docs/Overview/conventions.md)
