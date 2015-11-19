@@ -2,9 +2,7 @@
 
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
-![Example OpenAPS Setup](./docs/IMG_1112.jpg)
-
-openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/).
+openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). ([Click here to view an image of the common physical components of an OpenAPS setup](./docs/IMG_1112.jpg).)
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
@@ -18,9 +16,6 @@ The tools may be categorized as:
 
 You may also find this flowchart helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
-![OpenAPS phase visualization](./docs/OpenAPS_phase_visualization_Nov152015.png)
-
-
 ## A Note on DIY and the "Open" Part of OpenAPS
 
 This is a set of development tools to support a self-driven DIY implementation. Any person choosing to use these tools is solely responsible for testing and implementing these tools independently or together as a system.  
@@ -32,7 +27,7 @@ This community of contributors believes in "paying it forward," and individuals 
 
 ## OpenAPS System Development Phases
 
-This documenation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. The phases are as follows: 
+This documenation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. [Click here for a visualization and breakdown of the phases](./docs/OpenAPS_phase_visualization_Nov152015.png). The phases are as follows: 
 
 * [Phase 0: General Setup](docs/Overview/initial-setup.md)<br>
 Record baseline data, acquire and configure hardware, install software, and become familiar with the openaps environment
