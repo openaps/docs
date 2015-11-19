@@ -16,7 +16,7 @@ There's a group trying to figure out the Omnipod communication. There is an [omn
 
 # Summary
 
-* [Introduction](README.md)
+* [Introduction](../../README.md)
 * [Phase 0: General Setup](../../docs/getting-started/setup.md)
 * [Phase 1: Logging, Cleaning, and Analyzing Your Data](../../docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
 * [Phase 2: Build a Manual System](../../docs/Build-manual-system/considerations.md)

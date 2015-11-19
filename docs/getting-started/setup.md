@@ -10,7 +10,7 @@ Second, this will enable you to help us improve our documentation. Did we skip a
 
 # Summary
 
-* [Introduction](README.md)
+* [Introduction](../../README.md)
 * [Phase 0: General Setup](../../docs/getting-started/setup.md)
    * [Baseline Data](../../docs/getting-started/baseline-data.md)
    * [Hardware](../../docs/getting-started/hardware.md)
