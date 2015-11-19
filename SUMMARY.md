@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-   * [Table of Contents](docs/Overview/table-of-contents.md)
+   * [Table of Contents](SUMMARY.md)
    * [Conventions](docs/Overview/conventions.md)
    * [Ways to Contribute](docs/Overview/contribute.md)
    * [Where to Go for Help](docs/Overview/communication-support-channels.md)
