@@ -2,7 +2,7 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
 
-(If you're interested in working on communication for another pump (Omnipod, etc.), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.)
+If you're interested in working on communication for another pump (Omnipod, etc), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.
 
 
 ## Required  Hardware
@@ -24,12 +24,14 @@ This section describes the hardware components required for a 'typical' OpenAPS 
  * Low-profile USB WiFi adapter
  * 2.1 Amp (or greater) USB power supply or battery
  * Micro USB cable(s)
+ * AAA batteries (for pump)
+ * Case [optional]
  * Cat5 or Cat6 Ethernet cable [optional]
  * HDMI cable [optional, used for connecting the RPi2 to a screen for initial setup ease]
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
  * USB Mouse [optional, for the same purpose]
 
-\** Note: Several #OpenAPS contributors recommend the Raspberry Pi 2 CanaKit, which includes several essential accessories in one package and can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/ref=sr_1_1?ie=UTF8&qid=1434523139&sr=8-1&keywords=canakit+raspberry+pi+2)
+\** Note: Several #OpenAPS contributors recommend the Raspberry Pi 2 CanaKit, which includes several essential accessories in one package and can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/)
 
 The CanaKit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micro USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
 
@@ -56,9 +58,11 @@ Currently, the only supported device\* for uploading pump data and interfacing o
 
 [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
  
-A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are trasmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick. Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
+A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are trasmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
 
-[Example USB extension](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/)
+[Rerii 90 Degree USB Extension Cable](http://www.amazon.com/gp/product/B00ZQVADNM)
+
+[Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/)
 
 _*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. It is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not currently recommended._
  
@@ -110,6 +114,26 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 
 USB cables with a micro connector on one end and a standard (Type A) connector on the other are used to connect the power supply and the Dexcom receiver to the RPi2. Most cables will work fine, but some prefer to select lengths and/or features (such as right-angled connectors) to improve portability.
 
-[Rerii Black Golden Plated 15 cm Length Micro-B Male Left Angle USB cable](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/ref=sr_1_8?ie=UTF8&qid=1434603920&sr=8-8&keywords=micro+usb+right+angle)
+[Rerii Black Golden Plated 15 cm Length Micro-B Male Left Angle USB cable](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/)
 
 [Monoprice Premium USB to Micro USB Charge, Sync Cable - 3ft](http://www.monoprice.com/Product?c_id=103&cp_id=10303&cs_id=1030307&p_id=9763&seq=1&format=2)
+
+
+### AAA Batteries
+
+Repeated wireless communication with the pump drains the battery quite quickly. With a loop running every five minutes, a standard alkaline AAA—recommended by Medtronic—lasts somewhere between four to six days before the pump goes to a "Low Battery" state and stops allowing wireless transmission. Lithium batteries last significantly longer but do not give much warning when they are about to die. For further information on batteries, see [this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA battery use in a looping pump.
+
+
+### Cases
+
+The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here some examples of what others are using in their OpenAPS builds.
+
+[JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
+
+[Raspberry Pi B+ /PI2 Acrylic Case](http://www.amazon.com/Raspberry-Pi-PI2-Acrylic-Case/dp/B00M9ZW6QU)
+
+Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well.
+
+[FlipBelt](https://flipbelt.com/)
+
+[Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20)
