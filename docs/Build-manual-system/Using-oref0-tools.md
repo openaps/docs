@@ -25,10 +25,10 @@ $ openaps report add monitor/glucose.json JSON <cgm> iter_glucose 5 (retrieves t
 $ openaps report add monitor/temp_basal.json JSON <pump> read_temp_basal (get the temp basal)
 $ openaps report add monitor/pumphistory.json JSON <pump> iter_pump_hours 4 (to add the monitor reports)
 $ openaps report add settings/bg_targets.json JSON <pump> read_bg_targets (get the different bg targets specified in the pump for us to target against)
-$ openaps report add monitor/clock.json JSON <pump> read_clock (get the pump time -- DL, please explain how the time is used...stale data thrown out?)
+$ openaps report add monitor/clock.json JSON <pump> read_clock (get the pump time -- used as the "now" for IOB calculations)
 $ openaps report add settings/settings.json JSON <pump> read_settings (store various pump settings)
 $ openaps report add settings/insulin_sensitivities.json JSON <pump> read_insulin_sensitivies (get insulin sensitivities off of the pump)
-$ openaps report add settings/basal_profile.json json JSON <pump> read_basal_profile_std (get the standard basal profile.  DL, this is correct?  There are two other basal_profiles listed a and b...anything to do here?)
+$ openaps report add settings/basal_profile.json json JSON <pump> read_selected_basal_profile (get the current selected basal_profile)
 ````
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, your reports where your reports are stored and named are the same thing; so you invoke a report called "settings/settings.json" and the results are stored at "settings/settings.json".  Until you invoke a report you have added, it will not be created.  You also need to make sure to create those subdirectories of settings, monitor, and enact if you are going to use the model laid out in this documentation.
 
