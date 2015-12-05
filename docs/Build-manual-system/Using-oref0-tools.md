@@ -11,7 +11,7 @@ and then you can be more specific and add individual oref0 processes as devices 
 
 ```
 $ openaps device add iob process --require "pumphistory profile clock" oref0 calculate-iob
-$ openaps device add get-profile process --require "settings bg_targets isf basal_profile max_iob" oref0 get-profile`
+$ openaps device add get-profile process --require "settings bg_targets isf basal_profile max_iob" oref0 get-profile
 $ openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal
 ```
 
