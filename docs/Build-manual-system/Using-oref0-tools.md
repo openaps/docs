@@ -19,15 +19,24 @@ In that syntax, the `--require` specifies which arguments are required in order 
 
 ##Adding reports
 
-Once you have devices added, you can start adding reports that correspond to various openaps use commands you'll want to run regularly, such as `cgm iter_glucose`, `pump read_temp_basal`, `pump iter_pump_hours`, etc. You might categorize reports into "monitor" and "settings" directories, in case you want to be able to refresh the former more frequently than the latter (which hasn't been necessary so far with oref0, as openaps is now fast enough to collect all the data and enact a new temp basal in less than a minute). If you use that for naming, and stick with the use names for your filenames (except for the iter_* uses, which describe how the data is being collected more than what it is), you'll end up with commands like `openaps report add monitor/glucose.json JSON cgm iter_glucose_5` (retrieves the last 5 CGM data points), `openaps report add monitor/temp_basal.json JSON pump read_temp_basal`, and `openaps report add monitor/pumphistory.json JSON pump iter_pump_hours 4` to add the monitor reports, and commands like `openaps report add settings/bg_targets.json JSON pump read_bg_targets` for the various settings.
-
-Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.
+Once you have devices added, you can start adding reports that correspond to various openaps use commands you'll want to run regularly, such as `cgm iter_glucose`, `pump read_temp_basal`, `pump iter_pump_hours`, etc. You might categorize reports into "monitor" and "settings" directories, in case you want to be able to refresh the former more frequently than the latter (which hasn't been necessary so far with oref0, as openaps is now fast enough to collect all the data and enact a new temp basal in less than a minute). If you use that for naming, and stick with the use names for your filenames (except for the iter_* uses, which describe how the data is being collected more than what it is), you'll end up with commands like the following. FYI, parenthetical text is NOT part of the command...it explains what the command does:
+````
+$ openaps report add monitor/glucose.json JSON <cgm> iter_glucose 5 (retrieves the last 5 CGM data points)
+$ openaps report add monitor/temp_basal.json JSON <pump> read_temp_basal (get the temp basal)
+$ openaps report add monitor/pumphistory.json JSON <pump> iter_pump_hours 4 (to add the monitor reports)
+$ openaps report add settings/bg_targets.json JSON <pump> read_bg_targets (get the different bg targets specified in the pump for us to target against)
+$ openaps report add monitor/clock.json JSON <pump> read_clock (get the pump time -- used as the "now" for IOB calculations)
+$ openaps report add settings/settings.json JSON <pump> read_settings (store various pump settings)
+$ openaps report add settings/insulin_sensitivities.json JSON <pump> read_insulin_sensitivies (get insulin sensitivities off of the pump)
+$ openaps report add settings/basal_profile.json json JSON <pump> read_selected_basal_profile (get the current selected basal_profile)
+````
+Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, your reports where your reports are stored and named are the same thing; so you invoke a report called "settings/settings.json" and the results are stored at "settings/settings.json".  Until you invoke a report you have added, it will not be created.  You also need to make sure to create those subdirectories of settings, monitor, and enact if you are going to use the model laid out in this documentation.
 
 ##Consolidating information
 
 In order to avoid passing all the settings data to each subsequent command, oref0 has a get-profile command that consolidates the information we need from them into a single json. This can be added by creating a report using the get-profile device you added earlier, which would look something like `openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json`. (The max_iob.json has to be defined manually: it's not configured on the pump. It's a really simple json file that looks like {"max_iob":0} or similar, or you can use the oref0-mint-max-iob.sh tool.)
 
-Similarly, you can also calculate IOB using the oref0 calculate-iob command (which you defined in the iob device earlier) to update monitor/iob.json based on the updated pump history, profile, and pump clock. That report would look something like openaps report add monitor/iob.json text iob shell monitor/pumphistory.json settings/profile.json monitor/clock.json.
+Similarly, you can also calculate IOB using the oref0 calculate-iob command (which you defined in the iob device earlier) to update monitor/iob.json based on the updated pump history, profile, and pump clock. That report would look something like `openaps report add monitor/iob.json text iob shell monitor/pumphistory.json settings/profile.json monitor/clock.json`.
 
 ##Adding aliases
 
