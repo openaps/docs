@@ -12,6 +12,7 @@ If you're interested in working on communication for another pump (Omnipod, etc)
  * 515/715
  * 522/722
  * 523/723 (with firmware 2.4A or lower)
+ * 554 (European Veo, with firmware 2.6A or lower)
 * <b>Pump Communication</b>:
  * Medtronic CareLink USB stick
 * <b>Continuous Glucose Monitor (CGM)</b>:
@@ -41,7 +42,9 @@ Eventually, once you have an entire OpenAPS build up and running, it is recommen
 
 ## Hardware Details & Recommendations
 
-### Medtronic Insulin Pump: 512/712, 515/715, 522/722, or 523/723 (with firmware 2.4A or lower)
+### Medtronic Insulin Pump
+
+See currently known working list of pumps above. The easiest way to navigate to the Utilities / Connect Devices menu on your pump. If "PC Connect" is present in this menu, your pump is _not_ compatible with OpenAPS.
 
 Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop ([see example here](http://bit.ly/1itCsRl)).
 
