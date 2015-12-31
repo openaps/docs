@@ -14,7 +14,7 @@ This uses [this script](https://raw.githubusercontent.com/openaps/docs/master/sc
 
 ### Installing from source
 
-It's possible to use the package manager to install development branches.  If you are hacking on the code, you'll need a way to develop using versions you control.  Here's a quick way to do that.  Before running the following script, you need to run the one above first:
+It's possible to use the package manager to install development branches.  If you are hacking on the code, you'll need a way to develop using versions you control.  Here's a quick way to do that:
 
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh | bash -`
 
