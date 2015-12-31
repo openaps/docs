@@ -45,7 +45,11 @@ Here is what it will look like:
 
 https://files.gitter.im/eyim/lw6x/blob
 
-3) On your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  Near the bottom is a list of Plugins available.  OpenAPS shoudl not show up.  Click the check box to enable.  You should now see the OpenAPS pill box on the left side near the time.
+3) On your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  Near the bottom is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable.  You should now see the OpenAPS pill box on the left side near the time.
+
+Example here:
+
+https://files.gitter.im/eyim/J8OR/blob
 
 Now we need to make a few changes to your OpenAPS implementation
 
@@ -55,7 +59,7 @@ Now we need to make a few changes to your OpenAPS implementation
 fields = type report
 vendor = openaps.vendors.process
 cmd = ns-upload
-args = https://YOURWEBSITE.azurewebsites.net 843b381fa1d223234349543eefb4234234c2b92b486e
+args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password)
 
 The last line args = should contain the URL of the Nightscout website.  Note that for Azure it is important to include the https:// before the URL>  What follows is the hashed version of your API_SECRET password.  To get the hased version of the password, put your password into this website:  http://www.sha1-online.com/
 
@@ -79,13 +83,15 @@ reservoir = monitor/reservoir.json
 status = monitor/status.json
 reporter = JSON
 
-4) Add the command openaps statys-upload to your loop.  I add it after the main loop
+You many need to change where the openaps system should look for these reports depending on where they are.
+
+4) Add the command openaps status-upload to your loop.  I add it after the main loop
 
 Some things to be aware of:
 
 1) Make sure that the timezones for the pi (use sudo raspi-config to change timezones), in your monitor/clock-zoned.json report and the Nightscout website are all in the same timezone.
 
-2) The basal changes won't appear in NIghtscout until the second time the loop runs.
+2) The basal changes won't appear in Nightscout until the second time the loop runs.
 
 3) The OpenAPS pillbox will show you when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop.  It will help you understand what the loop is doing on every cycle.
 
