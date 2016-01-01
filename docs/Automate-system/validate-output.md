@@ -56,8 +56,12 @@ Now we need to make a few changes to your OpenAPS implementation
 1) Add a device called "ns-upload".  I find it easiest to paste this into your openaps.ini file.
 
 [device "ns-upload"]
-fields = type report
 vendor = openaps.vendors.process
+extra - ns-upload.ini
+
+Where ns-upload.ini is a file in your main openaps directory that contains:
+[device "ns-upload"]
+fields = 
 cmd = ns-upload
 args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password)
 
