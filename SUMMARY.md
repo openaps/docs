@@ -15,10 +15,11 @@
 * [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
    * [Using oref0 Tools](docs/Build-manual-system/Using-oref0-tools.md)
    * [Creating a Loop and Retry Logic](docs/Build-manual-system/loop-and-retry-logic.md)
-* [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
+* [Phase 3: Preparing to Loop](docs/Preparing-to-loop/overview.md)
+* [Phase 4: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a Schedule](docs/Automate-system/create-schedule.md)
    * [Validating and Testing](docs/Automate-system/validate-output.md)
-* [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
+* [Phase 5: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
 * [Resources](docs/Resources/resources.md)
    * [Technical Resources](docs/Resources/technical-resources.md)
    * [Troubleshooting](docs/Resources/troubleshooting.md)
@@ -26,4 +27,3 @@
    * [Other Projects, People & Tools](docs/Resources/other-projects.md)
    * [FAQs](docs/Resources/faq.md)
    * [Glossary](docs/Resources/glossary.md)
-
