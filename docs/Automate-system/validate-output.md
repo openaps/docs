@@ -116,7 +116,9 @@ It is also very beneficial to upload the treatment information from the pump and
 Here are the alias to add to your openaps.ini file:
 
 latest-ns-treatment-time = ! bash -c "nightscout latest-openaps-treatment $NIGHTSCOUT_HOST | json created_at"<br>
+<br>
 format-latest-nightscout-treatments = ! bash -c "nightscout cull-latest-openaps-treatments monitor/pump-history-zoned.json monitor/model.json $(openaps latest-ns-treatment-time) > upload/latest-treatments.json" <br>
+<br>
 upload-recent-treatments = ! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""<br>
 
 In the aliases you will see variables like these:  $NIGHTSCOUT_HOST $API_SECRET.  These are environmental variable.  You can read more about them here:  https://en.wikipedia.org/wiki/Environment_variable <br>
