@@ -29,6 +29,6 @@ At this stage, you should have a suitable algorithm to manually recommend necess
 * [Phase 3: Automate Your System](../../docs/Automate-system/considerations.md)
    * [Creating a Schedule](../../docs/Automate-system/create-schedule.md)
    * [Validating and Testing](../../docs/Automate-system/validate-output.md)
-   * [Keeping up to date](https://github.com/openaps/docs/blob/master/docs/Automate-system/keeping-up-to-date.md)
+   * [Keeping up to date](../../docs/Automate-system/keeping-up-to-date.md)
 * [Phase 4: Iterate and Improve](../../docs/Iterate-improve/improvement-projects.md)
 * [Resources](../../docs/Resources/resources.md)
