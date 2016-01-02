@@ -72,6 +72,7 @@ At the beginning of each phase, an outline summarizes:
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a Schedule](docs/Automate-system/create-schedule.md)
    * [Validating and Testing](docs/Automate-system/validate-output.md)
+   * [Keeping Up To Date](docs/Automate-system/keeping-up-to-date.md)
 * [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
 * [Resources](docs/Resources/resources.md)
    * [Technical Resources](docs/Resources/technical-resources.md)
