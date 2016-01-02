@@ -53,17 +53,23 @@ https://files.gitter.im/eyim/J8OR/blob
 
 Now we need to make a few changes to your OpenAPS implementation
 
-1) Add a device called "ns-upload".  I find it easiest to paste this into your openaps.ini file.
+1) Add two devices called "ns-upload" and "ns-status".  I find it easiest to paste this into your openaps.ini file.
 
-[device "ns-upload"]
-fields = type report
-vendor = openaps.vendors.process
-cmd = ns-upload
-args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password)
+[device "ns-upload"] <br>
+fields = type report <br>
+vendor = openaps.vendors.process <br>
+cmd = ns-upload <br>
+args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password) <br>
 
 The last line args = should contain the URL of the Nightscout website.  Note that for Azure it is important to include the https:// before the URL>  What follows is the hashed version of your API_SECRET password.  To get the hased version of the password, put your password into this website:  http://www.sha1-online.com/
 
 For example, if your password is "password" (without quotes) it will return 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+
+[device "ns-status"] <br>
+fields = clock iob suggested enacted battery reservoir status<br>
+cmd = ns-status<br>
+vendor = openaps.vendors.process<br>
+args = <br>
 
 2) Add this alias to your openaps.ini file:
 
@@ -71,17 +77,17 @@ status-upload = ! bash -c "openaps report invoke monitor/upload-status.json && (
 
 3) Add this report to your openaps.ini file
 
-[report "monitor/upload-status.json"]
-use = shell
-device = ns-status
-clock = monitor/clock-zoned.json
-iob = predict/iob.json
-suggested = predict/oref0.json
-enacted = control/enacted.json
-battery = monitor/battery.json
-reservoir = monitor/reservoir.json
-status = monitor/status.json
-reporter = JSON
+[report "monitor/upload-status.json"] <br>
+use = shell <br>
+device = ns-status <br>
+clock = monitor/clock-zoned.json <br>
+iob = predict/iob.json <br>
+suggested = predict/oref0.json <br>
+enacted = control/enacted.json <br>
+battery = monitor/battery.json <br>
+reservoir = monitor/reservoir.json <br>
+status = monitor/status.json <br>
+reporter = JSON <br>
 
 You many need to change where the openaps system should look for these reports depending on where they are.
 
@@ -97,8 +103,29 @@ Some things to be aware of:
 
 4) You can scroll back in time and at each glucose data point you can see what the critical information was at that time
 
-5) There are 4 states now, based on what happened in the last 15m:  Enacted, looping, waiting, and warning
-Waiting is when the pi is uploading, but hasn't seen the pump in a while
-Warning is when there hasn't been a status upload in 15m
-Enacted menas it is working fine
-Looping means the loop is running but not enacting
+5) There are 4 states now, based on what happened in the last 15m:  Enacted, looping, waiting, and warning <br>
+Waiting is when the pi is uploading, but hasn't seen the pump in a while <br>
+Warning is when there hasn't been a status upload in 15m <br>
+Enacted menas it is working fine <br>
+Looping means the loop is running but not enacting <br>
+
+###Upload Latest Treatments to Nightscout
+
+It is also very beneficial to upload the treatment information from the pump and into Nightscout.  This removes the burden of entering this information into Nightscout
+
+Here are the alias to add to your openaps.ini file:
+
+latest-ns-treatment-time = ! bash -c "nightscout latest-openaps-treatment $NIGHTSCOUT_HOST | json created_at"<br>
+format-latest-nightscout-treatments = ! bash -c "nightscout cull-latest-openaps-treatments monitor/pump-history-zoned.json monitor/model.json $(openaps latest-ns-treatment-time) > upload/latest-treatments.json" <br>
+upload-recent-treatments = ! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""<br>
+
+In the aliases you will see variables like these:  $NIGHTSCOUT_HOST $API_SECRET.  These are environmental variable.  You can read more about them here:  https://en.wikipedia.org/wiki/Environment_variable <br>
+
+Basically $NIGHTSCOUT_HOST is your Nightscout URL and $API_SECRET is your API_secret password for Nightscout.  You will need to define these either in crontab or in your loop script.  TO define them use the following:
+
+export NIGHTSCOUT_HOST=https://yourwebsite.azurewebsites.net
+export API_SECRET=yourpassword   (plain text seems to work fine)
+
+
+
+Note:  Currently extended bolus are not handled well and depending on the timing of the upload are either missed entirely or has incorrect information.  
