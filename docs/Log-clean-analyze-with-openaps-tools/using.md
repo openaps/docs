@@ -185,6 +185,28 @@ optional arguments:
 * iter_glucose 2 - read last 2 records
 ```
 
+### Pulling blood glucose levels from Nightscout
+
+Some people have found it more beneficial to pull blood glucose values from Nightscout rather than directly from the Dexcom receiver.  In order to do that, two steps are needed:
+
+1) Similar like above, we need to create a device that talks to Nightscout.  Add this device called "curl" to your list of devices in your openaps.ini file:  <br>
+
+[device "curl"] <br>
+fields = <br>
+cmd = bash <br>
+vendor = openaps.vendors.process <br>
+args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'" <br>
+
+In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  The report will look like this in your openaps.ini file:
+  
+[report "monitor/glucose.json"] <br>
+device = curl <br>
+use = shell <br>
+reporter = text <br>
+
+Many people will actually setup both ways to pull the blood glucose level and switch between the different devices depending on their needs.  If you are going to pull it directly from Nightscout then you will have to have internet access for the Raspberry Pi.
+
+
 <br>
 ## Adding and Invoking Reports
 
