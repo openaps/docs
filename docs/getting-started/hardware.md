@@ -74,6 +74,8 @@ _*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY p
 
 The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum system (with or without the Share functionality) and the Medtronic system. With Dexcom, the Share platform is not required as communication with the receiver is accomplished via USB directly to the Pi. The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
 
+Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the Dex is fully charged, it will stay charged when connected to the Pi..
+
 [Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
 
 [Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
