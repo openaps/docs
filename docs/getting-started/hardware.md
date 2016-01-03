@@ -48,7 +48,7 @@ See currently known working list of pumps above. The easiest way to navigate to 
 
 Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop ([see example here](http://bit.ly/1itCsRl)).
 
-If you need to acquire an appropriate pump check CraigsList, talk to friends in your local community or online, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone has found any extra. 
+If you need to acquire an appropriate pump check CraigsList, talk to friends in your local community or online, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone has found any extra. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. It is recommended to ask the seller to confirm the firmware version of the pump.
 
 There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
 
