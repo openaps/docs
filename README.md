@@ -27,7 +27,7 @@ This community of contributors believes in "paying it forward," and individuals 
 
 ## OpenAPS System Development Phases
 
-This documenation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. [Click here for a visualization and breakdown of the phases](./docs/OpenAPS_phase_visualization_Nov152015.png). The phases are as follows: 
+This documenation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. [Click here for a visualization and breakdown of the phases](./OpenAPS_phase_visualization_Nov152015.png). The phases are as follows: 
 
 * [Phase 0: General Setup](docs/Overview/initial-setup.md)<br>
 Record baseline data, acquire and configure hardware, install software, and become familiar with the openaps environment
@@ -72,6 +72,7 @@ At the beginning of each phase, an outline summarizes:
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a Schedule](docs/Automate-system/create-schedule.md)
    * [Validating and Testing](docs/Automate-system/validate-output.md)
+   * [Keeping Up To Date](docs/Automate-system/keeping-up-to-date.md)
 * [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
 * [Resources](docs/Resources/resources.md)
    * [Technical Resources](docs/Resources/technical-resources.md)

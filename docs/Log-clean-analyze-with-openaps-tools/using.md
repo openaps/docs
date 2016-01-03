@@ -149,7 +149,9 @@ Go ahead and try some more pump uses to find out what they do. Note that some of
 
 ### Check that you can communicate with your Dexcom receiver
 
-Now let's try communicating with the Dexcom receiver:
+Now let's try communicating with the Dexcom receiver.
+
+Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged.
 
 `$ openaps use <my_dexcom_name> iter_glucose 1`
 

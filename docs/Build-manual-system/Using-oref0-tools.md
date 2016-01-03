@@ -28,7 +28,7 @@ $ openaps report add settings/bg_targets.json JSON <pump> read_bg_targets (get t
 $ openaps report add monitor/clock.json JSON <pump> read_clock (get the pump time -- used as the "now" for IOB calculations)
 $ openaps report add settings/settings.json JSON <pump> read_settings (store various pump settings)
 $ openaps report add settings/insulin_sensitivities.json JSON <pump> read_insulin_sensitivies (get insulin sensitivities off of the pump)
-$ openaps report add settings/basal_profile.json json JSON <pump> read_selected_basal_profile (get the current selected basal_profile)
+$ openaps report add settings/basal_profile.json JSON <pump> read_selected_basal_profile (get the current selected basal_profile)
 ````
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, your reports where your reports are stored and named are the same thing; so you invoke a report called "settings/settings.json" and the results are stored at "settings/settings.json".  Until you invoke a report you have added, it will not be created.  You also need to make sure to create those subdirectories of settings, monitor, and enact if you are going to use the model laid out in this documentation.
 

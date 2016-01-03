@@ -48,7 +48,7 @@ See currently known working list of pumps above. The easiest way to navigate to 
 
 Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop ([see example here](http://bit.ly/1itCsRl)).
 
-If you need to acquire an appropriate pump check CraigsList, talk to friends in your local community or online, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone has found any extra. 
+If you need to acquire an appropriate pump check CraigsList, talk to friends in your local community or online, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone has found any extra. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. It is recommended to ask the seller to confirm the firmware version of the pump.
 
 There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
 
@@ -73,6 +73,8 @@ _*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY p
 ### CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic
 
 The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum system (with or without the Share functionality) and the Medtronic system. With Dexcom, the Share platform is not required as communication with the receiver is accomplished via USB directly to the Pi. The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
+
+Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the Dex is fully charged, it will stay charged when connected to the Pi..
 
 [Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
 
