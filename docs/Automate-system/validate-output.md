@@ -23,4 +23,3 @@ If you'd like to help out with defining all the desired behaviors in the form of
 ###How to add more test cases:
  
 We'll want to cover every section of the code, so if you see a "rT.reason" in bin/oref0-determine-basal.js that doesn't have a corresponding "output.reason.should.match" line in an appropriate test in tests/determine-basal.test.js, then you should figure out what glucose, temp basal, IOB, and profile inputs would get you into that section of the code (preferably representing what you're likely to see in a real-world situation), and create a test case to capture those inputs and the desired outputs.  Then run the tests and see if your test passes, and the output looks reasonable.  If not, then modify your test case accordingly, or if you think you've found a bug in determine-basal.js, ask on Gitter.
-
