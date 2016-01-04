@@ -28,10 +28,16 @@ https://files.gitter.im/eyim/J8OR/blob
 
 Now we need to make a few changes to your OpenAPS implementation
 
-1) Add two devices called "ns-upload" and "ns-status".  I find it easiest to paste this into your openaps.ini file.
+1) Add two devices, one called "ns-upload", via a command like `openaps device add fake process ns-upload https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8`, and one called "ns-status".
+
+Once added the relevant portion of your openaps.ini file should look something like this:
 
 [device "ns-upload"] <br>
-fields = type report <br>
+extra - ns-upload.ini <br>
+
+Where ns-upload.ini is a file in your main openaps directory that contains:
+[device "ns-upload"] <br>
+fields = <br>
 vendor = openaps.vendors.process <br>
 cmd = ns-upload <br>
 args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password) <br>
