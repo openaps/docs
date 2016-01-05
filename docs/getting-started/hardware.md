@@ -80,7 +80,7 @@ Note: Your Dexcom should be nearly fully charged before plugging it in to your R
 
 Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. 
 
-* More documentation is coming soon about pulling CGM data from Nightscout.
+* You can find more documentation about pulling CGM data from a Nightscout site [here](../Log-clean-analyze-with-openaps-tools/using.md#pulling-blood-glucose-levels-from-nightscout).
 * If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS. 
  * If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.
  * You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found [here](http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge).
