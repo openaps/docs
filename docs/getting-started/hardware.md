@@ -2,7 +2,7 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
 
-If you're interested in working on communication for another pump (Omnipod, etc), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.
+If you're interested in working on communication for another pump (Omnipod, Animas, etc), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.
 
 
 ## Required  Hardware
@@ -67,29 +67,28 @@ A limitation of the Carelink USB stick is the short range of radio communication
 
 [Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/)
 
-_*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. It is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not currently recommended._
+_*Note that the ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. It is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not currently recommended. There are also other pieces of DIY hardware that are works in progress that may be alternatives to using the CareLink stick and Raspberry Pi._
  
 
 ### CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic
 
-The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum system (with or without the Share functionality) and the Medtronic system. With Dexcom, the Share platform is not required as communication with the receiver is accomplished via USB directly to the Pi. The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
+The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. You can also pull CGM data from Nightscout as an alternative (documentation coming soon), or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
 
-Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the Dex is fully charged, it will stay charged when connected to the Pi..
+<b> Using the Dexcom CGM: </b>
 
-Your OpenAPS implementation can pull CGM data from a Nightscout site instead of from the CGM directly. To do this wirelessly with an android phone you can use the xDrip app. 
+Note: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your receiver, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the receiver is fully charged, it will stay charged when connected to the Pi.
 
-If you have a share receiver follow these directions to set up your android uploader and Nightscout website: http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless
+Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. 
 
-You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found here: http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge
+* More documentation is coming soon about pulling CGM data from Nightscout.
+* If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS. 
+ * If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.
+ * You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found [here](http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge).
+ * You can also use part of the DIY receiver set up - the wixel – directly to the raspberry pi. Learn more about the wixel setup [here](https://github.com/jamorham/python-usb-wixel-xdrip) and [here](https://github.com/ochenmiller/wixelpi_uploader).
 
-You can also use part of the DIY receiver set up - the wixel – directly to the raspberry pi
-https://github.com/jamorham/python-usb-wixel-xdrip
-https://github.com/ochenmiller/wixelpi_uploader
+<b> Using the Medtronic CGM: </b>
 
-[Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
-
-[Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
-
+More documentation about getting Medtronic CGM data to be formatted for use in OpenAPS is coming soon.
 
 ### Raspberry Pi 2 Model B
 
@@ -108,6 +107,7 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8)
 
+Note: A known issue with the Raspberry Pi is that the SD card may get corrupted with frequent power cycles, such as when the system gets plugged and unplugged frequently from an external battery. Most core developers of openaps recommend purchasing extra SD cards and having them pre-imaged and ready to use with a backup copy of openaps installed, so you can swap it out on the go for continued use of the system.
 
 ### WiFi Adapter
 
@@ -136,7 +136,7 @@ USB cables with a micro connector on one end and a standard (Type A) connector o
 
 ### AAA Batteries
 
-Repeated wireless communication with the pump drains the battery quite quickly. With a loop running every five minutes, a standard alkaline AAA—recommended by Medtronic—lasts somewhere between four to six days before the pump goes to a "Low Battery" state and stops allowing wireless transmission. Lithium batteries last significantly longer but do not give much warning when they are about to die. For further information on batteries, see [this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA battery use in a looping pump.
+Repeated wireless communication with the pump drains the battery quite quickly. With a loop running every five minutes, a standard alkaline AAA—recommended by Medtronic—lasts somewhere between four to six days before the pump goes to a "Low Battery" state and stops allowing wireless transmission. Lithium batteries last significantly longer but do not give much warning when they are about to die, but alerts can be created to provide warning about the status of the battery. For further information on batteries, see [this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA battery use in a looping pump. 
 
 
 ### Cases
