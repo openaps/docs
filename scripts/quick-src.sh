@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get update
 sudo apt-get install -y git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog && \
 ( curl -s https://bootstrap.pypa.io/ez_setup.py | sudo python ) && \
 sudo npm install -g json && \
