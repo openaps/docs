@@ -76,6 +76,16 @@ The openaps tool set supports two different CGM systems: the Dexcom G4 Platinum 
 
 Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the Dex is fully charged, it will stay charged when connected to the Pi..
 
+Your OpenAPS implementation can pull CGM data from a Nightscout site instead of from the CGM directly. To do this wirelessly with an android phone you can use the xDrip app. 
+
+If you have a share receiver follow these directions to set up your android uploader and Nightscout website: http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless
+
+You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found here: http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge
+
+You can also use part of the DIY receiver set up - the wixel – directly to the raspberry pi
+https://github.com/jamorham/python-usb-wixel-xdrip
+https://github.com/ochenmiller/wixelpi_uploader
+
 [Dexcom G4 Platinum with  Share](http://www.dexcom.com/dexcom-g4-platinum-share)
 
 [Medtronic Enlite](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor)
