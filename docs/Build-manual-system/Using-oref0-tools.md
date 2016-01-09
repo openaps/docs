@@ -1,11 +1,13 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
-In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, to calculate the current insulin on board (IOB), and to determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
+In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 First, you can add a catch-all oref0 device using
 
-`$ openaps device add oref0 process oref0`
+```
+$ openaps device add oref0 process oref0`
+```
 
 and then you can be more specific and add individual oref0 processes as virtual devices using the following commands: 
 
@@ -15,11 +17,11 @@ $ openaps device add calculate-iob process --require "pumphistory profile clock"
 $ openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal
 ```
 
-In these commands, `--require` specifies the arguments required by each of the oref0 processes. Most of the arguments to the oref0 processes should look familiar to you from your experimentation with `openaps` tools earlier. Now it's time to put together reports that the oref0 processes can use as inputs, and reports that invoke the oref0 processes themselves. 
+In these commands, `--require` specifies the arguments required by each of the oref0 processes. Most of the arguments to the oref0 processes should look familiar to you from your experimentation with `openaps` tools earlier. Now it's time to put together reports that the oref0 processes use as inputs, as well as reports and aliases that invoke the oref0 processes themselves. 
 
 ## Organizing the reports
 
-It is convenient to group your reports into `settings`, `monitor`, and `enact` directories. The `settings` directory holds reports you may not need to refresh as frequently as those in `monitor` (e.g. BG targets and basal profile, vs. pump history and calculated IOB). Finally, the `enact` directory can be used to store recommendations ready to be reviewed or enacted, i.e. sent to the pump. The rest of this section assumes that you have created the `settings`, `monitor`, and `enact` as subdirectories in your openaps directory. The following shell command creates these three directories:
+It is convenient to group your reports into `settings`, `monitor`, and `enact` directories. The `settings` directory holds reports you may not need to refresh as frequently as those in `monitor` (e.g. BG targets and basal profile, vs. pump history and calculated IOB). Finally, the `enact` directory can be used to store recommendations ready to be reviewed or enacted (sent to the pump). The rest of this section assumes that you have created `settings`, `monitor`, and `enact` as subdirectories in your openaps directory. The following shell command creates these three directories:
 
 ```
 $ mkdir -p settings monitor enact
@@ -30,28 +32,32 @@ $ mkdir -p settings monitor enact
 The purpose of the `get-profile` process is to consolidate information from multiple settings reports into a single JSON file. This makes it easier to pass the relevant settings information to oref0 tools in subsequent steps. Let's look at what kind of reports you may want to set up for each of the `get-profile` process arguments:
 
 * `settings` outputs a JSON file containing the pump settings:
+
   ```
   $ openaps report add settings/settings.json JSON pump read_settings
   ```
 
 * `bg_targets` outputs a JSON file with bg targets collected from the pump:
+
   ```
   $ openaps report add settings/bg_targets.json JSON pump read_bg_targets
   ```
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
+
   ```
   $ openaps report add settings/insulin_sensitivities.json JSON pump read_insulin_sensitivies
   ```
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
+
   ```
   $ openaps report add settings/basal_profile.json JSON pump read_basal_profile_std
   ```
 
-* `max_iob`: This is an exception: in contrast to the other settings above, `max_iob` is not the result of an openaps report. It's a JSON file that should contain a single line, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob.sh](https://github.com/openaps/oref0/blob/master/bin/basal_profile.json.sh) tool to generate the file. The max_iob variable represents an upper limit to how much insulin on board (iob) oref0 will be allowed to add by enacting increases in temporary basal rates over a period of time. In the example above, `max_iob` equals 2 units of insulin.  
+* `max_iob` is an exception: in contrast to the other settings above, `max_iob` is not the result of an openaps report. It's a JSON file that should contain a single line, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/basal_profile.json.sh) tool to generate the file. The max_iob variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.  
 
-Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for every argument required by `get-profile`, you can add a `profile` report:
+Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
 ```
 $ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
@@ -64,7 +70,7 @@ At this point, it's natural to add an alias that generates all the reports requi
 $ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
 ```
 
-Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created only once you invoke the report.
+Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created by invoking the report.
 
 ## The calculate-iob process
 
@@ -73,18 +79,21 @@ This process uses pump history and the result of `get-profile` to calculate IOB.
 * `profile`: report for `get-profile`, as discussed above
 
 * `pumphistory` stores pump history in a JSON file
+ 
   ```
   $ openaps report add monitor/pumphistory.json JSON pump iter_pump_hours 4
   ```
 
-In this example, pump history is obtained from the pump over a period of 4 hours. Normally, you would want openaps to operate based on the pump history over the number of hours equal to what you assume is your active insulin time.
+In this example, pump history is over a period of 4 hours. Normally, you would want oref0 to operate based on pump history over the number of hours at least equal to what you assume is your active insulin time.
 
 * `clock` outputs the current time stamp from the pump
+ 
   ```
   $ openaps report add monitor/clock.json JSON pump read_clock
   ```
 
 You can now add a report for the `calculate-iob` process:
+
 ```
 $ openaps report add monitor/iob.json JSON calculate-iob shell monitor/pumphistory.json settings/profile.json monitor/clock.json
 ```
@@ -93,30 +102,33 @@ As always, it is a good idea to carefully test and examine the generated reports
 
 ## The determine-basal process
 
-This process uses the IOB computed by `calculate-iob`, the current temp basal state, CGM history, and the profile to determine what (if any) temp basal to recommend. Its arguments, and suggested reports can be setup as follow:
+This process uses the IOB computed by `calculate-iob`, the current temp basal state, CGM history, and the profile to determine what temp basal to recommend (if any). Its arguments and reports could be setup as follow:
 
 * `iob`: your report for `calculate-iob`
 
 * `profile`: your report for `get-profile`
 
 * `temp_basal` reads from pump and outputs the current temp basal state:
+  
   ```
   $ openaps report add monitor/temp_basal.json JSON pump read_temp_basal
   ```
 
-* `glucose` reads several most recent bg values from CGM and stores them in glucose.json file:
+* `glucose` reads several most recent BG values from CGM and stores them in glucose.json file:
+  
   ```
   $ openaps report add monitor/glucose.json JSON cgm iter_glucose 5
   ```
 
-In this example, glucose.json will contains 5 most recent bg values. 
+In this example, glucose.json will contain 5 most recent bg values. 
 
 Finally, a report for `determine-basal` may look like this:
+
 ```
 $ openaps report add enact/suggested.json text determine-basal shell monitor/iob.json monitor/temp_basal.json monitor/glucose.json settings/profile.json
 ```
 
-The report output is the suggested.json file, which repors a recommendation to be enacted by sending (or not) a new temp basal to the pump, as well as the reason for the recommendation.
+The report output is in suggested.json file, which includes a recommendation to be enacted by sending, if necessary, a new temp basal to the pump, as well as a reason for the recommendation.
 
 ## Adding aliases
 
@@ -146,12 +158,12 @@ and
 $ openaps alias show
 ```
 
-to list all the reports and all the aliases you've set up, respectively. You'll want to ensure that you've set up a report for every argument for every oref0 process and, *more importantly*, that you understand what each report and process does. This is an excellent opportunity to make some `openaps report invoke` calls and to `cat` the report files, in order to gain better familiarity with each input and output of the system.
+to list all the reports and aliases you've set up so far. You'll want to ensure that you've set up a report for every argument for every oref0 process and, *more importantly*, that you understand what each report and process does. This is an excellent opportunity to make some `openaps report invoke` calls and to `cat` the report files, in order to gain better familiarity with system inputs and outputs.
 
-You can also test the full sequence of aliases and the reports which depend on them:
+You can also test the full sequence of aliases and the that which depend on them:
 
 ```
-$ rm settings/* monitor/* enact/*
+$ rm -f settings/* monitor/* enact/*
 $ openaps gather-profile
 $ openaps monitor-pump
 $ openaps monitor-cgm
@@ -159,32 +171,32 @@ $ openaps report invoke monitor/iob.json
 $ openaps report invoke enact/suggested.json
 ```
 
-It is particularly important to examine `suggested.json`, which is the output of the `determine-basal` process, i.e. the output of the calculation performed to determine what temp basal rate, if any, should be enacted, i.e. sent to the pump. Let's take a look at some `suggested.json` examples:
+It is particularly important to examine suggested.json, which is the output of the `determine-basal` process, i.e. the output of the calculations performed to determine what temp basal rate, if any, should be enacted. Let's take a look at some suggested.json examples:
 
 ```
 {"temp": "absolute","bg": 89,"tick": -7,"eventualBG": -56,"snoozeBG": 76,"reason": "Eventual BG -56<100, no temp, setting -0.435U/hr","duration": 30,"rate": 0}
 ```
 
-In this example, the current temporary basal rate type is "absolute", which should always be the case. The current bg values is 89, which dropped from 96 by the "tick" value of -7. The "eventualBG" and "snoozeBG" are oref0 variables projecting ultimate bg values based on the current value of IOB (with or without IOB due to meal boluses), an average change in bg over the most recent CGM data in glucose.json, and your insulin sensitivity. The "reason" indicates why the recommendation is made. In the example shown, "eventualBG" is less than the target bg (100), no temp rate is currently set, and the temp rate required to bring the eventual bg to target is -0.435U/hr. Unfortunately, we do not have glucagon available, and the pump is unable to implement a negative temp basal rate. The system recommends the best it can: set the "rate" to 0 for a "duration" of 30 minutes. In the oref0 algorithm, a new temp basal rate duration is always set to 30 minutes. Let's take a look at another example of `suggested.json`:
+In this example, the current temporary basal rate type is "absolute", which should always be the case. The current BG values is 89, which dropped from 96 by a "tick" value of -7. "eventualBG" and "snoozeBG" are oref0 variables projecting ultimate bg values based on the current IOB with or without meal bolus contributions, an average change in BG over the most recent CGM data in glucose.json, and your insulin sensitivity. The "reason" indicates why the recommendation is made. In the example shown, "eventualBG" is less than the target BG (100), no temp rate is currently set, and the temp rate required to bring the eventual BG to target is -0.435U/hr. Unfortunately, we do not have glucagon available, and the pump is unable to implement a negative temp basal rate. The system recommends the best it can: set the "rate" to 0 for a "duration" of 30 minutes. In the oref0 algorithm, a new temp basal rate duration is always set to 30 minutes. Let's take a look at another example of `suggested.json`:
 
 ```
 {"temp": "absolute","bg": 91,"tick": "+6","eventualBG": -2,"snoozeBG": 65,"reason": "Eventual BG -2<100, but Delta +6 > Exp. Delta -2.3;cancel","duration": 0,"rate": 0}
 ```
 
-In this case, the evenatual bg is again less than the target, but the bg is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
+In this case, the evenatual BG is again less than the target, but BG is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to as "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
 
 ```
 {"temp": "absolute","bg": 95,"tick": "+4","eventualBG": 13,"snoozeBG": 67,"reason": "Eventual BG 13<90, but Avg. Delta 4.00 > Exp. Delta -2.9; no temp to cancel"}
 ```
 
-which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of the oref0 operation, you may want to spend some time generating and looking through suggested.json and other reports. 
+which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to spend some time generating and looking through suggested.json and other reports. 
 
 ## Enacting the suggested action
 
 Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, to cancel the current temp rate, or do nothing. To setup an `enacted.json` report, one may first try the following: 
 
 ```
-$ openaps report add enact/enacted.json JSON pump set_temp_basal suggested.json
+$ openaps report add enact/enacted.json JSON pump set_temp_basal enact/suggested.json
 ```
 
 together with a simple `enact` alias: 
@@ -193,21 +205,21 @@ together with a simple `enact` alias:
 $ openaps alias add try-to-enact "report invoke enact/enacted.json"
 ```
 
-Note that the `enacted.json` report uses the `set_temp_basal` pump command. By experimenting with generating `suggested.json`and then running `$ openaps try-to-enact`, you would find that enacting the suggestion works only in the cases when a new basal rate is suggested. Otherwise, the `set_temp_basal` command is missing the requred values and throws an error. A check must therefore be added to make sure a new temp basal is recommended before trying to set one on the pump. Looking at the `suggested.json` examples above, one may note that the word "duration" is present in `suggested.json` if a new temp basal rate is suggested. Otherwise, no action is required, and the `enact/enacted.json` report should not be invoked. To check for the presence of "duration", one my use `grep`, a standard command-line utility for searching text for patterns, for example as follows:
+Note that the `enacted.json` report uses the `set_temp_basal` pump command. By experimenting with generating `suggested.json`and then running `$ openaps try-to-enact`, you would find that enacting the suggestion works only in the cases when a new basal rate is suggested. Otherwise, the `set_temp_basal` command is missing the requred values and fails. A check must therefore be added to make sure a new temp basal is recommended before trying to set one on the pump. Looking at the `suggested.json` examples above, one may note that "duration" is present in `suggested.json` if a new temp basal rate is suggested. Otherwise, no action is required, and the `enact/enacted.json` report should not be invoked. To check for the presence of "duration", one my use `grep`, a standard command-line utility for searching text for patterns, for example as follows:
 
 ```
 $ openaps alias add enact '! bash -c "openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json ) || echo No action required"'
 ```
 
-This example shows how an alias can be constructed using bash commands. First `enact/suggested.json` is invoked. Next, grep is used to search for "duration" in suggested.json file. If a match is found, `enact/enacted.json` report is invoked. Otherwise, `echo` displays that no action is required. This example also shows how aliases can be used to produce extra diagnostic output, e.g. using the `cat` command, and how commands can be chained together with the bash && ("and") or || ("or") operators to execute different subsequent commands depending on the output code (interpreted as "true" or "false") of a previous command.
+This example shows how an alias can be constructed using bash commands. First `enact/suggested.json` is invoked. Next, `grep` is used to search for "duration" in suggested.json file. If a match is found, `enact/enacted.json` report is invoked. Otherwise, `echo` displays that no action is required. This example also shows how aliases can be used to produce extra diagnostic output, e.g. using `cat`, and how commands can be chained together with the bash && ("and") or || ("or") operators to execute different subsequent commands depending on the output code of a previous command (interpreted as "true" or "false").
 
 You may now experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. It should soon become clear that it would be conventient to put all the required reports and actions into a single alias. 
 
 ## Adding error checking
 
-Before moving on to consolidating all of these capabilities into a single alias, it is a good idea to add some error checking. There are several potential issues that may adveresely affect operation of the system. For example, RF communication with the pump may be compromised. It has also been observed that the CareLink USB stick may go dead, requiring a reset of the USB ports. Furthermore, in general, the system should not act on stale data. Let's look at some approaches you may consider to address these issues. 
+Before moving on to consolidating all of these capabilities into a single alias, it is a good idea to add some error checking. There are several potential issues that may adveresely affect operation of the system. For example, RF communication with the pump may be compromised. It has also been observed that the CareLink USB stick may become unresponsive or "dead", requiring a reset of the USB ports. Furthermore, in general, the system should not act on stale data. Let's look at some approaches you may consider to address these issues.
 
-Ensuring that your openaps implementation can't act on stale data could be done by deleting all of the report files in the `monitor` directory each time before the reports are refreshed using `rm -f` bash command, which removes file(s) ignoring the case when the file(s) do not exist. If a refresh fails, the data required for subsequent commands will be missing, and they will fail to run. You may add an alias that runs the required bash commands, e.g., 
+Ensuring that your openaps implementation can't act on stale data could be done by deleting all of the report files in the `monitor` directory before the reports are refreshed. YOu may simply use `rm -f` bash command, which removes file(s), while ignoring cases when the file(s) do not exist. If a refresh fails, the data required for subsequent commands will be missing, and they will fail to run. For example, here is an alias that runs the required bash commands: 
 
 ```
 openaps alias add gather '! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps get-settings"'
@@ -225,13 +237,13 @@ It's also worthwhile to do a "preflight" check that verifies a pump is in commun
 $ mm-stick warmup || echo FAIL
 ```
 
-will output "FAIL" if the stick is dead or disconnected. You may simply disconnect the stick and give it a try. If the stick is connected but dead, `oref0-reset-usb` command can be used to reset the USB ports
+will output "FAIL" if the stick is unresponsive or disconnected. You may simply disconnect the stick and give this a try. If the stick is connected but dead, `oref0-reset-usb` command can be used to reset the USB ports
 
 ```
 $ oref0-reset-usb
 ```
 
-Beware: this command resets all USB ports, so you will temporarily loose connection to a WiFi stick or any other connected USB device. 
+Beware, this command power cycles all USB ports, so you will temporarily loose connection to a WiFi stick and any other connected USB device. 
 
 Checking for RF connectivity with the pump can be performed by attempting a simple pump command or report and by examining the output. For example, 
 
@@ -247,4 +259,4 @@ Collecting all the error checking, a `preflight` alias could be defined as follo
 $ openaps alias add preflight '! bash -c "rm -f monitor/clock.json && openaps report invoke monitor/clock.json 2>/dev/null && grep -q T clock.json && echo PREFLIGHT OK || (mm-stick warmup || (oref0-reset-usb && echo PREFLIGHT SLEEP && sleep 120); echo PREFLIGHT FAIL; exit 1)"'
 ```
 
-In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB has been reset in an attempt to revive the MM CareLink stick. You may experiment using `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick. 
+In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB ports have been reset in an attempt to revive the MM CareLink stick. You may experiment using `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick. 
