@@ -6,7 +6,7 @@ In Phase 1, you added two physical medical devices to openaps—your pump and yo
 First, you can add a catch-all oref0 device using
 
 ```
-$ openaps device add oref0 process oref0`
+$ openaps device add oref0 process oref0
 ```
 
 and then you can be more specific and add individual oref0 processes as virtual devices using the following commands: 
