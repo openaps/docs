@@ -168,8 +168,7 @@ It is particularly important to examine `suggested.json`, which is the output of
 In this example, the current temporary basal rate type is "absolute", which should always be the case. The current bg values is 89, which dropped from 96 by the "tick" value of -7. The "eventualBG" and "snoozeBG" are oref0 variables projecting ultimate bg values based on the current value of IOB (with or without IOB due to meal boluses), an average change in bg over the most recent CGM data in glucose.json, and your insulin sensitivity. The "reason" indicates why the recommendation is made. In the example shown, "eventualBG" is less than the target bg (100), no temp rate is currently set, and the temp rate required to bring the eventual bg to target is -0.435U/hr. Unfortunately, we do not have glucagon available, and the pump is unable to implement a negative temp basal rate. The system recommends the best it can: set the "rate" to 0 for a "duration" of 30 minutes. In the oref0 algorithm, a new temp basal rate duration is always set to 30 minutes. Let's take a look at another example of `suggested.json`:
 
 ```
-{"temp": "absolute","bg": 91,"tick": "+6","eventualBG": -2,"snoozeBG": 65,"reason": "Eventual BG -2<100, but Delta +6 > Exp. Delta -2.3;cancel","duration": 0,"rate": 0
-}
+{"temp": "absolute","bg": 91,"tick": "+6","eventualBG": -2,"snoozeBG": 65,"reason": "Eventual BG -2<100, but Delta +6 > Exp. Delta -2.3;cancel","duration": 0,"rate": 0}
 ```
 
 In this case, the evenatual bg is again less than the target, but the bg is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
@@ -182,22 +181,22 @@ which is similar to the previous example except that in this case there is no te
 
 ## Enacting the suggested action
 
-Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, if necessary. To setup an `enacted.json` report, one may first try the following: 
+Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, to cancel the current temp rate, or do nothing. To setup an `enacted.json` report, one may first try the following: 
 
 ```
-$openaps report add enact/enacted.json JSON mypump set_temp_basal suggested.json
+$ openaps report add enact/enacted.json JSON pump set_temp_basal suggested.json
 ```
 
 together with a simple `enact` alias: 
 
 ```
-$openaps alias add try-to-enact "report invoke enact/enacted.json"
+$ openaps alias add try-to-enact "report invoke enact/enacted.json"
 ```
 
-By experimenting with generating `suggested.json`and then running `$ openaps try-to-enact`, you would find that enacting the suggestion works only in the cases when a new basal rate is suggested. Otherwise, the `set_temp_basal` command to the pump is missing the requred values and throws an error. A check must be added to make sure a new temp basal is recomemnded before trying to set one on the pump. Looking at the `suggested.json` examples above, one may note that the word "duration" is present in `suggested.json` if a new temp basal rate is suggested. Otherwise, no action is required, and the `enact/enacted.json` report should not be invoked. To check for the presence of "duration", one my use `grep`, a standard command-line utility for searching text for patterns, for example as follows:
+Note that the `enacted.json` report uses the `set_temp_basal` pump command. By experimenting with generating `suggested.json`and then running `$ openaps try-to-enact`, you would find that enacting the suggestion works only in the cases when a new basal rate is suggested. Otherwise, the `set_temp_basal` command is missing the requred values and throws an error. A check must therefore be added to make sure a new temp basal is recommended before trying to set one on the pump. Looking at the `suggested.json` examples above, one may note that the word "duration" is present in `suggested.json` if a new temp basal rate is suggested. Otherwise, no action is required, and the `enact/enacted.json` report should not be invoked. To check for the presence of "duration", one my use `grep`, a standard command-line utility for searching text for patterns, for example as follows:
 
 ```
-openaps alias add enact '! bash -c "openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json ) || echo No action required"'
+$ openaps alias add enact '! bash -c "openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json ) || echo No action required"'
 ```
 
 This example shows how an alias can be constructed using bash commands. First `enact/suggested.json` is invoked. Next, grep is used to search for "duration" in suggested.json file. If a match is found, `enact/enacted.json` report is invoked. Otherwise, `echo` displays that no action is required. This example also shows how aliases can be used to produce extra diagnostic output, e.g. using the `cat` command, and how commands can be chained together with the bash && ("and") or || ("or") operators to execute different subsequent commands depending on the output code (interpreted as "true" or "false") of a previous command.
@@ -206,18 +205,46 @@ You may now experiment by running the required sequence of reports and by execut
 
 ## Adding error checking
 
-Before moving on to consolidating all of these capabilities into a single alias, you'll also want to add some error checking. There are several potential issues that may adveresely affect operation of the system. The communication with the CGM or the pump may be compromised. It has also been observed that the CareLink USB stick may go dead, requiring a rest of the USB ports. In general, the system should not act on stale data. Let's look at some approaches you may consider to address these issues. 
+Before moving on to consolidating all of these capabilities into a single alias, it is a good idea to add some error checking. There are several potential issues that may adveresely affect operation of the system. For example, RF communication with the pump may be compromised. It has also been observed that the CareLink USB stick may go dead, requiring a reset of the USB ports. Furthermore, in general, the system should not act on stale data. Let's look at some approaches you may consider to address these issues. 
 
-To ensure that your openaps implementation can't act on stale data could be done by deleting all of the report files in the `monitor` directory each time before the reports are refreshed. If a refresh fails, the data required for subsequent commands will be missing, and they will fail to run. You may add an alias that runs required bash commands, e.g., 
-
-```
-openaps alias add gather '! bash -c "rm monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps get-settings"'
-```
-
-A similar approach can be used to both remove any old `suggested.json` output before generating a new one, and to check and make sure oref0 is recommending a temp basal before trying to set one on the pump. The `enact` alias can be updated as follows: 
+Ensuring that your openaps implementation can't act on stale data could be done by deleting all of the report files in the `monitor` directory each time before the reports are refreshed using `rm -f` bash command, which removes file(s) ignoring the case when the file(s) do not exist. If a refresh fails, the data required for subsequent commands will be missing, and they will fail to run. You may add an alias that runs the required bash commands, e.g., 
 
 ```
-openaps alias add enact '! bash -c "rm enact/suggested.json; openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json) || echo No action required"'
+openaps alias add gather '! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps get-settings"'
 ```
 
-It's also worthwhile to do a "preflight" check that verifies a pump is in communication range before trying anything else. This can be done using something like openaps report add model.json JSON pump model, and then can be combined with some error checking from the oref0 mm-stick tool to do some error checking if the model query fails: openaps alias add preflight '! bash -c "rm -f model.json && openaps report invoke model.json && test -n $(json -f model.json) && echo \"PREFLIGHT OK\" || ( mm-stick warmup fail \"NO PUMP MODEL RESPONDED\" || mm-stick fail \"NO MEDTRONIC CARELINK STICK AVAILABLE\")"' 
+A similar approach can be used to remove any old `suggested.json` output before generating a new one, and to check and make sure oref0 is recommending a temp basal before trying to set one on the pump. The `enact` alias can be updated as follows: 
+
+```
+openaps alias add enact '! bash -c "rm -f enact/suggested.json; openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json) || echo No action required"'
+```
+
+It's also worthwhile to do a "preflight" check that verifies a pump is in communication range and that the pump stick is functional before trying anything else. The oref0 `mm-stick` command can be used to check the status of the MM CareLink stick. In particular, `mm-stick warmup` scans the USB port and exits with a zero code on success, and non-zero otherwise. Therefore,
+
+```
+$ mm-stick warmup || echo FAIL
+```
+
+will output "FAIL" if the stick is dead or disconnected. You may simply disconnect the stick and give it a try. If the stick is connected but dead, `oref0-reset-usb` command can be used to reset the USB ports
+
+```
+$ oref0-reset-usb
+```
+
+Beware: this command resets all USB ports, so you will temporarily loose connection to a WiFi stick or any other connected USB device. 
+
+Checking for RF connectivity with the pump can be performed by attempting a simple pump command or report and by examining the output. For example, 
+
+```
+$ openaps report invoke monitor/clock.json
+```
+
+returns the current pump time stamp, such as "2016-01-09T10:47:56", if the system is able to communicate with the pump, or errors otherwise. Removing previously generated clock.json and checking for presence of "T" in the newly created clock.json could be used to verify connectivity with the pump.
+
+Collecting all the error checking, a `preflight` alias could be defined as follows:
+
+```
+$ openaps alias add preflight '! bash -c "rm -f monitor/clock.json && openaps report invoke monitor/clock.json 2>/dev/null && grep -q T clock.json && echo PREFLIGHT OK || (mm-stick warmup || (oref0-reset-usb && echo PREFLIGHT SLEEP && sleep 120); echo PREFLIGHT FAIL; exit 1)"'
+```
+
+In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB has been reset in an attempt to revive the MM CareLink stick. You may experiment with `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick. 
