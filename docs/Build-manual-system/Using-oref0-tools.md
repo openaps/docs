@@ -247,4 +247,4 @@ Collecting all the error checking, a `preflight` alias could be defined as follo
 $ openaps alias add preflight '! bash -c "rm -f monitor/clock.json && openaps report invoke monitor/clock.json 2>/dev/null && grep -q T clock.json && echo PREFLIGHT OK || (mm-stick warmup || (oref0-reset-usb && echo PREFLIGHT SLEEP && sleep 120); echo PREFLIGHT FAIL; exit 1)"'
 ```
 
-In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB has been reset in an attempt to revive the MM CareLink stick. You may experiment with `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick. 
+In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB has been reset in an attempt to revive the MM CareLink stick. You may experiment using `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick. 
