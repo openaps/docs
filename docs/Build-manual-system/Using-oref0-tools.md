@@ -193,27 +193,12 @@ which is similar to the previous example except that in this case there is no te
 
 ## Enacting the suggested action
 
-Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, to cancel the current temp rate, or do nothing. To setup an `enacted.json` report, one may first try the following: 
+Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, to cancel the current temp rate, or do nothing. The approach one may follow is to setup an  `enacted.json` report, and a corresponding `enact` alias. Thinking about how to setup the `enact` report and alias, you may consider the following questions: 
 
-```
-$ openaps report add enact/enacted.json JSON pump set_temp_basal enact/suggested.json
-```
+* Which pump command could be used to enact a new basal temp, if necessary, and what inputs should that command take? Where should these inputs come from? 
+* How could a decision be made whether a new basal temp should be sent to the pump or not? What should `enact` do in the cases when no new temp basal is suggested? 
 
-together with a simple `enact` alias: 
-
-```
-$ openaps alias add try-to-enact "report invoke enact/enacted.json"
-```
-
-Note that the `enacted.json` report uses the `set_temp_basal` pump command. By experimenting with generating `suggested.json`and then running `$ openaps try-to-enact`, you would find that enacting the suggestion works only in the cases when a new basal rate is suggested. Otherwise, the `set_temp_basal` command is missing the requred values and fails. A check must therefore be added to make sure a new temp basal is recommended before trying to set one on the pump. Looking at the `suggested.json` examples above, one may note that "duration" is present in `suggested.json` if a new temp basal rate is suggested. Otherwise, no action is required, and the `enact/enacted.json` report should not be invoked. To check for the presence of "duration", one my use `grep`, a standard command-line utility for searching text for patterns, for example as follows:
-
-```
-$ openaps alias add enact '! bash -c "openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json ) || echo No action required"'
-```
-
-This example shows how an alias can be constructed using bash commands. First `enact/suggested.json` is invoked. Next, `grep` is used to search for "duration" in suggested.json file. If a match is found, `enact/enacted.json` report is invoked. Otherwise, `echo` displays that no action is required. This example also shows how aliases can be used to produce extra diagnostic output, e.g. using `cat`, and how commands can be chained together with the bash && ("and") or || ("or") operators to execute different subsequent commands depending on the output code of a previous command (interpreted as "true" or "false").
-
-You may now experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. It should soon become clear that it would be conventient to put all the required reports and actions into a single alias. 
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing. 
 
 ## Adding error checking
 
@@ -225,11 +210,7 @@ Ensuring that your openaps implementation can't act on stale data could be done 
 openaps alias add gather '! bash -c "rm -f monitor/*; openaps gather-profile && openaps monitor-cgm && openaps monitor-pump && openaps report invoke monitor/iob.json"'
 ```
 
-A similar approach can be used to remove any old `suggested.json` output before generating a new one, and to check and make sure oref0 is recommending a temp basal before trying to set one on the pump. The `enact` alias can be updated as follows: 
-
-```
-openaps alias add enact '! bash -c "rm -f enact/suggested.json; openaps report invoke enact/suggested.json && grep -q duration enact/suggested.json && (openaps report invoke enact/enacted.json && cat enact/enacted.json) || echo No action required"'
-```
+This example also shows how an alias can be constructed using bash commands. First, all files in `monitor` directory are deleted. Then, aliases are executed to generate the required reports. A similar approach can be used to remove any old `suggested.json` output before generating a new one, and to check and make sure oref0 is recommending a temp basal before trying to set one on the pump. You may want to make sure that your `enact` alias includes these provisions. 
 
 It's also worthwhile to do a "preflight" check that verifies a pump is in communication range and that the pump stick is functional before trying anything else. The oref0 `mm-stick` command can be used to check the status of the MM CareLink stick. In particular, `mm-stick warmup` scans the USB port and exits with a zero code on success, and non-zero otherwise. Therefore,
 
@@ -259,4 +240,9 @@ Collecting all the error checking, a `preflight` alias could be defined as follo
 $ openaps alias add preflight '! bash -c "rm -f monitor/clock.json && openaps report invoke monitor/clock.json 2>/dev/null && grep -q T monitor/clock.json && echo PREFLIGHT OK || (mm-stick warmup || (sudo oref0-reset-usb && echo PREFLIGHT SLEEP && sleep 120); echo PREFLIGHT FAIL; exit 1)"'
 ```
 
-In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB ports have been reset in an attempt to revive the MM CareLink stick. You may experiment using `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick. 
+In this `preflight` example, a wait period of 120 seconds is added using `sleep` bash command if the USB ports have been reset in an attempt to revive the MM CareLink stick. This `preflight` example also shows how bash commands can be chained together with the bash && ("and") or || ("or") operators to execute different subsequent commands depending on the output code of a previous command (interpreted as "true" or "false").
+
+You may experiment using `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick.
+
+At this point you are in position to put all the required reports and actions into a single alias. 
+
