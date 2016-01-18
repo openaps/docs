@@ -4,7 +4,7 @@
 
 Integrating OpenAPS with Nightscout is a very helpul way to visualize what OpenAPS using a web browser or an app on a mobile device, as opposed to logging into your Raspberry Pi and looking through the logs. The integration requires setting up Nightscout and making changes and additions to your OpenAPS implementation.
 
-### Nightscout setup
+### Nightscout Setup
 
 OpenAPS requires the latest (currently dev) version of Nighthscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. 
 
@@ -17,7 +17,7 @@ The steps discussed here are essantially the same for both Azure and Heroku user
 
 For Azure users, here is what these configuration changes will look like: https://files.gitter.im/eyim/lw6x/blob.
 
-Next, on your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  At the very bottom, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable. You should now see the OpenAPS pill box on the left side near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the Render Basal pull-down menu. Here is an example of a configured Nightscout page: https://files.gitter.im/eyim/J8OR/blob
+Next, on your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  At the very bottom, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable. You should now see the OpenAPS pill box on the left side near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu. 
 
 ### Environment Variables for OpenAPS Access to Nightscout
 
@@ -38,30 +38,16 @@ These variables will stay defined as long as the current terminal session remain
 
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
-* Preparing a new report `monitor/upload-status.json` which consolidates the current OpenAPS status to be uploaded to Nightscout 
-* Uploading the status report to Nightscount, using a `` command 
+* Adding a new `ns-status` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
+* Uploading the status report to Nightscount, using the `ns-upload` command 
 
-Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscount page. 
+Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscount page. Here is a Nightscout page example, with the OpenAPS status shown: https://files.gitter.im/eyim/J8OR/blob
 
-3) Add this report to your openaps.ini file
+The `ns-status` is a virtual device in the oref0 system, which consolidates and formats OpenAPS status info to a form suitable for upload to Nightscout. First, add the device:
 
-1) Add two devices, one called "ns-upload", via a command like `openaps device add fake process ns-upload https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8`, and one called "ns-status".
-
-Once added the relevant portion of your openaps.ini file should look something like this:
-
-[device "ns-upload"] <br>
-extra - ns-upload.ini <br>
-
-Where ns-upload.ini is a file in your main openaps directory that contains:
-[device "ns-upload"] <br>
-fields = <br>
-vendor = openaps.vendors.process <br>
-cmd = ns-upload <br>
-args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password) <br>
-
-The last line args = should contain the URL of the Nightscout website.  Note that for Azure it is important to include the https:// before the URL>  What follows is the hashed version of your API_SECRET password.  To get the hased version of the password, put your password into this website:  http://www.sha1-online.com/
-
-For example, if your password is "password" (without quotes) it will return 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+```
+$ openaps device add ns-status --require clock-zoned iob suggested enacted battery reservoir status
+```
 
 [device "ns-status"] <br>
 fields = clock iob suggested enacted battery reservoir status<br>
@@ -69,23 +55,52 @@ cmd = ns-status<br>
 vendor = openaps.vendors.process<br>
 args = <br>
 
-2) Add this alias to your openaps.ini file:
+Then use `ns-status` to add the `monitor/upload-status.json` report, which you may do as follows:
 
-status-upload = ! bash -c "openaps report invoke monitor/upload-status.json && (openaps use ns-upload shell devicestatus.json monitor/upload-status.json )"
+```
+$ openaps report add monitor/upload-status.json JSON shell ns-status monitor/clock-zoned.json monitor/iob.json enact/suggested.json enact/enacted.json monitor/battery.json monitor/reservoir.json monitor/status.json 
+```
 
-4) Add the command openaps status-upload to your loop.  I add it after the main loop
+The reports taken to generate upload-status.json should look familiar by now. If you have not generated any of the reports required, you should do that first and test them manually to make sure they all work.  In particular, note that monitor/clock-zoned.json contains the pump clock time stamp, but with the timezone info included. If you have not generated that report already, you may do so using the following commands:
 
-5) There are 4 states now, based on what happened in the last 15m:  Enacted, looping, waiting, and warning <br>
-Waiting is when the pi is uploading, but hasn't seen the pump in a while <br>
-Warning is when there hasn't been a status upload in 15m <br>
-Enacted menas it is working fine <br>
-Looping means the loop is running but not enacting <br>
+```
+$ openaps vendor add openapscontrib.timezones
+$ openaps device add tz timezones
+$ git add tz.ini
+$ openaps report add monitor/clock-zoned.json JSON tz clock monitor/clock.json
+```
+
+It is a good idea to update your monitor-pump alias to make sure that it produces all required reports, so that uploading status to Nightscount becomes automated. Now, you can try to manually upload the OpenAPS status to Nightscout: 
+
+```
+$ ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json
+```
+
+If successful, this command will POST the status info, and return the contents of the Nightscout devicestatus.json file, which may look like this: 
+
+```
+
+```
+
+Finally, you may define a new alias status-upload, to generate the report and upload the status to Nightscout:
+
+```
+$ openaps alias add status-upload '! bash -c "openaps report invoke monitor/upload-status.json && ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json"'
+```
+
+To test the alias, you may run your loop manually from command line, execute `status-upload`, examine the output and check that new status is visible on the OpenAPS pill on your Nightscout page. To automate the status upload, you can simply add `status-upload` to your main OpenAPS loop. The OpenAPS pillbox will show you when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop.  It will help you understand what the loop is doing on every cycle.
+
+There are 4 states now, based on what happened in the last 15m:  Enacted, looping, waiting, and warning:
+
+* Waiting is when the pi is uploading, but hasn't seen the pump in a while
+* Warning is when there hasn't been a status upload in 15m 
+* Enacted menas it is working fine 
+* Looping means the loop is running but not enacting <br>
 
 Some things to be aware of:
 
 * Make sure that the timezones for the pi (use sudo raspi-config to change timezones), in your monitor/clock-zoned.json report and the Nightscout website are all in the same timezone.
 * The basal changes won't appear in Nightscout until the second time the loop runs.
-* The OpenAPS pillbox will show you when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop.  It will help you understand what the loop is doing on every cycle.
 * You can scroll back in time and at each glucose data point you can see what the critical information was at that time
 
 ### Uploading Latest Treatments to Nightscout
