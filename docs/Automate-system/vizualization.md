@@ -28,11 +28,11 @@ To obtain the hashed version of the API_SECRET, go to http://www.sha1-online.com
 In your Raspberry PI terminal window, you may now define the two environment variables as follows:
 
 ```
-$ export  NIGHTSCOUT_HOST = "https://<your Nightscout address>"
-$ export  API_SECRET = "<your hashed password>"
+$ export  NIGHTSCOUT_HOST="https://<your Nightscout address>"
+$ export  API_SECRET="<your hashed password>"
 ```
 
-These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout URL. To have these variables defined each time you login, you may include the two `export` lines in .profile, which is in your home directory.
+These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout address. To have these variables defined each time you login, you may include the two `export` lines in the .profile file, which is in your home directory.
 
 ### Configuring and Uploading OpenAPS Status
 
@@ -49,19 +49,21 @@ The `ns-status` is a virtual device in the oref0 system, which consolidates Open
 $ openaps device add ns-status process --require "clock iob suggested enacted battery reservoir status" ns-status 
 ```
 
+The corresponding entry in your openaps.ini file should look like this:
+
 [device "ns-status"] <br>
 fields = clock iob suggested enacted battery reservoir status<br>
 cmd = ns-status<br>
 vendor = openaps.vendors.process<br>
 args = <br>
 
-Then use `ns-status` to add the `monitor/upload-status.json` report, which you may do as follows:
+Then use the `ns-status` device to add the `monitor/upload-status.json` report, which you may do as follows:
 
 ```
 $ openaps report add monitor/upload-status.json JSON shell ns-status monitor/clock-zoned.json monitor/iob.json enact/suggested.json enact/enacted.json monitor/battery.json monitor/reservoir.json monitor/status.json 
 ```
 
-The reports required to generate upload-status.json should look familiar. If you have not generated any of these reports required, you should do that first and make sure they all work.  In particular, note that monitor/clock-zoned.json contains the pump clock time stamp, but with the timezone info included. If you have not generated that report already, you may do so using the following commands, which add a tz virtual device and use it to create clock-zoned.json starting from clock.json. 
+The reports required to generate upload-status.json should look familiar. If you have not generated any of these required reports, you should set them up and make sure they all work.  In particular, note that monitor/clock-zoned.json contains the current pump clock time stamp, but with the timezone info included. If you have not generated that report already, you may do so using the following commands, which add a `tz` virtual device and use it to create clock-zoned.json starting from clock.json. 
 
 ```
 $ openaps vendor add openapscontrib.timezones
@@ -70,13 +72,13 @@ $ git add tz.ini
 $ openaps report add monitor/clock-zoned.json JSON tz clock monitor/clock.json
 ```
 
-At this point, you may want to update your monitor-pump alias to make sure that it produces all the required reports, so that uploading status to Nightscount can be automated. After you've generated a monitor/upload-status.json report, you can try to manually upload the OpenAPS status to Nightscout: 
+At this point, you may want to update your monitor-pump alias to make sure that it produces all the required reports, so that uploading status to Nightscount can be automated. After you've generated a monitor/upload-status.json report, you can try to manually upload the OpenAPS status to Nightscout using the `ns-upload` command:
 
 ```
 $ ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json
 ```
 
-If successful, this command will POST the status info, and return the content of the Nightscout devicestatus.json file, which may look like this: 
+If successful, this command will POST the status info to your Nightscout site, and return the content of the Nightscout devicestatus.json file, which may look like this: 
 
 ```
 
@@ -88,9 +90,9 @@ Finally, you may define a new alias `status-upload`, to combine generating the r
 $ openaps alias add status-upload '! bash -c "openaps report invoke monitor/upload-status.json && ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json"'
 ```
 
-To test this alias, you may run your loop manually from command line, execute `status-upload`, examine the output, and check that the new status is visible on the OpenAPS pillbox on your Nightscout page. To automate the status upload each time the loop is executed you can simply add `status-upload` to your main OpenAPS loop alias. The OpenAPS pillbox will show when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop, which will help you understand what the loop is currently doing.
+To test this alias, you may run your loop manually from command line, execute `status-upload`, examine the output, and check that the new status is visible on the OpenAPS pillbox on your Nightscout page. To automate the status upload each time the loop is executed you can simply add `status-upload` to your main OpenAPS loop alias. The OpenAPS pill box will show when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop, which will help you understand what the loop is currently doing.
 
-The OpenAPS pillbox has four states, based on what happened in the last 15 minutes:  Enacted, Looping, Waiting, and Warning:
+The OpenAPS pill box has four states, based on what happened in the last 15 minutes:  Enacted, Looping, Waiting, and Warning:
 
 * Waiting is when OpenAPS is uploading, but hasn't seen the pump in a while
 * Warning is when there hasn't been a status upload in the last 15 minutes 
@@ -113,7 +115,7 @@ $ openaps alias add format-latest-nightscout-treatments '! bash -c "nightscout c
 $ openaps alias add upload-recent-treatments '! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""' || die "Can't add upload-recent-treatments"
 ```
 
-You may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
+Note that pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
 
 Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
 
