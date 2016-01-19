@@ -2,37 +2,37 @@
 
 ## Nightscout Integration
 
-Integrating OpenAPS with Nightscout is a very helpul way to visualize what OpenAPS using a web browser or an app on a mobile device, as opposed to logging into your Raspberry Pi and looking through the logs. The integration requires setting up Nightscout and making changes and additions to your OpenAPS implementation.
+Integrating OpenAPS with Nightscout is a very helpul way to visualize what OpenAPS is doing using a web browser or an app on a mobile device, as opposed to logging into your Raspberry Pi and looking through the logs. The integration requires setting up Nightscout and making changes and additions to your OpenAPS implementation.
 
 ### Nightscout Setup
 
 OpenAPS requires the latest (currently dev) version of Nighthscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. 
 
-Note:  currently there is a bug in the dev version, which doesn't allow you to set up a new profile using the profile editor. If you are starting a fresh install of Nightscout, you should first deploy the master version of the code. Once the master version is up an running, you can create your profile with information on basal rates, etc. After that, you can deploy the dev version. If you have an existing version of Nightscout, then create your profile before moving to the dev version. Or, you may keep your existing Nightscout as is, and start a new Nightscout site (master first, followed by dev), specifically to test OpenAPS integration. 
+Note:  currently there is a bug in the dev version, which doesn't allow you to set up a new profile using the profile editor. If you are starting a fresh install of Nightscout, you should first deploy the master version of the code. Once the master version is up an running, you can create your profile with information on basal rates, etc. After that, you can deploy the dev version. If you have an existing version of Nightscout, then make sure you create your profile before moving to the dev version. Or, you may keep your existing Nightscout as is, and start a new Nightscout deployment (master first, followed by dev), specifically to test OpenAPS integration. 
 
 The steps discussed here are essantially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
 * Add "openaps" (without the quotes) to the list of plugins enabled, and 
-* Add  DEVICESTATUS_ADVANCED="true" 
+* Add a new configuration variable DEVICESTATUS_ADVANCED="true" (without the quotes)
 
-For Azure users, here is what these configuration changes will look like: https://files.gitter.im/eyim/lw6x/blob.
+For Azure users, here is what these configuration changes will look like: https://files.gitter.im/eyim/lw6x/blob. For Heroku users, exactly the same changes should be made on the Config Vars page.  
 
-Next, on your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  At the very bottom, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable. You should now see the OpenAPS pill box on the left side near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu. 
+Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  At the very bottom of the Settings menu, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable. You should now see the OpenAPS pill box on the left side of the Nightscout page near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings. 
 
 ### Environment Variables for OpenAPS Access to Nightscout
 
-To be able to upload data, OpenAPS needs to know the URL for your Nightscout website and the hashed version of your API_SECRET password, which you have entered as one of your Nightscout configuration settings. Two environment variables, NIGHTSCOUT_HOST and API_SECRET, are used to store the website address and the password respectively. 
+To be able to upload data, OpenAPS needs to know the URL for your Nightscout website and the hashed version of your API_SECRET password, which you have entered as one of your Nightscout configuration variables. Two environment variables, NIGHTSCOUT_HOST and API_SECRET, are used to store the website address and the password, respectively. 
 
-To obtain the hashed version of the API_SECRET, go to http://www.sha1-online.com/ (keep the default sha-1) and hash your API_SECRET. For example, if your enter "password" (without quotes), the hashed version return will be 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8. 
+To obtain the hashed version of the API_SECRET, go to http://www.sha1-online.com/ (keep the default sha-1) and hash your API_SECRET. For example, if your enter "password" (without quotes), the hashed version returned will be 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8. 
 
 In your Raspberry PI terminal window, you may now define the two environment variables as follows:
 
 ```
-$ export  NIGHTSCOUT_HOST = https://<your Nightscout address>
-$ export  API_SECRET = <your hashed password>
+$ export  NIGHTSCOUT_HOST = "https://<your Nightscout address>"
+$ export  API_SECRET = "<your hashed password>"
 ```
 
-These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout address.
+These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout URL. To have these variables defined each time you login, you may include the two `export` lines in .profile, which is in your home directory.
 
 ### Configuring and Uploading OpenAPS Status
 
@@ -41,12 +41,12 @@ Integration with Nightscout requires couple of changes to your OpenAPS implement
 * Adding a new `ns-status` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
 * Uploading the status report to Nightscount, using the `ns-upload` command 
 
-Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscount page. Here is a Nightscout page example, with the OpenAPS status shown: https://files.gitter.im/eyim/J8OR/blob
+Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscount page, as shown here, for example: https://files.gitter.im/eyim/J8OR/blob
 
-The `ns-status` is a virtual device in the oref0 system, which consolidates and formats OpenAPS status info to a form suitable for upload to Nightscout. First, add the device:
+The `ns-status` is a virtual device in the oref0 system, which consolidates OpenAPS status info in a form suitable for upload to Nightscout. First, add the device:
 
 ```
-$ openaps device add ns-status --require clock-zoned iob suggested enacted battery reservoir status
+$ openaps device add ns-status process --require "clock iob suggested enacted battery reservoir status" ns-status 
 ```
 
 [device "ns-status"] <br>
