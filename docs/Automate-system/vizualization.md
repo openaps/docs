@@ -78,11 +78,7 @@ At this point, you may want to update your monitor-pump alias to make sure that 
 $ ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json
 ```
 
-If successful, this command will POST the status info to your Nightscout site, and return the content of the Nightscout devicestatus.json file, which may look like this: 
-
-```
-
-```
+If successful, this command will POST the status info to your Nightscout site, and return the content of the Nightscout devicestatus.json file, which you can examine to see what status information is sent to Nightscout.
 
 Finally, you may define a new alias `status-upload`, to combine generating the report and uploading the status to Nightscout:
 
@@ -90,14 +86,14 @@ Finally, you may define a new alias `status-upload`, to combine generating the r
 $ openaps alias add status-upload '! bash -c "openaps report invoke monitor/upload-status.json && ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json"'
 ```
 
-To test this alias, you may run your loop manually from command line, execute `status-upload`, examine the output, and check that the new status is visible on the OpenAPS pillbox on your Nightscout page. To automate the status upload each time the loop is executed you can simply add `status-upload` to your main OpenAPS loop alias. The OpenAPS pill box will show when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop, which will help you understand what the loop is currently doing.
+To test this alias, you may first run your loop manually from command line, then execute `openaps status-upload`, examine the output, and check that the new status is visible on the OpenAPS pill box on your Nightscout page. To automate the status upload each time the loop is executed you can simply add `status-upload` to your main OpenAPS loop alias. The OpenAPS pill box will show when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop, which will help you understand what the loop is currently doing.
 
 The OpenAPS pill box has four states, based on what happened in the last 15 minutes:  Enacted, Looping, Waiting, and Warning:
 
 * Waiting is when OpenAPS is uploading, but hasn't seen the pump in a while
 * Warning is when there hasn't been a status upload in the last 15 minutes 
 * Enacted means OpenAPS has recently enacted the pump 
-* Looping means OpenAPS is running but has not enacted the pump <br>
+* Looping means OpenAPS is running but has not enacted the pump
 
 Some things to be aware of:
 
@@ -115,7 +111,7 @@ $ openaps alias add format-latest-nightscout-treatments '! bash -c "nightscout c
 $ openaps alias add upload-recent-treatments '! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""' || die "Can't add upload-recent-treatments"
 ```
 
-Note that pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
+Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
 
 Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
 
