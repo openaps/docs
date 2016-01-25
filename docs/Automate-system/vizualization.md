@@ -32,7 +32,7 @@ $ export  NIGHTSCOUT_HOST="https://<your Nightscout address>"
 $ export  API_SECRET="<your hashed password>"
 ```
 
-These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout address. To have these variables defined each time you login, you may include the two `export` lines in the .profile file, which is in your home directory.
+These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout address. To have these variables defined each time you login, you may include the two `export` lines (without quotes) in the .profile file, which is in your home directory.
 
 ### Configuring and Uploading OpenAPS Status
 
