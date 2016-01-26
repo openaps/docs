@@ -14,7 +14,7 @@ The tools may be categorized as:
 
 * **control** enacting changes, and feeding more data back into the **monitor**, closing the loop
 
-You may also find this flowchart helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
+You may also find [this flowchart](./OpenAPS_phase_visualization_Nov152015.png) helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
 ## A Note on DIY and the "Open" Part of OpenAPS
 
