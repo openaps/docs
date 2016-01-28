@@ -12,12 +12,12 @@ Note:  currently there is a bug in the dev version, which doesn't allow you to s
 
 The steps discussed here are essantially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
-* Add "openaps" (without the quotes) to the list of plugins enabled, and 
+* Add "openaps" (without the quotes) and, optionally, "pump" (without the quotes) to the list of plugins enabled, and 
 * Add a new configuration variable DEVICESTATUS_ADVANCED="true" (without the quotes)
 
-For Azure users, here is what these configuration changes will look like: https://files.gitter.im/eyim/lw6x/blob. For Heroku users, exactly the same changes should be made on the Config Vars page.  
+For Azure users, here is what these configuration changes will look like (with just "openaps" added): https://files.gitter.im/eyim/lw6x/blob. For Heroku users, exactly the same changes should be made on the Config Vars page. The optional "pump" plugin enables additional pump monitoring pill boxes. For example, assuming you have added "pump" to the list of enabled plugins, you may add a new configuration variable PUMP_FIELDS="reservoir battery" to display pump reservoir and battery status on the Nightscout page. The "pump" plugin offers a number of other options, as documented on the Nightscout readme page: https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins 
 
-Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  At the very bottom of the Settings menu, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable. You should now see the OpenAPS pill box on the left side of the Nightscout page near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings. 
+Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  At the very bottom of the Settings menu, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up. Click the check box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump" should also show up in the list, and you may chekc the box to enable. You should now see the OpenAPS pill box (and any optional pump monitoring pill boxes) on the left side of the Nightscout page near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings. 
 
 ### Environment Variables for OpenAPS Access to Nightscout
 
