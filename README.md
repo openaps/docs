@@ -16,6 +16,9 @@ The tools may be categorized as:
 
 You may also find [this flowchart](./OpenAPS_phase_visualization_Nov152015.png) helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
+## What does the hardware setup look like
+![Basal Profile](docs/Images/piSetup.jpg =250x)
+
 ## A Note on DIY and the "Open" Part of OpenAPS
 
 This is a set of development tools to support a self-driven DIY implementation. Any person choosing to use these tools is solely responsible for testing and implementing these tools independently or together as a system.  
