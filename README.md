@@ -71,7 +71,7 @@ At the beginning of each phase, an outline summarizes:
    * [Configuring and Learning to Use openaps Tools](docs/Log-clean-analyze-with-openaps-tools/using.md)
 * [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
    * [Using oref0 Tools](docs/Build-manual-system/Using-oref0-tools.md)
-   * [Understanding oref0-determine-basal recommendations] (docs/Build-manual-system/Understand-determine-basal.md)
+   * [Understanding oref0-determine-basal recommendations](docs/Build-manual-system/Understand-determine-basal.md)
    * [Creating a Loop and Retry Logic](docs/Build-manual-system/loop-and-retry-logic.md)
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a Schedule](docs/Automate-system/create-schedule.md)

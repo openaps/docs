@@ -74,6 +74,7 @@ The algorithm above is sufficient for a simple and safe OpenAPS implementation, 
 
 To calculate this deviation, OpenAPS first calculates a term we call “BG Impact” or BGI. BGI is simply the expected effect of the net IOB, calculated by multiplying the current insulin activity times the ISF (see example below). the current insulin activity (first derivative of IOB) * insulin sensitivity. When expressed in units of mg/dL/5m, this represents the degree to which BG “should” be rising or falling, and can be directly compared to the delta between the current and last CGM reading, or an average delta over the last 15m or so. To calculate the deviation, OpenAPS does exactly this comparison, between the 15m average delta in CGM readings and the predicted BGI. 
 
+**The following example uses straight linear math for the purposes of simplicity in explanation.  In reality, the AP algorithm assumes that insulin effectiveness starts off flat, over time builds in efficacy, and eventually tapers off in its usefulness. ** 
 Example: take the scenario of correcting a BG of 200 (where ISF is 1u per 100 mg/dL, DIA is 4 hours, and target BG is 100).
 1. 1u insulin is given to bring BG to 100
 2. There are 48 5-minute segments in 4 hours
