@@ -16,6 +16,9 @@ The tools may be categorized as:
 
 You may also find [this flowchart](./OpenAPS_phase_visualization_Nov152015.png) helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
 
+## What does the hardware setup look like
+![Basal Profile](docs/Images/piSetup.jpg)
+
 ## A Note on DIY and the "Open" Part of OpenAPS
 
 This is a set of development tools to support a self-driven DIY implementation. Any person choosing to use these tools is solely responsible for testing and implementing these tools independently or together as a system.  
@@ -68,7 +71,7 @@ At the beginning of each phase, an outline summarizes:
    * [Configuring and Learning to Use openaps Tools](docs/Log-clean-analyze-with-openaps-tools/using.md)
 * [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
    * [Using oref0 Tools](docs/Build-manual-system/Using-oref0-tools.md)
-   * [Understanding oref0-determine-basal recommendations] (docs/Build-manual-system/Understand-determine-basal.md)
+   * [Understanding oref0-determine-basal recommendations](docs/Build-manual-system/Understand-determine-basal.md)
    * [Creating a Loop and Retry Logic](docs/Build-manual-system/loop-and-retry-logic.md)
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a Schedule](docs/Automate-system/create-schedule.md)
