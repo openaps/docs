@@ -130,6 +130,8 @@ $ openaps report add enact/suggested.json text determine-basal shell monitor/iob
 
 The report output is in suggested.json file, which includes a recommendation to be enacted by sending, if necessary, a new temp basal to the pump, as well as a reason for the recommendation.
 
+If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.  
+
 ## Adding aliases
 
 You may want to add a `monitor-pump` alias to group all the pump-related reports, which should generally be obtained before running  `calculate-iob` and `determine-basal` processes:
@@ -246,3 +248,21 @@ You may experiment using `$ openaps preflight` under different conditions, e.g. 
 
 At this point you are in position to put all the required reports and actions into a single alias. 
 
+## Cleaning CGM data from Minimed CGM systems
+
+If you are using the Minimed Enlite system, then your report for `iter_glucose` uses your pump device because the pump is the source of your CGM data. Unfortunately, the pump reports CGM data a bit differently and so your glucose.json file needs cleaning to align it with Dexcom CGM data. Luckily there is a plug-in to handle this. Follow the directions at 
+
+https://github.com/loudnate/openaps-glucosetools
+
+for installing glucosetools. Then add the vendor and device with
+
+```
+$ openaps vendor add openapscontrib.glucosetools
+$ openaps device add glucose glucosetools
+```
+
+Now you can create a report to clean your glucose data like this: 
+```
+openaps report add monitor/glucoseclean.json JSON glucose clean monitor/glucose.json
+```
+And you should then make sure that your enact/suggested.json report uses monitor/glucoseclean.json instead of monitor/glucose.json. You can add the `clean` report to your `monitor-cgm` alias, as long as it comes after the `iter_glucose` report. 
