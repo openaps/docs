@@ -88,7 +88,7 @@ Your OpenAPS implementation can also pull CGM data from a Nightscout site in add
 
 <b> Using the Medtronic CGM: </b>
 
-More documentation about getting Medtronic CGM data to be formatted for use in OpenAPS is coming soon.
+Because the Medronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data need a little special formatting after being retrieved. We'll discuss these special circumstances as they come up later. 
 
 ### Raspberry Pi 2 Model B
 
