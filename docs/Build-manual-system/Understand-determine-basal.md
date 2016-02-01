@@ -4,7 +4,7 @@ The key logic behind any oref0 implementation of OpenAPS lies in the oref0-deter
 
 ## Summary of inputs
 
-The determine-basal algorithm requires a number of inputs, which are passed in JSON files such as iob.json currenttemp.json glucose.json profile.json, and optionally meal.json.  When running oref0-determine-basal.js with the appropriate inputs, the first thing you'll see is a summary of all the provided inputs, which might look something like this:
+The determine-basal algorithm requires a number of inputs, which are passed in JSON files such as iob.json, currenttemp.json, glucose.json, profile.json, and optionally meal.json.  When running oref0-determine-basal.js with the appropriate inputs, the first thing you'll see is a summary of all the provided inputs, which might look something like this:
 
 ```
 {"carbs":0,"boluses":0}
@@ -15,7 +15,7 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
 ```
 
 * The first line is meal.json, which, if provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
-* The second line is from glucose.json, and represents the most recent BG, the change from the previous BG (usually 5m), and the average change since 3 data points earlier (usually 15m).
+* The second line is from glucose.json, and represents the most recent BG, the change from the previous BG (usually 5 minutes earlier), and the average change since 3 data points earlier (usually 15 minutes earlier).
 * The third line is the currently running temporary basal.  A duration of 0 indicates none is running.
 * Fourth is the IOB and insulin activity summary.  Insulin activity is used (when multiplied by ISF) to calculate BGI, which represents how much BG should be rising or falling every 5 minutes based solely on insulin activity.  Basal IOB excludes the IOB effect of boluses, and Bolus Snooze is used in determining how long to avoid low-temping after a bolus while waiting for any carbs to kick in.
 * Fifth is the contents of profile.json, which contains all of the user's relevant pump settings, as well as their configured maximum (basal) IOB.
@@ -32,6 +32,6 @@ In this case, BG is 110, and falling slowly.  With zero IOB, you would expect BG
 
 ## Exploring further
 
-For each different situation, the determine-basal output will be slightly different, but it should always provide a reasonable recommendation listing any temp basal that would be needed to start bringing BG back to target.  If you are unclear on why it is making a particular recommendation, you can explore further by searching lib/determine-basal/determine-basal.js (the library with the core decision tree logic) for the keywords in the reason field (for example, "setting" in this case would find a line (`rT.reason += ", setting " + rate + "U/hr";`) matching the output above, and from there you could read up and see what `if` clauses resulted in making that decision.  In this case, it was because (working backwards) `if (snoozeBG > profile.min_bg)` was false (so we took the `else`), but `if (eventualBG < profile.min_bg)` was true (with the explanatory comment to tell you that means "if eventual BG is below target").
+For each different situation, the determine-basal output will be slightly different, but it should always provide a reasonable recommendation and list any temp basal that would be needed to start bringing BG back to target.  If you are unclear on why it is making a particular recommendation, you can explore further by searching lib/determine-basal/determine-basal.js (the library with the core decision tree logic) for the keywords in the reason field (for example, "setting" in this case would find a line (`rT.reason += ", setting " + rate + "U/hr";`) matching the output above, and from there you could read up and see what `if` clauses resulted in making that decision.  In this case, it was because (working backwards) `if (snoozeBG > profile.min_bg)` was false (so we took the `else`), but `if (eventualBG < profile.min_bg)` was true (with the explanatory comment to tell you that means "if eventual BG is below target").
 
 If after reading through the code you are still unclear as to why determine-basal made a given decision (or think it may be the wrong decision for the situation), please join the #intend-to-bolus channel on Gitter, paste your output and any other context, and we'll be happy to discuss with you what it was doing and why, and whether that's the best thing to do in that and similar situations.

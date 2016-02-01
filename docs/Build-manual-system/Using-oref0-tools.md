@@ -130,6 +130,8 @@ $ openaps report add enact/suggested.json text determine-basal shell monitor/iob
 
 The report output is in suggested.json file, which includes a recommendation to be enacted by sending, if necessary, a new temp basal to the pump, as well as a reason for the recommendation.
 
+If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.  
+
 ## Adding aliases
 
 You may want to add a `monitor-pump` alias to group all the pump-related reports, which should generally be obtained before running  `calculate-iob` and `determine-basal` processes:
@@ -189,7 +191,7 @@ In this case, the evenatual BG is again less than the target, but BG is increasi
 {"temp": "absolute","bg": 95,"tick": "+4","eventualBG": 13,"snoozeBG": 67,"reason": "Eventual BG 13<90, but Avg. Delta 4.00 > Exp. Delta -2.9; no temp to cancel"}
 ```
 
-which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to spend some time generating and looking through suggested.json and other reports. 
+which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to also read [Understanding oref0-determine-basal recommendations] (Understand-determine-basal.md) and spend some time generating and looking through suggested.json and other reports.
 
 ## Enacting the suggested action
 
@@ -245,4 +247,62 @@ In this `preflight` example, a wait period of 120 seconds is added using `sleep`
 You may experiment using `$ openaps preflight` under different conditions, e.g. with the CareLink stick connected or not, or with the pump close enough or too far away from the stick.
 
 At this point you are in position to put all the required reports and actions into a single alias. 
+
+## Cleaning CGM data from Minimed CGM systems
+
+If you are using the Minimed Enlite system, then your report for `iter_glucose` uses your pump device because the pump is the source of your CGM data. Unfortunately, the pump reports CGM data a bit differently and so your glucose.json file needs cleaning to align it with Dexcom CGM data. There are two different plug-ins that can handle this. The first is the glucose tool and instructions available here:
+
+https://github.com/loudnate/openaps-glucosetools
+
+The other option is to use the tool that preps glucose data for NightScout, called `mm-format-ns-glucose`. To use this formatting tool, first create a device in your `openaps.ini` file that looks like this:
+
+```
+[device "mm-format-ns-glucose"]
+vendor = openaps.vendors.process
+extra = mm-format-ns-glucose.ini
+fields = glucosehistory.json
+```
+
+The text of your ini file will look like this
+
+```
+[device "mm-format-ns-glucose"]
+fields = 
+cmd = mm-format-ns-glucose
+args = --oref0
+```
+
+And the report should look something like this
+
+```
+[report "monitor/glucose-ns-clean.json"]
+device = mm-format-ns-glucose
+use = shell
+json_default = True
+reporter = JSON
+glucosehistory.json = monitor/glucose.json
+```
+
+Note that this report must be called after the initial `iter_glucose` report discussed in the *determine-basal* section, above, and then the `enact/suggested.json` report needs to point to this output (`monitor/glucose-ns-clean.json`) rather than `monitor/glucose.json`. 
+
+One final note, `mm-format-ns-glucose` leaves in some non-glucose records, which confuses the `enact/suggested.json` report (the delta calculations). These need removing. One way to handle this is to select only records tagged as "GlucoseSensorData" using a `json` command. One way to do *that* is to create another device and report. Here's the device:
+
+```
+[device "glucose-filter"]
+fields =
+cmd = bash
+vendor = openaps.vendors.process
+args = -c "cat monitor/glucose-ns-clean.json | json -c 'this.name == \"GlucoseSensorData\"'"
+```
+
+Here's the report:
+
+```
+[report "monitor/glucose-ns-clean-filtered.json"]
+device = glucose-filter
+remainder = []
+use = shell
+json_default = True
+reporter = JSON
+```
 
