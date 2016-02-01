@@ -250,19 +250,50 @@ At this point you are in position to put all the required reports and actions in
 
 ## Cleaning CGM data from Minimed CGM systems
 
-If you are using the Minimed Enlite system, then your report for `iter_glucose` uses your pump device because the pump is the source of your CGM data. Unfortunately, the pump reports CGM data a bit differently and so your glucose.json file needs cleaning to align it with Dexcom CGM data. Luckily there is a plug-in to handle this. Follow the directions at 
+If you are using the Minimed Enlite system, then your report for `iter_glucose` uses your pump device because the pump is the source of your CGM data. Unfortunately, the pump reports CGM data a bit differently and so your glucose.json file needs cleaning to align it with Dexcom CGM data. There are two different plug-ins that can handle this. The are the glucose tools and instructions available at  
 
 https://github.com/loudnate/openaps-glucosetools
 
-for installing glucosetools. Then add the vendor and device with
+The other option is to use the tool that preps glucose data for NightScout, called `mm-format-ns-glucose`. To use this formatting tool, first create a device in your `openaps.ini` file that looks like this:
 
-```
-$ openaps vendor add openapscontrib.glucosetools
-$ openaps device add glucose glucosetools
-```
+[device "mm-format-ns-glucose"]
+vendor = openaps.vendors.process
+extra = mm-format-ns-glucose.ini
+fields = glucosehistory.json
 
-Now you can create a report to clean your glucose data like this: 
-```
-openaps report add monitor/glucoseclean.json JSON glucose clean monitor/glucose.json
-```
-And you should then make sure that your enact/suggested.json report uses monitor/glucoseclean.json instead of monitor/glucose.json. You can add the `clean` report to your `monitor-cgm` alias, as long as it comes after the `iter_glucose` report. 
+The text of your ini file will look like this
+
+[device "mm-format-ns-glucose"]
+fields = 
+cmd = mm-format-ns-glucose
+args = --oref0
+
+And the report should look something like this
+
+[report "monitor/glucose-ns-clean.json"]
+device = mm-format-ns-glucose
+use = shell
+json_default = True
+reporter = JSON
+glucosehistory.json = monitor/glucose.json
+
+Note that this report must be called after the initial `iter_glucose` report discussed in the *determine-basal* section, above, and then the `enact/suggested.json` report needs to point to this output (`monitor/glucose-ns-clean.json`) rather than `monitor/glucose.json`. 
+
+One final note, `mm-format-ns-glucose` leaves in some non-glucose records, which confuses the `enact/suggested.json` report (the delta calculations). These need removing. One way to handle this is to select only records tagged as "GlucoseSensorData" using a `json` command. One way to do *that* is to create another device and report. Here's the device:
+
+[device "glucose-filter"]
+fields =
+cmd = bash
+vendor = openaps.vendors.process
+args = -c "cat monitor/glucose-ns-clean.json | json -c 'this.name == \"GlucoseSensorData\"'"
+
+Here's the report:
+
+[report "monitor/glucose-ns-clean-filtered.json"]
+device = glucose-filter
+remainder = []
+use = shell
+json_default = True
+reporter = JSON
+
+
