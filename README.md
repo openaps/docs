@@ -2,7 +2,11 @@
 
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
-openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). ([Click here to view an image of the common physical components of an OpenAPS setup](./docs/IMG_1112.jpg).)
+openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). 
+
+Here are two visuals to show you what the physical hardware components of an OpenAPS setup look like - [version A](./docs/IMG_1112.jpg) is without labels; [version B](docs/Images/piSetup.jpg) contains labels to describe the parts.
+
+
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
@@ -15,9 +19,6 @@ The tools may be categorized as:
 * **control** enacting changes, and feeding more data back into the **monitor**, closing the loop
 
 You may also find [this flowchart](./OpenAPS_phase_visualization_Nov152015.png) helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system; automating your work; and iterating and improving.
-
-## What does the hardware setup look like
-![Basal Profile](docs/Images/piSetup.jpg)
 
 ## A Note on DIY and the "Open" Part of OpenAPS
 
@@ -75,7 +76,7 @@ At the beginning of each phase, an outline summarizes:
    * [Creating a Loop and Retry Logic](docs/Build-manual-system/loop-and-retry-logic.md)
 * [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
    * [Creating a Schedule](docs/Automate-system/create-schedule.md)
-   * [Visualization and Monitoring](docs/Automate-system/vizualization.md)
+   * [Visualization and Monitoring via Nightscout](docs/Automate-system/vizualization.md)
    * [Validating and Testing](docs/Automate-system/validate-output.md)
    * [Keeping Up To Date](docs/Automate-system/keeping-up-to-date.md)
 * [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)

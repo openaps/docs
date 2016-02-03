@@ -2,31 +2,41 @@
 
 ## Nightscout Integration
 
+This assumes you have a [Nightscout website](http://www.nightscout.info/) to help visualize and alert a T1D's blood sugar levels.  If you aren't running a Nightscout website, stop what you are doing and set one up!
+
 Integrating Openaps with Nightscout is a very helpul way to understand what Openaps is doing in a visual way and can be accessed through a web browser rather than logging into the Raspberry Pi and looking at the logs.  
 
-There are a few changes to your Nightscout Implementation:
+### There are a few changes to your Nightscout Implementation:
+
 1) You must install the dev version of Nightscout which can be found here:
 https://github.com/nightscout/cgm-remote-monitor/tree/dev
+(or you can use the master branch from version 0.8.3 and above but it will only show you basal adjustments...not IOB or OpenAPS pill).
 
-Note:  Currently there is a bug in the dev version that doesn't allow you to set up a new profile using the profile editor.  So if you are starting a fresh install of Nightscout, it is necessary first to launch the master (live) version of the code.  Then create the profile with information on basal rates, etc.  Then after that install the dev version.
-
-If you have an existing version of Nightscout, then create a profile before moving to the dev version.
 
 2) Two configuration changes must be made to the Nightscout implementation:
 
-For Azure users, you must add "openaps" (without the quotes) to the list of plugins enabled and add  DEVICESTATUS_ADVANCED="true" 
+For Azure users, you should add "careportal iob basal profile bwp cage sage openaps rawbg" (without the quotes) to the list of plugins enabled and add  DEVICESTATUS_ADVANCED="true" 
 
 Here is what it will look like:
 
 https://files.gitter.im/eyim/lw6x/blob
 
-3) On your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  Near the bottom is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable.  You should now see the OpenAPS pill box on the left side near the time.
+You should restart your NS website at this point.
+
+Note:  Currently there is a bug in the dev version that doesn't allow you to set up a new profile using the profile editor.  So if you are starting a fresh install of Nightscout, it is necessary first to launch the master (live) version of the code.  Then create the profile with information on basal rates, etc.  Then after that install the dev version.
+
+If you have an existing version of Nightscout, then create a basal profile before moving to the dev version. 
+
+To turn on the Basal Profile editor [do this](../Images/basal_profile.png) and then actually [create a Basal Profile](../Images/profile_editor.png) that mirrors what is happening on your pump.
+
+
+3) On your Nightscout website, go to the settings (3 vertical lines) in the upper right corner.  Near the bottom is a list of Plugins available.  OpenAPS should show up.  Click the check box to enable.  Do the same for Basal Profile.  You should now see the OpenAPS pill box on the left side near the time.
 
 Example here:
 
 https://files.gitter.im/eyim/J8OR/blob
 
-Now we need to make a few changes to your OpenAPS implementation
+### Now we need to make a few changes to your OpenAPS implementation
 
 1) Add two devices, one called "ns-upload", via a command like `openaps device add fake process ns-upload https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8`, and one called "ns-status".
 
@@ -42,7 +52,7 @@ vendor = openaps.vendors.process <br>
 cmd = ns-upload <br>
 args = https://YOURWEBSITE.azurewebsites.net 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (this is the hashed version of your API_SECRET password) <br>
 
-The last line args = should contain the URL of the Nightscout website.  Note that for Azure it is important to include the https:// before the URL>  What follows is the hashed version of your API_SECRET password.  To get the hased version of the password, put your password into this website:  http://www.sha1-online.com/
+The last line args = should contain the URL of the Nightscout website.  Note that for Azure it is important to include the https:// before the URL>  What follows is the hashed version of your API_SECRET password.  To get the hashed version of the password, put your password into this website:  http://www.sha1-online.com/
 
 For example, if your password is "password" (without quotes) it will return 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
 
@@ -112,3 +122,20 @@ export API_SECRET=yourpassword   (plain text seems to work fine)
 
 
 Note:  Currently extended bolus are not handled well and depending on the timing of the upload are either missed entirely or has incorrect information.  
+
+### Upload your pump history into NightScout
+
+Order of operations is important!
+
+After you enact a suggestion / temp basal, you will want to query the pump again for pump history as you just made a change to pump data.  Once you have done this, you can run the following commands to have your data formatted and then upload into your Nightscout website.  This is roughly what your commands should look like inside your loop:
+
+````
+openaps monitor-pump
+openaps latest-ns-treatment-time
+openaps format-latest-nightscout-treatments
+openaps upload-recent-treatments
+
+````
+
+I've noticed it can take a couple of minutes after a successful load of data in NS for the data to show up in the interface so be patient!
+![Basal Profile](../Images/nightscout.png)
