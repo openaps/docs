@@ -2,7 +2,7 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
 
-If you're interested in working on communication for another pump (Omnipod, Animas, etc), [click here] to join the collaboration group focusing on alternative pump communication.
+If you're interested in working on communication for another pump (Omnipod, Animas, etc), [click here](http://bit.ly/1nTtccH) to join the collaboration group focusing on alternative pump communication.
 
 
 ## Required  Hardware
