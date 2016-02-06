@@ -2,7 +2,7 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
 
-If you're interested in working on communication for another pump (Omnipod, Animas, etc), email Dana (dana@OpenAPS.org) to be added to the collaboration group focusing on alternative pump communication.
+If you're interested in working on communication for another pump (Omnipod, Animas, etc), [click here] to join the collaboration group focusing on alternative pump communication.
 
 
 ## Required  Hardware
@@ -50,7 +50,7 @@ Due to changes in the firmware, the openaps tools are only able to function in f
 
 If you need to acquire an appropriate pump check CraigsList, talk to friends in your local community or online, or put out a request on [Gitter]( https://gitter.im/nightscout/intend-to-bolus) or the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) to see if anyone has found any extra. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. It is recommended to ask the seller to confirm the firmware version of the pump.
 
-There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev).
+There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) or [click here to join the Slack channel](http://bit.ly/1nTtccH). 
 
 
 ### CareLink USB Stick
