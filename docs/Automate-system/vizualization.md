@@ -33,6 +33,8 @@ NIGHTSCOUT_HOST=https://<your Nightscout address>; export NIGHTSCOUT_HOST
 API_SECRET=<your hashed password>; export API_SECRET
 ```
 
+Now run ```source /etc/profile``` to enact the changes we've just made without restart the machine
+
 ### Configuring and Uploading OpenAPS Status
 
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
@@ -114,4 +116,8 @@ Note that a pumphistory-zoned.json report is required, which can be generated fr
 
 Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
 
-As a final step in the OpenAPS and Nightscout integration, you may add `status-upload` and `upload-recent-treatments` to your main loop, and automate the process using cron.
+As a final step in the OpenAPS and Nightscout integration, you may add `status-upload` and `upload-recent-treatments` to your main loop, and automate the process using cron. Make sure you include the definitions of the environment variables NIGHTSCOUT_HOST and API_SECRET in the top part of your crontab file, without `export`, or quotes:
+```
+NIGHTSCOUT_HOST=https://<your Nightscout address>
+API_SECRET=<your hashed password>
+```
