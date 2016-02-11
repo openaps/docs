@@ -29,7 +29,7 @@ In your terminal window, you may now define the two environment variables. This 
 
 ```nano ~/.profile``` and add the following at the end of the file below any other content that may already be there:
 ```
-NIGHTSCOUT_HOST="https://<your Nightscout address>; export NIGHTSCOUT_HOST
+NIGHTSCOUT_HOST=https://<your Nightscout address>; export NIGHTSCOUT_HOST
 API_SECRET=<your hashed password>; export API_SECRET
 ```
 
