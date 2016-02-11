@@ -23,16 +23,17 @@ Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the 
 
 To be able to upload data, OpenAPS needs to know the URL for your Nightscout website and the hashed version of your API_SECRET password, which you have entered as one of your Nightscout configuration variables. Two environment variables, NIGHTSCOUT_HOST and API_SECRET, are used to store the website address and the password, respectively. 
 
-To obtain the hashed version of the API_SECRET, go to http://www.sha1-online.com/ (keep the default sha-1) and hash your API_SECRET. For example, if your enter "password" (without quotes), the hashed version returned will be 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8. 
+To obtain the hashed version of the API_SECRET, run the following ```echo -n "<API_SECRET>" | shasum``` and replace ```<API_SECRET>``` with what you set up in Nightscout. For example, if your enter ```echo -n "password" | shasum```, the hashed version returned will be 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8. Run it with your password and save the hashed key that is output for the next step.
 
-In your Raspberry PI terminal window, you may now define the two environment variables as follows:
+In your terminal window, you may now define the two environment variables. This is done by adding them to your .profile in your home directory. The .profile runs each time the system starts and will ensure these variables are set for future use on the command line.
 
+```nano ~/.profile``` and add the following at the end of the file below any other content that may already be there:
 ```
-$ export  NIGHTSCOUT_HOST="https://<your Nightscout address>"
-$ export  API_SECRET="<your hashed password>"
+NIGHTSCOUT_HOST=https://<your Nightscout address>; export NIGHTSCOUT_HOST
+API_SECRET=<your hashed password>; export API_SECRET
 ```
 
-These variables will stay defined as long as the current terminal session remains active. Note that it is important to enter https:// (not http://) in front of your Nightscout address. To have these variables defined each time you login, you may include the two `export` lines (without quotes) in the .profile file, which is in your home directory.
+Now run ```source /etc/profile``` to enact the changes we've just made without restart the machine
 
 ### Configuring and Uploading OpenAPS Status
 
