@@ -25,9 +25,9 @@ To be able to upload data, OpenAPS needs to know the URL for your Nightscout web
 
 To obtain the hashed version of the API_SECRET, run the following ```echo -n "<API_SECRET>" | shasum``` and replace <API_SECRET> with what you set up in Nightscout. For example, if your enter "password" (without quotes), the hashed version returned will be 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8. Save this for the next step.
 
-In your terminal window, you may now define the two environment variables. This is done by adding them to your .profile in your home directory. The .profile runs each time the system starts and will ensure these variables are set. If the .profile file does not exist, you can simply create the file in your home directory. ```nano ~/.profile```
+In your terminal window, you may now define the two environment variables. This is done by adding them to your .profile in your home directory. The .profile runs each time the system starts and will ensure these variables are set. If the .profile file does not exist, you can simply create the file in your home directory. 
 
-# Add the following lines to your .profile
+```nano ~/.profile``` and dd the following to your .profile
 ```
 NIGHTSCOUT_HOST="https://<your Nightscout address>; export NIGHTSCOUT_HOST
 API_SECRET=<your hashed password>; export API_SECRET
