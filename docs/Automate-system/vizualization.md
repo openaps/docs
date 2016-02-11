@@ -27,7 +27,7 @@ To obtain the hashed version of the API_SECRET, run the following ```echo -n "<A
 
 In your terminal window, you may now define the two environment variables. This is done by adding them to your .profile in your home directory. The .profile runs each time the system starts and will ensure these variables are set. If the .profile file does not exist, you can simply create the file in your home directory. 
 
-```nano ~/.profile``` and dd the following to your .profile
+```nano ~/.profile``` and add the following to your .profile
 ```
 NIGHTSCOUT_HOST="https://<your Nightscout address>; export NIGHTSCOUT_HOST
 API_SECRET=<your hashed password>; export API_SECRET
