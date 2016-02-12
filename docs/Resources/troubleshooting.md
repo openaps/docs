@@ -58,7 +58,7 @@ To fix a corrupted git repository you can run `oref0-fix-git-corruption.sh`, it 
 
 If you are getting your BG from Nightscout or you want to upload loop status/resuts to Nightscout, among other things you'll need to set 2 environment variabled: `NIGHTSCOUT_HOST` and `API_SECRET`. If you do not set and export these variables you will receive errors while running `openaps report invoke monitor/ns-glucose.json` and while executing `ns-upload.sh` script which is most probably part of your `upload-recent-treatments` alias.Make sure your `API_SECRET` is in hashed format. Please see [this page](https://github.com/openaps/oref0#ns-upload-entries) for details. Additionally, your `NIGHTSCOUT_HOST` should be in a format like `http://yourname.herokuapp.com` (without trailing slash). For the complete visualization guide use [this page](https://github.com/openaps/docs/blob/master/docs/Automate-system/vizualization.md) from the OopenAPS documentation.
 
-### Common errors found while running openaps commands
+### Common error messages
 
 #### Don't have permission, permission not allowed, etc
 
