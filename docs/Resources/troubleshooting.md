@@ -60,12 +60,15 @@ If you are getting your BG from Nightscout or you want to upload loop status/res
 
 ### Common errors found while running openaps commands
 
-# Don't have permission, permission not allowed, etc
+#### Don't have permission, permission not allowed, etc
 
 The command you are running likely needs to be run with root permissions, try the same command again with ```sudo ``` in front of it
 
-# json: error: input is not JSON: Unexpected '<' at line 1, column 1:
+#### json: error: input is not JSON
+```
+json: error: input is not JSON: Unexpected '<' at line 1, column 1:
         <head><title>Document Moved</title></head>
+```
         
   This error usually comes up when you have pulled a file down from Nightscount that was an invalid file. Typcially you might see this when trying to pull down treatments. Make sure that you have your HOST and API_KEY set correctly at the top of your cron, in your ~/.profile and finally
   
