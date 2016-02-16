@@ -10,7 +10,8 @@ It's actually not too hard to do one and it is a great way to contribute. This d
 back into the dev branch of the main repository. 
 * At which time they will do a quick review and merge your changes in.
 
-#OK, let's get started. For our example we are going to make an edit to the openaps docs repository.
+OK, let's get started. For our example we are going to make an edit to the openaps docs repository.
+
     1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
     2. Github will automatically take you to your copy (notice in the address bar you are now in your own personal github directory)
     3. In the branch drop down on the upper left of the page we are going to select the dev branch, since that is the one we want to edit. 
@@ -21,7 +22,8 @@ back into the dev branch of the main repository.
     8. Commit the changes.
     9. Now look and make sure everyting you changed looks like you meant it to (no typos, etc). If any problems, go back and edit again and save again.
 
-#We now have an improved vile that we want to be pulled back into the dev repository at https://github.com/openaps/docs
+We now have an improved vile that we want to be pulled back into the dev repository at https://github.com/openaps/docs
+
     1. Go to https://github.com/openaps/docs
     2. Select dev from the branch drop down on the upper left (since that's where we'd like the changes to go to)
     3. Press the pull request button
