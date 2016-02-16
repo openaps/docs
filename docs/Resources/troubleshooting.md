@@ -70,7 +70,7 @@ json: error: input is not JSON: Unexpected '<' at line 1, column 1:
         <head><title>Document Moved</title></head>
 ```
         
-  This error usually comes up when you have pulled a file down from Nightscount that was an invalid file. Typcially you might see this when trying to pull down treatments. Make sure that you have your HOST and API_KEY set correctly at the top of your cron, in your ~/.profile and finally
+  This error usually comes up when you have pulled a file down from Nightscount that was an invalid file. Typcially you might see this when trying to pull down treatments. Make sure that you have your HOST and API_KEY set correctly at the top of your cron, in your ~/.profile
   
   
 
