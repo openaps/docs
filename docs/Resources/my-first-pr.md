@@ -15,8 +15,8 @@ OK, let's get started. For our example we are going to make an edit to the opena
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 2. Github will automatically take you to your copy (notice in the address bar you are now in your own personal github directory)
 3. In the branch drop down on the upper left of the page we are going to select the dev branch, since that is the one we want to edit. 
-4. Now we need to find the file we want to edit. In this case, we are going to edit X, so click on X, then Y.
-5. We now are looking at the file we want to edit. Next, press the pencil icon in the upper right next to the trash can icon.
+4. Now we need to find the file we want to edit. Click through the directory structure until you find and are looking at the content of the file you want to change.
+5. Next, press the pencil icon in the upper right next to the trash can icon.
 6. Make edits to the file as necessary.
 7. Next we want to commit our changes. But first we should note what we changed and why. Be sure to put a one liner explaining the why of making the changes you did.
 8. Commit the changes.
