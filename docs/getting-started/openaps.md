@@ -12,11 +12,23 @@ This is the recommended way to install:
 
 This uses [this script](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh) to install all the dependencies in one step.
 
+If the install was successful, the last line will say something like:<br>
+
+openaps 0.0.9  (although the version number may have been incremented)
+
+If you do not see this or see error messages, try running the script multiple times.
+
 ### Installing from source
 
 It's possible to use the package manager to install development branches.  If you are hacking on the code, you'll need a way to develop using versions you control.  Here's a quick way to do that:
 
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh | bash -`
+
+If successful, the last line will say something like: <br>
+
+openaps 0.0.10-dev  (although the version number may have been incremented)
+
+
 
 ## Manual install [optional]
 ### Install Python and Node.js Packages System-Wide [optional]
