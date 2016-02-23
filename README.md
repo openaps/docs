@@ -22,7 +22,7 @@ This is a set of development tools to support a self-driven DIY implementation. 
 
 The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). There are very good reasons why this isn't a single downloadable script. While formal training or experience as an engineer or a developer is not a prerequisite, a growth mindset is required to learn to work with the "building blocks" that will help you develop your OpenAPS instance. Remember as you consider this project that this is not a "set and forget" system; and OpenAPS implementation requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
 
-This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.
+This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, [helping improve documentation](docs/Resources/my-first-pr.md), and contributing in other ways.
 
 
 ## OpenAPS System Development Phases
