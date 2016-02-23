@@ -29,7 +29,7 @@ We now have an improved vile that we want to be pulled back into the dev reposit
 3. Press the pull request button
 4. Set up the the branches you are targeting. The easiest way of thinking about the branch range is this: the base branch is where you think changes should be applied, the head branch is what you would like to be applied.
 5. So choose so the base fork as openaps/docs and then the base as dev. The head fork is going to be <youraccount>/docs and the base as dev. 
-6. It should show the list of changes you made. If not, you did something wrong so stop here and ask for help. If the list looks like your changes then  put a note in there to what the overarching reason for the changes are (in your case you only made one, but you could have made a bunch). Create the PR.
+6. It should show the list of changes you made. If not, you did something wrong so stop here and ask for help. If the list looks like your changes then put a note in there to what the overarching reason for the changes are (in your case you only made one, but you could have made a bunch). Create the PR.
 
 It will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps!
 
