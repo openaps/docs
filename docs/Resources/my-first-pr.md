@@ -22,7 +22,7 @@ OK, let's get started. For our example we are going to make an edit to the opena
 8. Commit the changes.
 9. Now look and make sure everyting you changed looks like you meant it to (no typos, etc). If any problems, go back and edit again and save again.
 
-We now have an improved vile that we want to be pulled back into the dev repository at https://github.com/openaps/docs
+We now have an improved file that we want to be pulled back into the dev repository at https://github.com/openaps/docs
 
 1. Go to https://github.com/openaps/docs
 2. Select dev from the branch drop down on the upper left (since that's where we'd like the changes to go to)
