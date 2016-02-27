@@ -285,7 +285,7 @@ You will see that it invokes each of the reports you specified in the order you 
 
 Just like with devices and reports, the alias is now part of your openaps configuration. You can view all of your aliases with `$ cat openaps.ini` or by using `$ openaps alias show`. Similarly, you can remove aliases with `$ openaps alias remove <alias_name>`.
 
-Aliases are not limited to reports, but we will leave that up to you to explore.
+Aliases will invoke reports and execute logic and shell commands. Aliases are not limited to reports. They can be nested. For example a top level alias is $ openaps alias1 alias2.  alias2 is for example: Run shell "program1 && something2 || alias3" (one and two or three). alias3 is for example: $ Openaps report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json
 
 ## Putting the Pieces Together
 
@@ -295,7 +295,8 @@ Go ahead and add and invoke reports for these components of a future closed-loop
 
 Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history. 
 
-Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. 
+Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the "use" command. The "use" command is -h anotated. To see the annotation use this command $ openaps use <pumpname> -h
+
 
 <br>
 ## Backing Up Your openaps Instance
