@@ -1,7 +1,6 @@
 ###Wifi Troubleshooting
 
 #My wifi connection keeps dropping and/or I keep getting kicked out of ssh
-
 There is a script that you can add to your root cron that will test your connection and reset it if it is down. Here is an example that runs every two minuntes (odd minutes). You could also do it every 5 minutes or less. Note, this does not have to be for an Edison, you can set this up for a Pi, etc as well.
 
 ```
