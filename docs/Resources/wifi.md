@@ -1,4 +1,4 @@
-##Wifi Troubleshooting
+###Wifi Troubleshooting
 
 #My wifi connection keeps dropping and/or I keep getting kicked out of ssh
 
