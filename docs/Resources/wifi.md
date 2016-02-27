@@ -13,7 +13,7 @@ chmod 0755 /home/edison/src/edison_wifi/wifi.sh
 Next, add the script to your root cron. Note this is a different cron that what your loops runs on, so when you open it don't expect to see your loop and other items you've added.
   * Log in as root ```su root```
   * Edit your root cron ```crontab -e```
-  * Add the following line ```1-59/2 * * * * /home/edison/src/edison_wifi/wifi.sh google.com 2>&1 | logger -t wifi-reset``
+  * Add the following line ```1-59/2 * * * * /home/edison/src/edison_wifi/wifi.sh google.com 2>&1 | logger -t wifi-reset```
   
 #I forget to switch back to home wifi and it runs up my data plan
 You can add a line to your cron that will check to see if <YOURWIFINAME> is avaiable and automatically switch to it if you are on a different network.
