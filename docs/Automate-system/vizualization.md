@@ -111,7 +111,9 @@ $ openaps alias add format-latest-nightscout-treatments '! bash -c "nightscout c
 $ openaps alias add upload-recent-treatments '! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""' || die "Can't add upload-recent-treatments"
 ```
 
-Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
+Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json, including making sure to add it to your monitor-pump alias. In addition, if you haven't already created a settings/model.json report, you should create that report and invoke it since it is required for format-latest-nightscout-treatments.
+
+After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
 
 Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
 
