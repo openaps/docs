@@ -113,6 +113,46 @@ wpa-psk <your-password>
 
 Replace `<your-network-name>` and `<your-password>` with your own credentials (just text, no quotes). Save the file (without adding any additional extensions to the end of the filename).
 
+Alternatively if you want to connect to known networks automatically when roaming lets say your home wifi and your mobile hotspot you can use the following configuration:
+
+Edit the main network config file and change the WiFi related settings to:
+```
+# the auto wlan0 below is mandatory
+# change wlan0 inet to manual
+# add wpa-roam line
+# define a number of known network using user defined strings, e.g. mobile, home and also default
+
+auto wlan0
+iface wlan0 inet manual
+        wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface mobile inet dhcp
+iface home inet dhcp
+iface default inet dhcp
+```
+Next edit etc/wpa_supplicant/wpa_supplicant.conf and add the following configuration:
+
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+        ssid="YOURMOBILESSID"
+        scan_ssid=1
+        key_mgmt=WPA-PSK
+        psk="YOURMOBILEPASS"
+        id_str="mobile"
+        priority=5
+}
+network={
+        ssid="YOURHOMESSID"
+        scan_ssid=1
+        key_mgmt=WPA-PSK
+        psk="YOURHOMEPASS"
+        id_str="home"
+        priority=5
+}
+```
+You can add as many network as you need, the next reboot your system will connect to the first available network listed in your config files. Once the network to which your board is connected becomes unavailable, it start looking for any other known network in the area, and it connects to it if available.
+
 Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
 If you are unable to access this file on your computer:
