@@ -166,6 +166,8 @@ to expand filesystem, change user password and set timezone (in internationaliza
 
 ## Setup Password-less Login [optional]
 
+We will now setup a public/private key identity, and configure your local computer and the Raspberry Pi to automatically use it, in order to allow convenient future ssh access to the Pi without requiring a password.
+
 ### Windows
 
 If you don't already have an SSH key, follow [this guide](https://help.github.com/articles/generating-ssh-keys/) from GitHub to create one.
@@ -182,13 +184,19 @@ Now you should be able to log in without a password. Try to SSH into the RPi2 ag
 
 
 ### Mac and Linux
-If you don't already have an ssh key, then on your local computer ( *not* on the Pi ), by running `ssh-keygen` (keep hitting enter to accept all the defaults)
+If you don't already have an ssh key, then on your local computer (*not* on the Pi), run `ssh-keygen` (keep hitting enter to accept all the defaults).
 
-Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local`, enter your password, and run `mkdir .ssh`
+If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi`.
 
-Next copy your public key to the Pi: `scp ~/.ssh/id_rsa.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
+Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local`, enter the password for the `pi` user on the Pi, and run `mkdir .ssh`.
 
-Finally `ssh pi@raspberrypi.local` to make sure you can log in without a password.
+Next, add your new identity to the list of identities for which the Pi's `pi` user grants access via ssh:
+
+`cat ~/.ssh/<id_name>.pub | ssh pi@raspberrypi.local 'cat >> .ssh/authorized_keys'`
+
+Instead of appending it to the list of authorized keys, you may simply copy your public key to the Pi, **overwriting its existing list of authorized keys**: `scp ~/.ssh/<id_name>.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
+
+Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a password.
 
 ### Disabling password login [optional]
 To secure the Pi, you should either set a password (using `sudo raspi-config` above, or with `sudo passwd`), or disable password login completely. If you want to disable password login (so you can only log in with your ssh key), open the `sshd_config` file in nano text editor on the Pi as follows
