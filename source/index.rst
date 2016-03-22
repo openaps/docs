@@ -6,6 +6,7 @@ Welcome to OpenAPS's documentation!
    :numbered:
 
    docs/introduction/index
+   docs/Overview/index
    docs/walkthrough/index
 
    Resources <docs/Resources/index>
