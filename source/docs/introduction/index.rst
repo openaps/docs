@@ -4,6 +4,9 @@
    :numbered:
 
    introduction
+   conventions
+   contribute
+   communication-support-channels
 
 
 Introduction

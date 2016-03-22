@@ -6,6 +6,7 @@ Welcome to OpenAPS's documentation!
    :numbered:
 
    docs/introduction/index
+   docs/walkthrough/index
 
    Phase 0: General Setup <docs/getting-started/setup>
 
