@@ -19,7 +19,9 @@ If you haven't already done so, this is also an excellent time to calibrate your
     * Code one or more of these strategies such that they can accept live and/or historic patient data and output suggestions for temp basal changes. (oref0 is currently popular.)
     * Evaluate the efficacy of these algorithms by testing their suggestions against live and historic data
     * Iterate on the algorithms and their implementation to improve their output
-    * Test at least these cases: data corruption, lack of data, lack of connectivity, and other non-ideal operating conditions, and provide error checking. Also, create a “preflight check”.
+    * Test at least these cases: data corruption, lack of data, lack of
+      connectivity, and other non-ideal operating conditions, and provide error
+      checking. Also, create a `preflight` check.
     * Create a loop alias and retry logic
 
 
