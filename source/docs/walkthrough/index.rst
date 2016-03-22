@@ -7,5 +7,6 @@ Walkthrough
 
    phase-0/index
    phase-1/index
+   phase-2/index
 
 
