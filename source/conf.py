@@ -386,7 +386,7 @@ hosted_root = 'http://localhost:8000/'
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
   print "ENVIRONMENT", os.environ
-  hosted_root = ''
+  hosted_root = './'
 def setup(app):
     app.add_config_value('recommonmark_config', {
             # 'url_resolver': lambda url: github_doc_root + url,
