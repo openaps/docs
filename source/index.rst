@@ -4,10 +4,10 @@ Welcome to OpenAPS's documentation!
 .. toctree::
    :maxdepth: 4
    :numbered:
-   :glob:
 
 
 
+   docs/index
    Introduction <README>
    Table of Contents <SUMMARY>
    Conventions <Overview/conventions>
