@@ -1,4 +1,4 @@
-##Keeping up to date
+## Keeping up to date
 
 If you've gone "live" with your loop, congratulations! You'll probably want to keep a very close eye on the system and validate the outputs for a while. (For every person, this amount of time varies).
 

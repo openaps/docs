@@ -8,13 +8,9 @@ Welcome to OpenAPS's documentation!
    docs/introduction/index
    docs/walkthrough/index
 
-   Resources <docs/Resources/resources>
+   Resources <docs/Resources/index>
 
 
-   #OpenAPS Overview and Project History <docs/Resources/history>
-   Other Projects, People & Tools <docs/Resources/other-projects>
-   FAQs <docs/Resources/faq>
-   Glossary <docs/Resources/glossary>
 
 
 
