@@ -1,3 +1,5 @@
+Phase 0: General Setup
+----------------------
 
 .. toctree::
    :maxdepth: 4
@@ -9,7 +11,5 @@
    rpi
    openaps
 
-Phase 0: General Setup
-----------------------
 
 

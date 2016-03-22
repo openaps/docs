@@ -1,3 +1,6 @@
+Introduction
+------------
+
 
 .. toctree::
    :maxdepth: 4
@@ -8,7 +11,4 @@
    contribute
    communication-support-channels
 
-
-Introduction
-------------
 
