@@ -1,4 +1,4 @@
-# Summary
+# Contents
 
    * [Technical Resources](../../docs/Resources/technical-resources.md)
    * [Troubleshooting](../../docs/Resources/troubleshooting.md)
