@@ -5,7 +5,7 @@ Welcome to OpenAPS's documentation!
    :maxdepth: 4
    :numbered:
 
-   docs/Overview/index
+   docs/introduction/index
 
    Phase 0: General Setup <docs/getting-started/setup>
 
