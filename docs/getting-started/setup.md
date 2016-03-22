@@ -10,8 +10,8 @@ Second, this will enable you to help us improve our documentation. Did we skip a
 
 # Summary
 
-* [Introduction](../../README.md)
-* [Phase 0: General Setup](../../docs/getting-started/setup.md)
+* [Introduction](../../README)
+* [Phase 0: General Setup](../../docs/getting-started/setup)
    * [Baseline Data](../../docs/getting-started/baseline-data.md)
    * [Hardware](../../docs/getting-started/hardware.md)
    * [Seting Up Your Raspberry Pi](../../docs/getting-started/rpi.md)

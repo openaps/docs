@@ -6,13 +6,28 @@ This section provides an introduction to intializing, configuring, and using the
 
 The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
-Some familiarity with using the terminal will go a long way, so if you aren't comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell / Terminal links on the [Technical Resources](../Resources/technical-resources.md) page.
+Some familiarity with using the terminal will go a long way, so if you aren't
+comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell
+/ Terminal links on the [Technical
+Resources](../Resources/technical-resources.md) page.
 
 Some conventions used in this guide:
-* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `Barney` as your  ` < my_pump_name > `, you must use `Barney` every time you see `< my_pump_name >`. Choose carefully. Do not include the `< >` brackets in your name.
-* You will see a `$ ` at the beginning of many of the lines of code. This indicates that it is to be entered and executed at the terminal prompt. Do not type in the `$`.  
+* Wherever there are `<bracketed_components>` in the the code, these are meant
+  for you to insert your own information. Most of the time, it doesn't matter
+  what you choose **as long as you stay consistent throughout this guide**.
+  That means if you choose `Barney` as your  ` < my_pump_name > `, you must use
+  `Barney` every time you see `< my_pump_name >`. Choose carefully. Do not
+  include the ` < > ` brackets in your name.
 
-One helpful thing to do before starting is to log your terminal session. This will allow you to go back and see what you did at a later date. This will also be immensely helpful if you request help from other OpenAPS contributors as you will be able to provide an entire history of the commands you used. To enable this, just run `$ script <filename>` at the beginning of your session. It will inform you that `Script started, file is <filename>`. When you are done, simply `$ exit` and it will announce `Script done, file is <filename>`. At that point, you can review the file as necessary.
+
+One helpful thing to do before starting is to log your terminal session. This
+will allow you to go back and see what you did at a later date. This will also
+be immensely helpful if you request help from other OpenAPS contributors as you
+will be able to provide an entire history of the commands you used. To enable
+this, just run `$ script <filename>` at the beginning of your session. It will
+inform you that `Script started, file is <filename>`. When you are done, simply
+`$ exit` and it will announce `Script done, file is <filename>`. At that point,
+you can review the file as necessary.
 
 <br>
 ## Configuring openaps
@@ -77,7 +92,8 @@ should return something like:
 medtronic://pump
 dexcom://cgms
 ```
-Here, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. The names you selected should appear in their place.
+Here, `pump` was used for `<my_pump_name>` and `cgms` was used for
+`<my_dexcom_name>`. The names you selected should appear in their place.
 
 Your `openaps.ini` file now has some content; go ahead and take another look:
 
@@ -193,18 +209,22 @@ Some people have found it more beneficial to pull blood glucose values from Nigh
 
 1) Similar like above, we need to create a device that talks to Nightscout.  Add this device called "curl" to your list of devices in your openaps.ini file:  <br>
 
+```
 [device "curl"] <br>
 fields = <br>
 cmd = bash <br>
 vendor = openaps.vendors.process <br>
 args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'" <br>
+```
 
 In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  The report will look like this in your openaps.ini file:
   
+```
 [report "monitor/glucose.json"] <br>
 device = curl <br>
 use = shell <br>
 reporter = text <br>
+```
 
 Many people will actually setup both ways to pull the blood glucose level and switch between the different devices depending on their needs.  If you are going to pull it directly from Nightscout then you will have to have internet access for the Raspberry Pi.
 
@@ -303,9 +323,34 @@ Take some time to create aliases for groups of reports that would be called at t
 
 There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](../getting-started/rpi.md) and [Setting Up openaps](../getting-started/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
 
-For this backup method, we will take advantage of the fact that your openaps instanace is a git repository. We won't go over git here, but take a look at the references on the [Resources](../Resources/technical-resources.md) page to get familiar with the basics. Typically, we would do this backup using GitHub, since that is where most of the openaps repositories are located and you should already have an account. However, GitHub only provides free repositories if they are public, and since this repository has your `<my_pump_name>.ini` file—and thus your pump's serial number—in it, we want to make sure that is private. If you are comfortable with sharing your glucose and pump history publicly, you can make sure the secret .ini files remain so by creating a .gitignore file listing `<my_pump_name>.ini` (and any other .ini files with secret information).  This will prevent git from uploading those files to GitHub, but will still allow you to backup and publicly share all your other configuration and data.  Alternatively, you can [purchase a monthly GitHub plan](https://github.com/pricing) and then follow [these instructions] (https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/) if you'd like to go with GitHub, or use a service like Bitbucket instead.
+For this backup method, we will take advantage of the fact that your openaps
+instanace is a git repository. We won't go over git here, but take a look at
+the references on the [Resources](../Resources/technical-resources.md) page to
+get familiar with the basics. Typically, we would do this backup using GitHub,
+since that is where most of the openaps repositories are located and you should
+already have an account. However, GitHub only provides free repositories if
+they are public, and since this repository has your `<my_pump_name>.ini`
+file—and thus your pump's serial number—in it, we want to make sure that is
+private. If you are comfortable with sharing your glucose and pump history
+publicly, you can make sure the secret .ini files remain so by creating a
+.gitignore file listing `<my_pump_name>.ini` (and any other .ini files with
+secret information).  This will prevent git from uploading those files to
+GitHub, but will still allow you to backup and publicly share all your other
+configuration and data.  Alternatively, you can [purchase a monthly GitHub
+plan](https://github.com/pricing) and then follow [these instructions]
+(https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+if you'd like to go with GitHub, or use a service like Bitbucket instead.
 
-[Bitbucket](https://bitbucket.org/) offers a similar service to GitHub, but permits users to create free private repositories. Go ahead and sign up and then create a repository. You can call it whatever you like, but make sure that on the "Create a new repository" setup page you leave the "This is a private repository" box checked. Once created, you will be directed to a "Repository setup" page. Under the "Command line" section, click on the "I have an existing project" option and follow the instructions.
+[Bitbucket](https://bitbucket.org/) offers a similar service to GitHub, but
+permits users to create free private repositories. Go ahead and sign up and
+then create a repository. You can call it whatever you like, but make sure that
+on the "Create a new repository" setup page you leave the "This is a private
+repository" box checked. Once created, you will be directed to a "Repository
+setup" page. Under the "Command line" section, click on the "I have an existing
+project" option and follow the instructions.
 
-Once you have completed this step, all of the files in your `<my_openaps>` directory will be saved in your online Bitbucket repository. Whenever you would like to update your backup, simply go into your `<my_openaps>` directory and `$ git push`. This process can be automated, but we'll save that for another day.
+Once you have completed this step, all of the files in your `<my_openaps>`
+directory will be saved in your online Bitbucket repository. Whenever you would
+like to update your backup, simply go into your `<my_openaps>` directory and `$
+git push`. This process can be automated, but we'll save that for another day.
 

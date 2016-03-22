@@ -1,3 +1,14 @@
+Content
+--------
+
+* [Introduction](../../README.md)
+* [Phase 0: General Setup](../../docs/getting-started/setup.md)
+* [Phase 1: Logging, Cleaning, and Analyzing Your Data](../../docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
+   * [Configuring and Learning to Use openaps Tools](../../docs/Log-clean-analyze-with-openaps-tools/using.md)
+* [Phase 2: Build a Manual System](../../docs/Build-manual-system/considerations.md)
+* [Phase 3: Automate Your System](../../docs/Automate-system/considerations.md)
+* [Phase 4: Iterate and Improve](../../docs/Iterate-improve/improvement-projects.md)
+* [Resources](../../docs/Resources/resources.md)
 # Phase 1: Logging, Cleaning, and Analyzing Your Data
 
 Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the pump and CGM. Data fidelity is extremely important, especially when dosing is being considered. Take the time to review what the openaps tools are outputting and carefully compare the logs against your own CareLink and CGM reports.
@@ -32,12 +43,3 @@ Phase 1 focuses on accessing, logging, cleaning up, and analyzing data from the 
     * Provide improved or alternative implementations
 
 # Summary
-
-* [Introduction](../../README.md)
-* [Phase 0: General Setup](../../docs/getting-started/setup.md)
-* [Phase 1: Logging, Cleaning, and Analyzing Your Data](../../docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
-   * [Configuring and Learning to Use openaps Tools](../../docs/Log-clean-analyze-with-openaps-tools/using.md)
-* [Phase 2: Build a Manual System](../../docs/Build-manual-system/considerations.md)
-* [Phase 3: Automate Your System](../../docs/Automate-system/considerations.md)
-* [Phase 4: Iterate and Improve](../../docs/Iterate-improve/improvement-projects.md)
-* [Resources](../../docs/Resources/resources.md)
