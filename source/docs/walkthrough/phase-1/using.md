@@ -2,14 +2,14 @@
 
 ## Configuring and Learning to Use openaps Tools
 
-This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../getting-started/rpi.md) and [Setting Up openaps](../getting-started/openaps.md) sections prior to starting.
+This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
 
 The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
 Some familiarity with using the terminal will go a long way, so if you aren't
 comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell
 / Terminal links on the [Technical
-Resources](../Resources/technical-resources.md) page.
+Resources](../../Resources/technical-resources.md) page.
 
 Some conventions used in this guide:
 * Wherever there are `<bracketed_components>` in the the code, these are meant
@@ -321,11 +321,11 @@ Take some time to create aliases for groups of reports that would be called at t
 <br>
 ## Backing Up Your openaps Instance
 
-There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](../getting-started/rpi.md) and [Setting Up openaps](../getting-started/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
+There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
 
 For this backup method, we will take advantage of the fact that your openaps
 instanace is a git repository. We won't go over git here, but take a look at
-the references on the [Resources](../Resources/technical-resources.md) page to
+the references on the [Resources](../../Resources/technical-resources.md) page to
 get familiar with the basics. Typically, we would do this backup using GitHub,
 since that is where most of the openaps repositories are located and you should
 already have an account. However, GitHub only provides free repositories if

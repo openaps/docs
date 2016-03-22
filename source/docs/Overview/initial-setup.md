@@ -1,6 +1,6 @@
 # Phase 0: General Setup
 
-Phase 0 focuses on getting everything required for an OpenAPS implementation procured, installed, and ready for tinkering. This is primarily accomplished through following steps in the [Hardware](../getting-started/hardware.md) and [Setup](../getting-started/rpi.md) sections.  
+Phase 0 focuses on getting everything required for an OpenAPS implementation procured, installed, and ready for tinkering. This is primarily accomplished through following steps in the [Hardware](../walkthrough/phase-0/hardware.md) and [Setup](../walkthrough/phase-0/rpi.md) sections.  
 
 
 * Upon Completion
