@@ -43,7 +43,7 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 	* Choose the drive where your card is and hit "Options"
 	* Format Type:  Change to Full (Erase)
 	* This will erase your old Rasbian OS and make sure you are using the full SD card's available memory
-	* ![Example OpenAPS Setup](../Images/SDFormatter.png)
+	* ![Example OpenAPS Setup](../../Images/SDFormatter.png)
 	* Format the card
 * Download Rasbian 8 / Jessie
 	* https://www.raspberrypi.org/downloads/raspbian/
