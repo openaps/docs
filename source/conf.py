@@ -23,6 +23,7 @@ import os
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+import alabaster
 
 # -- General configuration ------------------------------------------------
 
@@ -35,6 +36,7 @@ from recommonmark.transform import AutoStructify
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
+    'alabaster',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -125,9 +127,14 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #html_theme_options = {}
+# alabaster
+html_theme_options = {
+  'show_related': True,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
+html_theme_path = [alabaster.get_path( )]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -165,6 +172,16 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
+# for alabaster
+html_sidbars = {
+  '**': [
+      'about.html',
+      'navigation.html',
+      'relations.html',
+      'searchbox.html',
+      'donate.html',
+  ]
+}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
