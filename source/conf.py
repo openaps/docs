@@ -385,7 +385,8 @@ github_doc_root = 'https://github.com/openaps/docs/tree/master/'
 hosted_root = 'http://localhost:8000/'
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
-  hosted_root = 'https://openaps.readthedocs.org/'
+  print "ENVIRONMENT", os.environ
+  hosted_root = ''
 def setup(app):
     app.add_config_value('recommonmark_config', {
             # 'url_resolver': lambda url: github_doc_root + url,
