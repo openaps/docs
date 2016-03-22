@@ -20,6 +20,7 @@ import os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 
+
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 
@@ -364,9 +365,11 @@ epub_exclude_files = ['search.html']
 #epub_use_index = True
 
 github_doc_root = 'https://github.com/openaps/docs/tree/master/'
+hosted_root = 'http://localhost:8000/'
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: github_doc_root + url,
+            # 'url_resolver': lambda url: github_doc_root + url,
+            'url_resolver': lambda url: hosted_root + url + '.html',
             'auto_toc_tree_section': 'Summary',
             }, True)
     app.add_transform(AutoStructify)

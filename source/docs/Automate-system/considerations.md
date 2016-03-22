@@ -24,14 +24,8 @@ Once you get the loop automated, you should set an alarm and check your glucose 
 
 # Summary
 
-* [Introduction](../../README.md)
-* [Phase 0: General Setup](../../docs/getting-started/setup.md)
-* [Phase 1: Logging, Cleaning, and Analyzing Your Data](../../docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
-* [Phase 2: Build a Manual System](../../docs/Build-manual-system/considerations.md)
 * [Phase 3: Automate Your System](../../docs/Automate-system/considerations.md)
    * [Creating a Schedule](../../docs/Automate-system/create-schedule.md)
    * [Visualization and Monitoring](../../docs/Automate-system/vizualization.md)
    * [Validating and Testing](../../docs/Automate-system/validate-output.md)
    * [Keeping up to date](../../docs/Automate-system/keeping-up-to-date.md)
-* [Phase 4: Iterate and Improve](../../docs/Iterate-improve/improvement-projects.md)
-* [Resources](../../docs/Resources/resources.md)

@@ -1,8 +1,5 @@
 # Summary
 
-Content
--------
-
 * [Introduction](README.md)
    * [Table of Contents](SUMMARY.md)
    * [Conventions](docs/Overview/conventions.md)
