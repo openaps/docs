@@ -8,17 +8,6 @@ Welcome to OpenAPS's documentation!
    docs/introduction/index
    docs/walkthrough/index
 
-   Phase 0: General Setup <docs/getting-started/setup>
-
-
-   Phase 1: Logging, Cleaning, and Analyzing Your Data <docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze>
-
-   Phase 2: Build a Manual System <docs/Build-manual-system/considerations>
-
-
-   Phase 3: Automate Your System <docs/Automate-system/considerations>
-
-   Phase 4: Iterate and Improve <docs/Iterate-improve/improvement-projects>
    Resources <docs/Resources/resources>
 
 
