@@ -1,2 +1,3 @@
 recommonmark
+decocare=git+https://github.com/bewest/decoding-carelink.git@dev
 openaps
