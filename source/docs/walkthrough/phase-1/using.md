@@ -1,10 +1,12 @@
-#Logging, cleaning, and analyzing your data
+# Logging, cleaning, and analyzing your data
+
 
 ## Configuring and Learning to Use openaps Tools
 
 This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
 
 The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
+
 
 Some familiarity with using the terminal will go a long way, so if you aren't
 comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell
@@ -20,14 +22,17 @@ Some conventions used in this guide:
   include the ` < > ` brackets in your name.
 
 
-One helpful thing to do before starting is to log your terminal session. This
-will allow you to go back and see what you did at a later date. This will also
-be immensely helpful if you request help from other OpenAPS contributors as you
-will be able to provide an entire history of the commands you used. To enable
-this, just run `$ script <filename>` at the beginning of your session. It will
-inform you that `Script started, file is <filename>`. When you are done, simply
-`$ exit` and it will announce `Script done, file is <filename>`. At that point,
-you can review the file as necessary.
+``` eval_rst
+.. note::
+    One helpful thing to do before starting is to log your terminal session. This
+    will allow you to go back and see what you did at a later date. This will also
+    be immensely helpful if you request help from other OpenAPS contributors as you
+    will be able to provide an entire history of the commands you used. To enable
+    this, just run `$ script <filename>` at the beginning of your session. It will
+    inform you that `Script started, file is <filename>`. When you are done, simply
+    `$ exit` and it will announce `Script done, file is <filename>`. At that point,
+    you can review the file as necessary.
+```
 
 <br>
 ## Configuring openaps
@@ -336,10 +341,21 @@ publicly, you can make sure the secret .ini files remain so by creating a
 .gitignore file listing `<my_pump_name>.ini` (and any other .ini files with
 secret information).  This will prevent git from uploading those files to
 GitHub, but will still allow you to backup and publicly share all your other
-configuration and data.  Alternatively, you can [purchase a monthly GitHub
-plan](https://github.com/pricing) and then follow [these instructions]
-(https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-if you'd like to go with GitHub, or use a service like Bitbucket instead.
+configuration and data.
+
+
+
+
+``` eval_rst
+.. note:: Note
+    Alternatively, you can [purchase a monthly GitHub
+    plan](https://github.com/pricing) and then follow
+    [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+    if you'd like to go with GitHub, or use a service like Bitbucket instead.
+
+
+
+```
 
 [Bitbucket](https://bitbucket.org/) offers a similar service to GitHub, but
 permits users to create free private repositories. Go ahead and sign up and

@@ -4,6 +4,7 @@ In order to use the RPi2 with openaps development tools, the RPi2 must have an o
 Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
 Either way, it is recommended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install. 
 
+
 For the Path 1 GUI install you will need:
 
 * A Raspberry Pi 2 [CanaKit](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/) or similar, which includes several essential accessories in one package

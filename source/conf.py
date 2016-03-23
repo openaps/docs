@@ -385,7 +385,6 @@ github_doc_root = 'https://github.com/openaps/docs/tree/master/'
 hosted_root = 'http://localhost:8000/'
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
-  print "ENVIRON", os.environ
   rtd_version = os.environ.get('READTHEDOCS_VERSION')
   hosted_root = 'https://openaps.readthedocs.org/en/%s/' % rtd_version
 def setup(app):
@@ -393,6 +392,8 @@ def setup(app):
             # 'url_resolver': lambda url: github_doc_root + url,
             'url_resolver': lambda url: hosted_root + url + '.html',
             'auto_toc_tree_section': 'Summary',
+            'enable_auto_doc_ref': True,
+            'enable_eval_rst': True,
             }, True)
     app.add_transform(AutoStructify)
 
