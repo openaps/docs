@@ -7,5 +7,6 @@ Reference
    :glob:
 
    openaps/index
+   oref0/index
 
 
