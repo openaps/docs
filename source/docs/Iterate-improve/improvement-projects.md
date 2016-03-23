@@ -4,7 +4,7 @@ At this point, you're probably familiar enough to understand some of the limitat
 
 ### Using other pumps
 
-There's a group trying to figure out the Omnipod communication. There is an [omnidocs repository](https://github.com/openaps/omnidocs) that they may use to share their work, but they're more frequently chatting in a Slack channel. Email dana@openaps.org if you'd like to join that channel and check in on their progress.
+There's a group trying to figure out the Omnipod communication as well as Animas communication. There is an [omnidocs repository](https://github.com/openaps/omnidocs) that they may use to share their work, but they're more frequently chatting in a Slack channel. [Click here](http://bit.ly/1nTtccH) to join that collaboration channel and check in on their progress.
 
 ### Using other devices instead of a raspberry pi
 
