@@ -1,4 +1,5 @@
 
+.. _nightscout-tools
 
 Nightscout
 ==========

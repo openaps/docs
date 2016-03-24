@@ -1,10 +1,14 @@
 
 API Reference
 =============
+python
+------------------
+openaps API
+++++++++++++++++++
 .. toctree::
    :numbered:
    :glob:
-   :hidden:
+
 
    openaps/openaps
    openaps/*
