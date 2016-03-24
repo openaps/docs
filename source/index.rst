@@ -2,7 +2,7 @@ Welcome to OpenAPS's documentation!
 ==============================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
    :numbered:
    :glob:
 
