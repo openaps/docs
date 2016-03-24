@@ -5,8 +5,8 @@ Phase 1: Logging, Cleaning, and Analyzing Your Data
    :maxdepth: 4
    :numbered:
    
-   analyze-existing-data
    log-clean-analyze
+   analyze-existing-data
    visualization
 
 

@@ -7,8 +7,8 @@ Phase 2: Build a Manual System
    :numbered:
 
    considerations
-   building-preflight-safety-checks
    using-openaps-tools
+   building-preflight-safety-checks
    Using-oref0-tools
    loop-and-retry-logic
 

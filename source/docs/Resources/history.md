@@ -1,4 +1,4 @@
-# Project History
+## OpenAPS Overview and Project History
 
 In order to relieve the incredible burden of T1D, many research teams and manufacturers have developed and are testing Artificial Pancreas Systems (APSs) that connect CGMs to insulin pumps and use various algorithms to automatically adjust insulin dosing (and sometimes dose glucagon, a counter-regulatory hormone) to attempt to mimic some of the functions of a healthy pancreas, and keep blood sugar levels in a safe range. While quite successful in clinical trials so far, current APS systems have been in development for many years, and are still likely at least 3 years away from FDA approval. It is also unclear whether first-generation APS technology will be suitable for, or available to, all patients, even in rich countries.
 

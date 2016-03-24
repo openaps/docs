@@ -1,4 +1,4 @@
-#Understanding the output of oref0-determine-basal
+# Understanding the output of oref0-determine-basal
 
 The key logic behind any oref0 implementation of OpenAPS lies in the oref0-determine-basal.js code, which is what takes all of the inputs you've collected and makes a temp basal recommendation you can then enact if appropriate.  As such, it is important to understand how determine-basal makes its decisions, and how to interpret its output, so you can decide for yourself whether the recommendations it is making are appropriate for your situation, or if further adjustments are required before closing the loop or letting it run unattended.
 
