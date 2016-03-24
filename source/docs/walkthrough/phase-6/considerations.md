@@ -6,4 +6,5 @@ You in particular may want to test over a 24 hour period in the course of 3 days
 
 Watching the system over long periods of time will help you continue to tweak how you bolus for meals and adjust baseline basals.
 
-At this point, you can also investigate some of the in-development advanced features, like meal-assist and auto-sensitvitiy adjustment.
+At this point, you can also investigate some of the in-development advanced features, like meal-assist and auto-sensitvitiy adjustment. You can also explore some of the hardware pieces in progress, as noted on the hardware page.
+
