@@ -6,7 +6,13 @@ Phase 4: Iterate and Improve
    :maxdepth: 4
    :numbered:
 
-   ../../Iterate-improve/improvement-projects
+
+   considerations
+
+   create-schedule
+   Observing-closed-loop
+   troubleshooting-loop
+
 
 
    

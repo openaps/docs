@@ -1,8 +1,10 @@
 # Visualization and Monitoring
 
+[Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your raspberry Pi or loop system and looking through log files. 
+
 ## Nightscout Integration
 
-Integrating OpenAPS with Nightscout is a very helpul way to visualize what OpenAPS is doing using a web browser or an app on a mobile device, as opposed to logging into your Raspberry Pi and looking through the logs. The integration requires setting up Nightscout and making changes and additions to your OpenAPS implementation.
+The integration requires setting up Nightscout and making changes and additions to your OpenAPS implementation.
 
 ### Nightscout Setup
 
@@ -121,3 +123,6 @@ As a final step in the OpenAPS and Nightscout integration, you may add `status-u
 NIGHTSCOUT_HOST=https://<your Nightscout address>
 API_SECRET=<your hashed password>
 ```
+
+### Setup script
+[This script](https://github.com/openaps/oref0/commit/d9951683cef1fd6aefc38d2c76ce9e5a177b9aa2) may be useful.

@@ -1,11 +1,13 @@
 
 API Reference
 =============
+openaps
+------------------
 .. toctree::
    :numbered:
    :glob:
-   :hidden:
+   :maxdepth: 2
 
-   openaps/openaps
+
    openaps/*
 

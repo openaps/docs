@@ -5,20 +5,24 @@ This section describes the hardware components required for a 'typical' OpenAPS 
 If you're interested in working on communication for another pump (Omnipod, Animas, etc), [click here](http://bit.ly/1nTtccH) to join the collaboration group focusing on alternative pump communication.
 
 
-## Required  Hardware
+## Required  Hardware for a "typical" setup
 
-* <b>Insulin Pump</b>: Medtronic MiniMed model #:
- * 512/712
- * 515/715
- * 522/722
- * 523/723 (with firmware 2.4A or lower)
- * 554 (European Veo, with firmware 2.6A or lower)
-* <b>Pump Communication</b>:
- * Medtronic CareLink USB stick
-* <b>Continuous Glucose Monitor (CGM)</b>:
- * Dexcom CGM (G4 Platinum or Platinum with Share system) OR
+* <b>An Insulin Pump</b>: 
+	* One of the following Medtronic MiniMed model #s:
+		 * 512/712
+		 * 515/715
+		 * 522/722
+		 * 523/723 (with firmware 2.4A or lower)
+		 * 554 (European Veo, with firmware 2.6A or lower)
+* <b>A way to communicate with the pump</b>:
+	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
+	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
+* <b>A Continuous Glucose Monitor (CGM)</b>:
+ * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
+ * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * <b>Other Supplies</b>:
+  * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
  * Raspberry Pi 2 Model B ("RPi2")**(see note below)
  * 8 GB (or greater) micro SD card
  * Micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
@@ -32,11 +36,9 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
  * USB Mouse [optional, for the same purpose]
 
-\** Note: Several #OpenAPS contributors recommend the Raspberry Pi 2 CanaKit, which includes several essential accessories in one package and can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/)
+\** Several #OpenAPS contributors recommend the Raspberry Pi 2 CanaKit, which includes several essential accessories in one package and can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/)
 
 The CanaKit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micro USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
-
-Additionally, for the Raspberry Pi and peripherals, verified sets of working hardware can be found [here](http://elinux.org/RPi_VerifiedPeripherals).
 
 Eventually, once you have an entire OpenAPS build up and running, it is recommended that you have backup sets of equipment in case of failure.
 
@@ -55,11 +57,9 @@ There are several #OpenAPS participants working on ways to use other pumps (incl
 
 ### CareLink USB Stick
 
-Currently, the only supported device\* for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development. Additionally, due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions.
+Currently, the primary supported device* (in the openaps documentation) for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development. Additionally, due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions.
 
-[Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device)
-
-[American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm)
+Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
  
 A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are trasmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
 
@@ -67,12 +67,9 @@ A limitation of the Carelink USB stick is the short range of radio communication
 
 [Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/)
 
-_*Note that there are a few options in progress that may become alternatives to the Carelink, although they are not documented in the OpenAPS docs yet. ["RileyLink"](https://github.com/ps2/rileylink) is another DIY piece of hardware that is in development and has potential to replace the CareLink stick & Raspberry Pi to communicate with a pump. It is not yet built out and reliable to be a part of an OpenAPS yet, and thus is not currently recommended. There are also other pieces of DIY hardware that are works in progress that may be alternatives to using the CareLink stick and Raspberry Pi, so stay tuned._
- 
-
 ### CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic
 
-The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. You can also pull CGM data from Nightscout as an alternative (documentation coming soon), or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
+The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. A G5 can also be used, but may require some extra work beyond this setup guide in order to configure. You can also pull CGM data from Nightscout as an alternative (documentation coming soon), or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
 
 <b> Using the Dexcom CGM: </b>
 
@@ -147,8 +144,4 @@ The Raspberry Pi is extremely minimalistic and does not come in a protective cas
 
 [Raspberry Pi B+ /PI2 Acrylic Case](http://www.amazon.com/Raspberry-Pi-PI2-Acrylic-Case/dp/B00M9ZW6QU)
 
-Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well.
-
-[FlipBelt](https://flipbelt.com/)
-
-[Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20)
+Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20). 

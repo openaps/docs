@@ -7,10 +7,7 @@ Phase 3: Automation
    :numbered:
 
    considerations
-   create-schedule
-   visualization
-   validate-output
-   keeping-up-to-date
+   Understand-determine-basal
 
    
 

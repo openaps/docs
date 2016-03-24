@@ -1,4 +1,4 @@
-# Project History
+## OpenAPS Overview and Project History
 
 In order to relieve the incredible burden of T1D, many research teams and manufacturers have developed and are testing Artificial Pancreas Systems (APSs) that connect CGMs to insulin pumps and use various algorithms to automatically adjust insulin dosing (and sometimes dose glucagon, a counter-regulatory hormone) to attempt to mimic some of the functions of a healthy pancreas, and keep blood sugar levels in a safe range. While quite successful in clinical trials so far, current APS systems have been in development for many years, and are still likely at least 3 years away from FDA approval. It is also unclear whether first-generation APS technology will be suitable for, or available to, all patients, even in rich countries.
 
@@ -10,4 +10,6 @@ In light of the success of #DIYPS closed loop and other simple APS systems built
 
 \#OpenAPS is not intended to be a “set and forget” APS system. To maximize safety, a system designed from OpenAPS only doses basal insulin. Users still need to bolus for meals as they do today. However, OpenAPS can identify deviations from predicted blood sugar changes and change basal rates to prevent dangerous drops or rises that deviate from expected behavior.
 
-After launching in early 2015, there are at least 15 known instances of OpenAPS that are live and running (as of 3 November 15), with several others in development and testing phases. For anecdotal experiences from those running OpenAPS, watch the [#OpenAPS hashtag on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23OpenAPS&src=typd) and also check out the [Resources](../Resources/resources.md) section for a list of those sharing their experiences publicly.
+After launching in early 2015, there are at least 44 known instances of OpenAPS that are live and running (as of March 23, 2016), with several others in development and testing phases. For anecdotal experiences from those running OpenAPS, watch the [#OpenAPS hashtag on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23OpenAPS&src=typd) and also check out the [Resources](../Resources/resources.md) section for a list of those sharing their experiences publicly.
+
+In early 2016, progress continues to be made with the iteration of several hardware options, in addition to multiple new software features.

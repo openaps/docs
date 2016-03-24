@@ -10,6 +10,7 @@ Phase 0: General Setup
    hardware
    rpi
    openaps
+   loops-in-progress
 
 
 
