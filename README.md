@@ -1,5 +1,8 @@
 # Introduction 
 
+* Visit the [online latest openaps documentation](http://openaps.readthedocs.org/en/latest/)
+* Visit the [online dev openaps documentation](http://openaps.readthedocs.org/en/dev/)
+
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
 openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). ([Click here to view an image of the common physical components of an OpenAPS setup](source/docs/IMG_1112.jpg).)
