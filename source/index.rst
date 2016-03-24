@@ -3,7 +3,6 @@ Welcome to OpenAPS's documentation!
 
 .. toctree::
    :maxdepth: 3
-   :numbered:
    :glob:
 
    docs/introduction/index

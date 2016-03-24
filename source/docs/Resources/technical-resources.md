@@ -54,8 +54,3 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [StackEdit](https://stackedit.io/): Online Markdown editor
 
-[GitBook editor](https://www.gitbook.com/)
-
-[GitBook Help](http://help.gitbook.com/)
-
-

@@ -69,7 +69,7 @@ A limitation of the Carelink USB stick is the short range of radio communication
 
 ### CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic
 
-The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. A G5 can also be used, but may require some extra work beyond this setup guide in order to configure. You can also pull CGM data from Nightscout as an alternative (documentation coming soon), or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
+The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. A G5 can also be used, but may require some extra work beyond this setup guide in order to configure. You can also [pull CGM data from Nightscout as an alternative, or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
 
 <b> Using the Dexcom CGM: </b>
 
@@ -77,7 +77,7 @@ Note: Your Dexcom should be nearly fully charged before plugging it in to your R
 
 Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. 
 
-* You can find more documentation about pulling CGM data from a Nightscout site [here](../Log-clean-analyze-with-openaps-tools/using.md#pulling-blood-glucose-levels-from-nightscout).
+* You can find more documentation about pulling CGM data from a Nightscout site [here](../phase-2/using-openaps-tools.html#pulling-blood-glucose-levels-from-nightscout).
 * If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS. 
  * If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.
  * You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found [here](http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge).
