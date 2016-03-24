@@ -1,0 +1,3 @@
+recommonmark==0.4.0
+git+git://github.com/bewest/decoding-carelink.git@dev
+openaps

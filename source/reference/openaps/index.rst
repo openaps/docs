@@ -1,5 +1,6 @@
 
 
+.. _openaps-tools:
 openaps
 =======
 .. toctree::

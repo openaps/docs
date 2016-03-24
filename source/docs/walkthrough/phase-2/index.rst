@@ -7,10 +7,11 @@ Phase 2: Build a Manual System
    :numbered:
 
    considerations
+   using-openaps-tools
+   building-preflight-safety-checks
    Using-oref0-tools
-   Understand-determine-basal
    loop-and-retry-logic
-   Configure-Automatic-Sensitivity-Mode
+
 
    
 

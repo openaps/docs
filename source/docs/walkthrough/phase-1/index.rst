@@ -6,7 +6,8 @@ Phase 1: Logging, Cleaning, and Analyzing Your Data
    :numbered:
    
    log-clean-analyze
-   using
+   analyze-existing-data
+   visualization
 
 
 
