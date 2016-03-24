@@ -1,8 +1,11 @@
 # Introduction 
 
+* Visit the [online latest openaps documentation](http://openaps.readthedocs.org/en/latest/)
+* Visit the [online dev openaps documentation](http://openaps.readthedocs.org/en/dev/)
+
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
-openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). ([Click here to view an image of the common physical components of an OpenAPS setup](./docs/IMG_1112.jpg).)
+openaps is part of a set of [development tools](https://net.educause.edu/ir/library/pdf/ELI7088.pdf) to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). ([Click here to view an image of the common physical components of an OpenAPS setup](source/docs/IMG_1112.jpg).)
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
@@ -22,26 +25,26 @@ This is a set of development tools to support a self-driven DIY implementation. 
 
 The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). There are very good reasons why this isn't a single downloadable script. While formal training or experience as an engineer or a developer is not a prerequisite, a growth mindset is required to learn to work with the "building blocks" that will help you develop your OpenAPS instance. Remember as you consider this project that this is not a "set and forget" system; and OpenAPS implementation requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired.  The performance and quality of your system lies solely with you.
 
-This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, [helping improve documentation](docs/Resources/my-first-pr.md), and contributing in other ways.
+This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, [helping improve documentation](source/docs/Resources/my-first-pr.md), and contributing in other ways.
 
 
 ## OpenAPS System Development Phases
 
 This documentation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. [Click here for a visualization and breakdown of the phases](./OpenAPS_phase_visualization_Nov152015.png). The phases are as follows: 
 
-* [Phase 0: General Setup](docs/Overview/initial-setup.md)<br>
+* [Phase 0: General Setup](source/docs/Overview/initial-setup.md)<br>
 Record baseline data, acquire and configure hardware, install software, and become familiar with the openaps environment
 
-* [Phase 1: Logging, Cleaning, and Analyzing Your Data](docs/Overview/data-collection.md)<br>
+* [Phase 1: Logging, Cleaning, and Analyzing Your Data](source/docs/Overview/data-collection.md)<br>
 Create tools for logging and analyzing pump and CGM data
 
-* [Phase 2: Build a Manual System](docs/Overview/manual-system.md)<br>
+* [Phase 2: Build a Manual System](source/docs/Overview/manual-system.md)<br>
 Use the logged data with oref0 tools to suggest insulin dose adjustments, review and refine algorithms, test different scenarios for safety, prepare for creating a loop and implementing retry logic
 
-* [Phase 3: Automate Your System](docs/Overview/automate-system.md)<br>
+* [Phase 3: Automate Your System](source/docs/Overview/automate-system.md)<br>
 Apply the recommendations automatically and in real time by creating a schedule and continuing to validate and assess outputs
 
-* [Phase 4: Iterate and Improve](docs/Overview/iterate-improve.md)<br>
+* [Phase 4: Iterate and Improve](source/docs/Overview/iterate-improve.md)<br>
 Improve the functionality of the system with additional software or hardware development
 
 At the beginning of each phase, an outline summarizes:
@@ -55,32 +58,18 @@ At the beginning of each phase, an outline summarizes:
 # Summary
 
 * [Introduction](README.md)
-   * [Table of Contents](SUMMARY.md)
-   * [Conventions](docs/Overview/conventions.md)
-   * [Ways to Contribute](docs/Overview/contribute.md)
-   * [Where to Go for Help](docs/Overview/communication-support-channels.md)
-* [Phase 0: General Setup](docs/getting-started/setup.md)
-   * [Baseline Data](docs/getting-started/baseline-data.md)
-   * [Hardware](docs/getting-started/hardware.md)
-   * [Seting Up Your Raspberry Pi](docs/getting-started/rpi.md)
-   * [Setting Up openaps and Dependencies](docs/getting-started/openaps.md)
-* [Phase 1: Logging, Cleaning, and Analyzing Your Data](docs/Log-clean-analyze-with-openaps-tools/log-clean-analyze.md)
-   * [Configuring and Learning to Use openaps Tools](docs/Log-clean-analyze-with-openaps-tools/using.md)
-* [Phase 2: Build a Manual System](docs/Build-manual-system/considerations.md)
-   * [Using oref0 Tools](docs/Build-manual-system/Using-oref0-tools.md)
-   * [Understanding oref0-determine-basal recommendations] (docs/Build-manual-system/Understand-determine-basal.md)
-   * [Creating a Loop and Retry Logic](docs/Build-manual-system/loop-and-retry-logic.md)
-* [Phase 3: Automate Your System](docs/Automate-system/considerations.md)
-   * [Creating a Schedule](docs/Automate-system/create-schedule.md)
-   * [Visualization and Monitoring](docs/Automate-system/vizualization.md)
-   * [Validating and Testing](docs/Automate-system/validate-output.md)
-   * [Keeping Up To Date](docs/Automate-system/keeping-up-to-date.md)
-* [Phase 4: Iterate and Improve](docs/Iterate-improve/improvement-projects.md)
-* [Resources](docs/Resources/resources.md)
-   * [Technical Resources](docs/Resources/technical-resources.md)
-   * [Troubleshooting](docs/Resources/troubleshooting.md)
-   * [#OpenAPS Overview and Project History](docs/Resources/history.md)
-   * [Other Projects, People & Tools](docs/Resources/other-projects.md)
-   * [FAQs](docs/Resources/faq.md)
-   * [Glossary](docs/Resources/glossary.md)
+* Overview
+    * [Phase 0: General Setup](source/docs/Overview/initial-setup.md)
+    * [Phase 1: Logging, Cleaning, and Analyzing Your Data](source/docs/Overview/data-collection.md)
+    * [Phase 2: Build a Manual System](source/docs/Overview/manual-system.md)
+    * [Phase 3: Automate Your System](source/docs/Overview/automate-system.md)
+    * [Phase 4: Iterate and Improve](source/docs/Overview/iterate-improve.md)
+* [Walkthrough](http://openaps.readthedocs.org/en/master/docs/walkthrough/index.html)
+* [Resources](source/docs/Resources/resources.md)
+   * [Technical Resources](source/docs/Resources/technical-resources.md)
+   * [Troubleshooting](source/docs/Resources/troubleshooting.md)
+   * [#OpenAPS Overview and Project History](source/docs/Resources/history.md)
+   * [Other Projects, People & Tools](source/docs/Resources/other-projects.md)
+   * [FAQs](source/docs/Resources/faq.md)
+   * [Glossary](source/docs/Resources/glossary.md)
 
