@@ -1,3 +1,8 @@
+### Introduction to OpenAPS
 
-### Welcome
+Introduction section includes:
 
+* Navigation 
+* Understanding This Guide
+* Ways to Contribute
+* Where to Go For Help With Your Implementation
