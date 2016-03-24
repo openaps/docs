@@ -22,7 +22,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
 * <b>Other Supplies</b>:
-		* **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
+  * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
  * Raspberry Pi 2 Model B ("RPi2")**(see note below)
  * 8 GB (or greater) micro SD card
  * Micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
