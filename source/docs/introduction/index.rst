@@ -10,7 +10,6 @@ Introduction section includes:
 
 .. toctree::
    :maxdepth: 4
-   :numbered:
 
    understand-this-guide
    conventions
