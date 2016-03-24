@@ -6,10 +6,7 @@ openaps is part of a set of tools to support a self-driven Do-It-Yourself (DIY) 
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
-The tools may be categorized as: 1)  **monitor** collecting data and operational status from devices, and/or aggregating as much data as is relevant into one place; 2)  **predict** make predictions about what will happen next; and 3)  **control** enacting changes, and feeding more data back into the **monitor**, closing the loop
-
-You may also find [this flowchart](./OpenAPS_phase_visualization_Nov152015.png) helpful to further break down the areas of monitor, predict, and control into various stages of general setup; logging, cleaning, and analyzing data; building a manual system or "open loop"; automating your work and starting to close and tune your loop; and iterating and improving on your setup over time.
-
+The tools may be categorized as: 1)  **monitor** collecting data and operational status from devices, and/or aggregating as much data as is relevant into one place; 2)  **predict** make predictions about what will happen next; and 3)  **control** enacting changes, and feeding more data back into the **monitor**, closing the loop.
 
 ----------
 ### A Note on DIY and the "Open" Part of OpenAPS
@@ -23,7 +20,7 @@ This community of contributors believes in "paying it forward," and individuals 
 ----------
 ###OpenAPS System Development Phases
 
-This documentation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. [Click here for a visualization and breakdown of the phases](./OpenAPS_phase_visualization_Nov152015.png). The phases are as follows: 
+This documentation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system. The phases are as follows: 
 
 * [Phase 0: General Setup](source/docs/walkthrough/phase-0/setup.md)<br>
 Get the equipment you need; record baseline data, configure your hardware, install software, and become familiar with the openaps environment
