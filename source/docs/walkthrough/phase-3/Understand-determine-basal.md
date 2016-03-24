@@ -2,6 +2,8 @@
 
 The key logic behind any oref0 implementation of OpenAPS lies in the oref0-determine-basal.js code, which is what takes all of the inputs you've collected and makes a temp basal recommendation you can then enact if appropriate.  As such, it is important to understand how determine-basal makes its decisions, and how to interpret its output, so you can decide for yourself whether the recommendations it is making are appropriate for your situation, or if further adjustments are required before closing the loop or letting it run unattended.
 
+The recommendation is to run for several days in "open loop" mode, watching the output, in order to decide what your "max basal" setting should be. Based on how often you disagreed or counteracted what the loop was recommending, this might influence how you set your max basal.
+
 ## Summary of inputs
 
 The determine-basal algorithm requires a number of inputs, which are passed in JSON files such as iob.json, currenttemp.json, glucose.json, profile.json, and optionally meal.json.  When running oref0-determine-basal.js with the appropriate inputs, the first thing you'll see is a summary of all the provided inputs, which might look something like this:
