@@ -123,3 +123,6 @@ As a final step in the OpenAPS and Nightscout integration, you may add `status-u
 NIGHTSCOUT_HOST=https://<your Nightscout address>
 API_SECRET=<your hashed password>
 ```
+
+### Setup script
+[This script](https://github.com/openaps/oref0/commit/d9951683cef1fd6aefc38d2c76ce9e5a177b9aa2) may be useful.
