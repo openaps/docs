@@ -54,4 +54,3 @@ At the beginning of each phase, an outline summarizes:
 
 * Community Contribution—How users should be able to contribute to the #OpenAPS project and/or openaps development tool set during and after the phase
 
-
