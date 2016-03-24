@@ -55,10 +55,6 @@ At the beginning of each phase, an outline summarizes:
 # Summary
 
 * [Introduction](README.md)
-   * [Table of Contents](SUMMARY.md)
-   * [Conventions](source/docs/Overview/conventions.md)
-   * [Ways to Contribute](source/docs/Overview/contribute.md)
-   * [Where to Go for Help](source/docs/Overview/communication-support-channels.md)
 * Overview
     * [Phase 0: General Setup](source/docs/Overview/initial-setup.md)
     * [Phase 1: Logging, Cleaning, and Analyzing Your Data](source/docs/Overview/data-collection.md)
