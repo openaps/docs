@@ -11,7 +11,6 @@ Welcome to OpenAPS's documentation!
 
    Resources <docs/Resources/index>
    reference/index
-   api/index
 
 
 

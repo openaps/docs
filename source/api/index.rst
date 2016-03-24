@@ -1,15 +1,13 @@
 
 API Reference
 =============
-python
+openaps
 ------------------
-openaps API
-++++++++++++++++++
 .. toctree::
    :numbered:
    :glob:
+   :maxdepth: 2
 
 
-   openaps/openaps
    openaps/*
 
