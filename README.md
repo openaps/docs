@@ -50,7 +50,7 @@ Moving beyond low glucose suspend mode, work through tuning your targets
 At the end of the previous stages and after 3 consecutive nights with no hardware failures and at least 1 night without low alarms, you can move into advanced features like meal-assist and auto-sensitivity tuning. Also improve the functionality of the system with additional software or hardware development
 
 ----------
-**[Click here to see a walkthrough or navigation menu of the steps and content of this documentation.]((http://openaps.readthedocs.org/en/master/docs/walkthrough/index.html))** Or, view the resources menu below:
+**[Click here to see a walkthrough or navigation menu of the steps and content of this documentation.](http://openaps.readthedocs.org/en/master/docs/walkthrough/index.html)** Or, view the resources menu below:
 
 * [Resources](source/docs/Resources/resources.md)
    * [Technical Resources](source/docs/Resources/technical-resources.md)
