@@ -132,12 +132,3 @@ In addition to the phases linked above for helping you consider the DIY loop imp
         *   <a href="docs/docs/Resources/faq.md#what-is-a-closed-loop" class="reference internal">What is a Closed Loop?</a>
         *   <a href="docs/docs/Resources/faq.md#what-does-an-openaps-closed-loop-look-like" class="reference internal">What does an OpenAPS closed loop look like?</a>
     *   <a href="docs/docs/Resources/glossary.md" class="reference internal">Glossary</a>
--   <a href="reference/index.rst" class="reference internal">Reference</a>
-    *   <a href="reference/index.rst#manuals" class="reference internal">Manuals</a>
-        *   <a href="reference/openaps/index.rst" class="reference internal">openaps</a>
-        *   <a href="reference/oref0/index.rst" class="reference internal">oref0</a>
-        *   <a href="reference/nightscout/index.rst" class="reference internal">Nightscout</a>
-        *   <a href="reference/mm/index.rst" class="reference internal">mm</a>
-    *   <a href="reference/index.rst#api" class="reference internal">API</a>
-        *   <a href="api/index.rst" class="reference internal">API Reference</a>
-
