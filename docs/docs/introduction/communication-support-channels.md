@@ -1,6 +1,6 @@
 # Where to go for help with your implementation
 
-There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](../Resources/resources.md) section for additional assistance.
+There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](../Resources/) section for additional assistance.
 
 **Note:** It's best practice not to share your pump's serial number, so make sure not to include it in pictures or pasted text output when seeking help on pump communication.
 
