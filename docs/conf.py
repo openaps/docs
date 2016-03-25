@@ -60,8 +60,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OpenAPS'
-copyright = u'2016, Ben West'
-author = u'Ben West'
+copyright = u'2016, Ben West, Dana Lewis, and openaps contributors'
+author = u'Ben West, Dana Lewis, Scott Leibrand, openaps community'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -126,15 +126,29 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
 # alabaster
 html_theme_options = {
   'show_related': True,
+  'github_user': 'openaps',
+  'github_repo': 'docs',
+  'github_button': True,
+  'logo': 'openaps-logo.png',
 }
 
+"""
+html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+  'display_github': True,
+  'github_user': 'openaps',
+  'github_repo': 'docs',
+}
+import sphinx_rtd_theme
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path( )]
+"""
+
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
-html_theme_path = [alabaster.get_path( )]
+html_theme_path = []
+html_theme_path = [alabaster.get_path( ),]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -146,6 +160,7 @@ html_theme_path = [alabaster.get_path( )]
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #html_logo = None
+html_logo = '_static/openaps-logo.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -165,6 +180,7 @@ html_static_path = ['_static']
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
 #html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -251,7 +267,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'OpenAPS.tex', u'OpenAPS Documentation',
-     u'Ben West', 'manual'),
+     author, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
