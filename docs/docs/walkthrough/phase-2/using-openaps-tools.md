@@ -362,6 +362,12 @@ repository" box checked. Once created, you will be directed to a "Repository
 setup" page. Under the "Command line" section, click on the "I have an existing
 project" option and follow the instructions.
 
+In order to eliminate being
+prompted for your Bitbucket password every time you `$ git push`, change the
+origin field provided by Bitbucket from `https://USERNAME@bitbucket.org...` to
+`https://USERNAME:PASSWORD@bitbucket.org...`.  PASSWORD is the same password
+you use to log-in to your Bitbucket account.
+
 Once you have completed this step, all of the files in your `<my_openaps>`
 directory will be saved in your online Bitbucket repository. Whenever you would
 like to update your backup, simply go into your `<my_openaps>` directory and `$
