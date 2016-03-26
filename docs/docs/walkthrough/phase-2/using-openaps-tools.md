@@ -373,3 +373,6 @@ directory will be saved in your online Bitbucket repository. Whenever you would
 like to update your backup, simply go into your `<my_openaps>` directory and `$
 git push`. This process can be automated, but we'll save that for another day.
 
+[Github mkimg tool](https://github.com/zymbit/rpi-mkimg) has the ability to create a full SD card image with the advantage to shrink it to its minimum size quite different from the windows Win32DiskImager which always creates an image which is as large as the card.  Using Win32DiskImager it might not be possible to restore an image on a new card with the same size. Using Github mkimg tool instead 
+for example a 32 GB size card can be reduced to approximately 1.9 GB.
+
