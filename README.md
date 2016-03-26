@@ -11,7 +11,7 @@ Welcome to the [openaps](https://github.com/openaps/) documentation!
 
 openaps is part of a set of tools to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). 
 
-Here are two visuals to show you what the physical hardware components of an OpenAPS setup look like - [version A](./docs/IMG_1112.jpg) is without labels; [version B](docs/Images/piSetup.jpg) contains labels to describe the parts.
+Here are two visuals to show you what the physical hardware components of an OpenAPS setup look like - ![version A](./docs/docs/IMG_1112.jpg) is without labels; ![version B](docs/Images/piSetup.jpg) contains labels to describe the parts.
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
