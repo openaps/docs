@@ -136,6 +136,8 @@ Then, you can add your pump again with a different name or serial number.
 
 ### Check that you can communicate with your pump
 
+Ensure that you have the CareLink USB stick plugged into the Pi using the USB extension
+
 Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
 
 `$ openaps use <my_pump_name> model`
