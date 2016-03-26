@@ -123,16 +123,27 @@ todo_include_todos = True
 # a list of builtin themes.
 html_theme = 'alabaster'
 
+
+extra_nav_links = {
+  'docs': 'https://github.com/openaps/docs',
+  'openaps': 'https://github.com/openaps/openaps',
+  'dexcom_reader': 'https://github.com/openaps/dexcom_reader',
+  'decocare': 'https://github.com/bewest/decoding-carelink',
+  'openaps.org': 'https://openaps.org/',
+}
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 # alabaster
+theme_github_user = 'openaps'
+theme_github_repo = 'docs'
 html_theme_options = {
   'show_related': True,
-  'github_user': 'openaps',
-  'github_repo': 'docs',
-  'github_button': True,
+  'github_user': theme_github_user,
+  'github_repo': theme_github_repo,
   'logo': 'openaps-logo.png',
+  # TODO: ???? doesn't work?
+  'extra_nav_links': extra_nav_links,
 }
 
 """
@@ -189,6 +200,7 @@ html_last_updated_fmt = '%b %d, %Y'
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
 # for alabaster
+"""
 html_sidbars = {
   '**': [
       'about.html',
@@ -198,6 +210,9 @@ html_sidbars = {
       'donate.html',
   ]
 }
+"""
+
+html_sidbars = { }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
