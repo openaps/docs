@@ -1,9 +1,9 @@
 # Introduction 
 
 ### Read the Docs
-* [Latest production docs](http://openaps.readthedocs.org/en/latest/index.html)
-* [Dev docs](http://openaps.readthedocs.org/en/dev/index.html)
-* [Dana's docs](http://openaps.readthedocs.org/en/dana-dev/index.html)
+* [Latest production docs](https://openaps.readthedocs.org/en/latest/index.html)
+* [Dev docs](https://openaps.readthedocs.org/en/dev/index.html)
+* [Dana's docs](https://openaps.readthedocs.org/en/dana-dev/index.html)
 
 ## Welcome
 
