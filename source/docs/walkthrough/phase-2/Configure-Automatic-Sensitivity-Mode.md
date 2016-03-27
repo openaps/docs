@@ -8,7 +8,7 @@ cd
 cd src
 cd oref0
 git pull
-git checkout meal-assist
+git checkout dev
 sudo npm install -g
 ```
 Make sure you run the last line to install the tools
