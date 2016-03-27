@@ -7,6 +7,7 @@ Welcome to OpenAPS's documentation!
 
    docs/introduction/index
    docs/walkthrough/index
+   docs/openaps-guide/index
 
    Resources <docs/Resources/index>
    reference/index
