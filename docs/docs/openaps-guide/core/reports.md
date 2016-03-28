@@ -87,9 +87,12 @@ pump history, or bg targets.
 We'll iterate on the above to implement some fake data for this
 tutorial:
 ```
-openaps device add fake-cgm process bash -c '"echo {} | json -e '\''this.cgm_fake=\"fake-cgm\"'\'' "'
-openaps device add fake-pump process bash -c '"echo {} | json -e '\''this.pump_fake=\"fake-pump\"'\'' "'
-openaps device add fake-oref0 process bash -c '"echo {} | json -e '\''this.oref0_fake=\"fake-oref0\"'\'' "'
+openaps device add fake-cgm \
+  process bash -c '"echo {} | json -e '\''this.cgm_fake=\"fake-cgm\"'\'' "'
+openaps device add fake-pump \
+  process bash -c '"echo {} | json -e '\''this.pump_fake=\"fake-pump\"'\'' "'
+openaps device add fake-oref0 \
+  process bash -c '"echo {} | json -e '\''this.oref0_fake=\"fake-oref0\"'\'' "'
 ```
 
 
