@@ -349,5 +349,5 @@ for each command, saving the data in a file, and creating a log entry.
 
 
 Reports are how we organize and track the data flowing through the
-system.
+system.  In `openaps` **reports** **reproduce** **uses**.
 
