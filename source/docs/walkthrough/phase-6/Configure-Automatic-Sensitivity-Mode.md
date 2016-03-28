@@ -2,7 +2,7 @@
 
 For more information review https://github.com/openaps/oref0/issues/58
 
-1)	Ensure to get the latest meal-assist branch not advanced-meal-assist
+1)	Ensure to get the latest dev branch
 ```
 cd
 cd src
