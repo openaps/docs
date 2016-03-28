@@ -284,10 +284,12 @@ hello world!
 ## Invoke runs preconfigured uses
 `openaps report invoke` takes a list of any number of reports:
 
-    openaps report invoke fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
+    openaps report invoke \
+      fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
 
 ```
-$ openaps report invoke fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
+$ openaps report \
+  invoke fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
 fake-cgm://JSON/shell/fake-cgm-data.txt
 reporting fake-cgm-data.txt
 howdy://text/shell/howdy.txt

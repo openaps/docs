@@ -55,7 +55,8 @@ reporting fake-oref0-data.txt
 ## Grouping commands logically
 We can also group large groups of command invocations into one simple alias:
 ```
-$ openaps alias add gather-all-fake "report invoke howdy.txt fake-pump-data.txt fake-cgm-data.txt fake-oref0-data.txt"
+$ openaps alias add gather-all-fake \
+  "report invoke howdy.txt fake-pump-data.txt fake-cgm-data.txt fake-oref0-data.txt"
 added gather-all-fake report invoke howdy.txt fake-pump-data.txt fake-cgm-data.txt fake-oref0-data.txt
 $ openaps gather-all-fake
 howdy://text/shell/howdy.txt
