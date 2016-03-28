@@ -278,7 +278,7 @@ Now there's a `howdy.txt` file containing `cat howdy.txt`:
 hello world!
 ```
 
-## Invoke runs preconfigured uses, saves in report file
+## Invoke runs preconfigured uses
 `openaps report invoke` takes a list of any number of reports:
 
     openaps report invoke fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
@@ -343,4 +343,11 @@ index 0000000..d2d5bf6
 ```
 
 Notice, we already ran `howdy`, earlier, and it did not change.
+Also notice how `invoke` performs the same exact logic for each
+**report** mentioned.  It is equivalent to running the exact **use**
+for each command, saving the data in a file, and creating a log entry.
+
+
+Reports are how we organize and track the data flowing through the
+system.
 
