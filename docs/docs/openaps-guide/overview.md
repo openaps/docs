@@ -180,5 +180,4 @@ time to start exploring `openaps` core in more detail.
   * [Devices](core/devices.md)
   * [Reports](core/reports.md)
   * [Alias](core/alias.md)
-  * [Vendors](core/vendors.md)
 

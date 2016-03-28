@@ -12,6 +12,9 @@ Welcome to openaps
    core/devices
    core/reports
    core/alias
+
+.. ::
+
    core/vendors
    tutorial
    
