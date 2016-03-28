@@ -9,10 +9,10 @@ Welcome to openaps
 
    installing
    overview
-   core/vendors
    core/devices
    core/reports
    core/alias
+   core/vendors
    tutorial
    
 

@@ -43,6 +43,9 @@ a variety of insulin pumps, and glucose monitors, as well as
 **devices** by different **vendors**.  openaps exposes the **uses** of
 a **device** from a particular **vendor** for you to explore your own
 menagerie of devices in a **uniform** and interoperable manner.
+`openaps` also provides `reports` to track data as it flows through
+each phase, and an **alias** feature to logically group commands and
+workflows.
 
 When the community discovers how to communicate with a device, we can
 create an openaps **vendor** module for the new device.
@@ -136,13 +139,15 @@ This means many operations are tracked using `git`, try `git log` or `git
 show`; there should an event in the log showing the time and date (and who!)
 created this instance.
 
-```
+```bash
 bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ ls
 openaps.ini
 bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ cat openaps.ini 
 bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ wc -l openaps.ini 
 0 openaps.ini
 bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ git show
+```
+```diff
 commit 04715a67099c19ae220220d474aa67e470d07e0e
 Author: Ben West <bewest@gmail.com>
 Date:   Sun Mar 27 14:37:56 2016 -0700
@@ -172,8 +177,8 @@ standard tools.
 Congratulations, you're now the owner of a new openaps instance.  It's
 time to start exploring `openaps` core in more detail.
 
-  * [Vendors](core/vendors.md)
   * [Devices](core/devices.md)
   * [Reports](core/reports.md)
   * [Alias](core/alias.md)
+  * [Vendors](core/vendors.md)
 
