@@ -34,9 +34,10 @@ import alabaster
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.ifconfig',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
-    'alabaster',
+    # 'alabaster',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -159,7 +160,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path( )]
 
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = []
-html_theme_path = [alabaster.get_path( ),]
+# html_theme_path = [alabaster.get_path( )]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -172,6 +173,7 @@ html_theme_path = [alabaster.get_path( ),]
 # of the sidebar.
 #html_logo = None
 html_logo = '_static/openaps-logo.png'
+html_logo = None
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -201,7 +203,9 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_sidebars = {}
 # for alabaster
 """
-html_sidbars = {
+html_sidebars = { }
+"""
+html_sidebars = {
   '**': [
       'about.html',
       'navigation.html',
@@ -210,9 +214,7 @@ html_sidbars = {
       'donate.html',
   ]
 }
-"""
 
-html_sidbars = { }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -288,6 +290,7 @@ latex_documents = [
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #latex_logo = None
+latex_logo = '_static/openaps-logo.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
