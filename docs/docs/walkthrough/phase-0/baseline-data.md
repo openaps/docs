@@ -12,4 +12,7 @@ Go ahead and document your most recent A1c and keep it somewhere handy. This wil
 
 ## Get comfortable making a PR
 
-You should be comfortable making a PR to this documentation. If you haven't ever done this, [click here](../../Resources/my-first-pr.html) and try it out.
+You should be comfortable making a PR to this documentation. If you haven't
+ever done this, take a look at
+[my first pull request guide](../../Resources/my-first-pr.md)
+and try it out.

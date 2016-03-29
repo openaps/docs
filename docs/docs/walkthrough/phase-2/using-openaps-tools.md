@@ -136,6 +136,8 @@ Then, you can add your pump again with a different name or serial number.
 
 ### Check that you can communicate with your pump
 
+Ensure that you have the CareLink USB stick plugged into the Pi using the USB extension
+
 Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
 
 `$ openaps use <my_pump_name> model`
@@ -362,8 +364,17 @@ repository" box checked. Once created, you will be directed to a "Repository
 setup" page. Under the "Command line" section, click on the "I have an existing
 project" option and follow the instructions.
 
+In order to eliminate being
+prompted for your Bitbucket password every time you `$ git push`, change the
+origin field provided by Bitbucket from `https://USERNAME@bitbucket.org...` to
+`https://USERNAME:PASSWORD@bitbucket.org...`.  PASSWORD is the same password
+you use to log-in to your Bitbucket account.
+
 Once you have completed this step, all of the files in your `<my_openaps>`
 directory will be saved in your online Bitbucket repository. Whenever you would
 like to update your backup, simply go into your `<my_openaps>` directory and `$
 git push`. This process can be automated, but we'll save that for another day.
+
+[Github mkimg tool](https://github.com/zymbit/rpi-mkimg) has the ability to create a full SD card image with the advantage to shrink it to its minimum size quite different from the windows Win32DiskImager which always creates an image which is as large as the card.  Using Win32DiskImager it might not be possible to restore an image on a new card with the same size. Using Github mkimg tool instead 
+for example a 32 GB size card can be reduced to approximately 1.9 GB.
 
