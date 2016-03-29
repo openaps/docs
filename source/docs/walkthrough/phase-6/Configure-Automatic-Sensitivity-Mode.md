@@ -2,13 +2,13 @@
 
 For more information review https://github.com/openaps/oref0/issues/58
 
-1)	Ensure to get the latest meal-assist branch not advanced-meal-assist
+1)	Ensure to get the latest dev branch
 ```
 cd
 cd src
 cd oref0
 git pull
-git checkout meal-assist
+git checkout dev
 sudo npm install -g
 ```
 Make sure you run the last line to install the tools
@@ -73,7 +73,7 @@ cmd = oref0-determine-basal
 vendor = openaps.vendors.process
 args = 
 
-[report "oref0-predict/oref0.json"]
+[report "enact/suggested.json"]
 profile = [Your Path]/profile.json
 use = shell
 reporter = text
@@ -85,11 +85,11 @@ meal = [Your Path]/meal.json
 auto-sens = [Your Path]/auto-sens.json
 ```
 
-6) Next you have to make sure you pull 24 hours of pump history.  Change the hours to 24, so your pump history report should look like this:
+6) Next you have to make sure you pull 28 hours (24h + DIA) of pump history.  Change the hours to 24, so your pump history report should look like this:
 ```
 [report "[Your Path]/pump-history.json"]
 device = pump
-hours = 24
+hours = 28
 use = iter_pump_hours
 reporter = JSON
 ```
