@@ -1,7 +1,7 @@
 # Introduction 
 
 * Easily navigatable version of the [latest production docs are here.](https://openaps.readthedocs.org/en/latest/index.html)
-* Easily navigatable version of the [in-development or "dev" docs can be found here](https://openaps.readthedocs.org/en/dev/index.html)
+* Easily navigatable version of the [in-development or "dev" docs can be found here.](https://openaps.readthedocs.org/en/dev/index.html)
 
 ## Welcome
 
@@ -48,25 +48,25 @@ This documentation is organized into a series of phases that progressively
 build upon the openaps development tools towards a working OpenAPS system.
 The phases are as follows: 
 
-* Phase 0: General Setup<br>
+* **Phase 0: General Setup**<br>
 Get the equipment you need; record baseline data, configure your hardware, install software, and become familiar with the openaps environment
 
-* Phase 1: Logging, Cleaning, and Analyzing Your Data<br>
+* **Phase 1: Logging, Cleaning, and Analyzing Your Data**<br>
 Create or utilize tools for logging and analyzing pump and CGM data
 
-* Phase 2: Creating an Open Loop<br>
+* **Phase 2: Creating an Open Loop**<br>
 Use the logged data with oref0 tools to suggest insulin dose adjustments in an "open loop"; review and refine algorithms, test different scenarios for safety, prepare for creating a loop and implementing retry logic
 
-* Phase 3: Understanding Your Open Loop<br>
+* **Phase 3: Understanding Your Open Loop**<br>
 Analyze the basal recommendations that are outputted from your system; run in a test environment for multiple days to configure safety settings that are right for you.
 
-* Phase 4: Starting to Close the Loop<br>
+* **Phase 4: Starting to Close the Loop**<br>
 Apply the recommendations automatically and in real time by creating a schedule and continuing to validate and assess outputs; beginning with a simple "low glucose suspend"-type mode for several days, tweaking settings and validating setup before moving forward.
 
-* Phase 5: Tuning the Closed Loop<br>
+* **Phase 5: Tuning the Closed Loop**<br>
 Moving beyond low glucose suspend mode, work through tuning your targets
 
-* Phase 6: Iterate and Improve the Closed Loop<br>
+* **Phase 6: Iterate and Improve the Closed Loop**<br>
 At the end of the previous stages and after 3 consecutive nights with no hardware failures and at least 1 night without low alarms, you can move into advanced features like meal-assist and auto-sensitivity tuning. Also improve the functionality of the system with additional software or hardware development
 
 ----------
