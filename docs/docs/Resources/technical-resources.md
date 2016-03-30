@@ -47,7 +47,7 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en) (Android): SSH client for Android devices
 
-## Markdown & GitBook
+## Markdown syntax
 [Daring Fireball (John Gruber) Markdown Introduction](http://daringfireball.net/projects/markdown/)
 
 [Macdown](http://macdown.uranusjr.com/): Open-source Markdown editor for OS X
