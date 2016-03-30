@@ -1,5 +1,5 @@
 
-Hitchhiker's Guide to openaps
+Guide to understanding openaps
 -----------------------------
 
 Welcome to openaps
