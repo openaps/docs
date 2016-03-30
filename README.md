@@ -3,7 +3,6 @@
 ### Read the Docs
 * [Latest production docs](https://openaps.readthedocs.org/en/latest/index.html)
 * [Dev docs](https://openaps.readthedocs.org/en/dev/index.html)
-* [Dana's docs](https://openaps.readthedocs.org/en/dana-dev/index.html)
 
 ## Welcome
 
@@ -11,7 +10,7 @@ Welcome to the [openaps](https://github.com/openaps/) documentation!
 
 openaps is part of a set of tools to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). 
 
-Here are two visuals to show you what the physical hardware components of an OpenAPS setup look like - ![version A](./docs/docs/IMG_1112.jpg) is without labels; ![version B](docs/Images/piSetup.jpg) contains labels to describe the parts.
+Here are two visuals to show you what the physical hardware components of an OpenAPS setup look like - [version A](docs/docs/IMG_1112.jpg) is without labels; [version B](https://github.com/logichammer/docs/blob/b53a64b5dce81eaf112c7dafcb8d3415b2ddf85c/docs/Images/piSetup.jpg) contains labels to describe the parts.
 
 By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
 
@@ -73,20 +72,8 @@ At the end of the previous stages and after 3 consecutive nights with no hardwar
 
 ----------
 
-[Dana's version of openaps
-documentation.](http://openaps.readthedocs.org/en/dana-dev/index.html)
-In addition to the phases linked above for helping you consider the DIY loop
-implementation process, you may also be interested in some of the following
-resources:
 
-* [Resources](docs/docs/Resources/resources.md)
-   * [Technical Resources](docs/docs/Resources/technical-resources.md)
-   * [Troubleshooting](docs/docs/Resources/troubleshooting.md)
-   * [#OpenAPS Overview and Project History](docs/docs/Resources/history.md)
-   * [Other Projects, People & Tools](docs/docs/Resources/other-projects.md)
-   * [FAQs](docs/docs/Resources/faq.md)
-   * [Glossary](docs/docs/Resources/glossary.md)
-
+Below is an overview of all content linked inside of this document repository. [You may also find this guide to getting started with openaps commands (not yet linked below)](http://openaps.readthedocs.org/en/dana-dev/docs/openaps-guide/index.html) useful. 
 
 
 -   <a href="docs/docs/introduction/index.rst" class="reference internal">Introduction</a>
