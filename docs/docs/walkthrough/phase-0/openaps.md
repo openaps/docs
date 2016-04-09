@@ -45,6 +45,7 @@ This installs a number of packages required by openaps.
 Run
 
 `sudo easy_install -ZU setuptools`
+
 `sudo easy_install -ZU openaps`
 
 Running this command will also update openaps on your system if a newer version is available.
