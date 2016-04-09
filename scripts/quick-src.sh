@@ -33,7 +33,7 @@ cd ~/src && \
 )
 test -d oref0 && \
 cd oref0 && \
-npm install && \
+sudo npm install && \
 sudo npm install -g && \
 sudo npm link && \
 sudo npm link oref0
