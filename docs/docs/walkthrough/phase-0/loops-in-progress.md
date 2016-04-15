@@ -6,7 +6,8 @@ New to Github, and PRs? Check out how to submit your first PR.
 
 List of people who are working on closed loops:
 
-Dana Lewis
-Ben West
-Chris Hannemann
-Sarah Howard
+- Dana Lewis
+- Ben West
+- Chris Hannemann
+- Sarah Howard
+- Mike Stebbins
