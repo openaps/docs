@@ -5,8 +5,8 @@ sudo apt-get install -y git python python-dev python-software-properties python-
 ( curl -s https://bootstrap.pypa.io/ez_setup.py | sudo python ) && \
 sudo npm install -g json && \
 sudo easy_install -ZU setuptools && \
-cd && mkdir src
-cd src && \
+mkdir ~/src
+cd ~/src && \
 (
     git clone -b dev git://github.com/bewest/decoding-carelink.git || \
         (cd decoding-carelink && git pull)
