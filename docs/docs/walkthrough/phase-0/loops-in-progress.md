@@ -11,3 +11,4 @@ List of people who are working on closed loops:
 - Chris Hannemann
 - Sarah Howard
 - Mike Stebbins
+- Aaron Michelson
