@@ -38,8 +38,14 @@ Now run ```source /etc/profile``` to enact the changes we've just made without r
 
 ### Configure Nightscout profile
 
-You need to create a profile in your Nightscout site that contains the Insulin to carb ratio (I:C), Insulin Sensitivity Factor (ISF), Carbs Activity / Absorption rate, Basal Rates and Target BG range.  These settings are not currently updated from the values stored in the pump and need to be kept in sync with the change you make in the pump by you.
-To configure your profile, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  Click on the Profile Editor button.  Create a new profile (if you don't already have one) using the settings that match what you already have setup in your pump.  Fill out all the profile fields and click save.
+You need to create a profile in your Nightscout site that contains the Timezone, Duration of Insulin Activity (DIA), Insulin to carb ratio (I:C), Insulin Sensitivity Factor (ISF), Carbs Activity / Absorption rate, Basal Rates and Target BG range.  
+
+These settings are not currently updated from the values stored in the pump. You will need to keep the Nightscout profile in sync with any changes you make in your pump.
+
+To configure your profile, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  
+Click on the Profile Editor button.  
+Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump.  
+Fill out all the profile fields and click save.
 
 ### Configuring and Uploading OpenAPS Status
 
