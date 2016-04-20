@@ -8,18 +8,17 @@ The integration requires setting up Nightscout and making changes and additions 
 
 ### Nightscout Setup
 
-OpenAPS requires the latest (currently dev) version of Nighthscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. 
+OpenAPS requires the latest (currently dev) version of Nightscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. 
 
-Note:  currently there is a bug in the dev version, which doesn't allow you to set up a new profile using the profile editor. If you are starting a fresh install of Nightscout, you should first deploy the master version of the code. Once the master version is up an running, you can create your profile with information on basal rates, etc. After that, you can deploy the dev version. If you have an existing version of Nightscout, then make sure you create your profile before moving to the dev version. Or, you may keep your existing Nightscout as is, and start a new Nightscout deployment (master first, followed by dev), specifically to test OpenAPS integration. 
 
-The steps discussed here are essantially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
+The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
 * Add "openaps" (without the quotes) and, optionally, "pump" (without the quotes) to the list of plugins enabled, and 
 * Add a new configuration variable DEVICESTATUS_ADVANCED="true" (without the quotes)
 
 For Azure users, here is what these configuration changes will look like (with just "openaps" added): ![azure config changes](https://files.gitter.im/eyim/lw6x/blob). For Heroku users, exactly the same changes should be made on the Config Vars page. The optional "pump" plugin enables additional pump monitoring pill boxes. For example, assuming you have added "pump" to the list of enabled plugins, you may add a new configuration variable PUMP_FIELDS="reservoir battery" to display pump reservoir and battery status on the Nightscout page. The "pump" plugin offers a number of other options, as documented on the Nightscout readme page: https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins 
 
-Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  At the very bottom of the Settings menu, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up. Click the check box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump" should also show up in the list, and you may chekc the box to enable. You should now see the OpenAPS pill box (and any optional pump monitoring pill boxes) on the left side of the Nightscout page near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings. 
+Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  At the very bottom of the Settings menu, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up. Click the check box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump" should also show up in the list, and you may check the box to enable. You should now see the OpenAPS pill box (and any optional pump monitoring pill boxes) on the left side of the Nightscout page near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings. 
 
 ### Environment Variables for OpenAPS Access to Nightscout
 
@@ -37,14 +36,25 @@ API_SECRET=<your hashed password>; export API_SECRET
 
 Now run ```source /etc/profile``` to enact the changes we've just made without restart the machine
 
+### Configure Nightscout profile
+
+You need to create a profile in your Nightscout site that contains the Timezone, Duration of Insulin Activity (DIA), Insulin to carb ratio (I:C), Insulin Sensitivity Factor (ISF), Carbs Activity / Absorption rate, Basal Rates and Target BG range.  
+
+These settings are not currently updated from the values stored in the pump. You will need to keep the Nightscout profile in sync with any changes you make in your pump.
+
+To configure your profile, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  
+Click on the Profile Editor button.  
+Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump.  
+Fill out all the profile fields and click save.
+
 ### Configuring and Uploading OpenAPS Status
 
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
 * Adding a new `ns-status` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
-* Uploading the status report to Nightscount, using the `ns-upload` command 
+* Uploading the status report to Nightscout, using the `ns-upload` command 
 
-Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscount page, as shown here, for example: ![Nightscout-Openaps pill box](https://files.gitter.im/eyim/J8OR/blob)
+Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscout page, as shown here, for example: ![Nightscout-Openaps pill box](https://files.gitter.im/eyim/J8OR/blob)
 
 The `ns-status` is a virtual device in the oref0 system, which consolidates OpenAPS status info in a form suitable for upload to Nightscout. First, add the device:
 
@@ -75,7 +85,7 @@ $ git add tz.ini
 $ openaps report add monitor/clock-zoned.json JSON tz clock monitor/clock.json
 ```
 
-At this point, you may want to update your monitor-pump alias to make sure that it produces all the required reports, so that uploading status to Nightscount can be automated. After you've generated a monitor/upload-status.json report, you can try to manually upload the OpenAPS status to Nightscout using the `ns-upload` command:
+At this point, you may want to update your monitor-pump alias to make sure that it produces all the required reports, so that uploading status to Nightscout can be automated. After you've generated a monitor/upload-status.json report, you can try to manually upload the OpenAPS status to Nightscout using the `ns-upload` command:
 
 ```
 $ ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json
@@ -114,7 +124,7 @@ $ openaps alias add format-latest-nightscout-treatments '! bash -c "nightscout c
 $ openaps alias add upload-recent-treatments '! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""' || die "Can't add upload-recent-treatments"
 ```
 
-Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.  
+Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscout page.  
 
 Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
 
