@@ -212,20 +212,20 @@ Some people have found it more beneficial to pull blood glucose values from Nigh
 1) Similar like above, we need to create a device that talks to Nightscout.  Add this device called "curl" to your list of devices in your openaps.ini file:  <br>
 
 ```
-[device "curl"] <br>
-fields = <br>
-cmd = bash <br>
-vendor = openaps.vendors.process <br>
-args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'" <br>
+[device "curl"]
+fields =
+cmd = bash
+vendor = openaps.vendors.process
+args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'"
 ```
 
 In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  The report will look like this in your openaps.ini file:
   
 ```
-[report "monitor/glucose.json"] <br>
-device = curl <br>
-use = shell <br>
-reporter = text <br>
+[report "monitor/glucose.json"]
+device = curl
+use = shell
+reporter = text
 ```
 
 Many people will actually setup both ways to pull the blood glucose level and switch between the different devices depending on their needs.  If you are going to pull it directly from Nightscout then you will have to have internet access for the Raspberry Pi.
