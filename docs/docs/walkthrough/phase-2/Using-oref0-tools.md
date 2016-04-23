@@ -40,14 +40,23 @@ The purpose of the `get-profile` process is to consolidate information from mult
 * `bg_targets` outputs a JSON file with bg targets collected from the pump:
 
   ```
-  $ openaps report add settings/bg_targets.json JSON pump read_bg_targets
+  $ openaps report add settings/bg_targets_raw.json JSON pump read_bg_targets
   ```
+To convert this "raw" file add a report that will perform
+openaps use units bg_targets settings/bg_targets_raw.json
+and output into a file called settings/bg_targets.raw
+add units to your list of devices with
+openaps device add units units
+You will allways invoke these two reports together.
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
   ```
-  $ openaps report add settings/insulin_sensitivities.json JSON pump read_insulin_sensitivies
+  $ openaps report add settings/insulin_sensitivities_raw.json JSON pump read_insulin_sensitivies
   ```
+To convert this "raw" file you must do the same as done for bg_targets_raw
+Allways call the two reports to obtain settings/insulin_sensitivities
+The units function converts mmol/dl to mg/dL.
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
 
@@ -60,14 +69,14 @@ The purpose of the `get-profile` process is to consolidate information from mult
 Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
 ```
-$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
 ```
 
 Note how the `profile` report uses `get-profile` virtual device, with all the required inputs provided.
 At this point, it's natural to add an alias that generates all the reports required for `get-profile`, and then invokes the `profile` report that calls `get-profile` on them: 
 
 ```
-$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
+$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
 ```
 
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created by invoking the report.
