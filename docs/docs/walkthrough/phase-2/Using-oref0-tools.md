@@ -48,7 +48,7 @@ add a report that will perform
 $ openaps use units bg_targets settings/bg_targets_raw.json
 and output not to the screen but into a file called settings/bg_targets.json
 add units to your list of devices with
-openaps device add units units
+$ openaps device add units units
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
