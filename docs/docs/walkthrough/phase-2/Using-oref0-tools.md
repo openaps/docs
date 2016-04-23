@@ -42,12 +42,13 @@ The purpose of the `get-profile` process is to consolidate information from mult
   ```
   $ openaps report add settings/bg_targets_raw.json JSON pump read_bg_targets
   ```
-To convert this "raw" file add a report that will perform
-openaps use units bg_targets settings/bg_targets_raw.json
-and output into a file called settings/bg_targets.raw
+To convert this "raw" file
+The units function assures that units will match 
+add a report that will perform
+$ openaps use units bg_targets settings/bg_targets_raw.json
+and output not to the screen but into a file called settings/bg_targets.json
 add units to your list of devices with
 openaps device add units units
-You will allways invoke these two reports together.
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
@@ -55,8 +56,7 @@ You will allways invoke these two reports together.
   $ openaps report add settings/insulin_sensitivities_raw.json JSON pump read_insulin_sensitivies
   ```
 To convert this "raw" file you must do the same as done for bg_targets_raw
-Allways call the two reports to obtain settings/insulin_sensitivities
-The units function converts mmol/dl to mg/dL.
+to obtain the file settings/insulin_sensitivities
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
 
