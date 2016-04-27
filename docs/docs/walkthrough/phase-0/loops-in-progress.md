@@ -12,3 +12,4 @@ List of people who are working on closed loops:
 - Sarah Howard
 - Mike Stebbins
 - Scott Hanselman
+- Greg Scull
