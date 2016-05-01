@@ -138,10 +138,9 @@ Repeated wireless communication with the pump drains the battery quite quickly. 
 
 ### Cases
 
-The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here some examples of what others are using in their OpenAPS builds.
+The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here is an example of what others are using in their OpenAPS builds.
 
 [JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
 
-[Raspberry Pi B+ /PI2 Acrylic Case](http://www.amazon.com/Raspberry-Pi-PI2-Acrylic-Case/dp/B00M9ZW6QU)
 
 Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20). 
