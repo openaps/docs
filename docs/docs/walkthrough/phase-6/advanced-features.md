@@ -11,3 +11,7 @@ Like all features and steps, you'll want to carefully enable, test, and observe 
 ## Auto-sensitivity mode
 
 Wouldn't it be great if the system knew when you were running sensitive or resistant? That's what we thought, so we created "auto-sensitivity mode". If you explicitly configure this additional feature, it will allow the system to analyze historical data on the go and make adjustments if it recognizes that you are reacting more sensitivite (or conversely, more resistant) to insulin than usual. It will then make micro adjustments to your basals. 
+
+## Battery monitoring
+
+One of the downsides of OpenAPS is that it tends to drain your pump battery very quickly. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries rather than alkaline batteries. Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 and adding `battery` to your `PUMP_FIELDS` so that voltage is displayed on your Nightscout site.
