@@ -310,3 +310,38 @@ Update the RPi2.
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.
+
+## Configure Bluetooth Low Energy tethering [optional]
+
+The Raspberry Pi can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. The Raspberry Pi 3 has an inbuilt Bluetooth Low Energy (BLE) chip, while a BLE USB dongle can be used with the other Pi models.
+
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot and it allows the Raspberry Pi to use whatever data connection is available on the phone at any given time - e.g. 3G/4G or WiFi. Some have also found that power consumption on the Raspberry Pi is lower when using BLE tethering compared to using a WiFi connection, although this may vary depending on BLE USB dongle, WiFi dongle, etc.
+
+To configure a connection from the command line - 
+
+`sudo bluetoothctl`
+
+Enter the following commands to bring up the adapter and make it discoverable - 
+
+```
+power on
+discoverable on
+agent on
+default-agent
+```
+
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device's bluetooth address (which was displayed a few lines previously) and hit <tab> to complete the address.
+
+NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+
+`trust AA:BB:CC:DD:EE:FF`
+
+Quit bluetoothctl with 'quit'.
+
+TODO: test steps above out and expand on them. Add instructions on using https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect to configure auto-reconnect using a cron job.
+
+
+
+
