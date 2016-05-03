@@ -317,7 +317,7 @@ The Raspberry Pi can be tethered to a smartphone and share the phone's internet 
 
 The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot and it allows the Raspberry Pi to use whatever data connection is available on the phone at any given time - e.g. 3G/4G or WiFi. Some have also found that power consumption on the Raspberry Pi is lower when using BLE tethering compared to using a WiFi connection, although this may vary depending on BLE USB dongle, WiFi dongle, etc.
 
-First, we clone a repository which contains scripts which are then used later in the setup - 
+First, we clone a repository which contains scripts which are used later in the setup - 
 
 ```
 cd /home/pi
@@ -399,17 +399,3 @@ Open your crontab for editing -
 Save the file, then restart - 
 
 `sudo shutdown -r now`
-
-
-
-
-
-
-
-
-
-TODO: test steps above out and expand on them. Add instructions on using https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect to configure auto-reconnect using a cron job.
-
-
-
-
