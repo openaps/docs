@@ -310,3 +310,92 @@ Update the RPi2.
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.
+
+## Configure Bluetooth Low Energy tethering [optional]
+
+The Raspberry Pi can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. The Raspberry Pi 3 has an inbuilt Bluetooth Low Energy (BLE) chip, while a BLE USB dongle can be used with the other Pi models.
+
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot and it allows the Raspberry Pi to use whatever data connection is available on the phone at any given time - e.g. 3G/4G or WiFi. Some have also found that power consumption on the Raspberry Pi is lower when using BLE tethering compared to using a WiFi connection, although this may vary depending on BLE USB dongle, WiFi dongle, etc.
+
+First, we clone a repository which contains scripts which are used later in the setup - 
+
+```
+cd /home/pi
+git clone https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect.git
+```
+
+We then copy the required scripts into a 'bin' directory -
+```
+mkdir -p /home/pi/bin
+cp /home/pi/RaspberryPi_BTPAN_AutoConnect/bt-pan /home/pi/bin
+cp /home/pi/RaspberryPi_BTPAN_AutoConnect/check-and-connect-bt-pan.sh /home/pi/bin
+```
+
+To configure a connection from the command line - 
+
+`sudo bluetoothctl`
+
+Enter the following commands to bring up the adapter and make it discoverable - 
+
+```
+power on
+discoverable on
+agent on
+default-agent
+```
+
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+Execute the paired-devices command to list the paired devices - 
+
+```
+paired-devices
+Device AA:BB:CC:DD:EE:FF Nexus 6P
+```
+
+Your paired phone should be listed (in this example, a Google Nexus 6P). Copy the bluetooth address listed for it; we will need to provide this later.
+
+Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device's bluetooth address (which we copied previously) and hit <tab> to complete the address.
+
+NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+
+`trust AA:BB:CC:DD:EE:FF`
+
+Quit bluetoothctl with 'quit'.
+
+Now, we create a service so that a connection is established at startup. Execute the following commands to create a net-bnep-client.service file and open it for editing in Nano - 
+
+```
+cd /etc/systemd/system
+sudo nano net-bnep-client.service
+```
+
+In the editor, populate the file with the text below, replacing AA:BB:CC:DD:EE:FF with the address noted earlier -
+
+```
+[Unit]
+After=bluetooth.service
+PartOf=bluetooth.service
+
+[Service]
+ExecStart=/home/pi/bin/bt-pan client AA:BB:CC:DD:EE:FF
+
+[Install]
+WantedBy=bluetooth.target
+```
+
+Save the file, then enable the service - 
+
+`sudo systemctl enable net-bnep-client.service`
+
+Open your crontab for editing - 
+
+`crontab -e`
+
+...and add an entry to check the connection every minute and reconnect if necessary - 
+
+`* * * * * /home/pi/bin/check-and-connect-bt-pan.sh`
+
+Save the file, then restart - 
+
+`sudo shutdown -r now`
