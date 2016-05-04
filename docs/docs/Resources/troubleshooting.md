@@ -74,5 +74,7 @@ json: error: input is not JSON: Unexpected '<' at line 1, column 1:
         
   This error usually comes up when you have pulled a file down from Nightscount that was an invalid file. Typcially you might see this when trying to pull down treatments. Make sure that you have your HOST and API_KEY set correctly at the top of your cron, in your ~/.profile
   
+### Wifi and hotspot issues
+See [wifi troubleshooting page](wifi.md)
   
 
