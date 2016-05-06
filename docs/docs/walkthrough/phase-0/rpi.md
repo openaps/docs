@@ -257,7 +257,7 @@ to
 
 ```
 PermitRootLogin no
-PasswordAuthentication no
+PasswordAuthentication yes
 ```
 
 Note that the second line was previously commented out.
