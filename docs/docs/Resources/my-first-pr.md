@@ -27,7 +27,7 @@ We now have an improved file that we want to be pulled back into the dev reposit
 1. Go to https://github.com/openaps/docs
 2. Click the green "New pull request" button
 3. Under the Compare Changes heading, click "compare across forks"
-4. 
+4. <img src="/docs/docs/Images/Pull Request.png"/>
 
 
 1. Go to https://github.com/openaps/docs
