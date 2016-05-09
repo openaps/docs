@@ -98,70 +98,32 @@ You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 ### Path 3: Headless WiFi configuration (Windows/Linux only)
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
-`/path/to/sd/card/etc/network/interfaces`
+`/path/to/sd/card/etc/wpa_supplicant/wpa_supplicant.conf`
 
-Edit the file so it looks like this: 
-
-```
-auto lo
-iface lo inet loopback
-iface eth0 inet dhcp
-
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-wpa-ssid <your-network-name>
-wpa-psk <your-password>
-```
-
-Replace `<your-network-name>` and `<your-password>` with your own credentials (just text, no quotes). Save the file (without adding any additional extensions to the end of the filename).
-
-Alternatively if you want to connect to known networks automatically when roaming lets say your home wifi and your mobile hotspot you can use the following configuration:
-
-Edit the main network config file and change the WiFi related settings to:
-```
-# the auto wlan0 below is mandatory
-# change wlan0 inet to manual
-# add wpa-roam line
-# define a number of known network using user defined strings, e.g. mobile, home and also default
-
-auto wlan0
-iface wlan0 inet manual
-        wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface mobile inet dhcp
-iface home inet dhcp
-iface default inet dhcp
-```
-Next edit etc/wpa_supplicant/wpa_supplicant.conf and add the following configuration:
+In this file you will list your known WiFi networks so your Pi can connect automatically when roaming (e.g., between your home WiFi and your mobile hotspot).
 
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
         ssid="YOURMOBILESSID"
-        scan_ssid=1
-        key_mgmt=WPA-PSK
         psk="YOURMOBILEPASS"
-        id_str="mobile"
-        priority=5
 }
 network={
         ssid="YOURHOMESSID"
-        scan_ssid=1
-        key_mgmt=WPA-PSK
         psk="YOURHOMEPASS"
-        id_str="home"
-        priority=5
 }
 ```
 You can add as many network as you need, the next reboot your system will connect to the first available network listed in your config files. Once the network to which your board is connected becomes unavailable, it start looking for any other known network in the area, and it connects to it if available.
+
+If you want to connect to a router which doesn't broadcast an SSID, add a line with `scan_ssid=1` after the `ssid` and `psk` lines for that network. (More info and examples for the options you can specify for each network are [here](https://www.freebsd.org/cgi/man.cgi?wpa_supplicant.conf%285%29).)
 
 Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
 If you are unable to access this file on your computer:
 * Connect your Pi to your computer with an ethernet cable and boot your Pi
 * Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22.  The login is `pi` and the password is `raspberry`.
-* Type `sudo nano /etc/network/interfaces` and edit the file as described above, or follow the OS X directions below. 
+* Type `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and edit the file as described above.
 
 
 ## Test SSH Access
