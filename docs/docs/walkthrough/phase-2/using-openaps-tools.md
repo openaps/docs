@@ -171,7 +171,8 @@ Now let's try communicating with the Dexcom receiver.
 
 Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. 
 
-If you continue to have problems, try increasing the mA output to the USB Ports, you can do this by running the following command `sudo echo -e "#Enabled Max USB power\nmax_usb_current=1" >> /boot/config.txt`. Reboot via `sudo shutdown -r now` to pick up the changes.
+Workaround: If you continue to have problems, try increasing the mA output to the USB Ports, you can do this by running the following command `sudo bash -c "echo -e \"#Enabled Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`. 
+Reboot via `sudo shutdown -r now` to pick up the changes.
 
 `$ openaps use <my_dexcom_name> iter_glucose 1`
 
