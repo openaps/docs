@@ -18,3 +18,4 @@ List of people who are working on closed loops:
 - Frank Best
 - Brooke Armstrong & Matt Pazoles
 - David Young
+- Jarred Yaw
