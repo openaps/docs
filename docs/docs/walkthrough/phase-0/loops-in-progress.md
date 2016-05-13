@@ -19,3 +19,4 @@ List of people who are working on closed loops:
 - Brooke Armstrong & Matt Pazoles
 - David Young
 - Paul Martin
+- Jarred Yaw
