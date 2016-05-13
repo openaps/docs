@@ -12,7 +12,7 @@ $ openaps device add oref0 process oref0
 and then you can be more specific and add individual oref0 processes as virtual devices using the following commands: 
 
 ```
-$ openaps device add get-profile process --require "settings bg_targets insulin_sensitivities basal_profile max_iob" oref0 get-profile
+$ openaps device add get-profile process --require "settings bg_targets insulin_sensitivities basal_profile preferences" oref0 get-profile
 $ openaps device add calculate-iob process --require "pumphistory profile clock" oref0 calculate-iob
 $ openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal
 ```
@@ -76,16 +76,16 @@ $ openaps device add units units
   $ openaps report add settings/basal_profile.json JSON pump read_basal_profile_std
   ```
 
-* `max_iob` is an exception: in contrast to the other settings above, `max_iob` is not the result of an openaps report. It's a JSON file that should contain a single line, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file. The max_iob variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.  
+* `preferences` is an exception: in contrast to the other settings above, `preferences` is not the result of an openaps report. It's a JSON file that should contain a single line with your maximum IOB, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file. The `max_iob` variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.
 
 Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
 ```
-$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets_raw.json settings/insulin_sensitivities_raw.json settings/basal_profile.json max_iob.json
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets_raw.json settings/insulin_sensitivities_raw.json settings/basal_profile.json preferences.json
 ```
 If you need to add a `profile` report that has the unit conversion, you can use this:
 ```
-$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json preferences.json
 ```
 
 Note how the `profile` report uses `get-profile` virtual device, with all the required inputs provided.
