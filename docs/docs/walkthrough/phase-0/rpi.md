@@ -98,70 +98,32 @@ You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 ### Path 3: Headless WiFi configuration (Windows/Linux only)
 Keep the SD card in the reader in your computer. In this step, the WiFi interface is going to be configured in Raspbian, so that we can SSH in to the RPi2 and access the device remotely, such as on a computer or a mobile device via an SSH client, via the WiFi connection that we configure. Go to the directory where your SD card is with all of the files for running Raspbian on your RPi2, and open this file in a text editor.
 
-`/path/to/sd/card/etc/network/interfaces`
+`/path/to/sd/card/etc/wpa_supplicant/wpa_supplicant.conf`
 
-Edit the file so it looks like this: 
-
-```
-auto lo
-iface lo inet loopback
-iface eth0 inet dhcp
-
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-wpa-ssid <your-network-name>
-wpa-psk <your-password>
-```
-
-Replace `<your-network-name>` and `<your-password>` with your own credentials (just text, no quotes). Save the file (without adding any additional extensions to the end of the filename).
-
-Alternatively if you want to connect to known networks automatically when roaming lets say your home wifi and your mobile hotspot you can use the following configuration:
-
-Edit the main network config file and change the WiFi related settings to:
-```
-# the auto wlan0 below is mandatory
-# change wlan0 inet to manual
-# add wpa-roam line
-# define a number of known network using user defined strings, e.g. mobile, home and also default
-
-auto wlan0
-iface wlan0 inet manual
-        wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface mobile inet dhcp
-iface home inet dhcp
-iface default inet dhcp
-```
-Next edit etc/wpa_supplicant/wpa_supplicant.conf and add the following configuration:
+In this file you will list your known WiFi networks so your Pi can connect automatically when roaming (e.g., between your home WiFi and your mobile hotspot).
 
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
         ssid="YOURMOBILESSID"
-        scan_ssid=1
-        key_mgmt=WPA-PSK
         psk="YOURMOBILEPASS"
-        id_str="mobile"
-        priority=5
 }
 network={
         ssid="YOURHOMESSID"
-        scan_ssid=1
-        key_mgmt=WPA-PSK
         psk="YOURHOMEPASS"
-        id_str="home"
-        priority=5
 }
 ```
 You can add as many network as you need, the next reboot your system will connect to the first available network listed in your config files. Once the network to which your board is connected becomes unavailable, it start looking for any other known network in the area, and it connects to it if available.
+
+If you want to connect to a router which doesn't broadcast an SSID, add a line with `scan_ssid=1` after the `ssid` and `psk` lines for that network. (More info and examples for the options you can specify for each network are [here](https://www.freebsd.org/cgi/man.cgi?wpa_supplicant.conf%285%29).)
 
 Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
 If you are unable to access this file on your computer:
 * Connect your Pi to your computer with an ethernet cable and boot your Pi
 * Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22.  The login is `pi` and the password is `raspberry`.
-* Type `sudo nano /etc/network/interfaces` and edit the file as described above, or follow the OS X directions below. 
+* Type `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and edit the file as described above.
 
 
 ## Test SSH Access
@@ -310,3 +272,92 @@ Update the RPi2.
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.
+
+## Configure Bluetooth Low Energy tethering [optional]
+
+The Raspberry Pi can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. The Raspberry Pi 3 has an inbuilt Bluetooth Low Energy (BLE) chip, while a BLE USB dongle can be used with the other Pi models.
+
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot and it allows the Raspberry Pi to use whatever data connection is available on the phone at any given time - e.g. 3G/4G or WiFi. Some have also found that power consumption on the Raspberry Pi is lower when using BLE tethering compared to using a WiFi connection, although this may vary depending on BLE USB dongle, WiFi dongle, etc.
+
+First, we clone a repository which contains scripts which are used later in the setup - 
+
+```
+cd /home/pi
+git clone https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect.git
+```
+
+We then copy the required scripts into a 'bin' directory -
+```
+mkdir -p /home/pi/bin
+cp /home/pi/RaspberryPi_BTPAN_AutoConnect/bt-pan /home/pi/bin
+cp /home/pi/RaspberryPi_BTPAN_AutoConnect/check-and-connect-bt-pan.sh /home/pi/bin
+```
+
+To configure a connection from the command line - 
+
+`sudo bluetoothctl`
+
+Enter the following commands to bring up the adapter and make it discoverable - 
+
+```
+power on
+discoverable on
+agent on
+default-agent
+```
+
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+Execute the paired-devices command to list the paired devices - 
+
+```
+paired-devices
+Device AA:BB:CC:DD:EE:FF Nexus 6P
+```
+
+Your paired phone should be listed (in this example, a Google Nexus 6P). Copy the bluetooth address listed for it; we will need to provide this later.
+
+Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device's bluetooth address (which we copied previously) and hit <tab> to complete the address.
+
+NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+
+`trust AA:BB:CC:DD:EE:FF`
+
+Quit bluetoothctl with 'quit'.
+
+Now, we create a service so that a connection is established at startup. Execute the following commands to create a net-bnep-client.service file and open it for editing in Nano - 
+
+```
+cd /etc/systemd/system
+sudo nano net-bnep-client.service
+```
+
+In the editor, populate the file with the text below, replacing AA:BB:CC:DD:EE:FF with the address noted earlier -
+
+```
+[Unit]
+After=bluetooth.service
+PartOf=bluetooth.service
+
+[Service]
+ExecStart=/home/pi/bin/bt-pan client AA:BB:CC:DD:EE:FF
+
+[Install]
+WantedBy=bluetooth.target
+```
+
+Save the file, then enable the service - 
+
+`sudo systemctl enable net-bnep-client.service`
+
+Open your crontab for editing - 
+
+`crontab -e`
+
+...and add an entry to check the connection every minute and reconnect if necessary - 
+
+`* * * * * /home/pi/bin/check-and-connect-bt-pan.sh`
+
+Save the file, then restart - 
+
+`sudo shutdown -r now`

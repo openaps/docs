@@ -13,7 +13,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * 515/715
 		 * 522/722
 		 * 523/723 (with firmware 2.4A or lower)
-		 * 554 (European Veo, with firmware 2.6A or lower)
+		 * 554/754 (European Veo, with firmware 2.6A or lower)
 * <b>A way to communicate with the pump</b>:
 	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
 	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
@@ -121,6 +121,7 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 
 [TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://www.amazon.com/gp/product/B00FBD3O2M)
 
+[Zendure® 2nd Gen A3 Portable Charger 10000mAh - 2.1a Dual USB - in-line charging](www.amazon.com/Zendure-2nd-Portable-Charger-10000mAh/dp/B014RBEAQC/ref=sr_1_1)
 
 ### USB Cables
 
@@ -138,10 +139,9 @@ Repeated wireless communication with the pump drains the battery quite quickly. 
 
 ### Cases
 
-The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here some examples of what others are using in their OpenAPS builds.
+The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here is an example of what others are using in their OpenAPS builds.
 
 [JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
 
-[Raspberry Pi B+ /PI2 Acrylic Case](http://www.amazon.com/Raspberry-Pi-PI2-Acrylic-Case/dp/B00M9ZW6QU)
 
 Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20). 

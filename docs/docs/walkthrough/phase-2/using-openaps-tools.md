@@ -169,7 +169,11 @@ Go ahead and try some more pump uses to find out what they do. Note that some of
 
 Now let's try communicating with the Dexcom receiver.
 
-Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged.
+Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. 
+
+> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `$ sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`. 
+
+> Reboot via `$ sudo shutdown -r now` to pick up the changes.
 
 `$ openaps use <my_dexcom_name> iter_glucose 1`
 
@@ -212,20 +216,20 @@ Some people have found it more beneficial to pull blood glucose values from Nigh
 1) Similar like above, we need to create a device that talks to Nightscout.  Add this device called "curl" to your list of devices in your openaps.ini file:  <br>
 
 ```
-[device "curl"] <br>
-fields = <br>
-cmd = bash <br>
-vendor = openaps.vendors.process <br>
-args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'" <br>
+[device "curl"]
+fields =
+cmd = bash
+vendor = openaps.vendors.process
+args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'"
 ```
 
 In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  The report will look like this in your openaps.ini file:
   
 ```
-[report "monitor/glucose.json"] <br>
-device = curl <br>
-use = shell <br>
-reporter = text <br>
+[report "monitor/glucose.json"]
+device = curl
+use = shell
+reporter = text
 ```
 
 Many people will actually setup both ways to pull the blood glucose level and switch between the different devices depending on their needs.  If you are going to pull it directly from Nightscout then you will have to have internet access for the Raspberry Pi.
@@ -367,3 +371,4 @@ directory will be saved in your online Bitbucket repository. Whenever you would
 like to update your backup, simply go into your `<my_openaps>` directory and `$
 git push`. This process can be automated, but we'll save that for another day.
 
+[Github mkimg tool](https://github.com/zymbit/rpi-mkimg) has the ability to create a full SD card image with the advantage to shrink it to its minimum size quite different from the windows Win32DiskImager which always creates an image which is as large as the card.  Using Win32DiskImager it might not be possible to restore an image on a new card with the same size. Using Github mkimg tool instead for example a 32 GB size card can be reduced to approximately 1.9 GB.

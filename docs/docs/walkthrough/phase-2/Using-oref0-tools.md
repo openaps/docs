@@ -42,9 +42,23 @@ The purpose of the `get-profile` process is to consolidate information from mult
   ```
   $ openaps report add settings/bg_targets_raw.json JSON pump read_bg_targets
   ```
-To convert this "raw" file
-The units function assures that units will match 
-add a report that will perform
+If your pump OR CGM is European and displays mmol/L as opposed to mg/dl you will need to convert this "raw" file.
+
+First install the unit conversion device to ensure all units will match.
+ ```
+  $ openaps device add units units
+  ```
+Go through the standard process of use, report add, report invoke for the 2 reports below.
+
+For Blood Sugar Conversion
+ ```
+  $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
+  ```
+For Insulin Sensitivity
+   ```
+  $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities_raw.json
+  ```
+Go t
 $ openaps use units bg_targets settings/bg_targets_raw.json
 and output not to the screen but into a file called settings/bg_targets.json
 add units to your list of devices with
@@ -55,8 +69,6 @@ $ openaps device add units units
   ```
   $ openaps report add settings/insulin_sensitivities_raw.json JSON pump read_insulin_sensitivies
   ```
-To convert this "raw" file you must do the same as done for bg_targets_raw
-to obtain the file settings/insulin_sensitivities
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
 
@@ -69,7 +81,11 @@ to obtain the file settings/insulin_sensitivities
 Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
 ```
-$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets_raw.json settings/insulin_sensitivities_raw.json settings/basal_profile.json max_iob.json
+```
+If you need to add a `profile` report that has the unit conversion, you can use this:
+```
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
 ```
 
 Note how the `profile` report uses `get-profile` virtual device, with all the required inputs provided.
