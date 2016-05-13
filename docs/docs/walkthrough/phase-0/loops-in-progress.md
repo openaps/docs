@@ -2,7 +2,7 @@
 
 To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. This way we know how many people are in the development phase, too.
 
-New to Github, and PRs? Check out how to submit your first PR.
+New to Github, and PRs? [Check out how to submit your first PR](http://openaps.readthedocs.io/en/master/docs/Resources/my-first-pr.html).
 
 List of people who are working on closed loops:
 
@@ -18,3 +18,4 @@ List of people who are working on closed loops:
 - Frank Best
 - Brooke Armstrong & Matt Pazoles
 - David Young
+- Paul Martin
