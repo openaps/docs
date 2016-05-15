@@ -1,4 +1,4 @@
-## Configuring Automatic Sensitivity Mode
+## Configuring Automatic Sensitivity and Meal Assist Mode
 
 For more information review https://github.com/openaps/oref0/issues/58
 
