@@ -20,3 +20,4 @@ List of people who are working on closed loops:
 - David Young
 - Paul Martin
 - Jarred Yaw
+- Shane Mitchell
