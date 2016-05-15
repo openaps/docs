@@ -75,6 +75,7 @@ device = auto-sens
 remainder = []
 ```
 Invoke the report to debug.  If you used different conventions than listed above the report will return errors that you will be able to recognize
+
 5) Next we need to pass auto-sens.json to oref0-determine-basal.json, in openaps.ini add a new input simillar to folowing example below:
 ```
 [device "oref0-determine-basal"]
@@ -82,7 +83,11 @@ fields = iob current-temps glucose profile auto-sens meal
 cmd = oref0-determine-basal
 vendor = openaps.vendors.process
 args = 
+```
 
+Note that in the "fields" above that "meal" should only be present if meal assist is configured
+
+```
 [report "enact/suggested.json"]
 profile = [Your Path]/profile.json
 use = shell
@@ -94,6 +99,7 @@ glucose = [Your Path]/glucose.json
 meal = [Your Path]/meal.json
 auto-sens = [Your Path]/auto-sens.json
 ```
+As per the comment with the device, "meal" should be deleted if meal assist is not activated
 
 6) Next you have to make sure you pull 28 hours (24h + DIA) of pump history.  Change the hours to 24, so your pump history report should look like this:
 ```
@@ -103,6 +109,14 @@ hours = 28
 use = iter_pump_hours
 reporter = JSON
 ```
+
+Based on the configuration of the basic loop, suggest that the invoking the monitor/auto-sens.json be added to the gather-profile alias:
+`gather-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json`
+
+and that the gather alias be adjusted to make sure gather-profile is at the end. This is because the monitor/auto-sens.json report depends upon elements from the preceding two aliases to run. 
+
+`gather ! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps gather-profile"`
+
 Note. Your loop should run without auto-sens.json report but if you don't pass that as an input you will see the following message while executing oref0-determine-basal.js:
 
 Optional feature Auto Sensitivity not enabled:  { [Error: ENOENT: no such file or directory, open 'online'] errno: -2, code: 'ENOENT', syscall: 'open', path: 'online' }
