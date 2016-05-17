@@ -58,22 +58,24 @@ For Insulin Sensitivity
    ```
   $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities_raw.json
   ```
-Go t
-$ openaps use units bg_targets settings/bg_targets_raw.json
+To convert this "raw" file The `units` function assures that units will match add a report that will perform
+`$ openaps use units bg_targets settings/bg_targets_raw.json`
 and output not to the screen but into a file called settings/bg_targets.json
-add units to your list of devices with
-$ openaps device add units units
+add units to your list of devices with:
+  ```
+  $ openaps device add units units
+  ```
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
   ```
-  $ openaps report add settings/insulin_sensitivities_raw.json JSON pump read_insulin_sensitivies
+  $ openaps report add settings/insulin_sensitivities_raw.json JSON <my_pump_name> read_insulin_sensitivies
   ```
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
 
   ```
-  $ openaps report add settings/basal_profile.json JSON pump read_basal_profile_std
+  $ openaps report add settings/basal_profile.json JSON <my_pump_name> read_basal_profile_std
   ```
 
 * `max_iob` is an exception: in contrast to the other settings above, `max_iob` is not the result of an openaps report. It's a JSON file that should contain a single line, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file. The max_iob variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.  
