@@ -337,7 +337,7 @@ Take a moment to consider putting these commands to work in the larger context o
   >
   > status of the pump =
   >
-  > max_iob = preferences.json .... result of ```bash echo "{ \"max_iob\": 2 }" > preferences.json`
+  > max_iob = preferences.json .... result of `echo "{ \"max_iob\": 2 }" > preferences.json`
   >
   > temp basal = monitor/temp_basal.json
 
