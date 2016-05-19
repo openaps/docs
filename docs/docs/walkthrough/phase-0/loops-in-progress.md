@@ -21,3 +21,4 @@ List of people who are working on closed loops:
 - Paul Martin
 - Jarred Yaw
 - Shane Mitchell
+- Boris and Kayley Raskin
