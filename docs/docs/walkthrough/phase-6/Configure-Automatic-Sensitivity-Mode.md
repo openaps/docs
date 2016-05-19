@@ -75,24 +75,24 @@ args =
 ```
 (NOTE: in the `fields` above, `meal` should only be present if meal assist is configured)
 
-7) At this point, in the process you should already have an `enact/suggested.json` report.  Edit your `openaps.ini` file and add the following bolded line to that report:
+7) At this point, in the process you should already have an `enact/suggested.json` report.  Edit your `openaps.ini` file and add the bottom line to that report:
 ```
 [report "enact/suggested.json"]
-profile = [Your Path]/profile.json
+profile = settings/profile.json
 use = shell
 reporter = text
-current-temps = [Your Path]/temp-basal-status.json
+current-temps = monitor/temp-basal-status.json
 device = oref0-determine-basal
-iob = [Your Path]/iob.json
-glucose = [Your Path]/glucose.json
-meal = [Your Path]/meal.json
-**auto-sens = settings/auto-sens.json**
+iob = monitor/iob.json
+glucose = monitor/glucose.json
+meal = monitor/meal.json
+auto-sens = settings/auto-sens.json
 ```
 (NOTE: as stated above, if you do not have meal assist enabled, do not include the `meal` line)
 
 8)  Based on the configuration of the basic loop, it is recommended that the `settings/auto-sens.json` be added to the `gather-profile` alias:
 ```
-gather-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json **monitor/auto-sens.json**
+gather-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json
 ```
 and that the `gather` alias be adjusted to make sure `gather-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run. 
 
