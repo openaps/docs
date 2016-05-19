@@ -2,6 +2,9 @@
 
 Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some ideas or tips to consider:
 
+* **What do you do with the loop in airport security when you travel**
+<br> The loop is off the shelf hardware - it's no different than your phone or other small gadgets, so leave it in your carry-on bag when going through security. (Dana note: I have traveled well over 100 times with my loop, and in some cases with 3-4 Pis and batteries and related accessories, and have never had issues going through security because of my loop.)
+
 * **What do you do with the loop when you shower?**
 <br>Because the pumps aren't really waterproof, most of us choose to suspend and disconnect our pumps before we shower. You'll do the same thing even after you're looping. One trick, though, is to cancel any running temp basal rate and set a temp basal for 30 minutes with a rate of 0.0, and then suspend the pump. This will help OpenAPS accurately track your netIOB while you are off your pump. When you get out of the shower and are ready to reconnect your pump, do so. Make sure to unsuspend it. You can then either manually cancel the zero temp basal; or let OpenAPS read and decide what temp basal to issue next.
 
