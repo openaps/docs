@@ -79,6 +79,7 @@ $ openaps report add monitor/upload-status.json JSON ns-status shell monitor/clo
 The reports required to generate upload-status.json should look familiar. If you have not generated any of these required reports, you should set them up and make sure they all work.  In particular, note that monitor/clock-zoned.json contains the current pump clock time stamp, but with the timezone info included. If you have not generated that report already, you may do so using the following commands, which add a `tz` virtual device and use it to create clock-zoned.json starting from clock.json. 
 
 ```
+$ sudo pip install recurrent
 $ openaps vendor add openapscontrib.timezones
 $ openaps device add tz timezones
 $ git add tz.ini
