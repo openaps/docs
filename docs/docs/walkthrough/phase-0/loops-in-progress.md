@@ -4,6 +4,8 @@ To get you comfortable with submitting a "PR" (stands for pull request), test it
 
 New to Github, and PRs? [Check out how to submit your first PR](../../../../docs/docs/Resources/my-first-pr.md).
 
+When you submit the PR, be sure to target the *dev* branch of openaps/docs, not the master branch.  If you target master, we'll need to ask you to re-submit, or it will likely cause a merge conflict with edits from people who correctly targeted dev.
+
 List of people who are working on closed loops:
 
 - Dana Lewis
