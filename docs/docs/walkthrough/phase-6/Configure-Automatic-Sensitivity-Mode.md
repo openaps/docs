@@ -11,7 +11,7 @@ sudo npm install -g git://github.com/openaps/oref0.git'#dev'
 2)	Next in order to properly execute the new auto-sensitivity module, you need to have at least 24 hour worth of pump history data and enough bg readings (past 24 hours).
 In your openaps.ini apply the following changes:
 ```
-[report "[Your Path]/glucose.json"]
+[report "monitor/glucose.json"]
 device = cgm
 use = iter_glucose
 reporter = JSON
@@ -37,7 +37,7 @@ args = -c "curl -s https://[Your URL]/api/v1/entries.json?count=288 | json -e 't
 If your [glucose.json] does not have enough entries you will see a warning when running your auto-sens.json report "Error: not enough glucose data to calculate autosens."
 
 3)	After applying the above change you need to add a new device and report.
-A process device must be added, call it "auto-sense"
+A process device must be added, call it "auto-sens"
 
 `openaps device add auto-sens process --require "glucose pumphistory insulin_sensitivities basal_profile profile" oref0 detect-sensitivity`
 
@@ -103,7 +103,7 @@ As per the comment with the device, "meal" should be deleted if meal assist is n
 
 6) Next you have to make sure you pull 28 hours (24h + DIA) of pump history.  Change the hours to 24, so your pump history report should look like this:
 ```
-[report "[Your Path]/pump-history.json"]
+[report "monitor/pumphistory.json"]
 device = pump
 hours = 28
 use = iter_pump_hours
