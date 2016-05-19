@@ -14,6 +14,8 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * 522/722
 		 * 523/723 (with firmware 2.4A or lower)
 		 * 554/754 (European Veo, with firmware 2.6A or lower)
+		 * (To check firmware, hit Esc on the home screen and scroll all the way to the bottom.  You can also go into the Utilities menu and look for a PC Connect option.  If that is present, the pump will *not* work for looping.  If it's absent, it should be able to receive temp basal commands.)
+
 * <b>A way to communicate with the pump</b>:
 	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
 	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
