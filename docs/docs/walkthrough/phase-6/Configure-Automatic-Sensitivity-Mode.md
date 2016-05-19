@@ -1,17 +1,12 @@
-## Configuring Automatic Sensitivity Mode
+## Configuring Automatic Sensitivity and Meal Assist Mode
 
 For more information review https://github.com/openaps/oref0/issues/58
 
 1)	Ensure to get the latest dev branch
 ```
-cd
-cd src
-cd oref0
-git pull
-git checkout dev
-sudo npm install -g
+sudo npm install -g git://github.com/openaps/oref0.git'#dev'
 ```
-Make sure you run the last line to install the tools
+
 
 2)	Next in order to properly execute the new auto-sensitivity module, you need to have at least 24 hour worth of pump history data and enough bg readings (past 24 hours).
 In your openaps.ini apply the following changes:
@@ -24,6 +19,11 @@ count = 288
 ```
 
 Note: If using Nightscout add count=288 to your entries.json API call as a querystring parameter
+
+One way to do this is to go to your openaps directory and do:
+
+`nano ns-glucose.ini`
+this opens the file in the Nano editor which allows you to make these changes:
 For NS it will look something like this depending on how you implement it (note the ?count=288)  that is what you have to add
 ```
 [device "curl"]
@@ -36,13 +36,21 @@ args = -c "curl -s https://[Your URL]/api/v1/entries.json?count=288 | json -e 't
 
 If your [glucose.json] does not have enough entries you will see a warning when running your auto-sens.json report "Error: not enough glucose data to calculate autosens."
 
-3)	After applying the above change you need to add a new device and report as follow:
+3)	After applying the above change you need to add a new device and report.
+A process device must be added, call it "auto-sense"
+
+`openaps device add auto-sens process --require "glucose pumphistory insulin_sensitivities basal_profile profile" oref0 detect-sensitivity`
+
+Inspecting openaps.ini with
+
+`less openaps.ini` will reveal
+
 ```
 [device "auto-sens"]
 vendor = openaps.vendors.process
 extra = auto-sens.ini
 ```
-and your auto-sens.ini should look like this:
+and your auto-sens.ini using `less auto-sens.ini` should look like this:
 ```
 [device "auto-sens"]
 fields = glucose pumphistory insulin_sensitivities basal_profile profile
@@ -50,20 +58,23 @@ cmd = oref0
 args = detect-sensitivity
 ```
 
-4) Next create this report
+4) Next create this report. The easiest method is to 
+
+`nano openaps.ini` cut and paste:
 ```
-[report "[Your Path]/auto-sens.json"]
-profile = [Your Path]/profile.json
+[report "monitor/auto-sens.json"]
+profile = settings/profile.json
 use = shell
 reporter = text
 json_default = True
-pumphistory = [Your Path]/pump-history-zoned.json
-basal_profile = [Your Path]/active-basal-profile.json
-insulin_sensitivities = [Your Path]/insulin-sensitivities.json
-glucose = [Your Path]/ns-glucose.json
+pumphistory = monitor/pumphistory_zoned.json
+basal_profile = settings/basal_profile.json
+insulin_sensitivities = settings/insulin_sensitivities.json
+glucose = monitor/ns-glucose.json
 device = auto-sens
 remainder = []
 ```
+Invoke the report to debug.  If you used different conventions than listed above the report will return errors that you will be able to recognize
 
 5) Next we need to pass auto-sens.json to oref0-determine-basal.json, in openaps.ini add a new input simillar to folowing example below:
 ```
@@ -72,7 +83,11 @@ fields = iob current-temps glucose profile auto-sens meal
 cmd = oref0-determine-basal
 vendor = openaps.vendors.process
 args = 
+```
 
+Note that in the "fields" above that "meal" should only be present if meal assist is configured
+
+```
 [report "enact/suggested.json"]
 profile = [Your Path]/profile.json
 use = shell
@@ -84,6 +99,7 @@ glucose = [Your Path]/glucose.json
 meal = [Your Path]/meal.json
 auto-sens = [Your Path]/auto-sens.json
 ```
+As per the comment with the device, "meal" should be deleted if meal assist is not activated
 
 6) Next you have to make sure you pull 28 hours (24h + DIA) of pump history.  Change the hours to 24, so your pump history report should look like this:
 ```
@@ -93,6 +109,14 @@ hours = 28
 use = iter_pump_hours
 reporter = JSON
 ```
+
+Based on the configuration of the basic loop, suggest that the invoking the monitor/auto-sens.json be added to the gather-profile alias:
+`gather-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json`
+
+and that the gather alias be adjusted to make sure gather-profile is at the end. This is because the monitor/auto-sens.json report depends upon elements from the preceding two aliases to run. 
+
+`gather ! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps gather-profile"`
+
 Note. Your loop should run without auto-sens.json report but if you don't pass that as an input you will see the following message while executing oref0-determine-basal.js:
 
 Optional feature Auto Sensitivity not enabled:  { [Error: ENOENT: no such file or directory, open 'online'] errno: -2, code: 'ENOENT', syscall: 'open', path: 'online' }

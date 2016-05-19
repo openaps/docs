@@ -1,0 +1,18 @@
+Set up Autosensitivity mode prior to meal assist.  This includes pulling dev branch and creating the devices and modifications to reports from the basic setup that will be needed for meal assist. 
+
+Be sure 
+
+
+```
+[device "oref0-determine-basal"]
+fields = iob current-temps glucose profile auto-sens meal
+cmd = oref0-determine-basal
+vendor = openaps.vendors.process
+args =
+```
+
+
+
+
+
+
