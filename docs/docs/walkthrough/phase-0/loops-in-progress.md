@@ -25,3 +25,4 @@ List of people who are working on closed loops:
 - Shane Mitchell
 - Boris and Kayley Raskin
 - Andy Pabari
+- Rob Kresha - (Papillion, NE, USA)
