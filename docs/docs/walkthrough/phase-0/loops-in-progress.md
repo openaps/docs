@@ -21,3 +21,4 @@ List of people who are working on closed loops:
 - Paul Martin
 - Jarred Yaw
 - Shane Mitchell
+- Rob Kresha - (Papillion, NE, USA)
