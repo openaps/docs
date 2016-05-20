@@ -317,30 +317,6 @@ Aliases will invoke reports and execute logic and shell commands. Aliases are no
 
 Take a moment to consider putting these commands to work in the larger context of a closed-loop system. Components of that system that you might need to `add` and `invoke` would be recent glucose data, recent pump history, the time, battery status, pump settings, carb ratios, the current basal profile, insulin sensitivities, blood glucose targets, and the status of the pump. 
 
-  > recent glucose data =  monitor/glucose.json
-  >
-  > recent pump history = monitor/pumphistory.json
-  >
-  >	the time = monitor/clock.json
-  >
-  > battery status =
-  >
-  > pump settings = settings/settings.json
-  >
-  > carb ratios = settings/carb_ratio.json
-  >
-  > the current basal profile = settings/basal_profile.json
-  >
-  > insulin sensitivities = settings/insulin_sensitivities_raw.json
-  >
-  > blood glucose targets = settings/bg_targets_raw.json
-  >
-  > status of the pump =
-  >
-  > max_iob = preferences.json .... result of `$ echo "{ \"max_iob\": 2 }" > preferences.json`
-  >
-  > temp basal = monitor/temp_basal.json
-
 Go ahead and add and invoke reports for these components of a future closed-loop system. 
 
 Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history. 
