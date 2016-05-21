@@ -205,7 +205,7 @@ Run
 
 `sudo raspi-config` 
 
-Here you can expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
+Here you can expand filesystem to maximize memory, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
 
 ## Setting up an SSH key for Password-less Login [optional - WARNING: THIS COULD POTENTIALLY LOCK YOU OUT OF YOUR RASPBERRY PI]
 
@@ -245,10 +245,13 @@ Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a passwo
 Make sure you fully understand this feature before proceeding. It is completely optional. Some people think that logging in to the Pi without typing a password is a real time saver and also more secure. There are two ways of securing the Pi:
 
 1) Setting a password: 
-	a) use `sudo raspi-config` above, or 
+
+	a) use `sudo raspi-config` as described above, or 
+	
 	b) `sudo passwd`
 
 2) Disabling password login completely. In this case, you can ONLY log in with your SSH key. Be carefull here. 
+
 	a) Open the `sshd_config` file in nano text editor on the Pi as follows
 
 `sudo nano /etc/ssh/sshd_config`
