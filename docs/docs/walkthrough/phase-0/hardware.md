@@ -2,6 +2,10 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
 
+To start, here is a high-level guide for understanding if your pump is compatible for OpenAPS:
+
+!["Can I do OpenAPS with this pump?"](https://github.com/openaps/docs/blob/b6b742d30b8313dce33b59fc279647343e4915cb/docs/docs/walkthrough/phase-0/Can%20I%20close%20the%20loop%20with%20this%20pump_May%2020%202016.jpg "Can I do OpenAPS with this pump?")
+
 If you're interested in working on communication for another pump (Omnipod, Animas, etc), [click here](http://bit.ly/1nTtccH) to join the collaboration group focusing on alternative pump communication.
 
 
