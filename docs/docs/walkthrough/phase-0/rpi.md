@@ -207,9 +207,9 @@ Run
 
 Here you can expand filesystem to maximize memory, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
 
-## Setting up an SSH key for Password-less Login [optional - WARNING: THIS COULD POTENTIALLY LOCK YOU OUT OF YOUR RASPBERRY PI]
+## Setting up an SSH key for Password-less Login [optional]
 
-You can setup a public/private key identity, and configure your local computer and the Raspberry Pi to automatically use it. If you continue with the configuration and Disable Password Login (next step), this will allow SSH access to the Pi without requiring a password. Some people find this feature very convenient. 
+You can setup a public/private key identity, and configure your local computer and the Raspberry Pi to automatically use it. This will allow SSH access to the Pi without requiring a password. Some people find this feature very convenient. 
 
 ### Windows
 
@@ -242,7 +242,7 @@ Instead of appending it to the list of authorized keys, you may simply copy your
 Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a password.
 
 ### Disabling password login [optional - WARNING: THIS COULD POTENTIALLY LOCK YOU OUT OF YOUR RASPBERRY PI]
-Make sure you fully understand this feature before proceeding. It is completely optional. Some people think that logging in to the Pi without typing a password is a real time saver and also more secure. There are two ways of securing the Pi:
+Make sure you fully understand this feature before proceeding. It is completely optional. There are two ways of securing the Pi:
 
 1) Setting a password: 
 
@@ -250,7 +250,7 @@ Make sure you fully understand this feature before proceeding. It is completely 
 	
 	b) `sudo passwd`
 
-2) Disabling password login completely. In this case, you can ONLY log in with your SSH key. Be carefull here. 
+2) Disabling password login completely. In this case, you can ONLY log in with your SSH key. Be careful here. 
 
 	a) Open the `sshd_config` file in nano text editor on the Pi as follows
 
