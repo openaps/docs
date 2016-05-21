@@ -167,11 +167,11 @@ Run
 
 `sudo raspi-config` 
 
-to expand filesystem, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
+Here you can expand filesystem to maximize memory, change user password and set timezone (in internationalization options). This will take effect on the next reboot, so go ahead and reboot if prompted, or run `sudo reboot` when you're ready.
 
-## Setup Password-less Login [optional]
+## Setting up an SSH key for Password-less Login [optional]
 
-We will now setup a public/private key identity, and configure your local computer and the Raspberry Pi to automatically use it, in order to allow convenient future ssh access to the Pi without requiring a password.
+You can setup a public/private key identity, and configure your local computer and the Raspberry Pi to automatically use it. This will allow SSH access to the Pi without requiring a password. Some people find this feature very convenient. 
 
 ### Windows
 
@@ -203,12 +203,22 @@ Instead of appending it to the list of authorized keys, you may simply copy your
 
 Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a password.
 
-### Disabling password login [optional]
-To secure the Pi, you should either set a password (using `sudo raspi-config` above, or with `sudo passwd`), or disable password login completely. If you want to disable password login (so you can only log in with your ssh key), open the `sshd_config` file in nano text editor on the Pi as follows
+### Disabling password login [optional - WARNING: THIS COULD POTENTIALLY LOCK YOU OUT OF YOUR RASPBERRY PI]
+Make sure you fully understand this feature before proceeding. It is completely optional. There are two ways of securing the Pi:
+
+1) Setting a password: 
+
+	a) use `sudo raspi-config` as described above, or 
+	
+	b) `sudo passwd`
+
+2) Disabling password login completely. In this case, you can ONLY log in with your SSH key. Be careful here. 
+
+	a) Open the `sshd_config` file in nano text editor on the Pi as follows
 
 `sudo nano /etc/ssh/sshd_config`
 
-Change the following
+	b) Change the following
 
 ```
 PermitRootLogin yes
@@ -224,7 +234,7 @@ PasswordAuthentication no
 
 Note that the second line was previously commented out.
 
-From now on you will be able to SSH in with your private SSH key only.
+From now on you will be able to SSH in with your private SSH key ONLY.
 
 ## Wifi reliability tweaks [optional]
 
