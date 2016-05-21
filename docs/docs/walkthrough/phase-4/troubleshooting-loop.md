@@ -52,7 +52,7 @@ If you'd like to help out with defining all the desired behaviors in the form of
 
 2) Type `sudo npm install -g mocha` and `sudo npm install -g should`
 
-3) You should then be able to run `make` from the oref0 directory to run all of the existing unit tests, or something like `mocha -c tests/determine-basal.test.js 2>&1 | less -r` to run just the determine-basal tests.
+3) You should then be able to run `make` from the ~/src/oref0 directory to run all of the existing unit tests, or something like `mocha -c tests/determine-basal.test.js 2>&1 | less -r` to run just the determine-basal tests.
 
 4) As you add additional unit tests, you'll want to run `make` again after each one. 
 

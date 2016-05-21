@@ -125,6 +125,7 @@ Below is an overview of all content linked inside of this document repository. [
         *   <a href="docs/docs/walkthrough/phase-6/considerations.md" class="reference internal">Phase 6: Iterating on Your Closed Loop</a>
         *   <a href="docs/docs/walkthrough/phase-6/keeping-up-to-date.md" class="reference internal">So you think you’re looping? Now keep up to date!</a>
         *   <a href="docs/docs/walkthrough/phase-6/daytime-testing.md" class="reference internal">Testing during the day</a>
+        *   <a href="docs/docs/walkthrough/phase-6/Usability-considerations.md" class="reference internal">Usability Considerations</a>
         *   <a href="docs/docs/walkthrough/phase-6/advanced-features.md" class="reference internal">Advanced features</a>
         *   <a href="docs/docs/walkthrough/phase-6/Configure-Automatic-Sensitivity-Mode.md" class="reference internal">Configuring Automatic Sensitivity Mode</a>
 -   <a href="docs/docs/Resources/index.rst" class="reference internal">Resources</a>
