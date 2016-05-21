@@ -8,6 +8,16 @@ Advanced Meal Assist, aka AMA, will do predictions as to where BG is going and w
 
 Also, if you have Meal Assist enabled already (the reports), it should just be a matter of pulling the correct oref0 branch to start benefiting from AMA.
 
+of note, if you installed master via the npm, you need to run
+
+`curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh | bash -`
+
+If successful, the last line will say something like: 
+
+openaps 0.0.10-dev (although the version number may have been incremented). 
+
+Then: 
+
 1)	Ensure you get the latest AMA branch of oref0 tools
 ```
 cd
@@ -18,6 +28,8 @@ git checkout advanced-meal-assist
 npm install && sudo npm install -g && sudo npm link && sudo npm link oref0
 ```
 Make sure you run the last line to install the tools.
+
+
 
 It probably isn't necessary but to make sure all libraries load cleanly issue a restart:
 ```
