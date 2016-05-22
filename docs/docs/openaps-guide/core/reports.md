@@ -173,7 +173,7 @@ encourage iterating through interactive usage, and then saving the
 commands that work into the openaps configuration using the **add**
 comands.
 
-## openap report add saves **use** configuration
+## openaps report add saves **use** configuration
 
 What did this add command do?
 
