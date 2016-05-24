@@ -24,4 +24,4 @@ This report contains the basal rates that are set up in your pump.
   }
 ]`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)
