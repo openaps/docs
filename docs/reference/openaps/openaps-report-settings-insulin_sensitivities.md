@@ -17,4 +17,4 @@ This report contains the insulin sensitivity levels stored in your pump.
   "first": 1
 }`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)
