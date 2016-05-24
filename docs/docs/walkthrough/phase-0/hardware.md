@@ -21,7 +21,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * (To check firmware, hit Esc on the home screen and scroll all the way to the bottom.  You can also go into the Utilities menu and look for a PC Connect option.  If that is present, the pump will *not* work for looping.  If it's absent, it should be able to receive temp basal commands.)
 
 * <b>A way to communicate with the pump</b>:
-	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
+	* Medtronic CareLink USB stick is the recommended option for your initial loop setup.  You can find this on the Medtronic website (https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device)
 	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
 * <b>A Continuous Glucose Monitor (CGM)</b>:
  * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
