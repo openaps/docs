@@ -1,5 +1,5 @@
 #### `pump.ini`
-This device contains the information about your pump.  This example assumes you are using a TI stick
+This device contains the information requied to connect to your pump, such as your pump's serial number.  This example assumes you are using a TI stick.
 ##### Setup code
 `openaps device add pump mmeowlink subg_rfspy /dev/mmeowlink [YOUR PUMP SERIAL]`
 ##### Sample contents
