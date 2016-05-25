@@ -48,6 +48,8 @@ Fill out all the profile fields and click save.
 
 ### Configuring and Uploading OpenAPS Status
 
+**At this point in the docs I find it confusing as the next part dives straight into working inside of your openaps repo (or whatever the right term for it is). I would think before jumping straight to setting up the integration with Nightscout you would go over some basic `openaps use ns` type stuff, or even just doing `openaps init` for the first time. I see this stuff is in [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), so the next bit seems out of place if you're supposed to follow the phases in order**
+
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
 * Adding a new `ns-status` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
