@@ -6,7 +6,7 @@ It's actually not too hard to do one and it is a great way to contribute. This d
 * The general idea is to make edits and improvements to code or document by making a copy of the repository you'd like to change.
 * Double checking that they your edits look good to you on your copy.
 * Make a few notes for what you did so people can understand why you made the change.
-* Then do a pull request, which is to ask the administrataors of the repository to pull your changes back into the appropriate branch of the main repository.
+* Then do a pull request, which is to ask the administrators of the repository to pull your changes back into the appropriate branch of the main repository.
 * They will do a quick review and merge your changes in, or comment if there are errors that need fixing first, or if it's a large enough change that it needs to go to another branch like dev for further work before being merged to master.
 
 OK, let's get started. For our example we are going to make an edit to the openaps docs repository.
