@@ -19,4 +19,4 @@ This report contains the high/low glucose targets set up in your pump.
   "first": 1
 }`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)

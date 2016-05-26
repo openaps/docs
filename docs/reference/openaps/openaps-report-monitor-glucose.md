@@ -21,4 +21,4 @@ This report contains multiple glucose entries from either your CGM or Nightscout
   },
 ]`
 ##### Dependencies
-* [`cgm.ini`](openaps/openaps-device-cgm.md)
+* [`cgm.ini`](openaps-device-cgm.md)
