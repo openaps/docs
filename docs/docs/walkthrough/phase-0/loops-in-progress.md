@@ -26,3 +26,4 @@ List of people who are working on closed loops:
 - Rob Kresha - (Papillion, NE, USA)
 - Christian Robinson (London, UK)
 - Gary Kidd 
+- Nathan Morse
