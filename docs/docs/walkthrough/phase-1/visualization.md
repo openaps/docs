@@ -118,6 +118,8 @@ Some things to be aware of:
 
 ### Uploading Latest Treatments to Nightscout
 
+Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable in case it is not already there.
+
 In addition to uloading OpenAPS status, it also very beneficial to upload the treatment information from the pump into Nightscout.  This removes the burden of entering this information into Nightscout manually. This can be accomplished using `nightscout` command and adding a new `upload-recent-treatments` alias as follows: 
 
 ```
