@@ -19,4 +19,4 @@ This report contains your carb ratios.
   ]
 }`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)

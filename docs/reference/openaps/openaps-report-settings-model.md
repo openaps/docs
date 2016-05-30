@@ -5,4 +5,4 @@ This report contains the model number of your pump.
 ##### Sample contents
 `"722"`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)
