@@ -218,7 +218,7 @@ In this case, the evenatual BG is again less than the target, but BG is increasi
 {"temp": "absolute","bg": 95,"tick": "+4","eventualBG": 13,"snoozeBG": 67,"reason": "Eventual BG 13<90, but Avg. Delta 4.00 > Exp. Delta -2.9; no temp to cancel"}
 ```
 
-which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to also read [Understanding oref0-determine-basal recommendations](Understand-determine-basal.md) and spend some time generating and looking through suggested.json and other reports.
+which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to also read [Understanding oref0-determine-basal recommendations](../phase-3/Understand-determine-basal.md) and spend some time generating and looking through suggested.json and other reports.
 
 ## Enacting the suggested action
 
