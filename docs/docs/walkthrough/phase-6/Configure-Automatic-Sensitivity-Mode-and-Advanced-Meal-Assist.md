@@ -17,6 +17,11 @@ git pull
 git checkout advanced-meal-assist
 npm install && sudo npm install -g && sudo npm link && sudo npm link oref0
 ```
+OR
+```
+sudo npm install -g git://github.com/openaps/oref0.git'#advanced-meal-assist'
+```
+
 Make sure you run the last line to install the tools.
 
 It probably isn't necessary but to make sure all libraries load cleanly issue a restart:
