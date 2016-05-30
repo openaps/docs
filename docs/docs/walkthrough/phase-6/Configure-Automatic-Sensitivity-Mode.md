@@ -52,7 +52,7 @@ args = detect-sensitivity
 
 4) In order for `auto-sens` to run properly, you need to make sure you pull enough history from your pump - 24 hours plus however many yours you have set for your DIA.  To do this, you will create a new report called `pumphistory-24h.json`:
 ```
-openaps report add settings/pumphistory-24h.json JSON pump iter_pump_hours 28
+openaps report add settings/pumphistory-24h.json JSON <my_pump_name> iter_pump_hours 28
 ```
 (NOTE: the `28` assumes a 4h DIA - please adjust accordingly if your DIA is longer.)
 
@@ -62,7 +62,7 @@ openaps report add settings/auto-sens.json text auto-sens shell monitor/glucose.
 ```
 Now invoke the report to test:
 ```
-openaps invoke report settings/auto-sens.json
+openaps report invoke settings/auto-sens.json
 ```
 
 6) Next we need to add the `auto-sens.json` report to the `oref0-determine-basal` device.  In `openaps.ini` make sure your `oref0-determine-basal` looks similar to this:
