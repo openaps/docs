@@ -54,7 +54,7 @@ OpenAPS uses git as the logging mechanism, so it commits report changes on each 
 
 To fix a corrupted git repository you can run `oref0-fix-git-corruption.sh`, it will try to fix the repository, and in case when repository is definitly broken it copies the remainings in a safe place (`tmp`) and initializes a new git repo.
 
-Warning: do not run any  openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`. 
+Warning: do not run any  openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
 
 ### Environment variables
 
@@ -71,10 +71,8 @@ The command you are running likely needs to be run with root permissions, try th
 json: error: input is not JSON: Unexpected '<' at line 1, column 1:
         <head><title>Document Moved</title></head>
 ```
-        
+
   This error usually comes up when you have pulled a file down from Nightscount that was an invalid file. Typcially you might see this when trying to pull down treatments. Make sure that you have your HOST and API_KEY set correctly at the top of your cron, in your ~/.profile
-  
+
 ### Wifi and hotspot issues
 See [wifi troubleshooting page](wifi.md)
-  
-
