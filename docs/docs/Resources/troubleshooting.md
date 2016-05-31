@@ -74,5 +74,28 @@ json: error: input is not JSON: Unexpected '<' at line 1, column 1:
 
   This error usually comes up when you have pulled a file down from Nightscount that was an invalid file. Typcially you might see this when trying to pull down treatments. Make sure that you have your HOST and API_KEY set correctly at the top of your cron, in your ~/.profile
 
+#### Could not parse carbratio_date when invoking profile report
+
+    Could not parse carbratio_data.
+    Feature Meal Assist enabled but cannot find required carb_ratios.
+
+This error may occur when you invoke `settings/profile.json` report.
+
+Check report definition in `openaps.ini`. If you have line `remainder = []` change it to `remainder = `
+
+Below is correct definition
+
+    [report "settings/profile.json"]
+    use = shell
+    bg_targets = settings/bg_targets.json
+    settings = settings/settings.json
+    basal_profile = settings/basal_profile.json
+    reporter = text
+    json_default = True
+    max_iob = preferences.json
+    device = get-profile
+    remainder =
+    insulin_sensitivities = settings/insulin_sensitivities.json
+
 ### Wifi and hotspot issues
 See [wifi troubleshooting page](wifi.md)
