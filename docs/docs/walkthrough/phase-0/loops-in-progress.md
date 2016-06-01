@@ -27,3 +27,4 @@ List of people who are working on closed loops:
 - Christian Robinson (London, UK)
 - Gary Kidd 
 - Nathan Morse
+- Paul Davis (Brighton, UK)
