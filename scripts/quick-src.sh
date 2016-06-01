@@ -23,7 +23,7 @@ cd ~/src && \
     (cd openaps && \
         sudo python setup.py develop
     )
-    git clone -b dev git://github.com/openaps/openaps-contrib.git || \
+    git clone git://github.com/openaps/openaps-contrib.git || \
         (cd openaps-contrib && git pull)
     (cd openaps-contrib && \
         sudo python setup.py develop
