@@ -55,10 +55,10 @@ If current BG is below a configured threshold (defaulting to 30mg/dL below the t
     else, if eventual BG is above target:
         calculate 30m temp required to get eventual BG down to target
         if required temp is > existing basal, issue the new high temp basal
-        else, if BG is below target:
-            calculate 30m temp required to get projected BG up to target
-            if required temp is < existing basal, issue the new low temp basal
-                if >30m @ 0 required, extend zero temp to 30m
+    else, if eventual BG is below target:
+        calculate 30m temp required to get eventual BG up to target
+        if required temp is < existing basal, issue the new low temp basal
+            if >30m @ 0 required, extend zero temp to 30m
 
 The maximum temp basal rate is set on the pump, but for safety purposes OpenAPS will set a lower maximum temp basal rate if necessary, as the minimum of:
 
