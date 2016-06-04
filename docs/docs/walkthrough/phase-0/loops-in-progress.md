@@ -41,3 +41,4 @@ List of people who are working on closed loops:
 - Kim St. Dennis (Los Angeles, CA)
 - Gabriel and Gideon Arom (Chicago, IL / Los Angeles, CA)
 - Arlene Samowich (Nashville, TN)
+- Andy Probolus & Marianne Smith
