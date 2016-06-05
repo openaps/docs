@@ -1,6 +1,6 @@
 # Visualization and Monitoring
 
-[Nightscout](http://nightscout.info) is the recommended way to visualize your CGM data, your pump data, and ultimately closed-loop operation of OpenAPS. This provides a visual alternative to SSHing into your raspberry Pi or loop system and looking through log files. Even if you don't choose to share your Nightscout instance with another person, the ability to visualize all data combined on the same screen is very helpful. Furthermore, Nightscout can be used to generate helpful data reports, and to customize customize various watchfaces. 
+[Nightscout](http://nightscout.info) is the recommended way to visualize your CGM data, your pump data, and ultimately closed-loop operation of OpenAPS. This provides a visual alternative to SSHing into your raspberry Pi or loop system and looking through log files. Even if you don't choose to share your Nightscout instance with another person, the ability to visualize all data combined on the same screen is very helpful. Furthermore, Nightscout can be used to generate helpful data reports, and to customize various watchfaces. 
 
 ## Nightscout Integration
 
