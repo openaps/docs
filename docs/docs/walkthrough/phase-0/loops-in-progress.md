@@ -28,3 +28,4 @@ List of people who are working on closed loops:
 - Gary Kidd 
 - Nathan Morse
 - Paul Davis (Brighton, UK)
+- Marion Barker (Sunnyvale, CA, USA)
