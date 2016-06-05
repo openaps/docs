@@ -1,6 +1,6 @@
 # Visualization and Monitoring
 
-[Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your raspberry Pi or loop system and looking through log files. 
+[Nightscout](http://nightscout.info) is the recommended way to visualize your CGM data, your pump data, and ultimately closed-loop operation of OpenAPS. This provides a visual alternative to SSHing into your raspberry Pi or loop system and looking through log files. Even if you don't choose to share your Nightscout instance with another person, the ability to visualize all data combined on the same screen is very helpful. Furthermore, Nightscout can be used to generate helpful data reports, and to customize customize various watchfaces. 
 
 ## Nightscout Integration
 
@@ -12,8 +12,9 @@ OpenAPS requires the latest (currently dev) version of Nightscout, which can be 
 
 The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
-* Add "openaps" (without the quotes) and, optionally, "pump" (without the quotes) to the list of plugins enabled, and 
-* Add a new configuration variable DEVICESTATUS_ADVANCED="true" (without the quotes)
+* Add `careportal` to Nightscout's `ENABLE` environment variable in case it is not already there;
+* Add `openaps` and, optionally, `pump` to the `ENABLE` environment variable, and 
+* Add a new configuration variable `DEVICESTATUS_ADVANCED = true`
 
 For Azure users, here is what these configuration changes will look like (with just "openaps" added): ![azure config changes](https://files.gitter.im/eyim/lw6x/blob). For Heroku users, exactly the same changes should be made on the Config Vars page. The optional "pump" plugin enables additional pump monitoring pill boxes. For example, assuming you have added "pump" to the list of enabled plugins, you may add a new configuration variable PUMP_FIELDS="reservoir battery" to display pump reservoir and battery status on the Nightscout page. The "pump" plugin offers a number of other options, as documented on the Nightscout readme page: https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins 
 
@@ -42,13 +43,13 @@ You need to create a profile in your Nightscout site that contains the Timezone,
 These settings are not currently updated from the values stored in the pump. You will need to keep the Nightscout profile in sync with any changes you make in your pump.
 
 To configure your profile, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  
-Click on the Profile Editor button.  
-Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump.  
-Fill out all the profile fields and click save.
+Click on the Profile Editor button. Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump. Fill out all the profile fields and click save.
+
+Once you have Nightscount up and running, and ready for integration with OpenAPS, you will be able to add pump data and OpenAPS status to the display, as described in the rest of this section. The next steps require starting an openaps instance, setting up openaps devices, generating openaps reports, and collecting approptiate data. You may therefore skip the rest of this section, and come back to it once you have completed [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), and again once you have completed closing the loop.
+
+**NOTE: more significant updates to the rest of this section are in progress. You may proceed as described below or (even better) look through the recent [gitter chat](https://gitter.im/nightscout/intend-to-bolus) related to Nightscout integration.** 
 
 ### Configuring and Uploading OpenAPS Status
-
-**At this point in the docs I find it confusing as the next part dives straight into working inside of your openaps repo (or whatever the right term for it is). I would think before jumping straight to setting up the integration with Nightscout you would go over some basic `openaps use ns` type stuff, or even just doing `openaps init` for the first time. I see this stuff is in [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), so the next bit seems out of place if you're supposed to follow the phases in order**
 
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
@@ -117,8 +118,6 @@ Some things to be aware of:
 * You can scroll back in time and at each glucose data point you can see what the critical information was at that time
 
 ### Uploading Latest Treatments to Nightscout
-
-Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable in case it is not already there.
 
 In addition to uloading OpenAPS status, it also very beneficial to upload the treatment information from the pump into Nightscout.  This removes the burden of entering this information into Nightscout manually. This can be accomplished using `nightscout` command and adding a new `upload-recent-treatments` alias as follows: 
 
