@@ -8,8 +8,7 @@ The integration requires setting up Nightscout and making changes and additions 
 
 ### Nightscout Setup
 
-OpenAPS requires the latest (currently dev) version of Nightscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. 
-
+OpenAPS requires the latest (currently dev) version of Nightscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. If you are already using Nightscout you might have to update your repository. Just go to the https://github.com/nightscout/cgm-remote-monitor repository and look for "updating my version". Once you have completed these steps, log on to Azure or Heroku and disconnect the deployment source. Thereafter choose your cgm-remote-monitor github repository as source again. You should take the dev branch of this repository especially if you plan to use the advanced-meal-assist feature. 
 
 The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
@@ -49,6 +48,8 @@ Fill out all the profile fields and click save.
 
 ### Configuring and Uploading OpenAPS Status
 
+**At this point in the docs I find it confusing as the next part dives straight into working inside of your openaps repo (or whatever the right term for it is). I would think before jumping straight to setting up the integration with Nightscout you would go over some basic `openaps use ns` type stuff, or even just doing `openaps init` for the first time. I see this stuff is in [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), so the next bit seems out of place if you're supposed to follow the phases in order**
+
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
 * Adding a new `ns-status` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
@@ -79,6 +80,7 @@ $ openaps report add monitor/upload-status.json JSON ns-status shell monitor/clo
 The reports required to generate upload-status.json should look familiar. If you have not generated any of these required reports, you should set them up and make sure they all work.  In particular, note that monitor/clock-zoned.json contains the current pump clock time stamp, but with the timezone info included. If you have not generated that report already, you may do so using the following commands, which add a `tz` virtual device and use it to create clock-zoned.json starting from clock.json. 
 
 ```
+$ sudo pip install recurrent
 $ openaps vendor add openapscontrib.timezones
 $ openaps device add tz timezones
 $ git add tz.ini
@@ -116,6 +118,8 @@ Some things to be aware of:
 
 ### Uploading Latest Treatments to Nightscout
 
+Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable in case it is not already there.
+
 In addition to uloading OpenAPS status, it also very beneficial to upload the treatment information from the pump into Nightscout.  This removes the burden of entering this information into Nightscout manually. This can be accomplished using `nightscout` command and adding a new `upload-recent-treatments` alias as follows: 
 
 ```
@@ -124,7 +128,9 @@ $ openaps alias add format-latest-nightscout-treatments '! bash -c "nightscout c
 $ openaps alias add upload-recent-treatments '! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""' || die "Can't add upload-recent-treatments"
 ```
 
-Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json. After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscout page.  
+Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json, including making sure to add it to your monitor-pump alias. In addition, if you haven't already created a settings/model.json report, you should create that report and invoke it since it is required for format-latest-nightscout-treatments.
+
+After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.
 
 Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
 

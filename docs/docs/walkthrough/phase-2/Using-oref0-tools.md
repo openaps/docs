@@ -12,7 +12,7 @@ $ openaps device add oref0 process oref0
 and then you can be more specific and add individual oref0 processes as virtual devices using the following commands: 
 
 ```
-$ openaps device add get-profile process --require "settings bg_targets insulin_sensitivities basal_profile max_iob" oref0 get-profile
+$ openaps device add get-profile process --require "settings bg_targets insulin_sensitivities basal_profile preferences" oref0 get-profile
 $ openaps device add calculate-iob process --require "pumphistory profile clock" oref0 calculate-iob
 $ openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal
 ```
@@ -40,34 +40,61 @@ The purpose of the `get-profile` process is to consolidate information from mult
 * `bg_targets` outputs a JSON file with bg targets collected from the pump:
 
   ```
-  $ openaps report add settings/bg_targets.json JSON pump read_bg_targets
+  $ openaps report add settings/bg_targets_raw.json JSON pump read_bg_targets
+  ```
+If your pump OR CGM is European and displays mmol/L as opposed to mg/dl you will need to convert this "raw" file.
+
+First install the unit conversion device to ensure all units will match.
+ ```
+  $ openaps device add units units
+  ```
+Go through the standard process of use, report add, report invoke for the 2 reports below.
+
+For Blood Sugar Conversion
+The `units` function ensures that units will match.  To use it, add units to your list of devices with:
+  ```
+  $ openaps device add units units
+  ```
+To convert this "raw" file, we need to add a report that will perform
+`$ openaps use units bg_targets settings/bg_targets_raw.json`
+and output not to the screen but into a file called settings/bg_targets.json:
+  ```
+  $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
+  ```
+For Insulin Sensitivity
+   ```
+  $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities settings/insulin_sensitivities_raw.json
   ```
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
   ```
-  $ openaps report add settings/insulin_sensitivities.json JSON pump read_insulin_sensitivies
+  $ openaps report add settings/insulin_sensitivities_raw.json JSON <my_pump_name> read_insulin_sensitivies
   ```
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
 
   ```
-  $ openaps report add settings/basal_profile.json JSON pump read_basal_profile_std
+  $ openaps report add settings/basal_profile.json JSON <my_pump_name> read_basal_profile_std
   ```
 
-* `max_iob` is an exception: in contrast to the other settings above, `max_iob` is not the result of an openaps report. It's a JSON file that should contain a single line, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file. The max_iob variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.  
+* `preferences` is an exception: in contrast to the other settings above, `preferences` is not the result of an openaps report. It's a JSON file that should contain a single line with your maximum IOB, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file. The `max_iob` variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.
 
 Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
 ```
-$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets_raw.json settings/insulin_sensitivities_raw.json settings/basal_profile.json preferences.json
+```
+If you need to add a `profile` report that has the unit conversion, you can use this:
+```
+$ openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json preferences.json
 ```
 
 Note how the `profile` report uses `get-profile` virtual device, with all the required inputs provided.
 At this point, it's natural to add an alias that generates all the reports required for `get-profile`, and then invokes the `profile` report that calls `get-profile` on them: 
 
 ```
-$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
+$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
 ```
 
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created by invoking the report.
@@ -191,7 +218,7 @@ In this case, the evenatual BG is again less than the target, but BG is increasi
 {"temp": "absolute","bg": 95,"tick": "+4","eventualBG": 13,"snoozeBG": 67,"reason": "Eventual BG 13<90, but Avg. Delta 4.00 > Exp. Delta -2.9; no temp to cancel"}
 ```
 
-which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to also read [Understanding oref0-determine-basal recommendations](Understand-determine-basal.md) and spend some time generating and looking through suggested.json and other reports.
+which is similar to the previous example except that in this case there is no temp basal rate to cancel. To gain better understanding of oref0 operation, you may want to also read [Understanding oref0-determine-basal recommendations](../phase-3/Understand-determine-basal.md) and spend some time generating and looking through suggested.json and other reports.
 
 ## Enacting the suggested action
 
@@ -200,7 +227,9 @@ Based on suggested.json, which is the output of the `determine-basal` oref0 proc
 * Which pump command could be used to enact a new basal temp, if necessary, and what inputs should that command take? Where should these inputs come from? 
 * How could a decision be made whether a new basal temp should be sent to the pump or not? What should `enact` do in the cases when no new temp basal is suggested? 
 
-Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing. 
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
+
+In order to ensure that your pump is able to accept the temp basal suggestion, ensure that the temp basal setting, on the pump itself is set to "Insulin Rate (U/H)". This can be found in Act>basal>Temp basal type.
 
 ## Cleaning CGM data from Minimed CGM systems
 
