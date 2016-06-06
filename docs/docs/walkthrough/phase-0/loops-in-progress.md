@@ -29,3 +29,4 @@ List of people who are working on closed loops:
 - Nathan Morse
 - Paul Davis (Brighton, UK)
 - Marion Barker (Sunnyvale, CA, USA)
+- Frank Jungman (San Diego, CA)
