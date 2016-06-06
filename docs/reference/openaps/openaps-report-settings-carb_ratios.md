@@ -1,7 +1,7 @@
 #### `settings/carb_ratios.json`
 This report contains your carb ratios.
 ##### Setup code
-`openaps report add settings/model.json JSON pump read_carb_ratios`
+`openaps report add settings/carb-ratios.json JSON pump read_carb_ratios`
 ##### Sample contents
 `{
   "units": "grams", 
