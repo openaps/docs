@@ -1,5 +1,5 @@
 
-Phase 3: Automation
+Phase 3: Control
 -------------------
 
 .. toctree::
