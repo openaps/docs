@@ -66,25 +66,106 @@ That `openaps.ini` file is the configuration file for this particular instance o
 
 Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`). Similarly, if you see a command that you are unfamiliar with, such as `cat` or `cd`, Google it to understand what it does. The same goes for error messages—you are likely not the first one to encounter whatever error is holding you back.
 
+### Add openaps-contrib
+This provides us with timezone support:
+
+```
+openaps vendor add openapscontrib.timezones
+openaps device add tz timezones
+```
+
+## Get Pump data
 ### Add pump as device
 
-In order to communicate with the pump and cgm receiver, they must first be added as devices to the openaps configuration. To do this for the pump:
+`$ openaps device add <my_pump_name> medtronic`
 
-`$ openaps device add <my_pump_name> medtronic <my_serial_number>`
+In order to communicate with the pump and cgm receiver, they must first be
+added as devices to the openaps configuration. To do this for a device we'll
+call `pump`:
 
-Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
+`$ openaps device add pump medtronic`
 
-**Important:** Never share your 6-digit pump serial number and never post it online. If someone had access to this number, and was in radio reach of your pump, this could be used to communicate with your pump without your knowledge. While this is a feature when you want to build an OpenAPS, it is a flaw and a security issue if someone else can do this to you.
 
-### Add Dexcom CGM receiver as device
+Then to configure the new `pump` device with its serial number:
+`openaps use pump config --serial 123456`
 
-Now you will do this for the Dexcom CGM receiver:
+Create bunch of reports:
+`oref0 template mint reports medtronic-pump | openaps import`
 
-`$ openaps device add <my_dexcom_name> dexcom`
+Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must
+be the 6-digit serial number of your pump. You can find this either on the back
+of the pump or near the bottom of the pump's status screen, accessed by hitting
+the ESC key.
 
-Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.
+**Important:** Be careful when choosing to share your 6-digit pump serial
+number or posting it online. If someone had access to this number, and was in
+radio reach of your pump, this could be used to communicate with your pump
+without your knowledge. While this is a feature when you want to build an
+OpenAPS, it is a flaw and a security issue if someone else can do this to you.
 
-### Check that the devices are all added properly
+## Get CGM Data
+### From Dexcom CGM receiver via usb cable
+
+Now you will do this for the Dexcom CGM receiver using a usb cable:
+
+`$ openaps device add cgm dexcom`
+
+Note this step is not required if you are using a Medtronic CGM. The pump
+serves as the receiver and all of the pumping and glucose functionality are
+contained in the same openaps device.
+
+#### G5 support
+Support for G5 receiver is offered through the usb cable and configuring the
+`cgm` device with: `openaps use cgm config --G5`.
+
+### G4 with Share
+Install BLE helpers:
+```
+sudo pip install git+git://github.com/bewest/Adafruit_Python_BluefruitLE.git'#wip/bewest/custom-gatt-profile'
+sudo pip install git+git://github.com/bewest/openxshareble.git
+# adds openxshareble as vendor
+openaps vendor add openxshareble
+```
+
+Then set up cgm device this way:
+```
+openaps device add cgm openxshareble
+```
+
+### Glucose Data
+Test ability to get data.
+```
+openaps use cgm oref0_glucose  --hours 2.0
+
+# for G5 consider this instead:
+openaps use cgm oref0_glucose  --no-raw --hours 2.0
+
+```
+
+Add as report:
+```
+openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --hours 2.0
+# For G5:
+openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --no-raw --hours 2.0
+
+```
+
+Ensure that the data is zoned correcty:
+```
+openaps use tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
+openaps  tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
+```
+
+Save an alias to fetch CGM data:
+```
+openaps alias add monitor-cgm "report invoke raw-cgm/glucose-raw.json monitor/glucose.json"
+```
+
+Now, `openaps monitor-cgm` is available to pull in fresh CGM data from Dexcom.
+
+
+
+## Check that the devices are all added properly
 
 `$ openaps device show`
 
@@ -92,8 +173,9 @@ should return something like:
 
 ```
 medtronic://pump
-dexcom://cgms
+dexcom://cgm
 ```
+
 Here, `pump` was used for `<my_pump_name>` and `cgms` was used for
 `<my_dexcom_name>`. The names you selected should appear in their place.
 
@@ -115,7 +197,12 @@ extra = cgms.ini
 
 Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
 
-Because your pump's serial number also serves as its security key, that information is now stored in a separate ini file (here noted as `pump.ini`) that was created when you created the pump device. This makes it easier for sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini` more secure. Be careful with these files. Open the pump's ini file now (use the name reported to you in the line labeled `extra` in the `openaps.ini` file).
+Because your pump's serial number also serves as its security key, that
+information is now stored in a separate ini file (here noted as `pump.ini`)
+that was created when you created the pump device. This makes it easier for
+sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini`
+more secure. Be careful with these files. Open the pump's ini file now (use the
+name reported to you in the line labeled `extra` in the `openaps.ini` file).
 
 `$ cat pump.ini`
 
@@ -128,7 +215,9 @@ serial = 123456
 
 The serial number should match that of your pump. 
 
-If you made a mistake while adding your devices or simply don't like the name you used, you can go back and remove the devices as well. For example, to remove the pump:
+If you made a mistake while adding your devices or simply don't like the name
+you used, you can go back and remove the devices as well. For example, to
+remove the pump:
 
 `$ openaps device remove <my_pump_name>`
 
@@ -211,28 +300,113 @@ optional arguments:
 
 ### Pulling blood glucose levels from Nightscout
 
-Some people have found it more beneficial to pull blood glucose values from Nightscout rather than directly from the Dexcom receiver.  In order to do that, two steps are needed:
+Some people have found it more beneficial to pull blood glucose values from
+Nightscout rather than directly from the Dexcom receiver.
 
-1) Similar like above, we need to create a device that talks to Nightscout.  Add this device called "curl" to your list of devices in your openaps.ini file:  <br>
+Many people will actually setup both ways to pull the blood glucose level and
+switch between the different devices depending on their needs.  If you are
+going to pull it directly from Nightscout then you will have to have internet
+access for the Raspberry Pi.
+
+
+The `autoconfigure-device-crud` feature will allow us to create an easy to use `ns` device:
 
 ```
-[device "curl"]
-fields =
-cmd = bash
-vendor = openaps.vendors.process
-args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'"
-```
+$ nightscout autoconfigure-device-crud https://my.nightscout.host averylongplainsecret
+added process://ns/nightscout/ns NIGHTSCOUT_HOST API_SECRET
+process://ns/nightscout/ns https://my.nightscout.host e6fc892e8e88235a476d197de3dfbef3f2db53d0
 
-In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  The report will look like this in your openaps.ini file:
-  
 ```
-[report "monitor/glucose.json"]
-device = curl
-use = shell
-reporter = text
+It added a new `ns` device to our uses menu:
 ```
+openaps use ns shell get entries.json 'count=10'
+openaps use ns shell upload treatments.json recently/combined-treatments.json
+```
+So we now have various uses for `ns`: **get**, **upload**,
+**latest-treatment-time**, **format-recent-history-treatments**,
+**upload-non-empty-treatments**.
+#### nightscout tools in openaps
 
-Many people will actually setup both ways to pull the blood glucose level and switch between the different devices depending on their needs.  If you are going to pull it directly from Nightscout then you will have to have internet access for the Raspberry Pi.
+    openaps use ns shell get entries.json 'count=10'
+    openaps use ns shell upload treatments.json recently/combined-treatments.json
+```
+  -h                                  This message.
+  get type args                                  Get records of type from
+                                                 Nightscout matching args.
+
+  upload endpoint file                           Upload a file to the Nightscout endpoint.
+  latest-treatment-time                          - get latest treatment time from Nightscout
+  format-recent-history-treatments history model - Formats medtronic pump
+                                                 history and model into
+                                                 Nightscout compatible
+                                                 treatments.
+
+  format-recent-type ZONE type file              - Selects elements from the
+                                                 file where the elements would
+                                                 satisfy a gap in the last 1000
+                                                 Nightscout records.
+
+  upload-non-empty-treatments file               - Upload a non empty treatments
+                                                 file to Nightscout.
+  lsgaps tz entries                              - Re-use openaps timezone device
+                                                 to find gaps in a type (entries)
+                                                 by default.
+  upload-non-empty-type type file
+  status                                         - Retrieve status
+  preflight                                      - NS preflight
+```
+## Nightscout Endpoints
+
+* `entries.json` - Glucose values, mbgs, sensor data.
+* `treatments.json` - Pump history, bolus, treatments, temp basals.
+* `devicestatus.json` - Battery levels, reservoir.
+* `profile.json` - Planned rates/settings/ratios/sensitivities.
+* `status.json` - Server status.
+
+## Examples
+
+
+### Get records from Nightscout
+
+Use the get feature which takes two arguments: the name of the endpoint
+(entries, devicestatus, treatments, profiles) and any query arguments to append
+to the argument string. 'count=10' is a reasonable debugging value.
+The query-params can be used to generate any query Nightscout can respond to.
+
+    openaps use ns shell get $endpoint $query-params
+
+### Unifying pump treatments in Nightscout
+
+To upload treatments data to Nightscout, prepare you zoned glucose, and pump
+model reports, and use the following two reports:
+
+    openaps report add nightscout/recent-treatments.json JSON ns shell  format-recent-history-treatments monitor/pump-history.json model.json
+    openaps report add nightscout/uploaded.json JSON  ns shell upload-non-empty-treatments  nightscout/recent-treatments.json
+
+Here are the equivalent uses:
+
+    openaps use ns shell format-recent-history-treatments monitor/pump-history.json model.json
+    openaps use ns shell upload-non-empty-treatments nightscout/recent-treatments.json
+
+The first report runs the format-recent-history-treatments use, which fetches
+data from Nightscout and determines which of the latest deltas from openaps
+need to be sent. The second one uses the upload-non-empty-treatments use to
+upload treatments to Nightscout, if there is any data to upload.
+
+### Uploading glucose values to Nightscout
+
+Format potential entries (glucose values) for Nightscout.
+
+    openaps use ns shell format-recent-type tz entries monitor/glucose.json  | json -a dateString | wc -l
+    # Add it as a report
+    openaps report add nightscout/recent-missing-entries.json JSON ns shell format-recent-type tz entries monitor/glucose.json  
+    # fetch data for first time
+    openaps report invoke nightscout/recent-missing-entries.json
+
+    # add report for uploading to NS
+    openaps report add nightscout/uploaded-entries.json JSON  ns shell upload entries.json nightscout/recent-missing-entries.json 
+    # upload for fist time.
+    openaps report invoke nightscout/uploaded-entries.json
 
 
 <br>
