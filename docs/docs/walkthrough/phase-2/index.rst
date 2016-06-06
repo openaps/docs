@@ -1,5 +1,5 @@
 
-Phase 2: Predict
+Phase 2: Creating an Open Loop
 ------------------------------
 
 .. toctree::

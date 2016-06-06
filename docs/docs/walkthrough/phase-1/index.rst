@@ -1,4 +1,4 @@
-Phase 1: Monitor
+Phase 1: Monitoring and Visualization
 ---------------------------------------------------
 
 .. toctree::

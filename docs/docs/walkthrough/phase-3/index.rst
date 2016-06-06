@@ -1,6 +1,6 @@
 
-Phase 3: Control
--------------------
+Phase 3: Automated Control
+---------------------------
 
 .. toctree::
    :maxdepth: 4
