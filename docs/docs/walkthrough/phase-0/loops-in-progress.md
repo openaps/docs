@@ -30,4 +30,3 @@ List of people who are working on closed loops:
 - Paul Davis (Brighton, UK)
 - Marion Barker (Sunnyvale, CA, USA)
 - Frank Jungman (San Diego, CA)
-- Sophie Thacher
