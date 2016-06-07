@@ -27,6 +27,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
+  * **Note** The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatable Medtronic Pumps (Despite that pump originaly being offered with SoftSensor CGM Sensors).
 * <b>Other Supplies</b>:
   * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
  * Raspberry Pi 2 Model B ("RPi2")**(see note below)
