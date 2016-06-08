@@ -32,3 +32,4 @@ List of people who are working on closed loops:
 - Frank Jungman (San Diego, CA)
 - Sophie Thacher
 - Luis Betancourt (Veracruz, Mexico)
+- Tom Boudreau (Washington DC, USA)
