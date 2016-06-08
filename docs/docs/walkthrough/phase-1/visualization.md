@@ -46,6 +46,10 @@ Click on the Profile Editor button.
 Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump.  
 Fill out all the profile fields and click save.
 
+### New simpler method for Nightscout upload
+
+[This walkthrough](openaps-to-nightscout.md) outlines an easier method than the below.  We need volunteers to run through this method and replace the sections below as appropriate.
+
 ### Configuring and Uploading OpenAPS Status
 
 **At this point in the docs I find it confusing as the next part dives straight into working inside of your openaps repo (or whatever the right term for it is). I would think before jumping straight to setting up the integration with Nightscout you would go over some basic `openaps use ns` type stuff, or even just doing `openaps init` for the first time. I see this stuff is in [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), so the next bit seems out of place if you're supposed to follow the phases in order**
