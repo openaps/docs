@@ -33,3 +33,4 @@ List of people who are working on closed loops:
 - Sophie Thacher
 - Luis Betancourt (Veracruz, Mexico)
 - Tom Boudreau (Washington DC, USA)
+- Ryan Chen
