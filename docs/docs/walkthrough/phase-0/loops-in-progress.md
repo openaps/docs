@@ -34,3 +34,4 @@ List of people who are working on closed loops:
 - Luis Betancourt (Veracruz, Mexico)
 - Tom Boudreau (Washington DC, USA)
 - Ryan Chen
+- Katherine Mason
