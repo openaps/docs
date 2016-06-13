@@ -42,29 +42,29 @@ The purpose of the `get-profile` process is to consolidate information from mult
   ```
   $ openaps report add settings/bg_targets_raw.json JSON pump read_bg_targets
   ```
-If your pump OR CGM is European and displays mmol/L as opposed to mg/dl you will need to convert this "raw" file.
-
-First install the unit conversion device to ensure all units will match.
- ```
-  $ openaps device add units units
-  ```
-Go through the standard process of use, report add, report invoke for the 2 reports below.
-
-For Blood Sugar Conversion
-The `units` function ensures that units will match.  To use it, add units to your list of devices with:
-  ```
-  $ openaps device add units units
-  ```
-To convert this "raw" file, we need to add a report that will perform
-`$ openaps use units bg_targets settings/bg_targets_raw.json`
-and output not to the screen but into a file called settings/bg_targets.json:
-  ```
-  $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
-  ```
-For Insulin Sensitivity
-   ```
-  $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities settings/insulin_sensitivities_raw.json
-  ```
+  * If your pump OR CGM is European and displays mmol/L as opposed to mg/dl you will need to convert this "raw" file.
+    
+    First install the unit conversion device to ensure all units will match.
+     ```
+      $ openaps device add units units
+      ```
+    Go through the standard process of use, report add, report invoke for the 2 reports below.
+    
+    For Blood Sugar Conversion
+    The `units` function ensures that units will match.  To use it, add units to your list of devices with:
+      ```
+      $ openaps device add units units
+      ```
+    To convert this "raw" file, we need to add a report that will perform
+    `$ openaps use units bg_targets settings/bg_targets_raw.json`
+    and output not to the screen but into a file called settings/bg_targets.json:
+      ```
+      $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
+      ```
+    For Insulin Sensitivity
+       ```
+      $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities settings/insulin_sensitivities_raw.json
+      ```
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
