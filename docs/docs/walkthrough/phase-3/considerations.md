@@ -1,3 +1,15 @@
 # Phase 3: Understanding Your Open Loop
 
 Phase 3 entails understanding what the open loop is recommmending, and why. You should run with an "open loop" for enough days to decde what your max basal setting should be, and also observe how often you disagree or decide to counteract what the loop is recommending.
+
+### Open Loop Testing Phase: Tips & Lessons Learned 
+
+* Use Careportal to it's fullest advantage by entering in every single diabetes event during the times that you're testing the open loop. This will help you get a clearer understanding of what's causing the APS to reccomend any given basal manipulation, and will help you identify areas that need tweaking - whether it be a basal change or formula (ISF, DIA, etc.) change. 
+* If possible, try to test a variety of different scenarios (high activity, eating out, etc.) with the open loop so you can see how it will react and if any changes need to be made.
+* Realize ahead of time that while you're testing the open loop, you'll be interacting with it pretty much constantly. You'll be looking at the APS outputs every 3-4 minutes, deciphering the recommendations, and taking notes on whether or not you agree with what the system is suggesting. Since you're imitating a closed loop, it can be a quite time intensive task. Keep that in mind when you're deciding when to test it out. 
+* Test your BG more often than you usually would to make sure the APS is reacting to accurate data. This is also a good time to brush up on your calibration techniques (not too many or too few, taking the average of multiple finger sticks, making sure hands are clean, etc.) and make sure you're doing everything you can to ensure accurate CGM data. That being said...
+* Consider that you'll be testing a lot more than usual during this phase, meaning that you'll be using a lot more test strips than usual. Make sure you ration your strips appropriately, if needed, so you don't run out. 
+* Take notes/journal as you go!! You'll want to be able to go back and reference not just your data, but the insights you'll have as you learn the system. Write down your observations. Ideally, talk through them with a trusted friend or loved one along with writing them down. You won't regret it. 
+* On a similar note: Take pictures as you go! If nothing else, you'll enjoy the nostalgia of looking back at your first rig one day. 
+* Use the days that you test the open loop to refine or retest your knowledge about your own diabetes. It's a perfect time to make sure all your ratios, formulas, caluculations, and assumptions you have about your T1D are still true for you. 
+* BE CAREFUL NOT TO UNPLUG YOUR RIG! It can cause it to become corrupted. 
