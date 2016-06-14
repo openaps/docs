@@ -64,7 +64,6 @@ The purpose of the `get-profile` process is to consolidate information from mult
     For Insulin Sensitivity
        ```
       $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities settings/insulin_sensitivities_raw.json
-```
 
 * `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
 
