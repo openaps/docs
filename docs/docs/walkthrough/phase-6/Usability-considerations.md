@@ -16,4 +16,7 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
  * **Running** - If it is a short run, (<30 minutes), I may not take the loop with me because any adjustments it would make are going to impact me after the run is done. For longer runs, I often now take my small, Edison based rig which can slip into the pocket of my hand-held running drink bottle that holds Gatorade. Before any length run, I try to make sure I don't have much positive netIOB on board (that's the biggest key to success). I also turn on activity mode (essentially a temp target of 120-140 or changing my pump targets to 120-140) an hour or so before a run and during the run; especially if I am carrying the loop during the run. 
  
  For any exercise or activity or time period, if you do not choose to take your loop (or if you forget it), the loop will pick up again once you get back into range and resume. (This is why it's important to temp then suspend so it can track the amount of insulin you haven't been getting.) 
+
+* **Be careful not to unplug it!**
+<br> Be careful not to unplug your rig from it's battery pack at any time. There is a signifigant chance that this will corrupt your APS and you'll have to rebuild it. 
  
