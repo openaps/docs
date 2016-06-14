@@ -8,6 +8,16 @@ If you choose to enable the optional meal-assist feature, then after you give yo
 
 Like all features and steps, you'll want to carefully enable, test, and observe the outcomes of this feature.
 
+`oref0 meal`
+`usage:  [ 'node', '/usr/local/bin/oref0-meal' ] <pumphistory.json> <profile.json> <clock.json> [carbhistory.json]`
+Requires inputs of pumphistory.json, profile.json and clock.json reports. Optionally the [carbhistory.json] is required from another source such as Nightscout if carbs are not entered into the pump directly. 
+The output of this command `meal.json` gives three values - carbs, boluses, and mealCOB eg:
+`{"carbs":40,"boluses":2.1,"mealCOB":30}`
+carbs - carbs in grams
+boluses - units of insulin bolused
+mealCOB - decayed carbs with assumption of 30g of carbs absorbed per hour, which will be equal to or less than carbs. Used for informational purposes only.
+
+
 ## Auto-sensitivity mode
 
 Wouldn't it be great if the system knew when you were running sensitive or resistant? That's what we thought, so we created "auto-sensitivity mode". If you explicitly configure this additional feature, it will allow the system to analyze historical data on the go and make adjustments if it recognizes that you are reacting more sensitivite (or conversely, more resistant) to insulin than usual. It will then make micro adjustments to your basals. 
