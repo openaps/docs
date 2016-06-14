@@ -18,5 +18,5 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
  For any exercise or activity or time period, if you do not choose to take your loop (or if you forget it), the loop will pick up again once you get back into range and resume. (This is why it's important to temp then suspend so it can track the amount of insulin you haven't been getting.) 
 
 * **Be careful not to unplug it!**
-<br> Be careful not to unplug your rig from it's battery pack at any time. There is a signifigant chance that this will corrupt your APS and you'll have to rebuild it. 
+<br> Be careful not to unplug your rig from its battery pack at any time. There is a signifigant chance that this will corrupt your APS and you'll have to rebuild it. Note - there are two different kinds of corruption you can run into. One is a git corruption (which can be fixed by running [oref0-reset-git](https://github.com/openaps/docs/blob/5f92e233a8dffdf3aad8dee140bf470bb4d9ca13/docs/reference/oref0/oref0-reset-git.md) in cron). The other is a SD card corruption, which may require reinstallation of the disk image. 
  
