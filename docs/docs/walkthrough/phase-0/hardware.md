@@ -19,6 +19,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * 523/723 (with firmware 2.4A or lower)
 		 * 554/754 (European Veo, with firmware 2.6A or lower)
 		 * (To check firmware, hit Esc on the home screen and scroll all the way to the bottom.  You can also go into the Utilities menu and look for a PC Connect option.  If that is present, the pump will *not* work for looping.  If it's absent, it should be able to receive temp basal commands.)
+		 * If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
 * <b>A way to communicate with the pump</b>:
 	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
