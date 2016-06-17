@@ -78,11 +78,17 @@ Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must b
 
 ### Add Dexcom CGM receiver as device
 
-Now you will do this for the Dexcom CGM receiver:
+(Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.)
+
+For all Dexcom CGM systems:
 
 `$ openaps device add <my_dexcom_name> dexcom`
 
-Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.
+For a Dexcom G5 system, you need to configure openaps specifically for the G5:
+
+`openaps use <my_dexcom_name> config --G5`
+
+NB:  The above command can also be used to change from a G4 to G5 system in an already functioning loop. If that doesn't work, update openaps. 
 
 ### Check that the devices are all added properly
 
