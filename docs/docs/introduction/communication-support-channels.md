@@ -8,7 +8,7 @@ There are several ways to communicate with other participants and contributors i
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. 
 
 * The [nightscout/intend-to-bolus]( https://gitter.im/nightscout/intend-to-bolus) channel is where you will find active #OpenAPS discussions ranging from technical issues with openaps tools to control theory to general information. It is a great place to introduce yourself and get some help from those who are a few steps further down the road.
-* For TI stick communication, use the [oskarpearson/mmeowlink channel](https://giter.im/oskarpearson/mmeowlink)
+* For TI stick communication, use the [oskarpearson/mmeowlink channel](https://gitter.im/oskarpearson/mmeowlink)
 * For RileyLink conversations, use the [ps2/rileylink channel](https://gitter.im/ps2/rileylink)
 * For LoopKit conversations, use the [loudnate/LoopKit channel](https://gitter.im/loudnate/loopkit)
 
