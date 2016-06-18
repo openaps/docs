@@ -143,7 +143,7 @@ This process uses the IOB computed by `calculate-iob`, the current temp basal st
 * `glucose` reads several most recent BG values from CGM and stores them in glucose.json file:
   
   ```
-  $ openaps report add monitor/glucose.json JSON cgm iter_glucose 5
+  $ openaps report add monitor/glucose.json JSON <my_cgm_name> iter_glucose 5
   ```
 
 In this example, glucose.json will contain 5 most recent bg values. 
