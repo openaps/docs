@@ -39,3 +39,4 @@ List of people who are working on closed loops:
 - Brandon Faloona (Seattle, WA / Burbank, CA)
 - Keith Burns - for Heather (Richmond, VA)
 - Kim St. Dennis (Los Angeles, CA)
+- Ed Nykaza
