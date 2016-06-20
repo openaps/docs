@@ -1,5 +1,5 @@
 #### `settings/bg_targets.json`
-This report contains the high/low glucose targets set up in your pump.
+This report contains the high/low glucose targets set up in your pump. OpenAPS has a hardcoded "min_bg" floor of 90, which will override any pump low target bg value below 90.
 ##### Setup code
 `openaps report add settings/bg_targets.json JSON pump read_bg_targets`
 ##### Sample contents
@@ -19,4 +19,4 @@ This report contains the high/low glucose targets set up in your pump.
   "first": 1
 }`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)

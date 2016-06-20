@@ -3,7 +3,7 @@ This report contains a general profile of the information in your pump such as c
 ##### Setup code
 `openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json`
 ##### Sample contents
-`{"max_iob":5,"type":"current","dia":4,"current_basal":1.8,"max_daily_basal":2.2,"max_basal":6,"min_bg":100,"max_bg":120,"sens":20,"carb_ratio":5}`
+`{"max_iob":0,"type":"current","dia":4,"current_basal":1.8,"max_daily_basal":2.2,"max_basal":6,"min_bg":100,"max_bg":120,"sens":20,"carb_ratio":5}`
 ##### Dependencies
 * [`settings/settings.json`](openaps-report-settings-settings.md)
 * [`settings/bg_targets.json`](openaps-report-settings-bg_targets.md)

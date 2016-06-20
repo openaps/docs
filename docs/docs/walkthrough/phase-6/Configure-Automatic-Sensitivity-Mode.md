@@ -62,7 +62,7 @@ openaps report add settings/auto-sens.json text auto-sens shell monitor/glucose.
 ```
 Now invoke the report to test:
 ```
-openaps invoke report settings/auto-sens.json
+openaps report invoke settings/auto-sens.json
 ```
 
 6) Next we need to add the `auto-sens.json` report to the `oref0-determine-basal` device.  In `openaps.ini` make sure your `oref0-determine-basal` looks similar to this:

@@ -15,6 +15,6 @@ This report contains several entries detailing the levels of IOB (Insulin On Boa
   },
 ]`
 ##### Dependencies
-* [`monitor/pumphistory-zoned.json`](openaps/openaps-report-monitor-pumphistory-zoned.md)
-* [`settings/profile.json`](openaps/openaps-report-settings-profile.md)
-* [`monitor/clock-zoned.json`](openaps/openaps-report-monitor-clock-zoned.md)
+* [`monitor/pumphistory-zoned.json`](openaps-report-monitor-pumphistory-zoned.md)
+* [`settings/profile.json`](openaps-report-settings-profile.md)
+* [`monitor/clock-zoned.json`](openaps-report-monitor-clock-zoned.md)

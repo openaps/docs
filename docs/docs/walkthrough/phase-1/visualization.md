@@ -182,7 +182,13 @@ Click on the Profile Editor button.
 Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump.  
 Fill out all the profile fields and click save.
 
+### New simpler method for Nightscout upload
+
+[This walkthrough](openaps-to-nightscout.md) outlines an easier method than the below.  We need volunteers to run through this method and replace the sections below as appropriate.
+
 ### Configuring and Uploading OpenAPS Status
+
+**At this point in the docs I find it confusing as the next part dives straight into working inside of your openaps repo (or whatever the right term for it is). I would think before jumping straight to setting up the integration with Nightscout you would go over some basic `openaps use ns` type stuff, or even just doing `openaps init` for the first time. I see this stuff is in [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), so the next bit seems out of place if you're supposed to follow the phases in order**
 
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
@@ -251,6 +257,8 @@ Some things to be aware of:
 * You can scroll back in time and at each glucose data point you can see what the critical information was at that time
 
 ### Uploading Latest Treatments to Nightscout
+
+Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable in case it is not already there.
 
 In addition to uloading OpenAPS status, it also very beneficial to upload the treatment information from the pump into Nightscout.  This removes the burden of entering this information into Nightscout manually. This can be accomplished using `nightscout` command and adding a new `upload-recent-treatments` alias as follows: 
 

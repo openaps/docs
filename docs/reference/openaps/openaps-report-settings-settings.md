@@ -31,4 +31,4 @@ This report contains various settings specific to your pump.
   "paradigm_enabled": 1
 }`
 ##### Dependencies
-None
+* [`pump.ini`](openaps-device-pump.md)
