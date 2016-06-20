@@ -4,7 +4,7 @@ To view your data on your Nightscout site, start by doing the following:
 $nightscout autoconfigure-device-crud https://yourname.com yourplainapisecret
 So this would be your actual https://myname.azurewebsites.net  or https://myname.herokuapp.com  Your API_SECRET is listed in your Azure or Heroku settings.
 To test this: $openaps use ns shell preflight
-To get aliases: 
+To get aliases (notice; be careful with this script, you will want to make sure that the script references the report names that you created.  Recommend copying the code into a text editor, change the report names to the names that you set up, and then running the script to complete this step.)
 curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/181c5d6f29cd6489ecc9630786cf2c4937ddde79/bewest-aliases.json | openaps import
 
 To pull data:  $openaps gather-clean-data
