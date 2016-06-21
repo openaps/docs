@@ -35,4 +35,4 @@ It will now be in a list of PR's that the team will review and potentially give 
 
 Congrats, you made your first contribution!
 
-PS, your fork will still be sitting on your own personal github account. You can delete it if you are done with it. In the future, be sure to pull a fresh copy from github.com/openaps/docs before making new edits.
+PS, your fork will still be sitting on your own personal github account. After you get a notification that your PR has been merged, you can delete your branch/fork if you are done with it. In the future, be sure to pull a fresh copy from github.com/openaps/docs before making new edits.

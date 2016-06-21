@@ -19,6 +19,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * 523/723 (with firmware 2.4A or lower)
 		 * 554/754 (European Veo, with firmware 2.6A or lower)
 		 * (To check firmware, hit Esc on the home screen and scroll all the way to the bottom.  You can also go into the Utilities menu and look for a PC Connect option.  If that is present, the pump will *not* work for looping.  If it's absent, it should be able to receive temp basal commands.)
+		 * If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
 * <b>A way to communicate with the pump</b>:
 	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
@@ -27,6 +28,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
+  * **Note** The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatable Medtronic Pumps (Despite that pump originaly being offered with SoftSensor CGM Sensors).
 * <b>Other Supplies</b>:
   * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
  * Raspberry Pi 2 Model B ("RPi2")**(see note below)
@@ -54,7 +56,7 @@ Eventually, once you have an entire OpenAPS build up and running, it is recommen
 
 See currently known working list of pumps above. The easiest way to navigate to the Utilities / Connect Devices menu on your pump. If "PC Connect" is present in this menu, your pump is _not_ compatible with OpenAPS.
 
-Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added in firmware version 2.5A that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop ([see example here](http://bit.ly/1itCsRl)).
+Due to changes in the firmware, the openaps tools are only able to function in full on the above pump models. Security features were added after the firmware version 2.4 that prevent making some remote adjustments via the CareLink USB stick. Each pump series is slightly different, and openaps functionality is still being ironed out for some of them. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop ([see example here](http://bit.ly/1itCsRl)).
 
 If you need to acquire an appropriate pump check CraigsList or other sites like Medwow or talk to friends in your local community to see if there are any old pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. Note: If you're buying a pump online, we recommended you ask the seller to confirm the firmware version of the pump. (You may also want to consider asking for a video of the pump with working functionality before purchasing.)
 
