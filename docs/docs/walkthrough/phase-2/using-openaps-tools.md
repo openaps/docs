@@ -1,138 +1,3 @@
-# Configuring and Learning to Use openaps Tools
-
-This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
-
-The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
-
-
-Some familiarity with using the terminal will go a long way, so if you aren't
-comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell
-/ Terminal links on the [Technical
-Resources](../../Resources/technical-resources.md) page.
-
-Some conventions used in this guide:
-* Wherever there are `<bracketed_components>` in the the code, these are meant
-  for you to insert your own information. Most of the time, it doesn't matter
-  what you choose **as long as you stay consistent throughout this guide**.
-  That means if you choose `Barney` as your  ` < my_pump_name > `, you must use
-  `Barney` every time you see `< my_pump_name >`. Choose carefully. Do not
-  include the ` < > ` brackets in your name.
-
-
-``` eval_rst
-.. note::
-    One helpful thing to do before starting is to log your terminal session. This
-    will allow you to go back and see what you did at a later date. This will also
-    be immensely helpful if you request help from other OpenAPS contributors as you
-    will be able to provide an entire history of the commands you used. To enable
-    this, just run `$ script <filename>` at the beginning of your session. It will
-    inform you that `Script started, file is <filename>`. When you are done, simply
-    `$ exit` and it will announce `Script done, file is <filename>`. At that point,
-    you can review the file as necessary.
-```
-
-<br>
-## Configuring openaps
-
-### Initialize a new openaps environment
-
-To get started, SSH into your Raspberry Pi. Go to your home directory:
-
-`$ cd`
-
-Create a new instance of openaps in a new directory:
-
-`$ openaps init <my_openaps>`
-
-As mentioned above, `<my_openaps>` can be anything you'd like: `myopenaps`, `awesome-openaps`, `openaps4ever`, `bob`, etc.
-
-Now that it has been created, move into the new openaps directory:
-
-`$ cd <my_openaps>`
-
-All subsequent openaps commands must be run in this directory. If you try to run an openaps command in a different directory, you will receive an error:
-
-`Not an openaps environment, run: openaps init`
-
-The directory you just created and initialized as an openaps environment is mostly empty at the moment, as can been seen by running the list files command:
-
-```
-$ ls
-openaps.ini
-```
-That `openaps.ini` file is the configuration file for this particular instance of openaps. It will contain all of your device information, plugin information, reports, and aliases. In the subsequent sections, you will be configuring your openaps instance to add these components. For now, however, it is blank. Go ahead and take a look:
-
-`$ cat openaps.ini`
-
-Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`). Similarly, if you see a command that you are unfamiliar with, such as `cat` or `cd`, Google it to understand what it does. The same goes for error messages—you are likely not the first one to encounter whatever error is holding you back.
-
-### Add pump as device
-
-In order to communicate with the pump and cgm receiver, they must first be added as devices to the openaps configuration. To do this for the pump:
-
-`$ openaps device add <my_pump_name> medtronic <my_serial_number>`
-
-Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must be the 6-digit serial number of your pump. You can find this either on the back of the pump or near the bottom of the pump's status screen, accessed by hitting the ESC key.
-
-**Important:** Never share your 6-digit pump serial number and never post it online. If someone had access to this number, and was in radio reach of your pump, this could be used to communicate with your pump without your knowledge. While this is a feature when you want to build an OpenAPS, it is a flaw and a security issue if someone else can do this to you.
-
-### Add Dexcom CGM receiver as device
-
-Now you will do this for the Dexcom CGM receiver:
-
-`$ openaps device add <my_dexcom_name> dexcom`
-
-Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.
-
-### Check that the devices are all added properly
-
-`$ openaps device show`
-
-should return something like:
-
-```
-medtronic://pump
-dexcom://cgms
-```
-Here, `pump` was used for `<my_pump_name>` and `cgms` was used for
-`<my_dexcom_name>`. The names you selected should appear in their place.
-
-Your `openaps.ini` file now has some content; go ahead and take another look:
-
-`$ cat openaps.ini`
-
-Now, both of your devices are in this configuration file:
-
-```
-[device "pump"]
-vendor = openaps.vendors.medtronic
-extra = pump.ini
-
-[device "cgms"]
-vendor = openaps.vendors.dexcom
-extra = cgms.ini
-```
-
-Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
-
-Because your pump's serial number also serves as its security key, that information is now stored in a separate ini file (here noted as `pump.ini`) that was created when you created the pump device. This makes it easier for sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini` more secure. Be careful with these files. Open the pump's ini file now (use the name reported to you in the line labeled `extra` in the `openaps.ini` file).
-
-`$ cat pump.ini`
-
-It should show something like this:
-
-```
-[device "pump"]
-serial = 123456
-```
-
-The serial number should match that of your pump. 
-
-If you made a mistake while adding your devices or simply don't like the name you used, you can go back and remove the devices as well. For example, to remove the pump:
-
-`$ openaps device remove <my_pump_name>`
-
-Then, you can add your pump again with a different name or serial number.
 
 ### Check that you can communicate with your pump
 
@@ -155,7 +20,7 @@ $ openaps use <my_pump_name> model -h
 usage: openaps-use pump model [-h]
 
  Get model number
-  
+
 
 optional arguments:
   -h, --help  show this help message and exit
@@ -169,9 +34,9 @@ Go ahead and try some more pump uses to find out what they do. Note that some of
 
 Now let's try communicating with the Dexcom receiver.
 
-Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, or if the charging icon on the Dexcom keeps cycling on and off, that is a sign that it is drawing too much power and needs to be charged. 
+Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, or if the charging icon on the Dexcom keeps cycling on and off, that is a sign that it is drawing too much power and needs to be charged.
 
-> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `$ sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`. 
+> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `$ sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`.
 
 > Reboot via `$ sudo shutdown -r now` to pick up the changes.
 
@@ -182,9 +47,9 @@ should return something like:
 ```
 [
   {
-    "trend_arrow": "FLAT", 
-    "system_time": "2015-08-23T21:45:29", 
-    "display_time": "2015-08-23T13:46:21", 
+    "trend_arrow": "FLAT",
+    "system_time": "2015-08-23T21:45:29",
+    "display_time": "2015-08-23T13:46:21",
     "glucose": 137
   }
 ]
@@ -222,9 +87,14 @@ cmd = bash
 vendor = openaps.vendors.process
 args = -c "curl -s https://yourwebsite.azurewebsites.net/api/v1/entries.json | json -e 'this.glucose = this.sgv'"
 ```
+Test this to ensure you can get data.  
+'curl https://yourwebsite.azurewebsites.net/api/v1/entries.json' should return a list of data from Nightscout.
 
-In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  The report will look like this in your openaps.ini file:
-  
+
+In addition, you need to alter your monitor/glucose.json report to use this device rather than the cgms device you setup above.  
+
+If you do not have this report yet, go ahead and add it, then invoke it to create the file. The report will look like this in your openaps.ini file:
+
 ```
 [report "monitor/glucose.json"]
 device = curl
@@ -315,11 +185,11 @@ Aliases will invoke reports and execute logic and shell commands. Aliases are no
 
 ## Putting the Pieces Together
 
-Take a moment to consider putting these commands to work in the larger context of a closed-loop system. Components of that system that you might need to `add` and `invoke` would be recent glucose data, recent pump history, the time, battery status, pump settings, carb ratios, the current basal profile, insulin sensitivities, blood glucose targets, and the status of the pump. 
+Take a moment to consider putting these commands to work in the larger context of a closed-loop system. Components of that system that you might need to `add` and `invoke` would be recent glucose data, recent pump history, the time, battery status, pump settings, carb ratios, the current basal profile, insulin sensitivities, blood glucose targets, and the status of the pump.
 
-Go ahead and add and invoke reports for these components of a future closed-loop system. 
+Go ahead and add and invoke reports for these components of a future closed-loop system.
 
-Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history. 
+Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history.
 
 Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the "use" command. The "use" command is -h anotated. To see the annotation use this command $ openaps use <pumpname> -h
 

@@ -25,6 +25,9 @@ List of people who are working on closed loops:
 - Andy Pabari
 - Rob Kresha - (Papillion, NE, USA)
 - Christian Robinson (London, UK)
+<<<<<<< HEAD
+- Andy Probolus & Marianne Smith
+=======
 - Gary Kidd 
 - Nathan Morse
 - Paul Davis (Brighton, UK)
@@ -39,3 +42,4 @@ List of people who are working on closed loops:
 - Brandon Faloona (Seattle, WA / Burbank, CA)
 - Keith Burns - for Heather (Richmond, VA)
 - Kim St. Dennis (Los Angeles, CA)
+>>>>>>> openaps/dev

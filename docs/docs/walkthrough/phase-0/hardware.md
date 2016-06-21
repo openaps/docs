@@ -22,7 +22,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
 * <b>A way to communicate with the pump</b>:
-	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
+	* Medtronic CareLink USB stick is the recommended option for your initial loop setup.  You can find this on the Medtronic website (https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device)
 	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
 * <b>A Continuous Glucose Monitor (CGM)</b>:
  * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
@@ -45,6 +45,8 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * USB Mouse [optional, for the same purpose]
 
 \** Several #OpenAPS contributors recommend the Raspberry Pi 2 CanaKit, which includes several essential accessories in one package and can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/)
+
+Raspberry Pi 3 version is also available and allows for BLE out of the box.
 
 The CanaKit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micro USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
 
