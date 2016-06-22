@@ -1,5 +1,5 @@
 
-Phase 2: Build a Manual System
+Phase 2: Creating an Open Loop
 ------------------------------
 
 .. toctree::
@@ -7,7 +7,6 @@ Phase 2: Build a Manual System
    
 
    considerations
-   using-openaps-tools
    building-preflight-safety-checks
    Using-oref0-tools
    loop-and-retry-logic
