@@ -1,4 +1,4 @@
-Phase 1: Logging, Cleaning, and Analyzing Your Data
+Phase 1: Monitoring and Visualization
 ---------------------------------------------------
 
 .. toctree::
@@ -7,6 +7,8 @@ Phase 1: Logging, Cleaning, and Analyzing Your Data
    
    log-clean-analyze
    analyze-existing-data
+   using-openaps-tools
+
    visualization
 
 

@@ -40,3 +40,4 @@ List of people who are working on closed loops:
 - Keith Burns - for Heather (Richmond, VA)
 - Kim St. Dennis (Los Angeles, CA)
 - Gabriel and Gideon Arom (Chicago, IL / Los Angeles, CA)
+- Arlene Samowich (Nashville, TN)

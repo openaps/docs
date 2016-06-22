@@ -4,36 +4,47 @@
 
 ## Nightscout Integration
 
-The integration requires setting up Nightscout and making changes and additions to your OpenAPS implementation.
+The integration requires setting up Nightscout and making changes and additions
+to your OpenAPS implementation.
 
 ### Nightscout Setup
 
-OpenAPS requires the latest (currently dev) version of Nightscout, which can be found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. If you are already using Nightscout you might have to update your repository. Just go to the https://github.com/nightscout/cgm-remote-monitor repository and look for "updating my version". Once you have completed these steps, log on to Azure or Heroku and disconnect the deployment source. Thereafter choose your cgm-remote-monitor github repository as source again. You should take the dev branch of this repository especially if you plan to use the advanced-meal-assist feature. 
+OpenAPS requires the latest (currently dev) version of Nightscout, which can be
+found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. If you
+are already using Nightscout you might have to update your repository. Just go
+to the https://github.com/nightscout/cgm-remote-monitor repository and look for
+"updating my version". Once you have completed these steps, log on to Azure or
+Heroku and disconnect the deployment source. Thereafter choose your
+cgm-remote-monitor github repository as source again. You should take the dev
+branch of this repository especially if you plan to use the
+advanced-meal-assist feature. 
 
 The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
 * Add "openaps" (without the quotes) and, optionally, "pump" (without the quotes) to the list of plugins enabled, and 
 * Add a new configuration variable DEVICESTATUS_ADVANCED="true" (without the quotes)
 
-For Azure users, here is what these configuration changes will look like (with just "openaps" added): ![azure config changes](https://files.gitter.im/eyim/lw6x/blob). For Heroku users, exactly the same changes should be made on the Config Vars page. The optional "pump" plugin enables additional pump monitoring pill boxes. For example, assuming you have added "pump" to the list of enabled plugins, you may add a new configuration variable PUMP_FIELDS="reservoir battery" to display pump reservoir and battery status on the Nightscout page. The "pump" plugin offers a number of other options, as documented on the Nightscout readme page: https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins 
+For Azure users, here is what these configuration changes will look like (with
+just "openaps" added): ![azure config
+changes](https://files.gitter.im/eyim/lw6x/blob). For Heroku users, exactly the
+same changes should be made on the Config Vars page. The optional "pump" plugin
+enables additional pump monitoring pill boxes. For example, assuming you have
+added "pump" to the list of enabled plugins, you may add a new configuration
+variable `PUMP_FIELDS="reservoir battery"` to display pump reservoir and battery
+status on the Nightscout page. The "pump" plugin offers a number of other
+options, as documented on the [Nightscout readme](https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins).
 
-Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the upper right corner.  At the very bottom of the Settings menu, in the "About" section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up. Click the check box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump" should also show up in the list, and you may check the box to enable. You should now see the OpenAPS pill box (and any optional pump monitoring pill boxes) on the left side of the Nightscout page near the time. You may also want to graphically show the basal rates: select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings. 
+Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the
+upper right corner.  At the very bottom of the Settings menu, in the "About"
+section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just
+above is a list of Plugins available.  OpenAPS should show up. Click the check
+box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump"
+should also show up in the list, and you may check the box to enable. You
+should now see the OpenAPS pill box (and any optional pump monitoring pill
+boxes) on the left side of the Nightscout page near the time. You may also want
+to graphically show the basal rates: select "Default" or "Icicle" from the
+"Render Basal" pull-down menu in the Settings. 
 
-### Environment Variables for OpenAPS Access to Nightscout
-
-To be able to upload data, OpenAPS needs to know the URL for your Nightscout website and the hashed version of your API_SECRET password, which you have entered as one of your Nightscout configuration variables. Two environment variables, NIGHTSCOUT_HOST and API_SECRET, are used to store the website address and the password, respectively. 
-
-To obtain the hashed version of the API_SECRET, run the following ```echo -n "<API_SECRET>" | shasum``` and replace ```<API_SECRET>``` with what you set up in Nightscout. For example, if your enter ```echo -n "password" | shasum```, the hashed version returned will be 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8. Run it with your password and save the hashed key that is output for the next step.
-
-In your terminal window, you may now define the two environment variables. This is done by adding them to your .profile in your home directory. The .profile runs each time the system starts and will ensure these variables are set for future use on the command line.
-
-```nano ~/.profile``` and add the following at the end of the file below any other content that may already be there:
-```
-NIGHTSCOUT_HOST=https://<your Nightscout address>; export NIGHTSCOUT_HOST
-API_SECRET=<your hashed password>; export API_SECRET
-```
-
-Now run ```source /etc/profile``` to enact the changes we've just made without restart the machine
 
 ### Configure Nightscout profile
 
@@ -52,58 +63,33 @@ Fill out all the profile fields and click save.
 
 ### Configuring and Uploading OpenAPS Status
 
-**At this point in the docs I find it confusing as the next part dives straight into working inside of your openaps repo (or whatever the right term for it is). I would think before jumping straight to setting up the integration with Nightscout you would go over some basic `openaps use ns` type stuff, or even just doing `openaps init` for the first time. I see this stuff is in [Phase 2 - Configuring and Learning to Use openaps Tools](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/using-openaps-tools.html), so the next bit seems out of place if you're supposed to follow the phases in order**
+**At this point in the docs I find it confusing as the next part dives straight
+into working inside of your openaps repo (or whatever the right term for it
+is). I would think before jumping straight to setting up the integration with
+Nightscout you would go over some basic `openaps use ns` type stuff, or even
+just doing `openaps init` for the first time. I see this stuff is in [Phase 2 -
+Configuring and Learning to Use openaps
+Tools](../phase-2/using-openaps-tools.html),
+so the next bit seems out of place if you're supposed to follow the phases in
+order**
 
 Integration with Nightscout requires couple of changes to your OpenAPS implementation, which include: 
 
-* Adding a new `ns-status` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
-* Uploading the status report to Nightscout, using the `ns-upload` command 
+* Adding a new `ns` device, and generating a new report `monitor/upload-status.json`, which consolidates the current OpenAPS status to be uploaded to Nightscout 
 
 Upon successful completion of these two steps, you will be able to see the current OpenAPS status by hovering over the OpenAPS pill box on your Nightscout page, as shown here, for example: ![Nightscout-Openaps pill box](https://files.gitter.im/eyim/J8OR/blob)
 
-The `ns-status` is a virtual device in the oref0 system, which consolidates OpenAPS status info in a form suitable for upload to Nightscout. First, add the device:
-
-```
-$ openaps device add ns-status process --require "clock iob suggested enacted battery reservoir status" ns-status 
-```
-
-The corresponding entry in your openaps.ini file should look like this:
-
-[device "ns-status"] <br>
-fields = clock iob suggested enacted battery reservoir status<br>
-cmd = ns-status<br>
-vendor = openaps.vendors.process<br>
-args = <br>
-
-Then use the `ns-status` device to add the `monitor/upload-status.json` report, which you may do as follows:
-
-```
-$ openaps report add monitor/upload-status.json JSON ns-status shell monitor/clock-zoned.json monitor/iob.json enact/suggested.json enact/enacted.json monitor/battery.json monitor/reservoir.json monitor/status.json 
-```
+The `ns` is a virtual device in the oref0 system, which consolidates OpenAPS status info in a form suitable for upload to Nightscout. First, add the device:
 
 The reports required to generate upload-status.json should look familiar. If you have not generated any of these required reports, you should set them up and make sure they all work.  In particular, note that monitor/clock-zoned.json contains the current pump clock time stamp, but with the timezone info included. If you have not generated that report already, you may do so using the following commands, which add a `tz` virtual device and use it to create clock-zoned.json starting from clock.json. 
 
 ```
-$ sudo pip install recurrent
 $ openaps vendor add openapscontrib.timezones
 $ openaps device add tz timezones
 $ git add tz.ini
 $ openaps report add monitor/clock-zoned.json JSON tz clock monitor/clock.json
 ```
 
-At this point, you may want to update your monitor-pump alias to make sure that it produces all the required reports, so that uploading status to Nightscout can be automated. After you've generated a monitor/upload-status.json report, you can try to manually upload the OpenAPS status to Nightscout using the `ns-upload` command:
-
-```
-$ ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json
-```
-
-If successful, this command will POST the status info to your Nightscout site, and return the content of the Nightscout devicestatus.json file, which you can examine to see what status information is sent to Nightscout.
-
-Finally, you may define a new alias `status-upload`, to combine generating the report and uploading the status to Nightscout:
-
-```
-$ openaps alias add status-upload '! bash -c "openaps report invoke monitor/upload-status.json && ns-upload $NIGHTSCOUT_HOST $API_SECRET devicestatus.json monitor/upload-status.json"'
-```
 
 To test this alias, you may first run your loop manually from command line, then execute `openaps status-upload`, examine the output, and check that the new status is visible on the OpenAPS pill box on your Nightscout page. To automate the status upload each time the loop is executed you can simply add `status-upload` to your main OpenAPS loop alias. The OpenAPS pill box will show when the last time your loop ran.  If you hover over it, it will provide critical information that was used in the loop, which will help you understand what the loop is currently doing.
 
@@ -120,29 +106,134 @@ Some things to be aware of:
 * The basal changes won't appear in Nightscout until the second time the loop runs and the corresponding upload is made.
 * You can scroll back in time and at each glucose data point you can see what the critical information was at that time
 
-### Uploading Latest Treatments to Nightscout
-
 Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable in case it is not already there.
 
-In addition to uloading OpenAPS status, it also very beneficial to upload the treatment information from the pump into Nightscout.  This removes the burden of entering this information into Nightscout manually. This can be accomplished using `nightscout` command and adding a new `upload-recent-treatments` alias as follows: 
+
+### Set up `ns` device
+To get your OpenAps viewed onto your Nightscout site, start by using the
+following tool:
+
 
 ```
-$ openaps alias add latest-ns-treatment-time '! bash -c "nightscout latest-openaps-treatment $NIGHTSCOUT_HOST | json created_at"' || die "Can't add latest-ns-treatment-time"
-$ openaps alias add format-latest-nightscout-treatments '! bash -c "nightscout cull-latest-openaps-treatments monitor/pumphistory-zoned.json settings/model.json $(openaps latest-ns-treatment-time) > upload/latest-treatments.json"' || die "Can't add format-latest-nightscout-treatments"
-$ openaps alias add upload-recent-treatments '! bash -c "openaps format-latest-nightscout-treatments && test $(json -f upload/latest-treatments.json -a created_at eventType | wc -l ) -gt 0 && (ns-upload $NIGHTSCOUT_HOST $API_SECRET treatments.json upload/latest-treatments.json ) || echo \"No recent treatments to upload\""' || die "Can't add upload-recent-treatments"
+nightscout autoconfigure-device-crud
+```
+To view your data on your Nightscout site, start by doing the following:
+`nightscout autoconfigure-device-crud https://yourname.com yourplainapisecret`
+
+So this would be your actual `https://myname.azurewebsites.net`  or `https://myname.herokuapp.com`.  Your `API_SECRET` is listed in your Azure or Heroku settings.
+To test this: `openaps use ns shell preflight`
+To get aliases: 
+```
+curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/181c5d6f29cd6489ecc9630786cf2c4937ddde79/bewest-aliases.json | openaps import
 ```
 
-Note that a pumphistory-zoned.json report is required, which can be generated from pumphistory.json using `tz`, following the approach described above for clock-zoned.json, including making sure to add it to your monitor-pump alias. In addition, if you haven't already created a settings/model.json report, you should create that report and invoke it since it is required for format-latest-nightscout-treatments.
 
-After running your loop from command line, you may try executing `openaps upload-recent-treatments` manually from command line. Upon successful upload, the recent treatments will show up automatically on the Nightscount page.
+### Sending glucose data:
 
-Note:  Currently extended boluses are not handled well and depending on the timing of the upload are either missed entirely or have incorrect information.
-
-As a final step in the OpenAPS and Nightscout integration, you may add `status-upload` and `upload-recent-treatments` to your main loop, and automate the process using cron. Make sure you include the definitions of the environment variables NIGHTSCOUT_HOST and API_SECRET in the top part of your crontab file, without `export`, or quotes:
 ```
-NIGHTSCOUT_HOST=https://<your Nightscout address>
-API_SECRET=<your hashed password>
+openaps use ns shell format-recent-type tz entries monitor/glucose.json  | json -a dateString | wc -l
+# Add it as a report
+openaps report add nightscout/recent-missing-entries.json JSON ns shell format-recent-type tz entries monitor/glucose.json  
+# fetch data for first time
+openaps report invoke nightscout/recent-missing-entries.json
+
+# add report for uploading to NS
+openaps report add nightscout/uploaded-entries.json JSON  ns shell upload entries.json nightscout/recent-missing-entries.json 
+# upload for fist time.
+openaps report invoke nightscout/uploaded-entries.json
+
 ```
 
-### Setup script
-[This script](https://github.com/openaps/oref0/commit/d9951683cef1fd6aefc38d2c76ce9e5a177b9aa2) may be useful.
+### Uploading Latest Treatments to Nightscout
+
+In addition to uloading OpenAPS status, it also very beneficial to upload the
+treatment information from the pump into Nightscout.  This removes the burden
+of entering this information into Nightscout manually.
+
+Note that a `pumphistory-zoned.json` report is required, which can be generated
+from pumphistory.json using `tz`, following the approach described above for
+clock-zoned.json, including making sure to add it to your monitor-pump alias.
+In addition, if you haven't already created a requisite reports you should
+create that report and invoke it since it is required.
+Upon successful upload, the recent treatments will show up automatically on the
+Nightscount page.
+
+Note:  Currently extended boluses are not handled well and depending on the
+timing of the upload are either missed entirely or have incorrect information.
+
+
+To upload treatments data to Nightscout, prepare you zoned glucose, and pump
+model reports, and use the following two reports:
+
+```
+openaps report add nightscout/recent-treatments.json JSON ns shell  format-recent-history-treatments monitor/pump-history.json model.json
+openaps report add nightscout/uploaded.json JSON  ns shell upload-non-empty-treatments  nightscout/recent-treatments.json
+```
+Here are the equivalent uses:
+
+```
+openaps use ns shell format-recent-history-treatments monitor/pump-history.json model.json
+openaps use ns shell upload-non-empty-treatments nightscout/recent-treatments.json
+```
+The first report runs the format-recent-history-treatments use, which fetches
+data from Nightscout and determines which of the latest deltas from openaps
+need to be sent. The second one uses the upload-non-empty-treatments use to
+upload treatments to Nightscout, if there is any data to upload.
+
+
+To pull data:  `openaps gather-clean-data`
+
+To set up Nightscout reports:
+curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/522155bae116983499bb1de30f10f52eb3c4b6b7/ns-reports.json | openaps import
+
+To see your progress: `openaps do-everything`
+
+
+
+Then again, to check your progress:  `openaps do-everything`
+At this point, you should see treatment circles, information about the battery,
+etc.
+
+To verify what was uploaded to Nightscout:
+`cat nightscout/uploaded.json`
+
+
+### Sending openaps status to Nightscout
+```
+openaps use ns shell status monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json
+```
+
+You should see a lot of info. (Side note: the word "received" is spelled wrong.)
+
+Make sure to save this as a report:
+```
+openaps report add nightscout/openaps-status.json JSON ns-status shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json
+```
+
+Now it needs to be invoked to test that it is getting data.
+`openaps report invoke nightscout/openaps-status.json`
+
+
+Test uploading it:
+`openaps use ns shell upload devicestatus.json nightscout/openaps-status.json`
+
+If it works, save it as a report:
+```
+openaps report add nightscout/uploaded-recent-devicestatus.json JSON ns shell upload devicestatus.json nightscout/openaps-status.json added ns://JSON/shell/nightscout/uploaded-recent-devicestatus.json
+```
+
+### Updating Aliases
+Now those aliases we did earlier need adjustment for all of the recent work we
+just did:
+```
+openaps alias add report-nightscout "report invoke  nightscout/recent-treatments.json nightscout/uploaded.json nightscout/recent-missing-entries.json nightscout/uploaded-entries.json nightscout/openaps-status.json nightscout/uploaded-recent-devicestatus.json"
+```
+
+SUCCESS!!
+
+To upload to Nightscout, use:  `openaps do-everything`
+To just test uploading to Nightscout, use:  `openaps report-nightscout`
+
+Make sure to backup all the work you have just done:
+`oref0 export-loop | tee backup-loop.json`
+
