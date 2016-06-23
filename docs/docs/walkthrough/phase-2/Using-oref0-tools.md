@@ -1,7 +1,7 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
-In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
+In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 First, you can add a catch-all oref0 device using
 
@@ -56,7 +56,7 @@ The purpose of the `get-profile` process is to consolidate information from mult
       $ openaps device add units units
       ```
     To convert this "raw" file, we need to add a report that will perform
-    `$ openaps use units bg_targets settings/bg_targets_raw.json`
+    `openaps use units bg_targets settings/bg_targets_raw.json`
     and output not to the screen but into a file called settings/bg_targets.json:
       ```
       $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
@@ -231,7 +231,7 @@ Use your answer to this question to create and test an openaps use command by lo
 
 This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.
 
-Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
 
 In order to ensure that your pump is able to accept the temp basal suggestion, ensure that the temp basal setting, on the pump itself is set to "Insulin Rate (U/H)". This can be found in Act>basal>Temp basal type.
 

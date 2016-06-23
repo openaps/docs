@@ -25,9 +25,9 @@ Some conventions used in this guide:
     will allow you to go back and see what you did at a later date. This will also
     be immensely helpful if you request help from other OpenAPS contributors as you
     will be able to provide an entire history of the commands you used. To enable
-    this, just run `$ script <filename>` at the beginning of your session. It will
+    this, just run `script <filename>` at the beginning of your session. It will
     inform you that `Script started, file is <filename>`. When you are done, simply
-    `$ exit` and it will announce `Script done, file is <filename>`. At that point,
+    `exit` and it will announce `Script done, file is <filename>`. At that point,
     you can review the file as necessary.
 ```
 
@@ -38,17 +38,17 @@ Some conventions used in this guide:
 
 To get started, SSH into your Raspberry Pi. Go to your home directory:
 
-`$ cd`
+`cd`
 
 Create a new instance of openaps in a new directory:
 
-`$ openaps init <my_openaps>`
+`openaps init <my_openaps>`
 
 As mentioned above, `<my_openaps>` can be anything you'd like: `myopenaps`, `awesome-openaps`, `openaps4ever`, `bob`, etc.
 
 Now that it has been created, move into the new openaps directory:
 
-`$ cd <my_openaps>`
+`cd <my_openaps>`
 
 All subsequent openaps commands must be run in this directory. If you try to run an openaps command in a different directory, you will receive an error:
 
@@ -62,7 +62,7 @@ openaps.ini
 ```
 That `openaps.ini` file is the configuration file for this particular instance of openaps. It will contain all of your device information, plugin information, reports, and aliases. In the subsequent sections, you will be configuring your openaps instance to add these components. For now, however, it is blank. Go ahead and take a look:
 
-`$ cat openaps.ini`
+`cat openaps.ini`
 
 Didn't return much, did it? By the way, that `cat` command will be very useful as you go through these configuration steps to quickly check the contents of files (any files, not just `openaps.ini`). Similarly, if you see a command that you are unfamiliar with, such as `cat` or `cd`, Google it to understand what it does. The same goes for error messages—you are likely not the first one to encounter whatever error is holding you back.
 
@@ -77,13 +77,13 @@ openaps device add tz timezones
 ## Get Pump data
 ### Add pump as device
 
-`$ openaps device add <my_pump_name> medtronic`
+`openaps device add <my_pump_name> medtronic`
 
 In order to communicate with the pump and cgm receiver, they must first be
 added as devices to the openaps configuration. To do this for a device we'll
 call `pump`:
 
-`$ openaps device add pump medtronic`
+`openaps device add pump medtronic`
 
 
 Then to configure the new `pump` device with its serial number:
@@ -108,7 +108,7 @@ OpenAPS, it is a flaw and a security issue if someone else can do this to you.
 
 Now you will do this for the Dexcom CGM receiver using a usb cable:
 
-`$ openaps device add cgm dexcom`
+`openaps device add cgm dexcom`
 
 Note this step is not required if you are using a Medtronic CGM. The pump
 serves as the receiver and all of the pumping and glucose functionality are
@@ -181,7 +181,7 @@ Now, `openaps monitor-cgm` is available to pull in fresh CGM data from Dexcom.
 
 ## Check that the devices are all added properly
 
-`$ openaps device show`
+`openaps device show`
 
 should return something like:
 
@@ -195,7 +195,7 @@ Here, `pump` was used for `<my_pump_name>` and `cgms` was used for
 
 Your `openaps.ini` file now has some content; go ahead and take another look:
 
-`$ cat openaps.ini`
+`cat openaps.ini`
 
 Now, both of your devices are in this configuration file:
 
@@ -218,7 +218,7 @@ sharing the `openaps.ini` file and also for keeping `pump.ini` and `cgms.ini`
 more secure. Be careful with these files. Open the pump's ini file now (use the
 name reported to you in the line labeled `extra` in the `openaps.ini` file).
 
-`$ cat pump.ini`
+`cat pump.ini`
 
 It should show something like this:
 
@@ -233,7 +233,7 @@ If you made a mistake while adding your devices or simply don't like the name
 you used, you can go back and remove the devices as well. For example, to
 remove the pump:
 
-`$ openaps device remove <my_pump_name>`
+`openaps device remove <my_pump_name>`
 
 Then, you can add your pump again with a different name or serial number.
 
@@ -241,7 +241,7 @@ Then, you can add your pump again with a different name or serial number.
 
 Now that you have added these devices, let's see if we can establish communication with them. First, the pump:
 
-`$ openaps use <my_pump_name> model`
+`openaps use <my_pump_name> model`
 
 should return something like:
 
@@ -249,9 +249,9 @@ should return something like:
 
 Congratulations, you just pulled data from your pump! The `model` command is a very useful one to verify whether you can communicate with the pump. It is not, however, the only thing you can do. Take a look at the help file to see all of the possibilities:
 
-`$ openaps use <my_pump_name> -h`
+`openaps use <my_pump_name> -h`
 
-This returns a healthy bit of useful information, including a list of all the commands that can be done with `$ openaps use <my_pump_name>`. Of course, each one of those uses has its own help file as well:
+This returns a healthy bit of useful information, including a list of all the commands that can be done with `openaps use <my_pump_name>`. Of course, each one of those uses has its own help file as well:
 
 ```
 $ openaps use <my_pump_name> model -h
@@ -274,11 +274,11 @@ Now let's try communicating with the Dexcom receiver.
 
 Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, or if the charging icon on the Dexcom keeps cycling on and off, that is a sign that it is drawing too much power and needs to be charged.
 
-> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `$ sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`.
+> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`.
 
-> Reboot via `$ sudo shutdown -r now` to pick up the changes.
+> Reboot via `sudo shutdown -r now` to pick up the changes.
 
-`$ openaps use <my_dexcom_name> iter_glucose 1`
+`openaps use <my_dexcom_name> iter_glucose 1`
 
 should return something like:
 
@@ -428,7 +428,7 @@ Format potential entries (glucose values) for Nightscout.
 
 At this point, you should be comfortable communicating with your pump and cgm receiver with the `openaps use` command. This is great for learning and for experimenting, but it lacks the ability to generate output files. You'll notice that running
 
-`$ openaps use <my_dexcom_name> iter_glucose 100`
+`openaps use <my_dexcom_name> iter_glucose 100`
 
 prints *a lot* of data to the terminal. It would be great to save that data somewhere so that it can be used for logging historical records, performing calculations, and verifying actions. That is what `report` does.
 
@@ -438,13 +438,13 @@ Generating reports involves two steps: adding the report structures to your open
 
 As an example, let's suppose you would like to gather the last four hours of records from your pump. With the `use` command, that would be:
 
-`$ openaps use <my_pump_name> iter_pump_hours 4`
+`openaps use <my_pump_name> iter_pump_hours 4`
 
 This dumps the past four hours of pump records directly to the terminal.
 
 Now, let's add this as a report instead:
 
-`$ openaps report add last_four_pump_hours.json JSON <my_pump_name> iter_pump_hours 4`
+`openaps report add last_four_pump_hours.json JSON <my_pump_name> iter_pump_hours 4`
 
 If done correctly, the only thing returned in the terminal is:
 
@@ -452,13 +452,13 @@ If done correctly, the only thing returned in the terminal is:
 
 Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `<my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window, except there it was done with the `use` command. The report is simply running that same command and writing the output to the file you specified in the format you specified.
 
-Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `$ cat openaps.ini` or by using `$ openaps report show`. Similarly, you can remove reports with `$ openaps report remove <report_name>`.
+Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `cat openaps.ini` or by using `openaps report show`. Similarly, you can remove reports with `openaps report remove <report_name>`.
 
 ### Invoking Reports
 
 Adding the report does not actually generate the output file. To do this, you need to invoke the report:
 
-`$ openaps report invoke last_four_pump_hours.json`
+`openaps report invoke last_four_pump_hours.json`
 
 Again, the terminal output will be minimal:
 
@@ -467,11 +467,11 @@ pump://JSON/iter_pump_hours/last_four_pump_hours.json
 reporting last_four_pump_hours.json
 ```
 
-This time, however, a new file was created. Check and see using `$ ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `$ cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to ther terminal window when you performed `$ openaps use <my_pump_name> iter_pump_hours 4`.
+This time, however, a new file was created. Check and see using `ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to ther terminal window when you performed `openaps use <my_pump_name> iter_pump_hours 4`.
 
 Each time you add a new report to your configuration, you should immediately invoke it and check the resulting file. This means **open the file and actually check to make sure the output is what you expect**. Don't assume that it worked just because you didn't see an error.
 
-The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file. If you would like to see when the file was last edited, use the command `$ ls -l`. This will help you make sure you are getting up-to-data data.
+The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file. If you would like to see when the file was last edited, use the command `ls -l`. This will help you make sure you are getting up-to-data data.
 
 Go ahead and create (and check) some reports for the the commands you have been using the most.
 
@@ -489,15 +489,15 @@ For this example, we assume that you have added a second report called `last_fou
 
 Calling two sequential commands for each update is a bit annoying, but imagine calling five or ten. Luckily, openaps has a built-in way to group these commands: aliases. Aliases allow generation of single-word commands to invoke a series of reports. For this example, create an alias called `last_four_hours`:
 
-`$ openaps alias add last_four_hours "report invoke last_four_pump_hours.json last_four_cgm_hours.json"`
+`openaps alias add last_four_hours "report invoke last_four_pump_hours.json last_four_cgm_hours.json"`
 
 Go ahead and execute this command:
 
-`$ openaps last_four_hours`
+`openaps last_four_hours`
 
 You will see that it invokes each of the reports you specified in the order you specified. It prints each step out to the terminal window, and you will find that the corresponding output files have been created.
 
-Just like with devices and reports, the alias is now part of your openaps configuration. You can view all of your aliases with `$ cat openaps.ini` or by using `$ openaps alias show`. Similarly, you can remove aliases with `$ openaps alias remove <alias_name>`.
+Just like with devices and reports, the alias is now part of your openaps configuration. You can view all of your aliases with `cat openaps.ini` or by using `openaps alias show`. Similarly, you can remove aliases with `openaps alias remove <alias_name>`.
 
 Aliases will invoke reports and execute logic and shell commands. Aliases are not limited to reports. They can be nested. For example a top level alias is $ openaps alias1 alias2.  alias2 is for example: Run shell "program1 && something2 || alias3" (one and two or three). alias3 is for example: $ Openaps report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json
 
@@ -556,7 +556,7 @@ project" option and follow the instructions.
 
 Once you have completed this step, all of the files in your `<my_openaps>`
 directory will be saved in your online Bitbucket repository. Whenever you would
-like to update your backup, simply go into your `<my_openaps>` directory and `$
+like to update your backup, simply go into your `<my_openaps>` directory and `
 git push`. This process can be automated, but we'll save that for another day.
 
 [Github mkimg tool](https://github.com/zymbit/rpi-mkimg) has the ability to create a full SD card image with the advantage to shrink it to its minimum size quite different from the windows Win32DiskImager which always creates an image which is as large as the card.  Using Win32DiskImager it might not be possible to restore an image on a new card with the same size. Using Github mkimg tool instead for example a 32 GB size card can be reduced to approximately 1.9 GB.
