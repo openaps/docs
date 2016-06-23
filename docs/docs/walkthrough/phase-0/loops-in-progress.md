@@ -25,6 +25,7 @@ List of people who are working on closed loops:
 - Andy Pabari
 - Rob Kresha - (Papillion, NE, USA)
 - Christian Robinson (London, UK)
+- Andy Probolus & Marianne Smith (Lancaster, PA)
 - Gary Kidd 
 - Nathan Morse
 - Paul Davis (Brighton, UK)
