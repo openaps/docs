@@ -42,3 +42,4 @@ List of people who are working on closed loops:
 - Gabriel and Gideon Arom (Chicago, IL / Los Angeles, CA)
 - Arlene Samowich (Nashville, TN)
 - Andy Probolus & Marianne Smith (Lancaster, PA)
+- Gregg Haroldson (Huntington Beach, CA)
