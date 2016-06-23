@@ -254,7 +254,7 @@ Install the watchdog package, which controls the conditions under which the hard
 
 `sudo apt-get install watchdog`
 
-`sudo modprobe bcm2708_wdog` - this command did not work as the module did not exist so we skipped it
+`sudo modprobe bcm2708_wdog` - If this command does not work, it appears to be ok to skip it.
 
 `sudo bash -c 'echo "bcm2708_wdog" >> /etc/modules'`
 
