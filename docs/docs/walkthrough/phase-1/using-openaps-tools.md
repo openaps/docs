@@ -167,7 +167,7 @@ NB: The above command can also be used to change from a G4 to G5 system in an al
 Ensure that the data is zoned correcty:
 ```
 openaps use tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
-openaps  tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
+openaps report add monitor/glucose.json JSON  tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
 ```
 
 Save an alias to fetch CGM data:
