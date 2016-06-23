@@ -7,7 +7,7 @@ Before moving on to consolidating all of these capabilities into a single alias,
 Ensuring that your openaps implementation can't act on stale data could be done by deleting all of the report files in the `monitor` directory before the reports are refreshed. You may simply use `rm -f` bash command, which removes file(s), while ignoring cases when the file(s) do not exist. If a refresh fails, the data required for subsequent commands will be missing, and they will fail to run. For example, here is an alias that runs the required bash commands: 
 
 ```
-openaps alias add gather '! bash -c "rm -f monitor/*; openaps gather-profile && openaps monitor-cgm && openaps monitor-pump && openaps report invoke monitor/iob.json"'
+openaps alias add gather '! bash -c "rm -f monitor/*; openaps get-profile && openaps monitor-cgm && openaps monitor-pump && openaps report invoke monitor/iob.json"'
 ```
 
 This example also shows how an alias can be constructed using bash commands. First, all files in `monitor` directory are deleted. Then, aliases are executed to generate the required reports. A similar approach can be used to remove any old `suggested.json` output before generating a new one, and to check and make sure oref0 is recommending a temp basal before trying to set one on the pump. You may want to make sure that your `enact` alias includes these provisions. 
