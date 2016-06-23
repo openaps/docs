@@ -2,32 +2,40 @@ To get your OpenAps viewed onto your Nightscout site, start by using the followi
 $nightscout autoconfigure-device-crud
 To view your data on your Nightscout site, start by doing the following:
 
-`$nightscout autoconfigure-device-crud <https://yourname.com yourplainapisecret>`
+`nightscout autoconfigure-device-crud <https://yourname.com yourplainapisecret>`
 
 So this would be your actual https://myname.azurewebsites.net  or https://myname.herokuapp.com (without the carrots of course). Your API_SECRET is listed in your Azure or Heroku settings.
 
-To test this: `$openaps use ns shell preflight`
+To test this: `openaps use ns shell preflight`
 
 To get aliases: 
 
-`curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/181c5d6f29cd6489ecc9630786cf2c4937ddde79/bewest-aliases.json | openaps import`
+`curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/181c5d6f29cd6489ecc9630786cf2c4937ddde79/bewest-aliases.json > bewest-aliases.json`
 
-To pull data:  `$openaps gather-clean-data`
+`nano bewest-aliases.json` and make sure that the script references the report names that you created.  If not, change the report names to the names that you set up.
+
+`cat bewest-aliases.json | openaps import`
+
+To pull data:  `openaps gather-clean-data`
 
 To set up Nightscout reports:
 
-`curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/522155bae116983499bb1de30f10f52eb3c4b6b7/ns-reports.json | openaps import`
+`curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/522155bae116983499bb1de30f10f52eb3c4b6b7/ns-reports.json > ns-reports.json`
 
-To see your progress: `$openaps do-everything`
+`nano ns-reports.json` and make sure that the script references the report names that you created.  If not, change the report names to the names that you set up.
+
+`cat ns-reports.json | openaps import`
+
+To see your progress: `openaps do-everything`
 
 To add the Maximum Insulin On Board to be 2 units:
 `oref0-mint-max-iob 2 max-iob.json`
 
-Then again, to check your progress:  `$openaps do-everything`
+Then again, to check your progress:  `openaps do-everything`
 At this point, you should see treatment circles, information about the battery, etc.
 
 To verify what was uploaded to Nightscout:
-`$cat nightscout/uploaded.json`
+`cat nightscout/uploaded.json`
 
 Then for the status:
 `oref0 device-helper ns-status 'ns-status $*' | openaps import`
@@ -54,7 +62,7 @@ Now those aliases we did earlier need adjustment for all of the recent work we j
 
 SUCCESS!!
 
-To upload to Nightscout, use:  `$openaps do-everything`
+To upload to Nightscout, use:  `openaps do-everything`
 To just test uploading to Nightscout, use: ` $openaps report-nightscout`
 
 Make sure to backup all the work you have just done:
