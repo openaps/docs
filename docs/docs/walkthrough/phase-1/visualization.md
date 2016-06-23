@@ -49,8 +49,6 @@ Click on the Profile Editor button.
 Create a new profile (if you don't already have one) using the settings that match what you already have set up in your pump.  
 Fill out all the profile fields and click save.
 
-We stopped here in order to go first build the dependencies needed for the next step.
-
 ### New simpler method for Nightscout upload
 
 [This walkthrough](openaps-to-nightscout.md) outlines an easier method than the below.  We need volunteers to run through this method and replace the sections below as appropriate.
