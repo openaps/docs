@@ -156,7 +156,7 @@ $ openaps report add enact/suggested.json text determine-basal shell monitor/iob
 
 The report output is in suggested.json file, which includes a recommendation to be enacted by sending, if necessary, a new temp basal to the pump, as well as a reason for the recommendation.
 
-If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.  
+If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.
 
 ## Adding aliases
 
@@ -229,7 +229,7 @@ Use your answer to this question to create and test an openaps use command by lo
 
 * How could a decision be made whether a new basal temp should be sent to the pump or not? What should `enact` do in the cases when no new temp basal is suggested?
 
-This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.  
+This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.
 
 Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
 

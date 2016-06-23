@@ -12,7 +12,7 @@ For the Path 1 GUI install you will need:
 * A Raspberry Pi 2 [CanaKit](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/) or similar, which includes several essential accessories in one package
 * USB Keyboard
 * USB Mouse
-* A TV or other screen with HDMI input  
+* A TV or other screen with HDMI input
 
 For the Path 2 Headless install, you will need:
 
@@ -65,7 +65,7 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 * First, insert your USB keyboard and USB mouse into the RPi2.
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
 * Finally connect your RPi2 using the power adapter.
-* You should see the GUI appear on sceen.  
+* You should see the GUI appear on sceen.
 * Configure WiFi per the instruction pamphlet included with your CanaKit.
 * Once you have installed Rasbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable.
 
@@ -264,7 +264,7 @@ Next, add watchdog to startup applications:
 
 Edit the config file by opening up nano text editor
 
-`sudo nano /etc/watchdog.conf`  
+`sudo nano /etc/watchdog.conf`
 
 Uncomment the following: (remove the # from the following lines, scroll down as needed to find them):
 

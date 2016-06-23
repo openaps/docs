@@ -22,7 +22,7 @@ count = 288
 One way to do this is to go to your openaps directory and edit the `ns-glucose.ini` file.  Depending on how you've implemented it, it should look something like this (please note the `?count=288`):
 ```
 [device "curl"]
-fields = 
+fields =
 cmd = bash
 vendor = openaps.vendors.process
 args = -c "curl -s https://[Your URL]/api/v1/entries.json?count=288 | json -e 'this.glucose = this.sgv'"
@@ -71,7 +71,7 @@ openaps report invoke settings/auto-sens.json
 fields = iob current-temps glucose profile **auto-sens** meal
 cmd = oref0-determine-basal
 vendor = openaps.vendors.process
-args = 
+args =
 ```
 (NOTE: in the `fields` above, `meal` should only be present if meal assist is configured)
 
@@ -94,7 +94,7 @@ auto-sens = settings/auto-sens.json
 ```
 gather-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json
 ```
-and that the `gather` alias be adjusted to make sure `gather-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run. 
+and that the `gather` alias be adjusted to make sure `gather-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run.
 
 `gather ! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps gather-profile"`
 

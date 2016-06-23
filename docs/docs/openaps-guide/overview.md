@@ -142,8 +142,8 @@ created this instance.
 ```bash
 bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ ls
 openaps.ini
-bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ cat openaps.ini 
-bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ wc -l openaps.ini 
+bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ cat openaps.ini
+bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ wc -l openaps.ini
 0 openaps.ini
 bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ git show
 ```
@@ -157,7 +157,7 @@ Date:   Sun Mar 27 14:37:56 2016 -0700
 diff --git a/openaps.ini b/openaps.ini
 new file mode 100644
 index 0000000..e69de29
-bewest@bewest-MacBookPro:~/Documents/tutorial-hello$ 
+bewest@bewest-MacBookPro:~/Documents/tutorial-hello$
 ```
 
 Knowledge of `git` is not usually needed or expected in order to use

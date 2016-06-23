@@ -1,6 +1,6 @@
 ## Using cron to create a schedule for your loop
 
-You should use [cron](http://bit.ly/1QpJFk1) to create a schedule for your loop. 
+You should use [cron](http://bit.ly/1QpJFk1) to create a schedule for your loop.
 Use `oref0 cron-5-minute-helper` to generate a simple cron job.  It
 can be imported into crontab using `oref0 cron-5-minute-helper
 do-loop | crontab -`.  By default, it will list a suggested cron job

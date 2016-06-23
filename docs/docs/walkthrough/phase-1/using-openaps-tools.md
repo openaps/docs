@@ -227,7 +227,7 @@ It should show something like this:
 serial = 123456
 ```
 
-The serial number should match that of your pump. 
+The serial number should match that of your pump.
 
 If you made a mistake while adding your devices or simply don't like the name
 you used, you can go back and remove the devices as well. For example, to
@@ -258,7 +258,7 @@ $ openaps use <my_pump_name> model -h
 usage: openaps-use pump model [-h]
 
  Get model number
-  
+
 
 optional arguments:
   -h, --help  show this help message and exit
@@ -272,9 +272,9 @@ Go ahead and try some more pump uses to find out what they do. Note that some of
 
 Now let's try communicating with the Dexcom receiver.
 
-Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, or if the charging icon on the Dexcom keeps cycling on and off, that is a sign that it is drawing too much power and needs to be charged. 
+Hint: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your Dexcom, it causes your WiFi dongle to stop blinking, or if the charging icon on the Dexcom keeps cycling on and off, that is a sign that it is drawing too much power and needs to be charged.
 
-> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `$ sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`. 
+> Workaround: If you continue to have problems, try increasing the mA output to the USB ports, you can do this by running the following command `$ sudo bash -c "echo -e \"#Enable Max USB power\nmax_usb_current=1\" >> /boot/config.txt"`.
 
 > Reboot via `$ sudo shutdown -r now` to pick up the changes.
 
@@ -285,9 +285,9 @@ should return something like:
 ```
 [
   {
-    "trend_arrow": "FLAT", 
-    "system_time": "2015-08-23T21:45:29", 
-    "display_time": "2015-08-23T13:46:21", 
+    "trend_arrow": "FLAT",
+    "system_time": "2015-08-23T21:45:29",
+    "display_time": "2015-08-23T13:46:21",
     "glucose": 137
   }
 ]
@@ -413,12 +413,12 @@ Format potential entries (glucose values) for Nightscout.
 
     openaps use ns shell format-recent-type tz entries monitor/glucose.json  | json -a dateString | wc -l
     # Add it as a report
-    openaps report add nightscout/recent-missing-entries.json JSON ns shell format-recent-type tz entries monitor/glucose.json  
+    openaps report add nightscout/recent-missing-entries.json JSON ns shell format-recent-type tz entries monitor/glucose.json
     # fetch data for first time
     openaps report invoke nightscout/recent-missing-entries.json
 
     # add report for uploading to NS
-    openaps report add nightscout/uploaded-entries.json JSON  ns shell upload entries.json nightscout/recent-missing-entries.json 
+    openaps report add nightscout/uploaded-entries.json JSON  ns shell upload entries.json nightscout/recent-missing-entries.json
     # upload for fist time.
     openaps report invoke nightscout/uploaded-entries.json
 
@@ -503,11 +503,11 @@ Aliases will invoke reports and execute logic and shell commands. Aliases are no
 
 ## Putting the Pieces Together
 
-Take a moment to consider putting these commands to work in the larger context of a closed-loop system. Components of that system that you might need to `add` and `invoke` would be recent glucose data, recent pump history, the time, battery status, pump settings, carb ratios, the current basal profile, insulin sensitivities, blood glucose targets, and the status of the pump. 
+Take a moment to consider putting these commands to work in the larger context of a closed-loop system. Components of that system that you might need to `add` and `invoke` would be recent glucose data, recent pump history, the time, battery status, pump settings, carb ratios, the current basal profile, insulin sensitivities, blood glucose targets, and the status of the pump.
 
-Go ahead and add and invoke reports for these components of a future closed-loop system. 
+Go ahead and add and invoke reports for these components of a future closed-loop system.
 
-Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history. 
+Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history.
 
 Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the "use" command. The "use" command is -h anotated. To see the annotation use this command $ openaps use <pumpname> -h
 

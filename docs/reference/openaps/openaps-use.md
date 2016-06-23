@@ -14,7 +14,7 @@ optional arguments:
   --version             show program's version number and exit
 
 Known Devices Menu:
-  These are the devices openaps knows about:    
+  These are the devices openaps knows about:
 
   device                Name and description:
     black               Medtronic - openaps driver for Medtronic

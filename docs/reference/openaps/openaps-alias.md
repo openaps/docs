@@ -9,7 +9,7 @@ optional arguments:
   -h, --help         show this help message and exit
 
 ## Alias Menu:
-   aliases - manage alias configurations 
+   aliases - manage alias configurations
 
   {add,remove,show}  Operation
     add              add - add an alias
