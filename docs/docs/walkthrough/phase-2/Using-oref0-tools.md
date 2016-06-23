@@ -93,7 +93,7 @@ Note how the `profile` report uses `get-profile` virtual device, with all the re
 At this point, it's natural to add an alias that generates all the reports required for `get-profile`, and then invokes the `profile` report that calls `get-profile` on them:
 
 ```
-$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
+$ openaps alias add get-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
 ```
 
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created by invoking the report.
@@ -192,7 +192,7 @@ You can also test the full sequence of aliases and the that which depend on them
 
 ```
 $ rm -f settings/* monitor/* enact/*
-$ openaps gather-profile
+$ openaps get-profile
 $ openaps monitor-pump
 $ openaps monitor-cgm
 $ openaps report invoke monitor/iob.json
