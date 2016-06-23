@@ -90,13 +90,13 @@ auto-sens = settings/auto-sens.json
 ```
 (NOTE: as stated above, if you do not have meal assist enabled, do not include the `meal` line)
 
-8)  Based on the configuration of the basic loop, it is recommended that the `settings/auto-sens.json` be added to the `gather-profile` alias:
+8)  Based on the configuration of the basic loop, it is recommended that the `settings/auto-sens.json` be added to the `get-profile` alias:
 ```
-gather-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json
+get-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json
 ```
-and that the `gather` alias be adjusted to make sure `gather-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run.
+and that the `gather` alias be adjusted to make sure `get-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run.
 
-`gather ! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps gather-profile"`
+`gather ! bash -c "rm -f monitor/*; openaps monitor-cgm && openaps monitor-pump && openaps get-profile"`
 
 Note. Your loop should run without `auto-sens.json` report but if you don't pass that as an input you will see the following message while executing `oref0-determine-basal.js`:
 ```
