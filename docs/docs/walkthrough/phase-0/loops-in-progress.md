@@ -41,3 +41,4 @@ List of people who are working on closed loops:
 - Kim St. Dennis (Los Angeles, CA)
 - Gabriel and Gideon Arom (Chicago, IL / Los Angeles, CA)
 - Gregg Haroldson (Huntington Beach, CA)
+- Gera Yeremin (Santa Rosa , CA)
