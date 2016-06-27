@@ -25,7 +25,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
 	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki).
 * <b>A Continuous Glucose Monitor (CGM)</b>:
- * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
+ * Dexcom CGM (G4 Platinum or Platinum with Share system); a Dexcom G5 Mobile system
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
   * **Note** The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatable Medtronic Pumps (Despite that pump originaly being offered with SoftSensor CGM Sensors).
@@ -77,9 +77,9 @@ A limitation of the Carelink USB stick is the short range of radio communication
 
 [Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/)
 
-### CGM: Dexcom G4 Platinum System (with or without Share) OR Medtronic
+### CGM: Dexcom G4 Platinum System (with or without Share), Dexcom G5 Mobile OR Medtronic
 
-The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. A G5 can also be used, but may require some extra work beyond this setup guide in order to configure. You can also [pull CGM data from Nightscout as an alternative, or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
+The openaps tool set currently supports three different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality), the newer Dexcom G5 Mobile system and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom G4, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. For Dexcom G5 Mobile you can also use a compatible receiver (software upgraded G4 with Share receiver or a G5 Mobile Receiver). You can also pull CGM data from Nightscout as an alternative (including Dexcom G5 to iOS device + Nightscout Bridge plugin), or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
 
 <b> Using the Dexcom CGM: </b>
 
