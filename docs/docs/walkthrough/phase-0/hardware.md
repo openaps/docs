@@ -1,6 +1,6 @@
 
 # Hardware
-This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
+This section describes the hardware components required for a 'typical' OpenAPS implementation. There are numerous variations and substitutions that can be made but the following items are recommended for getting started. The basic setup requires a compatible Insulin Pump, CGM data acquired either directly from a receiver or from Nightscout, then a small computer to run openaps.  If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this document with your suggestions.
 
 To start, here is a high-level guide for understanding if your pump is compatible for OpenAPS:
 
@@ -23,16 +23,21 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 * <b>A way to communicate with the pump</b>:
 	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
 	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
+	* 
 * <b>A Continuous Glucose Monitor (CGM)</b>:
- * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
+ * Dexcom CGM (G4 Platinum or Platinum with Share system) or a G5 can be used if you use the $command openaps use g5 config --G5 (explained in more detail later.
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
-* <b>Other Supplies</b>:
+ * 
+* <b>Small Computer</b>:
   * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
- * Raspberry Pi 2 Model B ("RPi2")**(see note below)
+ * Raspberry Pi 2 Model B ("RPi2")**(see note below) with a Low-profile USB WiFi adapter
+ * Or
+ * Raspberry Pi 3 Model B with built in WiFi
  * 8 GB (or greater) micro SD card
+
+*<b>Additional Supplies</b> 
  * Micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
- * Low-profile USB WiFi adapter
  * 2.1 Amp (or greater) USB power supply or battery
  * Micro USB cable(s)
  * AAA batteries (for pump)
@@ -77,9 +82,10 @@ A limitation of the Carelink USB stick is the short range of radio communication
 
 The openaps tool set currently supports two different CGM systems: the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality) and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). With Dexcom, the Share platform is not required as communication with the receiver is usually accomplished via USB directly to the Pi. A G5 can also be used, but may require some extra work beyond this setup guide in order to configure. You can also [pull CGM data from Nightscout as an alternative, or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so the data can be retrieved using the CareLink USB stick.
 
-<b> Using the Dexcom CGM: </b>
+<b> Using the Dexcom receiver CGM: </b>
 
-Note: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your receiver, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the receiver is fully charged, it will stay charged when connected to the Pi.
+Note:  This is the Dexcom receiver hardware. Not any third party device you are using as a reciever eg. An Iphone or Ipod.
+Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your receiver, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the receiver is fully charged, it will stay charged when connected to the Pi.
 
 Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. 
 
@@ -100,6 +106,29 @@ The Raspberry Pi 2 (RPi2) model B is a credit-card sized single-board computer. 
 The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will need to access the USB ports, micro USB power-in jack, and possibly the Ethernet jack (if wireless failure occurs). You will not require the HDMI port or a monitor.
 
 [Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
+
+### Raspberry Pi 3 Model B  
+
+The Raspberry Pi 3 (RPi3) model B is a credit-card sized single-board computer. The RPi3 primarily uses Linux kernel based operating systems, which must be installed by the user onto a micro SD card for the RPi3 to work. The RPi3 currently only supports Ubuntu, Raspbian, OpenELEC, and RISC OS. We recommend installing either Ubuntu or Raspbian. In this tutorial, you will learn how to do a "cableless" and "headless" install of Raspbian. You will be able to access and control the RPi2 via an SSH client on Windows, Mac OS X, Linux, iOS, or Android.
+
+RPi3
+
+A 1.2GHz 64-bit quad-core ARMv8 CPU
+802.11n Wireless LAN
+Bluetooth 4.1
+Bluetooth Low Energy (BLE)
+1GB RAM
+4 USB ports
+40 GPIO pins
+Full HDMI port
+Ethernet port
+Combined 3.5mm audio jack and composite video
+Camera interface (CSI)
+Display interface (DSI)
+Micro SD card slot (now push-pull rather than push-push)
+VideoCore IV 3D graphics core
+
+[Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 
 
 ### Micro SD Card
@@ -151,3 +180,10 @@ The Raspberry Pi is extremely minimalistic and does not come in a protective cas
 
 
 Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20). 
+
+
+### HDMI Cable, USB Keyboard, USB Mouse
+
+The intial set up of Pi required a monitor and keyboard/mouse to set up the WiFi connection then all other access was done through a SSH Terminal (explained later). This meant the monitor, mouse and keyboard were only used for a few minutes and weren't required again. 
+
+
