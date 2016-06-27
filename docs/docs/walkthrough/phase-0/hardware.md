@@ -11,7 +11,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 
 ## Required  Hardware for a "typical" setup
 
-* <b>An Insulin Pump</b>: 
+* <b>An Insulin Pump</b>:
 	* One of the following Medtronic MiniMed model #s:
 		 * 512/712
 		 * 515/715
@@ -22,15 +22,17 @@ If you're interested in working on communication for another pump (Omnipod, Anim
 		 * If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
 * <b>A way to communicate with the pump</b>:
-	* Medtronic CareLink USB stick is the recommended option for your initial loop setup.  You can find this on the Medtronic website (https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device)
-	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki). 
+
+	* Medtronic CareLink USB stick is the recommended option for your initial loop setup
+	* **Note** that there are now other hardware options available to communicate with the pump. Some positives to an alternative include better range; some negatives include having to solder and the fact that they're not documented in this set of documentation yet. But if you're interested, check out some of the alternatives in [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki).
+
 * <b>A Continuous Glucose Monitor (CGM)</b>:
  * Dexcom CGM (G4 Platinum or Platinum with Share system); a G5 can be used but at this point requires additional work to be used.
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
   * **Note** The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatable Medtronic Pumps (Despite that pump originaly being offered with SoftSensor CGM Sensors).
 * <b>Other Supplies</b>:
-  * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
+  * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi.
  * Raspberry Pi 2 Model B ("RPi2")**(see note below)
  * 8 GB (or greater) micro SD card
  * Micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
@@ -62,7 +64,7 @@ Due to changes in the firmware, the openaps tools are only able to function in f
 
 If you need to acquire an appropriate pump check CraigsList or other sites like Medwow or talk to friends in your local community to see if there are any old pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. Note: If you're buying a pump online, we recommended you ask the seller to confirm the firmware version of the pump. (You may also want to consider asking for a video of the pump with working functionality before purchasing.)
 
-There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) or [click here to join the Slack channel](http://bit.ly/1nTtccH). 
+There are several #OpenAPS participants working on ways to use other pumps (including non-Medtronic models). If you would like to get more information on the progress in these areas, take a look at the [#OpenAPS Google Group](https://groups.google.com/d/forum/openaps-dev) or [click here to join the Slack channel](http://bit.ly/1nTtccH).
 
 
 ### CareLink USB Stick
@@ -70,7 +72,7 @@ There are several #OpenAPS participants working on ways to use other pumps (incl
 Currently, the primary supported device* (in the openaps documentation) for uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick. We recommend you purchase at least two sticks because if one breaks, acquiring another stick will take time and will delay development. Additionally, due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions.
 
 Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
- 
+
 A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are trasmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
 
 [Rerii 90 Degree USB Extension Cable](http://www.amazon.com/gp/product/B00ZQVADNM)
@@ -85,22 +87,22 @@ The openaps tool set currently supports two different CGM systems: the Dexcom G4
 
 Note: Your Dexcom should be nearly fully charged before plugging it in to your Raspberry Pi. If, when you plug in your receiver, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the receiver is fully charged, it will stay charged when connected to the Pi.
 
-Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. 
+Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly.
 
 * You can find more documentation about pulling CGM data from a Nightscout site [here](../phase-2/using-openaps-tools.html#pulling-blood-glucose-levels-from-nightscout).
-* If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS. 
+* If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS.
  * If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.
  * You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found [here](http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge).
  * You can also use part of the DIY receiver set up - the wixel – directly to the raspberry pi. Learn more about the wixel setup [here](https://github.com/jamorham/python-usb-wixel-xdrip) and [here](https://github.com/ochenmiller/wixelpi_uploader).
 
 <b> Using the Medtronic CGM: </b>
 
-Because the Medronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data need a little special formatting after being retrieved. We'll discuss these special circumstances as they come up later. 
+Because the Medronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data need a little special formatting after being retrieved. We'll discuss these special circumstances as they come up later.
 
 ### Raspberry Pi 2 Model B
 
 The Raspberry Pi 2 (RPi2) model B is a credit-card sized single-board computer. The RPi2 primarily uses Linux kernel based operating systems, which must be installed by the user onto a micro SD card for the RPi2 to work. The RPi2 currently only supports Ubuntu, Raspbian, OpenELEC, and RISC OS. We recommend installing either Ubuntu or Raspbian. In this tutorial, you will learn how to do a "cableless" and "headless" install of Raspbian. You will be able to access and control the RPi2 via an SSH client on Windows, Mac OS X, Linux, iOS, or Android.
- 
+
 The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will need to access the USB ports, micro USB power-in jack, and possibly the Ethernet jack (if wireless failure occurs). You will not require the HDMI port or a monitor.
 
 [Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
@@ -144,7 +146,7 @@ USB cables with a micro connector on one end and a standard (Type A) connector o
 
 ### AAA Batteries
 
-Repeated wireless communication with the pump drains the battery quite quickly. With a loop running every five minutes, a standard alkaline AAA—recommended by Medtronic—lasts somewhere between four to six days before the pump goes to a "Low Battery" state and stops allowing wireless transmission. Lithium batteries last significantly longer but do not give much warning when they are about to die, but alerts can be created to provide warning about the status of the battery. For further information on batteries, see [this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA battery use in a looping pump. 
+Repeated wireless communication with the pump drains the battery quite quickly. With a loop running every five minutes, a standard alkaline AAA—recommended by Medtronic—lasts somewhere between four to six days before the pump goes to a "Low Battery" state and stops allowing wireless transmission. Lithium batteries last significantly longer but do not give much warning when they are about to die, but alerts can be created to provide warning about the status of the battery. For further information on batteries, see [this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA battery use in a looping pump.
 
 
 ### Cases
@@ -154,4 +156,4 @@ The Raspberry Pi is extremely minimalistic and does not come in a protective cas
 [JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
 
 
-Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20). 
+Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20).

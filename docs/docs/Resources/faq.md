@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## What is a Closed Loop? 
+## What is a Closed Loop?
 
 In general, a "closed loop" system for treatment of diabetes is considered to
 be one in which insulin dosing "and in some cases glucagon dosing" is

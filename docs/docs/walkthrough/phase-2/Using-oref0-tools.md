@@ -1,7 +1,7 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
-In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
+In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 First, you can add a catch-all oref0 device using
 
@@ -56,7 +56,7 @@ The purpose of the `get-profile` process is to consolidate information from mult
       $ openaps device add units units
       ```
     To convert this "raw" file, we need to add a report that will perform
-    `$ openaps use units bg_targets settings/bg_targets_raw.json`
+    `openaps use units bg_targets settings/bg_targets_raw.json`
     and output not to the screen but into a file called settings/bg_targets.json:
       ```
       $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
@@ -93,7 +93,7 @@ Note how the `profile` report uses `get-profile` virtual device, with all the re
 At this point, it's natural to add an alias that generates all the reports required for `get-profile`, and then invokes the `profile` report that calls `get-profile` on them:
 
 ```
-$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
+$ openaps alias add get-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
 ```
 
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created by invoking the report.
@@ -143,7 +143,7 @@ This process uses the IOB computed by `calculate-iob`, the current temp basal st
 * `glucose` reads several most recent BG values from CGM and stores them in glucose.json file:
 
   ```
-  $ openaps report add monitor/glucose.json JSON cgm iter_glucose 5
+  $ openaps report add monitor/glucose.json JSON <my_cgm_name> iter_glucose 5
   ```
 
 In this example, glucose.json will contain 5 most recent bg values.
@@ -156,7 +156,7 @@ $ openaps report add enact/suggested.json text determine-basal shell monitor/iob
 
 The report output is in suggested.json file, which includes a recommendation to be enacted by sending, if necessary, a new temp basal to the pump, as well as a reason for the recommendation.
 
-If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.  
+If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.
 
 ## Adding aliases
 
@@ -192,7 +192,7 @@ You can also test the full sequence of aliases and the that which depend on them
 
 ```
 $ rm -f settings/* monitor/* enact/*
-$ openaps gather-profile
+$ openaps get-profile
 $ openaps monitor-pump
 $ openaps monitor-cgm
 $ openaps report invoke monitor/iob.json
@@ -229,9 +229,9 @@ Use your answer to this question to create and test an openaps use command by lo
 
 * How could a decision be made whether a new basal temp should be sent to the pump or not? What should `enact` do in the cases when no new temp basal is suggested?
 
-This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.  
+This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.
 
-Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are certain that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
 
 In order to ensure that your pump is able to accept the temp basal suggestion, ensure that the temp basal setting, on the pump itself is set to "Insulin Rate (U/H)". This can be found in Act>basal>Temp basal type.
 

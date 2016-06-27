@@ -15,7 +15,7 @@ optional arguments:
   --version             show program's version number and exit
 
 ## Reports Menu:
-   reports - manage report configurations 
+   reports - manage report configurations
 
   {add,remove,show,invoke}
                         Operation
@@ -105,7 +105,7 @@ to review the uses:
 ```
 
 Known Devices Menu:
-  These are the devices openaps knows about:    
+  These are the devices openaps knows about:
 
   device                Name and description:
     fake-cgm            process - a fake vendor to run arbitrary commands
@@ -149,7 +149,7 @@ optional arguments:
   -h, --help            show this help message and exit
 
 Known Devices Menu:
-  These are the devices openaps knows about:    
+  These are the devices openaps knows about:
 
   device                Name and description:
     fake-cgm            process - a fake vendor to run arbitrary commands
@@ -192,7 +192,7 @@ Author: Ben West <bewest@gmail.com>
 Date:   Sun Mar 27 18:53:11 2016 -0700
 
     openaps-report add fake-cgm-data.txt JSON fake-cgm shell
-    
+
           TODO: better change descriptions
           /usr/local/bin/openaps-report add fake-cgm-data.txt JSON fake-cgm shell
 
@@ -203,7 +203,7 @@ index 8b1dbeb..f55161a 100644
 @@ -18,3 +18,10 @@ extra = fake-pump.ini
  vendor = openaps.vendors.process
  extra = fake-oref0.ini
- 
+
 +[report "fake-cgm-data.txt"]
 +device = fake-cgm
 +remainder = []
@@ -311,7 +311,7 @@ Author: Ben West <bewest@gmail.com>
 Date:   Sun Mar 27 19:11:37 2016 -0700
 
     openaps-report invoke fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
-    
+
           TODO: better change descriptions
           /usr/local/bin/openaps-report invoke fake-cgm-data.txt howdy.txt fake-pump-data.txt fake-oref0-data.txt
 

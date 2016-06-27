@@ -1,9 +1,21 @@
 ## Using cron to create a schedule for your loop
 
-You should use [cron](http://bit.ly/1QpJFk1) to create a schedule for your loop. 
+You should use [cron](http://bit.ly/1QpJFk1) to create a schedule for your loop.
+Use `oref0 cron-5-minute-helper` to generate a simple cron job.  It
+can be imported into crontab using `oref0 cron-5-minute-helper
+do-loop | crontab -`.  By default, it will list a suggested cron job
+that runs once every 5 minutes.
 
-There is not more instructions around this at this time, due to the need for you to be very certain you want to automate your loop. That being said, there are some examples and many discussions around this step in the Gitter channel. Look in the web interface and use the search function to see some discussions on this topic, and ask additional questions as needed as you learn about this step.
+Here's an example:
 
-That being said, we do recommend making sure your OpenAPS git environment is healthy prior to running you loop, and we have a tool for that: `oref0-reset-git`.  We recommend running it fairly frequently, so your cron entry should look something like this:
+```
+$ oref0 cron-5-minute-helper openaps do-foo-bar
+SHELL=/bin/bash
+PATH=/home/bewest/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bewest/.cabal/bin:/home/bewest/.cabal/bin
 
-`* * * * * cd [YOUR OPENAPS DIRECTORY] && oref0-reset-git`
+*/5 * * * * (cd /home/bewest/src/openaps/docs && time openaps do-foo-bar) 2>&1 | logger -t openaps-loop
+
+```
+
+It prepares a cron template to change to the current directory and runs
+whatever was specified, sending all output to syslog.
