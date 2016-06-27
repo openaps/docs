@@ -31,8 +31,11 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * 
 * <b>Small Computer</b>:
   * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi. 
- * Raspberry Pi 3 Model B with built in WiFi **
+ * Raspberry Pi 2 Model B ("RPi2")(see note below) with a Low-profile USB WiFi adapter
+ * Or
+ * Raspberry Pi 3 Model B (“RPi3”)with built in WiFi
  * 8 GB (or greater) micro SD card
+
 *<b>Additional Supplies</b> 
  * Micro SD card to regular SD card converter [optional, but recommended so that you can use the micro SD card in a regular sized SD card drive]
  * 2.1 Amp (or greater) USB power supply or battery
@@ -44,9 +47,31 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * USB Keyboard [optional, used to interact with the RPi2 via its own graphics interface on your TV screen]
  * USB Mouse [optional, for the same purpose]
 
-\** Starter kits can be a useful way to get started. [Pihut](https://thepihut.com/products/raspberry-pi-3-starter-kit)
+<b> Raspberry Pi Starter Kits</b>
 
-Eventually, once you have an entire OpenAPS build up and running, it is recommended that you have backup sets of equipment in case of failure.
+
+*Raspberry Pi 2 Starter Kit
+
+Several #OpenAPS contributors recommend the Raspberry Pi 2 CanaKit, which includes several essential accessories in one package and can be purchased through [Amazon](http://www.amazon.com/CanaKit-Raspberry-Complete-Original-Preloaded/dp/B008XVAVAW/)
+
+The CanaKit has the RPi2, SD card, WiFi adapter, and wall power supply. It also comes with a case, HDMI cable, and heat sink, none of which are required for an OpenAPS build. The kit does not have a micro USB cable (required to connect a Dexcom G4 receiver to the RPi) or a battery, which can be used in lieu of the wall power supply for portability.
+
+*Raspberry Pi 3 Starter Kit 
+
+Contains components useful to get started with the Raspberry Pi.
+
+Kit Includes:
+Latest Raspberry Pi 3 Model B (64bit Quad Core, 1GB RAM) (Required)
+8GB or 16GB Sandisk Ultra Class 10 MicroSD (pre-imaged with NOOBS) (Required)
+Official Raspberry Pi 5.1V 2.5A International Power Supply (for UK, EU, USA & AUS) (Required)
+Black Raspberry Pi 3 Case (Useful)
+2M HDMI cable	(Optional)
+2M Ethernet Cable (Optional)
+
+This can be purchased here [Pihut](https://thepihut.com/products/raspberry-pi-3-starter-kit)
+
+
+<b>Eventually, once you have an entire OpenAPS build up and running, it is recommended that you have backup sets of equipment in case of failure.</b>
 
 ## Hardware Details & Recommendations
 
@@ -94,7 +119,19 @@ Your OpenAPS implementation can also pull CGM data from a Nightscout site in add
 
 Because the Medronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data need a little special formatting after being retrieved. We'll discuss these special circumstances as they come up later. 
 
+### Raspberry Pi 2 Model B
+
+Raspberry Pi 2’s have less components and lower spec components and so draw less power, but require a WiFi adapter to be also purchased. The spec makes no difference to the OpenAps app and so either model is suitable choice.
+
+The Raspberry Pi 2 (RPi2) model B is a credit-card sized single-board computer. The RPi2 primarily uses Linux kernel based operating systems, which must be installed by the user onto a micro SD card for the RPi2 to work. The RPi2 currently only supports Ubuntu, Raspbian, OpenELEC, and RISC OS. We recommend installing either Ubuntu or Raspbian. In this tutorial, you will learn how to do a "cableless" and "headless" install of Raspbian. You will be able to access and control the RPi2 via an SSH client on Windows, Mac OS X, Linux, iOS, or Android.
+ 
+The RPi2 has 4 USB ports, an ethernet port, an HDMI port, and a micro USB power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will need to access the USB ports, micro USB power-in jack, and possibly the Ethernet jack (if wireless failure occurs). You will not require the HDMI port or a monitor.
+
+[Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
+
 ### Raspberry Pi 3 Model B  
+
+Raspberry Pi 3’s has higher specs and built in WiFi and Bluetooth so draws more power and so has a shorter battery life than the Raspberry Pi 2. So when selecting portable battery packs bare this in mind. The spec makes no difference to the OpenAps app and so either model is suitable choice.
 
 The Raspberry Pi 3 (RPi3) model B is a credit-card sized single-board computer. The RPi3 primarily uses Linux kernel based operating systems, which must be installed by the user onto a micro SD card for the RPi3 to work. The RPi3 currently only supports Ubuntu, Raspbian, OpenELEC, and RISC OS. We recommend installing either Ubuntu or Raspbian. In this tutorial, you will learn how to do a "cableless" and "headless" install of Raspbian. You will be able to access and control the RPi2 via an SSH client on Windows, Mac OS X, Linux, iOS, or Android.
 
@@ -128,9 +165,18 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 
 Note: A known issue with the Raspberry Pi is that the SD card may get corrupted with frequent power cycles, such as when the system gets plugged and unplugged frequently from an external battery. Most core developers of openaps recommend purchasing extra SD cards and having them pre-imaged and ready to use with a backup copy of openaps installed, so you can swap it out on the go for continued use of the system.
 
+### WiFi Adapter Raspberry Pi 2 only
+
+A minimalistic, unobtrusive WiFi USB adapter is recommended. The low-profile helps to avoid damage to both the RPi2 and the adapter as the RPi2 will be transported everywhere with the user.
+
+[Edimax EW-7811Un 150Mbps 11n Wi-Fi USB Adapter](http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&qid=1432614150&sr=8-1&keywords=edimax)
+
+[Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
+
+
 ### 2.1 Amp USB Battery Power Supply
 
-A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is recommended for full day use. Make sure that the battery has at least one 2.1 Amp USB output. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full OpenAPS implemented and working, you will want to have multiple batteries to rotate and recharge. A battery that can deliver power while it charges is ideal as you will be able to charge it on-the-fly without shutting down and restarting the RPi2.
+A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is recommended for full day use. Make sure that the battery has at least one 2.1 Amp USB output. A battery with a form-factor that minimizes size is recommended, to allow the patient to be as ambulatory as possible. When you have a full OpenAPS implemented and working, you will want to have multiple batteries to rotate and recharge. A battery that can deliver power while it charges is ideal as you will be able to charge it on-the-fly without shutting down and restarting the Raspberry Pi.
 
 [TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://www.amazon.com/gp/product/B00FBD3O2M)
 
@@ -138,7 +184,7 @@ A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is 
 
 ### USB Cables
 
-USB cables with a micro connector on one end and a standard (Type A) connector on the other are used to connect the power supply and the Dexcom receiver to the RPi3. Most cables will work fine, but some prefer to select lengths and/or features (such as right-angled connectors) to improve portability.
+USB cables with a micro connector on one end and a standard (Type A) connector on the other are used to connect the power supply and the Dexcom receiver to the Raspberry Pi. Most cables will work fine, but some prefer to select lengths and/or features (such as right-angled connectors) to improve portability.
 
 [Rerii Black Golden Plated 15 cm Length Micro-B Male Left Angle USB cable](http://www.amazon.com/Rerii-Micro-B-Charging-Guarantee-Fulfilled/dp/B00S9WXY5O/)
 
@@ -152,9 +198,9 @@ Repeated wireless communication with the pump drains the battery quite quickly. 
 
 ### Cases
 
-The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here is an example of what others are using in their OpenAPS builds. Raspberry Pi model 3 cases are backwards compatible Raspberry Pi 2 Model B's. 
+The Raspberry Pi is extremely minimalistic and does not come in a protective case. This is fine for development work, but presents an issue for day-to-day use. There are hundreds of cases available, but here is an example of what others are using in their OpenAPS builds.
 
-[JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
+[JBtek® Jet Black Case for Raspberry Pi B+ & Raspberry Pi 2 Model & Raspberry Pi 3 Model B](http://www.amazon.com/gp/product/B00ONOKPHC)
 
 
 Additionally, for mobile use, it is helpful to have something besides a lunchbox to carry the entire rig around. The size and weight of the component set as well as the limited range of the CareLink USB stick constrains the options here, but there are still some workable solutions. Waist-worn running gear and camera cases seem to work well. Two options:  [FlipBelt](https://flipbelt.com/) and [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20). 
@@ -163,5 +209,3 @@ Additionally, for mobile use, it is helpful to have something besides a lunchbox
 ### HDMI Cable, USB Keyboard, USB Mouse
 
 The intial set up of Pi required a monitor and keyboard/mouse to set up the WiFi connection then all other access was done through a SSH Terminal (explained later). This meant the monitor, mouse and keyboard were only used for a few minutes and weren't required again. 
-
-
