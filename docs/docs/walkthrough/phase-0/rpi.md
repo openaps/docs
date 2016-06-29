@@ -210,39 +210,6 @@ Instead of appending it to the list of authorized keys, you may simply copy your
 
 Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a password.
 
-### Disabling password login [optional - WARNING: THIS COULD POTENTIALLY LOCK YOU OUT OF YOUR RASPBERRY PI]
-Make sure you fully understand this feature before proceeding. It is completely optional. There are two ways of securing the Pi:
-
-1) Setting a password:
-
-	a) use `sudo raspi-config` as described above, or
-
-	b) `sudo passwd`
-
-2) Disabling password login completely. In this case, you can ONLY log in with your SSH key. Be careful here.
-
-	a) Open the `sshd_config` file in nano text editor on the Pi as follows
-
-`sudo nano /etc/ssh/sshd_config`
-
-	b) Change the following
-
-```
-PermitRootLogin yes
-# PasswordAuthentication yes
-```
-
-to
-
-```
-PermitRootLogin no
-PasswordAuthentication no
-```
-
-Note that the second line was previously commented out.
-
-From now on you will be able to SSH in with your private SSH key ONLY.
-
 ## Wifi reliability tweaks [optional]
 
 Many people have reported power issues with the 8192cu wireless chip found in many wifi adapters when used with the Raspberry Pi.  As a workaround, we can disable the power management features (which this chip doesn't have anyway) as follows:
