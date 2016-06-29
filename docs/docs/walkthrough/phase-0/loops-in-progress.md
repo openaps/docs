@@ -44,3 +44,4 @@ List of people who are working on closed loops:
 - Andy Probolus & Marianne Smith (Lancaster, PA)
 - Gregg Haroldson (Huntington Beach, CA)
 - Gera Yeremin (Santa Rosa , CA)
+- Ed Nykaza
