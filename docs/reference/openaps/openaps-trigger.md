@@ -9,7 +9,7 @@ optional arguments:
   -h, --help            show this help message and exit
 
 ## Trigger management:
-   triggers - manage triggers and triggers 
+   triggers - manage triggers and triggers
 
   {add,show,remove,emit,until}
                         Operation

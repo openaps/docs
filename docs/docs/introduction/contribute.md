@@ -1,6 +1,6 @@
 # Ways to Contribute
 
-OpenAPS doesn't require you to be a formally trained engineer/developer/anything to get started or use these tools. The main requirement is interest and willingness to safely DIY new technology that may help improve your life as well as others. 
+OpenAPS doesn't require you to be a formally trained engineer/developer/anything to get started or use these tools. The main requirement is interest and willingness to safely DIY new technology that may help improve your life as well as others.
 
 If you're not sure where to get started, here are some ways to get involved:
 

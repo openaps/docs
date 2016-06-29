@@ -8,7 +8,7 @@ oref0-ifttt-notify <IFTTT_TRIGGER> <NOTIFY_USAGE>
 
 You need to create an account and connect to the Maker channel and the
 notification channel of your choice. I use pushover as I already had the app
-and it allows me more control over the notification on my phone. 
+and it allows me more control over the notification on my phone.
 
 ## Create an IF recipe
 The trigger is the maker channel. You can customize the notification message

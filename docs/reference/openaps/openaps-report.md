@@ -10,7 +10,7 @@ optional arguments:
   --version             show program's version number and exit
 
 ## Reports Menu:
-   reports - manage report configurations 
+   reports - manage report configurations
 
   {add,remove,show,invoke}
                         Operation
