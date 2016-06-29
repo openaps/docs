@@ -43,3 +43,4 @@ List of people who are working on closed loops:
 - Arlene Samowich (Nashville, TN)
 - Andy Probolus & Marianne Smith (Lancaster, PA)
 - Gregg Haroldson (Huntington Beach, CA)
+- Gera Yeremin (Santa Rosa , CA)
