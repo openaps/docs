@@ -23,3 +23,5 @@
 <b>ISF</b> - insulin sensitivity factor - the amount of insulin that drops your BG by a certain amount mg/dl. Example: 1 u of insulin for 40 mg/dl
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
+
+<b>RileyLink (RL)</b> - A custom designed Bluetooth Smart (BLE) to 916MHz module - it can be used to bridge any BLE capable smartphone to the world of 916Mhz based devices. This device is focused on talking to Medtronic insulin pumps and sensors.
