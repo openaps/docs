@@ -45,3 +45,4 @@ List of people who are working on closed loops:
 - Gregg Haroldson (Huntington Beach, CA)
 - Gera Yeremin (Santa Rosa , CA)
 - Ed Nykaza
+- Jeff Waters (Madison, WI)
