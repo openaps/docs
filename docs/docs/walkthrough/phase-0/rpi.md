@@ -196,7 +196,7 @@ Now you should be able to log in without a password. Try to SSH into the RPi2 ag
 
 
 ### Mac and Linux
-If you don't already have an ssh key, then on your local computer (*not* on the Pi), run `ssh-keygen` (keep hitting enter to accept all the defaults).
+If you don't already have an ssh key, then on your local computer (please note that all of the following commands in this section will be run on your local computer, *not* on the Pi), run `ssh-keygen` (keep hitting enter to accept all the defaults).
 
 If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi`.
 
