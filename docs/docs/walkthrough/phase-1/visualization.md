@@ -1,4 +1,4 @@
- # Visualization and Monitoring
+# Visualization and Monitoring
  
 ## Nightscout Introduction
 
@@ -7,8 +7,6 @@
 It basically allows a user to upload CGM data from a variety of sources, to an online database and cloud computing service. The information is then processed and displayed visually as a graph. There are plugins that allow greater information to be shown about openaps too. As the data is uploaded to an online website and then retrieved by OpenAPS it allows OpenAPS a wider range of compatibility with various CGM solutions. 
 
  [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your RaspberryPI or loop system and looking through log files. 
- 
-Please note if you have decided to connect your CGM receiver directly to the raspberry pi to create a system that works offline too then nightscout is not necessary as you will receive your CGM data directly. Although you will not see what OpenAPS has recommended and how that impacted on blood glucose levels. 
 
 ##Nightscout Setup
 
