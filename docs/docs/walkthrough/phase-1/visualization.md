@@ -1,6 +1,16 @@
 # Visualization and Monitoring
+ 
+## Nightscout Introduction
 
-[Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your raspberry Pi or loop system and looking through log files.
+[Nightscout](http://nightscout.info) in their own words: Nightscout (CGM in the Cloud) is an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones.
+
+It basically allows a user to upload CGM data from a variety of sources, to an online database and cloud computing service. The information is then processed and displayed visually as a graph. There are plugins that allow greater information to be shown about openaps too. As the data is uploaded to an online website and then retrieved by OpenAPS it allows OpenAPS a wider range of compatibility with various CGM solutions. 
+
+ [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your RaspberryPI or loop system and looking through log files. 
+
+##Nightscout Setup
+
+At this point it is recommended that you go to the [Nightscout](http://nightscout.info) website and set Nightscout up. They have excellent guides of how to get various CGM systems working as well as displaying your data on a variety of additional devices. Once your website is up and running you can integrate Nightscout to your OpenAPS using the guide below.
 
 ## Nightscout Integration
 
