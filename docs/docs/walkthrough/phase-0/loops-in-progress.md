@@ -46,3 +46,4 @@ List of people who are working on closed loops:
 - Gera Yeremin (Santa Rosa , CA)
 - Ed Nykaza
 - Jeff Waters (Madison, WI)
+- Greg Hull (Wheaton, IL)
