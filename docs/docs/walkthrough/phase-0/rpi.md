@@ -196,19 +196,21 @@ Now you should be able to log in without a password. Try to SSH into the RPi2 ag
 
 
 ### Mac and Linux
-If you don't already have an ssh key, then on your local computer (please note that all of the following commands in this section will be run on your local computer, *not* on the Pi), run `ssh-keygen` (keep hitting enter to accept all the defaults).
+In this section some of the commands will be run on your local computer and some will be run on your pi. This will be identified in parenthesis after each command.
 
-If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi`.
+If you don't already have an ssh key, then run `ssh-keygen` (on your local computer - keep hitting enter to accept all the defaults).
 
-Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local`, enter the password for the `pi` user on the Pi, and run `mkdir .ssh`.
+If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi` (on your local computer).
+
+Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local` (on your pi), enter the password for the `pi` user on the Pi, and run `mkdir .ssh`.
 
 Next, add your new identity to the list of identities for which the Pi's `pi` user grants access via ssh:
 
-`cat ~/.ssh/<id_name>.pub | ssh pi@raspberrypi.local 'cat >> .ssh/authorized_keys'`
+`cat ~/.ssh/<id_name>.pub | ssh pi@raspberrypi.local 'cat >> .ssh/authorized_keys'` (on your local computer)
 
-Instead of appending it to the list of authorized keys, you may simply copy your public key to the Pi, **overwriting its existing list of authorized keys**: `scp ~/.ssh/<id_name>.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
+Instead of appending it to the list of authorized keys, you may simply copy your public key to the Pi, **overwriting its existing list of authorized keys**: `scp ~/.ssh/<id_name>.pub pi@raspberrypi.local:~/.ssh/authorized_keys` (on your local computer)
 
-Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a password.
+Finally, `ssh pi@raspberrypi.local` (on your local computer) to make sure you can log in without a password.
 
 ## Wifi reliability tweaks [optional]
 
