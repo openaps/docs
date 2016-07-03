@@ -202,7 +202,7 @@ If you don't already have an ssh key, then run `ssh-keygen` (on your local compu
 
 If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi` (on your local computer).
 
-Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local` (on your pi), enter the password for the `pi` user on the Pi, and run `mkdir .ssh`.
+Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local` (on your local computer), enter the password for the `pi` user on the Pi, and run `mkdir .ssh` (on your pi).
 
 Next, add your new identity to the list of identities for which the Pi's `pi` user grants access via ssh:
 
