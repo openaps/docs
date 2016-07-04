@@ -48,3 +48,4 @@ List of people who are working on closed loops:
 - Jeff Waters (Madison, WI)
 - Greg Hull (Wheaton, IL)
 - Sara and David Goya (Anaheim, CA)
+- Rafael Matuk (Chicago, IL)
