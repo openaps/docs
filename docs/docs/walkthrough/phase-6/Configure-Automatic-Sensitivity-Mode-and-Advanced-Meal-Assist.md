@@ -101,9 +101,9 @@ use = shell
 clock = monitor/clock-zoned.json
 reporter = text
 json_default = True
-carbs = monitor/carbhistory.json
 pumphistory = monitor/pumphistory-zoned.json
 basal = settings/basal_profile.json
+carbs = monitor/carbhistory.json
 device = meal
 remainder = 
 glucose = monitor/glucose.json
@@ -193,7 +193,7 @@ And let's set up meal.ini `nano meal.ini`:
 And paste this in:
 ```
 [device "meal"]
-fields = pumphistory profile clock carbs glucose basal
+fields = pumphistory profile clock glucose basal carbs
 cmd = oref0
 args = meal
 
@@ -210,6 +210,13 @@ And update your monitor-pump alias to this:
 ```
 monitor-pump = report invoke monitor/clock.json monitor/temp_basal.json monitor/pumphistory.json monitor/pumphistory-zoned.json monitor/clock-zoned.json monitor/iob.json monitor/meal.json monitor/reservoir.json monitor/battery.json monitor/status.json settings/autosens.json
 ```
+
+In addition, you need to create an alias to create the report settings/carbhistory.json.  Add this alias to your openaps.ini file:
+
+```
+ns-carbs = ! bash -c "curl -m 30 -s \"$NIGHTSCOUT_HOST/api/v1/treatments.json?find[created_at][\$gte]=date -d \"6 hours ago\" -Iminutes&find[carbs][\$exists]=true\" > monitor/carbhistory.json; exit 0"
+```
+You will need to call this new alias in your loop before running the report monitor/meal.json.  Adding it to the gather alias descibed elsewhere in the documentation would be a good place to put it
 
 4) **You should have AMA set up now!  Passing the meal data into determine-basal ENABLES AMA. **  
 
