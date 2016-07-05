@@ -48,7 +48,7 @@ Additionally, you may want to consider some unit testing. There is a basic unit 
 
 If you'd like to help out with defining all the desired behaviors in the form of unit test cases:
 
-1) Please clone / checkout [oref0] (https://github.com/openaps/oref0)
+1) Please clone / checkout [oref0](https://github.com/openaps/oref0)
 
 2) Type `sudo npm install -g mocha` and `sudo npm install -g should`
 
