@@ -259,6 +259,12 @@ Update the RPi2.
 
 The packages will take some time to install.
 
+## Disable HDMI to conserve power [optional]
+
+Via [Raspberry Pi Zero - Conserve power and reduce draw to 80mA](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-conserve-energy):
+
+> If you're running a headless Raspberry Pi, there's no need to power the display circuitry, and you can save a little power by running `/usr/bin/tvservice -o` (`-p` to re-enable). Add the line to `/etc/rc.local` to disable HDMI on boot.
+
 ## Configure Bluetooth Low Energy tethering [optional]
 
 The Raspberry Pi can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. The Raspberry Pi 3 has an inbuilt Bluetooth Low Energy (BLE) chip, while a BLE USB dongle can be used with the other Pi models.
