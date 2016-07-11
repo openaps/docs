@@ -50,3 +50,4 @@ List of people who are working on closed loops:
 - Sara and David Goya (Anaheim, CA)
 - Rafael Matuk (Chicago, IL)
 - Luuc Verburgh (Eindhoven, The Netherlands)
+- Julie Raines (Poughkeepsie, NY)
