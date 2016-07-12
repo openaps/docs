@@ -93,6 +93,12 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 
 Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
 
+You will also want to edit `/etc/network/interfaces` to change the following line from `iface wlan0 inet manual` to `iface wlan0 inet dhcp`
+
+To accomplish this input `sudo nano /etc/network/interfaces` and change `manual` to `dhcp` on the line that has `iface wlan0 inet`
+
+If you are not familiar with nano (the text editor) you may want to check out [this tutorial](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
+
 You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 
 ### Path 3: Headless WiFi configuration (Windows/Linux only)
