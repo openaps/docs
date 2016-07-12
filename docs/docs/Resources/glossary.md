@@ -24,4 +24,4 @@
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
 
-<b>RileyLink (RL)</b> - A custom designed Bluetooth Smart (BLE) to 916MHz module - it can be used to bridge any BLE capable smartphone to the world of 916Mhz based devices. This device is focused on talking to Medtronic insulin pumps and sensors.
+<b>RileyLink (RL)</b> - A custom designed Bluetooth Smart (BLE) to sub-1GHz module - it can be used to bridge any BLE capable smartphone to the world of sub-1GHz devices. This device is focused on talking to Medtronic insulin pumps and sensors.
