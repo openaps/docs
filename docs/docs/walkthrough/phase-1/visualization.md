@@ -217,7 +217,7 @@ You should see a lot of info. (Side note: the word "received" is spelled wrong.)
 
 Make sure to save this as a report:
 ```
-openaps report add nightscout/openaps-status.json JSON ns-status shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json
+openaps report add nightscout/openaps-status.json JSON ns shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json
 ```
 
 Now it needs to be invoked to test that it is getting data.
