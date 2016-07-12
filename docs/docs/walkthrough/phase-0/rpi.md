@@ -30,7 +30,7 @@ Note: If you ordered the recommended CanaKit, your SD card will already come ima
 
 ### Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
-Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip] (http://www.7-zip.org/) on Windows and [The Unarchiver] (https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).
+Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip](http://www.7-zip.org/) on Windows and [The Unarchiver](https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).
 
 ### Write Raspbian to the Micro SD Card
 Erase (format) your SD card using https://www.sdcard.org/downloads/formatter_4/
@@ -92,6 +92,12 @@ Input `wpa_passphrase "<my_SSID_hotspot>" "<my_hotspot_password>" >> /etc/wpa_su
 (It should look like: `wpa_passphrase "OpenAPS hotspot" "123loveOpenAPS4ever" >> /etc/wpa_supplicant/wpa_supplicant.conf`)
 
 Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_password>" >> /etc/wpa_supplicant/wpa_supplicant.conf` (and hit enter)
+
+You will also want to edit `/etc/network/interfaces` to change the following line from `iface wlan0 inet manual` to `iface wlan0 inet dhcp`
+
+To accomplish this input `sudo nano /etc/network/interfaces` and change `manual` to `dhcp` on the line that has `iface wlan0 inet`
+
+If you are not familiar with nano (the text editor) you may want to check out [this tutorial](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
 
 You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 
@@ -196,19 +202,21 @@ Now you should be able to log in without a password. Try to SSH into the RPi2 ag
 
 
 ### Mac and Linux
-If you don't already have an ssh key, then on your local computer (*not* on the Pi), run `ssh-keygen` (keep hitting enter to accept all the defaults).
+In this section some of the commands will be run on your local computer and some will be run on your pi. This will be identified in parenthesis after each command.
 
-If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi`.
+If you don't already have an ssh key, then run `ssh-keygen` (on your local computer - keep hitting enter to accept all the defaults).
 
-Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local`, enter the password for the `pi` user on the Pi, and run `mkdir .ssh`.
+If you created a new key identity and accepted all of the defaults, then the name of the newly generated identity will be `id_rsa`. However, if you set a custom name for the new identity (e.g. `id_mypi`), then you will need to add it to your local ssh keyring, via `ssh-add ~/.ssh/id_mypi` (on your local computer).
+
+Next create a .ssh directory on the Pi: `ssh pi@raspberrypi.local` (on your local computer), enter the password for the `pi` user on the Pi, and run `mkdir .ssh` (on your pi).
 
 Next, add your new identity to the list of identities for which the Pi's `pi` user grants access via ssh:
 
-`cat ~/.ssh/<id_name>.pub | ssh pi@raspberrypi.local 'cat >> .ssh/authorized_keys'`
+`cat ~/.ssh/<id_name>.pub | ssh pi@raspberrypi.local 'cat >> .ssh/authorized_keys'` (on your local computer)
 
-Instead of appending it to the list of authorized keys, you may simply copy your public key to the Pi, **overwriting its existing list of authorized keys**: `scp ~/.ssh/<id_name>.pub pi@raspberrypi.local:~/.ssh/authorized_keys`
+Instead of appending it to the list of authorized keys, you may simply copy your public key to the Pi, **overwriting its existing list of authorized keys**: `scp ~/.ssh/<id_name>.pub pi@raspberrypi.local:~/.ssh/authorized_keys` (on your local computer)
 
-Finally, `ssh pi@raspberrypi.local` to make sure you can log in without a password.
+Finally, `ssh pi@raspberrypi.local` (on your local computer) to make sure you can log in without a password.
 
 ## Wifi reliability tweaks [optional]
 
@@ -256,6 +264,12 @@ Update the RPi2.
 `sudo apt-get update && sudo apt-get -y upgrade`
 
 The packages will take some time to install.
+
+## Disable HDMI to conserve power [optional]
+
+Via [Raspberry Pi Zero - Conserve power and reduce draw to 80mA](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-conserve-energy):
+
+> If you're running a headless Raspberry Pi, there's no need to power the display circuitry, and you can save a little power by running `/usr/bin/tvservice -o` (`-p` to re-enable). Add the line to `/etc/rc.local` to disable HDMI on boot.
 
 ## Configure Bluetooth Low Energy tethering [optional]
 

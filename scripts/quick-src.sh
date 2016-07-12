@@ -29,7 +29,7 @@ cd ~/src && \
         sudo python setup.py develop
     )
     git clone -b dev git://github.com/openaps/oref0.git || \
-        (cd openaps-contrib && git pull)
+        (cd oref0 && git pull)
 )
 test -d oref0 && \
 cd oref0 && \

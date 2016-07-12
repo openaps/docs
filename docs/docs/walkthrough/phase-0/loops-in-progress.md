@@ -45,3 +45,9 @@ List of people who are working on closed loops:
 - Gregg Haroldson (Huntington Beach, CA)
 - Gera Yeremin (Santa Rosa , CA)
 - Ed Nykaza
+- Jeff Waters (Madison, WI)
+- Greg Hull (Wheaton, IL)
+- Sara and David Goya (Anaheim, CA)
+- Rafael Matuk (Chicago, IL)
+- Luuc Verburgh (Eindhoven, The Netherlands)
+- Julie Raines (Poughkeepsie, NY)
