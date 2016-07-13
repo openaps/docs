@@ -249,8 +249,8 @@ Edit the config file by opening up nano text editor
 Uncomment the following: (remove the # from the following lines, scroll down as needed to find them):
 
 ```
-max-load-1
-watchdog-device
+max-load-1              = 24
+watchdog-device         = /dev/watchdog
 ```
 
 Finally, start watchdog by entering:
