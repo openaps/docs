@@ -77,12 +77,12 @@ The purpose of the `get-profile` process is to consolidate information from mult
   $ openaps report add settings/basal_profile.json JSON <my_pump_name> read_basal_profile_std
   ```
 
-* `preferences` is an exception: in contrast to the other settings above, `preferences` is not the result of an openaps report. It's a JSON file that should contain a single line with your maximum IOB, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file (click on "Update Oref0-mint-max-iob to use preferences.json" in Github). The `max_iob` variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.  To create a JSON file:
+* `preferences` is an exception: in contrast to the other settings above, `preferences` is not the result of an openaps report. It's a JSON file that should contain a single line with your maximum IOB, such as: `{"max_iob": 0}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file (click on "Update Oref0-mint-max-iob to use preferences.json" in Github). The `max_iob` variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 0 units of insulin.  To create a JSON file:
 
     ```
       $ nano preferences.json
       ```
-which opens in a nano editor.  Then type in {"max_iob":2} or whatever number you are choosing and Ctrl + X to exit.
+which opens in a nano editor.  Then type in {"max_iob":0} or whatever number you are choosing and Ctrl + X to exit.
 
 Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
