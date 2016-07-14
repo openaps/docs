@@ -1,8 +1,8 @@
-# Setting Up OpenAPS and Dependencies
+# Setting Up openaps and Dependencies
 
-This section provides information on installing the base OpenAPS toolkit and its dependencies.
+This section provides information on installing the base openaps toolkit and its dependencies.
 
-## Easy install of OpenAPS and dependencies
+## Easy install of openaps and dependencies
 
 ### Using the package manager
 
