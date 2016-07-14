@@ -1,8 +1,8 @@
-# Setting Up openaps and Dependencies
+# Setting Up OpenAPS and Dependencies
 
-This section provides information on installing the base openaps toolkit and its dependencies.
+This section provides information on installing the base OpenAPS toolkit and its dependencies.
 
-## Easy install of openaps and dependencies
+## Easy install of OpenAPS and dependencies
 
 ### Using the package manager
 
@@ -27,8 +27,6 @@ It's possible to use the package manager to install development branches.  If yo
 If successful, the last line will say something like: <br>
 
 openaps 0.0.10-dev  (although the version number may have been incremented)
-
-
 
 ## Manual install [optional]
 ### Install Python and Node.js Packages System-Wide [optional]
@@ -79,4 +77,3 @@ In order to set your git account's default identity, you will need to run the fo
 `git config --global user.name "Your Name"`
 
 replace `you@example.com` and `Your Name` with your own information, but keep the quotes.
-
