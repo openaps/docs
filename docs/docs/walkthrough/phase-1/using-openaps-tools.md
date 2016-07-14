@@ -1,4 +1,4 @@
-# Configuring and Learning to Use OpenAPS Tools
+# Configuring and Learning to Use openaps Tools
 
 This section provides an introduction to initializing, configuring, and using the OpenAPS toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
 
@@ -33,13 +33,13 @@ Some conventions used in this guide:
 <br>
 ## Configuring OpenAPS
 
-### Initialize a new OpenAPS environment
+### Initialize a new openaps environment
 
 To get started, SSH into your Raspberry Pi. Go to your home directory:
 
 `cd`
 
-Create a new instance of OpenAPS in a new directory:
+Create a new instance of openaps in a new directory:
 
 `openaps init <my_openaps>`
 
@@ -59,7 +59,7 @@ The directory you just created and initialized as an openaps environment is most
 $ ls
 openaps.ini
 ```
-That `openaps.ini` file is the configuration file for this particular instance of OpenAPS. It will contain all of your device information, plugin information, reports, and aliases. In the subsequent sections, you will be configuring your OpenAPS instance to add these components. For now, however, it is blank. Go ahead and take a look:
+That `openaps.ini` file is the configuration file for this particular instance of openaps. It will contain all of your device information, plugin information, reports, and aliases. In the subsequent sections, you will be configuring your openaps instance to add these components. For now, however, it is blank. Go ahead and take a look:
 
 `cat openaps.ini`
 
