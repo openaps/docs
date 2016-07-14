@@ -150,7 +150,7 @@ An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 
 [Sony 16GB Class 10 UHS-1 Micro SDHC](http://www.amazon.com/Sony-Class-Memory-SR16UY2A-TQ/dp/B00X1404P8)
 
-Note: A known issue with the Raspberry Pi is that the SD card may get corrupted with frequent power cycles, such as when the system gets plugged and unplugged frequently from an external battery. Most core developers of OpenAPS recommend purchasing extra SD cards and having them pre-imaged and ready to use with a backup copy of OpenAPS installed, so you can swap it out on the go for continued use of the system.
+Note: A known issue with the Raspberry Pi is that the SD card may get corrupted with frequent power cycles, such as when the system gets plugged and unplugged frequently from an external battery. Most core developers of openaps recommend purchasing extra SD cards and having them pre-imaged and ready to use with a backup copy of openaps installed, so you can swap it out on the go for continued use of the system.
 
 ### WiFi Adapter Raspberry Pi 2 only
 
