@@ -51,3 +51,5 @@ List of people who are working on closed loops:
 - Rafael Matuk (Chicago, IL)
 - Luuc Verburgh (Eindhoven, The Netherlands)
 - Julie Raines (Poughkeepsie, NY)
+- Brandon Parrish (Augusta, GA)
+- 
