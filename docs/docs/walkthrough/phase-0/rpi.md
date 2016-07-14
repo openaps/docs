@@ -22,7 +22,7 @@ For the Path 2 Headless install, you will need:
 * 2.1 Amp USB Power Supply
 * Micro USB cable
 * Raspberry Pi 2 CanaKit
-* Console cable, ethernet cable, or Windows/Linux PC that can write ext4 filesystems
+* Console cable, Ethernet cable, or Windows/Linux PC that can write ext4 filesystems
 
 ## Download and Install Raspbian Jessie
 
@@ -76,8 +76,8 @@ You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 ### Path 2: Console or Ethernet cable
 
 * Get and connect a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)),
-* Temporarily connect RPi to a router with an ethernet cable and SSH in (see below), or
-* Connect the RPi directly to your computer with an ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
+* Temporarily connect RPi to a router with an Ethernet cable and SSH in (see below), or
+* Connect the RPi directly to your computer with an Ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
 
 #### Configure WiFi Settings
 
@@ -127,7 +127,7 @@ If you want to connect to a router which doesn't broadcast an SSID, add a line w
 Boot your Pi. (Put the SD card into the RPi2. Plug in the compatible USB WiFi adapter into a RPi2 USB port. Get a micro USB cable and plug the micro USB end into the side of the RPi2 and plug the USB side into the USB power supply.)
 
 If you are unable to access this file on your computer:
-* Connect your Pi to your computer with an ethernet cable and boot your Pi
+* Connect your Pi to your computer with an Ethernet cable and boot your Pi
 * Log in using PuTTY. The Host Name is `raspberrypi.local` and the Port is 22.  The login is `pi` and the password is `raspberry`.
 * Type `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and edit the file as described above.
 
@@ -157,7 +157,7 @@ Make sure that the Android device is connected to the same WiFi network that the
 
 You probably also want to make your phone a hotspot and configure the WiFi connection (as above) to use the hotspot.
 
-Note: If connecting to the RPi2 fails at this point, the easiest alternative is to temporarily connect RPi to your router with an ethernet cable and SSH in, making sure both the computer and the RPi2 are connected to the same router.
+Note: If connecting to the RPi2 fails at this point, the easiest alternative is to temporarily connect RPi to your router with an Ethernet cable and SSH in, making sure both the computer and the RPi2 are connected to the same router.
 
 ## Configure the Raspberry Pi
 
@@ -178,10 +178,10 @@ Here you can expand filesystem to maximize memory, change user password and set 
 Confirm that your keyboard settings are correct. Click on Menu (upper left corner of the screen, with raspberry icon). Mouse down to Preferences, and over to Mouse and Keyboard Settings. Click on Mouse and Keyboard Settings, then click on the Keyboard tab. Click on Keyboard Layout and be sure your country and variant are correct. For the US, it should be United States and English (US).
 
 
-### Note on Time Zone 
+### Note on Time Zone
 
 It is imperative that you set the correct time zone at this step of the configuration process.  OpenAPS will look at the timestamp of your CGM data, and the local time on the pump, when making recommendations for basal changes.  The system also uses local time on the pi; so times and time zone need to match, or you will run into issues later.  If the time zone is incorrect, or you haven’t done this yet, run `sudo dpkg-reconfigure tzdata` from the prompt and choose your local zone.
- 
+
 ## Setting up an SSH key for Password-less Login [optional]
 
 You can setup a public/private key identity, and configure your local computer and the Raspberry Pi to automatically use it. This will allow SSH access to the Pi without requiring a password. Some people find this feature very convenient.
@@ -249,8 +249,8 @@ Edit the config file by opening up nano text editor
 Uncomment the following: (remove the # from the following lines, scroll down as needed to find them):
 
 ```
-max-load-1
-watchdog-device
+max-load-1              = 24
+watchdog-device         = /dev/watchdog
 ```
 
 Finally, start watchdog by entering:

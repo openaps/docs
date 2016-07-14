@@ -1,9 +1,8 @@
 # Configuring and Learning to Use openaps Tools
 
-This section provides an introduction to intializing, configuring, and using the openaps toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
+This section provides an introduction to initializing, configuring, and using the OpenAPS toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
 
-The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of openaps. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
-
+The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of OpenAPS. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
 Some familiarity with using the terminal will go a long way, so if you aren't
 comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell
@@ -32,7 +31,7 @@ Some conventions used in this guide:
 ```
 
 <br>
-## Configuring openaps
+## Configuring OpenAPS
 
 ### Initialize a new openaps environment
 
@@ -83,14 +82,38 @@ In order to communicate with the pump and cgm receiver, they must first be
 added as devices to the openaps configuration. To do this for a device we'll
 call `pump`:
 
+(Depending on just how you are set up to communicate with the pump (for example, Medtronic CareLink stick vs TI Stick with MMeowLink, etc) you might need to take some additional steps here.  The instructions below assume you are using a Carelink.  If you want to use MMeowLink, and assuming you already have that software installed, you will need to:
+
+`openaps vendor add --path . mmeowlink.vendors.mmeowlink`
+
+to set up the MMeowLink code, and:
+
+`openaps device add pump mmeowlink subg_rfspy /dev/ttyACM0 123456`
+
+(instead of
+
 `openaps device add pump medtronic`
 
+and
+
+`openaps use pump config --serial <my_serial_number>`
+
+(for example):
+`openaps use pump config --serial 123456`
+
+below to add the pump device.)  Note also that the path, /dev/ttyACM0, may vary from one system to another.)
+
+`openaps device add pump medtronic`
 
 Then to configure the new `pump` device with its serial number:
+
 `openaps use pump config --serial 123456`
 
 Create bunch of reports:
+
 `oref0 template mint reports medtronic-pump | openaps import`
+
+(Yes, use `medtronic-pump` even if you are communicating with the pump another way.)
 
 Here, `<my_pump_name>` can be whatever you like, but `<my_serial_number>` must
 be the 6-digit serial number of your pump. You can find this either on the back
@@ -134,6 +157,9 @@ openaps device add cgm openxshareble
 
 ### Glucose Data
 Test ability to get data.
+
+(It would be good to explain here (or link to) how to use G4 / G4 Share -> Nightscout to get cgm data.)
+
 ```
 openaps use cgm oref0_glucose  --hours 2.0
 
@@ -177,8 +203,6 @@ openaps alias add monitor-cgm "report invoke raw-cgm/glucose-raw.json monitor/gl
 
 Now, `openaps monitor-cgm` is available to pull in fresh CGM data from Dexcom.
 
-
-
 ## Check that the devices are all added properly
 
 `openaps device show`
@@ -190,7 +214,7 @@ medtronic://pump
 dexcom://cgm
 ```
 
-Here, `pump` was used for `<my_pump_name>` and `cgms` was used for
+Here, `pump` was used for `<my_pump_name>` and `cgm` was used for
 `<my_dexcom_name>`. The names you selected should appear in their place.
 
 Your `openaps.ini` file now has some content; go ahead and take another look:
@@ -204,12 +228,12 @@ Now, both of your devices are in this configuration file:
 vendor = openaps.vendors.medtronic
 extra = pump.ini
 
-[device "cgms"]
+[device "cgm"]
 vendor = openaps.vendors.dexcom
-extra = cgms.ini
+extra = cgm.ini
 ```
 
-Again, `pump` was used for `<my_pump_name>` and `cgms` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
+Again, `pump` was used for `<my_pump_name>` and `cgm` was used for `<my_dexcom_name>`. Your pump model should also match your pump.
 
 Because your pump's serial number also serves as its security key, that
 information is now stored in a separate ini file (here noted as `pump.ini`)
@@ -322,7 +346,6 @@ switch between the different devices depending on their needs.  If you are
 going to pull it directly from Nightscout then you will have to have internet
 access for the Raspberry Pi.
 
-
 The `autoconfigure-device-crud` feature will allow us to create an easy to use `ns` device:
 
 ```
@@ -336,9 +359,15 @@ It added a new `ns` device to our uses menu:
 openaps use ns shell get entries.json 'count=10'
 openaps use ns shell upload treatments.json recently/combined-treatments.json
 ```
-So we now have various uses for `ns`: **get**, **upload**,
+
+(It would be good to show how to create a treatments.json report before ns shell `upload`...)
+
+So we now have various uses for `ns`:
+
+**get**, **upload**,
 **latest-treatment-time**, **format-recent-history-treatments**,
 **upload-non-empty-treatments**.
+
 #### nightscout tools in openaps
 
     openaps use ns shell get entries.json 'count=10'
@@ -379,7 +408,6 @@ So we now have various uses for `ns`: **get**, **upload**,
 
 ## Examples
 
-
 ### Get records from Nightscout
 
 Use the get feature which takes two arguments: the name of the endpoint
@@ -407,6 +435,13 @@ data from Nightscout and determines which of the latest deltas from openaps
 need to be sent. The second one uses the upload-non-empty-treatments use to
 upload treatments to Nightscout, if there is any data to upload.
 
+The first of the above reports and uses rely upon the existence of a model report:
+
+    openaps report add settings/model.json JSON pump model
+    openaps report invoke model.json
+
+(what report needs to be defined and invoked in order to have monitor/pump-history.json defined?)
+
 ### Uploading glucose values to Nightscout
 
 Format potential entries (glucose values) for Nightscout.
@@ -418,7 +453,7 @@ Format potential entries (glucose values) for Nightscout.
     openaps report invoke nightscout/recent-missing-entries.json
 
     # add report for uploading to NS
-    openaps report add nightscout/uploaded-entries.json JSON  ns shell upload entries.json nightscout/recent-missing-entries.json
+    openaps report add nightscout/uploaded-entries.json JSON ns shell upload entries.json nightscout/recent-missing-entries.json
     # upload for fist time.
     openaps report invoke nightscout/uploaded-entries.json
 

@@ -4,9 +4,9 @@
 
 [Nightscout](http://nightscout.info) in their own words: Nightscout (CGM in the Cloud) is an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones.
 
-It basically allows a user to upload CGM data from a variety of sources, to an online database and cloud computing service. The information is then processed and displayed visually as a graph. There are plugins that allow greater information to be shown about openaps too. As the data is uploaded to an online website and then retrieved by OpenAPS it allows OpenAPS a wider range of compatibility with various CGM solutions. 
+It basically allows a user to upload CGM data from a variety of sources, to an online database and cloud computing service. The information is then processed and displayed visually as a graph. There are plugins that allow greater information to be shown about OpenAPS too. As the data is uploaded to an online website and then retrieved by OpenAPS it allows OpenAPS a wider range of compatibility with various CGM solutions. 
 
- [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your RaspberryPI or loop system and looking through log files. 
+ [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your Raspberry Pi or loop system and looking through log files. 
 
 ##Nightscout Setup
 
@@ -120,7 +120,7 @@ Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable
 
 
 ### Set up `ns` device
-To get your OpenAps viewed onto your Nightscout site, start by using the
+To get your OpenAPS viewed onto your Nightscout site, start by using the
 following tool:
 
 
