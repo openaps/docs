@@ -21,12 +21,9 @@ to your OpenAPS implementation.
 
 OpenAPS requires the latest (currently dev) version of Nightscout, which can be
 found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. If you
-are already using Nightscout you might have to update your repository. Just go
-to the https://github.com/nightscout/cgm-remote-monitor repository and look for
-"updating my version". Once you have completed these steps, log on to Azure or
-Heroku and disconnect the deployment source. Thereafter choose your
+are already using Nightscout you might have to update your repository. To update your version and create a PR to your dev branch, use http://nightscout.github.io/pages/test-beta/?branch=dev and look for the "I'm ready" button. Once you have completed these steps, log on to Azure or Heroku and disconnect the deployment source. Thereafter choose your
 cgm-remote-monitor github repository as source again. You should take the dev
-branch of this repository especially if you plan to use the
+branch of this repository. The dev branch will also allow you to use the
 advanced-meal-assist feature.
 
 The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
