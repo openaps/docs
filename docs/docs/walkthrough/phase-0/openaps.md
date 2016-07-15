@@ -28,8 +28,6 @@ If successful, the last line will say something like: <br>
 
 openaps 0.0.10-dev  (although the version number may have been incremented)
 
-
-
 ## Manual install [optional]
 ### Install Python and Node.js Packages System-Wide [optional]
 
@@ -79,4 +77,3 @@ In order to set your git account's default identity, you will need to run the fo
 `git config --global user.name "Your Name"`
 
 replace `you@example.com` and `Your Name` with your own information, but keep the quotes.
-
