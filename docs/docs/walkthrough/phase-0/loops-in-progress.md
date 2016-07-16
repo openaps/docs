@@ -53,3 +53,4 @@ List of people who are working on closed loops:
 - Julie Raines (Poughkeepsie, NY)
 - Brandon Parrish (Augusta, GA)
 - Katie Ellison (Bellevue, WA)
+- Sarah Easter (Georgetown, TX)
