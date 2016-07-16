@@ -44,7 +44,7 @@ Then to add the ns-status device to your openaps.ini:
 Then test the ns-status device (Adjust the report directories as needed):
 `openaps use ns-status shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json`
 
-You should see a lot of info. (Side note: the word "received" under the "enacted" headding is typoed.)\
+You should see a lot of info. (Side note: the word "received" under the "enacted" heading is typoed.)\
 
 If you receive an error you have most likely not included all reports;\
 running `openaps use ns-status shell -h` will show positional arguements.
