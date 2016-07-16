@@ -66,7 +66,7 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
 * Finally connect your RPi2 using the power adapter.
 * You should see the GUI appear on sceen.
-* Configure WiFi per the instruction pamphlet included with your CanaKit.
+* Configure WiFi per the instruction pamphlet included with your CanaKit. For those not using the CanaKit, click the computer monitors next to the volume control in the upper-right side and there will be a drop-down menu of available WiFi networks.  You should see your home network.  If you have trouble connecting to the RPi2 via WiFi, check your router settings. The router may need to be switched from WEP to WPA2.
 * Once you have installed Rasbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable.
 
 Remember to keep your RPi2 plugged in, just disconnect the peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
