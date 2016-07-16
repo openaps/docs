@@ -52,3 +52,4 @@ List of people who are working on closed loops:
 - Luuc Verburgh (Eindhoven, The Netherlands)
 - Julie Raines (Poughkeepsie, NY)
 - Brandon Parrish (Augusta, GA)
+- Katie Ellison (Bellevue, WA)
