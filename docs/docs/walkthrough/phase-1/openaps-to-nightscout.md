@@ -6,9 +6,10 @@ To view your data on your Nightscout site, start by doing the following:
 
 So this would be your actual https://myname.azurewebsites.net  or https://myname.herokuapp.com (without the carrots of course). Your API_SECRET is listed in your Azure or Heroku settings.
 
-To test this: `openaps use ns shell preflight`
+To test this: `openaps use ns shell preflight`\
+It should return "True"
 
-To get aliases:
+To get a good list of aliases:
 
 `curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/181c5d6f29cd6489ecc9630786cf2c4937ddde79/bewest-aliases.json > bewest-aliases.json`
 
@@ -37,13 +38,18 @@ At this point, you should see treatment circles, information about the battery, 
 To verify what was uploaded to Nightscout:
 `cat nightscout/uploaded.json`
 
-Then for the status:
+Then to add the ns-status device to your openaps.ini:
 `oref0 device-helper ns-status 'ns-status $*' | openaps import`
 
-Then:
+Then test the ns-status device (Adjust the report directories as needed):
 `openaps use ns-status shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json`
 
-You should see a lot of info. (Side note: the word "received" is spelled wrong.)
+You should see a lot of info. (Side note: the word "received" under the "enacted" heading is typoed.)\
+
+If you receive an error you have most likely not included all reports;\
+running `openaps use ns-status shell -h` will show positional arguements.
+These arguements are required; `clock iob suggested enacted battery reservoir status`
+you can also supplement additional reports (i.e., remainder).
 
 Make sure to save this as a report:
 `openaps report add nightscout/openaps-status.json JSON ns-status shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json`
