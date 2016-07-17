@@ -28,6 +28,18 @@ Heroku and disconnect the deployment source. Thereafter choose your
 cgm-remote-monitor github repository as source again. You should take the dev
 branch of this repository especially if you plan to use the
 advanced-meal-assist feature.
+_________________________
+**If this doesn't work then from the command prompt in terminal run the following:
+
+git clone -b dev https://github.com/<your-github-repository-name>/cgm-remote-monitor.git
+cd cgm-remote-monitor
+git remote add upstream https://github.com/nightscout/cgm-remote-monitor
+git fetch upstream
+git merge upstream/dev
+git push origin dev
+
+**where <your-github-repository-name> is replaced with your repository name found in your Github, upper left once in any of your repositories and also "signed in as" from the pull-down menu in the top right where all your profile and settings are found.  When you run this it will stop at some point and give you "git push origin dev" and you can hit enter.  Then it will ask for "Username for 'https://github.com'" where you type in your username (usually your email address associated with Github) and hit enter.  Then it will ask for "Password for 'https://name@email.com@github.com':" where you type in your password (in your actual results, the username you entered will be where it says "name@email.com").
+____________________________
 
 The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
 
