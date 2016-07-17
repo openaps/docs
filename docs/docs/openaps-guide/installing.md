@@ -43,3 +43,5 @@ upgrades through git.  Running `openaps` inside of the openaps
 source directory will error in the best case, and mess up your
 `openaps` install in the worst case.
 
+Now it's time to create our first workspace! (INSERT CREATING FIRST WORKSPACE HERE)
+
