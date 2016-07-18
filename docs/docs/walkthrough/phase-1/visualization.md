@@ -4,9 +4,9 @@
 
 [Nightscout](http://nightscout.info) in their own words: Nightscout (CGM in the Cloud) is an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones.
 
-It basically allows a user to upload CGM data from a variety of sources, to an online database and cloud computing service. The information is then processed and displayed visually as a graph. There are plugins that allow greater information to be shown about openaps too. As the data is uploaded to an online website and then retrieved by OpenAPS it allows OpenAPS a wider range of compatibility with various CGM solutions. 
+It basically allows a user to upload CGM data from a variety of sources, to an online database and cloud computing service. The information is then processed and displayed visually as a graph. There are plugins that allow greater information to be shown about OpenAPS too. As the data is uploaded to an online website and then retrieved by OpenAPS it allows OpenAPS a wider range of compatibility with various CGM solutions. 
 
- [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your RaspberryPI or loop system and looking through log files. 
+ [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your Raspberry Pi or loop system and looking through log files. 
 
 ##Nightscout Setup
 
@@ -21,12 +21,9 @@ to your OpenAPS implementation.
 
 OpenAPS requires the latest (currently dev) version of Nightscout, which can be
 found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. If you
-are already using Nightscout you might have to update your repository. Just go
-to the https://github.com/nightscout/cgm-remote-monitor repository and look for
-"updating my version". Once you have completed these steps, log on to Azure or
-Heroku and disconnect the deployment source. Thereafter choose your
+are already using Nightscout you might have to update your repository. To update your version and create a PR to your dev branch, use http://nightscout.github.io/pages/test-beta/?branch=dev and look for the "I'm ready" button. Once you have completed these steps, log on to Azure or Heroku and disconnect the deployment source. Thereafter choose your
 cgm-remote-monitor github repository as source again. You should take the dev
-branch of this repository especially if you plan to use the
+branch of this repository. The dev branch will also allow you to use the
 advanced-meal-assist feature.
 _________________________
 **If this doesn't work then from the command prompt in terminal run the following:
@@ -132,7 +129,7 @@ Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable
 
 
 ### Set up `ns` device
-To get your OpenAps viewed onto your Nightscout site, start by using the
+To get your OpenAPS viewed onto your Nightscout site, start by using the
 following tool:
 
 
@@ -229,7 +226,7 @@ You should see a lot of info. (Side note: the word "received" is spelled wrong.)
 
 Make sure to save this as a report:
 ```
-openaps report add nightscout/openaps-status.json JSON ns-status shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json
+openaps report add nightscout/openaps-status.json JSON ns shell monitor/clock.json oref0-monitor/iob.json oref0-predict/oref0.json oref0-enacted/enacted-temp-basal.json monitor/battery.json monitor/reservoir.json monitor/status.json
 ```
 
 Now it needs to be invoked to test that it is getting data.

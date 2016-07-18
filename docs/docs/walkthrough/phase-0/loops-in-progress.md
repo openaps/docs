@@ -51,3 +51,7 @@ List of people who are working on closed loops:
 - Rafael Matuk (Chicago, IL)
 - Luuc Verburgh (Eindhoven, The Netherlands)
 - Julie Raines (Poughkeepsie, NY)
+- Brandon Parrish (Augusta, GA)
+- Katie Ellison (Bellevue, WA)
+- Sarah Easter (Georgetown, TX)
+- Terri Lyman (Prescott Valley, AZ)
