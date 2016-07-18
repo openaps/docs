@@ -171,10 +171,12 @@ openaps use cgm oref0_glucose  --no-raw --hours 2.0
 For all Dexcom CGM systems:
 
 Add as report:
-```
+
 openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --hours 2.0
+```
+
 # For G5:
-openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --no-raw --hours 2.0
+`openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --no-raw --hours 2.0`
 
 For a Dexcom G5 system, you need to configure openaps specifically for the G5:
 
