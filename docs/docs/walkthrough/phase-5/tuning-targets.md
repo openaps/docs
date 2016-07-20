@@ -10,4 +10,4 @@ After you adjust your max iob and go beyond low glucose suspend mode, run the sy
 
 If you are going low overnight for three+ days, your "min" target may need to be raised.
 
-After you tune your targets, min can be set to be equivalent of max. However, when you first start, start with a 10-point range (i.e. 150-160). 
+After you tune your targets, min can be set to be equivalent of max. However, when you first start, start with a 10-point range (i.e. 150-160).

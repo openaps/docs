@@ -3,7 +3,7 @@ This report is the same as your `pumphistory.json` report, but adjusted for your
 ##### Setup code
 `openaps use tz rezone --timezone "[YOUR TIMEZONE]" --adjust "missing" --date "timestamp dateString start_at end_at created_at" --astimezone monitor/pumphistory.json`
 ##### Sample contents
-`[                                                                                                                                                                                                                                                                                                                    
+`[
   {
     "_type": "TempBasalDuration",.
     "_description": "TempBasalDuration 2016-05-23T22:15:28 head[2], body[0] op[0x16]",.

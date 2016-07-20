@@ -6,33 +6,33 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 More comprehensive command line references can be found [here](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html) and [here](http://www.pixelbeat.org/cmdline.html). For the below, since these are basic linux things, also try using a basic search engine (i.e. Google) to learn more about them and their intended use.
 
-`$ ls -alt` (List all of the files in the current directory with additional details.)
+`ls -alt` (List all of the files in the current directory with additional details.)
 
-`$ cd` (Change directory)
+`cd` (Change directory)
 
-`$ pwd` (Show the present working directory (your current location within the filesystem).)
+`pwd` (Show the present working directory (your current location within the filesystem).)
 
-`$ sudo <command>`
+`sudo <command>`
 
-`$ tail -f /var/log/syslog`
+`tail -f /var/log/syslog`
 
-`$ df -h`
+`df -h`
 
-`$ ifconfig`
+`ifconfig`
 
-`$ cat <filename>` (Display the contents of the file.)
+`cat <filename>` (Display the contents of the file.)
 
-`$ nano <filename>` (Open and edit the file in the nano text editor.)
+`nano <filename>` (Open and edit the file in the nano text editor.)
 
-`$ stat <filename>`
+`stat <filename>`
 
-`$ pip freeze`
+`pip freeze`
 
-`$ sudo reboot`
+`sudo reboot`
 
-`$ sudo shutdown -h now` (The correct way to shut down the Raspberry Pi from the command line. Wait for the green light to stop blinking before removing the power supply.)
+`sudo shutdown -h now` (The correct way to shut down the Raspberry Pi from the command line. Wait for the green light to stop blinking before removing the power supply.)
 
-`$ dmesg` (Displays all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.)
+`dmesg` (Displays all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.)
 
 `uptime`
 
@@ -40,7 +40,7 @@ More comprehensive command line references can be found [here](http://www.comput
 
 ### Dealing with the CareLink USB Stick
 
-The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `$ openaps use <my_pump_name> model`.
+The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model`.
 
 If you can't get a response, it may be a range issue. The range of the CareLink radio is not particularly good, and orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for more information.
 
@@ -52,9 +52,11 @@ Once you're setting up your loop, you may also want to oref0-reset-usb (`oref0-r
 
 OpenAPS uses git as the logging mechanism, so it commits report changes on each report invoke. Sometimes, due to "unexpected" power-offs (battery dying, unplugging, etc.),the git repository gets broken. When it happens you will receive exceptions when running any report from openaps. As git logging is a safety/security measure, there is no way of disabling these commits.
 
-To fix a corrupted git repository you can run `oref0-fix-git-corruption.sh`, it will try to fix the repository, and in case when repository is definitly broken it copies the remainings in a safe place (`tmp`) and initializes a new git repo.
+You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-fix-git-corruption`, it will try to fix the repository, and in case when repository is definitely broken it copies the remainings in a safe place (`tmp`) and initializes a new git repo.
 
-Warning: do not run any  openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
+To reset the whole git repository you can run `oref0-reset-git`.  It is currently recommended to run this command in cron so that if the repository gets corrupted it can quickly reset itself. 
+
+Warning: do not run any openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
 
 ### Environment variables
 

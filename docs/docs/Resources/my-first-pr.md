@@ -9,7 +9,7 @@ It's actually not too hard to do one and it is a great way to contribute. This d
 * Then do a pull request, which is to ask the administrators of the repository to pull your changes back into the appropriate branch of the main repository.
 * They will do a quick review and merge your changes in, or comment if there are errors that need fixing first, or if it's a large enough change that it needs to go to another branch like dev for further work before being merged to master.
 
-OK, let's get started. For our example we are going to make an edit to the openaps docs repository.
+OK, let's get started. For our example we are going to make an edit to the openaps docs repository.  This does NOT need to be done in the linux environment.  This can be done on any Windows PC.
 
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 2. Github will automatically take you to your copy (notice in the address bar you are now in your own personal github directory)

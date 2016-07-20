@@ -1,7 +1,7 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
-In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `$ openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
+In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 First, you can add a catch-all oref0 device using
 
@@ -9,7 +9,7 @@ First, you can add a catch-all oref0 device using
 $ openaps device add oref0 process oref0
 ```
 
-and then you can be more specific and add individual oref0 processes as virtual devices using the following commands: 
+and then you can be more specific and add individual oref0 processes as virtual devices using the following commands:
 
 ```
 $ openaps device add get-profile process --require "settings bg_targets insulin_sensitivities basal_profile preferences" oref0 get-profile
@@ -17,7 +17,7 @@ $ openaps device add calculate-iob process --require "pumphistory profile clock"
 $ openaps device add determine-basal process --require "iob temp_basal glucose profile" oref0 determine-basal
 ```
 
-In these commands, `--require` specifies the arguments required by each of the oref0 processes. Most of the arguments to the oref0 processes should look familiar to you from your experimentation with `openaps` tools earlier. Now it's time to put together reports that the oref0 processes use as inputs, as well as reports and aliases that invoke the oref0 processes themselves. 
+In these commands, `--require` specifies the arguments required by each of the oref0 processes. Most of the arguments to the oref0 processes should look familiar to you from your experimentation with `openaps` tools earlier. Now it's time to put together reports that the oref0 processes use as inputs, as well as reports and aliases that invoke the oref0 processes themselves.
 
 ## Organizing the reports
 
@@ -43,20 +43,20 @@ The purpose of the `get-profile` process is to consolidate information from mult
   $ openaps report add settings/bg_targets_raw.json JSON pump read_bg_targets
   ```
   * If your pump OR CGM is European and displays mmol/L as opposed to mg/dl you will need to convert this "raw" file.
-    
+
     First install the unit conversion device to ensure all units will match.
      ```
       $ openaps device add units units
       ```
     Go through the standard process of use, report add, report invoke for the 2 reports below.
-    
+
     For Blood Sugar Conversion
     The `units` function ensures that units will match.  To use it, add units to your list of devices with:
       ```
       $ openaps device add units units
       ```
     To convert this "raw" file, we need to add a report that will perform
-    `$ openaps use units bg_targets settings/bg_targets_raw.json`
+    `openaps use units bg_targets settings/bg_targets_raw.json`
     and output not to the screen but into a file called settings/bg_targets.json:
       ```
       $ openaps report add settings/bg_targets.json JSON units bg_targets settings/bg_targets_raw.json
@@ -77,7 +77,12 @@ The purpose of the `get-profile` process is to consolidate information from mult
   $ openaps report add settings/basal_profile.json JSON <my_pump_name> read_basal_profile_std
   ```
 
-* `preferences` is an exception: in contrast to the other settings above, `preferences` is not the result of an openaps report. It's a JSON file that should contain a single line with your maximum IOB, such as: `{"max_iob": 2}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file. The `max_iob` variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 2 units of insulin.
+* `preferences` is an exception: in contrast to the other settings above, `preferences` is not the result of an openaps report. It's a JSON file that should contain a single line with your maximum IOB, such as: `{"max_iob": 0}`. You can create this file by hand, or use the [oref0-mint-max-iob](https://github.com/openaps/oref0/blob/master/bin/oref0-mint-max-iob.sh) tool to generate the file (click on "Update Oref0-mint-max-iob to use preferences.json" in Github). The `max_iob` variable represents an upper limit to how much insulin on board oref0 is allowed to contribute by enacting temp basals over a period of time. In the example above, `max_iob` equals 0 units of insulin.  To create a JSON file:
+
+    ```
+      $ nano preferences.json
+      ```
+which opens in a nano editor.  Then type in {"max_iob":0} or whatever number you are choosing and Ctrl + X to exit.
 
 Make sure you test invoking each of these reports as you set them up, and review the corresponding JSON files using `cat`. Once you have a report for each argument required by `get-profile`, you can add a `profile` report:
 
@@ -90,10 +95,10 @@ $ openaps report add settings/profile.json text get-profile shell settings/setti
 ```
 
 Note how the `profile` report uses `get-profile` virtual device, with all the required inputs provided.
-At this point, it's natural to add an alias that generates all the reports required for `get-profile`, and then invokes the `profile` report that calls `get-profile` on them: 
+At this point, it's natural to add an alias that generates all the reports required for `get-profile`, and then invokes the `profile` report that calls `get-profile` on them:
 
 ```
-$ openaps alias add gather-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
+$ openaps alias add get-profile "report invoke settings/settings.json settings/bg_targets_raw.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json"
 ```
 
 Remember, what you name things is not important - but remembering WHAT you name each thing and using it consistently throughout is key to saving you a lot of debugging time.  Also, note that the name of your report and the name of the corresponding file created by the report are the same. For example, you invoke a report called "settings/settings.json" and the results are stored in "settings/settings.json".  The corresponding output file is created by invoking the report.
@@ -105,7 +110,7 @@ This process uses pump history and the result of `get-profile` to calculate IOB.
 * `profile`: report for `get-profile`, as discussed above
 
 * `pumphistory` stores pump history in a JSON file
- 
+
   ```
   $ openaps report add monitor/pumphistory.json JSON pump iter_pump_hours 4
   ```
@@ -113,7 +118,7 @@ This process uses pump history and the result of `get-profile` to calculate IOB.
 In this example, pump history is over a period of 4 hours. Normally, you would want oref0 to operate based on pump history over the number of hours at least equal to what you assume is your active insulin time.
 
 * `clock` outputs the current time stamp from the pump
- 
+
   ```
   $ openaps report add monitor/clock.json JSON pump read_clock
   ```
@@ -135,18 +140,18 @@ This process uses the IOB computed by `calculate-iob`, the current temp basal st
 * `profile`: your report for `get-profile`
 
 * `temp_basal` reads from pump and outputs the current temp basal state:
-  
+
   ```
   $ openaps report add monitor/temp_basal.json JSON pump read_temp_basal
   ```
 
 * `glucose` reads several most recent BG values from CGM and stores them in glucose.json file:
-  
+
   ```
   $ openaps report add monitor/glucose.json JSON <my_cgm_name> iter_glucose 5
   ```
 
-In this example, glucose.json will contain 5 most recent bg values. 
+In this example, glucose.json will contain 5 most recent bg values.
 
 Finally, a report for `determine-basal` may look like this:
 
@@ -156,7 +161,7 @@ $ openaps report add enact/suggested.json text determine-basal shell monitor/iob
 
 The report output is in suggested.json file, which includes a recommendation to be enacted by sending, if necessary, a new temp basal to the pump, as well as a reason for the recommendation.
 
-If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.  
+If you are using a Minimed CGM (enlite sensors with glucose values read by your pump), you might get this error message when running this report `Could not determine last BG time`. That is because times are reported differently than from the Dexcom receiver and need to be converted first. See the section at the bottom of this page.
 
 ## Adding aliases
 
@@ -192,7 +197,7 @@ You can also test the full sequence of aliases and the that which depend on them
 
 ```
 $ rm -f settings/* monitor/* enact/*
-$ openaps gather-profile
+$ openaps get-profile
 $ openaps monitor-pump
 $ openaps monitor-cgm
 $ openaps report invoke monitor/iob.json
@@ -221,12 +226,17 @@ which is similar to the previous example except that in this case there is no te
 
 ## Enacting the suggested action
 
-Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, to cancel the current temp rate, or do nothing. The approach one may follow is to setup an  `enacted.json` report, and a corresponding `enact` alias. Thinking about how to setup the `enact` report and alias, you may consider the following questions: 
+Based on suggested.json, which is the output of the `determine-basal` oref0 process, the next step is to enact the suggested action, i.e. to send a new temp rate to the pump, to cancel the current temp rate, or do nothing. The approach one may follow is to setup an  `enacted.json` report, and a corresponding `enact` alias. Thinking about how to setup the `enact` report and alias, you may consider the following questions:
 
-* Which pump command could be used to enact a new basal temp, if necessary, and what inputs should that command take? Where should these inputs come from? 
-* How could a decision be made whether a new basal temp should be sent to the pump or not? What should `enact` do in the cases when no new temp basal is suggested? 
+* Which pump command could be used to enact a new basal temp, if necessary, and what inputs should that command take? Where should these inputs come from?
 
-Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `$ openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
+Use your answer to this question to create and test an openaps use command by looking at the pump to see what, if anything, is happening.  Once you have a working use command, create a report called enact/enacted.json to capture the data and an alias to invoke the report (which will send the command to the pump).  The enact/enacted.json report will capture the commands that were sent to the pump.
+
+* How could a decision be made whether a new basal temp should be sent to the pump or not? What should `enact` do in the cases when no new temp basal is suggested?
+
+This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.
+
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
 
 In order to ensure that your pump is able to accept the temp basal suggestion, ensure that the temp basal setting, on the pump itself is set to "Insulin Rate (U/H)". This can be found in Act>basal>Temp basal type.
 
@@ -243,12 +253,10 @@ $ openaps vendor add openapscontrib.glucosetools
 $ openaps device add glucose glucosetools
 ```
 
-Now you can create a report to clean your glucose data like this: 
+Now you can create a report to clean your glucose data like this:
 ```
 openaps report add monitor/glucoseclean.json JSON glucose clean monitor/glucose.json
 ```
-And you should then make sure that your enact/suggested.json report uses monitor/glucoseclean.json instead of monitor/glucose.json. You can add the `clean` report to your `monitor-cgm` alias, as long as it comes after the `iter_glucose` report. 
+And you should then make sure that your enact/suggested.json report uses monitor/glucoseclean.json instead of monitor/glucose.json. You can add the `clean` report to your `monitor-cgm` alias, as long as it comes after the `iter_glucose` report.
 
-Note that if you use Nightscout visualization as described later, you can use the built-in tool `mm-format-ns-glucose` to help formatting the Minimed glucose data. If you do, run the tool against the original `iter-glucose` output (monitor/glucose.json), *not* the output from glucosetools. 
-
-
+Note that if you use Nightscout visualization as described later, you can use the built-in tool `mm-format-ns-glucose` to help formatting the Minimed glucose data. If you do, run the tool against the original `iter-glucose` output (monitor/glucose.json), *not* the output from glucosetools.

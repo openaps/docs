@@ -25,7 +25,7 @@ List of people who are working on closed loops:
 - Andy Pabari
 - Rob Kresha - (Papillion, NE, USA)
 - Christian Robinson (London, UK)
-- Gary Kidd 
+- Gary Kidd
 - Nathan Morse
 - Paul Davis (Brighton, UK)
 - Marion Barker (Sunnyvale, CA, USA)
@@ -40,3 +40,18 @@ List of people who are working on closed loops:
 - Keith Burns - for Heather (Richmond, VA)
 - Kim St. Dennis (Los Angeles, CA)
 - Gabriel and Gideon Arom (Chicago, IL / Los Angeles, CA)
+- Arlene Samowich (Nashville, TN)
+- Andy Probolus & Marianne Smith (Lancaster, PA)
+- Gregg Haroldson (Huntington Beach, CA)
+- Gera Yeremin (Santa Rosa , CA)
+- Ed Nykaza
+- Jeff Waters (Madison, WI)
+- Greg Hull (Wheaton, IL)
+- Sara and David Goya (Anaheim, CA)
+- Rafael Matuk (Chicago, IL)
+- Luuc Verburgh (Eindhoven, The Netherlands)
+- Julie Raines (Poughkeepsie, NY)
+- Brandon Parrish (Augusta, GA)
+- Katie Ellison (Bellevue, WA)
+- Sarah Easter (Georgetown, TX)
+- Terri Lyman (Prescott Valley, AZ)
