@@ -17,3 +17,5 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 
  For any exercise or activity or time period, if you do not choose to take your loop (or if you forget it), the loop will pick up again once you get back into range and resume. (This is why it's important to temp then suspend so it can track the amount of insulin you haven't been getting.)
 
+* **What if I want to turn off the loop for a while?**
+<br>One easy way to "turn off" the loop for a period of time so to use temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  What is great about this is that it is easy to do and allows you to schedule the time when you want the loop turned off (going swimming, showering, exercising, etc).  No longer do you have to power down your device or mess with cron commands.<br>
