@@ -311,26 +311,23 @@ Bottom line == based on insulin only
 
 If no carbs are onboard, then you will have only ONE line.
 
-Currently, there is an upper and lower bound on how much autosens can adjust things.  The defaults are from 0.7x to 1.5x your pump settings.  If you would like to change that, it can be configred in the /lib/profile/index.js file found wherever you have oref0 installed on your device.
+Currently, there is an upper and lower bound on how much autosens can adjust things.  The defaults are from 0.7x to 1.5x your pump settings.  If you would like to change that, it can be configred in your preferences.json file.
 
-Looks for this code and adjust the autosens_max and autosens_min as needed
+You preferences.json file will look something like this:
 
 ```
-function defaults ( ) {
-  var profile = {
-    max_iob: 0 // if max_iob is not provided, never give more insulin than the pump would have
-    , type: 'current'
-    , max_daily_safety_multiplier: 3
-    , current_basal_safety_multiplier: 4
-    , autosens_max: 1.5
-    , autosens_min: 0.7
-    , autosens_adjust_targets: true
-    , override_high_target_with_low: false
-  };
-  return profile;
+{
+        "max_iob": 0,
+        "type": "current",
+        "max_daily_safety_multiplier": 3,
+        "current_basal_safety_multiplier": 4,
+        "autosens_max": 1.5,
+        "autosens_min": 0.7,
+        "autosens_adjust_targets": true,
+        "override_high_target_with_low": false
 }
 ```
-
+You can alter the autosens_max, autosens_min, and autosens_adjust_targets to change how it works for you.
 
 
 
