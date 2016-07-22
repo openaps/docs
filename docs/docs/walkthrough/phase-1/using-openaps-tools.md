@@ -137,7 +137,7 @@ Note this step is not required if you are using a Medtronic CGM. The pump
 serves as the receiver and all of the pumping and glucose functionality are
 contained in the same openaps device.
 
-#### G5 support
+### G5 support
 Support for G5 receiver is offered through the usb cable and configuring the
 `cgm` device with: `openaps use cgm config --G5`.
 
@@ -164,7 +164,7 @@ Test ability to get data.
 openaps use cgm oref0_glucose  --hours 2.0
 ```
 
-# for G5 consider this instead:
+### for G5 consider this instead:
 ```
 openaps use cgm oref0_glucose  --no-raw --hours 2.0
 ```
@@ -177,7 +177,7 @@ Add as report:
 openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --hours 2.0
 ```
 
-# For G5:
+### For G5:
 ```
 openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --no-raw --hours 2.0
 ```
@@ -457,6 +457,7 @@ Format potential entries (glucose values) for Nightscout.
     # upload for fist time.
     openaps report invoke nightscout/uploaded-entries.json
 
+If you are pulling blood glucose levels from Nightscout instead of a receiver, you will not need nightscout/recent-missing-entries.json and nightscout/uploaded-entries.json.  They may be removed from the report-nightscout alias.  
 
 <br>
 ## Adding and Invoking Reports
