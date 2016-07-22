@@ -8,18 +8,18 @@ Advanced Meal Assist, aka AMA, will do predictions as to where BG is going and w
 
 Also, if you have Meal Assist enabled already (the reports), it should just be a matter of pulling the correct oref0 branch to start benefiting from AMA.
 
-1)	Ensure you get the latest AMA branch of oref0 tools
+1)	AMA is current on the dev branch of oref0 tools
 ```
 cd
 cd src
 cd oref0
 git pull
-git checkout advanced-meal-assist
+git checkout dev
 npm install && sudo npm install -g && sudo npm link && sudo npm link oref0
 ```
 OR
 ```
-sudo npm install -g git://github.com/openaps/oref0.git'#advanced-meal-assist'
+sudo npm install -g git://github.com/openaps/oref0.git'#dev'
 ```
 
 Make sure you run the last line to install the tools.
@@ -311,7 +311,25 @@ Bottom line == based on insulin only
 
 If no carbs are onboard, then you will have only ONE line.
 
+Currently, there is an upper and lower bound on how much autosens can adjust things.  The defaults are from 0.7x to 1.5x your pump settings.  If you would like to change that, it can be configred in the /lib/profile/index.js file found wherever you have oref0 installed on your device.
 
+Looks for this code and adjust the autosens_max and autosens_min as needed
+
+```
+function defaults ( ) {
+  var profile = {
+    max_iob: 0 // if max_iob is not provided, never give more insulin than the pump would have
+    , type: 'current'
+    , max_daily_safety_multiplier: 3
+    , current_basal_safety_multiplier: 4
+    , autosens_max: 1.5
+    , autosens_min: 0.7
+    , autosens_adjust_targets: true
+    , override_high_target_with_low: false
+  };
+  return profile;
+}
+```
 
 
 
