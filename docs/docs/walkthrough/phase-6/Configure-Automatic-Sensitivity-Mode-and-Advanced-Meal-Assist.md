@@ -313,7 +313,7 @@ If no carbs are onboard, then you will have only ONE line.
 
 Currently, there is an upper and lower bound on how much autosens can adjust things.  The defaults are from 0.7x to 1.5x your pump settings.  If you would like to change that, it can be configred in your preferences.json file.
 
-You preferences.json file will look something like this:
+Your preferences.json file will look something like this:
 
 ```
 {
