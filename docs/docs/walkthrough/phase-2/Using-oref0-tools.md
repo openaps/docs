@@ -1,6 +1,26 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
+
+Note: The names and folders used in this doc do not correspond to names used in some of the recent templates creating devices, reports, and aliases. For example: bg_targets_raw.json in the docs is bg-targets-raw.json in the templates as well as things like settings/insulin_sensitivities_raw.json in the docs is raw-pump/insulin-sensitivities-raw.json in the templates.  
+
+Here are some of the newer reports copied from the newer style walkthrough:
+
+###register oref0
+
+This creates several devices to manage oref0:
+
+oref0 template mint device oref0 | openaps import
+create lots of reports:
+
+###create lots of reports
+
+Create medtronic and oref0 reports, this handles timezones, units conversion, as well as detecting freshness of files.
+
+oref0 template mint reports  medtronic-pump | openaps import
+oref0 template mint reports  oref0-inputs | openaps import
+
+###Older directions (needs updating or delete altogether in favor of templates?)
 In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 First, you can add a catch-all oref0 device using
