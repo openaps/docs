@@ -2,24 +2,24 @@
 
 For more information review https://github.com/openaps/oref0/issues/58
 
-Automatic Sensitivity automatically detects when the PWD is more or less sensitive to insulin than normal and then is used as an input to the algorythm that makes adjustments to temp basals.
+Automatic Sensitivity automatically detects when the PWD is more or less sensitive to insulin than normal and then is used as an input to the algorithm that makes adjustments to temp basals.
 
 Advanced Meal Assist, aka AMA, will do predictions as to where BG is going and will start issuing temp basal much sooner than normal after a meal.  By default, AMA is turned off and you need to add some items to your reports to get it working.  With AMA enabled, bolus snooze has been shorted to DIA/3 or DIA/4 as opposed to a normal Bolus Snooze of DIA/2.
 
 Also, if you have Meal Assist enabled already (the reports), it should just be a matter of pulling the correct oref0 branch to start benefiting from AMA.
 
-1)	Ensure you get the latest AMA branch of oref0 tools
+1)	AMA is current on the dev branch of oref0 tools
 ```
 cd
 cd src
 cd oref0
 git pull
-git checkout advanced-meal-assist
+git checkout dev
 npm install && sudo npm install -g && sudo npm link && sudo npm link oref0
 ```
 OR
 ```
-sudo npm install -g git://github.com/openaps/oref0.git'#advanced-meal-assist'
+sudo npm install -g git://github.com/openaps/oref0.git'#dev'
 ```
 
 Make sure you run the last line to install the tools.
@@ -216,7 +216,7 @@ In addition, you need to create an alias to create the report settings/carbhisto
 ```
 ns-carbs = ! bash -c "curl -m 30 -s \"$NIGHTSCOUT_HOST/api/v1/treatments.json?find[created_at][\$gte]=date -d \"6 hours ago\" -Iminutes&find[carbs][\$exists]=true\" > monitor/carbhistory.json; exit 0"
 ```
-You will need to call this new alias in your loop before running the report monitor/meal.json.  Adding it to the gather alias descibed elsewhere in the documentation would be a good place to put it
+You will need to call this new alias in your loop before running the report monitor/meal.json.  Adding it to the gather alias described elsewhere in the documentation would be a good place to put it
 
 4) **You should have AMA set up now!  Passing the meal data into determine-basal ENABLES AMA. **  
 
@@ -305,14 +305,29 @@ Here's what each symbol above means:
 
 Top line == based on current carb absorption and most accurate right after eating carbs
 
-Middle line == assumes 10 mg/dL/5m carb absorption and most accure the rest of the time
+Middle line == assumes 10 mg/dL/5m carb absorption and most accurate the rest of the time
 
 Bottom line == based on insulin only
 
 If no carbs are onboard, then you will have only ONE line.
 
+Currently, there is an upper and lower bound on how much autosens can adjust things.  The defaults are from 0.7x to 1.5x your pump settings.  If you would like to change that, it can be configured in your preferences.json file.
 
+Your preferences.json file will look something like this:
 
+```
+{
+        "max_iob": 0,
+        "type": "current",
+        "max_daily_safety_multiplier": 3,
+        "current_basal_safety_multiplier": 4,
+        "autosens_max": 1.5,
+        "autosens_min": 0.7,
+        "autosens_adjust_targets": true,
+        "override_high_target_with_low": false
+}
+```
+You can alter the autosens_max, autosens_min, and autosens_adjust_targets to change how it works for you.
 
 
 
