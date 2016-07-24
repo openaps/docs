@@ -162,33 +162,33 @@ Test ability to get data.
 
 ```
 openaps use cgm oref0_glucose  --hours 2.0
+```
 
 # for G5 consider this instead:
+```
 openaps use cgm oref0_glucose  --no-raw --hours 2.0
-
-<<<<<<< HEAD:docs/docs/walkthrough/phase-2/using-openaps-tools.md
+```
 (Note this step is not required if you are using a Medtronic CGM. The pump serves as the receiver and all of the pumping and glucose functionality are contained in the same openaps device.)
 
 For all Dexcom CGM systems:
-=======
-```
->>>>>>> 4f4f7e95e6641fab56ac7aa0abfb4c6e057a7bee:docs/docs/walkthrough/phase-1/using-openaps-tools.md
 
 Add as report:
 ```
 openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --hours 2.0
-# For G5:
-openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --no-raw --hours 2.0
+```
 
-<<<<<<< HEAD:docs/docs/walkthrough/phase-2/using-openaps-tools.md
+# For G5:
+```
+openaps report add raw-cgm/glucose-raw.json JSON cgm oref0_glucose  --no-raw --hours 2.0
+```
+
 For a Dexcom G5 system, you need to configure openaps specifically for the G5:
 
-`openaps use <my_dexcom_name> config --G5`
+```
+openaps use <my_dexcom_name> config --G5
+```
 
 NB: The above command can also be used to change from a G4 to G5 system in an already functioning loop. If that doesn't work, update openaps.
-=======
-```
->>>>>>> 4f4f7e95e6641fab56ac7aa0abfb4c6e057a7bee:docs/docs/walkthrough/phase-1/using-openaps-tools.md
 
 Ensure that the data is zoned correcty:
 ```

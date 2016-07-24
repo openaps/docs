@@ -54,3 +54,4 @@ List of people who are working on closed loops:
 - Brandon Parrish (Augusta, GA)
 - Katie Ellison (Bellevue, WA)
 - Sarah Easter (Georgetown, TX)
+- Terri Lyman (Prescott Valley, AZ)
