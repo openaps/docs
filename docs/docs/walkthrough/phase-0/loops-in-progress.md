@@ -57,3 +57,4 @@ List of people who are working on closed loops:
 - Terri Lyman (Prescott Valley, AZ)
 - Gina Lyon (Laurel, MS)
 - Eric Jensen (Swarthmore, PA)
+- John Dodds (Glasgow, UK)
