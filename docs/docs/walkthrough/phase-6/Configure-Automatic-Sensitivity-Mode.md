@@ -92,7 +92,7 @@ auto-sens = settings/auto-sens.json
 
 8)  Based on the configuration of the basic loop, it is recommended that the `settings/auto-sens.json` be added to the `get-profile` alias:
 ```
-get-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json
+get-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json settings/auto-sens.json
 ```
 and that the `gather` alias be adjusted to make sure `get-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run.
 
