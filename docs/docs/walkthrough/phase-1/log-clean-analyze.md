@@ -7,4 +7,4 @@ By the end of this phase, you should have Nightscout set up; have alerts configu
 
 As you go through the seting up your system, you may refer to the following diagram that shows a basic system setup with openaps tools used to collect and format pump and CGM data, and an open reference implementation of OpenAPS design referred to as oref0 is used to calculate suggested temp basals. The diagram shows openaps devices, openaps reports, and system dependences, as well as ways the system can be integrated with Nightscout. In Phase 1, you will setup pump and cgm devices and use them to collect pump and cgm data in the form or openaps reports. In Phases 2 and 3, you will setup oref0 devices, reports and aliases for an open-loop system. Closing to loop is addressed in Phases 4 and 5, while Phase 6 introduces some more advanced system features.
 
-![Basic OpenAPS system diagram](../../OpenAPS_oref0_basic.png)
+![Basic OpenAPS system diagram](../../Images/OpenAPS_oref0_basic.png)
