@@ -85,10 +85,10 @@ The purpose of the `get-profile` process is to consolidate information from mult
        ```
       $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities settings/insulin_sensitivities_raw.json
 
-* `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
+* `insulin_sensitivities` outputs a JSON file with insulin sensitivities obtained from the pump:
 
   ```
-  $ openaps report add settings/insulin_sensitivities_raw.json JSON <my_pump_name> read_insulin_sensitivies
+  $ openaps report add settings/insulin_sensitivities_raw.json JSON <my_pump_name> read_insulin_sensitivities
   ```
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
@@ -236,7 +236,7 @@ In this example, the current temporary basal rate type is "absolute", which shou
 {"temp": "absolute","bg": 91,"tick": "+6","eventualBG": -2,"snoozeBG": 65,"reason": "Eventual BG -2<100, but Delta +6 > Exp. Delta -2.3;cancel","duration": 0,"rate": 0}
 ```
 
-In this case, the evenatual BG is again less than the target, but BG is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to as "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
+In this case, the eventual BG is again less than the target, but BG is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to as "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
 
 ```
 {"temp": "absolute","bg": 95,"tick": "+4","eventualBG": 13,"snoozeBG": 67,"reason": "Eventual BG 13<90, but Avg. Delta 4.00 > Exp. Delta -2.9; no temp to cancel"}
@@ -256,7 +256,7 @@ Use your answer to this question to create and test an openaps use command by lo
 
 This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.
 
-Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are certain that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
 
 In order to ensure that your pump is able to accept the temp basal suggestion, ensure that the temp basal setting, on the pump itself is set to "Insulin Rate (U/H)". This can be found in Act>basal>Temp basal type.
 

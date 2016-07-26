@@ -190,7 +190,7 @@ openaps use <my_dexcom_name> config --G5
 
 NB: The above command can also be used to change from a G4 to G5 system in an already functioning loop. If that doesn't work, update openaps.
 
-Ensure that the data is zoned correcty:
+Ensure that the data is zoned correctly:
 ```
 openaps use tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
 openaps report add monitor/glucose.json JSON  tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
@@ -486,7 +486,7 @@ If done correctly, the only thing returned in the terminal is:
 
 `added pump://JSON/iter_pump_hours/last_four_pump_hours.json`
 
-Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuation. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `<my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window, except there it was done with the `use` command. The report is simply running that same command and writing the output to the file you specified in the format you specified.
+Let's take a closer look at each section. `openaps report add` is adding a report to your openaps configuration. The report name is `last_four_pump_hours.json`. The format of the report is `JSON`. The command that will be used to generate the report is `<my_pump_name> iter_pump_hours 4`. You will notice that this last section is identical to what was called above when you printed the output to the terminal window, except there it was done with the `use` command. The report is simply running that same command and writing the output to the file you specified in the format you specified.
 
 Much like adding devices, this report configuration is saved to your `openaps.ini` file. You can view all of your reports there with `cat openaps.ini` or by using `openaps report show`. Similarly, you can remove reports with `openaps report remove <report_name>`.
 
@@ -503,7 +503,7 @@ pump://JSON/iter_pump_hours/last_four_pump_hours.json
 reporting last_four_pump_hours.json
 ```
 
-This time, however, a new file was created. Check and see using `ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to ther terminal window when you performed `openaps use <my_pump_name> iter_pump_hours 4`.
+This time, however, a new file was created. Check and see using `ls`; you should see a file called `last_four_pump_hours.json` in your directory. Take a look at the file with `cat last_four_pump_hours.json`. The file's contents should look very familiar—the same data that was printed to the terminal window when you performed `openaps use <my_pump_name> iter_pump_hours 4`.
 
 Each time you add a new report to your configuration, you should immediately invoke it and check the resulting file. This means **open the file and actually check to make sure the output is what you expect**. Don't assume that it worked just because you didn't see an error.
 
@@ -545,16 +545,16 @@ Go ahead and add and invoke reports for these components of a future closed-loop
 
 Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history.
 
-Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the "use" command. The "use" command is -h anotated. To see the annotation use this command $ openaps use <pumpname> -h
+Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the "use" command. The "use" command is -h annotated. To see the annotation use this command $ openaps use <pumpname> -h
 
 
 <br>
 ## Backing Up Your openaps Instance
 
-There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire sysem (and all the work you did in [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
+There are numerous ways to back up your system, from making a copy of the entire SD card to copying over individual files. Here, we will discuss one method of using git to back up just the openaps instance you've created. Note that this will not back up the entire system (and all the work you did in [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md)), but it will enable you to skip all of the configuration steps above if something happens.
 
 For this backup method, we will take advantage of the fact that your openaps
-instanace is a git repository. We won't go over git here, but take a look at
+instance is a git repository. We won't go over git here, but take a look at
 the references on the [Resources](../../Resources/technical-resources.md) page to
 get familiar with the basics. Typically, we would do this backup using GitHub,
 since that is where most of the openaps repositories are located and you should

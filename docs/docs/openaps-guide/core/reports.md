@@ -171,7 +171,7 @@ Notice how the  `...` in `openaps report add <name> <format> ...` and
 `openaps use ...` are identical.  This is a design feature to
 encourage iterating through interactive usage, and then saving the
 commands that work into the openaps configuration using the **add**
-comands.
+commands.
 
 ## openaps report add saves **use** configuration
 

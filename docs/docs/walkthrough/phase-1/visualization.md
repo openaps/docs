@@ -165,7 +165,7 @@ openaps report invoke nightscout/uploaded-entries.json
 
 ### Uploading Latest Treatments to Nightscout
 
-In addition to uloading OpenAPS status, it also very beneficial to upload the
+In addition to uploading OpenAPS status, it also very beneficial to upload the
 treatment information from the pump into Nightscout.  This removes the burden
 of entering this information into Nightscout manually.
 
@@ -175,7 +175,7 @@ clock-zoned.json, including making sure to add it to your monitor-pump alias.
 In addition, if you haven't already created a requisite reports you should
 create that report and invoke it since it is required.
 Upon successful upload, the recent treatments will show up automatically on the
-Nightscount page.
+Nightscout page.
 
 Note:  Currently extended boluses are not handled well and depending on the
 timing of the upload are either missed entirely or have incorrect information.

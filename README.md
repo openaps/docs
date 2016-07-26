@@ -1,7 +1,7 @@
 # Introduction
 
-* Easily navigatable version of the [latest production docs are here.](https://openaps.readthedocs.org/en/latest/index.html)
-* Easily navigatable version of the [in-development or "dev" docs can be found here.](https://openaps.readthedocs.org/en/dev/index.html)
+* Easily navigable version of the [latest production docs are here.](https://openaps.readthedocs.org/en/latest/index.html)
+* Easily navigable version of the [in-development or "dev" docs can be found here.](https://openaps.readthedocs.org/en/dev/index.html)
 
 ## Welcome
 

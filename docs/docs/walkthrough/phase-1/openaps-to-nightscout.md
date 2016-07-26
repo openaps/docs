@@ -47,8 +47,8 @@ Then test the ns-status device (Adjust the report directories as needed):
 You should see a lot of info. (Side note: the word "received" under the "enacted" heading is typoed.)\
 
 If you receive an error you have most likely not included all reports;\
-running `openaps use ns-status shell -h` will show positional arguements.
-These arguements are required; `clock iob suggested enacted battery reservoir status`
+running `openaps use ns-status shell -h` will show positional arguments.
+These arguments are required; `clock iob suggested enacted battery reservoir status`
 you can also supplement additional reports (i.e., remainder).
 
 Make sure to save this as a report:

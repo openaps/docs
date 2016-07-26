@@ -47,7 +47,7 @@ added medtronic://pump
 
 ## openaps use pump
 Based on our prior experience knowing that `device` enables **use**, let's
-check out our own `openap use -h` to see how it's changed.
+check out our own `openaps use -h` to see how it's changed.
 ```
 [...]
 Known Devices Menu:
@@ -106,7 +106,7 @@ optional arguments:
                         Read current history pages.
     read_glucose_data   Read pump glucose page
     read_history_data   Read pump history page
-    read_insulin_sensitivies
+    read_insulin_sensitivities
                         XXX: Deprecated. Don't use. Use
                         read_insulin_sensitivities instead.
     read_insulin_sensitivities
