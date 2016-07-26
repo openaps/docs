@@ -106,7 +106,7 @@ optional arguments:
                         Read current history pages.
     read_glucose_data   Read pump glucose page
     read_history_data   Read pump history page
-    read_insulin_sensitivities
+    read_insulin_sensitivies
                         XXX: Deprecated. Don't use. Use
                         read_insulin_sensitivities instead.
     read_insulin_sensitivities
