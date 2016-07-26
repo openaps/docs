@@ -36,7 +36,7 @@ Error: not enough glucose data to calculate autosens.
 
 `openaps device add auto-sens process --require "glucose pumphistory insulin_sensitivities basal_profile profile" oref0 detect-sensitivity`
 
-If the command exectuted properly, the contents of `openaps.ini` should contain:
+If the command executed properly, the contents of `openaps.ini` should contain:
 ```
 [device "auto-sens"]
 vendor = openaps.vendors.process

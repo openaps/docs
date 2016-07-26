@@ -130,7 +130,7 @@ index e69de29..d4a23d0 100644
 
 The `openaps * add` commands all change some of the INI configurations.
 
-Did the **use** menu change at all? `openap use -h`
+Did the **use** menu change at all? `openaps use -h`
 
 ```
 [...]

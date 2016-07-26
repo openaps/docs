@@ -20,7 +20,7 @@ mealCOB - decayed carbs with assumption of 30g of carbs absorbed per hour, which
 
 ## Auto-sensitivity mode
 
-Wouldn't it be great if the system knew when you were running sensitive or resistant? That's what we thought, so we created "auto-sensitivity mode". If you explicitly configure this additional feature, it will allow the system to analyze historical data on the go and make adjustments if it recognizes that you are reacting more sensitivite (or conversely, more resistant) to insulin than usual. It will then make micro adjustments to your basals.
+Wouldn't it be great if the system knew when you were running sensitive or resistant? That's what we thought, so we created "auto-sensitivity mode". If you explicitly configure this additional feature, it will allow the system to analyze historical data on the go and make adjustments if it recognizes that you are reacting more sensitively (or conversely, more resistant) to insulin than usual. It will then make micro adjustments to your basals.
 
 ## Battery monitoring
 

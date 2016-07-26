@@ -30,7 +30,7 @@ If you're interested in working on communication for another pump (Omnipod, Anim
  * Dexcom G5 Mobile system,
  * OR
  * Medtronic CGM (MiniMed Paradigm REAL-Time Revel or Enlite)
-  * **Note** The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatable Medtronic Pumps (Despite that pump originaly being offered with SoftSensor CGM Sensors).
+  * **Note** The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatible Medtronic Pumps (Despite that pump originally being offered with SoftSensor CGM Sensors).
  *
 * <b>Small Computer</b>:
   * **Note** the below setup is what is used for the documentation; again see [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for some alternatives to the Raspberry Pi.
@@ -97,7 +97,7 @@ Currently, the primary supported device* (in the openaps documentation) for uplo
 
 Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
 
-A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are trasmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
+A limitation of the Carelink USB stick is the short range of radio communications with the Medtronic pump. The radio signals are transmitted from the end of the stick opposite the USB connector, on the flat grey side of the stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection.
 
 [Rerii 90 Degree USB Extension Cable](http://www.amazon.com/gp/product/B00ZQVADNM)
 
@@ -122,7 +122,7 @@ Your OpenAPS implementation can also pull CGM data from a Nightscout site in add
 
 <b> Using the Medtronic CGM: </b>
 
-Because the Medronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data need a little special formatting after being retrieved. We'll discuss these special circumstances as they come up later.
+Because the Medtronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data need a little special formatting after being retrieved. We'll discuss these special circumstances as they come up later.
 
 ### Raspberry Pi
 
