@@ -52,9 +52,9 @@ Once you're setting up your loop, you may also want to oref0-reset-usb (`oref0-r
 
 OpenAPS uses git as the logging mechanism, so it commits report changes on each report invoke. Sometimes, due to "unexpected" power-offs (battery dying, unplugging, etc.),the git repository gets broken. When it happens you will receive exceptions when running any report from openaps. As git logging is a safety/security measure, there is no way of disabling these commits.
 
-You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-fix-git-corruption`, it will try to fix the repository, and in case when repository is definitely broken it copies the remainings in a safe place (`tmp`) and initializes a new git repo.
+You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-reset-git`, which will first run `oref0-fix-git-corruption` to try to fix the repository, and in case when repository is definitely broken it copies the .git history to a temporary location (`tmp`) and initializes a new git repo.
 
-To reset the whole git repository you can run `oref0-reset-git`.  It is currently recommended to run this command in cron so that if the repository gets corrupted it can quickly reset itself. 
+It is recommended to run `oref0-reset-git` in cron so that if the repository gets corrupted it can quickly reset itself. 
 
 Warning: do not run any openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
 
