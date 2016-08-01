@@ -180,7 +180,12 @@ Confirm that your keyboard settings are correct. Click on Menu (upper left corne
 
 ### Note on Time Zone
 
-It is imperative that you set the correct time zone at this step of the configuration process.  OpenAPS will look at the timestamp of your CGM data, and the local time on the pump, when making recommendations for basal changes.  The system also uses local time on the pi; so times and time zone need to match, or you will run into issues later.  If the time zone is incorrect, or you haven’t done this yet, run `sudo dpkg-reconfigure tzdata` from the prompt and choose your local zone.
+It is imperative that you set the correct time zone at this step of the configuration process.  OpenAPS will look at the timestamp of your CGM data, and the local time on the pump, when making recommendations for basal changes.  The system also uses local time on the pi; so times and time zone need to match, or you will run into issues later.  If the time zone is incorrect, or you haven’t done this yet, run `sudo dpkg-reconfigure tzdata` from the prompt and choose your local zone. 
+
+### Note on Date and Time in Event of Power Compromise 
+
+To check the time is correct, type `date`. If the date is still not correct, try: 
+`sudo /etc/init.d/ntp stop` then `sudo ntpd -q -g` then `sudo /etc/init.d/ntp start` (This may need to be done if the pi unexpectedly lost power)
 
 ## Setting up an SSH key for Password-less Login [optional]
 
