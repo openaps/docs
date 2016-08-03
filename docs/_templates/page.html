@@ -1,6 +1,12 @@
+{# Simple extension of the base Sphinx template to include links #}
+{# previous and next pages at the end of each page. #}
+
+{# Even though we're using the Alabaster theme, it just inherits #}
+{# page.html from the basic theme, so that's what we modify. #}
+
 {% extends "!basic/page.html" %}
 
-{# Put in the body block so it is rendered in same style. #}
+{# Put it in the body block so it is rendered in same style. #}
 {% block body %}
 
 {# Include all content from parent template: #}
