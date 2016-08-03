@@ -1,0 +1,28 @@
+{% extends "!basic/page.html" %}
+
+{# Put in the body block so it is rendered in same style. #}
+{% block body %}
+
+{# Include all content from parent template: #}
+{{ super() }}
+
+{# Add links to next and previous documents if they exist: #} 
+
+{%- if next or prev %}
+<div id="navlinks">
+{%- endif %}
+
+{%- if prev %}
+<p style="float:left; text-align:left;">Prev.: <a href="{{ prev.link|e }}">{{ prev.title }}</a></p>
+{%- endif %}
+
+{%- if next %}
+<p style="float:right; text-align:right;">Next: <a href="{{ next.link|e }}">{{ next.title }}</a></p>
+{%- endif %}
+
+{%- if next or prev %}
+</div>
+<div style="clear: both;"></div>​
+{%- endif %}
+
+{% endblock %}
