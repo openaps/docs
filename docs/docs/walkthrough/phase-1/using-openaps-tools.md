@@ -24,9 +24,9 @@ Some conventions used in this guide:
     will allow you to go back and see what you did at a later date. This will also
     be immensely helpful if you request help from other OpenAPS contributors as you
     will be able to provide an entire history of the commands you used. To enable
-    this, just run `script <filename>` at the beginning of your session. It will
-    inform you that `Script started, file is <filename>`. When you are done, simply
-    `exit` and it will announce `Script done, file is <filename>`. At that point,
+    this, just run ``script <filename>`` at the beginning of your session. It will
+    inform you that ``Script started, file is <filename>``. When you are done, simply
+    ``exit`` and it will announce ``Script done, file is <filename>``. At that point,
     you can review the file as necessary.
 ```
 
@@ -509,7 +509,7 @@ Each time you add a new report to your configuration, you should immediately inv
 
 The reports you add are reusable—each time you would like new data, simply invoke the report again and it will overwrite the output file. If you would like to see when the file was last edited, use the command `ls -l`. This will help you make sure you are getting up-to-data data.
 
-Go ahead and create (and check) some reports for the the commands you have been using the most.
+Go ahead and create (and check) some reports for the commands you have been using the most.
 
 <br>
 ## Aliases
@@ -517,8 +517,8 @@ Go ahead and create (and check) some reports for the the commands you have been 
 Now that you have some reports added, you may notice that you end up calling some of them in combinations. For example, you might always want to get your updated pump records and your updated cgm records. To do that, you would normally run two commands each time:
 
 ```
-$ openaps report invoke last_four_pump_hours.json
-$ openaps report invoke last_four_cgm_hours.json
+openaps report invoke last_four_pump_hours.json
+openaps report invoke last_four_cgm_hours.json
 ```
 
 For this example, we assume that you have added a second report called `last_four_cgm_hours.json` that is similar to the `last_four_pump_hours.json` we walked through previously, except that it is using your `<my_dexcom_name>` device and the `iter_glucose_hours` command. Go ahead and do that so you can follow along.
@@ -535,7 +535,7 @@ You will see that it invokes each of the reports you specified in the order you 
 
 Just like with devices and reports, the alias is now part of your openaps configuration. You can view all of your aliases with `cat openaps.ini` or by using `openaps alias show`. Similarly, you can remove aliases with `openaps alias remove <alias_name>`.
 
-Aliases will invoke reports and execute logic and shell commands. Aliases are not limited to reports. They can be nested. For example a top level alias is $ openaps alias1 alias2.  alias2 is for example: Run shell "program1 && something2 || alias3" (one and two or three). alias3 is for example: $ Openaps report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json
+Aliases will invoke reports and execute logic and shell commands. Aliases are not limited to reports. They can be nested. For example a top level alias is  `openaps alias1 alias2`.  `alias2` is for example: `Run shell "program1 && something2 || alias3"` (one and two or three). `alias3` is for example:  `openaps report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json`.
 
 ## Putting the Pieces Together
 
@@ -545,7 +545,7 @@ Go ahead and add and invoke reports for these components of a future closed-loop
 
 Are there groupings of these reports that you imagine would be called at the same time? For example, in a closed-loop setup, the pump settings, blood glucose targets, insulin sensitivities, the basal profile, and carb ratios would not need to be checked as often as the current pump status, battery status, clock, recent blood sugars, and recent pump history.
 
-Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the "use" command. The "use" command is -h annotated. To see the annotation use this command $ openaps use <pumpname> -h
+Take some time to create aliases for groups of reports that would be called at the same time and verify that they invoke the expected reports. Reports will execute the `use` command. The `use` command is -h annotated. To see the annotation use this command:  `openaps use <pumpname> -h`.
 
 
 <br>
@@ -572,13 +572,12 @@ configuration and data.
 
 
 ``` eval_rst
-.. note:: Note
-    Alternatively, you can [purchase a monthly GitHub
-    plan](https://github.com/pricing) and then follow
-    [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-    if you'd like to go with GitHub, or use a service like Bitbucket instead.
-
-
+.. note::
+    Alternatively, you can `purchase a monthly GitHub
+    plan <https://github.com/pricing>`_ and then follow
+    `these instructions
+	<https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/>`_
+	if you'd like to go with GitHub, or use a service like Bitbucket instead.
 
 ```
 
