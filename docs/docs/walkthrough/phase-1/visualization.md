@@ -8,7 +8,7 @@ It basically allows a user to upload CGM data from a variety of sources, to an o
 
  [Nightscout](http://nightscout.info) is the recommended way to visualize your OpenAPS closed loop. Even if you don't choose to share your Nightscout instance with another person, it will be helpful for you to visualize what the loop is doing; what it's been doing; plus generate helpful reports for understanding your data and also allowing you to customize watchfaces with your OpenAPS data. This provides a visual alternative to SSHing into your Raspberry Pi or loop system and looking through log files. 
 
-## Nightscout Setup
+##Nightscout Setup
 
 At this point it is recommended that you go to the [Nightscout](http://nightscout.info) website and set Nightscout up. They have excellent guides of how to get various CGM systems working as well as displaying your data on a variety of additional devices. Once your website is up and running you can integrate Nightscout to your OpenAPS using the guide below.
 
@@ -20,26 +20,22 @@ to your OpenAPS implementation.
 ### Nightscout Setup
 
 OpenAPS requires the latest (currently dev) version of Nightscout, which can be
-found [here](https://github.com/nightscout/cgm-remote-monitor/tree/dev). If you
-are already using Nightscout you might have to update your
-repository. To update your version and create a PR to your dev branch,
-use [this link](http://nightscout.github.io/pages/test-beta/?branch=dev) and look for the "I'm ready" button. Once you have completed these steps, log on to Azure or Heroku and disconnect the deployment source. Thereafter choose your
+found here: https://github.com/nightscout/cgm-remote-monitor/tree/dev. If you
+are already using Nightscout you might have to update your repository. To update your version and create a PR to your dev branch, use http://nightscout.github.io/pages/test-beta/?branch=dev and look for the "I'm ready" button. Once you have completed these steps, log on to Azure or Heroku and disconnect the deployment source. Thereafter choose your
 cgm-remote-monitor github repository as source again. You should take the dev
 branch of this repository. The dev branch will also allow you to use the
 advanced-meal-assist feature.
 _________________________
 **If this doesn't work then from the command prompt in terminal run the following:
 
-```
 git clone -b dev https://github.com/<your-github-repository-name>/cgm-remote-monitor.git
 cd cgm-remote-monitor
 git remote add upstream https://github.com/nightscout/cgm-remote-monitor
 git fetch upstream
 git merge upstream/dev
 git push origin dev
-```
 
-**where `<your-github-repository-name>` is replaced with your repository name found in your Github, upper left once in any of your repositories and also "signed in as" from the pull-down menu in the top right where all your profile and settings are found.  When you run this it will stop at some point and give you `git push origin dev` and you can hit enter.  Then it will ask for "Username for 'https://github.com'" where you type in your username (usually your email address associated with Github) and hit enter.  Then it will ask for "Password for 'https://name@email.com@github.com':" where you type in your password (in your actual results, the username you entered will be where it says "name@email.com").
+**where <your-github-repository-name> is replaced with your repository name found in your Github, upper left once in any of your repositories and also "signed in as" from the pull-down menu in the top right where all your profile and settings are found.  When you run this it will stop at some point and give you "git push origin dev" and you can hit enter.  Then it will ask for "Username for 'https://github.com'" where you type in your username (usually your email address associated with Github) and hit enter.  Then it will ask for "Password for 'https://name@email.com@github.com':" where you type in your password (in your actual results, the username you entered will be where it says "name@email.com").
 ____________________________
 
 The steps discussed here are essentially the same for both Azure and Heroku users. Two configuration changes must be made to the Nightscout implementation:
