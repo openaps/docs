@@ -1,0 +1,34 @@
+{# Simple extension of the base Sphinx template to include links #}
+{# previous and next pages at the end of each page. #}
+
+{# Even though we're using the Alabaster theme, it just inherits #}
+{# page.html from the basic theme, so that's what we modify. #}
+
+{% extends "!basic/page.html" %}
+
+{# Put it in the body block so it is rendered in same style. #}
+{% block body %}
+
+{# Include all content from parent template: #}
+{{ super() }}
+
+{# Add links to next and previous documents if they exist: #} 
+
+{%- if next or prev %}
+<div id="navlinks">
+{%- endif %}
+
+{%- if prev %}
+<p style="float:left; text-align:left;">Prev.: <a href="{{ prev.link|e }}">{{ prev.title }}</a></p>
+{%- endif %}
+
+{%- if next %}
+<p style="float:right; text-align:right;">Next: <a href="{{ next.link|e }}">{{ next.title }}</a></p>
+{%- endif %}
+
+{%- if next or prev %}
+</div>
+<div style="clear: both;"></div>​
+{%- endif %}
+
+{% endblock %}
