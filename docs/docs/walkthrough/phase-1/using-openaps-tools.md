@@ -211,6 +211,7 @@ Now, `openaps monitor-cgm` is available to pull in fresh CGM data from Dexcom.
 should return something like:
 
 ```
+timezones://tz
 medtronic://pump
 dexcom://cgm
 ```
