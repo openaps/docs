@@ -143,20 +143,6 @@ contained in the same openaps device.
 Support for G5 receiver is offered through the usb cable and configuring the
 `cgm` device with: `openaps use cgm config --G5`.
 
-### G4 with Share
-Install BLE helpers:
-```
-sudo pip install git+git://github.com/bewest/Adafruit_Python_BluefruitLE.git'#wip/bewest/custom-gatt-profile'
-sudo pip install git+git://github.com/bewest/openxshareble.git
-# adds openxshareble as vendor
-openaps vendor add openxshareble
-```
-
-Then set up cgm device this way:
-```
-openaps device add cgm openxshareble
-```
-
 ### Glucose Data
 Test ability to get data.
 
