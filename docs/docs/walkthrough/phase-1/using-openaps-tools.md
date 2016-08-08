@@ -190,8 +190,9 @@ openaps use <my_dexcom_name> config --G5
 
 NB: The above command can also be used to change from a G4 to G5 system in an already functioning loop. If that doesn't work, update openaps.
 
-Ensure that the data is zoned correctly:
+Invoke the report and ensure that the data is zoned correctly:
 ```
+openaps report invoke raw-cgm/glucose-raw.json
 openaps use tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
 openaps report add monitor/glucose.json JSON  tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
 ```
