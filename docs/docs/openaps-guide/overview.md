@@ -1,5 +1,5 @@
 
-# About openaps
+# About openaps (I THINK THIS ENTIRE SECTION UP UNTIL "MY FIRST WORKSPACE" SHOULD BE MOVED SO THAT IT COMES BEFORE INSTALLING OPENAPS)
 
 `openaps` is a toolkit to make developing an artificial pancreas easy
 for humans.  What is an artificial pancreas?  What are the
@@ -81,7 +81,7 @@ through how to use each one methodically:
       openaps-use
       openaps-alias
 
-Now that `openaps` is installed, we can ask any of these tools for
+Once `openaps` is installed in the next section, then we can ask any of these tools for
 help to explain themselves:
 
     `openaps --help`
@@ -93,9 +93,9 @@ tool might refuse to run, like this:
       bewest@bewest-MacBookPro:~/Documents$ openaps use -h
       Not an openaps environment, run: openaps init
 
-Don't worry, it's time to create our first workspace!
+Don't worry, it's time to install OpenAPS followed by creating our first workspace!
 
-## My first workspace
+## My first workspace (AND NOW THIS COULD BE RIGHT AFTER INSTALLING OPENAPS)
 
 This guide aims to help users become comfortable navigating the
 openaps commands.  Most of the commands read saved configuration.
