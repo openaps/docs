@@ -42,7 +42,7 @@ contributing in other ways.
 
 
 ----------
-###OpenAPS System Development Phases
+### OpenAPS System Development Phases
 
 This documentation is organized into a series of phases that progressively
 build upon the openaps development tools towards a working OpenAPS system.
