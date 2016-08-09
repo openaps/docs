@@ -3,9 +3,7 @@
 
 The recommended way to install openaps is to use python's package management system.
 The [openaps] project is distributed on [pypi][openaps on pypi].
-The following apt-get dependencies are required (they can be installed through
-variety of means, in debian/ubuntu and apt based systems the following packages
-are required:
+On Debian/Ubuntu and other apt based systems, the following apt-get dependencies are required:
 
     sudo apt-get install python python-dev python-pip python-software-properties python-numpy
     sudo pip install setuptools
