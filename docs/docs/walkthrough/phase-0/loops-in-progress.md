@@ -55,3 +55,6 @@ List of people who are working on closed loops:
 - Katie Ellison (Bellevue, WA)
 - Sarah Easter (Georgetown, TX)
 - Terri Lyman (Prescott Valley, AZ)
+- Gina Lyon (Laurel, MS)
+- Eric Jensen (Swarthmore, PA)
+- John Dodds (Glasgow, UK)

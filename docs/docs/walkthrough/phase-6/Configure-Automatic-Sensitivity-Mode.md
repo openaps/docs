@@ -36,7 +36,7 @@ Error: not enough glucose data to calculate autosens.
 
 `openaps device add auto-sens process --require "glucose pumphistory insulin_sensitivities basal_profile profile" oref0 detect-sensitivity`
 
-If the command exectuted properly, the contents of `openaps.ini` should contain:
+If the command executed properly, the contents of `openaps.ini` should contain:
 ```
 [device "auto-sens"]
 vendor = openaps.vendors.process
@@ -92,7 +92,7 @@ auto-sens = settings/auto-sens.json
 
 8)  Based on the configuration of the basic loop, it is recommended that the `settings/auto-sens.json` be added to the `get-profile` alias:
 ```
-get-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json monitor/auto-sens.json
+get-profile report invoke settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json settings/profile.json settings/auto-sens.json
 ```
 and that the `gather` alias be adjusted to make sure `get-profile` is at the end. This is because the `settings/auto-sens.json` report depends upon elements from the preceding two aliases to run.
 

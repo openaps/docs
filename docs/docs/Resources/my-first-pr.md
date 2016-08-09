@@ -18,7 +18,7 @@ OK, let's get started. For our example we are going to make an edit to the opena
 5. Make edits to the file as necessary.
 6. Next we want to commit our changes. But first we should note what we changed and why. Be sure to put a one liner explaining the why of making the changes you did.
 7. Commit the changes.
-8. Now look and make sure everyting you changed looks like you meant it to (no typos, etc). If any problems, go back and edit again and save again.
+8. Now look and make sure everything you changed looks like you meant it to (no typos, etc). If any problems, go back and edit again and save again.
 
 We now have an improved file that we want to be pulled back into the openaps/docs repository at https://github.com/openaps/docs
 

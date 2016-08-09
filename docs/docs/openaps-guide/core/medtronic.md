@@ -47,7 +47,7 @@ added medtronic://pump
 
 ## openaps use pump
 Based on our prior experience knowing that `device` enables **use**, let's
-check out our own `openap use -h` to see how it's changed.
+check out our own `openaps use -h` to see how it's changed.
 ```
 [...]
 Known Devices Menu:

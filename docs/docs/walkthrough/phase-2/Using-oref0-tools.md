@@ -1,6 +1,26 @@
 #Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
+
+Note: The names and folders used in this doc do not correspond to names used in some of the recent templates creating devices, reports, and aliases. For example: bg_targets_raw.json in the docs is bg-targets-raw.json in the templates as well as things like settings/insulin_sensitivities_raw.json in the docs is raw-pump/insulin-sensitivities-raw.json in the templates.  
+
+Here are some of the newer reports copied from the newer style walkthrough:
+
+###register oref0
+
+This creates several devices to manage oref0:
+
+oref0 template mint device oref0 | openaps import
+create lots of reports:
+
+###create lots of reports
+
+Create medtronic and oref0 reports, this handles timezones, units conversion, as well as detecting freshness of files.
+
+oref0 template mint reports  medtronic-pump | openaps import
+oref0 template mint reports  oref0-inputs | openaps import
+
+###Older directions (needs updating or delete altogether in favor of templates?)
 In Phase 1, you added two physical medical devices to openaps—your pump and your cgm. This was done using the command `openaps device add` and then specifying the device name, type, and parameters. OpenAPS tools to gather system profile parameters such as pump settings, calculate the current insulin on board (IOB), and determine if the pump temp basal should be updated or not, are contained in the OpenAPS reference system oref0. Since there is no physical oref0 device, you are essentially adding it to the openaps environment as a virtual device or plugin.
 
 First, you can add a catch-all oref0 device using
@@ -65,10 +85,10 @@ The purpose of the `get-profile` process is to consolidate information from mult
        ```
       $ openaps report add settings/insulin_sensitivities.json JSON units insulin_sensitivities settings/insulin_sensitivities_raw.json
 
-* `insulin_sensitivities` outputs a JSON file with insulin sensitivites obtained from the pump:
+* `insulin_sensitivities` outputs a JSON file with insulin sensitivities obtained from the pump:
 
   ```
-  $ openaps report add settings/insulin_sensitivities_raw.json JSON <my_pump_name> read_insulin_sensitivies
+  $ openaps report add settings/insulin_sensitivities_raw.json JSON <my_pump_name> read_insulin_sensitivities
   ```
 
 * `basal_profile` outputs a JSON file with the basal rates stored on the pump in your basal profile
@@ -216,7 +236,7 @@ In this example, the current temporary basal rate type is "absolute", which shou
 {"temp": "absolute","bg": 91,"tick": "+6","eventualBG": -2,"snoozeBG": 65,"reason": "Eventual BG -2<100, but Delta +6 > Exp. Delta -2.3;cancel","duration": 0,"rate": 0}
 ```
 
-In this case, the evenatual BG is again less than the target, but BG is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to as "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
+In this case, the eventual BG is again less than the target, but BG is increasing (e.g. due to a recent meal). The actual "tick", which is also referred to as "Delta", is larger than the change that would be expected based on the current IOB and the insulin sensitivity. The system therefore recommends canceling the temp basal rate, which is in general done by setting "duration" to 0. Finally, consider this example:
 
 ```
 {"temp": "absolute","bg": 95,"tick": "+4","eventualBG": 13,"snoozeBG": 67,"reason": "Eventual BG 13<90, but Avg. Delta 4.00 > Exp. Delta -2.9; no temp to cancel"}
@@ -236,7 +256,7 @@ Use your answer to this question to create and test an openaps use command by lo
 
 This functionality is built within the oref0 code, but it is helpful to think through as you work towards understanding your open loop and how it will function.
 
-Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are ceratin that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
+Once you setup your `enact` alias, you should plan to experiment by running the required sequence of reports and by executing the `enact` alias using `openaps enact`. Plan to test and correct your setup until you are certain that `enact` works correctly in different situations, including recommendations to update the temp basal, cancel the temp basal, or do nothing.
 
 In order to ensure that your pump is able to accept the temp basal suggestion, ensure that the temp basal setting, on the pump itself is set to "Insulin Rate (U/H)". This can be found in Act>basal>Temp basal type.
 

@@ -2,7 +2,7 @@
 
 **Note:** Setting  up a Raspberry Pi is not specific to OpenAPS. Therefore, it's very easy to Google and find other setup guides and tutorials to help with this process. This is also a good way to get comfortable with using Google if you're unfamiliar with some of the command line tools. Trust us - even if you're an experienced programmer, you'll be doing this throughout the setup process.
 
-In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the intial operating system installation and WiFI setup.  Path 1 is recommended for beginners that are very new to using command prompts or "terminal" on the Mac.
+In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the initial operating system installation and WiFI setup.  Path 1 is recommended for beginners that are very new to using command prompts or "terminal" on the Mac.
 Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference.
 Either way, it is recommended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install.
 
@@ -26,11 +26,11 @@ For the Path 2 Headless install, you will need:
 
 ## Download and Install Raspbian Jessie
 
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspian-version)), just treat it as a blank SD card and download and install the latest versian of Raspbian (currently version 8.0, codename Jessie).
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspbian-version)), just treat it as a blank SD card and download and install the latest version of Raspbian (currently version 8.0, codename Jessie).
 
 ### Download Raspbian
-Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
-Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip](http://www.7-zip.org/) on Windows and [The Unarchiver](https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).
+Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).  If you don't plan on running a graphical user interface on your Raspberry Pi, you can download the 'lite' version of Raspbian [here](https://downloads.raspberrypi.org/raspbian_lite_latest); the image is much smaller and will download and write to your SD card more quickly. 
+Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip](http://www.7-zip.org/) on Windows and [The Unarchiver](https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).  You can also unzip it from the command line on a Mac, by opening the Terminal application, navigating to the directory where you download the ZIP file, and typing `unzip <filename.zip>`. 
 
 ### Write Raspbian to the Micro SD Card
 Erase (format) your SD card using https://www.sdcard.org/downloads/formatter_4/
@@ -45,10 +45,10 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 	* Make sure your Micro SD Card is out of your Raspberry PI (shut it down first) and attached to your computer
 	* Choose the drive where your card is and hit "Options"
 	* Format Type:  Change to Full (Erase)
-	* This will erase your old Rasbian OS and make sure you are using the full SD card's available memory
+	* This will erase your old Raspbian OS and make sure you are using the full SD card's available memory
 	* ![Example OpenAPS Setup](../../Images/SDFormatter.png)
 	* Format the card
-* Download Rasbian 8 / Jessie
+* Download Raspbian 8 / Jessie
 	* https://www.raspberrypi.org/downloads/raspbian/
 	* Extract the IMG file
 * Follow the instruction here to write the IMG to your SD card
@@ -65,9 +65,9 @@ Write the Raspbian .img you extracted from the ZIP file above to the SD card usi
 * First, insert your USB keyboard and USB mouse into the RPi2.
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
 * Finally connect your RPi2 using the power adapter.
-* You should see the GUI appear on sceen.
+* You should see the GUI appear on screen.
 * Configure WiFi per the instruction pamphlet included with your CanaKit. For those not using the CanaKit, click the computer monitors next to the volume control in the upper-right side and there will be a drop-down menu of available WiFi networks.  You should see your home network.  If you have trouble connecting to the RPi2 via WiFi, check your router settings. The router may need to be switched from WEP to WPA2.
-* Once you have installed Rasbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable.
+* Once you have installed Raspbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable.
 
 Remember to keep your RPi2 plugged in, just disconnect the peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
 
@@ -161,7 +161,7 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 
 ## Configure the Raspberry Pi
 
-### Verify your Raspian Version
+### Verify your Raspbian Version
 * In order to do this, you must have done Path 1 or Path 2 above so that you have an environment to interact with
 * Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
 * Type `lsb_release -a`
@@ -180,7 +180,12 @@ Confirm that your keyboard settings are correct. Click on Menu (upper left corne
 
 ### Note on Time Zone
 
-It is imperative that you set the correct time zone at this step of the configuration process.  OpenAPS will look at the timestamp of your CGM data, and the local time on the pump, when making recommendations for basal changes.  The system also uses local time on the pi; so times and time zone need to match, or you will run into issues later.  If the time zone is incorrect, or you haven’t done this yet, run `sudo dpkg-reconfigure tzdata` from the prompt and choose your local zone.
+It is imperative that you set the correct time zone at this step of the configuration process.  OpenAPS will look at the timestamp of your CGM data, and the local time on the pump, when making recommendations for basal changes.  The system also uses local time on the pi; so times and time zone need to match, or you will run into issues later.  If the time zone is incorrect, or you haven’t done this yet, run `sudo dpkg-reconfigure tzdata` from the prompt and choose your local zone. 
+
+### Note on Date and Time in Event of Power Compromise 
+
+To check the time is correct, type `date`. If the date is still not correct, try: 
+`sudo /etc/init.d/ntp stop` then `sudo ntpd -q -g` then `sudo /etc/init.d/ntp start` (This may need to be done if the pi unexpectedly lost power)
 
 ## Setting up an SSH key for Password-less Login [optional]
 
