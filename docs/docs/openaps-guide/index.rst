@@ -7,8 +7,9 @@ Welcome to openaps
 .. toctree::
    :maxdepth: 4
 
+   intro
    installing
-   overview
+   first-workspace
    core/devices
    core/reports
    core/alias
