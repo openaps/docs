@@ -1,4 +1,4 @@
-#Using oref0 Tools
+# Using oref0 Tools
 
 ## Add the oref0 Virtual Devices
 
@@ -10,14 +10,14 @@ raw-pump/insulin-sensitivities-raw.json in the templates.
 
 Here are some of the newer reports copied from the newer style walkthrough:
 
-###register oref0
+### register oref0
 
 This creates several devices to manage oref0:
 ```
 oref0 template mint device oref0 | openaps import
 ```
 
-###create lots of reports
+### create lots of reports
 
 Create medtronic and oref0 reports, this handles timezones, units conversion, as
 well as detecting freshness of files.
