@@ -1,5 +1,5 @@
 
-Guide to understanding openaps
+Guide to understanding the openaps toolkit
 -----------------------------
 
 Welcome to openaps
