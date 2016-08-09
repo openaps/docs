@@ -8,6 +8,10 @@ On Debian/Ubuntu and other apt based systems, the following apt-get dependencies
     sudo apt-get install python python-dev python-pip python-software-properties python-numpy
     sudo pip install setuptools
 
+You can also install openaps on Mac OS X if you install the dependencies with homebrew or similar.
+
+If you don't have a Debian/Ubuntu based system yet, and don't know what homebrew is, don't despair.  You'll just want to skip over to [Phase 0 of the OpenAPS Walkthrough](../walkthrough/) to get your Raspberry Pi set up first, and then come back to this guide before moving on to Phase 1.
+
 [openaps]: https://github.com/openaps/openaps
 [openaps on pypi]: https://pypi.python.org/pypi/openaps
 
