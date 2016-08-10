@@ -12,13 +12,13 @@
 
 <b>BG</b> - Blood Glucose
 
-<b>BGI</b> (BG Impact) - The degree to which BG "should" be rising or falling. OpenAPS calculates this value to determine the 'Eventual BG'. This value can be used to make other high/low basal decisions in advanced implementations orf OpenAPS.
+<b>BGI</b> (BG Impact) - The degree to which BG "should" be rising or falling. OpenAPS calculates this value to determine the 'Eventual BG'. This value can be used to make other high/low basal decisions in advanced implementations of OpenAPS.
 
 <b>Bolus</b> - extra insulin given by a pump, usually to correct for a high BG or for carbohydrates
 
 <b>Basal</b> - baseline insulin level that is pre-programmed into your pump and mimics the insulin your pancreas would give throughout the day and night
 
-<b>IOB</b> - insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.
+<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.
 
 <b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates as well as bolus activity. 
 
