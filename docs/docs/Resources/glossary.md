@@ -24,7 +24,7 @@
 
 <b>Basal IOB</b> - difference (positive or negative) between amount of insulin on board delivered via basal rates, and the amount specified by the profile basal rate.
 
-<b>Treatments IOB</b> - amount of insulin on board delivered via boluses.  Active insulin on
+<b>Treatments IOB</b> - amount of insulin on board delivered via boluses. Reported by some pumps as 'active insulin'.
 
 <b>DIA</b> - duration of insulin action, or how long the insulin is active in your body. (Ranges 3-6 hours typically)
 
@@ -34,7 +34,7 @@
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
 
-<b>OpenAPS Nightscout Status Messages</b> appear when the OpenAPS plugin is configured and enabled.
+<b>OpenAPS Nightscout Status Messages</b> appear when the OpenAPS plugin is enabled.
   * <b>Looping ↻</b> - Success; Temp basal rate has been suggested.
   * <b>Enacted ⌁</b> - Success; Temp basal rate has been set.
   * <b>Not Enacted x</b> - Success; No action taken on suggested temp basal rate.
