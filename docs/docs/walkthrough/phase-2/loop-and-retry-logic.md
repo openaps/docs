@@ -15,22 +15,18 @@ Next, create a script file on your looping device `format_enact_for_push.sh`
 input=`cat enact/suggested.json | json -k | grep -q rate && cat enact/suggested.json  | json rate duration reason`
 input=${input//$'\n'/ }
 
-if [ ! -z "$input" ]
-then
-
-duration=`echo $input | awk '{print $2;}'`
-rate=`echo $input | awk '{print $1;}'`
-reason=`echo $input | awk '{$1 = ""; $2 = ""; print $0;}' | sed 's/^ *//'`
-if [ $duration = "0" ]
-then
-echo Cancel temp basal\\n$reason
-else
-echo $duration m @ $rate U/hr\\n$reason
-fi
+if [ ! -z "$input" ]; then
+  duration=`echo $input | awk '{print $2;}'`
+  rate=`echo $input | awk '{print $1;}'`
+  reason=`echo $input | awk '{$1 = ""; $2 = ""; print $0;}' | sed 's/^ *//'`
+  if [ $duration = "0" ]; then
+    echo Cancel temp basal\\n$reason
+  else
+    echo $duration m @ $rate U/hr\\n$reason
+  fi
 fi
 ```
 This assumes that your oref0 suggestions can be found in enact/suggested.json
-
 
 Next, create `ping.sh`
 ```
@@ -38,12 +34,18 @@ Next, create `ping.sh`
 input="${1:-$(</dev/stdin)}"
 input=${input//$'\n'/\\n}
 echo $input
-if [ ! -z "$input" ]
-then
-echo "{\"body\": \"$input\"}"
-echo "{\"type\": \"note\", \"title\":\"openAPS\", \"body\":\"$input\"}" |  curl -u ACCESS_KEY: -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary @-
+if [ ! -z "$input" ]; then
+  echo "{\"body\": \"$input\"}"
+  echo "{\"type\": \"note\", \"title\":\"openAPS\", \"body\":\"$input\"}" | \
+    curl -u ACCESS_KEY: -X POST https://api.pushbullet.com/v2/pushes \
+    --header 'Content-Type: application/json' --data-binary @-
 fi
 ```
 Replace `ACCESS_KEY` with the access key you got earlier from Pushbullet.
+
+Make the scripts executable:
+```
+chmod 755 format_enact_for_push.sh ping.sh
+```
 
 In your loop, once the suggestion has been created, run `./format_enact_for_push.sh | ./ping.sh`, and you should get a notification on your pushbullet application.
