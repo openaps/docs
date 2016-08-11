@@ -59,4 +59,4 @@ List of people who are working on closed loops:
 - Eric Jensen (Swarthmore, PA)
 - John Dodds (Glasgow, UK)
 - Lindsey Maguire (Silicon Valley)
-- 
+- Dan Robinson (Chicago, IL)
