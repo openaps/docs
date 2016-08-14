@@ -52,7 +52,7 @@ args = detect-sensitivity
 
 4) In order for `auto-sens` to run properly, you need to make sure you pull enough history from your pump - 24 hours plus however many yours you have set for your DIA.  To do this, you will create a new report called `pumphistory-24h.json`:
 ```
-openaps report add settings/pumphistory-24h.json JSON pump iter_pump_hours 28
+openaps report add settings/pumphistory-24h.json JSON <my_pump_name> iter_pump_hours 28
 ```
 (NOTE: the `28` assumes a 4h DIA - please adjust accordingly if your DIA is longer.)
 
