@@ -60,4 +60,4 @@ List of people who are working on closed loops:
 - John Dodds (Glasgow, UK)
 - Lindsey Maguire (Silicon Valley)
 - Dan Robinson (Chicago, IL)
-- Mitch Phillips (Pennington, NJ)
+- Mitch Phillips - (Pennington, NJ)
