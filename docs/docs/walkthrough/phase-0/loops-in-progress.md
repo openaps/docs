@@ -24,6 +24,7 @@ List of people who are working on closed loops:
 - Boris and Kayley Raskin
 - Andy Pabari
 - Rob Kresha - (Papillion, NE, USA)
+- Patrick Metcalfe
 - Christian Robinson (London, UK)
 - Gary Kidd 
 - Nathan Morse
