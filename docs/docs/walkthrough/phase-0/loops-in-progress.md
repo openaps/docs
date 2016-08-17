@@ -61,3 +61,4 @@ List of people who are working on closed loops:
 - Lindsey Maguire (Silicon Valley)
 - Dan Robinson (Chicago, IL)
 - Mitch Phillips - (Pennington, NJ)
+- Ken Webster (Hobart, Tas, Australia)
