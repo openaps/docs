@@ -572,19 +572,10 @@ secret information).  This will prevent git from uploading those files to
 GitHub, but will still allow you to backup and publicly share all your other
 configuration and data.
 
-
-
-
-``` eval_rst
-.. note:: Note
-    Alternatively, you can [purchase a monthly GitHub
-    plan](https://github.com/pricing) and then follow
-    [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-    if you'd like to go with GitHub, or use a service like Bitbucket instead.
-
-
-
-```
+If you wish to use a private GitHub repository, you can
+[purchase a monthly plan](https://github.com/pricing) and then follow
+[these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/),
+or use a service like Bitbucket instead.
 
 [Bitbucket](https://bitbucket.org/) offers a similar service to GitHub, but
 permits users to create free private repositories. Go ahead and sign up and
@@ -600,3 +591,26 @@ like to update your backup, simply go into your `<my_openaps>` directory and `
 git push`. This process can be automated, but we'll save that for another day.
 
 [Github mkimg tool](https://github.com/zymbit/rpi-mkimg) has the ability to create a full SD card image with the advantage to shrink it to its minimum size quite different from the windows Win32DiskImager which always creates an image which is as large as the card.  Using Win32DiskImager it might not be possible to restore an image on a new card with the same size. Using Github mkimg tool instead for example a 32 GB size card can be reduced to approximately 1.9 GB.
+
+### GitHub Authentication
+
+You may receive the following error attempting to push to GitHub:
+```
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists. 
+```
+If so, you'll need to set up authentication. First, generate an SSH key and add
+it the ssh-agent, following the Github
+[guide](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+
+Next, add the public key to your Github account. Again, GitHub has a
+[guide](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/).
+If connecting to your RPi over SSH, you can replace step 1 with the following
+command to copy the public key to your clipboard:
+```
+ssh pi@raspberrypi.local "cat /home/pi/.ssh/id_rsa.pub" | pbcopy
+```
+(in Cygwin, replace `| pbcopy` with `> /dev/clipboard`)
