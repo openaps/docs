@@ -58,3 +58,4 @@ List of people who are working on closed loops:
 - Gina Lyon (Laurel, MS)
 - Eric Jensen (Swarthmore, PA)
 - John Dodds (Glasgow, UK)
+- Hichame Yessou (Milano, Italy)
