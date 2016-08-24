@@ -64,3 +64,4 @@ List of people who are working on closed loops:
 - Colin Barlow & Cassie Knox - (San Diego, CA)
 - Andrew H (Sydney, Australia)
 - Hichame Yessou (Milano, Italy)
+- Tim Street (London, UK)
