@@ -43,7 +43,7 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [Fing](http://www.overlooksoft.com/download) (Android and Apple): Identify IP address of devices on a network. Useful for finding the IP address of RPi on new networks.
 
-[Hotspot Manager](https://play.google.com/store/apps/details?id=com.etustudio.android.hotspotmanager&hl=en) (Android):  Identify IP address of devices on a hotspot. Useful for finding the IP address of RPi on hotspots.
+[Hotspot Manager by etustudio](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=android+app+Hotspot+Manager+etustudio) (Android.):  Identify IP address of devices on a hotspot. Useful for finding the IP address of RPi on hotspots. [2016 Aug 21 - Missing from Google Play Store]
 
 [JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en) (Android): SSH client for Android devices
 

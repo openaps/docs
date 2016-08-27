@@ -3,7 +3,8 @@ This report contains various settings specific to your pump.
 ##### Setup code
 `openaps report add settings/settings.json JSON pump read_settings`
 ##### Sample contents
-`{
+```
+{
   "low_reservoir_warn_point": 20,
   "keypad_lock_status": 0,
   "maxBasal": 6.0,
@@ -29,6 +30,7 @@ This report contains various settings specific to your pump.
   "patterns_enabled": true,
   "maxBolus": 25.0,
   "paradigm_enabled": 1
-}`
+}
+```
 ##### Dependencies
-* [`pump.ini`](openaps-device-pump.md)
+* [`pump.ini`](./openaps-device-pump.md)

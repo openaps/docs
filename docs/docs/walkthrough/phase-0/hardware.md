@@ -192,7 +192,7 @@ charged, it will stay charged when connected to the Pi.
 Your OpenAPS implementation can also pull CGM data from a Nightscout site in
 addition to pulling from the CGM directly. You can find more documentation about
 pulling CGM data from a Nightscout site
-[here](../phase-1/using-openaps-tools.html#pulling-blood-glucose-levels-from-nightscout).
+[here](../phase-1/using-openaps-tools#pulling-blood-glucose-levels-from-nightscout).
   
 * If you have an Android phone, you can use the xDrip app to get your data from
   the Dexcom to Nightscout, to then be used in OpenAPS.
@@ -287,7 +287,7 @@ the Raspberry Pi.
 
 [TeckNet® POWER BANK 9000mAh USB External Battery Backup Pack](http://www.amazon.com/gp/product/B00FBD3O2M)
 
-[Zendure® 2nd Gen A3 Portable Charger 10000mAh - 2.1a Dual USB - in-line charging](www.amazon.com/Zendure-2nd-Portable-Charger-10000mAh/dp/B014RBEAQC/ref=sr_1_1)
+[Zendure® 2nd Gen A3 Portable Charger 10000mAh - 2.1a Dual USB - in-line charging](http://www.amazon.com/Zendure-2nd-Portable-Charger-10000mAh/dp/B014RBEAQC/ref=sr_1_1)
 
 ### USB Cables
 
