@@ -3,7 +3,8 @@ This report gathers the last 5 hours of history directly from your pump.
 ##### Setup code
 `openaps report add monitor/pumphistory.json JSON pump iter_pump_hours 5`
 ##### Sample contents
-`[
+```
+[
   {
     "_type": "TempBasalDuration",.
     "duration (min)": 30,.
@@ -13,6 +14,7 @@ This report gathers the last 5 hours of history directly from your pump.
     "_head": "1601",.
     "_date": "5c4f165710"
   },
-]`
+]
+```
 ##### Dependencies
-* [`pump.ini`](openaps-device-pump.md)
+* [`pump.ini`](./openaps-device-pump.md)

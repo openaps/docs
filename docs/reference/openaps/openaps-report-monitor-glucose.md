@@ -3,7 +3,8 @@ This report contains multiple glucose entries from either your CGM or Nightscout
 ##### Setup code
 `openaps report add monitor/glucose.json JSON cgm oref0_glucose --hours "25.0" --threshold "100"`
 ##### Sample contents
-`[
+```
+[
   {
     "trend_arrow": "FLAT",.
     "display_time": "2016-05-22T00:22:27",.
@@ -19,6 +20,7 @@ This report contains multiple glucose entries from either your CGM or Nightscout
     "type": "sgv",.
     "glucose": 149
   },
-]`
+]
+```
 ##### Dependencies
-* [`cgm.ini`](openaps-device-cgm.md)
+* [`cgm.ini`](./openaps-device-cgm.md)
