@@ -65,3 +65,4 @@ List of people who are working on closed loops:
 - Andrew H (Sydney, Australia)
 - Hichame Yessou (Milano, Italy)
 - Tim Street (London, UK)
+- Neal Harvey (Grants Pass, OR)
