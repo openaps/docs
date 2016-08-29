@@ -66,3 +66,4 @@ List of people who are working on closed loops:
 - Hichame Yessou (Milano, Italy)
 - Tim Street (London, UK)
 - Neal Harvey (Grants Pass, OR)
+- Patrick Metcalfe
