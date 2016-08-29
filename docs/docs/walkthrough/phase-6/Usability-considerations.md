@@ -1,4 +1,4 @@
-#Usability Considerations
+# Usability Considerations
 
 Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some ideas or tips to consider:
 

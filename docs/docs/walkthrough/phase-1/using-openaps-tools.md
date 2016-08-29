@@ -2,7 +2,9 @@
 
 This section provides an introduction to initializing, configuring, and using the OpenAPS toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
 
-The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) has detailed information on the installation and usage of OpenAPS. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
+If you haven't already, now that you have a working Raspberry Pi or similar system, it would be a good time to go through the [Guide to understanding the openaps toolkit](../../openaps-guide/index), which will give you a much better understanding of how the openaps tools work so you know what's happening as you follow the rest of this setup walkthrough, and know how to use the tools to investigate when something doesn't behave quite like you expect.
+
+The [openaps readme](https://github.com/openaps/openaps/blob/master/README.md) also has detailed information on the installation and usage of OpenAPS. You should take the time to read through it in detail, even if it seems confusing at first. There are also a number of example uses available in the [openaps-example](https://github.com/bewest/openaps-example) repository.
 
 Some familiarity with using the terminal will go a long way, so if you aren't
 comfortable with what `cd` and `ls` do, take a look at some of the Linux Shell
@@ -142,9 +144,13 @@ Support for G5 receiver is offered through the usb cable and configuring the
 `cgm` device with: `openaps use cgm config --G5`.
 
 ### G4 with Share
+**Note** the instructions below do not work for some users, please see the
+GitHub [issue](https://github.com/openaps/openxshareble/issues/5) for details.
+Affected users can still obtain glucose data via usb cable.
+
 Install BLE helpers:
 ```
-sudo pip install git+git://github.com/bewest/Adafruit_Python_BluefruitLE.git'#wip/bewest/custom-gatt-profile'
+sudo pip install git+git://github.com/bewest/Adafruit_Python_BluefruitLE.git@wip/bewest/custom-gatt-profile
 sudo pip install git+git://github.com/bewest/openxshareble.git
 # adds openxshareble as vendor
 openaps vendor add openxshareble
@@ -190,8 +196,9 @@ openaps use <my_dexcom_name> config --G5
 
 NB: The above command can also be used to change from a G4 to G5 system in an already functioning loop. If that doesn't work, update openaps.
 
-Ensure that the data is zoned correctly:
+Invoke the report and ensure that the data is zoned correctly:
 ```
+openaps report invoke raw-cgm/glucose-raw.json
 openaps use tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
 openaps report add monitor/glucose.json JSON  tz rezone  --date dateString --date display_time raw-cgm/glucose-raw.json
 ```
@@ -210,6 +217,7 @@ Now, `openaps monitor-cgm` is available to pull in fresh CGM data from Dexcom.
 should return something like:
 
 ```
+timezones://tz
 medtronic://pump
 dexcom://cgm
 ```
@@ -568,19 +576,10 @@ secret information).  This will prevent git from uploading those files to
 GitHub, but will still allow you to backup and publicly share all your other
 configuration and data.
 
-
-
-
-``` eval_rst
-.. note:: Note
-    Alternatively, you can [purchase a monthly GitHub
-    plan](https://github.com/pricing) and then follow
-    [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-    if you'd like to go with GitHub, or use a service like Bitbucket instead.
-
-
-
-```
+If you wish to use a private GitHub repository, you can
+[purchase a monthly plan](https://github.com/pricing) and then follow
+[these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/),
+or use a service like Bitbucket instead.
 
 [Bitbucket](https://bitbucket.org/) offers a similar service to GitHub, but
 permits users to create free private repositories. Go ahead and sign up and
@@ -596,3 +595,26 @@ like to update your backup, simply go into your `<my_openaps>` directory and `
 git push`. This process can be automated, but we'll save that for another day.
 
 [Github mkimg tool](https://github.com/zymbit/rpi-mkimg) has the ability to create a full SD card image with the advantage to shrink it to its minimum size quite different from the windows Win32DiskImager which always creates an image which is as large as the card.  Using Win32DiskImager it might not be possible to restore an image on a new card with the same size. Using Github mkimg tool instead for example a 32 GB size card can be reduced to approximately 1.9 GB.
+
+### GitHub Authentication
+
+You may receive the following error attempting to push to GitHub:
+```
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists. 
+```
+If so, you'll need to set up authentication. First, generate an SSH key and add
+it the ssh-agent, following the Github
+[guide](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+
+Next, add the public key to your Github account. Again, GitHub has a
+[guide](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/).
+If connecting to your RPi over SSH, you can replace step 1 with the following
+command to copy the public key to your clipboard:
+```
+ssh pi@raspberrypi.local "cat /home/pi/.ssh/id_rsa.pub" | pbcopy
+```
+(in Cygwin, replace `| pbcopy` with `> /dev/clipboard`)
