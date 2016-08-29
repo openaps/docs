@@ -67,3 +67,4 @@ List of people who are working on closed loops:
 - Tim Street (London, UK)
 - Neal Harvey (Grants Pass, OR)
 - Patrick Metcalfe
+- Ken Webster (Hobart, Tas, Australia)
