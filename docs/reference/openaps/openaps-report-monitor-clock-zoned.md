@@ -5,4 +5,4 @@ This report contains the date and time that is set on your pump, but modified to
 ##### Sample contents
 `"2016-05-23T22:40:14-04:00"`
 ##### Dependencies
-* [`monitor/clock.json`](openaps-report-monitor-clock.md)
+* [`monitor/clock.json`](./openaps-report-monitor-clock.md)
