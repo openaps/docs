@@ -68,3 +68,4 @@ List of people who are working on closed loops:
 - Neal Harvey (Grants Pass, OR)
 - Patrick Metcalfe
 - Ken Webster (Hobart, Tas, Australia)
+- David Eddy (Madbury, NH)
