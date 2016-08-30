@@ -1,4 +1,0 @@
-
-# Vendors - discovering uniformity
-
-

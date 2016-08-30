@@ -14,12 +14,3 @@ Welcome to openaps
    core/reports
    core/alias
 
-.. ::
-
-   core/vendors
-   tutorial
-   
-
-
-
-
