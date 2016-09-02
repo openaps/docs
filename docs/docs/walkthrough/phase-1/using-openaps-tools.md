@@ -446,7 +446,7 @@ upload treatments to Nightscout, if there is any data to upload.
 The first of the above reports and uses rely upon the existence of a model report:
 
     openaps report add settings/model.json JSON pump model
-    openaps report invoke model.json
+    openaps report invoke settings/model.json
 
 (what report needs to be defined and invoked in order to have monitor/pump-history.json defined?)
 
