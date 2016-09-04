@@ -368,7 +368,7 @@ openaps use ns shell get entries.json 'count=10'
 openaps use ns shell upload treatments.json recently/combined-treatments.json
 ```
 
-(It would be good to show how to create a treatments.json report before ns shell `upload`...)
+[INSERT ACTUAL INSTRUCTIONS ON HOW TO CREATE a treatments.json report before ns shell `upload`]
 
 So we now have various uses for `ns`:
 
