@@ -48,13 +48,15 @@ Additionally, you may want to consider some unit testing. There is a basic unit 
 
 If you'd like to help out with defining all the desired behaviors in the form of unit test cases:
 
-1) Please clone / checkout [oref0](https://github.com/openaps/oref0)
+1. Please clone [`oref0`](https://github.com/openaps/oref0): `git clone https://github.com/openaps/oref0.git`
 
-2) Type `sudo npm install -g mocha` and `sudo npm install -g should`
+2. Enter the root `oref0` directory: `cd oref0`
 
-3) You should then be able to run `make` from the ~/src/oref0 directory to run all of the existing unit tests, or something like `mocha -c tests/determine-basal.test.js 2>&1 | less -r` to run just the determine-basal tests.
+3. Install dependencies: `npm install`
 
-4) As you add additional unit tests, you'll want to run `make` again after each one.
+4. You should then be able to run `make` to run all of the existing unit tests, or something like `./node_modules/.bin/mocha tests/determine-basal.test.js` to run just the determine-basal tests.
+
+5. As you add additional unit tests, you'll want to run `make` again after each one.
 
 ### How to add more test cases:
 

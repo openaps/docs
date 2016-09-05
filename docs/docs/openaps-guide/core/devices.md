@@ -166,7 +166,7 @@ optional arguments:
     shell     run a process in a subshell
 ```
 
-Hmm, because this a *unix process*, the **use** for this one is called
+Hmm, because this is a *unix process*, the **use** for this one is called
 **shell**.  What happens if we just add that word to the end? `openaps use
 --format text howdy shell`
 

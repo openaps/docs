@@ -39,7 +39,7 @@ openaps has two requirements: it must be a `git` repository containing
 an `openaps.ini` file at it's root.
 
 This means many operations are tracked using `git`, try `git log` or `git
-show`; there should an event in the log showing the time and date (and who!)
+show`; there should be an event in the log showing the time and date (and who!)
 created this instance.
 
 ```bash
