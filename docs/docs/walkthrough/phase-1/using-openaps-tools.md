@@ -427,7 +427,7 @@ The query-params can be used to generate any query Nightscout can respond to.
 
 ### Unifying pump treatments in Nightscout
 
-To upload treatments data to Nightscout, prepare you zoned glucose, and pump
+To upload treatments data to Nightscout, prepare your zoned glucose, and pump
 model reports, and use the following two reports:
 
     openaps report add nightscout/recent-treatments.json JSON ns shell  format-recent-history-treatments monitor/pump-history.json model.json
