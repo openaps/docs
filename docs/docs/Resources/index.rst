@@ -9,6 +9,7 @@ Resources
    my-first-pr
    technical-resources
    troubleshooting
+   wifi
    history
    other-projects
    faq

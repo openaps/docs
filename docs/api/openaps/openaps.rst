@@ -8,12 +8,9 @@ Subpackages
 
     openaps.alias
     openaps.cli
-    openaps.controllers
     openaps.devices
     openaps.glucose
-    openaps.monitors
     openaps.reports
-    openaps.suggesters
     openaps.uses
     openaps.vendors
 

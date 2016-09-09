@@ -1,3 +1,5 @@
+# Alternate Nightscout OpenAPS Instructions
+
 To get your OpenAPS viewed onto your Nightscout site, start by using the following tool:(It would be a good idea to be disconnected from your pump and do a Bolus Wizard so you can check the status of your Nightscout uploading.)
 $nightscout autoconfigure-device-crud
 To view your data on your Nightscout site, start by doing the following:
