@@ -70,3 +70,4 @@ List of people who are working on closed loops:
 - Ken Webster (Hobart, Tas, Australia)
 - David Eddy (Madbury, NH)
 - Tirzah Heide for Nathanael (St. Louis, MO)
+Leigh Fickling (Durham, NC)
