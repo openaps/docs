@@ -1,17 +1,17 @@
-# Introduction 
+# Introduction
 
-* Easily navigatable version of the [latest production docs are here.](https://openaps.readthedocs.org/en/latest/index.html)
-* Easily navigatable version of the [in-development or "dev" docs can be found here.](https://openaps.readthedocs.org/en/dev/index.html)
+* Easily navigable version of the [latest production docs are here.](https://openaps.readthedocs.org/en/latest/index.html)
+* Easily navigable version of the [in-development or "dev" docs can be found here.](https://openaps.readthedocs.org/en/dev/index.html)
 
 ## Welcome
 
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
-openaps is part of a set of tools to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). 
+openaps is part of a set of tools to support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/).
 
 Here are two visuals to show you what the physical hardware components of an OpenAPS setup look like - [version A](docs/docs/IMG_1112.jpg) is without labels; [version B](https://github.com/logichammer/docs/blob/b53a64b5dce81eaf112c7dafcb8d3415b2ddf85c/docs/Images/piSetup.jpg) contains labels to describe the parts.
 
-By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability. 
+By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability.
 
 The tools may be categorized as: 1)  **monitor** collecting data and
 operational status from devices, and/or aggregating as much data as is relevant
@@ -23,7 +23,7 @@ and 3)  **control** enacting changes, and feeding more data back into the
 ### A Note on DIY and the "Open" Part of OpenAPS
 This is a set of development tools to support a self-driven DIY implementation.
 Any person choosing to use these tools is solely responsible for testing and
-implementing these tools independently or together as a system.  
+implementing these tools independently or together as a system.
 
 The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). There are very
 good reasons why this isn't a single downloadable script. While formal training
@@ -42,11 +42,11 @@ contributing in other ways.
 
 
 ----------
-###OpenAPS System Development Phases
+### OpenAPS System Development Phases
 
 This documentation is organized into a series of phases that progressively
 build upon the openaps development tools towards a working OpenAPS system.
-The phases are as follows: 
+The phases are as follows:
 
 * **Phase 0: General Setup**<br>
 Get the equipment you need; record baseline data, configure your hardware, install software, and become familiar with the openaps environment
@@ -72,7 +72,7 @@ At the end of the previous stages and after 3 consecutive nights with no hardwar
 ----------
 
 
-Below is an overview of all content linked inside of this document repository. [You may also find this guide to getting started with openaps commands (not yet linked below)](http://openaps.readthedocs.org/en/dana-dev/docs/openaps-guide/index.html) useful. 
+Below is an overview of all content linked inside of this document repository. [You may also find this guide to getting started with openaps commands (not yet linked below)](http://openaps.readthedocs.org/en/dana-dev/docs/openaps-guide/index.html) useful.
 
 
 -   <a href="docs/docs/introduction/index.rst" class="reference internal">Introduction</a>

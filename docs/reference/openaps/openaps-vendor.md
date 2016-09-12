@@ -9,7 +9,7 @@ optional arguments:
   -h, --help         show this help message and exit
 
 ## Vendors Menu:
-   vendors - manage vendor plugin configurations 
+   vendors - manage vendor plugin configurations
 
   {add,remove,show}  Operation
     add              Add a new vendor plugin to openaps-environment.
