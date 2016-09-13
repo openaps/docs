@@ -72,3 +72,4 @@ List of people who are working on closed loops:
 - Tirzah Heide for Nathanael (St. Louis, MO)
 - Tracy Osheroff (Seattle, WA)
 - Mike & Jennifer Crawford (Calgary, AB)
+- Matthew Byatt (Cambridge, UK)
