@@ -73,3 +73,4 @@ List of people who are working on closed loops:
 - Tracy Osheroff (Seattle, WA)
 - Mike & Jennifer Crawford (Calgary, AB)
 - Matthew Byatt (Cambridge, UK)
+- Anna Hassan (New Orleans, LA)
