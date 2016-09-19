@@ -14,7 +14,7 @@ This uses [this script](https://raw.githubusercontent.com/openaps/docs/master/sc
 
 If the install was successful, the last line will say something like:<br>
 
-openaps 0.0.9  (although the version number may have been incremented)
+openaps 0.1.5  (although the version number may have been incremented)
 
 If you do not see this or see error messages, try running the script multiple times.
 
@@ -26,7 +26,7 @@ It's possible to use the package manager to install development branches.  If yo
 
 If successful, the last line will say something like: <br>
 
-openaps 0.0.10-dev  (although the version number may have been incremented)
+openaps 0.0.15-dev  (although the version number may have been incremented)
 
 ## Manual install [optional]
 ### Install Python and Node.js Packages System-Wide [optional]
