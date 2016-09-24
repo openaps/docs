@@ -74,3 +74,4 @@ List of people who are working on closed loops:
 - Mike & Jennifer Crawford (Calgary, AB)
 - Matthew Byatt (Cambridge, UK)
 - Anna Hassan (New Orleans, LA)
+- Tony Zarro (Atlanta, GA)
