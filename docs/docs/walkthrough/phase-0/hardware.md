@@ -24,7 +24,7 @@ group focusing on alternative pump communication.
     * 515/715
     * 522/722
     * 523/723 (with firmware 2.4A or lower)
-    * 554/754 (European Veo, with firmware 2.6A or lower)
+    * 554/754 (European Veo, with firmware 2.6A or lower; OR there has been a Canadian Veo with firmware 2.7 reported to be loop-able)
     * (To check firmware, hit Esc on the home screen and scroll all the way to
       the bottom. You can also go into the Utilities menu and look for a PC
       Connect option. If that is present, the pump will *not* work for looping.
