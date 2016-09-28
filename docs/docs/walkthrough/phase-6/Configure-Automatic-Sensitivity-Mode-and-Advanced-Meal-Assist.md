@@ -197,6 +197,7 @@ fields = pumphistory profile clock glucose basal carbs
 cmd = oref0
 args = meal
 
+* Only include carbs if you are getting this from Nightscout. If you enter carbs into your pump via the Bolus wizard, you can ignore add this to fields.
 ```
 
 3) We need to update our aliases to actually call these new reports.
