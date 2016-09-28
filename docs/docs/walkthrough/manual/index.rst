@@ -1,4 +1,4 @@
-Walkthrough
+Manual setup (old directions)
 -----------
 
 .. toctree::
