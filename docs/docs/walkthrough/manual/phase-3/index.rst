@@ -1,12 +1,12 @@
 
-Phase 3: Automated Control
+Phase 3: Open Loop Testing
 ---------------------------
 
 .. toctree::
    :maxdepth: 4
    
 
-   Understand-determine-basal
+   Open-Loop-Testing
 
    
 

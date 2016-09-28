@@ -7,7 +7,9 @@ Phase 2: Creating an Open Loop
    
 
    considerations
-   oref0-setup
+   building-preflight-safety-checks
+   Using-oref0-tools
+   loop-and-retry-logic
 
 
    
