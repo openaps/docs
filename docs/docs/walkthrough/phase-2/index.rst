@@ -1,5 +1,5 @@
 
-Phase 2: Creating an Open Loop
+Phase 2: Creating a PLGM Loop
 ------------------------------
 
 .. toctree::
