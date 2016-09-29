@@ -15,7 +15,7 @@ hormone, fully automated systems. The JDRF [Artificial Pancreas Project
 Plan](http://jdrf.org/research/treat/artificial-pancreas-project/) page
 provides an overview of the current commercial and academic generation-based
 approach. Several commercial systems are currently in development; see
-[Commercial APS Efforts](./other-projects.html#commercial-aps-efforts) for more
+[Commercial APS Efforts](./other-projects#commercial-aps-efforts) for more
 information.
 
 
