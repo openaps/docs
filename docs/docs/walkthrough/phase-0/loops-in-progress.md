@@ -76,3 +76,4 @@ List of people who are working on closed loops:
 - Anna Hassan (New Orleans, LA)
 - Tony Zarro (Atlanta, GA)
 - Mike Wright (San Jose, CA)
+- Derek Rodeback (Loma Linda, CA)
