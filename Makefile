@@ -222,4 +222,4 @@ serve:
 	@echo
 	make clean build html
 	(cd $(BUILDDIR)/html/; python -m SimpleHTTPServer 8000 )
-
+test
