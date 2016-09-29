@@ -75,3 +75,4 @@ List of people who are working on closed loops:
 - Matthew Byatt (Cambridge, UK)
 - Anna Hassan (New Orleans, LA)
 - Tony Zarro (Atlanta, GA)
+- Mike Wright (San Jose, CA)
