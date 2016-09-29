@@ -77,3 +77,4 @@ List of people who are working on closed loops:
 - Tony Zarro (Atlanta, GA)
 - Mike Wright (San Jose, CA)
 - Derek Rodeback (Loma Linda, CA)
+- Sandra Keßler (Kassel, Germany)
