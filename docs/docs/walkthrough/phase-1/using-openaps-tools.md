@@ -368,7 +368,7 @@ openaps use ns shell get entries.json 'count=10'
 openaps use ns shell upload treatments.json recently/combined-treatments.json
 ```
 
-(It would be good to show how to create a treatments.json report before ns shell `upload`...)
+[INSERT ACTUAL INSTRUCTIONS ON HOW TO CREATE a treatments.json report before ns shell `upload`]
 
 So we now have various uses for `ns`:
 
@@ -446,7 +446,7 @@ upload treatments to Nightscout, if there is any data to upload.
 The first of the above reports and uses rely upon the existence of a model report:
 
     openaps report add settings/model.json JSON pump model
-    openaps report invoke model.json
+    openaps report invoke settings/model.json
 
 (what report needs to be defined and invoked in order to have monitor/pump-history.json defined?)
 

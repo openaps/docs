@@ -11,6 +11,9 @@ So this would be your actual https://myname.azurewebsites.net  or https://myname
 To test this: `openaps use ns shell preflight`\
 It should return "True"
 
+After the nightscout autoconfigure-device-crud has run successfully you may want to add ns.ini to your .gitignore file to protect your nightscout site location and secret key. You can find more information about this in the 
+<a href="https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/using-openaps-tools.html#backing-up-your-openaps-instance">Backing up your openaps instance</a> section.
+
 To get a good list of aliases:
 
 `curl -sg https://gist.githubusercontent.com/bewest/d3db9ca1c144b845382c885138a8f66e/raw/181c5d6f29cd6489ecc9630786cf2c4937ddde79/bewest-aliases.json > bewest-aliases.json`

@@ -1,7 +1,7 @@
 #### `settings/profile.json`
 This report contains a general profile of the information in your pump such as carb ratios, DIA, max basal rates, etc.
 ##### Setup code
-`openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json max_iob.json`
+`openaps report add settings/profile.json text get-profile shell settings/settings.json settings/bg_targets.json settings/insulin_sensitivities.json settings/basal_profile.json preferences.json`
 ##### Sample contents
 ```
 {

@@ -69,3 +69,11 @@ List of people who are working on closed loops:
 - Patrick Metcalfe
 - Ken Webster (Hobart, Tas, Australia)
 - David Eddy (Madbury, NH)
+- Tirzah Heide for Nathanael (St. Louis, MO)
+- Tracy Osheroff (Seattle, WA)
+- Mike & Jennifer Crawford (Calgary, AB)
+- Matthew Byatt (Cambridge, UK)
+- Anna Hassan (New Orleans, LA)
+- Tony Zarro (Atlanta, GA)
+- Mike Wright (San Jose, CA)
+- Derek Rodeback (Loma Linda, CA)

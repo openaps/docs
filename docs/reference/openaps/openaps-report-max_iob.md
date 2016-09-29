@@ -1,5 +1,5 @@
 #### `max_iob.json`
-This is less of a report, and more of a file created during setup.
+`max_iob.json` is DEPRECATED. Set `max_iob` value in `preferences.json`
 ##### Setup code
 None
 ##### Sample contents
