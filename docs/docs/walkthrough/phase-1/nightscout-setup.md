@@ -28,6 +28,10 @@ excellent guides of how to get various CGM systems working as well as displaying
 your data on a variety of additional devices. Once your website is up and
 running you can integrate Nightscout to your OpenAPS using the guide below.
 
+If you plan to use Nightscout to vizualize a production OpenAPS instance, we
+recommend using the $7/mo Heroku plans, as OpenAPS' can reach the usage limits of 
+the free Azure plan and cause it to shut down for hours or days.
+
 ## Nightscout Integration
 
 The integration requires setting up Nightscout and making changes and additions
@@ -41,7 +45,7 @@ are already using Nightscout you might have to update your repository. To update
 your version, go to the
 [Beta Test tool](http://nightscout.github.io/pages/test-beta/?branch=dev), look
 for the "I'm ready" button, and create a PR to your dev branch. Once you have
-completed these steps, log on to Azure or Heroku and disconnect the deployment
+completed these steps, log on to Heroku or Azure and disconnect the deployment
 source. Thereafter choose your cgm-remote-monitor github repository as source
 again. You should take the dev branch of this repository. The dev branch will
 also allow you to use the advanced-meal-assist feature.
@@ -70,7 +74,7 @@ your actual results, the username you entered will be where it says
 "name@email.com").
 ____________________________
 
-The steps discussed here are essentially the same for both Azure and Heroku
+The steps discussed here are essentially the same for both Heroku and Azure 
 users. Two configuration changes must be made to the Nightscout implementation:
 
 * Add "openaps" (without the quotes) and, optionally, "pump" (without the
