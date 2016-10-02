@@ -1,6 +1,6 @@
 
 Guide to understanding the openaps toolkit
------------------------------
+------------------------------------------
 
 Welcome to openaps
 
@@ -13,13 +13,4 @@ Welcome to openaps
    core/devices
    core/reports
    core/alias
-
-.. ::
-
-   core/vendors
-   tutorial
-   
-
-
-
 

@@ -10,6 +10,6 @@ In light of the success of #DIYPS closed loop and other simple APS systems built
 
 \#OpenAPS is not intended to be a “set and forget” APS system. To maximize safety, a system designed from OpenAPS only doses basal insulin. Users still need to bolus for meals as they do today. However, OpenAPS can identify deviations from predicted blood sugar changes and change basal rates to prevent dangerous drops or rises that deviate from expected behavior.
 
-After launching in early 2015, there are at least 44 known instances of OpenAPS that are live and running (as of March 23, 2016), with several others in development and testing phases. For anecdotal experiences from those running OpenAPS, watch the [#OpenAPS hashtag on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23OpenAPS&src=typd) and also check out the [Resources](../Resources/resources.md) section for a list of those sharing their experiences publicly.
+After launching in early 2015, there are at least 44 known instances of OpenAPS that are live and running (as of March 23, 2016), with several others in development and testing phases. For anecdotal experiences from those running OpenAPS, watch the [#OpenAPS hashtag on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23OpenAPS&src=typd) and also check out the [Resources](./index) section for a list of those sharing their experiences publicly.
 
 In early 2016, progress continues to be made with the iteration of several hardware options, in addition to multiple new software features.

@@ -15,14 +15,14 @@ hormone, fully automated systems. The JDRF [Artificial Pancreas Project
 Plan](http://jdrf.org/research/treat/artificial-pancreas-project/) page
 provides an overview of the current commercial and academic generation-based
 approach. Several commercial systems are currently in development; see
-[Commercial APS Efforts](other-projects.md#commercial-aps-efforts) for more
+[Commercial APS Efforts](../Resources/other-projects#commercial-aps-efforts) for more
 information.
 
 
 \#OpenAPS is focused on a single-hormone hybrid closed-loop system. This is a
 system that uses only insulin (no glucagon) and still requires user input for
 mealtime insulin. For background on #OpenAPS, review the [\#OpenAPS Reference
-Design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/)
+Design](https://openaps.org/reference-design/)
 page.
 
 ## What does an OpenAPS closed loop look like?

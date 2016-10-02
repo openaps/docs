@@ -2,7 +2,7 @@
 
 After you adjust your max iob and go beyond low glucose suspend mode, run the system overnight under close observation with the following considerations around targets:
 
-* You should start with high targets and a good safety margin. For example, you might start with your target at 150 to see how the system does. OpenAPS has a "min" target floor which prevents you from setting it below 90.
+* You should start with high targets and a good safety margin. For example, you might start with your target at 150 to see how the system does. OpenAPS has a "min" target floor which prevents you from setting it below 80.
 
 * Before adjusting your target, you should have at least one night with zero low alarms (in three days) before considering dropping the max target below 160.
 

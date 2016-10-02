@@ -8,6 +8,7 @@ Phase 3: Automated Control
 
    considerations
    Understand-determine-basal
+   Open-Loop-Testing
 
    
 
