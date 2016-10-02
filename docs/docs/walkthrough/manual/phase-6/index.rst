@@ -7,11 +7,7 @@ Phase 6: Iterate and Improve the Closed Loop
    :maxdepth: 4
    
    
-   considerations
-   keeping-up-to-date
-   daytime-testing
-   advanced-features
-   Usability-considerations
+   Configure-Automatic-Sensitivity-Mode
 
 
 

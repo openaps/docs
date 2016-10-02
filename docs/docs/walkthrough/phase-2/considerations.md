@@ -1,7 +1,6 @@
-# Phase 2: Creating an Open Loop
+# Phase 2: Creating a Predictive Low Glucose Management (PLGM) loop
 
-Phase 2 focuses on deploying tools to utilize a suitable algorithm to recommend necessary changes to basal rates. This is essentially an open-loop system, with you completing the loop by manually calculating what you would do in that scenario. This can be performed in real time or by using historical data and making retroactive suggestions. Pay special attention to situations where CGM readings are not smooth (after calibration, with a new sensor, or with errors such as ???) or when there are issues with data connectivity or fidelity. Assume there will be issues with connectivity.
+Phase 2 focuses on using the oref0-setup.sh script to create a basic loop that can make the necessary changes to basal rates to help prevent low blood glucose events, but that will not dose additional insulin beyond normally scheduled basal if BG is too high.
 
-Note: oref0—short for "OpenAPS Reference Design 0"—is our first (zero-th) implementation of the OpenAPS Reference Design. It consists of a number of "Lego block" tools that, when combined with the core openaps toolset, create a full closed loop artificial pancreas system—an OpenAPS implementation.
+Note: oref0 (short for "OpenAPS Reference Design 0") is our first (zero-th) implementation of the OpenAPS Reference Design. It consists of a number of "Lego block" tools that, when combined with the core openaps toolset, create a full closed loop artificial pancreas system — an OpenAPS implementation.
 
-By this stage, you should have already set up your pump and cgm as openaps devices. You will now add the oref0 tools as virtual devices, create openaps reports for commonly used queries and calculations, and add openaps aliases that bring together those reports into higher-level activities. Finally, you can combine those into a single command (or small set of them) that can do everything required to collect data, make a treatment recommendation, and enact it on the pump. You'll also build "preflight" and safety checks into the loop.

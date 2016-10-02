@@ -6,10 +6,6 @@ That being said, at this stage, you have both a manual loop and a schedule (usin
 
 Additionally, most loopers, after automating their system with cron jobs, begin to think through some of the following things and run the following tests, including unit tests:
 
-## How often should the cron run?
-
-Think about how often you get new BG data and may want to act on it. Or, time how long it takes your loop to run, and add another minute to that. You probably want to add preflight checks to make sure a loop is not already running before your next one starts.
-
 ## What should BG target range be?
 
 In the early testing, the OpenAPS settings may cause your BG to go both high and low.
