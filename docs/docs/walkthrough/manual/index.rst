@@ -1,4 +1,4 @@
-Walkthrough
+Manual setup (old directions)
 -----------
 
 .. toctree::
@@ -11,6 +11,5 @@ Walkthrough
    phase-4/index
    phase-5/index
    phase-6/index
-   manual/index
 
 

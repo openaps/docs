@@ -7,6 +7,9 @@ Phase 4: Iterate and Improve
    
 
 
+   considerations
+
+   create-schedule
    Observing-closed-loop
    troubleshooting-loop
 
