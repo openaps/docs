@@ -11,6 +11,7 @@ Phase 1: Monitoring and Visualization
    using-openaps-tools
    visualization
    openaps-to-nightscout
+   offline-monitoring
 
 
 
