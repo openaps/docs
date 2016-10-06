@@ -78,3 +78,4 @@ List of people who are working on closed loops:
 - Mike Wright (San Jose, CA)
 - Derek Rodeback (Loma Linda, CA)
 - Sandra Keßler (Kassel, Germany)
+- Lukas Ondriga (Svaty Jur, Slovakia)
