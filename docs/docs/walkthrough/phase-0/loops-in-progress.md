@@ -79,3 +79,4 @@ List of people who are working on closed loops:
 - Derek Rodeback (Loma Linda, CA)
 - Sandra Keßler (Kassel, Germany)
 - Lukas Ondriga (Svaty Jur, Slovakia)
+- Dominic Herrington (Bishops Stortford, UK)
