@@ -1,4 +1,4 @@
-# Phase 6: Iterating on Your Closed Loop
+# Phase 4: Iterating on Your Closed Loop
 
 Now that you're looping, congrats! Make sure you follow these steps - you're not done yet. You'll want to let us know that you are looping, and continue testing.
 
