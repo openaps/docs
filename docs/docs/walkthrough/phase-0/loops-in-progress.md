@@ -78,3 +78,6 @@ List of people who are working on closed loops:
 - Mike Wright (San Jose, CA)
 - Derek Rodeback (Loma Linda, CA)
 - Joanne Spotten (SLC, UT)
+- Sandra Keßler (Kassel, Germany)
+- Lukas Ondriga (Svaty Jur, Slovakia)
+- Dominic Herrington (Bishops Stortford, UK)
