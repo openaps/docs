@@ -1,5 +1,5 @@
 
-Phase 3: Automated Control
+Phase 3: Understanding Your Loop and Tweaking Settings
 ---------------------------
 
 .. toctree::
