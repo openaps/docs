@@ -1,8 +1,4 @@
-# Observing the closed loop
-
-After you have created a schedule with cron, your loop will automatically run.
-
-## Starting with low glucose suspend mode
+# Starting with low glucose suspend mode
 
 You may notice that the loop is only going to temp you til your netIOB (this means the net amount of insulin compared to your normal basal rates; so if you temp to 0 and your basal is usually 1.3; you will end up with negative netIOB) returns to 0. This is an important safety feature to help you observe the loop for three days in this mode.
 

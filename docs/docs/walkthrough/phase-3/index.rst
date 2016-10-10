@@ -1,5 +1,5 @@
 
-Phase 3: Automated Control
+Phase 3: Understanding Your Loop and Tweaking Settings
 ---------------------------
 
 .. toctree::
@@ -7,6 +7,7 @@ Phase 3: Automated Control
    
 
    Understand-determine-basal
-
-   
-
+   Observing-closed-loop
+   troubleshooting-loop
+   beyond-low-glucose-suspend
+   tuning-targets

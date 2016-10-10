@@ -1,6 +1,6 @@
 # Going beyond low glucose suspend mode
 
-You may have noticed that in the previous phase (4), in observing low glucose suspend mode, the loop did not temp you to get your netIOB above 0.
+You may have noticed that in the previous phase, in observing low glucose suspend mode, the loop did not temp you to get your netIOB above 0.
 
 Once you have spent several days observing the loop in the previous mode and made sure your basals and bolus strategies are in good shape, you may consider moving to the next step.
 
