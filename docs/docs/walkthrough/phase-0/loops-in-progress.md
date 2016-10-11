@@ -81,3 +81,4 @@ List of people who are working on closed loops:
 - Sandra Keßler (Kassel, Germany)
 - Lukas Ondriga (Svaty Jur, Slovakia)
 - Dominic Herrington (Bishops Stortford, UK)
+- Taylor Fowler (Brooklyn, NY)
