@@ -83,3 +83,4 @@ List of people who are working on closed loops:
 - Dominic Herrington (Bishops Stortford, UK)
 - Taylor Fowler (Brooklyn, NY)
 - Mikel Curry
+- Aditya Dasnurkar
