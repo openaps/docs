@@ -82,3 +82,4 @@ List of people who are working on closed loops:
 - Lukas Ondriga (Svaty Jur, Slovakia)
 - Dominic Herrington (Bishops Stortford, UK)
 - Taylor Fowler (Brooklyn, NY)
+- Mikel Curry (Salt Lake City, UT)
