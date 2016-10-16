@@ -84,3 +84,4 @@ List of people who are working on closed loops:
 - Taylor Fowler (Brooklyn, NY)
 - Mikel Curry
 - Aditya Dasnurkar
+- John & Gregory Kelleher (Sligo, Ireland)
