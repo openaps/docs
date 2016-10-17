@@ -3,7 +3,8 @@ This report contains the insulin sensitivity levels stored in your pump.
 ##### Setup code
 `openaps report add settings/insulin_sensitivities.json JSON pump read_insulin_sensitivities`
 ##### Sample contents
-`{
+```
+{
   "units": "mg/dL",
   "sensitivities": [
     {
@@ -15,6 +16,7 @@ This report contains the insulin sensitivity levels stored in your pump.
     }
   ],
   "first": 1
-}`
+}
+```
 ##### Dependencies
-* [`pump.ini`](openaps-device-pump.md)
+* [`pump.ini`](./openaps-device-pump.md)

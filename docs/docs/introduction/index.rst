@@ -12,7 +12,6 @@ Introduction section includes:
    :maxdepth: 4
 
    understand-this-guide
-   conventions
    contribute
    communication-support-channels
 

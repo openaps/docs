@@ -171,7 +171,7 @@ Notice how the  `...` in `openaps report add <name> <format> ...` and
 `openaps use ...` are identical.  This is a design feature to
 encourage iterating through interactive usage, and then saving the
 commands that work into the openaps configuration using the **add**
-comands.
+commands.
 
 ## openaps report add saves **use** configuration
 
@@ -304,7 +304,7 @@ Now we can **invoke** many groups of reports in one line, save the
 data to their own files consistently, while referring to the
 preconfigured **use** for that **device**.
 
-Each `invoke` creates a new git commit in the log: `openaps show`:
+Each `invoke` creates a new git commit in the log. `git show`:
 ```
 commit eb782e12552ad664697aa38d7e6b05b41f5e5a22
 Author: Ben West <bewest@gmail.com>

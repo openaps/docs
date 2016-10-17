@@ -2,7 +2,7 @@
 
 The key logic behind any oref0 implementation of OpenAPS lies in the oref0-determine-basal.js code, which is what takes all of the inputs you've collected and makes a temp basal recommendation you can then enact if appropriate.  As such, it is important to understand how determine-basal makes its decisions, and how to interpret its output, so you can decide for yourself whether the recommendations it is making are appropriate for your situation, or if further adjustments are required before closing the loop or letting it run unattended.
 
-The recommendation is to run for several days in "open loop" mode, watching the output, in order to decide what your "max basal" setting should be. Based on how often you disagreed or counteracted what the loop was recommending, this might influence how you set your max basal.
+The recommendation is to run for several days in "low glucose management" loop mode, watching the output, in order to decide what your "max basal" setting should be. Based on how often you disagreed or counteracted what the loop was recommending, this might influence how you set your max basal.
 
 ## Summary of inputs
 
@@ -30,7 +30,11 @@ After displaying the summary of all input data, oref0-determine-basal outputs a 
 {"temp":"absolute","bg":110,"tick":-2,"eventualBG":95,"snoozeBG":95,"mealAssist":"Off: Carbs: 0 Boluses: 0 Target: 117.5 Deviation: -15 BGI: 0","reason":"Eventual BG 95<115, setting -1.15U/hr","duration":30,"rate":0}
 ```
 
-In this case, BG is 110, and falling slowly.  With zero IOB, you would expect BG to be flat, so the falling BG generates a "deviation" from what's expected.  In this case, because avgdelta is -2.5 mg/dL, vs. BGI of 0, that avgdelta is extrapolated out for the next 30 minutes, resulting in a deviation of -30 mg/dL.  That is then applied to the current BG to get an eventualBG of 80.  There is no bolussnooze IOB, so snoozeBG is also 80, and because (among other things) avgdelta is negative, mealAssist remains off.  To correct from 80 up to 115 would require a -2.65U/hr temp for 30m, and since that is impossibly low, determine-basal recommends setting a temp basal to zero and stopping all insulin delivery for now.
+In this case, BG is 110, and falling slowly.  With zero IOB, you would expect BG to be flat, so the falling BG generates a "deviation" from what's expected.  In this case, because avgdelta is -2.5 mg/dL, vs. BGI of 0, that avgdelta is extrapolated out for the next 30 minutes, resulting in a deviation of -15 mg/dL.
+
+deviation = avgdelta * 6 (or every 5 minutes for the next 30 minutes) = -15
+
+The deviation is then applied to the current BG to get an eventualBG of 95.  There is no bolussnooze IOB, so snoozeBG is also 95, and because (among other things) avgdelta is negative, mealAssist remains off.  To correct from 95 up to 115 would require a -1.15U/hr temp for 30m, and since that is impossibly low, determine-basal recommends setting a temp basal to zero and stopping all insulin delivery for now.
 
 ## Exploring further
 
