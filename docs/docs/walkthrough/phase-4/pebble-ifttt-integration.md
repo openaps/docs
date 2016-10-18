@@ -51,6 +51,10 @@ Cool and handy, right?  I saw my daughter was double arrows down yesterday while
 5. Since you have IFTTT / Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa.
   ![Maker Request](../../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
+  
+Note: You should check to see if you have the recipe set up correctly. You can test on the Maker Channel by looking under How To Trigger Events. If correctly setup, you should see a new temp target event on your Nightscout site after IFTTT says it successfully triggered.
+
+You can also add the DoButton app as a short cut on your Pebble. If you don’t have shortcuts already, press and hold either the up or down button and follow the prompts. If you have both shortcuts programmed and want to change one, go to menu > settings> quick launch and follow prompts.   
 
 #Big thanks
 To Jason Calabrese for coming up with this method and sharing it!
