@@ -85,3 +85,4 @@ List of people who are working on closed loops:
 - Mikel Curry
 - Aditya Dasnurkar
 - Jason Wittmer for Andrew (Clive, IA)
+- Kevin Ruess Marshall (Indianapolis, USA)
