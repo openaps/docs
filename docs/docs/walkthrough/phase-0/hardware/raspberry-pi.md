@@ -20,7 +20,7 @@ High level list of supplies needed for a Pi-based setup:
     * Raspberry Pi 2 Model B ("RPi2") with a Low-profile USB WiFi adapter (see
       "Raspberry Pi 2" section below)
     * Raspberry Pi 3 Model B (“RPi3”) with built in WiFi
-    
+* A Carelink USB or alternative radio stick    
 * An 8 GB (or greater) micro SD card
 * <b>Additional Supplies</b>
     * Micro SD card to regular SD card converter \[optional, but recommended so
@@ -49,6 +49,26 @@ more power. As a consequence, it has a shorter battery life than the
 Raspberry Pi 2. So when selecting portable battery packs bare this in mind.
 
 [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+
+### CareLink USB Stick
+
+Currently, the primary supported device (in the OpenAPS documentation) for
+uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick for the Pi.
+We recommend you purchase at least two sticks because if one breaks, acquiring
+another stick will take time and will delay development. Additionally, due to
+the short range of communication between the CareLink stick and the Medtronic
+pumps, some users set up multiple sticks in different locations to maximize the
+chances of successful transmissions. Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
+
+A limitation of the Carelink USB stick is the short range of radio
+communications with the Medtronic pump. The radio signals are transmitted from
+the end of the stick opposite the USB connector, on the flat grey side of the
+stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00)
+for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection. See [Rerii 90 Degree USB Extension Cable](http://www.amazon.com/gp/product/B00ZQVADNM) or [Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/).
+
+### Alternative to Carelink USB - Use a TI stick
+
+A [TI stick](http://www.ti.com/tool/cc1111emk868-915) has improved range compared to a carelink stick. However, the main setup docs refer to a carelink stick, so if you pick a TI stick you'll want to head over to [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for information about preparing and using the TI stick. Then, come back to Phase 1 docs to continue your setup process.
 
 ### Micro SD Card
 
