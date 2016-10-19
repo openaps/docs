@@ -87,3 +87,4 @@ List of people who are working on closed loops:
 - Jason Wittmer for Andrew (Clive, IA)
 - Kevin Ruess Marshall (Indianapolis, USA)
 - Keith Kubischta (Poway, CA)
+- Emily Kranz (Greensboro, NC)
