@@ -38,3 +38,15 @@ pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.c
 Note: If you're buying a pump online, we recommend you ask the seller to confirm the
 firmware version of the pump. (You may also want to consider asking for a video
 of the pump with working functionality before purchasing.)
+
+## Battery usage
+
+Repeated wireless communication with the pump drains the battery quite quickly.
+With a loop running every five minutes, a standard alkaline AAA—recommended by
+Medtronic—lasts somewhere between four to six days before the pump goes to a
+"Low Battery" state and stops allowing wireless transmission. Lithium batteries
+last significantly longer but do not give much warning when they are about to
+die, but alerts can be created in Nightscout to provide warning about the status of the
+battery. For further information on batteries, see
+[this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA
+battery use in a looping pump.
