@@ -10,6 +10,7 @@ Phase 4: Iterate and Improve the Closed Loop
    Usability-considerations
    keeping-up-to-date
    advanced-features
+   ifttt-integration
 
    
 

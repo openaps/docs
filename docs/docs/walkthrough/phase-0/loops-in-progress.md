@@ -81,3 +81,11 @@ List of people who are working on closed loops:
 - Sandra Keßler (Kassel, Germany)
 - Lukas Ondriga (Svaty Jur, Slovakia)
 - Dominic Herrington (Bishops Stortford, UK)
+- Taylor Fowler (Brooklyn, NY)
+- Mikel Curry
+- Aditya Dasnurkar
+- Jason Wittmer for Andrew (Clive, IA)
+- Kevin Ruess Marshall (Indianapolis, USA)
+- Keith Kubischta (Poway, CA)
+- Emily Kranz (Greensboro, NC)
+- Orla Wilson (Baltimore)
