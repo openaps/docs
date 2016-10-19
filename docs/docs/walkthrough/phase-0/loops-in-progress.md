@@ -88,3 +88,4 @@ List of people who are working on closed loops:
 - Kevin Ruess Marshall (Indianapolis, USA)
 - Keith Kubischta (Poway, CA)
 - Emily Kranz (Greensboro, NC)
+- Orla Wilson (Baltimore)
