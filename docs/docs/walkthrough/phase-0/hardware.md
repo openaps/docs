@@ -1,10 +1,11 @@
 # Hardware
 This section describes the hardware components required for a 'typical' OpenAPS
 implementation. There are numerous variations and substitutions that can be made
-but the following items are recommended for getting started. The basic setup
+but the following items are recommended for getting started. *The basic setup
 requires a compatible Insulin Pump, CGM data acquired either directly from a
-receiver or from Nightscout, then a small computer to run openaps. If you come
-across something that doesn't seem to work, is no longer available, or if you
+receiver or from Nightscout, then a small computer, battery, and radio stick.*
+
+If you come across something that doesn't seem to work, is no longer available, or if you
 have a notable alternative, feel free to edit this document with your
 suggestions.
 

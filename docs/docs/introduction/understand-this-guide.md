@@ -18,7 +18,7 @@ One helpful thing to do before starting any software work is to log your termina
 
 You won't see a full loop where you can just download the code, press a button, and have a live loop. There are many places where there are examples, and instructions, but you must do the work to understand how to communicate between devices and transfer data between reports and files. This is key for helping you understand what you are building and how it will work.
 
-In some cases, the documentation needs to be built out further, with easier to understand language and more examples. However, there are a few things (like a full `cron` example) that are not included in this guide, and intentionally so in order to ensure that you have full intent and autonomy in building your system for yourself.
+In some cases, the documentation needs to be built out further, with easier to understand language and more examples. You should have full intent and autonomy in building your system for yourself.
 
 ### But wait - I need the "Dummy" version
 
@@ -26,4 +26,4 @@ Well, actually, you don't.  If you can deal with diabetes, invoking shell script
 
 It may help to think of the OpenAPS setup as a tiny "diabetes brain" which is focused only on figuring out how much basal insulin you should be getting.  It does this by collecting all that background data we usually let our pumps deal with: what is your insulin sensitivity, your target BG, the duration of action for insulin, etc.  Then, it collects more immediate data, such as what is the current IOB, and basal rate, as well as checking out the CGM to see what your BG has been up to recently.  Then, it decides what should be changed (if anything) and tells your pump to go to a new temp basal rate, either higher or lower, depending on all the other factors.
 
-As you go through the steps to run the manual loop, the longer-term data is collected in the "settings" directory, with file names indicating what sort of data they contain.  The data representing what is going on right now is in the "monitor" directory, and the recommendation for what should change goes in the "enact" directory.  To close the loop, you add a "cron" script, which just directs the computer to do something at a certain time interval.  You will need to be very certain all your manual pieces are running correctly before you decide to close the loop, which is why the "cron" section does not contain any examples.
+As you go through the steps to run the loop, the longer-term data is collected in the "settings" directory, with file names indicating what sort of data they contain.  The data representing what is going on right now is in the "monitor" directory, and the recommendation for what should change goes in the "enact" directory.  To close the loop, you will have added a "cron" script, which just directs the computer to do something at a certain time interval.  
