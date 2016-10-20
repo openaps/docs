@@ -1,4 +1,5 @@
-# Hardware
+# Hardware overview
+
 This section describes the hardware components required for a 'typical' OpenAPS
 implementation. There are numerous variations and substitutions that can be made
 but the following items are recommended for getting started. 
