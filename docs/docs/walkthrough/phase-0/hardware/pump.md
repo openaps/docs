@@ -8,7 +8,7 @@ Currently, only the following Medtronic MiniMed models allow us to remotely set 
     515/715
     522/722
     523/723 (with firmware 2.4A or lower)
-    554/754 (European Veo, with firmware 2.6A or lower; OR there has been a Canadian Veo with firmware 2.7 reported to be loop-able)
+    554/754 (European Veo, with firmware 2.6A or lower; OR Canadian Veo with firmware 2.7A or lower)
 
 ## How to check pump firmware
 
