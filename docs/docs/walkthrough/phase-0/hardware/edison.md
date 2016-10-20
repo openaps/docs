@@ -1,4 +1,4 @@
-# Hardware Required for Intel Edison-based setups
+# Hardware information for Intel Edison-based setups
 
 ## Edison 
 
