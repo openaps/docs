@@ -35,14 +35,14 @@ High level list of supplies needed for a Pi-based setup:
       graphics interface on your TV screen\]
     * USB Mouse \[optional, for the same purpose\]
 
-##### Raspberry Pi 2
+## Raspberry Pi 2
 The Raspberry Pi 2 has fewer and lower spec components and so draws less
 power, but requires a WiFi adapter to be also purchased. The spec makes no
 difference to the OpenAPS app, so either model is suitable choice.
 
 [Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 
-##### Raspberry Pi 3 Model B  
+## Raspberry Pi 3 Model B  
 
 The Raspberry Pi 3 has higher specs and built-in WiFi and Bluetooth, so it draws
 more power. As a consequence, it has a shorter battery life than the
@@ -50,7 +50,7 @@ Raspberry Pi 2. So when selecting portable battery packs bare this in mind.
 
 [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 
-#### CareLink USB Stick
+## CareLink USB Stick
 
 Currently, the primary supported device (in the OpenAPS documentation) for
 uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick for the Pi.
@@ -66,11 +66,11 @@ the end of the stick opposite the USB connector, on the flat grey side of the
 stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00)
 for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection. See [Rerii 90 Degree USB Extension Cable](http://www.amazon.com/gp/product/B00ZQVADNM) or [Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/).
 
-#### Alternative to Carelink USB - Use a TI stick
+## Alternative to Carelink USB - Use a TI stick
 
 A [TI stick](http://www.ti.com/tool/cc1111emk868-915) has improved range compared to a carelink stick. However, the main setup docs refer to a carelink stick, so if you pick a TI stick you'll want to head over to [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for information about preparing and using the TI stick. Then, come back to Phase 1 docs to continue your setup process.
 
-#### Micro SD Card
+## Micro SD Card
 
 An 8 or 16 GB micro SDHC card is recommended. Get one that is class-4 or greater
 and is a recognized name brand, such as SanDisk, Kingston, or Sony. A list of
@@ -88,7 +88,7 @@ purchasing extra SD cards and having them pre-imaged and ready to use with a
 backup copy of openaps installed, so you can swap it out on the go for continued
 use of the system.
 
-#### WiFi Adapter (Raspberry Pi 2 only)
+## WiFi Adapter (Raspberry Pi 2 only)
 
 A minimalistic, unobtrusive WiFi USB adapter is recommended. The low-profile
 helps to avoid damage to both the RPi2 and the adapter as the RPi2 will be
@@ -98,7 +98,7 @@ transported everywhere with the user.
 
 [Buffalo AirStation N150 Wireless USB Adapter](http://www.amazon.com/BUFFALO-AirStation-N150-Wireless-Adapter/dp/B003ZM17RA/ref=sr_1_1?ie=UTF8&qid=1434523524&sr=8-1&keywords=airstation+n150)
 
-#### 2.1 Amp USB Battery Power Supply
+## 2.1 Amp USB Battery Power Supply
 
 A large-capacity power supply that is greater than 8000 mAh (milliAmp-hours) is
 recommended for full day use. Make sure that the battery has at least one 2.1
@@ -113,7 +113,7 @@ the Raspberry Pi.
 
 [Zendure® 2nd Gen A3 Portable Charger 10000mAh - 2.1a Dual USB - in-line charging](http://www.amazon.com/Zendure-2nd-Portable-Charger-10000mAh/dp/B014RBEAQC/ref=sr_1_1)
 
-#### USB Cables
+## USB Cables
 
 USB cables with a micro connector on one end and a standard (Type A) connector
 on the other are used to connect the power supply and the Dexcom receiver to the
@@ -124,7 +124,7 @@ and/or features (such as right-angled connectors) to improve portability.
 
 [Monoprice Premium USB to Micro USB Charge, Sync Cable - 3ft](http://www.monoprice.com/Product?c_id=103&cp_id=10303&cs_id=1030307&p_id=9763&seq=1&format=2)
 
-#### Cases
+## Cases
 
 The Raspberry Pi is extremely minimalistic and does not come in a protective
 case. This is fine for development work, but presents an issue for day-to-day
@@ -140,7 +140,7 @@ there are still some workable solutions. Waist-worn running gear and camera
 cases seem to work well. Two options: [FlipBelt](https://flipbelt.com/) and
 [Lowepro Dashpoint 20](http://store.lowepro.com/dashpoint-20).
 
-#### HDMI Cable, USB Keyboard, USB Mouse
+## HDMI Cable, USB Keyboard, USB Mouse
 
 For the initial set up of the Raspberry Pi you may want to use a monitor and
 keyboard/mouse to set up the WiFi connection, but all other access can be done
