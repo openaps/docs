@@ -1,4 +1,4 @@
-#Information about compatible insulin pumps
+# Information about compatible insulin pumps
 
 !["Can I do OpenAPS with this pump?"](Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
 
@@ -10,13 +10,13 @@ Currently, only the following Medtronic MiniMed models allow us to remotely set 
     523/723 (with firmware 2.4A or lower)
     554/754 (European Veo, with firmware 2.6A or lower; OR there has been a Canadian Veo with firmware 2.7 reported to be loop-able)
 
-##How to check pump firmware
+## How to check pump firmware
 
 To check firmware, hit Esc on the home screen and scroll all the way to the bottom. You can also go into the Utilities menu and look for a PC Connect option. If that is present, the pump will not work for looping. If it’s absent, it should be able to receive temp basal commands.)
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
-##Why do I need a certain pump firmware
+## Why do I need a certain pump firmware
 
 Due to changes in the firmware, the openaps tools are only able to function in
 full on the above pump models. Security features were added after the firmware
@@ -29,7 +29,7 @@ the loop ([see example here](http://bit.ly/1itCsRl)).
 
 If you are not based in the US, some later model pumps and firmware may be compatible. Check for PC Connect presence to determine compatibility.
 
-##Tips for finding a compatible pump
+## Tips for finding a compatible pump
 
 If you need to acquire an appropriate pump check CraigsList or other sites like
 Medwow or talk to friends in your local community to see if there are any old
