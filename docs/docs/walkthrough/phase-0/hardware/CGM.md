@@ -1,4 +1,4 @@
-#Information about compatible CGMs
+# Information about compatible CGMs
 
 * Dexcom G4 Platinum System (with or without Share)
 * Dexcom G5 Mobile
