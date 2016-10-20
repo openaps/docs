@@ -1,8 +1,8 @@
-#Setting up your Intel Edison
+# Setting up your Intel Edison
 
 The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, so that the config is as-close to the Raspberry Pi as possible. This fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
-# Prerequisites
+## Prerequisites
 
 If you’re using a Raspberry Pi to flash:
 
@@ -28,16 +28,16 @@ Check also to see if you have lsusb installed prior to proceeding.  If not, foll
 When you get to step 6, you'll need to cd into the Ubilinux directory instead of the Intel image one, and continue with the Linux directions below.
 
 
-# Downloading image
+## Downloading image
 
-## Jubilinux
+### Jubilinux
 [Jubilinux](http://www.robinkirkman.com/jubilinux/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps below that are required when starting from ubilinux.
 
   1. Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
   2. In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
   3. Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window".
 
-# Flashing image onto the Edison
+## Flashing image onto the Edison
 
   1. Connect a USB cable (one that carries data, not just power) to the USB console port and `sudo screen /dev/ttyUSB0 115200` or similar (on a Mac it’s `/dev/tty.usbserial-<TAB>`). If you do no have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
   2. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
@@ -50,7 +50,7 @@ When you get to step 6, you'll need to cd into the Ubilinux directory instead of
 If you have any difficulty with flashing, skip down to [Troubleshooting](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS#troubleshooting)
 
 
-# Initial Setup
+## Initial Setup
 
 Log in as root/edison via serial console.
 
@@ -80,7 +80,7 @@ http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/
 http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks
 
 
-# Install packages, ssh keys, and other settings
+## Install packages, ssh keys, and other settings
 
 Log in as root (with the password you just set above)
 
@@ -99,9 +99,9 @@ Next, copy your ssh key to the edison if appropriate (directions you can adapt a
 
 Then you're done!
 
-# Troubleshooting
+## Troubleshooting
 
-## Troubleshooting the flash process
+### Troubleshooting the flash process
 
 a) If you get:
 ```
@@ -125,7 +125,7 @@ d) If you get an error that says "Ready to receive application" on the Edison th
 
 e) If Edison reboots correctly but never gets picked up by the flashall.sh script and the flashing process does not start, check the Edison device ID. It will probably come out automatically after the flashall.sh script fails with a list of available devices connected to the machine. On Linux, you can run lsusb to get a list of usb devices with their device ID. If the device ID is different from the one expected on flashall.sh, you can edit the script and change lines containing: USB_VID=8087 & USB_PID=0a99 to whatever the Edison has for an ID. Some users have encountered their devices ID to be 8087:0a9e
 
-## Troubleshooting rescue mode
+### Troubleshooting rescue mode
 
 * If your edison boots to a console and says it is in rescue mode (you can hit ctrl-d to continue or enter the root password), you may need to change a u-boot environment variable to make it boot normally.   During the boot process you will see:
 ```
@@ -152,7 +152,7 @@ then type:
 3. And to exit that firmware u-boot prompt:  
 `run do_boot`
 
-## Override DNS resolvers
+### Override DNS resolvers
 
 Some users have reported problems with connecting to internet sites.  If you are experience poor internet connections, try 'nano /etc/resolv.conf' and change the first two nameservers to: 
 
