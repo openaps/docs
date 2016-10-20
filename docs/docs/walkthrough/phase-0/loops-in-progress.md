@@ -1,6 +1,6 @@
 # Loops In Progress
 
-To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. This way we know how many people are in the development phase, too.
+To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. 
 
 New to Github, and PRs? [Check out how to submit your first PR](../../../../docs/docs/Resources/my-first-pr.md).
 

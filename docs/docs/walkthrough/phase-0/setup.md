@@ -1,6 +1,6 @@
 # General Setup and Project Prep
 
-The setup process is broken into four parts: acquiring the hardware you need; storing baseline data; [configuring the Raspberry Pi](rpi.md) and [installing the openaps tools and dependencies](openaps.md). After completing these steps, you will be able to use the openaps tools to communicate with your insulin pump and CGM.
+The initial setup process is broken into three parts: acquiring the hardware you need; storing baseline data; and configuring the Raspberry Pi or Intel Edison. 
 
 At this stage, you may want to begin documenting each step that you take. This will help in two ways.
 

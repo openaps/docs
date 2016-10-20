@@ -7,9 +7,13 @@ Phase 0: General Setup
    
    setup
    baseline-data
-   hardware
+   hardware/hardware
+   hardware/pump
+   hardware/CGM
+   hardware/raspberry-pi
+   hardware/edison
    rpi
-   openaps
+   setup-edison
    loops-in-progress
 
 
