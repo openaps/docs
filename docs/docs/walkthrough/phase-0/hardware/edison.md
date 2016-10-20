@@ -2,7 +2,7 @@
 
 ## Edison 
 
-[Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) - Get it from [Amazon] (http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider.
+[Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) - Get it from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider.
 
 ## Lipo Battery 
 
