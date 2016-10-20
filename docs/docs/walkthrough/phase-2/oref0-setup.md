@@ -3,9 +3,17 @@
 We've created an oref0-setup.sh script that can help set up a complete working loop configuration from scratch in just a few minutes. This is in pursuit of our community goal to simplify the technical aspects of setting up a DIY closed loop - while still emphasizing that this is a DIY project that you have personal responsibility for. We also want to encourage you to spend more time and energy exploring whether the algorithm you choose to use is doing what you want it to do and that it aligns with how you might manually choose to take action.
 
 __Step 0:__
-Run this script to install openaps. 
-
+You first need to install the base openaps toolkit and its dependencies. Running this code will do this for you. 
+ 
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
+
+If the install was successful, the last line will say something like:
+
+openaps 0.1.5  (although the version number may have been incremented)
+
+If you do not see this or see error messages, try running the script multiple times.Run this script to install openaps. 
+
+(Interested in the development repositories? see this shell script: https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh)
 
 __Step 1:__
 Pull/clone the latest oref0 dev by running:
