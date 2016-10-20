@@ -1,4 +1,4 @@
-#IFTTT Integration
+# IFTTT Integration
 
 Want to be able to set or cancel temp targets from your Pebble, Alexa, or anything supports IFTT?  You need an IFTTT.com and Maker account.  Check it the YouTube Video below to see some sample integrations:
 
