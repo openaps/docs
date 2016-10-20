@@ -6,7 +6,7 @@
 
 ## Lipo Battery 
 
-The example setup uses a [2000mah LIPO battery](https://www.coolcomponents.co.uk/lithium-polymer-battery-2000mah.html). This battery lasts in the region of 20 hours. It's best to buy from a reputable supplier, since they are prone to catching fire. Make sure that it *includes a protection circuit* to protect over-discharge. **NEVER** connect the battery to the Edison base board the wrong way round. Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
+The example setup uses a [2000mah LIPO battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html). This battery lasts in the region of 20 hours. It's best to buy from a reputable supplier, since they are prone to catching fire. Make sure that it *includes a protection circuit* to protect over-discharge. **NEVER** connect the battery to the Edison base board the wrong way round. Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
 
 ## Explorer Board or another base board 
 
