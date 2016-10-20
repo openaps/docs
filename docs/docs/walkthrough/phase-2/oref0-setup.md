@@ -8,12 +8,12 @@ You first need to install the base openaps toolkit and its dependencies. Running
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
 If the install was successful, the last line will say something like:
+    
+    openaps 0.1.5  (although the version number may have been incremented)
 
-openaps 0.1.5  (although the version number may have been incremented)
+If you do not see this or see error messages, try running the script multiple times.
 
-If you do not see this or see error messages, try running the script multiple times.Run this script to install openaps. 
-
-(Interested in the development repositories? see this shell script: https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh)
+(Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
 
 __Step 1:__
 Pull/clone the latest oref0 dev by running:
