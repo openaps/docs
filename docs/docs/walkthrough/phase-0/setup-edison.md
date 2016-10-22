@@ -45,7 +45,8 @@ When you get to step 6, you'll need to cd into the Ubilinux directory instead of
   4. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh` (If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
   5. It will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
   6. It will take 10-45 minutes to flash.  The first 10-15 minutes it may appear like nothing is happening, particularly on the Pi. Eventually you will start to see a progress bar in the console. At the end when it says to give it 2 minutes, give it 5 or so.  If you open a 2nd ssh to the pi and run top you'll see `dfu-util` using all a bunch of memory.
-  7. Congratulations! You’re Edison is flashed. The default user name and password are both `edison`
+  7. In the console you may get asked to login or type `control-D` after one or more reboots. Press `Ctrl-d` to allow it to continue. 
+  8. Congratulations! You’re Edison is flashed. The default user name and password are both `edison`
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS#troubleshooting)
 
