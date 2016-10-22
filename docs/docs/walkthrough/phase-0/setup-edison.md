@@ -77,7 +77,9 @@ Log in as root/edison via serial console.
 If you want to connect to more than one wifi network, then after rebooting and logging in via ssh, you'll want to follow one of these guides to set the WPA Supplicant process to connect to multiple access points:
 
 http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
+
 http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/
+
 http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks
 
 
@@ -159,3 +161,5 @@ Some users have reported problems with connecting to internet sites.  If you are
 
      nameserver 8.8.4.4
      nameserver 8.8.8.8
+
+Also see the instructions [here](https://wiki.debian.org/NetworkConfiguration#The_resolvconf_program) to add these nameservers to your `/network/interfaces` file as the `resolv.conf` file is likely to be overwritten.
