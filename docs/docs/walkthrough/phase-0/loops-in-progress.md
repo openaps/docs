@@ -90,3 +90,4 @@ List of people who are working on closed loops:
 - Emily Kranz (Greensboro, NC)
 - Orla Wilson (Baltimore)
 - Jason Pell for Heidi and Mallory (New York, NY)
+- Joe Moran (Los Altos, CA)
