@@ -19,7 +19,7 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
 * The first line is meal.json, which, if provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
 * The second line is from glucose.json, and represents the most recent BG, the change from the previous BG (usually 5 minutes earlier), and the average change since 3 data points earlier (usually 15 minutes earlier).
 * The third line is the currently running temporary basal.  A duration of 0 indicates none is running.
-* Fourth is the IOB and insulin activity summary.  Insulin activity is used (when multiplied by ISF) to calculate BGI, which represents how much BG should be rising or falling every 5 minutes based solely on insulin activity.  Basal IOB excludes the IOB effect of boluses, and Bolus Snooze is used in determining how long to avoid low-temping after a bolus while waiting for any carbs to kick in.
+* Fourth is the IOB and insulin activity summary.  Insulin activity is used (when multiplied by ISF) to calculate BGI (Blood Glucose Index), which represents how much BG should be rising or falling every 5 minutes based solely on insulin activity.  Basal IOB excludes the IOB effect of boluses, and Bolus Snooze is used in determining how long to avoid low-temping after a bolus while waiting for any carbs to kick in.
 * Fifth is the contents of profile.json, which contains all of the user's relevant pump settings, as well as their configured maximum (basal) IOB.
 
 ## Output
