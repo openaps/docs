@@ -33,6 +33,7 @@ group focusing on alternative pump communication.
     * If you have one of the above mentioned pumps, but it has buttons that do
       not work, use the instructions found on this
       [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
+    * Whatever pump you are using needs to be set to deliver temporary basal rates in absolute mode (units), not percentage mode.
 * <b>A way to communicate with the pump</b>:
     * A Medtronic CareLink USB stick is the recommended option for your initial
       loop setup
