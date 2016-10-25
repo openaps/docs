@@ -26,6 +26,8 @@ __Step 2:__
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments. Be prepared to enter the following items: Directory name for your openaps; serial number of your pump; the mmeowlink port if using it (/dev/spidev5.1 if using explorer board, see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options); how you are getting cgm data and cgm serial numbers if needed; nightscout host and api-secret if using nightscout; whether you want any of the oref0 advanced implementations. 
 
+Hint: if you're not sure if you need something (advanced features), you probably don't. Also, scheduling something in cron means scheduling the loop to run automatically. So if you want an automated closed loop, Yes, you want to schedule it in cron. If you don't want an automated loop yet, you can always come back and run the script again later to automate.
+
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account.
 
 __Step 3:__ 
