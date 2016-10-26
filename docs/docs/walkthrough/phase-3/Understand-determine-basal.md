@@ -80,14 +80,14 @@ deviation = avgdelta * 6 (or every 5 minutes for the next 30 minutes) = -15
 The deviation is then applied to the current BG to get an eventualBG of 95.  There is no bolussnooze IOB, so snoozeBG is also 95, and because (among other things) avgdelta is negative, mealAssist remains off.  To correct from 95 up to 115 would require a -1.15U/hr temp for 30m, and since that is impossibly low, determine-basal recommends setting a temp basal to zero and stopping all insulin delivery for now.
 
 Full definition of suggested.json:
-      * temp = type of temporary basal - always "absolute"
-      * bg = current blood glucose
-      * tick = change since last blood glucose
-      * eventualBG = predicted value of blood glucose (based on openaps logic) OVER WHAT TIME PERIOD???
-      * snoozeBG = ??? predicted value of blood glucose when taking carbs/bolus into account???
-      * predBGs = predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
-      * IOB = current ???net??? insulin on board
-      * reason = summary of why the decision was made, and recommended basal amount
+* temp = type of temporary basal - always "absolute"
+* bg = current blood glucose
+* tick = change since last blood glucose
+* eventualBG = predicted value of blood glucose (based on openaps logic) OVER WHAT TIME PERIOD???
+* snoozeBG = ??? predicted value of blood glucose when taking carbs/bolus into account???
+* predBGs = predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
+* IOB = current ???net??? insulin on board
+* reason = summary of why the decision was made, and recommended basal amount
 
 
 ## Exploring further
