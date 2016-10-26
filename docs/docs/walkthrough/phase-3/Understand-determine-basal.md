@@ -63,10 +63,10 @@ Full definition of suggested.json:
 * temp = type of temporary basal - always "absolute"
 * bg = current blood glucose
 * tick = change since last blood glucose
-* eventualBG = predicted value of blood glucose (based on openaps logic) OVER WHAT TIME PERIOD???
-* snoozeBG = ??? predicted value of blood glucose when taking carbs/bolus into account???
+* eventualBG = predicted value of blood glucose (based on openaps logic) after full effect of IOB
+* snoozeBG = predicted value of blood glucose adjusted for bolussnooze IOB
 * predBGs = predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
-* IOB = current ???net??? insulin on board
+* IOB = net insulin on board
 * reason = summary of why the decision was made
 * duration = time for recommended temp basal
 * rate = rate of recommended temp basal in units/hour
