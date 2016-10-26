@@ -17,10 +17,10 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
 ```
 
 * meal.json = {"carbs":0,"boluses":0} 
-      If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
-      carbs = # of carbs consumed 
-      boluses = amount of insulin delivered 
-      This data comes from what is entered by user into pump/nightscout
+      * If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
+      * carbs = # of carbs consumed 
+      * boluses = amount of insulin delivered 
+      * This data comes from what is entered by user into pump/nightscout
 * glucose.json = {"delta":-2,"glucose":110,"avgdelta":-2.5}
       delta = change from the previous BG (usually 5 minutes earlier) 
       glucose = most recent BG 
