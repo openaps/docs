@@ -87,7 +87,9 @@ Full definition of suggested.json:
 * snoozeBG = ??? predicted value of blood glucose when taking carbs/bolus into account???
 * predBGs = predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
 * IOB = current ???net??? insulin on board
-* reason = summary of why the decision was made, and recommended basal amount
+* reason = summary of why the decision was made
+* duration = time for recommended temp basal
+* rate = rate of recommended temp basal in units/hour
 
 
 ## Exploring further
