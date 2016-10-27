@@ -92,3 +92,4 @@ List of people who are working on closed loops:
 - Jason Pell for Heidi and Mallory (New York, NY)
 - Patrick van Gestel (Hilvarenbeek, Netherlands)
 - Joe Moran (Los Altos, CA)
+- John & Gregory Kelleher (Sligo, Ireland)
