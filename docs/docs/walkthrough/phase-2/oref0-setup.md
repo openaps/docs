@@ -21,8 +21,11 @@ Pull/clone the latest oref0 dev by running:
 `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
 __Step 2:__ 
+Go to the location where the setup scripts is located:
+`cd ~/src/oref0/bin/`
 
-`cd && ~/src/oref0/bin/oref0-setup.sh`
+And then type:
+'./oref0-setup.sh
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments. Be prepared to enter the following items: Directory name for your openaps; serial number of your pump; the mmeowlink port if using it (/dev/spidev5.1 if using explorer board, see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options); how you are getting cgm data and cgm serial numbers if needed; nightscout host and api-secret if using nightscout; whether you want any of the oref0 advanced implementations. 
 
