@@ -1,6 +1,6 @@
 # Configuring and Learning to Use openaps Tools
 
-This section provides an introduction to initializing, configuring, and using the OpenAPS toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](../phase-0/rpi.md) and [Setting Up openaps](../phase-0/openaps.md) sections prior to starting.
+This section provides an introduction to initializing, configuring, and using the OpenAPS toolset. The purpose is to get you familiar with how the different commands work and to get you thinking about how they may be used to build your own closed loop. Make sure you have completed the [Setting Up the Raspberry Pi 2](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html) and [have installed openaps via step 0 of the setup script process](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html) sections prior to starting.
 
 If you haven't already, now that you have a working Raspberry Pi or similar system, it would be a good time to go through the [Guide to understanding the openaps toolkit](../../openaps-guide/index), which will give you a much better understanding of how the openaps tools work so you know what's happening as you follow the rest of this setup walkthrough, and know how to use the tools to investigate when something doesn't behave quite like you expect.
 
