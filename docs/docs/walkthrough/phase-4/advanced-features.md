@@ -4,7 +4,7 @@ Once you have several days or weeks of looping during the day and night, you may
 
 ## Advanced Meal-Assist (or "AMA")
 
-If you choose to enable the optional advanced meal-assist feature, then after you give yourself a meal bolus, the system can high-temp more quickly after a meal bolus IF you enter carbs reliably. So before considering meal-assist, you must be willing to enter carbs reliably, either through the pump's bolus wizard, or through the Nightscout Care Portal. If you don't want to do that, this feature won't be usable.  By default, AMA is turned off and you need to add some items to your reports to get it working. With AMA enabled, bolus snooze has been shorted to DIA/3 or DIA/4 as opposed to a normal Bolus Snooze of DIA/2.
+If you choose to enable the optional advanced meal-assist feature, then after you give yourself a meal bolus, the system can high-temp more quickly after a meal bolus IF you enter carbs reliably. So before considering meal-assist, you must be willing to enter carbs reliably, either through the pump's bolus wizard, or through the Nightscout Care Portal. If you don't want to do that, this feature won't be usable.  With AMA enabled, bolus snooze has been shorted to DIA/3 or DIA/4 as opposed to a normal Bolus Snooze of DIA/2.
 
 Like all features and steps, you'll want to carefully enable, test, and observe the outcomes of this feature. To turn this feature on, run the setup script from phase 2 and choose advanced features. 
 
