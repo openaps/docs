@@ -94,3 +94,4 @@ List of people who are working on closed loops:
 - Joe Moran (Los Altos, CA)
 - John & Gregory Kelleher (Sligo, Ireland)
 - Carine Bruyndoncx (Arendonk, Belgium)
+- Jordan Berger (SLC, UT)
