@@ -95,3 +95,4 @@ List of people who are working on closed loops:
 - John & Gregory Kelleher (Sligo, Ireland)
 - Carine Bruyndoncx (Arendonk, Belgium)
 - Jordan Berger (SLC, UT)
+- James Henley (Friendswood, TX)
