@@ -15,9 +15,11 @@ Cool and handy, right?  I saw my daughter was double arrows down yesterday while
 * Get the app ThisButton for your Pebble
 
 ##Putting it all together
-1. Create a new recipe on IFTTT.com that starts and ends with Maker requests
-  * Event Name: eating_soon (Maker requests must be lowercase and use underscores and not spaces)
-  * Action:  https://your_url_hereish.azurewebsites.net/api/v1/treatments.json
+1. Create a new recipe on IFTTT.com that starts and ends with Maker requests by searching for "Maker"
+  * Select "My Applets" -> "New Applet" -> click the large "+This" -> search for Maker
+  * Trigger aka Event Name: eating_soon (Maker requests must be lowercase and use underscores and not spaces)
+  * Now select "+That" and search for Maker again -> Make web request
+  * Action:  https://your_url_hereish.azurewebsites.net/api/v1/treatments.json <- Only change your url, don't modify what comes after it
   * Method: Post
   * Content Type: application/json
   * Body: 
@@ -36,11 +38,10 @@ Cool and handy, right?  I saw my daughter was double arrows down yesterday while
 
 3. Test your Maker request by going here:
   * [https://ifttt.com/maker](https://ifttt.com/maker)
-  * Click the "How to Trigger Events" link
-  * Copy the link under: "Make a POST or GET web request to:"
+  * Go to the settings and copy-paste the url into a new window
   * Replace the {event} with one of the event like: eating_soon
   * Should look like: https://maker.ifttt.com/trigger/eating_soon/with/key/{of_course_this_is_the_actual_maker_key_here_xalsdjflaksjdflakjsdf}
-  * Drop that link into a browser and check your NS website to see if it worked.
+  * Select "Test it"
     * Mine shows in about 5 seconds
     * Some folks have a bug where they need to refresh the browser.  Wait at least 30 seconds before trying this, though.
 
@@ -53,6 +54,8 @@ Cool and handy, right?  I saw my daughter was double arrows down yesterday while
 
 4. Hook it up with ThisButton for the Pebble Watch - pictured at the very top of this page
   * You need to enter / get your Maker API key in the Settings for ThisButton on your phone when you go into the Pebble App
+     * Your API can be found at the top of your MAKER settings (Note: There is a settings page for IFTTT and for Maker, you must be on the maker page to access Maker settings)
+     * For some [absurd] reason, the API is shown in a sans-serif font, so it's best to copy and paste the key into a document and change to a serif font (like Times New Roman) - Otherwise you can't tell the difference between an upper case i and a lower case L.
   * Under Events, there are two fields
      * Name: what shows up on your watch
      * Event: the name of the Maker event to fire.  It will have underscores in it like: eating_soon . 
