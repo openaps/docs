@@ -14,8 +14,10 @@ information to be shown about OpenAPS too. As the data is uploaded to an online
 website and then retrieved by OpenAPS it allows OpenAPS a wider range of
 compatibility with various CGM solutions.
 
-[Nightscout](http://nightscout.info) is the recommended way to visualize your
-OpenAPS closed loop. Even if you don't choose to share your Nightscout instance
+**[Nightscout](http://nightscout.info) is the recommended way to visualize your
+OpenAPS closed loop.** 
+
+Even if you don't choose to share your Nightscout instance
 with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
 your data and also allowing you to customize watchfaces with your OpenAPS data.
@@ -28,7 +30,7 @@ excellent guides of how to get various CGM systems working as well as displaying
 your data on a variety of additional devices. Once your website is up and
 running you can integrate Nightscout to your OpenAPS using the guide below.
 
-If you plan to use Nightscout to vizualize a production OpenAPS instance, we
+**NOTE**: If you plan to use Nightscout to vizualize a production OpenAPS instance, we
 recommend using the $7/mo Heroku plans, as OpenAPS' can reach the usage limits of 
 the free Azure plan and cause it to shut down for hours or days.
 
