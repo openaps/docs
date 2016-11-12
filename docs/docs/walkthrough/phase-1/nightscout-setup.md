@@ -74,6 +74,8 @@ your actual results, the username you entered will be where it says
 "name@email.com").
 ____________________________
 
+## Enable these plugins
+
 The steps discussed here are essentially the same for both Heroku and Azure 
 users. Two configuration changes must be made to the Nightscout implementation:
 
@@ -94,16 +96,18 @@ display pump reservoir and battery status on the Nightscout page. The "pump"
 plugin offers a number of other options, as documented on the
 [Nightscout readme](https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins).
 
+## Make sure to select the pills to display from your Nightscout site
+
 Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the
 upper right corner.  At the very bottom of the Settings menu, in the "About"
-section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just
-above is a list of Plugins available.  OpenAPS should show up. Click the check
-box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump"
+section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up. Click the check box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump"
 should also show up in the list, and you may check the box to enable. You
 should now see the OpenAPS pill box (and any optional pump monitoring pill
-boxes) on the left side of the Nightscout page near the time. You may also want
-to graphically show the basal rates: select "Default" or "Icicle" from the
-"Render Basal" pull-down menu in the Settings.
+boxes) on the left side of the Nightscout page near the time. 
+
+## How to display basal changes ("render basal")
+
+We also recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
 
 ### Configure Nightscout profile
