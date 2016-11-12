@@ -4,9 +4,25 @@ We've created an oref0-setup.sh script that can help set up a complete working l
 
 Please make sure to complete ALL steps on this page. **If you skip parts of step 0 and step 1, you will run into issues on step 2. **
 
-__Step 0:__
+## Step 0: Dependencies
 
-You first need to install the base openaps toolkit and its dependencies. Running this code will do this for you. 
+You first need to install the base openaps toolkit and its dependencies.
+
+The following Debian/Ubuntu packages are required:
+
+    git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog
+
+The following [npm](https://docs.npmjs.com/) packages are required:
+
+    json oref0
+
+Finally, these [Python pip](https://pip.pypa.io/en/stable/) packages are required:
+
+    openaps openaps-contrib
+
+### Automated Installation Script
+
+Running this code will install all of the above packages for you automatically:
  
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
@@ -18,13 +34,13 @@ If you do not see this or see error messages, try running it multiple times. It 
 
 (Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
 
-__Step 1:__
+## Step 1:
 
 Pull/clone the latest oref0 dev by running:
 
 `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
-__Step 2:__ 
+## Step 2:
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account.
 
@@ -47,10 +63,8 @@ to run the script interactively, or get usage guidelines for providing inputs as
 
 The very first time may take a while (10-15 minutes) for it to successfully read and pull a full history from your pump. Wait at least 15 minutes when watching the log (see below, step 3) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to comment out any existing crons before adding another. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of trouble shooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next.
 
-__Step 3:__ 
+## Step 3:
 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
 
 `tail -F /var/log/openaps/pump-loop.log`
-
-
