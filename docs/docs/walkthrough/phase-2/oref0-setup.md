@@ -8,21 +8,9 @@ Please make sure to complete ALL steps on this page. **If you skip parts of step
 
 You first need to install the base openaps toolkit and its dependencies.
 
-The following Debian/Ubuntu packages are required:
-
-    git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog
-
-The following [npm](https://docs.npmjs.com/) packages are required:
-
-    json oref0
-
-Finally, these [Python pip](https://pip.pypa.io/en/stable/) packages are required:
-
-    openaps openaps-contrib
-
 ### Automated Installation Script
 
-Running this code will install all of the above packages for you automatically:
+Running this code will install all of the dependencies for you automatically:
  
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
@@ -33,6 +21,20 @@ If the install was successful, the last line will say something like:
 If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 
 (Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
+
+### Manual Installation
+
+If you prefer to install the dependencies yourself, the following Debian/Ubuntu packages are required:
+
+    git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog
+
+The following [npm](https://docs.npmjs.com/) packages are required:
+
+    json oref0
+
+Finally, these [Python pip](https://pip.pypa.io/en/stable/) packages are required:
+
+    openaps openaps-contrib
 
 ## Step 1:
 
