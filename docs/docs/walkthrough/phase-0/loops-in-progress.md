@@ -97,3 +97,4 @@ List of people who are working on closed loops:
 - Jordan Berger (SLC, UT)
 - James Henley (Friendswood, TX)
 - Amy Andrews (Boston, MA)
+- Ann Delano (Seattle, WA)
