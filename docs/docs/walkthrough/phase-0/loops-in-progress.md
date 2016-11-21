@@ -98,3 +98,4 @@ List of people who are working on closed loops:
 - James Henley (Friendswood, TX)
 - Amy Andrews (Boston, MA)
 - Ann Delano (Seattle, WA)
+- Marcus Whitley (Greenbrier, AR)
