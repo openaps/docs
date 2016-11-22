@@ -24,14 +24,14 @@ We now have an improved file that we want to be pulled back into the openaps/doc
 
 1. Go to https://github.com/[YOUR_GITHUB_USERNAME]/docs
  * Or you can go to https://github.com and then click on "docs" in the "Your repositories" section in the lower right.  Both methods will get you to the right place.
-2. Click the green "New pull request" button
-3. Under the Compare Changes heading, click "compare across forks"
+2. Click the "New pull request" button
+3. Under the Comparing Changes heading, click "compare across forks". 
 4. Set up the the branches you are targeting. The easiest way of thinking about the branch range is this: the base branch is where you think changes should be applied, the head branch is what you would like to be applied.
 5. So, choose the base fork as openaps/docs and then the base as master (or whichever branch you edited). The head fork is going to be <i>youraccount</i>/docs and the base as master (unless this is a large change that needs to go to dev first).
 ![Pull Request](../Images/Pull_Request.png)
-6. It should show the list of changes you made. If not, you did something wrong so stop here and ask for help. If the list looks like your changes then put a note in there to what the overarching reason for the changes are (in your case you only made one, but you could have made a bunch). Create the PR.
+6. It should show the list of changes you made. If not, you did something wrong so stop here and ask for help. If the list looks like your changes then put a note in there to what the overarching reason for the changes are (in your case you only made one, but you could have made a bunch). Click the green "Create pull request" button.
 
-It will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps!
+Your entry will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps!
 
 Congrats, you made your first contribution!
 
