@@ -152,4 +152,4 @@ Some things to be aware of:
 Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable
 in case it is not already there.
 
-
+Note for Heroku Users: If you are switching from Azure to Heroku, at this time you will need to change your URL in both ns.ini and in cron
