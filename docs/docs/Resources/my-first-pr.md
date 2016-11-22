@@ -30,6 +30,7 @@ We now have an improved file that we want to be pulled back into the openaps/doc
 5. So, choose the base fork as openaps/docs and then the base as master (or whichever branch you edited). The head fork is going to be <i>youraccount</i>/docs and the base as master (unless this is a large change that needs to go to dev first).
 ![Pull Request](../Images/Pull_Request.png)
 6. It should show the list of changes you made. If not, you did something wrong so stop here and ask for help. If the list looks like your changes then put a note in there to what the overarching reason for the changes are (in your case you only made one, but you could have made a bunch). Click the green "Create pull request" button.
+7. Type a title for your pull request, and then type a description in the "Write" text field. Click the green "Create pull request" button.
 
 Your entry will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps!
 
