@@ -4,7 +4,7 @@ At some point it will be suggested to you that you make a PR. PR is short for pu
 It's actually not too hard to do one and it is a great way to contribute. This documentation is here because people like you made PRs.
 
 * The general idea is to make edits and improvements to code or document by making a copy of the repository you'd like to change.
-* Double checking that they your edits look good to you on your copy.
+* Double-check that your edits look good to you on your copy.
 * Make a few notes for what you did so people can understand why you made the change.
 * Then do a pull request, which is to ask the administrators of the repository to pull your changes back into the appropriate branch of the main repository.
 * They will do a quick review and merge your changes in, or comment if there are errors that need fixing first, or if it's a large enough change that it needs to go to another branch like dev for further work before being merged to master.
@@ -16,9 +16,9 @@ OK, let's get started. For our example we are going to make an edit to the opena
 3. Now we need to find the file we want to edit. Click through the directory structure until you find and are looking at the content of the file you want to change.
 4. Next, press the pencil icon in the upper right next to the trash can icon.
 5. Make edits to the file as necessary.
-6. Next we want to commit our changes. But first we should note what we changed and why. Be sure to put a one liner explaining the why of making the changes you did.
-7. Commit the changes.
-8. Now look and make sure everything you changed looks like you meant it to (no typos, etc). If any problems, go back and edit again and save again.
+6. Next we want to commit our changes. But first we should note what we changed and why. Scroll to the bottom of the page and type your comments in the text field that reads, "Add an optional extended description..." Be sure to include at least one line explaining the reason you made your changes.
+7. Click the green "Commit changes" button.
+8. Now look and make sure everything you changed looks like you meant it to (no typos, etc). If you see any problems, go back and edit again and save again.
 
 We now have an improved file that we want to be pulled back into the openaps/docs repository at https://github.com/openaps/docs
 
