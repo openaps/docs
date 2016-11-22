@@ -99,3 +99,4 @@ List of people who are working on closed loops:
 - Amy Andrews (Boston, MA)
 - Ann Delano (Seattle, WA)
 - Marcus Whitley (Greenbrier, AR)
+- Trevor Wood (Santaquin, UT)
