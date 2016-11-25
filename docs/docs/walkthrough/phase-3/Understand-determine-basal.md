@@ -16,31 +16,31 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
 {"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}
 ```
 
-* meal.json = {"carbs":0,"boluses":0} 
-      * If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
-      * carbs = # of carbs consumed 
-      * boluses = amount of insulin delivered 
-      * This data comes from what is entered by user into pump/nightscout
-* glucose.json = {"delta":-2,"glucose":110,"avgdelta":-2.5}
-      * delta = change from the previous BG (usually 5 minutes earlier) 
-      * glucose = most recent BG 
-      * avgdelta = average change since 3 data points earlier (usually 15 minutes earlier)
-      * This data comes from your connected cgm or from nightscout
-* temp_basal.json = {"duration":0,"rate":0,"temp":"absolute"}
-      * duration = length of time temp basal will run. A duration of 0 indicates none is running
-      * rate = Units/hr basal rate is set to
-      * temp = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
-      * This data comes from the pump
-* iob.json = {"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2016-10-26T20:07:37.000Z"}
-      * iob = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
-      * activity = the amount that BG "should" be rising or falling based on iob
-      Insulin activity is used (by multiplying activity * ISF) to determine BGI (blood glucose impact), the amount that BG "should" be rising or falling based on insulin activity alone.
-      * bolussnooze = used to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in
-      * basaliob = insulin on board attributed to basal rate, excluding the IOB effect of boluses
-      * netbasalinsulin = net of basal insulin compared to preprogrammed pump basal rate
-      * time = current time
-      * This data calculated based on information received from your pump
-* preferences.json ={"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}
+* meal.json = `{"carbs":0,"boluses":0}`
+  * If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
+  * carbs = # of carbs consumed
+  * boluses = amount of insulin delivered
+  * This data comes from what is entered by user into pump/nightscout
+* glucose.json = `{"delta":-2,"glucose":110,"avgdelta":-2.5}`
+  * delta = change from the previous BG (usually 5 minutes earlier)
+  * glucose = most recent BG
+  * avgdelta = average change since 3 data points earlier (usually 15 minutes earlier)
+  * This data comes from your connected cgm or from nightscout
+* temp_basal.json = `{"duration":0,"rate":0,"temp":"absolute"}`
+  * duration = length of time temp basal will run. A duration of 0 indicates none is running
+  * rate = Units/hr basal rate is set to
+  * temp = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
+  * This data comes from the pump
+* iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2016-10-26T20:07:37.000Z"}`
+  * iob = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
+  * activity = the amount that BG "should" be rising or falling based on iob.
+  Insulin activity is used (by multiplying activity * ISF) to determine BGI (blood glucose impact), the amount that BG "should" be rising or falling based on insulin activity alone.
+  * bolussnooze = used to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in
+  * basaliob = insulin on board attributed to basal rate, excluding the IOB effect of boluses
+  * netbasalinsulin = net of basal insulin compared to preprogrammed pump basal rate
+  * time = current time
+  * This data calculated based on information received from your pump
+* preferences.json = `{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}`
 	* Contains all of the user’s relevant pump settings
 	* max_iob = maximum allowed insulin on board. This is an important safety measure and integral part of the OpenAPS design.
 	* This data is set during the openAPS setup script (or modified by you directly) and based on information received from your pump
@@ -82,4 +82,4 @@ If after reading through the code you are still unclear as to why determine-basa
 
 Due to the way the Medtronic Pumps operate, it should be known that temp basals can only be set when there is no bolus running, including extended (square) / dual wave boluses.  
 
-Thus it should be noted that if you use an extended bolus for carb heavy meals (e.g. Pizza), which may still be the optimal approach for you, OpenAPS will not be able to provide temp basals during the extended bolus. 
+Thus it should be noted that if you use an extended bolus for carb heavy meals (e.g. Pizza), which may still be the optimal approach for you, OpenAPS will not be able to provide temp basals during the extended bolus.
