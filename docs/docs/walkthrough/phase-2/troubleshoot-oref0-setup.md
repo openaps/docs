@@ -20,7 +20,8 @@ Cron is the scheduler that runs the loop. I.e. this is the automation feature to
 * Check to make sure that your pump is in absolute and not % mode for temp basals.
 * Did you put in the right SN for the pump? Should be numbers only...
 * Check to make sure your carelink and/or radio stick is plugged in.
-* Check to make sure your receiver is plugged in, if you're plugging a receiver in
+* Check to make sure your receiver is plugged in, if you're plugging a receiver in.
+* Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct.
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the Pi and prevent it from operating).
 * Check and make sure your pump is in range of the radio stick.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.

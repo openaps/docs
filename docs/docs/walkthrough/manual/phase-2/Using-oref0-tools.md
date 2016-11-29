@@ -279,3 +279,8 @@ openaps report add monitor/glucoseclean.json JSON glucose clean monitor/glucose.
 And you should then make sure that your enact/suggested.json report uses monitor/glucoseclean.json instead of monitor/glucose.json. You can add the `clean` report to your `monitor-cgm` alias, as long as it comes after the `iter_glucose` report.
 
 Note that if you use Nightscout visualization as described later, you can use the built-in tool `mm-format-ns-glucose` to help formatting the Minimed glucose data. If you do, run the tool against the original `iter-glucose` output (monitor/glucose.json), *not* the output from glucosetools.
+
+
+### Picture of overall report flow and structure
+
+[This image](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/manual/phase-2/OpenAPS_oref0_basic.png) is a picture of the old report structure and flow and may not be fully accurate when assessing a modern (oref-setup.sh script-based) setup.
