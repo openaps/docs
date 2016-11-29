@@ -8,7 +8,7 @@ If you choose to enable the optional advanced meal-assist feature, then after yo
 
 Like all features and steps, you'll want to carefully enable, test, and observe the outcomes of this feature. To turn this feature on, run the setup script from phase 2 and choose advanced features. 
 
-With AMA, you will have 3 purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
+With AMA, once you enable forecast display in your Nightscout configuration (see the Nightscout documentation for the correct variables to set) you will have 3 purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
 
 * Top line == based on current carb absorption and most accurate right after eating carbs
 
