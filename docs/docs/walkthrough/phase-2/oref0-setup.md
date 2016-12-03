@@ -36,13 +36,13 @@ Finally, these [Python pip](https://pip.pypa.io/en/stable/) packages are require
 
     openaps openaps-contrib
 
-## Step 1:
+## Step 1: Pull/clone oref0
 
-Pull/clone the latest oref0 dev by running:
+Pull/clone the latest oref0 master by running:
 
-`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
+`mkdir -p ~/src; cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout master && git pull)`
 
-## Step 2:
+## Step 2: Run oref0-setup
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account.
 
@@ -65,7 +65,7 @@ to run the script interactively, or get usage guidelines for providing inputs as
 
 The very first time may take a while (10-15 minutes) for it to successfully read and pull a full history from your pump. Wait at least 15 minutes when watching the log (see below, step 3) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to comment out any existing crons before adding another. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of trouble shooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next.
 
-## Step 3:
+## Step 3: Watch the logs
 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
 
