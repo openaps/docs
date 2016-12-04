@@ -35,7 +35,7 @@ Want to use Google Assistant to set your carb intake, insulin given, eating soon
 
 * Test your Google Assistant request by saying "Ok Google" and then speaking whatever your trigger saying was.
 * Go to your Nightscout site and look for the entry
-  * Mine shows in about 5 seconds
+  * It should show in about 5 seconds
   * If you don't see the entry, go back to IFTTT and review the applet activity log under the applets settings for any errors
 
 ## Create more events / requests:
