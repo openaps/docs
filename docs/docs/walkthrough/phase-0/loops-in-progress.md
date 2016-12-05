@@ -100,3 +100,5 @@ List of people who are working on closed loops:
 - Ann Delano (Seattle, WA)
 - Marcus Whitley (Greenbrier, AR)
 - Trevor Wood (Santaquin, UT)
+- Anne Svejda (Virginia Beach, VA)
+- Jeff Kramer for Hannah (Clive, IA)
