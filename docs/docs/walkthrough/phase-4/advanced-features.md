@@ -36,6 +36,18 @@ Here's what each symbol above means:
 
  "=" : BGI is doing what we expect
 
+
+## Eating Soon and Activity Mode (Temporary Targets)
+
+Setting temporary targets is a great way to smoothly (safely) make adjustments in advance. Basically, you plan on eating or exercising, and you want to get all of your parameters (e.g., Insulin On Board - IOB) at an ideal value to keep those BGs as flat as possible.
+
+Let's take "Eating Soon Mode" as an example. You know you'll be eating lunch in an hour, so you set a temporary target of 80mg/dl over the next hour. That means you'll have more IOB right when you're eating (instead of the ~45 minutes you have to wait for your normal meal bolus to catch up), and that results in a smaller spike in BG. There's some **really important background information** you should understand for this, so be sure and read through the DIYPS blog entries about it ([How to do "eating soon" mode](https://diyps.org/2015/03/26/how-to-do-eating-soon-mode-diyps-lessons-learned/) and [Picture this: How to do "eating soon" mode](https://diyps.org/2016/07/11/picture-this-how-to-do-eating-soon-mode/)).
+
+"Activity Mode" sets temporary targets that are higher than your normal targets, based on how activity affects your BGs. You're doing essentially the same things as with Eating Soon Mode, but instead of setting a *lower* target to increase IOB, you're setting a *higher* target to decrease IOB and provide a "cushion" to avoid a low that may occur as a result of the activity you're planning.
+
+Once you have a good idea of how you would set those parameters for your system, you'll be ready to set some temprary targets. You can test this out manually by entering a temporary target using [Care Portal](http://www.nightscout.info/wiki/faqs-2/wifi-at-school/nightscout-care-portal) in Nightscout. You'll see your temporary target appear as a grey bar in Nightscout, spanning the length of the time frame you entered. When you're ready to use this regularly, you can use IFTTT to trigger a temporary basal from your Pebble/Apple Watch, etc, or via an [Alexa skill](https://github.com/nightscout/cgm-remote-monitor#alexa-amazon-alexa). You'll find a breakdown of how to use IFTTT on the next page.
+
+
 ## Battery monitoring
 
 Because running OpenAPS requires frequent communication with your pump, your pump battery tends to drain more quickly than you'd experience when not looping. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries (getting ~1.5weeks) rather than alkaline batteries (getting ~2-3 days). Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 (if using lithium batteries, as is most common) and adding `battery` to your `PUMP_FIELDS` so that voltage is displayed on your Nightscout site.
