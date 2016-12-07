@@ -55,6 +55,8 @@ If you have any difficulty with flashing, skip down to [Troubleshooting](https:/
 
 Log in as root/edison via serial console.
 
+If you're using a Windows PC:
+
     echo FIXME-thehostname-you-want > /etc/hostname
 
     nano /etc/hosts
@@ -71,7 +73,34 @@ Log in as root/edison via serial console.
     passwd edison     # set a secure password
 
     sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
+    NOTE: This command will not produce an output
+    
+    reboot      # to set hostname and configure wifi
 
+If you're using a Mac:
+
+    echo FIXME-thehostname-you-want > /etc/hostname
+
+    vi /etc/hosts
+    Type 'i' to get into INSERT mode
+        - add the host name you chose to the end of the first line 
+        - old: 127.0.0.1	localhost
+        - new: 127.0.0.1	localhost FIXME-thehostname-you-want
+    Press Esc and then type ':wq' and press Enter to write the file and quit
+    
+    vi /etc/network/interfaces
+    Type 'i' to get into INSERT mode
+        - Uncomment 'auto wlan0'
+        - Set wpa-ssid to your wifi network name
+        - Set wpa-psk to the password for your wifi network
+    Press Esc and then type ':wq' and press Enter to write the file and quit
+
+    passwd root       # set a secure password
+    passwd edison     # set a secure password
+
+    sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
+    NOTE: This command will not produce an output
+    
     reboot      # to set hostname and configure wifi
 
 If you want to connect to more than one wifi network, then after rebooting and logging in via ssh, you'll want to follow one of these guides to set the WPA Supplicant process to connect to multiple access points:
