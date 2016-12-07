@@ -6,7 +6,7 @@ Want to use Google Assistant to set your carb intake, insulin given, eating soon
 
 * Get an IFTTT.com account
 * Make sure you have [Maker](https://www.ifttt.com/maker) connected to your IFTTT account.
-* Make sure you have [Google Assistant] (https://www.ifttt.com/google_assistant) connected to your IFTTT account.
+* Make sure you have [Google Assistant](https://www.ifttt.com/google_assistant) connected to your IFTTT account.
 * Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>`
 * Or, open a console window in your browser while viewing your Nightscout site, hit refresh, and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""
 
