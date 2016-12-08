@@ -11,3 +11,23 @@ Keep in mind this is one of the key safety features of OpenAPS. You do NOT want 
 A good rule of thumb is for max iob to be 3 times your highest basal rate.
 
 (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
+
+To change your max iob in your preferences.json file:
+
+Firstly you need to change directory:
+
+cd to <myopenaps>
+
+Use the nano text editor:
+
+nano preferences.json
+
+Then amend the "max_iob": 0 to the figure you want.
+
+To check that you have done this successfully run the following:
+
+Cat preferences.json
+
+You should see the amended max iob you have entered
+
+
