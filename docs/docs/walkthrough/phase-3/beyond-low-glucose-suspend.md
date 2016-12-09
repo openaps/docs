@@ -26,7 +26,7 @@ Then amend the "max_iob": 0 to the figure you want.
 
 To check that you have done this successfully run the following:
 
-Cat preferences.json
+cat preferences.json
 
 You should see the amended max iob you have entered
 
