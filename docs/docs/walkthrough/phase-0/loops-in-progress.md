@@ -102,4 +102,4 @@ List of people who are working on closed loops:
 - Trevor Wood (Santaquin, UT)
 - Anne Svejda (Virginia Beach, VA)
 - Jeff Kramer for Hannah (Clive, IA)
-- Vince Pfromm for Tristan (Ravenna, OH)
+- Vince P. for Tristan (Ravenna, OH)
