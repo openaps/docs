@@ -138,7 +138,7 @@ Next, copy your ssh key to the edison if appropriate (directions you can adapt a
 
 * Edit /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
-* Edit to remove the Need for entering the password when running Sudo Command
+* Edit to remove the Need for entering the password when running Sudo Command, only needed if you'll be running as the edison user instead of root: I.E. running Edison on Breakout board or Sparkfun board, not needed with Explorer board.
 ```
     $ su -
     $ visudo
