@@ -139,13 +139,14 @@ Next, copy your ssh key to the edison if appropriate (directions you can adapt a
 * Edit /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
 * Edit to remove the Need for entering the password when running Sudo Command
-
+```
     $ su -
     $ visudo
-    
+```    
  add to the end of the file
+``` 
  edison ALL=(ALL) NOPASSWD: ALL   
-    
+```    
 
 You have now installed the operating system on your edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
 
