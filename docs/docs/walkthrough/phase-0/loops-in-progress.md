@@ -103,3 +103,5 @@ List of people who are working on closed loops:
 - Anne Svejda (Virginia Beach, VA)
 - Jeff Kramer for Hannah (Clive, IA)
 - Melody Andrews-Caron (Ontario, Canada)
+- Andy Sharrow (Saginaw, MI)
+
