@@ -4,6 +4,8 @@ The Intel Edison system comes with a very limited Operating System. It's best to
 
 ## Prerequisites
 
+Plug USB cable (one that carries data, not just power) into the USB port that is labled P6. If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi / Windows PC / Mac.
+
 If you’re using a Raspberry Pi to flash:
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
