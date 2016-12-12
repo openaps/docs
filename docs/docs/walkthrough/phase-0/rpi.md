@@ -247,13 +247,11 @@ Install the watchdog package, which controls the conditions under which the hard
 `sudo apt-get install watchdog`
 
 `sudo modprobe bcm2708_wdog` - If this command does not work, it appears to be ok to skip it.
-
+	
 `sudo bash -c 'echo "bcm2708_wdog" >> /etc/modules'`
 
-Next, add watchdog to startup applications:
-
-`sudo update-rc.d watchdog defaults`
-
+**Note:** On the RPi3, the kernel module is bcm2835_wdt and is loaded by default in Raspbian Jessie.
+		
 Edit the config file by opening up nano text editor
 
 `sudo nano /etc/watchdog.conf`
@@ -265,10 +263,28 @@ max-load-1              = 24
 watchdog-device         = /dev/watchdog
 ```
 
+Next, add watchdog to startup applications:
+
+`sudo update-rc.d watchdog defaults`
+
 Finally, start watchdog by entering:
 
 `sudo service watchdog start`
 
+**Note:** The init system which handles processes going forward in most Linux systems is systemd. Rc.d may be depreciated in the future, so it may be best to use systemd here. Unfortunately, the watchdog package in Raspbian Jessie(as of 12/10/2016) does not properly handle the systemd unit file. To fix it, do the following:
+		
+`sudo echo "WantedBy=multi-user.target" >> /lib/systemd/system/watchdog.service`
+		
+this should place it in the service file under the [Install] heading.
+		
+and then to enable it to start at each boot:
+		
+`sudo systemctl enable watchdog`
+
+To start process without rebooting:
+
+`sudo systemctl start watchdog`
+ 
 ## Update the Raspberry Pi [optional]
 
 Update the RPi2.
@@ -373,3 +389,8 @@ Open your crontab for editing -
 Save the file, then restart -
 
 `sudo shutdown -r now`
+
+or
+
+`sudo systemctl reboot`
+

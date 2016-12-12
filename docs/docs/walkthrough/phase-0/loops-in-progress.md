@@ -105,3 +105,4 @@ List of people who are working on closed loops:
 - Melody Andrews-Caron (Ontario, Canada)
 - Andy Sharrow (Saginaw, MI)
 - John Benjamin (Clawson, MI)
+- Vince P. for Tristan (Ravenna, OH)
