@@ -5,4 +5,4 @@ This report contains the date and time that is set on your pump, but does **NOT*
 ##### Sample contents
 `"2016-05-22T00:18:41"`
 ##### Dependencies
-* [`pump.ini`](openaps-device-pump.md)
+* [`pump.ini`](./openaps-device-pump.md)

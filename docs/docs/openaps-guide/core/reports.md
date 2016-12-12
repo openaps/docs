@@ -304,7 +304,7 @@ Now we can **invoke** many groups of reports in one line, save the
 data to their own files consistently, while referring to the
 preconfigured **use** for that **device**.
 
-Each `invoke` creates a new git commit in the log: `openaps show`:
+Each `invoke` creates a new git commit in the log. `git show`:
 ```
 commit eb782e12552ad664697aa38d7e6b05b41f5e5a22
 Author: Ben West <bewest@gmail.com>

@@ -1,5 +1,5 @@
 
-Phase 2: Creating an Open Loop
+Phase 2: Creating a PLGM Loop
 ------------------------------
 
 .. toctree::
@@ -7,9 +7,8 @@ Phase 2: Creating an Open Loop
    
 
    considerations
-   building-preflight-safety-checks
-   Using-oref0-tools
-   loop-and-retry-logic
+   oref0-setup
+   troubleshoot-oref0-setup
 
 
    
