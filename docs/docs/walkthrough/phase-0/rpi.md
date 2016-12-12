@@ -84,6 +84,7 @@ You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 * Get and connect a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)),
 * Temporarily connect RPi to a router with an Ethernet cable and SSH in (see below), or
 * Connect the RPi directly to your computer with an Ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
+* As of 12/11/2016 the Raspberry Pi Foundation is disabling SSH by default in Raspbian as a security precaution. To enable SSH, create a file called ssh and save it to the boot directory of the mounted drive.  The file can be blank, and it has no extensions. This will tell your Pi to enable SSH. 
 
 #### Configure WiFi Settings
 
