@@ -4,7 +4,6 @@ Want to be able to set or cancel temp targets from your Pebble, Alexa, or anythi
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
-Cool and handy, right?  I saw my daughter was double arrows down yesterday while I was in the shower and I was able to issue an activity mode temp target (140 for one hour) to help pull her out of a nose dive.
 
 ## Prerequisites
 
@@ -16,10 +15,12 @@ Cool and handy, right?  I saw my daughter was double arrows down yesterday while
 
 ## Putting it all together
 
-* Create a new recipe on IFTTT.com that starts and ends with Maker requests by searching for "Maker"
-* Select "My Applets" -> "New Applet" -> click the large "+This" -> search for Maker
+* Log in to IFTTT.com.
+* Select "My Applets" -> "New Applet" -> click the large "+This" -> search for Maker.
+* Click "receive a web request" for step 2.
 * Trigger aka Event Name: eating_soon (Maker requests must be lowercase and use underscores and not spaces)
-* Now select "+That" and search for Maker again -> Make web request
+* Now select "+That" and search for Maker again.
+* Click "Make web request" for step 4.
 * Action:  https://your_url_hereish.azurewebsites.net/api/v1/treatments.json <- Only change your url, don't modify what comes after it
 * Method: Post
 * Content Type: application/json
