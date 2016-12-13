@@ -79,7 +79,7 @@ Want to be able to set or cancel temp targets from your Pebble, Alexa, or anythi
 
 ## Add to the "Today" widget on your iPhone
 
- ![IFTTT Today Widget with #OpenAPS related commands](../../Images/Example of IFTTT Today widget for OpenAPS usage.PNG )
+ ![IFTTT Today Widget with #OpenAPS related commands](../../Images/Example_IFTTT_Today_widget_for_OpenAPS_usage.PNG)
 
 
 * Make sure you have the IFTTT app on your phone and that you are logged in.
