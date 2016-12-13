@@ -9,7 +9,9 @@ You must use a DATA micro USB to USB cable. How do you know if your cable is for
 
 ## Prerequisites
 
-If you’re using a Raspberry Pi to flash:
+If you haven't already, make sure you plug USB cable into the USB port that is labled P6 (should be the USB closest to the JST battery connector). If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi / Windows PC / Mac.
+
+### If you’re using a Raspberry Pi to flash:
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
 
@@ -18,7 +20,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   2.  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
   3.  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
 
-If you're using a Windows PC:
+### If you're using a Windows PC:
 
   1.  Go to System Properties, under Performance click on `Settings`.
   2.  Select `Advanced` and click on `Change...` to change the page size.
@@ -26,7 +28,7 @@ If you're using a Windows PC:
   4. If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
      Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit):
 
-If you're using a Mac:
+### If you're using a Mac:
 
 If you have a Mac, follow steps 1-5 of [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  
 
