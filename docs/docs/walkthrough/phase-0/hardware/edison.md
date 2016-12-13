@@ -22,7 +22,10 @@ You can use a number of radio sticks. Again, we recommend the Explorer Board wit
 
 You will need two micro USB cables - with a micro connector on one end and a standard (Type A) connector on the other. Most cables will work fine, but some prefer to select lengths. You may already have one for charging a Dexcom receiver, or an Android phone, lying around at home. If you don't, here's an example of one that will work: [Monoprice Premium USB to Micro USB Charge, Sync Cable - 3ft](http://www.monoprice.com/Product?c_id=103&cp_id=10303&cs_id=1030307&p_id=9763&seq=1&format=2).
 
+## Nuts and Bolts
 
+You will likely want to screw your Edison onto the Explorer Board to stabilize the rig. You can order a kit, or use (2) M2 screws and (6) M2 nuts (four used as spacers).
 
+# Next steps after you get your hardware
 
 Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](https://github.com/openaps/docs/blob/dev/docs/docs/walkthrough/phase-0/setup-edison.md)" page.
