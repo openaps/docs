@@ -2,6 +2,11 @@
 
 The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, so that the config is as-close to the Raspberry Pi as possible. This fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
+## Helpful notes before you get started
+Your Explorer Board has 2 micro USB connectors, they both provide power. On the community developed Edison Explorer Board the port labeled OTG is for flashing, and the one labeled UART provides console login. You must connect both ports to your computer to complete the flash process.
+
+You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
+
 ## Prerequisites
 
 If you’re using a Raspberry Pi to flash:
@@ -27,7 +32,7 @@ If you have a Mac, follow steps 1-5 of [these instructions](https://software.int
 
 Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
 
-When you get to step 6, you'll need to cd into the Ubilinux directory instead of the Intel image one, and continue with the Linux directions below.
+When you get to step 6, you'll need to cd into the Ubilinux directory (see how to create it in the Jubilinux section if you don't already have it) instead of the Intel image one, and continue with the Linux directions below.
 
 
 ## Downloading image
@@ -37,7 +42,7 @@ When you get to step 6, you'll need to cd into the Ubilinux directory instead of
 
   1. Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
   2. In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
-  3. Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window".
+  3. Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window", keep it open for later.
   
   For Windows OS:
   
@@ -48,14 +53,26 @@ When you get to step 6, you'll need to cd into the Ubilinux directory instead of
 
 ## Flashing image onto the Edison
 
-  1. Connect a USB cable (one that carries data, not just power) to the USB console port and `sudo screen /dev/ttyUSB0 115200` or similar (on a Mac it’s `/dev/tty.usbserial-<TAB>`, on Windows PC you can go to Control Panel\All Control Panel Items\Device Manager\Ports\USB Serial Port COMXX where XX is the number of the port). On the explorer board, this is the port labeled `UART`. If you do not have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
-  2. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
-  3. Plug USB cable (one that carries data, not just power) into the USB port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel board. If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi.
-  4. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh` (If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
-  5. It will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
-  6. It will take 10-45 minutes to flash.  The first 10-15 minutes it may appear like nothing is happening, particularly on the Pi. Eventually you will start to see a progress bar in the console. At the end when it says to give it 2 minutes, give it 5 or so.  If you open a 2nd ssh to the pi and run top you'll see `dfu-util` using all a bunch of memory.
-  7. In the console you may get asked to login or type `control-D` after one or more reboots. Press `Ctrl-d` to allow it to continue. 
-  8. Congratulations! You’re Edison is flashed. The default user name and password are both `edison`
+  1. Connect a USB cable (one that carries data, not just power) to the USB console port. On the explorer board, this is the port labeled `UART`.  
+  2. Open a terminal window and `sudo screen /dev/ttyUSB0 115200` or similar.
+  
+  -on a Mac it’s `screen /dev/tty.usbserial <TAB> 115200` (Pressing the TAB key will default in the serial device found by your system). For example: `screen /dev/tty.usbserial-DO005ACY 115200`
+  
+  -on Windows PC you can go to Control Panel\All Control Panel Items\Device Manager\Ports\USB Serial Port COMXX where XX is the number of the port).  
+  
+  If you do not have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
+  
+  3. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
+  4. Plug USB cable (one that carries data, not just power) into the USB port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel board. If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi.
+  5. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`
+  
+  -If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
+  
+  -If you receive an error `Error: Running Homebrew as root is extremely dangerous and no longer supported.` try running command as `./flashall.sh`
+  6. It will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
+  7. It will take 10-45 minutes to flash.  The first 10-15 minutes it may appear like nothing is happening, particularly on the Pi. Eventually you will start to see a progress bar in the console. At the end when it says to give it 2 minutes, give it 5 or so.  If you open a 2nd ssh to the pi and run top you'll see `dfu-util` using all a bunch of memory.
+  8. In the console you may get asked to login or type `control-D` after one or more reboots. Press `Ctrl-d` to allow it to continue. 
+  9. Congratulations! You’re Edison is flashed. The default user name and password are both `edison`
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS#troubleshooting)
 
