@@ -55,14 +55,20 @@ When you get to step 6, you'll need to cd into the Ubilinux directory (see how t
 
   1. Connect a USB cable (one that carries data, not just power) to the USB console port. On the explorer board, this is the port labeled `UART`.  
   2. Open a terminal window and `sudo screen /dev/ttyUSB0 115200` or similar.
-  -on a Mac it’s `screen /dev/tty.usbserial` + <TAB> + `115200` (Pressing the TAB key will default in the serial device found by your system). For example: `screen /dev/tty.usbserial-DO005ACY 115200`
+  
+  -on a Mac it’s `screen /dev/tty.usbserial <TAB> 115200` (Pressing the TAB key will default in the serial device found by your system). For example: `screen /dev/tty.usbserial-DO005ACY 115200`
+  
   -on Windows PC you can go to Control Panel\All Control Panel Items\Device Manager\Ports\USB Serial Port COMXX where XX is the number of the port).  
+  
   If you do not have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
+  
   3. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
   4. Plug USB cable (one that carries data, not just power) into the USB port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel board. If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi.
-  5. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh` 
-  (If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
-  (If you receive an error `Error: Running Homebrew as root is extremely dangerous and no longer supported.` try running command as `./flashall.sh`)
+  5. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`
+  
+  -If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
+  
+  -If you receive an error `Error: Running Homebrew as root is extremely dangerous and no longer supported.` try running command as `./flashall.sh`
   6. It will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
   7. It will take 10-45 minutes to flash.  The first 10-15 minutes it may appear like nothing is happening, particularly on the Pi. Eventually you will start to see a progress bar in the console. At the end when it says to give it 2 minutes, give it 5 or so.  If you open a 2nd ssh to the pi and run top you'll see `dfu-util` using all a bunch of memory.
   8. In the console you may get asked to login or type `control-D` after one or more reboots. Press `Ctrl-d` to allow it to continue. 
