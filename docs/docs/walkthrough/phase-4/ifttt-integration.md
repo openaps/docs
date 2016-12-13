@@ -77,4 +77,13 @@ Want to be able to set or cancel temp targets from your Pebble, Alexa, or anythi
   ![Maker Request](../../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
 
+## Add to the "Today" widget on your iPhone
 
+ ![IFTTT Today Widget with #OpenAPS related commands](../../Images/Example of IFTTT Today widget for OpenAPS usage.PNG )
+
+
+* Make sure you have the IFTTT app on your phone and that you are logged in.
+* Go into the "Today" (downswipe from top of phone) and scroll to the bottom - you should see 1 new widget available; otherwise click "edit". This should show a list of available widgets to add to your screen. Select IFTTT.
+* It should pull in any existing applets from your IFTTT account that are set to be run by "DoButton". This means if you only added applets/recipes to work with ThisButton on Pebble, you'll need to set additional recipes up. Do similar to the above steps to add new applets; the only difference is to start with If (DoButton) Then (Maker event), aka select "DoButton" for the first tool integration, rather than Maker in both places. 
+* All of the same steps apply for the Maker information for the "Then that" part - insert your URL, select POST, Content Type: application/json, etc. You'll probably want to copy and paste from your other applets, but make sure to edit the text to show that these will be entered by "DoButton" rather than "ThisButton_Maker" or similar.
+* Once you've saved, these applets should show up in your Today widget for IFTTT!
