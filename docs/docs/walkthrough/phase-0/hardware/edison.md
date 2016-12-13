@@ -24,4 +24,5 @@ You will need two micro USB cables - with a micro connector on one end and a sta
 
 
 
+
 Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](https://github.com/openaps/docs/blob/dev/docs/docs/walkthrough/phase-0/setup-edison.md)" page.
