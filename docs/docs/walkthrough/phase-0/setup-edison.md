@@ -18,6 +18,8 @@ If you're using a Windows PC:
   1.  Go to System Properties, under Performance click on `Settings`.
   2.  Select `Advanced` and click on `Change...` to change the page size.
   3.  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size  and  Maximum size to **1024** and **2048** and reboot.
+  4. If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
+     Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit):
 
 If you're using a Mac:
 
@@ -36,10 +38,17 @@ When you get to step 6, you'll need to cd into the Ubilinux directory instead of
   1. Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
   2. In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
   3. Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window".
+  
+  For Windows OS:
+  
+     You will need an additional utility prior to flashing from Windows. 
+     Download [DFU-Util](https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz).
+     Extract the two files, libusb-1.0.dll and dfu-util.exe, to the directory where you extracted jublinux.zip.
+     (you can also extract all files to a separate folder and then copy the files to the jublinux directory)
 
 ## Flashing image onto the Edison
 
-  1. Connect a USB cable (one that carries data, not just power) to the USB console port and `sudo screen /dev/ttyUSB0 115200` or similar (on a Mac it’s `/dev/tty.usbserial-<TAB>`). On the explorer board, this is the port labeled `UART`. If you do no have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
+  1. Connect a USB cable (one that carries data, not just power) to the USB console port and `sudo screen /dev/ttyUSB0 115200` or similar (on a Mac it’s `/dev/tty.usbserial-<TAB>`, on Windows PC you can go to Control Panel\All Control Panel Items\Device Manager\Ports\USB Serial Port COMXX where XX is the number of the port). On the explorer board, this is the port labeled `UART`. If you do not have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
   2. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
   3. Plug USB cable (one that carries data, not just power) into the USB port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel board. If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi.
   4. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh` (If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
@@ -54,6 +63,8 @@ If you have any difficulty with flashing, skip down to [Troubleshooting](https:/
 ## Initial Setup
 
 Log in as root/edison via serial console.
+
+If you're using a Windows PC:
 
     echo FIXME-thehostname-you-want > /etc/hostname
 
@@ -71,7 +82,34 @@ Log in as root/edison via serial console.
     passwd edison     # set a secure password
 
     sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
+    NOTE: This command will not produce an output
+    
+    reboot      # to set hostname and configure wifi
 
+If you're using a Mac:
+
+    echo FIXME-thehostname-you-want > /etc/hostname
+
+    vi /etc/hosts
+    Type 'i' to get into INSERT mode
+        - add the host name you chose to the end of the first line 
+        - old: 127.0.0.1	localhost
+        - new: 127.0.0.1	localhost FIXME-thehostname-you-want
+    Press Esc and then type ':wq' and press Enter to write the file and quit
+    
+    vi /etc/network/interfaces
+    Type 'i' to get into INSERT mode
+        - Uncomment 'auto wlan0'
+        - Set wpa-ssid to your wifi network name
+        - Set wpa-psk to the password for your wifi network
+    Press Esc and then type ':wq' and press Enter to write the file and quit
+
+    passwd root       # set a secure password
+    passwd edison     # set a secure password
+
+    sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
+    NOTE: This command will not produce an output
+    
     reboot      # to set hostname and configure wifi
 
 If you want to connect to more than one wifi network, then after rebooting and logging in via ssh, you'll want to follow one of these guides to set the WPA Supplicant process to connect to multiple access points:
@@ -100,7 +138,17 @@ Next, copy your ssh key to the edison if appropriate (directions you can adapt a
 
 * Edit /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
-Then you're done!
+* Edit to remove the Need for entering the password when running Sudo Command, only needed if you'll be running as the edison user instead of root: I.E. running Edison on Breakout board or Sparkfun board, not needed with Explorer board.
+```
+    $ su -
+    $ visudo
+```    
+ add to the end of the file
+``` 
+ edison ALL=(ALL) NOPASSWD: ALL   
+```    
+
+You have now installed the operating system on your edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
 
 ## Troubleshooting
 

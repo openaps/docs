@@ -45,6 +45,3 @@ Want to use Google Assistant to set your carb intake, insulin given, eating soon
 ```
 {"enteredBy": "GoogleAssistant", "insulin": {{NumberField}}, "secret": "your_secret_hashed_key_goes_here"}
 ```
-
-# Big thanks!
-To the original IFTTT integration creators for the idea that lead me to try with Google Assistant

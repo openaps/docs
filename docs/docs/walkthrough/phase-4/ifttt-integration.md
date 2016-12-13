@@ -77,5 +77,3 @@ Cool and handy, right?  I saw my daughter was double arrows down yesterday while
   * Alexa requests do not need underscores, FYI.
 
 
-# Big thanks
-To Rachel Sandlain / Jason Calabrese for coming up with this method and sharing it!
