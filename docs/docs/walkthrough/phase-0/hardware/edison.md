@@ -4,9 +4,11 @@
 
 [Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) - Get it from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider.
 
-## Lipo Battery 
+## Lipo Battery and/or other battery supply
 
-The example setup uses a [2000mah LIPO battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html). This battery lasts in the region of 20 hours. It's best to buy from a reputable supplier, since they are prone to catching fire. Make sure that it *includes a protection circuit* to protect over-discharge. **NEVER** connect the battery to the Edison base board the wrong way round. Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
+Use a LiPo battery because the Explorer Board has battery charger circuitry on board for these batteries. The example setup uses a [2000mah LIPO battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html). This battery lasts in the region of ~16+ hours. The connector on this battery is a 2mm 2 pin JST to match the Explorer Board power plug. It's best to buy from a reputable supplier, since they are prone to catching fire. **NEVER** connect the battery to the Edison base board the wrong way round. Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
+
+You can also use any other charger with a USB plug, including a wall power charger. The Explorer Board has pass through charging, so this is also how you will charge the LiPo battery.
 
 ## Explorer Board or another base board 
 
