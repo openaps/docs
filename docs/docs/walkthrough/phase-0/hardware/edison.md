@@ -26,6 +26,12 @@ You will need two micro USB cables - with a micro connector on one end and a sta
 
 You will likely want to screw your Edison onto the Explorer Board to stabilize the rig. You can order a kit, or use (2) M2 screws and (6) M2 nuts (four used as spacers).
 
+## Cases
+
+There are a few 3D-printed cases that are being designed, so check back here for more links in the future. A few options that we know will work with an Explorer Board/Edison rig and a standard 2000mah battery:
+* [RadioShack Project Enclosure (3x2x1 inch)](http://www.king5.com/news/childhood-kissing-disease-linked-to-adult-chronic-illnesses/370016432) 
+* [Ken Stack's 3D design for a case with the battery next to the board](https://github.com/Perceptus/explorer_board_case) 
+
 # Next steps after you get your hardware
 
 Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](https://github.com/openaps/docs/blob/dev/docs/docs/walkthrough/phase-0/setup-edison.md)" page.
