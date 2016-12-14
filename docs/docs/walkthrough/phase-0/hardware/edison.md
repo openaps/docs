@@ -29,7 +29,7 @@ You will likely want to screw your Edison onto the Explorer Board to stabilize t
 ## Cases
 
 There are a few 3D-printed cases that are being designed, so check back here for more links in the future. A few options that we know will work with an Explorer Board/Edison rig and a standard 2000mah battery:
-* [RadioShack Project Enclosure (3x2x1 inch)](http://www.king5.com/news/childhood-kissing-disease-linked-to-adult-chronic-illnesses/370016432) 
+* [RadioShack Project Enclosure (3x2x1 inch)](https://www.radioshack.com/products/radioshack-project-enclosure-3x2x1?utm_medium=cpc&utm_source=googlepla&variant=20332262405&gclid=Cj0KEQiA-MPCBRCZ0q23tPGm6_8BEiQAgw_bAkpDZCXfIgbEw8bq76VHtV5mLwR2kHKfJrsGsF3uqqgaAtxP8P8HAQ) 
 * [Ken Stack's 3D design for a case with the battery next to the board](https://github.com/Perceptus/explorer_board_case) 
 
 # Next steps after you get your hardware
