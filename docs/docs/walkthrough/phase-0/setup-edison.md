@@ -30,7 +30,8 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Mac:
 
-If you have a Mac, follow steps 1-5 of [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  
+If you have a Mac, follow steps 1-5 of [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.
+Should Steps 1 & 2 be mentioned as its confusing to make a download and make a folder yet you don't use that image to flash?
 
 Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
 
