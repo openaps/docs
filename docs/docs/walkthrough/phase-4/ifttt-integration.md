@@ -51,7 +51,11 @@ Want to be able to set or cancel temp targets from your Pebble, Alexa, or anythi
 
 ## Create more events / requests!
 
-* activity_mode would be 140 for an hour...or whatever you want.  
+* To do a carb entry into NS via this method (such as to inform it that you are correcting for a low with 15 carbs). Create a +15 carb button. The JSON body would be (again the "entered by" and "reason" fields are just for tracking purposes)
+```
+{"enteredBy": "IFTTT-15carbs", "reason": "15 carbs", "carbs": 15, "secret": "a_totally_hashed_password_goes_here!!!"}
+```
+* activity_mode would be 140 for an hour...or whatever you want - just change the high and low targets and durations from the above example.  
 * You definitely want to create a cancel_temp_target as well.  It would look like this:
 ```
 {"enteredBy": "Alexa-Maker", "eventType": "Temporary Target", "duration": 0, "secret": "a_totally_hashed_password_goes_here!!!"}
