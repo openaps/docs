@@ -107,3 +107,4 @@ List of people who are working on closed loops:
 - John Benjamin (Clawson, MI)
 - Vince P. for Tristan (Ravenna, OH)
 - Anthony Cerrone (Danville, CA)
+- Rachel Aumaugher (Davison, MI)
