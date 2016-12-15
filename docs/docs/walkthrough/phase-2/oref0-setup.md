@@ -18,7 +18,7 @@ __Step 2:__
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments.
 
-__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account.
+__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. Also, choose YES when asked if you're using mmeowlink and enter `spi` as the port for the radio.
 
 __Step 3:__ 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
