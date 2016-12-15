@@ -131,7 +131,25 @@ If you're using a Mac:
     
     reboot      # to set hostname and configure wifi
 
-If you want to connect to more than one wifi network, then after rebooting and logging in via ssh, you'll want to follow one of these guides to set the WPA Supplicant process to connect to multiple access points:
+If you want to connect to more than one wifi network, then you can instead configure the WPA Supplicant process to connect to multiple access points:
+
+Edit /etc/network/interfaces to read:
+```
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Edit /etc/wpa_supplicant/wpa_supplicant.conf to add the following to the end, once for each network you want to add:
+
+```
+network={
+    ssid="my network"
+    psk="my wifi password"
+}
+```
+
+For more details, see one of these guides:
 
 http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
 
