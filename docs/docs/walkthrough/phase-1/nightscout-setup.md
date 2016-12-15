@@ -14,8 +14,10 @@ information to be shown about OpenAPS too. As the data is uploaded to an online
 website and then retrieved by OpenAPS it allows OpenAPS a wider range of
 compatibility with various CGM solutions.
 
-[Nightscout](http://nightscout.info) is the recommended way to visualize your
-OpenAPS closed loop. Even if you don't choose to share your Nightscout instance
+**[Nightscout](http://nightscout.info) is the recommended way to visualize your
+OpenAPS closed loop.** 
+
+Even if you don't choose to share your Nightscout instance
 with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
 your data and also allowing you to customize watchfaces with your OpenAPS data.
@@ -28,7 +30,7 @@ excellent guides of how to get various CGM systems working as well as displaying
 your data on a variety of additional devices. Once your website is up and
 running you can integrate Nightscout to your OpenAPS using the guide below.
 
-If you plan to use Nightscout to vizualize a production OpenAPS instance, we
+**NOTE**: If you plan to use Nightscout to vizualize a production OpenAPS instance, we
 recommend using the $7/mo Heroku plans, as OpenAPS' can reach the usage limits of 
 the free Azure plan and cause it to shut down for hours or days.
 
@@ -74,6 +76,8 @@ your actual results, the username you entered will be where it says
 "name@email.com").
 ____________________________
 
+## Enable these plugins
+
 The steps discussed here are essentially the same for both Heroku and Azure 
 users. Two configuration changes must be made to the Nightscout implementation:
 
@@ -94,16 +98,18 @@ display pump reservoir and battery status on the Nightscout page. The "pump"
 plugin offers a number of other options, as documented on the
 [Nightscout readme](https://github.com/nightscout/cgm-remote-monitor/blob/dev/README.md#built-inexample-plugins).
 
+## Make sure to select the pills to display from your Nightscout site
+
 Next, on your Nightscout website, go to the Settings (3 horizontal bars) in the
 upper right corner.  At the very bottom of the Settings menu, in the "About"
-section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just
-above is a list of Plugins available.  OpenAPS should show up. Click the check
-box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump"
+section, you may check the Nightscout version (e.g. version 0.9.0-dev). Just above is a list of Plugins available.  OpenAPS should show up. Click the check box to enable. Similarly, in the case you've enabled the "pump" plugin, "Pump"
 should also show up in the list, and you may check the box to enable. You
 should now see the OpenAPS pill box (and any optional pump monitoring pill
-boxes) on the left side of the Nightscout page near the time. You may also want
-to graphically show the basal rates: select "Default" or "Icicle" from the
-"Render Basal" pull-down menu in the Settings.
+boxes) on the left side of the Nightscout page near the time. 
+
+## How to display basal changes ("render basal")
+
+We also recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
 
 ### Configure Nightscout profile
@@ -146,4 +152,4 @@ Some things to be aware of:
 Note: Remember to add `careportal` to Nightscout's `ENABLE` environment variable
 in case it is not already there.
 
-
+Note for Heroku Users: If you are switching from Azure to Heroku, at this time you will need to change your URL in both ns.ini and in cron

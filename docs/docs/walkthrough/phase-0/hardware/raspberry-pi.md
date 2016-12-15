@@ -46,7 +46,7 @@ difference to the OpenAPS app, so either model is suitable choice.
 
 The Raspberry Pi 3 has higher specs and built-in WiFi and Bluetooth, so it draws
 more power. As a consequence, it has a shorter battery life than the
-Raspberry Pi 2. So when selecting portable battery packs bare this in mind.
+Raspberry Pi 2. So when selecting portable battery packs bear this in mind.
 
 [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 

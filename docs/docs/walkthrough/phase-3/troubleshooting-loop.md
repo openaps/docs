@@ -16,6 +16,8 @@ You should work toward a long-term goal here, rather than trying to do everythin
 
 Additionally, as you think about the lower end of your target range, remember the timing of your insulin activity and the fact that negative insulin corrections take about the same amount of time to go into effect; thus, you wouldn't want your low end of the target range set below 90, for example - otherwise the system will not be able to prevent lows by reducing the insulin.
 
+Remember that you need to set your Nightscout profile to match your pump as you make changes, so that target BG, basal rates, ISF and carb ratios stay the same across both devices. Data from the pump is used to drive the loop, but it is best practice to keep Nightscout in synch.
+
 ## What should pump settings be?
 
 You should set your maximum temporary basal limit on your pump to a reasonable value, to make sure that you don't go low by accident.

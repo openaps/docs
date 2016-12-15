@@ -84,6 +84,7 @@ You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
 * Get and connect a console cable (use [this guide](https://learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf)),
 * Temporarily connect RPi to a router with an Ethernet cable and SSH in (see below), or
 * Connect the RPi directly to your computer with an Ethernet cable (using [this guide](http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/)) and SSH in (see below)
+* As of 12/11/2016 the Raspberry Pi Foundation is disabling SSH by default in Raspbian as a security precaution. To enable SSH, create a file called ssh and save it to the boot directory of the mounted drive.  The file can be blank, and it has no extensions. This will tell your Pi to enable SSH. 
 
 #### Configure WiFi Settings
 
@@ -246,13 +247,11 @@ Install the watchdog package, which controls the conditions under which the hard
 `sudo apt-get install watchdog`
 
 `sudo modprobe bcm2708_wdog` - If this command does not work, it appears to be ok to skip it.
-
+	
 `sudo bash -c 'echo "bcm2708_wdog" >> /etc/modules'`
 
-Next, add watchdog to startup applications:
-
-`sudo update-rc.d watchdog defaults`
-
+**Note:** On the RPi3, the kernel module is bcm2835_wdt and is loaded by default in Raspbian Jessie.
+		
 Edit the config file by opening up nano text editor
 
 `sudo nano /etc/watchdog.conf`
@@ -264,10 +263,28 @@ max-load-1              = 24
 watchdog-device         = /dev/watchdog
 ```
 
+Next, add watchdog to startup applications:
+
+`sudo update-rc.d watchdog defaults`
+
 Finally, start watchdog by entering:
 
 `sudo service watchdog start`
 
+**Note:** The init system which handles processes going forward in most Linux systems is systemd. Rc.d may be depreciated in the future, so it may be best to use systemd here. Unfortunately, the watchdog package in Raspbian Jessie(as of 12/10/2016) does not properly handle the systemd unit file. To fix it, do the following:
+		
+`sudo echo "WantedBy=multi-user.target" >> /lib/systemd/system/watchdog.service`
+		
+this should place it in the service file under the [Install] heading.
+		
+and then to enable it to start at each boot:
+		
+`sudo systemctl enable watchdog`
+
+To start process without rebooting:
+
+`sudo systemctl start watchdog`
+ 
 ## Update the Raspberry Pi [optional]
 
 Update the RPi2.
@@ -280,7 +297,9 @@ The packages will take some time to install.
 
 Via [Raspberry Pi Zero - Conserve power and reduce draw to 80mA](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-conserve-energy):
 
-> If you're running a headless Raspberry Pi, there's no need to power the display circuitry, and you can save a little power by running `/usr/bin/tvservice -o` (`-p` to re-enable). Add the line to `/etc/rc.local` to disable HDMI on boot.
+> If you're running a headless Raspberry Pi, there's no need to power the display circuitry, and you can save a little power by running `/usr/bin/tvservice -o` (`-p` to re-enable). 
+
+To disable HDMI on boot, use `sudo nano /etc/rc.local` to edit the rc.local file.  Add `/usr/bin/tvservice -o` to the file and save.
 
 ## Configure Bluetooth Low Energy tethering [optional]
 
@@ -370,3 +389,8 @@ Open your crontab for editing -
 Save the file, then restart -
 
 `sudo shutdown -r now`
+
+or
+
+`sudo systemctl reboot`
+

@@ -1,6 +1,6 @@
 # Information about compatible insulin pumps
 
-!["Can I do OpenAPS with this pump?"](Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
+!["Can I do OpenAPS with this pump?"](../Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
 
 Currently, only the following Medtronic MiniMed models allow us to remotely set temporary basal rate commands, which is required to do OpenAPS:
 
@@ -33,7 +33,7 @@ If you are not based in the US, some later model pumps and firmware may be compa
 
 If you need to acquire an appropriate pump check CraigsList or other sites like
 Medwow or talk to friends in your local community to see if there are any old
-pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. In addition to searching for listings, consider posting an offer to Craigslist or ask around local community groups.
+pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. [SearchTempest](http://www.searchtempest.com) is a great tool for searching Craigslist nationally all at once. In addition to searching for listings, consider posting an offer to Craigslist or ask around local community groups.
 
 Note: If you're buying a pump online, we recommend you ask the seller to confirm the
 firmware version of the pump. (You may also want to consider asking for a video
