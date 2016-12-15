@@ -106,3 +106,4 @@ List of people who are working on closed loops:
 - Andy Sharrow (Saginaw, MI)
 - John Benjamin (Clawson, MI)
 - Vince P. for Tristan (Ravenna, OH)
+- Anthony Cerrone (Danville, CA)
