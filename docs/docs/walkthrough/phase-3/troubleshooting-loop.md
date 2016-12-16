@@ -10,7 +10,7 @@ In the early testing, the OpenAPS settings may cause your BG to go both high and
 
 It's tempting to set your targets to "perfect" on day one, and start your looping with those values. The problem with this is that if the algorithm incorrectly gives you too much insulin you don't have very much room to handle emergencies.
 
-To start off, you should set your glucose target range "high and wide" (but perhaps no wider than a range of 10-20 mg/dl, i.e. a range of 20 might be 130-150 mg/dl). Once you can reproducibly get your sugars in a wider and higher band without going low, you can then *slowly* reduce the target range to your ideal range.
+To start off, you should set your glucose target range "high and wide" (but perhaps no wider than a range of 10-20 mg/dL (0.6-1.1 mmol/L), i.e. a range of 20 might be 130-150 mg/dL (7.2-8.3 mmol/L). Once you can reproducibly get your sugars in a wider and higher band without going low, you can then *slowly* reduce the target range to your ideal range.
 
 You should work toward a long-term goal here, rather than trying to do everything on day one.
 
