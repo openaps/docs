@@ -172,6 +172,67 @@ and add to the end of the file:
 
 You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
 
+## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 12-17-2016 
+
+The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
+
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
+
+First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
+
+```
+$ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+
+```
+
+You will need to get the Mac address from your phone or whatever device you are using. on the 
+Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
+iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
+
+when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
+
+```
+cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
+```
+
+The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
+Once you are installed and running. 
+
+To configure a connection from the command line -
+
+`sudo bluetoothctl`
+
+Enter the following commands to bring up the adapter and make it discoverable -
+
+```
+power on
+discoverable on
+agent on
+default-agent
+```
+
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+Execute the paired-devices command to list the paired devices -
+
+```
+paired-devices
+Device AA:BB:CC:DD:EE:FF Samsung S7
+```
+
+Your paired phone should be listed (in this example, a Samsung Galaxy S7). Copy the bluetooth address listed for it; we will need to provide this later.
+
+Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device's bluetooth address (which we copied previously) and hit <tab> to complete the address.
+
+NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+
+`trust AA:BB:CC:DD:EE:FF`
+
+Quit bluetoothctl with 'quit'.
+
+This has been tested with a Samsung S7, and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
+
+
 ## Troubleshooting
 
 ### Troubleshooting the flash process
