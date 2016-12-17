@@ -58,7 +58,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  Open PuTTY, change from SSH to Serial, and connect to that COMXX port.
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  Open PuTTY, change from SSH to Serial, and connect to that COMXX port. Make sure you change the Speed(baudrate) from 9600 to 115200. Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
 
 ### If you're using a Mac:
   - Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
