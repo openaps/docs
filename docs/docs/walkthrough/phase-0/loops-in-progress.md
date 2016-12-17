@@ -108,3 +108,4 @@ List of people who are working on closed loops:
 - Vince P. for Tristan (Ravenna, OH)
 - Anthony Cerrone (Danville, CA)
 - Rachel Aumaugher (Davison, MI)
+- Joe Greene (Jacksonville, NC)
