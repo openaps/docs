@@ -49,8 +49,7 @@ your version, go to the
 for the "I'm ready" button, and create a PR to your dev branch. Once you have
 completed these steps, log on to Heroku or Azure and disconnect the deployment
 source. Thereafter choose your cgm-remote-monitor github repository as source
-again. You should take the dev branch of this repository. The dev branch will
-also allow you to use the advanced-meal-assist feature.
+again. 
 _________________________
 **If this doesn't work then from the command prompt in terminal run the
 following:
