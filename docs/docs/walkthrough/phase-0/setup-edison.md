@@ -9,8 +9,6 @@ You must use a DATA micro USB to USB cable. How do you know if your cable is for
 
 ## Prerequisites
 
-If you haven't already, make sure you plug USB cable into the USB port that is labled P6 (should be the USB closest to the JST battery connector). If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi / Windows PC / Mac.
-
 ### If you’re using a Raspberry Pi to flash:
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
@@ -53,7 +51,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ## Connecting cables and starting console
 
-  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the explorer board, this is the port labeled `UART`.  Plug the other end into the computer (or Pi) you want to use to connect to console.
+  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
 ### If you’re using a Raspberry Pi:
