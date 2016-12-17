@@ -57,7 +57,7 @@ to run the script interactively, or get usage guidelines for providing inputs as
 * serial number of your pump
 * the mmeowlink port if using it (/dev/spidev5.1 if using explorer board, see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options)
 * how you are getting cgm data and cgm serial numbers if needed
-* nightscout host and api-secret if using nightscout 
+* nightscout host and api-secret (if using a cable you can skip this, cable use not tested)
 * whether you want any of the oref0 advanced implementations
 * whether or not you want to automate your loop (using cron)
 
