@@ -30,11 +30,9 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Mac:
 
-If you have a Mac, follow steps 1-5 of [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  
+  1.  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
+  2.  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
 
-Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
-
-When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
 
 
 ## Downloading image
@@ -53,7 +51,7 @@ When you get to step 6, you'll need to cd into the jubilinux directory (see how 
      Extract the two files, libusb-1.0.dll and dfu-util.exe, to the directory where you extracted jublinux.zip.
      (you can also extract all files to a separate folder and then copy the files to the jublinux directory)
 
-## Flashing image onto the Edison
+## Connecting cables and starting console
 
   1. Connect a USB cable (one that carries data, not just power) to the USB console port. On the explorer board, this is the port labeled `UART`.  Plug the other end into the computer (or Pi) you want to use to connect to console.
   2. Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
@@ -71,25 +69,27 @@ When you get to step 6, you'll need to cd into the jubilinux directory (see how 
   4. Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
   5. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
 
+## Flashing image onto the Edison
+
 ### If you’re using a Raspberry Pi:
-  6. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
+  1. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
 
 ### If you’re using a Mac
-  6. In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
+  1. In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
 
 ### If you're using a Windows PC:
-  6. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.bat`
+  1. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.bat`
 
 ### All platforms:
-  7. The flashall script will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
-  8. It will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
-  8. After flashing is complete and the Edison begins rebooting, watch the console: you may get asked to type `control-D` to continue after one or more reboots. If so, press `Ctrl-d` to allow it to continue. 
-  9. After several more reboots (just about when you'll start to get concerned that it is stuck in a loop), you should get a login prompt.  If so, congratulations! You’re Edison is flashed. The default password is `edison`.
+  2. The flashall script will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
+  3. It will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
+  4. After flashing is complete and the Edison begins rebooting, watch the console: you may get asked to type `control-D` to continue after one or more reboots. If so, press `Ctrl-d` to allow it to continue. 
+  5. After several more reboots (just about when you'll start to get concerned that it is stuck in a loop), you should get a login prompt.  If so, congratulations! You’re Edison is flashed. The default password is `edison`.
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS#troubleshooting)
 
 
-## Initial Setup
+## Initial Edison Setup
 
 Log in as root/edison via serial console.
 
