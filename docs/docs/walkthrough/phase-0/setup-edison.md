@@ -91,7 +91,7 @@ If you have any difficulty with flashing, skip down to [Troubleshooting](https:/
 
 Log in as root/edison via serial console.
 
-If you're using a Windows PC:
+### If you're using a Windows PC:
 
     echo FIXME-thehostname-you-want > /etc/hostname
 
@@ -113,7 +113,7 @@ If you're using a Windows PC:
     
     reboot      # to set hostname and configure wifi
 
-If you're using a Mac:
+### If you're using a Mac:
 
     echo FIXME-thehostname-you-want > /etc/hostname
 
@@ -139,7 +139,9 @@ If you're using a Mac:
     
     reboot      # to set hostname and configure wifi
 
-If you want to connect to more than one wifi network, then you can instead configure the WPA Supplicant process to connect to multiple access points:
+## Multiple Wifi Networks:
+
+If you want to connect to more than one wifi network, then you can instead configure the wpa-supplicant process to connect to multiple access points:
 
 Edit /etc/network/interfaces to read:
 ```
