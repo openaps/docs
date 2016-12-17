@@ -15,23 +15,23 @@ If you haven't already, make sure you plug USB cable into the USB port that is l
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
 
-  1. Run `sudo bash -c 'echo CONF_SWAPSIZE=2000 > /etc/dphys-swapfile'` to configure a 2GB swap file.
+  - Run `sudo bash -c 'echo CONF_SWAPSIZE=2000 > /etc/dphys-swapfile'` to configure a 2GB swap file.
      *Note: if you don't have enough space on the SD card for a 2G swap a 1G swap will probably work*
-  2.  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
-  3.  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
+  -  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
+  -  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
 
 ### If you're using a Windows PC:
 
-  1.  Go to System Properties, under Performance click on `Settings`.
-  2.  Select `Advanced` and click on `Change...` to change the page size.
-  3.  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
-  4. If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
+  -  Go to System Properties, under Performance click on `Settings`.
+  -  Select `Advanced` and click on `Change...` to change the page size.
+  -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
+  - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
      Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit).
 
 ### If you're using a Mac:
 
-  1.  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
-  2.  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
+  -  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
+  -  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
 
 
 
@@ -40,9 +40,9 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 ### Jubilinux
 [Jubilinux](http://www.robinkirkman.com/jubilinux/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps below that are required when starting from ubilinux.
 
-  1. Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
-  2. In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
-  3. Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window", keep it open for later.
+  - Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
+  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
+  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window", keep it open for later.
   
   For Windows OS:
   
@@ -53,38 +53,38 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ## Connecting cables and starting console
 
-  1. Connect a USB cable (one that carries data, not just power) to the USB console port. On the explorer board, this is the port labeled `UART`.  Plug the other end into the computer (or Pi) you want to use to connect to console.
-  2. Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
+  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the explorer board, this is the port labeled `UART`.  Plug the other end into the computer (or Pi) you want to use to connect to console.
+  - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
 ### If you’re using a Raspberry Pi:
-  3. Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
+  - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC:
-  3. Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  Open PuTTY, change from SSH to Serial, and connect to that COMXX port.
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  Open PuTTY, change from SSH to Serial, and connect to that COMXX port.
 
 ### If you're using a Mac:
-  3. Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
+  - Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
   
 ### All platforms:
-  4. Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
-  5. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
+  - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
+  - Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
 
 ## Flashing image onto the Edison
 
 ### If you’re using a Raspberry Pi:
-  1. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
+  - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
 
 ### If you’re using a Mac
-  1. In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
+  - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
 
 ### If you're using a Windows PC:
-  1. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.bat`
+  - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.bat`
 
 ### All platforms:
-  2. The flashall script will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
-  3. It will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
-  4. After flashing is complete and the Edison begins rebooting, watch the console: you may get asked to type `control-D` to continue after one or more reboots. If so, press `Ctrl-d` to allow it to continue. 
-  5. After several more reboots (just about when you'll start to get concerned that it is stuck in a loop), you should get a login prompt.  If so, congratulations! You’re Edison is flashed. The default password is `edison`.
+  - The flashall script will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
+  - It will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
+  - After flashing is complete and the Edison begins rebooting, watch the console: you may get asked to type `control-D` to continue after one or more reboots. If so, press `Ctrl-d` to allow it to continue. 
+  - After several more reboots (just about when you'll start to get concerned that it is stuck in a loop), you should get a login prompt.  If so, congratulations! You’re Edison is flashed. The default password is `edison`.
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS#troubleshooting)
 
