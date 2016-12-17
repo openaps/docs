@@ -91,66 +91,35 @@ If you have any difficulty with flashing, skip down to [Troubleshooting](https:/
 
 Log in as root/edison via serial console.
 
-### If you're using a Windows PC:
+Type/edit the following:
 
-    echo FIXME-thehostname-you-want > /etc/hostname
+    myedisonhostname=<thehostname-you-want>
 
-    nano /etc/hosts
-        - add the host name you chose to the end of the first line 
-        - old: 127.0.0.1	localhost
-        - new: 127.0.0.1	localhost FIXME-thehostname-you-want
+And then paste the following to rename your Edison accordingly:
+
+    echo $myedisonhostname > /etc/hostname
+    sed -i"" "s/localhost$/localhost $myedisonhostname/" hosts
+
+Run these commands to set secure passwords:
+
+    passwd root
+    passwd edison
   
-    nano /etc/network/interfaces
-        - Uncomment 'auto wlan0'
-        - Set wpa-ssid to your wifi network name
-        - Set wpa-psk to the password for your wifi network
-
-    passwd root       # set a secure password
-    passwd edison     # set a secure password
-
-    sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
-    NOTE: This command will not produce an output
-    
-    reboot      # to set hostname and configure wifi
-
-### If you're using a Mac:
-
-    echo FIXME-thehostname-you-want > /etc/hostname
-
-    vi /etc/hosts
-    Type 'i' to get into INSERT mode
-        - add the host name you chose to the end of the first line 
-        - old: 127.0.0.1	localhost
-        - new: 127.0.0.1	localhost FIXME-thehostname-you-want
-    Press Esc and then type ':wq' and press Enter to write the file and quit
-    
-    vi /etc/network/interfaces
-    Type 'i' to get into INSERT mode
-        - Uncomment 'auto wlan0'
-        - Set wpa-ssid to your wifi network name
-        - Set wpa-psk to the password for your wifi network
-    Press Esc and then type ':wq' and press Enter to write the file and quit
-
-    passwd root       # set a secure password
-    passwd edison     # set a secure password
-
-    sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
-    NOTE: This command will not produce an output
-    
-    reboot      # to set hostname and configure wifi
-
 ## Multiple Wifi Networks:
 
-If you want to connect to more than one wifi network, then you can instead configure the wpa-supplicant process to connect to multiple access points:
-
-Edit /etc/network/interfaces to read:
+`vi /etc/network/interfaces`
+Type 'i' to get into INSERT mode
+    - Uncomment 'auto wlan0'
+    - Edit the next two lines to read:
 ```
 auto wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
+Press Esc and then type ':wq' and press Enter to write the file and quit
 
-Edit /etc/wpa_supplicant/wpa_supplicant.conf to add the following to the end, once for each network you want to add:
+`vi /etc/wpa_supplicant/wpa_supplicant.conf`
+Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
 
 ```
 network={
@@ -158,8 +127,9 @@ network={
     psk="my wifi password"
 }
 ```
+Press Esc and then type ':wq' and press Enter to write the file and quit
 
-For more details, see one of these guides:
+If you need more details on setting up wpa-supplicant, see one of these guides:
 
 http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
 
@@ -170,16 +140,21 @@ http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-
 
 ## Install packages, ssh keys, and other settings
 
-Log in as root (with the password you just set above)
+From a new terminal or PuTTY window, `ssh myedisonhostname.local`.
+
+Log in as root (with the password you just set above), and run:
 
     dpkg -P nodejs nodejs-dev
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
+
+Then:
+
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
 
-Edit /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+Edit (with `nano` or `vi`) /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
