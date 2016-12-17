@@ -259,6 +259,8 @@ d) If you get an error that says "Ready to receive application" on the Edison th
 
 e) If Edison reboots correctly but never gets picked up by the flashall.sh script and the flashing process does not start, check the Edison device ID. It will probably come out automatically after the flashall.sh script fails with a list of available devices connected to the machine. On Linux, you can run lsusb to get a list of usb devices with their device ID. If the device ID is different from the one expected on flashall.sh, you can edit the script and change lines containing: USB_VID=8087 & USB_PID=0a99 to whatever the Edison has for an ID. Some users have encountered their devices ID to be 8087:0a9e
 
+
+
 ### Troubleshooting rescue mode
 
 * If your edison boots to a console and says it is in rescue mode (you can hit ctrl-d to continue or enter the root password), you may need to change a u-boot environment variable to make it boot normally.   During the boot process you will see:
@@ -285,6 +287,36 @@ then type:
 `saveenv`  
 3. And to exit that firmware u-boot prompt:  
 `run do_boot`
+
+* If this doesn't fix the problem, and your boot gets stuck here:
+```
+[  OK  ] Mounted /home.
+
+         Starting Rescue Shell...
+
+[  OK  ] Started Rescue Shell.
+
+[  OK  ] Reached target Rescue Mode.
+```
+You may have an issue with the flashall.sh script. (This seems to only impact mac users). 
+In the "flash window" terminal where you downloaded Jubilinux
+
+1. Edit the flashall script  
+`nano flashall.sh`
+2. Find the following text (around line 220) Your text may vary slightly, with additional echo statements or such  
+```
+echo "Flashing U-Boot Environment Backup and rebooting to apply partiton changes"
+    flash-command --alt u-boot-env1 -D "${VARIANT_FILE}" -R
+
+    dfu-wait
+```
+3. Modify this line to remove the -R and the dfu-wait command   
+```
+echo "Flashing U-Boot Environment Backup and rebooting to apply partiton changes"
+    flash-command --alt u-boot-env1 -D "${VARIANT_FILE}" 
+```
+4. Reboot one last time - install should take a good deal longer than previous executions.  
+
 
 ### Override DNS resolvers
 
