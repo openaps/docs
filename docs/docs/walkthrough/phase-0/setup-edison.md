@@ -98,7 +98,7 @@ Type/edit the following:
 And then paste the following to rename your Edison accordingly:
 
     echo $myedisonhostname > /etc/hostname
-    sed -i"" "s/localhost$/localhost $myedisonhostname/" hosts
+    sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 
 Run these commands to set secure passwords:
 
