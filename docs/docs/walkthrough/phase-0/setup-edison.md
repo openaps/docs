@@ -108,6 +108,7 @@ Run these commands to set secure passwords:
 ## Multiple Wifi Networks:
 
 `vi /etc/network/interfaces`
+
 Type 'i' to get into INSERT mode
     - Uncomment 'auto wlan0'
     - Edit the next two lines to read:
@@ -116,9 +117,12 @@ auto wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
+Comment out or delete the wpa-ssid and wpa-psk lines.
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `vi /etc/wpa_supplicant/wpa_supplicant.conf`
+
 Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
 
 ```
