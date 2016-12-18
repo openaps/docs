@@ -110,8 +110,8 @@ Run these commands to set secure passwords:
 `vi /etc/network/interfaces`
 
 Type 'i' to get into INSERT mode
-    - Uncomment 'auto wlan0'
-    - Edit the next two lines to read:
+* Uncomment 'auto wlan0'
+* Edit the next two lines to read:
 ```
 auto wlan0
 iface wlan0 inet dhcp
