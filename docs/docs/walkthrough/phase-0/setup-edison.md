@@ -133,7 +133,9 @@ network={
 ```
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
-Run `ifup wlan0` to connect to wifi
+Run `ifup wlan0` to make sure you can connect to wifi
+
+`reboot` so you can connect via ssh
 
 If you need more details on setting up wpa-supplicant, see one of these guides:
 
