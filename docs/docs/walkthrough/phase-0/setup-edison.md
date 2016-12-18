@@ -25,6 +25,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
   - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
      Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit).
+  - If you don't already have Putty installed, download the appropriate version for your machine from here: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
 ### If you're using a Mac:
 
@@ -58,7 +59,10 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  Open PuTTY, change from SSH to Serial, and connect to that COMXX port. Make sure you change the Speed(baudrate) from 9600 to 115200. Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
+  - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
+  - Make sure you change the Speed(baudrate) from 9600 to 115200. 
+  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
 
 ### If you're using a Mac:
   - Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
@@ -76,7 +80,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
 
 ### If you're using a Windows PC:
-  - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.bat`
+  - In the "flash window" from the Download Image instructions above, run `flashall.bat`
 
 ### All platforms:
   - The flashall script will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
@@ -270,7 +274,7 @@ d) If you get an error that says "Ready to receive application" on the Edison th
 
 e) If Edison reboots correctly but never gets picked up by the flashall.sh script and the flashing process does not start, check the Edison device ID. It will probably come out automatically after the flashall.sh script fails with a list of available devices connected to the machine. On Linux, you can run lsusb to get a list of usb devices with their device ID. If the device ID is different from the one expected on flashall.sh, you can edit the script and change lines containing: USB_VID=8087 & USB_PID=0a99 to whatever the Edison has for an ID. Some users have encountered their devices ID to be 8087:0a9e
 
-
+f) If you've attempted all of the troubleshooting steps above but still aren't successful, it's worth trying to use a different computer to flash.
 
 ### Troubleshooting rescue mode
 
