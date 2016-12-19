@@ -106,6 +106,8 @@ should also show up in the list, and you may check the box to enable. You
 should now see the OpenAPS pill box (and any optional pump monitoring pill
 boxes) on the left side of the Nightscout page near the time. 
 
+Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen.  If this happens, simply use this pump in tandem with a CGM so glucose value are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
+
 ## How to display basal changes ("render basal")
 
 We also recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
@@ -137,6 +139,7 @@ minutes: Enacted, Looping, Waiting, and Warning:
 * Warning is when there hasn't been a status upload in the last 15 minutes
 * Enacted means OpenAPS has recently enacted the pump
 * Looping means OpenAPS is running but has not enacted the pump
+* Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
 
 Some things to be aware of:
 
