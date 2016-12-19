@@ -30,7 +30,7 @@
 
 <b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates for one unit of insulin. Example: 1 u of insulin for 10 carbs
 
-<b>ISF</b> - insulin sensitivity factor - the amount of insulin that drops your BG by a certain amount mg/dl. Example: 1 u of insulin for 40 mg/dl
+<b>ISF</b> - insulin sensitivity factor - the amount of insulin that drops your BG by a certain amount. Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
 

@@ -2,30 +2,36 @@
 
 The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, so that the config is as-close to the Raspberry Pi as possible. This fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
+## Helpful notes before you get started
+Your Explorer Board has 2 micro USB connectors, they both provide power. On the community developed Edison Explorer Board the port labeled OTG is for flashing, and the one labeled UART provides console login. You must connect both ports to your computer to complete the flash process.
+
+You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
+
 ## Prerequisites
 
-If you’re using a Raspberry Pi to flash:
+### If you’re using a Raspberry Pi to flash:
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
 
-  1. Run `sudo bash -c 'echo CONF_SWAPSIZE=2000 > /etc/dphys-swapfile'` to configure a 2GB swap file.
+  - Run `sudo bash -c 'echo CONF_SWAPSIZE=2000 > /etc/dphys-swapfile'` to configure a 2GB swap file.
      *Note: if you don't have enough space on the SD card for a 2G swap a 1G swap will probably work*
-  2.  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
-  3.  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
+  -  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
+  -  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
 
-If you're using a Windows PC:
+### If you're using a Windows PC:
 
-  1.  Go to System Properties, under Performance click on `Settings`.
-  2.  Select `Advanced` and click on `Change...` to change the page size.
-  3.  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size  and  Maximum size to **1024** and **2048** and reboot.
+  -  Go to System Properties, under Performance click on `Settings`.
+  -  Select `Advanced` and click on `Change...` to change the page size.
+  -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
+  - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
+     Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit).
+  - If you don't already have Putty installed, download the appropriate version for your machine from here: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-If you're using a Mac:
+### If you're using a Mac:
 
-If you have a Mac, follow steps 1-5 of [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  
+  -  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
+  -  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
 
-Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
-
-When you get to step 6, you'll need to cd into the Ubilinux directory instead of the Intel image one, and continue with the Linux directions below.
 
 
 ## Downloading image
@@ -33,48 +39,109 @@ When you get to step 6, you'll need to cd into the Ubilinux directory instead of
 ### Jubilinux
 [Jubilinux](http://www.robinkirkman.com/jubilinux/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps below that are required when starting from ubilinux.
 
-  1. Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
-  2. In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
-  3. Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window".
+  - Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
+  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
+  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window", keep it open for later.
+  
+  For Windows OS:
+  
+     You will need an additional utility prior to flashing from Windows. 
+     Download [DFU-Util](https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz).
+     Extract the two files, libusb-1.0.dll and dfu-util.exe, to the directory where you extracted jublinux.zip.
+     (you can also extract all files to a separate folder and then copy the files to the jublinux directory)
+
+## Connecting cables and starting console
+
+  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
+  - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
+  
+### If you’re using a Raspberry Pi:
+  - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
+  
+### If you're using a Windows PC:
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
+  - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
+  - Make sure you change the Speed(baudrate) from 9600 to 115200. 
+  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
+
+### If you're using a Mac:
+  - Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
+  
+### All platforms:
+  - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
+  - Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
 
 ## Flashing image onto the Edison
 
-  1. Connect a USB cable (one that carries data, not just power) to the USB console port and `sudo screen /dev/ttyUSB0 115200` or similar (on a Mac it’s `/dev/tty.usbserial-<TAB>`). On the explorer board, this is the port labeled `UART`. If you do no have screen installed you can install with ```sudo apt-get install screen``` (Linux). Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. [Note, this step is optional but helpful to see what is going on]
-  2. Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
-  3. Plug USB cable (one that carries data, not just power) into the USB port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel board. If you are using the Sparkfun or Explorer board, it is the USB port labeled OTG. Plug the other end into your Linux box / Pi.
-  4. In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh` (If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util` (Linux) or by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
-  5. It will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
-  6. It will take 10-45 minutes to flash.  The first 10-15 minutes it may appear like nothing is happening, particularly on the Pi. Eventually you will start to see a progress bar in the console. At the end when it says to give it 2 minutes, give it 5 or so.  If you open a 2nd ssh to the pi and run top you'll see `dfu-util` using all a bunch of memory.
-  7. In the console you may get asked to login or type `control-D` after one or more reboots. Press `Ctrl-d` to allow it to continue. 
-  8. Congratulations! You’re Edison is flashed. The default user name and password are both `edison`
+### If you’re using a Raspberry Pi:
+  - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
+
+### If you’re using a Mac
+  - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
+
+### If you're using a Windows PC:
+  - In the "flash window" from the Download Image instructions above, run `flashall.bat`
+
+### All platforms:
+  - The flashall script will ask you to reboot the Edison. Go back to your console window and type `reboot`. Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
+  - It will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
+  - After flashing is complete and the Edison begins rebooting, watch the console: you may get asked to type `control-D` to continue after one or more reboots. If so, press `Ctrl-d` to allow it to continue. 
+  - After several more reboots (just about when you'll start to get concerned that it is stuck in a loop), you should get a login prompt.  If so, congratulations! You’re Edison is flashed. The default password is `edison`.
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS#troubleshooting)
 
 
-## Initial Setup
+## Initial Edison Setup
 
 Log in as root/edison via serial console.
 
-    echo FIXME-thehostname-you-want > /etc/hostname
+Type/edit the following:
 
-    nano /etc/hosts
-        - add the host name you chose to the end of the first line 
-        - old: 127.0.0.1	localhost
-        - new: 127.0.0.1	localhost FIXME-thehostname-you-want
+    myedisonhostname=<thehostname-you-want>
+
+And then paste the following to rename your Edison accordingly:
+
+    echo $myedisonhostname > /etc/hostname
+    sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
+
+Run these commands to set secure passwords:
+
+    passwd root
+    passwd edison
   
-    nano /etc/network/interfaces
-        - Uncomment 'auto wlan0'
-        - Set wpa-ssid to your wifi network name
-        - Set wpa-psk to the password for your wifi network
+## Multiple Wifi Networks:
 
-    passwd root       # set a secure password
-    passwd edison     # set a secure password
+`vi /etc/network/interfaces`
 
-    sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old ubilinux repositories
+Type 'i' to get into INSERT mode
+* Uncomment 'auto wlan0'
+* Edit the next two lines to read:
+```
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+Comment out or delete the wpa-ssid and wpa-psk lines.
 
-    reboot      # to set hostname and configure wifi
+Press Esc and then type ':wq' and press Enter to write the file and quit
 
-If you want to connect to more than one wifi network, then after rebooting and logging in via ssh, you'll want to follow one of these guides to set the WPA Supplicant process to connect to multiple access points:
+`vi /etc/wpa_supplicant/wpa_supplicant.conf`
+
+Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
+
+```
+network={
+    ssid="my network"
+    psk="my wifi password"
+}
+```
+Press Esc and then type ':wq' and press Enter to write the file and quit
+
+Run `ifup wlan0` to make sure you can connect to wifi
+
+`reboot` so you can connect via ssh
+
+If you need more details on setting up wpa-supplicant, see one of these guides:
 
 http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
 
@@ -85,22 +152,101 @@ http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-
 
 ## Install packages, ssh keys, and other settings
 
-Log in as root (with the password you just set above)
+From a new terminal or PuTTY window, `ssh myedisonhostname.local`.
+
+Log in as root (with the password you just set above), and run:
 
     dpkg -P nodejs nodejs-dev
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
+
+Then:
+
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+    
+And:
+
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
 
-Log out, and log back in as edison (with the password you just set above), unless you're using an Explorer board (in which case you'll need to run everything that follows as root for libmraa to work right)
+Edit (with `nano` or `vi`) /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
-Next, copy your ssh key to the edison if appropriate (directions you can adapt are here: http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux), and run 'reboot' to upgrade your kernels and clear out logged in sessions and IDs
+If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
-* Edit /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the edison (directions you can adapt are here: http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux)
 
-Then you're done!
+If you're *not* using the Explorer board, are running as the `edison` users, and want to be able to run sudo without typing a password, run:
+```
+    $ su -
+    $ visudo
+```    
+and add to the end of the file:
+``` 
+ edison ALL=(ALL) NOPASSWD: ALL   
+```    
+
+You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
+
+## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 12-17-2016 
+
+The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
+
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
+
+First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
+
+```
+$ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+
+```
+
+You will need to get the Mac address from your phone or whatever device you are using. on the 
+Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
+iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
+
+when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
+
+```
+cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
+```
+
+The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
+Once you are installed and running. 
+
+To configure a connection from the command line -
+
+`sudo bluetoothctl`
+
+Enter the following commands to bring up the adapter and make it discoverable -
+
+```
+power on
+discoverable on
+agent on
+default-agent
+```
+
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+Execute the paired-devices command to list the paired devices -
+
+```
+paired-devices
+Device AA:BB:CC:DD:EE:FF Samsung S7
+```
+
+Your paired phone should be listed (in this example, a Samsung Galaxy S7). Copy the bluetooth address listed for it; we will need to provide this later.
+
+Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device's bluetooth address (which we copied previously) and hit <tab> to complete the address.
+
+NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+
+`trust AA:BB:CC:DD:EE:FF`
+
+Quit bluetoothctl with 'quit'.
+
+This has been tested with a Samsung S7, and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
+
 
 ## Troubleshooting
 
@@ -128,6 +274,8 @@ d) If you get an error that says "Ready to receive application" on the Edison th
 
 e) If Edison reboots correctly but never gets picked up by the flashall.sh script and the flashing process does not start, check the Edison device ID. It will probably come out automatically after the flashall.sh script fails with a list of available devices connected to the machine. On Linux, you can run lsusb to get a list of usb devices with their device ID. If the device ID is different from the one expected on flashall.sh, you can edit the script and change lines containing: USB_VID=8087 & USB_PID=0a99 to whatever the Edison has for an ID. Some users have encountered their devices ID to be 8087:0a9e
 
+f) If you've attempted all of the troubleshooting steps above but still aren't successful, it's worth trying to use a different computer to flash.
+
 ### Troubleshooting rescue mode
 
 * If your edison boots to a console and says it is in rescue mode (you can hit ctrl-d to continue or enter the root password), you may need to change a u-boot environment variable to make it boot normally.   During the boot process you will see:
@@ -154,6 +302,36 @@ then type:
 `saveenv`  
 3. And to exit that firmware u-boot prompt:  
 `run do_boot`
+
+* If this doesn't fix the problem, and your boot gets stuck here:
+```
+[  OK  ] Mounted /home.
+
+         Starting Rescue Shell...
+
+[  OK  ] Started Rescue Shell.
+
+[  OK  ] Reached target Rescue Mode.
+```
+You may have an issue with the flashall.sh script. (This seems to only impact mac users). 
+In the "flash window" terminal where you downloaded Jubilinux
+
+1. Edit the flashall script  
+`nano flashall.sh`
+2. Find the following text (around line 220) Your text may vary slightly, with additional echo statements or such  
+```
+echo "Flashing U-Boot Environment Backup and rebooting to apply partiton changes"
+    flash-command --alt u-boot-env1 -D "${VARIANT_FILE}" -R
+
+    dfu-wait
+```
+3. Modify this line to remove the -R and the dfu-wait command   
+```
+echo "Flashing U-Boot Environment Backup and rebooting to apply partiton changes"
+    flash-command --alt u-boot-env1 -D "${VARIANT_FILE}" 
+```
+4. Reboot one last time - install should take a good deal longer than previous executions.  
+
 
 ### Override DNS resolvers
 
