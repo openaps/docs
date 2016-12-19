@@ -9,7 +9,6 @@ Walkthrough
    phase-2/index
    phase-3/index
    phase-4/index
-   phase-5/index
-   phase-6/index
+   manual/index
 
 
