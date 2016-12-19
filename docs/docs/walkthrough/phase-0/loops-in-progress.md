@@ -1,6 +1,6 @@
 # Loops In Progress
 
-To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. This way we know how many people are in the development phase, too.
+To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. 
 
 New to Github, and PRs? [Check out how to submit your first PR](../../../../docs/docs/Resources/my-first-pr.md).
 
@@ -77,6 +77,35 @@ List of people who are working on closed loops:
 - Tony Zarro (Atlanta, GA)
 - Mike Wright (San Jose, CA)
 - Derek Rodeback (Loma Linda, CA)
+- Joanne Spotten (SLC, UT)
 - Sandra Keßler (Kassel, Germany)
 - Lukas Ondriga (Svaty Jur, Slovakia)
 - Dominic Herrington (Bishops Stortford, UK)
+- Taylor Fowler (Brooklyn, NY)
+- Mikel Curry
+- Aditya Dasnurkar
+- Jason Wittmer for Andrew (Clive, IA)
+- Kevin Ruess Marshall (Indianapolis, USA)
+- Keith Kubischta (Poway, CA)
+- Emily Kranz (Greensboro, NC)
+- Orla Wilson (Baltimore)
+- Jason Pell for Heidi and Mallory (New York, NY)
+- Patrick van Gestel (Hilvarenbeek, Netherlands)
+- Joe Moran (Los Altos, CA)
+- John & Gregory Kelleher (Sligo, Ireland)
+- Carine Bruyndoncx (Arendonk, Belgium)
+- Jordan Berger (SLC, UT)
+- James Henley (Friendswood, TX)
+- Amy Andrews (Boston, MA)
+- Ann Delano (Seattle, WA)
+- Marcus Whitley (Greenbrier, AR)
+- Trevor Wood (Santaquin, UT)
+- Anne Svejda (Virginia Beach, VA)
+- Jeff Kramer for Hannah (Clive, IA)
+- Melody Andrews-Caron (Ontario, Canada)
+- Andy Sharrow (Saginaw, MI)
+- John Benjamin (Clawson, MI)
+- Vince P. for Tristan (Ravenna, OH)
+- Anthony Cerrone (Danville, CA)
+- Rachel Aumaugher (Davison, MI)
+- Joe Greene (Jacksonville, NC)

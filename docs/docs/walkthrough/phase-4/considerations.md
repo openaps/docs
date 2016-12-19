@@ -1,3 +1,10 @@
-# Phase 4: Starting to Close the Loop
+# Phase 4: Iterating on Your Closed Loop
 
-Phase 4 focuses on creating a schedule to automate the manual system you developed. Again, at this stage testing is critical and output of the system should be tracked and validated over a series of time, and include thorough edge case testing as you move from communicating with the pump and CGM to closing the loop. Don't test overnight until you are supremely confident in the operation of your system - remembering that you hold responsibility for the setup and operation of your system. You may want to have someone nearby the first time you run the system overnight, in addition to setting alarms to test and watch the system.
+Now that you're looping, congrats! Make sure you follow these steps - you're not done yet. You'll want to let us know that you are looping, and continue testing.
+
+You in particular may want to test over a 24 hour period in the course of 3 days (doesn't have to be consecutive) to see what the system does when you do meal boluses with the system on, if you are interested in looping during the day.
+
+Watching the system over long periods of time will help you continue to tweak how you bolus for meals and adjust baseline basals.
+
+At this point, you can also investigate some of the in-development advanced features, like meal-assist and auto-sensitivity adjustment. You can also explore some of the hardware pieces in progress, as noted on the hardware page.
+

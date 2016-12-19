@@ -10,7 +10,7 @@ There are several ways to communicate with other participants and contributors i
 * The [nightscout/intend-to-bolus]( https://gitter.im/nightscout/intend-to-bolus) channel is where you will find active #OpenAPS discussions ranging from technical issues with openaps tools to control theory to general information. It is a great place to introduce yourself and get some help from those who are a few steps further down the road.
 * For TI stick communication, use the [oskarpearson/mmeowlink channel](https://gitter.im/oskarpearson/mmeowlink)
 * For RileyLink conversations, use the [ps2/rileylink channel](https://gitter.im/ps2/rileylink)
-* For LoopKit conversations, use the [loudnate/LoopKit channel](https://gitter.im/loudnate/loopkit)
+* For LoopKit conversations, use the [LoopKit/Loop channel](https://gitter.im/LoopKit/Loop)
 
 ### Google Groups
 A private google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev). Request access to participate and see some of the archived discussions. If you're new, make sure to introduce yourself!
