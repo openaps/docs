@@ -106,7 +106,7 @@ should also show up in the list, and you may check the box to enable. You
 should now see the OpenAPS pill box (and any optional pump monitoring pill
 boxes) on the left side of the Nightscout page near the time. 
 
-Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen.  If this happens, simply use this pump in tandem with a CGM so glucose value are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
+Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
 
 ## How to display basal changes ("render basal")
 
