@@ -10,7 +10,9 @@ Cron is the scheduler that runs the loop. I.e. this is the automation feature to
 
 If you're troubleshooting and looking to use `openaps` manually, cron must be momentarly disabled to free access to local resources.  To check if cron is running use `crontab -e` or `crontab -l`.  If you see a file filled with content, chances are cron is enabled.
 
-To stop cron'd jobs and enter an openaps command:  `killall -g openaps; openaps <whatever>` OR `sudo service cron stop`
+To stop cron'd jobs and enter an openaps command:  `killall -g openaps; openaps <whatever>` 
+
+If you'd like to run multiple commands without having to do `killall -g openaps; ` before each one, you can run `sudo service cron stop` first.
 <br>
 To start cron: `sudo service cron start`
 
