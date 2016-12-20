@@ -20,7 +20,8 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Windows PC:
 
-  -  Go to System Properties, under Performance click on `Settings`.
+  -  To find the System Properties window go to (Control Panel > All Control Panel Items > System) page. At top left select "Remote settings".
+  -  Select the "Advanced" tab in System Properties window, under Performance click on `Settings`.
   -  Select `Advanced` and click on `Change...` to change the page size.
   -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
   - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
