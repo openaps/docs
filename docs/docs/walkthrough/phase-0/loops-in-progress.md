@@ -109,3 +109,4 @@ List of people who are working on closed loops:
 - Anthony Cerrone (Danville, CA)
 - Rachel Aumaugher (Davison, MI)
 - Joe Greene (Jacksonville, NC)
+- Sebastien Lussier (Montreal, Canada)
