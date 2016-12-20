@@ -26,7 +26,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   2.  Select `Advanced` and click on `Change...` to change the page size.
   3.  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size  and  Maximum size to **1024** and **2048** and reboot.
   4. If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
-     Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit):
+     Run the executable "Windows Stand Alone" located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) This will install usb drivers and Intel's latest ubilinux. We will next flash Jubilinux so the security and wifi if installed will be erased. Be sure to select the version appropriate for your Windows OS (64bit or 32bit):
 
 ### If you're using a Mac:
 
