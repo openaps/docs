@@ -41,10 +41,10 @@ to your OpenAPS implementation.
 
 ### Nightscout Setup
 
-OpenAPS requires the latest (currently dev) version of Nightscout, which can be
+OpenAPS requires you to be on the Grilled Cheese master of Nightscout or any future dev versions, which can be
 found [here](https://github.com/nightscout/cgm-remote-monitor/tree/dev). If you
-are already using Nightscout you might have to update your repository. To update
-your version, go to the
+are already using Nightscout, you may have to do a pull request (PR) to update the master branch in your repository. To update
+your version to the latest dev, go to the
 [Beta Test tool](http://nightscout.github.io/pages/test-beta/?branch=dev), look
 for the "I'm ready" button, and create a PR to your dev branch. Once you have
 completed these steps, log on to Heroku or Azure and disconnect the deployment
