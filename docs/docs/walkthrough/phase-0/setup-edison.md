@@ -200,6 +200,12 @@ $ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.gi
 
 ```
 
+due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
+
+```
+cd ~/src/oref0/ && npm run global-instal
+```
+
 You will need to get the Mac address from your phone or whatever device you are using. on the 
 Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
 iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
@@ -212,6 +218,12 @@ cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
 
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
 Once you are installed and running. 
+
+note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
+
+```
+sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
+```
 
 To configure a connection from the command line -
 
