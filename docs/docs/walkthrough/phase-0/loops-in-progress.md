@@ -110,3 +110,4 @@ List of people who are working on closed loops:
 - Rachel Aumaugher (Davison, MI)
 - Joe Greene (Jacksonville, NC)
 - Sebastien Lussier (Montreal, Canada)
+- Chris Harris (Sydney, Australia)
