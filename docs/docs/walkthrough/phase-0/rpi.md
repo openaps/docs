@@ -104,6 +104,8 @@ You will also want to edit `/etc/network/interfaces` to change the following lin
 
 To accomplish this input `sudo nano /etc/network/interfaces` and change `manual` to `dhcp` on the line that has `iface wlan0 inet`
 
+#---- Perhaps some more detail here about /etc/network/interfaces AND /etc/wpa_supplicant/wpa_supplicant.conf. What would the file look like and why you change from "manual" to "dhcp". A bit more description on the difference between the simple configuration and the multiple wifi point configuration. Something like this: "The interfaces file (which has no extension) dictates how the system connects to the internet ... Be sure of any changes you make to this file, if you make a mistake, --possible consequences--. Make sure you don't have more than one "iface wlan0 inet dhcp" lines. The wpa_supplicant.conf is the configuration file used by interfaces to pull wifi connection credentials from. Examples of both files:
+
 If you are not familiar with nano (the text editor) you may want to check out [this tutorial](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
 
 You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
