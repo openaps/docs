@@ -104,6 +104,8 @@ You will also want to edit `/etc/network/interfaces` to change the following lin
 
 To accomplish this input `sudo nano /etc/network/interfaces` and change `manual` to `dhcp` on the line that has `iface wlan0 inet`
 
+The `dhcp` tells the ifup process to configure the interface to expect some type of dhcp server on the other end, and use that to configure the IP/Netmask, Gateway, and DNS addresses on your Pi. The `manual` indicates to the ifup process that that interface is not to be configured at all. For further reading on the `interfaces` and `wpa_supplicant.conf` files, type `man 5 interfaces` or `man 5 wpa_supplicant` when logged into your Pi.
+
 If you are not familiar with nano (the text editor) you may want to check out [this tutorial](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
 
 You can now skip to [Test SSH Access](#test-ssh-access) and SSH into your RPi2.
@@ -273,7 +275,7 @@ Finally, start watchdog by entering:
 
 **Note:** The init system which handles processes going forward in most Linux systems is systemd. Rc.d may be depreciated in the future, so it may be best to use systemd here. Unfortunately, the watchdog package in Raspbian Jessie(as of 12/10/2016) does not properly handle the systemd unit file. To fix it, do the following:
 		
-`sudo echo "WantedBy=multi-user.target" >> /lib/systemd/system/watchdog.service`
+`echo "WantedBy=multi-user.target" | sudo tee --append /lib/systemd/system/watchdog.service > /dev/null`
 		
 this should place it in the service file under the [Install] heading.
 		
