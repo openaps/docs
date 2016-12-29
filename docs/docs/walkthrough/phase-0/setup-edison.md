@@ -203,7 +203,7 @@ $ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.gi
 due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
 
 ```
-cd ~/src/oref0/ && npm run global-instal
+cd ~/src/oref0/ && npm run global-install
 ```
 
 You will need to get the Mac address from your phone or whatever device you are using. on the 
