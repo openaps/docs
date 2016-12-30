@@ -10,9 +10,10 @@ Like all features and steps, you'll want to carefully enable, test, and observe 
 
 With AMA, once you enable forecast display in your Nightscout configuration (see the Nightscout documentation for the correct variables to set) you will have 3 purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
 
-* Top line == based on current carb absorption and most accurate right after eating carbs
 
-* Middle line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption and most accurate the rest of the time
+* Top line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption 
+
+* Middle line == based on current carb absorption 
 
 * Bottom line == based on insulin only
 
