@@ -217,7 +217,7 @@ cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
 ```
 
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
-Once you are installed and running. 
+Once you are installed and running. it may fail after installing the Bluez, just reboot your edison and run the above command again. 
 
 note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
 
