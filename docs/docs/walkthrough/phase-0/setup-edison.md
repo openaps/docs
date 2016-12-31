@@ -291,7 +291,7 @@ then
 ```
 sudo bt-pan client AA:BB:CC:DD:EE:FF
 ```
-or you can comment out your home wifi in nano /etc/wpa_supplicant/wpa_supplicant.conf (if you are using wpa_supplicant, then reboot and run
+or, if you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot and run
 ```
 oref0-online AA:BB:CC:DD:EE:FF
 ```
