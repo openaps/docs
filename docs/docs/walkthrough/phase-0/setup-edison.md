@@ -217,7 +217,7 @@ cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
 ```
 
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
-Once you are installed and running. 
+Once you are installed and running. it may fail after installing the Bluez, just reboot your edison and run the above command again. 
 
 note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
 
@@ -238,7 +238,33 @@ agent on
 default-agent
 ```
 
+For Android
+********************************
 The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+For iPhone
+********************************
+you must use the edison to initiate pairing
+```
+scan on
+```
+you should see shortly 
+`[NEW] Device AA:BB:CC:DD:EE:FF yourname iPhone`
+
+start the Pairing
+
+```
+pair AA:BB:CC:DD:EE:FF
+```
+
+you will see on the edison
+
+`Request confirmation
+[agent] Confirm passkey 123456 (yes/no): yes`
+
+You must type in **yes** not just **y** to pair
+Then on your iPhone you can hit the pair button that popped up.
+********************************
 
 Execute the paired-devices command to list the paired devices -
 
@@ -257,7 +283,22 @@ NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide,
 
 Quit bluetoothctl with 'quit'.
 
-This has been tested with a Samsung S7, and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
+if you are still on your home wifi you can test to see if you can pair by running
+```
+sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
+```
+then
+```
+sudo bt-pan client AA:BB:CC:DD:EE:FF
+```
+or, if you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot and run
+```
+oref0-online AA:BB:CC:DD:EE:FF
+```
+
+
+
+This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
 
 
 ## Troubleshooting
