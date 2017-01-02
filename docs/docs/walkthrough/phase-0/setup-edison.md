@@ -187,7 +187,7 @@ and add to the end of the file:
 
 You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
 
-## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 12-17-2016 
+## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 1-1-2017 
 
 The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
 
@@ -223,48 +223,43 @@ note if you have rebooted the board (which you will have to on an Explorer board
 
 ```
 sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
-```
 
-To configure a connection from the command line -
+sudo hciconfig hci0 name $HOSTNAME
 
-`sudo bluetoothctl`
+bluetoothctl
 
-Enter the following commands to bring up the adapter and make it discoverable -
+power off
 
-```
 power on
+
 discoverable on
+
 agent on
+
 default-agent
 ```
 
 For Android
 ********************************
-The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. Instead, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. 
 
 For iPhone
 ********************************
 you must use the edison to initiate pairing
 ```
-scan on
-```
-you should see shortly 
-`[NEW] Device AA:BB:CC:DD:EE:FF yourname iPhone`
-
-start the Pairing
-
-```
 pair AA:BB:CC:DD:EE:FF
 ```
-
+********************************
 you will see on the edison
 
 `Request confirmation
 [agent] Confirm passkey 123456 (yes/no): yes`
 
 You must type in **yes** not just **y** to pair
-Then on your iPhone you can hit the pair button that popped up.
-********************************
+
+After, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
+
+Then on your phone you can hit the pair button that popped up.
 
 Execute the paired-devices command to list the paired devices -
 
@@ -275,28 +270,27 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 
 Your paired phone should be listed (in this example, a Samsung Galaxy S7). Copy the bluetooth address listed for it; we will need to provide this later.
 
-Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device's bluetooth address (which we copied previously) and hit <tab> to complete the address.
-
-NOTE: Whenever you see 'AA:BB:CC:DD:EE:FF' or 'AA_BB_CC_DD_EE_FF' in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+Now trust the mobile device 
 
 `trust AA:BB:CC:DD:EE:FF`
 
 Quit bluetoothctl with 'quit'.
 
-if you are still on your home wifi you can test to see if you can pair by running
+******************************
+**For Testing**
+Option 1 - If you are still on your home wifi you can test to see if you can pair by running (this only works with the Android)
 ```
 sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
+
+sudo hciconfig hci0 name $HOSTNAME
 ```
 then
 ```
 sudo bt-pan client AA:BB:CC:DD:EE:FF
 ```
-or, if you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot and run
-```
-oref0-online AA:BB:CC:DD:EE:FF
-```
+Option 2 - If you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot. (takes about 1 min after reboot for the Bluetooth Network to connect)
 
-
+Option 3 - Take a walk, and as soon as you are out of range of your wifi, you should see that a device is connected to your personal network. Shortly after that you will see things update on nightscout.
 
 This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
 
