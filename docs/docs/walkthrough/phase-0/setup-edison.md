@@ -59,10 +59,19 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
+  - Unplug both cables. We will plug them in at a specific point in the instructions below.   
+  - Use windows "file explorer" to move two files "dfu-util.exe" and "libusb-1.0.dll" from "dfu-util-0.8-binaries/win32-mingw32/ to "toFlash/". You may have been asked to name this directory during extraction or download. To identify it look inside and it will have the "u-boot-envs" directory. Change the name now to avoid confusion to "toFlash".
+  - Open command prompt window and change disk and directory to the "toFlash" directory.
+  - At command prompt type and return "flashall.bat". Then plug in your best usb cable within the first minute to the connector labeled "UART". I used a usb3.0 cable with a usb2.0 adapter from AM to micro.
+  - When that program completes its run the edison will start rebooting. Let it reboot two or more times before shutting it off.
+  - Plug an AM to micro usb data cable to the connector labeled "OTG". An "OTG" cable is not used.
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. You may have seen edison ports before this point but they are gone now. 
+  - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
+  - Make sure you change the Speed(baudrate) from 9600 to 115200. 
   - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
   - Make sure you change the Speed(baudrate) from 9600 to 115200. 
   - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
+  - If this works and you see a login prompt than the edison has rebooted twice and you may safely shut it off. The default password is "edison".
 
 ### If you're using a Mac:
   - Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
