@@ -12,7 +12,7 @@ You can use any charger with a USB plug, including a wall power charger. The Exp
 
 ## Explorer Board or another base board 
 
-You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. Or, purchase the [Explorer Board](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It will begin shipping in November 2016 and is going to be the main board supported by the docs moving forward. It also has the benefits of a built-in radio stick.
+You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. Or, purchase the [Explorer Board](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It is going to be the main board supported by the docs moving forward. It also has the benefits of a built-in radio stick.
 
 ## Radio stick
 
