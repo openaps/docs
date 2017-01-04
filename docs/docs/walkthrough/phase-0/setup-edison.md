@@ -65,7 +65,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
 
 ### If you're using a Mac:
-  - Open a terminal window and type `sudo screen tty.usbserial-* 115200` or similar.
+  - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` or similar.
   
 ### All platforms:
   - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
