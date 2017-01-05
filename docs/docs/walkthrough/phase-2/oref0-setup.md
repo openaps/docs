@@ -2,7 +2,7 @@
 
 We've created an oref0-setup.sh script that can help set up a complete working loop configuration from scratch in just a few minutes. This is in pursuit of our community goal to simplify the technical aspects of setting up a DIY closed loop - while still emphasizing that this is a DIY project that you have personal responsibility for. We also want to encourage you to spend more time and energy exploring whether the algorithm you choose to use is doing what you want it to do and that it aligns with how you might manually choose to take action.
 
-Take all thre steps: 0.)Install dependencies, 1.)pull/clone oref0, 2.)setup oref0. 
+Take all three steps: 0.)Install dependencies, 1.)pull/clone oref0, 2.)setup oref0. 
 
 ## Step 0: Dependencies
 
