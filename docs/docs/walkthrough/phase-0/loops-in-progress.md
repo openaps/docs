@@ -112,3 +112,4 @@ List of people who are working on closed loops:
 - Sebastien Lussier (Montreal, Canada)
 - Chris Harris (Sydney, Australia)
 - Lee Skelton (London, UK)
+- Jacqueline Burke (Troy, MI / Baltimore, MD)
