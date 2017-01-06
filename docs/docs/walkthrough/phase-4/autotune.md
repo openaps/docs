@@ -39,13 +39,9 @@ Autotune is currently being tested by a few users on the command line. There has
 
 How to run it:
 
-Collect data:
-```
-curl "$NIGHTSCOUT_HOST/api/v1/treatments.json?find\[created_at\]\[\$gte\]=`date -d 2016-12-01 -Iminutes`" > ns-treatments.json
+Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--runs=number_of_runs] [--xlsx=autotune.xlsx]`
 
-for i in `seq 2 25`; do j=$((i+1)); curl "$NIGHTSCOUT_HOST/api/v1/entries/sgv.json?find\[date\]\[\$gte\]=`(date -d 2016-12-$i +%s | tr -d '\n'; echo 000)`&find\[date\]\[\$lte\]=`(date -d 2016-12-$j +%s | tr -d '\n'; echo 000)`&count=1000" > ~/ns-entries.2016-12-$i.json; done
-```
-Set up testprofile.json.  My too-sensitive one looked like:
+If you're running this on a computer that doesn't have a myopenaps_directory, you can point it at a directory with a settings/pumpprofile.json file.  An example of a too-sensitive one would be:
 ```
 {
   "max_iob": 4,
@@ -91,15 +87,6 @@ Set up testprofile.json.  My too-sensitive one looked like:
   },
   "carb_ratio": 1000
 }
-```
-Run test (overnight):
-```
-rm profile.[1-9].json; cp testprofile.json profile.json; for run in `seq 1 9`; do cp profile.json profile.$run.json; for i in `seq 2 24`; do ~/src/oref0/bin/oref0-autotune-prep.js ns-treatments.json profile.json ns-entries.2016-12-$i.json > autotune.2016-12-$i.json; ~/src/oref0/bin/oref0-autotune.js autotune.2016-12-$i.json profile.json > newprofile.2016-12-$i.json; cp newprofile.2016-12-$i.json profile.json; done; done
-```
-
-Display results (in another tab while test is running):
-```
-while(true); do (for type in csf carb_ratio isfProfile.sensitivities[0].sensitivity; do ( echo $type | awk -F \. '{print $1}'; for i in `seq 1 9`; do cat profile.$i.json | json $type; done; cat profile.json | json $type) | while read line; do echo -n "$line "; done; echo;  done; for j in `seq 0 23`; do ( echo $j; for i in `seq 1 9`; do cat profile.$i.json | json basalprofile[$j].rate ; done; cat profile.json | json basalprofile[$j].rate ) | while read line; do echo -n "$line "; done; echo;  done ) 2>/dev/null | column -t; date; done
 ```
 
 If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).
