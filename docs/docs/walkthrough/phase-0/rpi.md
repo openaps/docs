@@ -232,6 +232,14 @@ Instead of appending it to the list of authorized keys, you may simply copy your
 
 Finally, `ssh pi@raspberrypi.local` (on your local computer) to make sure you can log in without a password.
 
+## Mandatory return here after loop is running
+
+The CareLink stick becomes dissabled. This occurs for no apparant reason. We have developed an additional line of code for the CareLink stick. This must be written in manually after all the other software installation has completed. Without this addition you would simply reboot RPi when it stops running. You do that with `sudo shutdown -h now`, unplug and replug the RPi.
+
+Run `openaps alias add preflight '! bash -c "rm -f monitor/clock.json && echo -n \"PREFLIGHT \" && openaps report invoke monitor/clock.json 2>/dev/null >/dev/null && grep -q T monitor/clock.json && echo OK || ( ( mm-stick warmup 2>&1 || sudo oref0-reset-usb ) | egrep -v \"^  \"; echo FAIL; openaps get-bg; sleep 120; exit 1 )"' || die "Can't add preflight"` to add an alias to the alias section of openaps.ini. Run `crontab -e`. Change * * * * * cd /home/pi/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop  ) 2>&1 | tee -a /var/log/openaps/pump-loop.log to `* * * * * cd /home/pi/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps preflight && openaps pump-loop  ) 2>&1 | tee -a /var/log/openaps/pump-loop.log`
+
+Now in pump-loop.log you will see the PREFLIGHT line before the Starting pump-loop line.
+
 ## Wifi reliability tweaks [optional]
 
 Many people have reported power issues with the 8192cu wireless chip found in many wifi adapters when used with the Raspberry Pi.  As a workaround, we can disable the power management features (which this chip doesn't have anyway) as follows:
