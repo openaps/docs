@@ -12,6 +12,40 @@ A good rule of thumb is for max iob to be no more than 3 times your highest basa
 
 (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
 
+## Understanding your preferences.json
+
+The settings specific to OpenAPS are what is in this file, so when running the setup scripts or building your loop, you will have the preferences.json file built for the system to read, in addition to your pump profile settings. Many of these are important safety settings, with reasonable default settings, so other than described below, you likely won’t need to adjust these. If you do decide to adjust a setting, the best practice is to adjust one setting at a time, and observe the impact for 3 days. Changing multiple variables at once is a recipe for a lot of headaches and a lot of painful troubleshooting. 
+
+Note: the “max basal” rate is the one safety setting that you set in your pump. It should not be confused with “max daily” or “max current” as described below. The system will use whichever of these three values is the lowest as the ceiling for the temps it will set. So, if your pump’s max basal is 1.0u, but your 3x and 4x multipliers would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
+
+{
+	"max_iob": 0,
+	"type": "current",
+	"max_daily_safety_multiplier": 3,
+	"current_basal_safety_multiplier": 4,
+	"autosens_max": 1.2,
+	"autosens_min": 0.7,
+	"autosens_adjust_targets": true,
+	"override_high_target_with_low": false,
+	"skip_neutral_temps": false,
+	"bolussnooze_dia_divisor": 2,
+	"min_5m_carbimpact": 3,
+	"carbratio_adjustmentratio": 1
+}
+
+* **Max IOB**: This will default to zero. After several days or weeks, depending on your comfort level, you may choose to adjust this number. (Remember in the future if you re-run the setup scripts, it will default back to zero so you will come in here to adjust the max iob, as it is an OpenAPS-specific setting).
+* **max_daily_safety_multiplier**: This is a key OpenAPS safety cap. What this does is limit your basals to be 3x (in this example, which is the default and works for most people) your biggest basal rate. You likely will not need to change this, but you should be aware that’s what is discussed about “3x max daily; 4x current” for safety caps. 
+* **current_basal_safety_multiplier**: This is the other half of the key OpenAPS safety caps, and the other half of “3x max daily; 4x current” of the safety caps. This means your basal, regardless of max basal set on your pump, cannot be any higher than this number times the current level of your basal. This is to prevent people from getting into dangerous territory by setting excessively high max basals before understanding how the algorithm works. Again, the default is 4x; most people will never need to adjust this and are instead more likely to need to adjust other settings if they feel like they are “running into” this safety cap. 
+* **autosens_max**:This is a multiplier cap for autosens (and in the future, autotune) to set a 20% max limit on the adjustments it can make to adjusting ISF and basals up.
+* **autosens_min**: The other side of the autosens safety limits, putting a cap on how low ISF and basals can be adjusted down.
+* **autosens_adjust_targets**: This is used to turn on autosens and allow it to adjust BG targets, in addition to ISF and basals.
+* **override_high_target_with_low**: Defaults to false, but can be turned on if you have a situation where you want someone (a school caregiver, for example) to use the bolus wizard for meal boluses. If set to “True”, then the bolus wizard will calculate boluses with the high end of the BG target, but OpenAPS will target the low end of that range. So if you  have a target range of 100-120; and set this to true; bolus wizard will adjust to 120 and the loop will target 100. If you have this on, you probably also want a wide range target, rather than a narrow (i.e. 100-100) target.
+* **skip_neutral_temps**: Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
+* **bolussnooze_dia_divisor**: Bolus snooze is enacted after you do a meal bolus, so the loop won’t counteract with low temps when you’ve just eaten. The example here and default is 2; so a 3 hour DIA means that bolus snooze will be enacted for 1.5 hours (3DIA/2). 
+* **min_5m_carbimpact**: This is a setting for default carb absorption impact per 5 minutes. The default is an expected 3mg/dl/5min. 
+* **carbratio_adjustmentratio**: This is another safety setting that may be useful for those with secondary caregivers who aren’t dedicated to looking up net IOB and being aware of the status of the closed loop system. The default is 1 (i.e. do not adjust the carb ratio; off). However, in the secondary caregiver situation you may want to set a higher carb ratio to reduce the size of a manual bolus given at any time. With this ratio set to 1.1, for example, the loop would multiple the carb inputs by 10%, and use that number to calculate additional insulin. 
+
+
 ## Editing your preferences.json
 
 To change your max iob in your preferences.json file:
