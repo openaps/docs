@@ -195,6 +195,10 @@ Bluetooth tethering on the iPhone: Ask your service provider for the "hotspot" f
 
 The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
 
+Running this code will install all of the dependencies for you automatically:
+
+curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
+
 First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
 
 ```
