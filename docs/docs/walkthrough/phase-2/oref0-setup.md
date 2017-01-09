@@ -55,7 +55,9 @@ to run the script interactively, or get usage guidelines for providing inputs as
 **Be prepared to enter the following items:** 
 * Directory name for your openaps
 * serial number of your pump
-* the mmeowlink port if using it (/dev/spidev5.1 if using explorer board, see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options)
+* the mmeowlink port:
+    -(/dev/spidev5.1 if using explorer board)
+    -see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options)
 * how you are getting cgm data and cgm serial numbers if needed
 * nightscout host and api-secret if using nightscout 
 * whether you want any of the oref0 advanced implementations
