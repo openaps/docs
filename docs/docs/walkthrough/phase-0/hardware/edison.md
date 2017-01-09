@@ -14,7 +14,7 @@ Use a LiPo battery because the Explorer Board has battery charger circuitry on b
 
 You can use any charger with a USB plug, including a wall power charger. The Explorer Board has pass through charging, so this is also how you will charge the LiPo battery.
 
-The following link is to a LiPo battery that is currentlyn being used with the explorer board rigs.  https://www.adafruit.com/products/2011
+The following link is to a LiPo battery that is currently being used with the explorer board rigs.  https://www.adafruit.com/products/2011
 
 ## Explorer Board or another base board 
 
