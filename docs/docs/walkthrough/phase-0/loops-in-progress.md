@@ -115,3 +115,4 @@ List of people who are working on closed loops:
 - Jacqueline Burke (Troy, MI / Baltimore, MD)
 - Kate Hainsworth (Austin, TX)
 - Brian Rabinovitz (Chapel Hill, NC)
+- Stephen G. (Seattle, WA) 
