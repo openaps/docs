@@ -44,7 +44,7 @@ Pull/clone the latest oref0 master by running:
 
 ## Step 2: Run oref0-setup
 
-__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account.
+__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. Also read below regarding port and other information to enter when running the script.
 
 Run this:
 
