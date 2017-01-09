@@ -329,7 +329,9 @@ If you're having issues with a *Windows* flash of Jubilinux, try following along
 1. [Flash Ubilinux Onto Intel Edison via Windows, 5 Part Video](https://www.youtube.com/watch?v=L57RC8POJzM) (Cygwin)
 2. [uCast #21: Installing Ubilinux on the Edison (Windows)](https://www.youtube.com/watch?v=BSnXjuttSgY&t=16s) (Windows Command Prompt)
 
-g) If you've attempted all of the troubleshooting steps above but still aren't successful, it's worth trying to use a different computer to flash.
+g) If none of the above has worked with the Explorer board, try swapping the two microUSB cables, or replacing them with new ones.
+
+h) If you've attempted all of the troubleshooting steps above but still aren't successful, it's worth trying to use a different computer to flash.
 
 ### Troubleshooting rescue mode
 
