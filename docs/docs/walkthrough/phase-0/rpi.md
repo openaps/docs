@@ -72,8 +72,9 @@ If necessary, you can erase (format) your SD card using https://www.sdcard.org/d
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
 * Finally connect your RPi2 using the power adapter.
 * You should see the GUI appear on screen.
+* As of 12/11/2016 the Raspberry Pi Foundation is disabling SSH by default in Raspbian as a security precaution. To enable SSH from within the GUI, open up the terminal window and type `sudo raspi-config`.  On the configuartion menu that opens, scroll down and choose `Advanced Options` and then navigate to `ssh`, press `Enter` and select `Enable` ssh server.
 * Configure WiFi per the instruction pamphlet included with your CanaKit. For those not using the CanaKit, click the computer monitors next to the volume control in the upper-right side and there will be a drop-down menu of available WiFi networks.  You should see your home network.  If you have trouble connecting to the RPi2 via WiFi, check your router settings. The router may need to be switched from WEP to WPA2.
-* Once you have installed Raspbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable.
+* Once you have installed Raspbian, connected to WiFI, and enabled SSH you can disconnect the mouse, keyboard and HDMI cable.
 
 Remember to keep your RPi2 plugged in, just disconnect the peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
 
@@ -103,6 +104,8 @@ Input your home wifi next: `wpa_passphrase "<my_SSID_home>" "<my_home_network_pa
 You will also want to edit `/etc/network/interfaces` to change the following line from `iface wlan0 inet manual` to `iface wlan0 inet dhcp`
 
 To accomplish this input `sudo nano /etc/network/interfaces` and change `manual` to `dhcp` on the line that has `iface wlan0 inet`
+
+The `dhcp` tells the ifup process to configure the interface to expect some type of dhcp server on the other end, and use that to configure the IP/Netmask, Gateway, and DNS addresses on your Pi. The `manual` indicates to the ifup process that that interface is not to be configured at all. For further reading on the `interfaces` and `wpa_supplicant.conf` files, type `man 5 interfaces` or `man 5 wpa_supplicant` when logged into your Pi.
 
 If you are not familiar with nano (the text editor) you may want to check out [this tutorial](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
 
@@ -273,7 +276,7 @@ Finally, start watchdog by entering:
 
 **Note:** The init system which handles processes going forward in most Linux systems is systemd. Rc.d may be depreciated in the future, so it may be best to use systemd here. Unfortunately, the watchdog package in Raspbian Jessie(as of 12/10/2016) does not properly handle the systemd unit file. To fix it, do the following:
 		
-`sudo echo "WantedBy=multi-user.target" >> /lib/systemd/system/watchdog.service`
+`echo "WantedBy=multi-user.target" | sudo tee --append /lib/systemd/system/watchdog.service > /dev/null`
 		
 this should place it in the service file under the [Install] heading.
 		

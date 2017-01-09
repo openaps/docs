@@ -8,6 +8,16 @@ You won't hurt anything by running the script (step 2) multiple times, as long a
 
 Cron is the scheduler that runs the loop. I.e. this is the automation feature to automate your closed loop. If you're using a test pump, it's pretty safe to go ahead and automate your loop. But if you're not sure, you can always come back and do this later.
 
+If you're troubleshooting and looking to use `openaps` manually, cron must be momentarly disabled to free access to local resources.  To check if cron is running use `crontab -e` or `crontab -l`.  If you see a file filled with content, chances are cron is enabled.
+
+To stop cron'd jobs and enter an openaps command:  `killall -g openaps; openaps <whatever>` 
+
+If you'd like to run multiple commands without having to do `killall -g openaps; ` before each one, you can run `sudo service cron stop` first.
+<br>
+To start cron: `sudo service cron start`
+
+To prevent cron running on initial boot, either clear the `crontab -e` file or "comment out" (`#`) each line of the crontab file.  If you've cleared the crontab file, but would like to enable cron'd tasks, rerun the initial setup script (step 2) and indicate you'd like to use cron.  This will regenerate the configuration.
+
 ## How do I know if it is working?
 
 * Check your pump to see if it is setting temp basals.

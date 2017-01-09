@@ -4,6 +4,10 @@
 
 [Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) - Get it from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider.
 
+Note: There are several different model numbers or variants of the Intel Edison Compute Module. This does not appear to be documented on Intel's website or at many of the online retailers. However, the different variants can be seen in the product listings at [Mouser](http://www.mouser.com/Embedded-Solutions/Computing/_/N-aez39?Keyword=intel+edison) and [Arrow](https://www.arrow.com/en/products/search?q=intel%20edison&filters=Manufacturer_name:Intel;).
+
+It appears as though the main differences pertain to onboard vs. external antenna and low power vs. high power wireless radio options. The low power radio variant is classified by Intel as "Wearable". According to some discussion on the Intel message boards (see [here](https://communities.intel.com/thread/81519) and [here](https://communities.intel.com/message/251806#251806)) the "Wearable" variant limits the wireless radio power to "keep the thermal properties at a lower level". Some users have noted that their Edison modules get very hot at times. Although the discussions referenced above suggest that using the low power "Wearable" variant may help avoid heat issues, the different Edison models have not been tested side-by-side in an OpenAPS configuration to determine whether or not any one model would use lower power, generate less heat, or have better wireless performance compared to the other models.
+
 ## Lipo Battery and/or other battery supply
 
 Use a LiPo battery because the Explorer Board has battery charger circuitry on board for these batteries. The example setup uses a [2000mah LIPO battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html). This battery lasts in the region of ~16+ hours. The connector on this battery is a 2mm 2 pin JST to match the Explorer Board power plug. It's best to buy from a reputable supplier, since they are prone to catching fire. Make sure that it *includes a protection circuit* to protect over-discharge. **NEVER** connect the battery to the Edison base board the wrong way round. Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
@@ -12,7 +16,7 @@ You can use any charger with a USB plug, including a wall power charger. The Exp
 
 ## Explorer Board or another base board 
 
-You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. Or, purchase the [Explorer Board](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It will begin shipping in November 2016 and is going to be the main board supported by the docs moving forward. It also has the benefits of a built-in radio stick.
+You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. Or, purchase the [Explorer Board](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It is going to be the main board supported by the docs moving forward. It also has the benefits of a built-in radio stick.
 
 ## Radio stick
 
@@ -31,6 +35,9 @@ You will likely want to screw your Edison onto the Explorer Board to stabilize t
 There are a few 3D-printed cases that are being designed, so check back here for more links in the future. A few options that we know will work with an Explorer Board/Edison rig and a standard 2000mah battery:
 * [RadioShack Project Enclosure (3x2x1 inch)](https://www.radioshack.com/products/radioshack-project-enclosure-3x2x1?utm_medium=cpc&utm_source=googlepla&variant=20332262405&gclid=Cj0KEQiA-MPCBRCZ0q23tPGm6_8BEiQAgw_bAkpDZCXfIgbEw8bq76VHtV5mLwR2kHKfJrsGsF3uqqgaAtxP8P8HAQ) 
 * [Ken Stack's 3D design for a case with the battery next to the board](https://github.com/Perceptus/explorer_board_case) 
+* [Rob Kresha's design with the battery compartment stacked on-top of the board compartment](http://www.thingiverse.com/thing:2020161)
+* [Gustavo's 3D design](https://github.com/Perceptus/explorer_board_case_2)
+* [Sulka Haro's 3D design](https://www.tinkercad.com/things/4a6VffpcuNt)
 
 # Next steps after you get your hardware
 

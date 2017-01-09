@@ -41,16 +41,15 @@ to your OpenAPS implementation.
 
 ### Nightscout Setup
 
-OpenAPS requires the latest (currently dev) version of Nightscout, which can be
+OpenAPS requires you to be on the Grilled Cheese master of Nightscout or any future dev versions, which can be
 found [here](https://github.com/nightscout/cgm-remote-monitor/tree/dev). If you
-are already using Nightscout you might have to update your repository. To update
-your version, go to the
+are already using Nightscout, you may have to do a pull request (PR) to update the master branch in your repository. To update
+your version to the latest dev, go to the
 [Beta Test tool](http://nightscout.github.io/pages/test-beta/?branch=dev), look
 for the "I'm ready" button, and create a PR to your dev branch. Once you have
 completed these steps, log on to Heroku or Azure and disconnect the deployment
 source. Thereafter choose your cgm-remote-monitor github repository as source
-again. You should take the dev branch of this repository. The dev branch will
-also allow you to use the advanced-meal-assist feature.
+again. 
 _________________________
 **If this doesn't work then from the command prompt in terminal run the
 following:
@@ -107,6 +106,8 @@ should also show up in the list, and you may check the box to enable. You
 should now see the OpenAPS pill box (and any optional pump monitoring pill
 boxes) on the left side of the Nightscout page near the time. 
 
+Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
+
 ## How to display basal changes ("render basal")
 
 We also recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
@@ -138,6 +139,7 @@ minutes: Enacted, Looping, Waiting, and Warning:
 * Warning is when there hasn't been a status upload in the last 15 minutes
 * Enacted means OpenAPS has recently enacted the pump
 * Looping means OpenAPS is running but has not enacted the pump
+* Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
 
 Some things to be aware of:
 
