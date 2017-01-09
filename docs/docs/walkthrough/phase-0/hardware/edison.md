@@ -14,6 +14,8 @@ Use a LiPo battery because the Explorer Board has battery charger circuitry on b
 
 You can use any charger with a USB plug, including a wall power charger. The Explorer Board has pass through charging, so this is also how you will charge the LiPo battery.
 
+The following link is to a LiPo battery that is currentlyn being used with the explorer board rigs.  https://www.adafruit.com/products/2011
+
 ## Explorer Board or another base board 
 
 You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. Or, purchase the [Explorer Board](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It is going to be the main board supported by the docs moving forward. It also has the benefits of a built-in radio stick.
