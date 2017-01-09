@@ -190,9 +190,15 @@ You have now installed the operating system on your Edison! You can now proceed 
 
 ## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 1-1-2017 
 
-The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
+The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering.
+
+Bluetooth tethering on the iPhone: Ask your service provider for the "hotspot" feature. When "hotspot" is enabled on your service plan go to settings. In the first block of options you will see "Personal Hotspot". Select that and turn it on. If you have followed instructions so far you have your network set up to connect to the wi-fi hotspot when the home network is not available. That will be a problem. Open the file `/etc/wpa_supplicant/wpa_supplicant.conf` and comment out the wi-fi hotspot parenthesis, name, password and all. Reboot to take effect this change. 
 
 The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
+
+Running this code will install all of the dependencies for you automatically:
+
+curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
 
 First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
 
@@ -209,7 +215,7 @@ cd ~/src/oref0/ && npm run global-install
 
 You will need to get the Mac address from your phone or whatever device you are using. on the 
 Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
-iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
+iPhone - settings/general/About; the 12th and 13th lines will be wi-fi address and Bluetooth. They will look like AA:BB:CC:DD:EE:FF and be one hexadecimal digit apart. Use Bluetooth.
 
 when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
 
@@ -218,27 +224,13 @@ cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
 ```
 
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
-Once you are installed and running. it may fail after installing the Bluez, just reboot your edison and run the above command again. 
+It may fail after installing the Bluez, just reboot your edison and run the above command again. 
 
-note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
-
-```
-sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
-
-sudo hciconfig hci0 name $HOSTNAME
-
-bluetoothctl
-
-power off
-
-power on
-
-discoverable on
-
-agent on
-
-default-agent
-```
+When successful you will have a command prompt and these commands you will run without error. 
+`sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &`
+`sudo hciconfig hci0 name $HOSTNAME`
+Now in the iPhone with hotspot on navigate to Settings > Bluetooth. Turn on Bluetooth and keep phone open here.
+Next run the bluetoothctl interactive utility with this command: 'bluetoothctl'. When you want to quit the interactive utility tell it you want to `quit`. In the utility run these commands in order: `power off`, `power on`, `discoverable on`, `agent on` `default-agent`, (For iPhone `pair `AA:BB:CC:DD:EE:FF, `connect `AA:BB:CC:DD:EE:FF, `trust `AA:BB:CC:DD:EE:FF.) You will notice that the interactive program will say "discoverable off" after about three minutes of the `discoverable on` command. Just turn it back on. 
 
 For Android
 ********************************
@@ -246,11 +238,10 @@ The adapter is now discoverable for three minutes. Search for bluetooth devices 
 
 For iPhone
 ********************************
-you must use the edison to initiate pairing
-```
-pair AA:BB:CC:DD:EE:FF
-```
+When you see <youredison> that you use to ssh <youredison>.local tap on it. It will stay connected for five seconds. But the name will stay there just like Dexcom does. You can see your iPhone listed on the edison now with `paired-devices`. `quit` and proceed to testing.
 ********************************
+
+For Android
 you will see on the edison
 
 `Request confirmation
@@ -264,16 +255,14 @@ Then on your phone you can hit the pair button that popped up.
 
 Execute the paired-devices command to list the paired devices -
 
-```
-paired-devices
+`paired-devices`
 Device AA:BB:CC:DD:EE:FF Samsung S7
-```
 
 Your paired phone should be listed (in this example, a Samsung Galaxy S7). Copy the bluetooth address listed for it; we will need to provide this later.
 
 Now trust the mobile device 
 
-`trust AA:BB:CC:DD:EE:FF`
+`trust `AA:BB:CC:DD:EE:FF
 
 Quit bluetoothctl with 'quit'.
 
@@ -289,9 +278,9 @@ then
 ```
 sudo bt-pan client AA:BB:CC:DD:EE:FF
 ```
-Option 2 - If you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot. (takes about 1 min after reboot for the Bluetooth Network to connect)
+Option 2 - If you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot. (takes about 1 min after reboot for the Bluetooth Network to connect). If a loop runs then you are tethered.
 
-Option 3 - Take a walk, and as soon as you are out of range of your wifi, you should see that a device is connected to your personal network. Shortly after that you will see things update on nightscout.
+Option 3 - Take a walk, and as soon as you are out of range of your wifi, on Android you should see that a device is connected to your personal network. Shortly after that you will see things update on nightscout. On iPhone you can set a bad temp basal and <youredison> should correct it.
 
 This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
 

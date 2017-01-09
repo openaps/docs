@@ -2,7 +2,7 @@
 
 We've created an oref0-setup.sh script that can help set up a complete working loop configuration from scratch in just a few minutes. This is in pursuit of our community goal to simplify the technical aspects of setting up a DIY closed loop - while still emphasizing that this is a DIY project that you have personal responsibility for. We also want to encourage you to spend more time and energy exploring whether the algorithm you choose to use is doing what you want it to do and that it aligns with how you might manually choose to take action.
 
-Please make sure to complete ALL steps on this page. **If you skip parts of step 0 and step 1, you will run into issues on step 2. **
+Take all three steps: 0.)Install dependencies, 1.)pull/clone oref0, 2.)setup oref0. 
 
 ## Step 0: Dependencies
 
@@ -44,7 +44,7 @@ Pull/clone the latest oref0 master by running:
 
 ## Step 2: Run oref0-setup
 
-__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account.
+__Note:__ If you're using the 915MHz Explorer board, you'll typically log in as root, dependencies and git pulls logged in as edison is fine but for oref0-setup.sh the mraa package doesn't yet support running under an ordinary user account.
 
 Run this:
 
@@ -55,11 +55,13 @@ to run the script interactively, or get usage guidelines for providing inputs as
 **Be prepared to enter the following items:** 
 * Directory name for your openaps
 * serial number of your pump
-* the mmeowlink port if using it (/dev/spidev5.1 if using explorer board, see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options)
+* the mmeowlink port if using radio, TI, explorer board (please see note below) 
 * how you are getting cgm data and cgm serial numbers if needed
 * nightscout host and api-secret if using nightscout 
 * whether you want any of the oref0 advanced implementations
 * whether or not you want to automate your loop (using cron)
+
+**Note:** This information is from [Installing-MMeowlink](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink). Non USA Medtronic pumps must follow directions on the Installing-MMeowlink page. Explorer board users will simply enter `/dev/spidev5.1`. Serial port users will have a similar static address found with the command `lsusb`. USB port users will find additional directions on the Installing-MMeowlink page.
 
 **Hint:** if you're not sure if you need something (advanced features), you probably don't, but for more information on the advanced features, see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html). Also, scheduling something in cron means scheduling the loop to run automatically. So if you want an automated closed loop, Yes, you want to schedule it in cron. If you don't want an automated loop yet, you can always come back and run the script again later to automate. In addition, running the script again will update the various packages that the script installs.
 
