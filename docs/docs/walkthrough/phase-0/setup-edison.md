@@ -23,7 +23,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   -  To find the System Properties window go to (Control Panel > All Control Panel Items > System) page. At top left select "Remote settings".
   -  Select the "Advanced" tab in System Properties window, under Performance click on `Settings`.
   -  Select `Advanced` and click on `Change...` to change the page size.
-  -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
+  -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot. Windows may complain that the disk is too small and you can skip this step.
   - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
      Run the "Windows Stand Alone" executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit). This will install usb drivers.  You do *not* need to flash the Edison or set up sercurity or wifi with that tool: if you do, then flashing Jubilinux (below) will just overwrite it.
   - If you don't already have Putty installed, download the appropriate version for your machine from here: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
@@ -60,10 +60,17 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
+  - Unplug both cables. We will plug them in at a specific point in the instructions below.   
+  - Use windows "file explorer" to move two files "dfu-util.exe" and "libusb-1.0.dll" from "dfu-util-0.8-binaries/win32-mingw32/ to "toFlash/". You may have been asked to name this directory during extraction or download. To identify it look inside and it will have the "u-boot-envs" directory. Change the name now to avoid confusion to "toFlash".
+  - Open command prompt window and change disk and directory to the "toFlash" directory.
+  - At command prompt type and return "flashall.bat". Then plug in your best usb cable within the first minute to the connector labeled "UART". USB3.0 cables are very high quality USB2.0 cables.
+  - When that program completes its run the edison will start rebooting. Let it reboot repeatedly. You will "brick" (turn it into a useless brick) your edison if you shut it off before it reboots enough times.
+  - Plug an AM to micro usb data cable to the connector labeled "OTG". An "OTG" type cable is not used.
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. You may have seen edison ports listed before this point but they are gone now. 
   - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
-  - Make sure you change the Speed(baudrate) from 9600 to 115200. 
-  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
+  - Change the Speed(baudrate) from 9600 to 115200. 
+  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration window. The console screen will appear. If console screen is blank hit enter twice. If it stays blank it is most likely the cable in the connector labled "OTG". Don't quit here. If the "flashall.bat" program completed more than five minutes ago try unplugging the cables. Plug them in again and open a PuTTy window, see above. In the putty window you will see automatic reboots.
+  - If after edison reboots repeatedly it stops and gives you a login prompt then good job. You may power down or continue with the default password "edison".
 
 ### If you're using a Mac:
   - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
