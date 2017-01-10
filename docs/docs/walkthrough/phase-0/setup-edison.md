@@ -205,8 +205,9 @@ First, Currently the Bluetooth Tethering is only availble on the dev branch of O
 $ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
 
 ```
+Next install the dependancies with `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
-due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
+Due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
 
 ```
 cd ~/src/oref0/ && npm run global-install
@@ -216,20 +217,25 @@ You will need to get the Mac address from your phone or whatever device you are 
 Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
 iPhone - settings/general/About; the 12th and 13th lines will be wi-fi address and Bluetooth. They will look like AA:BB:CC:DD:EE:FF and be one hexadecimal digit apart. Use Bluetooth.
 
-when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
+Oref0-setup next adds --btmac to the install parameters. Replacing AA:BB:CC:DD:EE:FF with what you found above.
 
 ```
 cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
 ```
 
-The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
+The first time running the script will take fifteen minutes longer as it is installing Bluez on your edison.
 It may fail after installing the Bluez, just reboot your edison and run the above command again. 
 
-When successful you will have a command prompt and these commands you will run without error. 
+When successful you will have a command prompt. Give these two commands in preparation for running the bluetoothctl interactive program. 
 `sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &`
 `sudo hciconfig hci0 name $HOSTNAME`
-Now in the iPhone with hotspot on navigate to Settings > Bluetooth. Turn on Bluetooth and keep phone open here.
-Next run the bluetoothctl interactive utility with this command: 'bluetoothctl'. When you want to quit the interactive utility tell it you want to `quit`. In the utility run these commands in order: `power off`, `power on`, `discoverable on`, `agent on` `default-agent`, (For iPhone `pair `AA:BB:CC:DD:EE:FF, `connect `AA:BB:CC:DD:EE:FF, `trust `AA:BB:CC:DD:EE:FF.) You will notice that the interactive program will say "discoverable off" after about three minutes of the `discoverable on` command. Just turn it back on. 
+
+For iPhone:
+turn on hotspot
+navigate to Settings > Bluetooth. Turn on Bluetooth and keep phone open here.
+Next run the bluetoothctl interactive utility with this command: `bluetoothctl`. You should see a new command prompt [bluetooth]. It will be colored blue. When you want to quit the interactive utility tell it you want to `quit`. If the [bluetooth] command prompt is not blue run the two "sudo" commands above again. They should run without error.
+Run these [bluetooth] commands: `help` to see that its working, `agent on`, `default-agent`, `pair `AA:BB:CC:DD:EE:FF, `trust ` AA:BB:CC:DD:EE:FF.
+Look to your iPhone screen and accept the pairing.
 
 For Android
 ********************************
@@ -237,7 +243,7 @@ The adapter is now discoverable for three minutes. Search for bluetooth devices 
 
 For iPhone
 ********************************
-When you see <youredison> that you use to ssh <youredison>.local tap on it. It will stay connected for five seconds. But the name will stay there just like Dexcom does. You can see your iPhone listed on the edison now with `paired-devices`. `quit` and proceed to testing.
+When you see "BlueZ 5.37  Not Connected" tap on that line. It will stay connected. You can see your iPhone listed on the edison now with `paired-devices`. `quit` and proceed to testing.
 ********************************
 
 For Android
