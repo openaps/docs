@@ -9,7 +9,7 @@ optional arguments:
   -h, --help         show this help message and exit
 
 ## Schedule management:
-   schedules - manage schedules and triggers 
+   schedules - manage schedules and triggers
 
   {add,show,remove}  Operation
     add              add - add a scheduled event

@@ -47,11 +47,11 @@ added medtronic://pump
 
 ## openaps use pump
 Based on our prior experience knowing that `device` enables **use**, let's
-check out our own `openap use -h` to see how it's changed.
+check out our own `openaps use -h` to see how it's changed.
 ```
 [...]
 Known Devices Menu:
-  These are the devices openaps knows about:    
+  These are the devices openaps knows about:
 
   device                Name and description:
     howdy               process - a fake vendor to run arbitrary commands
@@ -70,10 +70,10 @@ optional arguments:
 
 ## Device pump:
   vendor openaps.vendors.medtronic
-  
+
   Medtronic - openaps driver for Medtronic
-  
-      
+
+
 
   USAGE                 Usage Details
     Session             session for pump

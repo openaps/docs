@@ -21,8 +21,8 @@ optional arguments:
        .-. .,-.  .-. .--. .-.  .,-. .--.
       (   )|   )(.-' |  |(   ) |   )`--.
        `-' |`-'  `--''  `-`-'`-|`-' `--'
-           |                   |        
-           '                   '        
+           |                   |
+           '                   '
 Common workflows:
 
 Getting started:
