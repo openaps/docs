@@ -111,3 +111,6 @@ List of people who are working on closed loops:
 - Joe Greene (Jacksonville, NC)
 - Sebastien Lussier (Montreal, Canada)
 - Chris Harris (Sydney, Australia)
+- Lee Skelton (London, UK)
+- Jacqueline Burke (Troy, MI / Baltimore, MD)
+- Kate Hainsworth (Austin, TX)
