@@ -37,9 +37,7 @@ High level list of supplies needed for a Pi-based setup:
 
 ## Raspberry Pi 2 and 3
 
-[Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) are both excellent choices for your first implementation of OpenAPS. RPi3 is an improvement of RPi2.
-
-When handeling RPi2 it was found that the microSD could be inadvertantly dislodged crashing the system and sometimes corrupting the data and program present on the microSD. The RPi3 has fixed that design flaw. Another RPi3 improvement is better USB connector hardware in which the chord fits more tightly providing a cleaner signal. RPi3 provides a greater transmit range for the CareLink. 
+[Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) are both excellent choices for your first implementation of OpenAPS. When handeling RPi2 it was found that the microSD could be inadvertantly dislodged crashing the system and sometimes corrupting the data and program present on the microSD. The RPi3 has fixed that design flaw. Example RPi3's have tighter fitting USB connectors which is good for signal quality. Example RPi3's provide longer distance communication range for the CareLink. 
 
 We discourage the use of a powered USB hub to provide more power to CareLink. The RPi USB port does not correctly power the computer. You may disconnect the power supply while the powered USB hub remains connected. In that circumstance the RPi will attempt to reboot using the power available and fail. This may corrupt the data and program on the microSD and may even damage the circuit board. 
 
