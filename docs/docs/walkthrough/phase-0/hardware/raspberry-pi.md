@@ -39,11 +39,11 @@ High level list of supplies needed for a Pi-based setup:
 
 [Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) are both excellent choices for your first implementation of OpenAPS. RPi3 is an improvement of RPi2.
 
-When handeling RPi2 it was found that the microSD could be inadvertantly dislodged crashing the system and sometimes corrupting the data and program present on the microSD. The RPi3 has fixed that design flaw. Another RPi3 improvement is better USB connector hardware in which the chord fits more tightly. This tighter fit provides a greater transmit range for the CareLink. 
+When handeling RPi2 it was found that the microSD could be inadvertantly dislodged crashing the system and sometimes corrupting the data and program present on the microSD. The RPi3 has fixed that design flaw. Another RPi3 improvement is better USB connector hardware in which the chord fits more tightly providing a cleaner signal. RPi3 provides a greater transmit range for the CareLink. 
 
 We discourage the use of a powered USB hub to provide more power to CareLink. The RPi USB port does not correctly power the computer. You may disconnect the power supply while the powered USB hub remains connected. In that circumstance the RPi will attempt to reboot using the power available and fail. This may corrupt the data and program on the microSD and may even damage the circuit board. 
 
-For the more advanced RPi3 a larger power supply is suggested, 2.4Amps and 5.25Volts. We never want to under power computers but we want a convienent size to take the system mobile. When away from a single power supply we power the RPi2 with a battery that provides 2.1A, 5V and stores 10Ah, 10000mAh. Such batteries are adequate for the RPi3 running OpenAPs too. 
+For the more advanced RPi3 a larger power supply is suggested, 2.4Amps and 5.25Volts. We never want to under power computers but we want a convienent size to take the system mobile. When away from a single power supply we power the RPi2 with a battery that provides 2.1A, 5V and stores 10Ah, 10000mAh. The RPi3 is hotter than the RPi2 so a larger battery may be needed? The larger the battery storage capacity the longer the battery lasts.
 
 RPi3 is a direct replacement for RPi2. RPi3 has an on board Edimax WiFi. The Edimax WiFi adapter is commonly sold with RPi2. If you use the Edimax WiFi adapter on a RPi2 then a fully programmed micoSD may be taken out of one version of RPi and successfully inserted into the other.  
 
