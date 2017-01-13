@@ -2,6 +2,8 @@
 
 At some point it will be suggested to you that you make a PR. PR is short for pull request.
 It's actually not too hard to do one and it is a great way to contribute. This documentation is here because people like you made PRs.
+The easiest way to PR does not require an understanding of software repositories. 
+Go to the source of the documents we read. https://github.com/openaps/docs See a directory list. The web pages we read are organised. To get to most documents hit two levels of "docs". Then choose by comparing to the documents indexes. When you find the file tap the small pencil icon, top right. Edit the file. Scroll to the bottom. Add notes for reviewers and tap the green button. A new page appears. Tap the Pull Request green button. Then again tap the new Pull Request green button. For details about how that works see below.
 
 * The general idea is to make edits and improvements to code or document by making a copy of the repository you'd like to change.
 * Double-check that your edits look good to you on your copy.
