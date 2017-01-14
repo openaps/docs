@@ -5,8 +5,8 @@ Some conventions used in this guide:
 
 * Wherever you see text that is formatted `like this`, it is a code snippet. You should copy and paste instead of attempting to type this out; this will save you debugging time for finding your typos.
 * You will see a <tt>$</tt> at the beginning of many of the lines of code. This
-  indicates that it is to be entered and executed at the terminal prompt. Do not type in the dollar sign <tt>$</tt>.
-* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `Barney` as your  `<my_pump_name>`, you must use `Barney` every time you see `<my_pump_name>`. Choose carefully. Do not include the `< >` brackets in your name.
+  indicates that it is to be entered and executed *at the terminal prompt. Do not type in the dollar sign <tt>$</tt>.
+* Wherever there are `<bracketed_components>` in the the code, these are meant for you* to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `Barney` as your  `<my_pump_name>`, you must use `Barney` every time you see `<my_pump_name>`. Choose carefully. Do not include the `< >` brackets in your name.
 
 ### Before you get started
 
