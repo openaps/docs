@@ -35,3 +35,16 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the Pi and prevent it from operating).
 * Check and make sure your pump is in range of the radio stick.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
+* 512  users - make sure that you have created your static json files as outlined in https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-0/hardware/pump.html for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json. You will also have to remove the calls for them from the your get-settings alias.
+To do this:
+
+  ```
+  openaps alias remove get-settings
+  openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
+  ```
+  The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted.
+
+  ```
+  openaps alias remove gather
+  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null”'
+  ```
