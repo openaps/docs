@@ -2,13 +2,13 @@
 
 Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some ideas or tips to consider:
 
-* **What do you do with the loop in airport security when you travel**
-<br>The loop is off the shelf hardware - it's no different than your phone or other small gadgets, so leave it in your carry-on bag when going through security. (Dana note: I have traveled well over 100 times with my loop, and in some cases with 3-4 Pis and batteries and related accessories, and have never had issues going through security because of my loop.)
+## **What do you do with the loop in airport security when you travel**
+<br>The loop is off the shelf hardware - it's no different than your phone or other small gadgets, so leave it in your carry-on bag when going through security. (Dana note: I have traveled [well](https://twitter.com/danamlewis/status/811682733445496833) over 100 times with my loop, and in some cases with 3-4 Pis and batteries and related accessories, and have never had issues going through security because of my loop.)
 
-* **What do you do with the loop when you shower?**
+## **What do you do with the loop when you shower?**
 <br>Because the pumps aren't really waterproof, most of us choose to suspend and disconnect our pumps before we shower. You'll do the same thing even after you're looping. One trick, though, is to cancel any running temp basal rate and set a temp basal for 30 minutes with a rate of 0.0, and then suspend the pump. This will help OpenAPS accurately track your netIOB while you are off your pump. When you get out of the shower and are ready to reconnect your pump, do so. Make sure to unsuspend it. You can then either manually cancel the zero temp basal; or let OpenAPS read and decide what temp basal to issue next.
 
-* **What do you do when you exercise?**
+## **What do you do when you exercise?**
 <br>This varies from person to person, and depends on the type and length of activity.  Here's a few tidbits from [Dana](http://twitter.com/danamlewis) on how she does various activities. (Other loopers, PR into this page with your additional tips and how-to's.)<br>
   * **Hiking** - Definitely take the loop with! Think about setting a temporary target (you can enter it in Nightscout if you have connectivity) higher for the duration of the exercise. If you're offline, just change your targets in your pump. The loop will read the adjusted targets and begin looping toward that target. When you're done with the activity, change your targets back. In this scenario, I might change my loop target from 100 (normal day or nighttime) to 130 or 140 as a target.
 
@@ -18,5 +18,5 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 
  For any exercise or activity or time period, if you do not choose to take your loop (or if you forget it), the loop will pick up again once you get back into range and resume. (This is why it's important to temp then suspend so it can track the amount of insulin you haven't been getting.)
 
-* **What if I want to turn off the loop for a while?**
-<br>One easy way to "turn off" the loop for a period of time so to use temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  What is great about this is that it is easy to do and allows you to schedule the time when you want the loop turned off (going swimming, showering, exercising, etc).  No longer do you have to power down your device or mess with cron commands.<br>
+## **What if I want to turn off the loop for a while?**
+<br> One easy way to "turn off" the loop for a period of time so to use temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  What is great about this is that it is easy to do and allows you to schedule the time when you want the loop turned off (going swimming, showering, exercising, etc).  You do not have to power down your device or mess with cron commands. You can also choose to leave it at home if you are going out and do not want to be looping during that time. It will start looping again when you get back into range and it can successfully read your pump and CGM data again.<br>
