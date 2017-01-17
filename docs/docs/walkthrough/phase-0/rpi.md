@@ -4,6 +4,8 @@
 
 **Note 2:** Setting  up a Raspberry Pi is not specific to OpenAPS. Therefore, it's very easy to Google and find other setup guides and tutorials to help with this process. This is also a good way to get comfortable with using Google if you're unfamiliar with some of the command line tools. Trust us - even if you're an experienced programmer, you'll be doing this throughout the setup process.
 
+**Note 3:** Since bluetooth was included on the Raspberry Pi 3, changes were made to the UART configuration that require additional steps. Detailed RPi3-specific OpenAPS setup instructions can be found [here](https://gist.github.com/jyaw/a3a6cc316820dd1b828c715bccae2e94).
+
 In order to use the RPi2 with openaps development tools, the RPi2 must have an operating system installed and be set up in a very specific way. There are two paths to the initial operating system installation and WiFI setup.  Path 1 is recommended for beginners that are very new to using command prompts or "terminal" on the Mac.
 Path 2 is considered the most convenient approach for those with more experience with coding and allows the RPi2 to be set up without the use of cables, which is also known as a headless install. Either path will work and the path you choose is a matter of personal preference. Either way, it is recommended that you purchase your RPi2 as a CanaKit, which includes everything you will need for a GUI install.
 
@@ -72,8 +74,9 @@ If necessary, you can erase (format) your SD card using https://www.sdcard.org/d
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
 * Finally connect your RPi2 using the power adapter.
 * You should see the GUI appear on screen.
+* As of 12/11/2016 the Raspberry Pi Foundation is disabling SSH by default in Raspbian as a security precaution. To enable SSH from within the GUI, open up the terminal window and type `sudo raspi-config`.  On the configuartion menu that opens, scroll down and choose `Advanced Options` and then navigate to `ssh`, press `Enter` and select `Enable` ssh server.
 * Configure WiFi per the instruction pamphlet included with your CanaKit. For those not using the CanaKit, click the computer monitors next to the volume control in the upper-right side and there will be a drop-down menu of available WiFi networks.  You should see your home network.  If you have trouble connecting to the RPi2 via WiFi, check your router settings. The router may need to be switched from WEP to WPA2.
-* Once you have installed Raspbian and connected to WiFI, you can disconnect the mouse, keyboard and HDMI cable.
+* Once you have installed Raspbian, connected to WiFI, and enabled SSH you can disconnect the mouse, keyboard and HDMI cable.
 
 Remember to keep your RPi2 plugged in, just disconnect the peripherals.  Also remember to never disconnect your RPi2 without shutting it down properly using the `sudo shutdown -h now` command.  If you are unable to access the Pi and must power it off without a shutdown, wait until the green light has stopped flashing (indicating the Pi is no longer writing to the SD card).
 

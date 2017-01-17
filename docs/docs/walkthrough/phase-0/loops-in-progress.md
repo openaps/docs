@@ -113,3 +113,8 @@ List of people who are working on closed loops:
 - Chris Harris (Sydney, Australia)
 - Lee Skelton (London, UK)
 - Jacqueline Burke (Troy, MI / Baltimore, MD)
+- Kate Hainsworth (Austin, TX)
+- Brian Rabinovitz (Chapel Hill, NC)
+- Stephen G. (Seattle, WA) 
+- Emily Stunek (Lake Shore, MN)
+- Lorenzo Conte (Chicago, IL)

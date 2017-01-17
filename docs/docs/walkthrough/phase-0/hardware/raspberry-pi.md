@@ -52,13 +52,7 @@ Raspberry Pi 2. So when selecting portable battery packs bear this in mind.
 
 ## CareLink USB Stick
 
-Currently, the primary supported device (in the OpenAPS documentation) for
-uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick for the Pi.
-We recommend you purchase at least two sticks because if one breaks, acquiring
-another stick will take time and will delay development. Additionally, due to
-the short range of communication between the CareLink stick and the Medtronic
-pumps, some users set up multiple sticks in different locations to maximize the
-chances of successful transmissions. Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
+The easiest device for uploading pump data and interfacing OpenAPS is the CareLink USB stick for the RPi. Due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions. CareLink is not the modern communication device sold by Medtronic. CareLink has been replaced by a newer system but OpenAPS uses the older original communication device, CareLink. Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
 
 A limitation of the Carelink USB stick is the short range of radio
 communications with the Medtronic pump. The radio signals are transmitted from

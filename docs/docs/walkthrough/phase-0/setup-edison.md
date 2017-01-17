@@ -20,12 +20,20 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Windows PC:
 
-  -  Go to System Properties, under Performance click on `Settings`.
-  -  Select `Advanced` and click on `Change...` to change the page size.
-  -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
-  - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
-     Run the executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit).
-  - If you don't already have Putty installed, download the appropriate version for your machine from here: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+- Install the [Intel Edison drivers for Windows]( https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
+- Install [PuTTY]( http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Download the installation file that matches your PC's architecture (32-bit or 64-bit).
+
+Windows PCs with less than 6 GB of RAM  may need to have the size of the page file increased to flash the Edison. Close all unnecessary programs and attempt to flash the device. If the flash operation fails follow these steps to ensure enough swap space is allocated when the computer boots, then restart and try again. Only do this if flashing the device doesn't work without changing these settings.
+
+*Important: Write down the settings in the Virtual Memory window before you make any changes to your system. When you finish the flash process you must return these settings to their original values or Windows may become unstable.*
+
+ - Go to the Control Panel, click All Control Panel Items, then click System. At top left click the Remote Settings link.
+ - Select the Advanced tab in the System Properties window, then under Performance click Settings.
+ - On the Advanced tab click the Change... button to change the page size.
+ - In the Virtual Memory window uncheck "Automatically manage paging file size for all drives," click "Custom size," and set the initial size to at least 4096 MB. If you have already attempted this process at least once continue to increase this number by 1024 MB. Set the maximum size to 2048 MB higher than the initial size you used.
+ - Click the Set button, then click OK until all windows are closed.
+ - Reboot and attempt the flash proccess.
+
 
 ### If you're using a Mac:
 
@@ -328,7 +336,9 @@ If you're having issues with a *Windows* flash of Jubilinux, try following along
 1. [Flash Ubilinux Onto Intel Edison via Windows, 5 Part Video](https://www.youtube.com/watch?v=L57RC8POJzM) (Cygwin)
 2. [uCast #21: Installing Ubilinux on the Edison (Windows)](https://www.youtube.com/watch?v=BSnXjuttSgY&t=16s) (Windows Command Prompt)
 
-g) If you've attempted all of the troubleshooting steps above but still aren't successful, it's worth trying to use a different computer to flash.
+g) If none of the above has worked with the Explorer board, try swapping the two microUSB cables, or replacing them with new ones.
+
+h) If you've attempted all of the troubleshooting steps above but still aren't successful, it's worth trying to use a different computer to flash.
 
 ### Troubleshooting rescue mode
 
