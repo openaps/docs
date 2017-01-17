@@ -30,6 +30,7 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 * Check to make sure that your pump is in absolute and not % mode for temp basals.
 * Did you put in the right SN for the pump? Should be numbers only...
 * Check to make sure your carelink and/or radio stick is plugged in.
+* A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
 * Check to make sure your receiver is plugged in, if you're plugging a receiver in.
 * Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct.
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the Pi and prevent it from operating).
