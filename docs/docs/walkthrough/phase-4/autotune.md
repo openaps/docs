@@ -107,14 +107,14 @@ As with all new and advanced features, this is a friendly reminder that this is 
 
 Future work is planned, after further development on the algorithm and all relevant safety components, to make it easier for people to run this as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio.
 
-**Step 1: Create a cloud VM**
-* Pick a cloud service you like, and set up a linux VM. 
+**Step 1: Create VM**
+* You'll need a Linux VM for now, until Autotune is updated to [support Mac OS X](https://github.com/openaps/oref0/issues/327) or Windows.  You can either create a Linux VM locally using software like [VirtualBox](https://www.virtualbox.org/wiki/Downloads), or in the cloud with your favorite cloud service.
+* For cloud servers, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free-trial/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
-* Free option might be [AWS](https://aws.amazon.com/free/), [Google Cloud](https://cloud.google.com/free-trial/) is also $5/mo after free trial for a year; Digital Ocean is $5/mo. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 
 **Step 2: Install oref0 on the cloud VM**
 * After VM setup, follow the [phase 2 OpenAPS directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html) to install oref0. Note: only do Step 0 and Step 1.
-* After you install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
+* After you install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
 * See (way) above for an example of a profile.json - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
