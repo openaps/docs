@@ -107,7 +107,7 @@ Future work is planned, after further development on the algorithm and all relev
 Step 1: Create a cloud VM
 * Pick a cloud service you like, and set up a linux VM. 
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
-* Free option might be [AWS](https://aws.amazon.com/free/), Digital Ocean is $5/mo; [Google Cloud](https://cloud.google.com/free-trial/) is also $5/mo after free trial.
+* Free option might be [AWS](https://aws.amazon.com/free/), [Google Cloud](https://cloud.google.com/free-trial/) is also $5/mo after free trial for a year; Digital Ocean is $5/mo.
 
 Step 2: Install oref0 on the cloud VM
 * After VM setup, to install oref0, follow (http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html ) to do Step 0 and Step 1.
@@ -116,4 +116,4 @@ Step 2: Install oref0 on the cloud VM
 Step 3: Create a profile.json with your settings
 * See (way) above for an example of a profile.json - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
 
-Step 3: Run autotune on retrospective data from Nightscout
+Step 4: Run autotune on retrospective data from Nightscout
