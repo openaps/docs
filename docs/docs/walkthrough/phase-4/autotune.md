@@ -39,7 +39,7 @@ Autotune is currently being tested by a few users on the command line. There has
 
 How to run it:
 
-Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--runs=number_of_runs] [--xlsx=autotune.xlsx]`
+Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--xlsx=autotune.xlsx]`
 
 If you're running this on a computer that doesn't have a myopenaps_directory, you can point it at a directory with a settings/pumpprofile.json file.  An example of one (note: do NOT use this as-is; put your actual settings in) would be:
 
@@ -120,7 +120,7 @@ Future work is planned, after further development on the algorithm and all relev
 * See above for [an example of a profile.json](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/autotune.md#example-profilejson) - create one with `nano profile.json` and have it full of your profile information that is on your pump.
 
 **Step 4: Run autotune on retrospective data from Nightscout**
-* (WIP)
+* Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD]`
 
 
 
