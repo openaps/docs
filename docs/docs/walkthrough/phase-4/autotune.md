@@ -124,9 +124,10 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
  * And manually install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
-* A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
-* B. Change into that directory: `cd ~/myopenaps/settings`.
+* A. Create a myopenaps and settings directory. `mkdir -p myopenaps/settings`
+* B. Change into that directory: `cd myopenaps/settings`.
 * C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump. 
+
 ```
 {
 "min_5m_carbimpact": 3,
@@ -154,14 +155,15 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 "carb_ratio": 14
 } 
 ```
-* Make sure to adjust these settings to match yours:
- * DIA 
- * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
- * "sensitivity" should be your iSF
- * "carb_ratio" at the end should be your carb ratio 
+Make sure to adjust these settings to match yours:
+  * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
+  * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
+  * "sensitivity" should be your iSF
+  * "carb_ratio" at the end should be your carb ratio
+  
 * Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
 * D. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
-* E. Create a third file from the command line by running: `cp profile.json autotune.json`
+* E. Do a third file from the command line: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
@@ -172,3 +174,7 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 [Click here to see an example output file from autotune](https://diyps.org/wp-content/uploads/2017/01/OpenAPS-autotune-example-by-@DanaMLewis.png).
 
 (If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
+
+You might wonder what CSF in the autotune results refers to: Carb Sensitivity Factor, or the ratio of carbs to ISF. This can be calculated from your ISF and carb:insulin ratio (CR), i.e., CSF = ISF / CR (e.g., for an ISF of 42mgDL/U and CR of 14g/U, CSF is 3mgDL/g.)
+You might wonder what min_5m_carbimpact in profile.json refers to: It tells autotune how fast to decay carbs when your BG isn't rising. The default value means to assume 3mg/dL per 5m of carb absorption, even when your BG is falling or rising less than that. 
+
