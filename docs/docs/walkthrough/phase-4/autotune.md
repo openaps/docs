@@ -107,7 +107,7 @@ Future work is planned, after further development on the algorithm and all relev
 Step 1: Create a cloud VM
 * Pick a cloud service you like, and set up a linux VM. 
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
-* Free option might be [AWS](https://aws.amazon.com/free/), [Google Cloud](https://cloud.google.com/free-trial/) is also $5/mo after free trial for a year; Digital Ocean is $5/mo.
+* Free option might be [AWS](https://aws.amazon.com/free/), [Google Cloud](https://cloud.google.com/free-trial/) is also $5/mo after free trial for a year; Digital Ocean is $5/mo. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 
 Step 2: Install oref0 on the cloud VM
 * After VM setup, to install oref0, follow (http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html ) to do Step 0 and Step 1.
