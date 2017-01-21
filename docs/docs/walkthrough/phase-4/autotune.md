@@ -124,8 +124,8 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
  * And manually install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
-* A. Create a myopenaps and settings directory. `mkdir -p myopenaps/settings`
-* B. Change into that directory: `cd myopenaps/settings`.
+* A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
+* B. Change into that directory: `cd ~/myopenaps/settings`.
 * C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump. 
 
 ```
