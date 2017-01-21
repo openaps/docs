@@ -73,7 +73,6 @@ If you're running this on a computer that doesn't have a myopenaps_directory, yo
   "max_basal": 4,
   "min_bg": 100,
   "max_bg": 100,
-  "sens": 100,
   "isfProfile": {
     "units": "mg/dL",
     "sensitivities": [
@@ -125,7 +124,11 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 **Step 3: Create a profile.json with your settings**
 * Create a myopenaps and settings directory. `mkdir -p myopenaps/settings`
 * Change into that directory: `cd myopenaps/settings`.
-* See above for [an example of a profile.json](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/autotune.md#example-profilejson) - create one inside settings with `nano profile.json` and have it full of your profile information that is on your pump.
+* See above for [an example of a profile.json](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/autotune.md#example-profilejson) - create one inside settings with `nano profile.json` and have it full of your profile information that is on your pump. From the example listed above, copy and paste it in if you prefer, but make sure to adjust these settings to match yours:
+ * DIA 
+ * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
+ * "sensitivity" should be your iSF
+ * "carb_ratio" at the end should be your carb ratio
 * Create a pumpprofile.json that is the same as your settings.json: `cp profile.json pumpprofile.json`
 * Do a third file: `cp profile.json autotune.json`
 
