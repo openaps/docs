@@ -126,12 +126,42 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p myopenaps/settings`
 * B. Change into that directory: `cd myopenaps/settings`.
-* C. See above for [an example of a profile.json](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/autotune.md#example-profilejson) - create one inside settings with `nano profile.json` and have it full of your profile information that is on your pump. From the example listed above, copy and paste it in if you prefer, but make sure to adjust these settings to match yours:
- * DIA 
- * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
- * "sensitivity" should be your iSF
- * "carb_ratio" at the end should be your carb ratio
-* Make sure to exit the profile.json when done editing this - Control-X and hit yes to save.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump. 
+
+```
+{
+"min_5m_carbimpact": 3,
+"dia": 4.5,
+"basalprofile": [
+{
+"i": 0,
+"start": "00:00:00",
+"rate": 0.5,
+"minutes": 0
+}
+],
+"isfProfile": {
+"sensitivities": [
+{
+"i": 0,
+"start": "00:00:00",
+"sensitivity": 43,
+"offset": 0,
+"x": 0,
+"endOffset": 1440
+}
+]
+},
+"carb_ratio": 14
+} 
+```
+Make sure to adjust these settings to match yours:
+  * DIA 
+  * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
+  * "sensitivity" should be your iSF
+  * "carb_ratio" at the end should be your carb ratio
+  
+* Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
 * D. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
 * E. Do a third file from the command line: `cp profile.json autotune.json`
 
