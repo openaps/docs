@@ -116,9 +116,11 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 
 **Step 2: Install oref0 on the cloud VM**
 * After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
-* Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -bdev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
-* Run this command: `sudo apt-get install jq`
-* You'll then need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
+* Install the jq package: `sudo apt-get install jq`
+* Install the latest dev version of oref0 by running: `sudo pip install git+https://github.com/openaps/openaps.git@dev`
+* If that works, move on to Step 3.  If that doesn't work:
+ * Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -bdev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
+ * And manually install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
 * Create a myopenaps and settings directory. `mkdir -p myopenaps/settings`
