@@ -1,9 +1,9 @@
 # Using Autotune without OpenAPS
 
-[Autotune](autotune) is a feature created in late December 2016 and is currently in beta (early testing) mode in the oref0 dev branch.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading.
+[Autotune](autotune.md) is a feature created in late December 2016 and is currently in beta (early testing) mode in the oref0 dev branch.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading.
 
 
-This page is currently a stub, copied from the main [Autotune](autotune) page.  Please update it with the steps required to spin up a new cloud VM, install oref0 there, create a profile (documented below), and run autotune on retrospective data from NS.
+This page is currently a stub, copied from the main [Autotune](autotune.md) page.  Please update it with the steps required to spin up a new cloud VM, install oref0 there, create a profile (documented below), and run autotune on retrospective data from NS.
 
 
 
