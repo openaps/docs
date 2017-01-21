@@ -118,7 +118,7 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 * Install the jq package: `sudo apt-get install jq`
 * Install the latest dev version of oref0 by running: `sudo pip install git+https://github.com/openaps/openaps.git@dev`
 * If that works, move on to Step 3.  If that doesn't work:
- * Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -bdev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
+ * Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -bdev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
  * And manually install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
