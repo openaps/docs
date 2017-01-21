@@ -116,7 +116,8 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 
 **Step 2: Install oref0 on the cloud VM**
 * After VM setup, follow the [phase 2 OpenAPS directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html) to install oref0. Note: only do Step 0 and Step 1.
-* After you install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
+* Run this command: `sudo apt-get install jq`
+* You'll then need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
 * Create a myopenaps and settings directory. `mkdir -p myopenaps/settings`
