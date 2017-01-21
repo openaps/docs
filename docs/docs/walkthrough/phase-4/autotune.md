@@ -42,6 +42,9 @@ How to run it:
 Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--runs=number_of_runs] [--xlsx=autotune.xlsx]`
 
 If you're running this on a computer that doesn't have a myopenaps_directory, you can point it at a directory with a settings/pumpprofile.json file.  An example of one (note: do NOT use this as-is; put your actual settings in) would be:
+
+#### Example profile.json 
+
 ```
 {
   "max_iob": 4,
@@ -117,3 +120,8 @@ Future work is planned, after further development on the algorithm and all relev
 * See (way) above for an example of a profile.json - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
 
 **Step 4: Run autotune on retrospective data from Nightscout**
+* (WIP)
+
+
+
+(If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
