@@ -117,7 +117,7 @@ Future work is planned, after further development on the algorithm and all relev
 * After you install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
 **Step 3: Create a profile.json with your settings**
-* See (way) above for an example of a profile.json - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
+* See above for [an example of a profile.json](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/autotune.md#example-profilejson) - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
 
 **Step 4: Run autotune on retrospective data from Nightscout**
 * (WIP)
