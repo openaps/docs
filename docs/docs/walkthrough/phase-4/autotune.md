@@ -173,8 +173,11 @@ Make sure to adjust these settings to match yours:
 
 [Click here to see an example output file from autotune](https://diyps.org/wp-content/uploads/2017/01/OpenAPS-autotune-example-by-@DanaMLewis.png).
 
+**Understanding autotune output**
+* You might wonder what CSF in the autotune results refers to: Carb Sensitivity Factor, or the ratio of carbs to ISF. This can be calculated from your ISF and carb:insulin ratio (CR), i.e., CSF = ISF / CR (e.g., for an ISF of 42mgDL/U and CR of 14g/U, CSF is 3mgDL/g.)
+* You might wonder what min_5m_carbimpact in profile.json refers to: It tells autotune how fast to decay carbs when your BG isn't rising. The default value means to assume 3mg/dL per 5m of carb absorption, even when your BG is falling or rising less than that. 
+
 (If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
 
-You might wonder what CSF in the autotune results refers to: Carb Sensitivity Factor, or the ratio of carbs to ISF. This can be calculated from your ISF and carb:insulin ratio (CR), i.e., CSF = ISF / CR (e.g., for an ISF of 42mgDL/U and CR of 14g/U, CSF is 3mgDL/g.)
-You might wonder what min_5m_carbimpact in profile.json refers to: It tells autotune how fast to decay carbs when your BG isn't rising. The default value means to assume 3mg/dL per 5m of carb absorption, even when your BG is falling or rising less than that. 
+
 
