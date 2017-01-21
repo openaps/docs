@@ -45,4 +45,4 @@ There are a few 3D-printed cases that are being designed, so check back here for
 
 # Next steps after you get your hardware
 
-Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](https://github.com/openaps/docs/blob/dev/docs/docs/walkthrough/phase-0/setup-edison.md)" page.
+Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html)" page.
