@@ -115,7 +115,8 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
 
 **Step 2: Install oref0 on the cloud VM**
-* After VM setup, follow the [phase 2 OpenAPS directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html) to install oref0. Note: only do Step 0 and Step 1. If you accidentally get on a roll and start Step 2 from that page, and start wondering "what should I put in for my loop directory?", just cancel out (Control C) and move on to the next bullet below.
+* After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
+* Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -bdev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 * Run this command: `sudo apt-get install jq`
 * You'll then need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `sudo npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
