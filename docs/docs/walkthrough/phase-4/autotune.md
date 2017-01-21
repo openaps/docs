@@ -162,7 +162,7 @@ Make sure to adjust these settings to match yours:
   * "carb_ratio" at the end should be your carb ratio
   
 * Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
-* D. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
+* D. Create a third file from the command line by running: `cp profile.json autotune.json`
 * E. Do a third file from the command line: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
