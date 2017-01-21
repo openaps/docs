@@ -109,11 +109,11 @@ Step 1: Create VM
 * For cloud servers, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free-trial/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
 
-Step 2: Install oref0 on the cloud VM
-* After VM setup, to install oref0, follow (http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html ) to do Step 0 and Step 1.
-* After install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
+**Step 2: Install oref0 on the cloud VM**
+* After VM setup, follow the [phase 2 OpenAPS directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html) to install oref0. Note: only do Step 0 and Step 1.
+* After you install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
-Step 3: Create a profile.json with your settings
+**Step 3: Create a profile.json with your settings**
 * See (way) above for an example of a profile.json - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
 
-Step 4: Run autotune on retrospective data from Nightscout
+**Step 4: Run autotune on retrospective data from Nightscout**
