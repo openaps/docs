@@ -104,16 +104,16 @@ As with all new and advanced features, this is a friendly reminder that this is 
 
 Future work is planned, after further development on the algorithm and all relevant safety components, to make it easier for people to run this as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio.
 
-Step 1: Create a cloud VM
+**Step 1: Create a cloud VM**
 * Pick a cloud service you like, and set up a linux VM. 
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
 * Free option might be [AWS](https://aws.amazon.com/free/), [Google Cloud](https://cloud.google.com/free-trial/) is also $5/mo after free trial for a year; Digital Ocean is $5/mo. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 
-Step 2: Install oref0 on the cloud VM
+**Step 2: Install oref0 on the cloud VM**
 * After VM setup, to install oref0, follow (http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html ) to do Step 0 and Step 1.
 * After install oref0 dependencies, you'll need to install the oref0 dev branch. at this stage `cd ~/src/oref0` and `git checkout dev` and `npm run global-install` might be the easiest way to do that. (Copy and paste and run those three commands)
 
-Step 3: Create a profile.json with your settings
+**Step 3: Create a profile.json with your settings**
 * See (way) above for an example of a profile.json - create one (`nano profile.json`) and have it full of your profile information that is on your pump.
 
-Step 4: Run autotune on retrospective data from Nightscout
+**Step 4: Run autotune on retrospective data from Nightscout**
