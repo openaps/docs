@@ -127,7 +127,7 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 * Do a third file: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
-* Run `oref0-autotune --dir=myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
+* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
 * ^ Sub in your Nightscout URL.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
