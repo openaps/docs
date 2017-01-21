@@ -106,6 +106,8 @@ As with all new and advanced features, this is a friendly reminder that this is 
 
 We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl). 
 
+Requirements: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout, autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight bassal recommendations and probably even ISF recommendations overall, though. 
+
 Note: this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
 **Step 1: Create VM**
