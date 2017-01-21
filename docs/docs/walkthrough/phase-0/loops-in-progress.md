@@ -118,3 +118,5 @@ List of people who are working on closed loops:
 - Stephen G. (Seattle, WA) 
 - Emily Stunek (Lake Shore, MN)
 - Lorenzo Conte (Chicago, IL)
+- Alasdair McLay (Derby, UK)
+
