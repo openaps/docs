@@ -41,56 +41,6 @@ How to run it:
 
 Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--xlsx=autotune.xlsx]`
 
-If you're running this on a computer that doesn't have a myopenaps_directory, you can point it at a directory with a settings/pumpprofile.json file.  An example of one (note: do NOT use this as-is; put your actual settings in) would be:
-
-#### Example profile.json 
-
-```
-{
-  "max_iob": 4,
-  "type": "current",
-  "max_daily_safety_multiplier": 4,
-  "current_basal_safety_multiplier": 4,
-  "autosens_max": 1.2,
-  "autosens_min": 0.7,
-  "autosens_adjust_targets": true,
-  "override_high_target_with_low": false,
-  "bolussnooze_dia_divisor": 2,
-  "min_5m_carbimpact": 3,
-  "carbratio_adjustmentratio": 1,
-  "dia": 3,
-  "model": {},
-  "current_basal": 1,
-  "basalprofile": [
-    {
-      "i": 0,
-      "start": "00:00:00",
-      "rate": 0.1,
-      "minutes": 0
-    }
-  ],
-  "max_daily_basal": 0.1,
-  "max_basal": 4,
-  "min_bg": 100,
-  "max_bg": 100,
-  "isfProfile": {
-    "units": "mg/dL",
-    "sensitivities": [
-      {
-        "i": 0,
-        "start": "00:00:00",
-        "sensitivity": 100,
-        "offset": 0,
-        "x": 0,
-        "endOffset": 1440
-      }
-    ],
-    "first": 1
-  },
-  "carb_ratio": 1000
-}
-```
-
 If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).
 
 
@@ -102,7 +52,7 @@ If you're running dev branch, you can set up autotune as part of the setup scrip
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
-#### Phase C (future/current WIP): Running Autotune more easily as an average user
+#### Phase C (WIP): Running Autotune more easily as an average user
 
 We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl). 
 
@@ -130,30 +80,48 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 
 ```
 {
-"min_5m_carbimpact": 3,
-"dia": 4.5,
-"basalprofile": [
-{
-"i": 0,
-"start": "00:00:00",
-"rate": 0.5,
-"minutes": 0
+  "min_5m_carbimpact": 3,
+  "dia": <your_dia>,
+  "basalprofile": [
+    {
+      "i": 0,
+      "start": "00:00:00",
+      "rate": <your_basal>,
+      "minutes": 0
+    },
+    {
+      "i": 1,
+      "start": "08:00:00",
+      "rate": <your_basal>,
+      "minutes": 480
+    },
+    {
+      "i": 2,
+      "start": "13:00:00",
+      "rate": <your_basal>,
+      "minutes": 780
+    },
+    {
+      "i": 3,
+      "start": "21:00:00",
+      "rate": <your_basal>,
+      "minutes": 1260
+    }
+  ],
+  "isfProfile": {
+    "sensitivities": [
+      {
+        "i": 0,
+        "start": "00:00:00",
+        "sensitivity": <your_isf>,
+        "offset": 0,
+        "x": 0,
+        "endOffset": 1440
+      }
+    ]
+  },
+  "carb_ratio": <your_ic_ratio>
 }
-],
-"isfProfile": {
-"sensitivities": [
-{
-"i": 0,
-"start": "00:00:00",
-"sensitivity": 43,
-"offset": 0,
-"x": 0,
-"endOffset": 1440
-}
-]
-},
-"carb_ratio": 14
-} 
 ```
 Make sure to adjust these settings to match yours:
   * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
