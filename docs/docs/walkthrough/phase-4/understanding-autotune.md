@@ -8,7 +8,7 @@ Autotune is a WIP (work in progress) tool. Do not blindly make changes to your p
 
 ![Example output from autotune](https://diyps.org/wp-content/uploads/2017/01/OpenAPS-autotune-example-by-@DanaMLewis.png)
 
-## What you'll see in autotune output
+## What you'll see in autotune inputs and outputs
 
 * You might wonder what CSF in the autotune results refers to: Carb Sensitivity Factor is the amount your blood sugar will rise for a given quantity of carbs consumed. And initial value for CSF is calculated from your ISF and carb:insulin ratio (CR), i.e., CSF = ISF / CR (e.g., for an ISF of 42mgDL/U and CR of 14g/U, CSF is 3mgDL/g.)  Subsequent autotune estimates for CSF are adjusted for the actual observed post-meal BG rise (relative to what would be expected based on insulin activity) compared to the number of carbs eaten.
 * You might wonder what min_5m_carbimpact in profile.json refers to: It tells autotune how fast to decay carbs when your BG isn't rising. The default value means to assume 3mg/dL per 5m of carb absorption, even when your BG is falling or rising less than that. 
