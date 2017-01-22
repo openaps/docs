@@ -120,7 +120,9 @@ We are actively working to make it easier for people to run autotune as a one-of
       }
     ]
   },
-  "carb_ratio": your_ic_ratio
+  "carb_ratio": your_ic_ratio,
+  "autosens_max": 1.2,
+  "autosens_min": 0.7
 }
 ```
 Make sure to adjust these settings to match yours:
