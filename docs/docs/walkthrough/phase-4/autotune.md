@@ -142,12 +142,6 @@ Make sure to adjust these settings to match yours:
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
-[Click here to see an example output file from autotune](https://diyps.org/wp-content/uploads/2017/01/OpenAPS-autotune-example-by-@DanaMLewis.png).
-
-**Understanding autotune output**
-* You might wonder what CSF in the autotune results refers to: Carb Sensitivity Factor, or the ratio of carbs to ISF. This can be calculated from your ISF and carb:insulin ratio (CR), i.e., CSF = ISF / CR (e.g., for an ISF of 42mgDL/U and CR of 14g/U, CSF is 3mgDL/g.)
-* You might wonder what min_5m_carbimpact in profile.json refers to: It tells autotune how fast to decay carbs when your BG isn't rising. The default value means to assume 3mg/dL per 5m of carb absorption, even when your BG is falling or rising less than that. 
-
 Remember, autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
 (If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
