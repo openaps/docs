@@ -19,13 +19,13 @@ Autotune is a WIP (work in progress) tool. Do not blindly make changes to your p
 #### With carbs logged in Nightscout
 ...you can look at everything that autotune outputs
 
-#### Missing carb information in Nightscout
+#### Without carb information in Nightscout
 ...you should only look at overnight basals, daytime basals that are not around typical meal times, and (with caution) ISF. Ignore carb ratio.
 
 
 ## If you are not DIY closed looping and are looking at autotune:
 
-#### You have all boluses and carb treatments (even rescue, or low carbs) in Nightscout
+#### With all boluses and carb treatments (even rescue, or low carbs) in Nightscout
 ...you can look at everything that autotune outputs
 
 #### Without boluses and carb treatments in Nightscout
