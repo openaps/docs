@@ -121,3 +121,4 @@ List of people who are working on closed loops:
 - Alasdair McLay (Derby, UK)
 - Ahanu Banerjee (Pittsburgh, PA)
 - Ken Huat CHONG (Kuala Lumpur, Malaysia)
+- Daniel Bjørnbakk (Norway)
