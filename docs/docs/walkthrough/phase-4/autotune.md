@@ -33,7 +33,7 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core
 
 ### Different ways to utilize Autotune
 
-#### Phase A (Current): Running Autotune in “manual” mode on the command line
+#### Phase A: Running Autotune in “manual” mode on the command line
 
 Autotune is currently being tested by a few users on the command line. There has been some additional work to make it easier to export to Excel for review.
 
