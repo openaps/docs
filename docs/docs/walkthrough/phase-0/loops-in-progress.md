@@ -120,4 +120,4 @@ List of people who are working on closed loops:
 - Lorenzo Conte (Chicago, IL)
 - Alasdair McLay (Derby, UK)
 - Ahanu Banerjee (Pittsburgh, PA)
-
+- Ken Huat CHONG (Kuala Lumpur, Malaysia)
