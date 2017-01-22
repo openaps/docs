@@ -126,7 +126,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 Make sure to adjust these settings to match yours:
   * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
   * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
-  * "sensitivity" should be your iSF - in mg/dL/U (if using mmol/L/U mutipy by 18)
+  * "sensitivity" should be your iSF - in mg/dL/U (if using mmol/L/U multiply by 18)
   * "carb_ratio" at the end should be your carb ratio
   
 * Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
