@@ -60,6 +60,8 @@ Requirements: You should have Nightscout BG and treatment data. If you do not re
 
 Note: this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
+Feedback: Autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
+
 **Step 1: Create VM**
 * You'll need a Linux VM for now, until Autotune is updated to [support Mac OS X](https://github.com/openaps/oref0/issues/327) or Windows.  You can either create a Linux VM locally using software like [VirtualBox](https://www.virtualbox.org/wiki/Downloads), or in the cloud with your favorite cloud service.
 * For cloud servers, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free-trial/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
@@ -145,6 +147,8 @@ Make sure to adjust these settings to match yours:
 **Understanding autotune output**
 * You might wonder what CSF in the autotune results refers to: Carb Sensitivity Factor, or the ratio of carbs to ISF. This can be calculated from your ISF and carb:insulin ratio (CR), i.e., CSF = ISF / CR (e.g., for an ISF of 42mgDL/U and CR of 14g/U, CSF is 3mgDL/g.)
 * You might wonder what min_5m_carbimpact in profile.json refers to: It tells autotune how fast to decay carbs when your BG isn't rising. The default value means to assume 3mg/dL per 5m of carb absorption, even when your BG is falling or rising less than that. 
+
+Remember, autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
 (If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
 
