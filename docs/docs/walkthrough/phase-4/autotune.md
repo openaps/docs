@@ -76,36 +76,36 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
-* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump. 
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.
 
 ```
 {
   "min_5m_carbimpact": 3,
-  "dia": <your_dia>,
+  "dia": your_dia,
   "basalprofile": [
     {
       "i": 0,
       "start": "00:00:00",
-      "rate": <your_basal>,
-      "minutes": 0
+      "minutes": 0,
+      "rate": your_basal
     },
     {
       "i": 1,
       "start": "08:00:00",
-      "rate": <your_basal>,
-      "minutes": 480
+      "minutes": 480,
+      "rate": your_basal
     },
     {
       "i": 2,
       "start": "13:00:00",
-      "rate": <your_basal>,
-      "minutes": 780
+      "minutes": 780,
+      "rate": your_basal
     },
     {
       "i": 3,
       "start": "21:00:00",
-      "rate": <your_basal>,
-      "minutes": 1260
+      "minutes": 1260,
+      "rate": your_basal
     }
   ],
   "isfProfile": {
@@ -113,14 +113,14 @@ Note: this is currently based on *one* ISF and carb ratio throughout the day at 
       {
         "i": 0,
         "start": "00:00:00",
-        "sensitivity": <your_isf>,
+        "sensitivity": your_isf,
         "offset": 0,
         "x": 0,
         "endOffset": 1440
       }
     ]
   },
-  "carb_ratio": <your_ic_ratio>
+  "carb_ratio": your_ic_ratio
 }
 ```
 Make sure to adjust these settings to match yours:
