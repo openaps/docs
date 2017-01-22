@@ -33,73 +33,118 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core
 
 ### Different ways to utilize Autotune
 
-#### Phase A (Current): Running Autotune in “manual” mode on the command line
+#### Phase A: Running Autotune in “manual” mode on the command line
 
 Autotune is currently being tested by a few users on the command line. There has been some additional work to make it easier to export to Excel for review.
 
 How to run it:
 
-Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--runs=number_of_runs] [--xlsx=autotune.xlsx]`
-
-If you're running this on a computer that doesn't have a myopenaps_directory, you can point it at a directory with a settings/pumpprofile.json file.  An example of a too-sensitive one would be:
-```
-{
-  "max_iob": 4,
-  "type": "current",
-  "max_daily_safety_multiplier": 4,
-  "current_basal_safety_multiplier": 4,
-  "autosens_max": 1.2,
-  "autosens_min": 0.7,
-  "autosens_adjust_targets": true,
-  "override_high_target_with_low": false,
-  "bolussnooze_dia_divisor": 2,
-  "min_5m_carbimpact": 3,
-  "carbratio_adjustmentratio": 1,
-  "dia": 3,
-  "model": {},
-  "current_basal": 1,
-  "basalprofile": [
-    {
-      "i": 0,
-      "start": "00:00:00",
-      "rate": 0.1,
-      "minutes": 0
-    }
-  ],
-  "max_daily_basal": 0.1,
-  "max_basal": 4,
-  "min_bg": 100,
-  "max_bg": 100,
-  "sens": 100,
-  "isfProfile": {
-    "units": "mg/dL",
-    "sensitivities": [
-      {
-        "i": 0,
-        "start": "00:00:00",
-        "sensitivity": 100,
-        "offset": 0,
-        "x": 0,
-        "endOffset": 1440
-      }
-    ],
-    "first": 1
-  },
-  "carb_ratio": 1000
-}
-```
+Run `oref0-autotune <--dir=myopenaps_directory> <--ns-host=https://mynightscout.azurewebsites.net> [--start-date=YYYY-MM-DD] [--end-date=YYYY-MM-DD] [--xlsx=autotune.xlsx]`
 
 If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).
 
 
-#### Phase B (pending): Running Autotune in OpenAPS closed loop system
+#### Phase B: Running Autotune in OpenAPS closed loop system
 
-Autotune is pending a PR into the dev branch of OpenAPS, to test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
+Autotune is in the dev branch of OpenAPS, to test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
 
-Via the autotune branch, or once in dev, you can set up autotune as part of the setup scripts, and have it run nightly and adjust a new autotune profile.
+If you're running dev branch, you can set up autotune as part of the setup scripts, and have it run nightly and adjust a new autotune profile.
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
-#### Phase C (future): Running Autotune more easily as an average user
+#### Phase C (WIP): Running Autotune more easily as an average user
 
-Future work is planned, after further development on the algorithm and all relevant safety components, to make it easier for people to run this as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio.
+We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl). 
+
+**Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout, autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight bassal recommendations and probably even ISF recommendations overall, though. 
+
+**Note**: this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
+
+**Feedback**: Autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
+
+**Step 1: Create VM**
+* You'll need a Linux machine to run Autotune for now, until Autotune is updated to [support Mac OS X](https://github.com/openaps/oref0/issues/327) or Windows.  If you don't already have access to a physical or virtual machine running Linux, you can either create a Linux VM locally using software like [VirtualBox](https://www.virtualbox.org/wiki/Downloads), or in the cloud with your favorite cloud service.
+* For cloud servers, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free-trial/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
+* We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
+
+**Step 2: Install oref0 on the cloud VM**
+* After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
+* Install the jq package: `sudo apt-get install jq`
+* Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
+* And install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install` 
+
+**Step 3: Create a profile.json with your settings**
+* A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
+* B. Change into that directory: `cd ~/myopenaps/settings`.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.
+
+```
+{
+  "min_5m_carbimpact": 3,
+  "dia": your_dia,
+  "basalprofile": [
+    {
+      "i": 0,
+      "start": "00:00:00",
+      "minutes": 0,
+      "rate": your_basal
+    },
+    {
+      "i": 1,
+      "start": "08:00:00",
+      "minutes": 480,
+      "rate": your_basal
+    },
+    {
+      "i": 2,
+      "start": "13:00:00",
+      "minutes": 780,
+      "rate": your_basal
+    },
+    {
+      "i": 3,
+      "start": "21:00:00",
+      "minutes": 1260,
+      "rate": your_basal
+    }
+  ],
+  "isfProfile": {
+    "sensitivities": [
+      {
+        "i": 0,
+        "start": "00:00:00",
+        "sensitivity": your_isf,
+        "offset": 0,
+        "x": 0,
+        "endOffset": 1440
+      }
+    ]
+  },
+  "carb_ratio": your_ic_ratio
+}
+```
+Make sure to adjust these settings to match yours:
+  * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
+  * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
+  * "sensitivity" should be your iSF
+  * "carb_ratio" at the end should be your carb ratio
+  
+* Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
+* D. Verify your profile.json is valid json by running `jq . profile.json` - if it prints a colorful version of your profile.json, you're good to proceed.  If not, go back and edit your profile.json to fix the error.
+* E. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
+* F. Create a third file from the command line by running: `cp profile.json autotune.json`
+
+**Step 4: Run autotune on retrospective data from Nightscout**
+* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
+* ^ Sub in your Nightscout URL.
+* Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
+* Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
+
+Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).
+
+Remember, autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
+
+(If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
+
+
+

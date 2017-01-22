@@ -13,7 +13,7 @@ OK, let's get started. For our example we are going to make an edit to the opena
 
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 2. Github will automatically take you to your copy (notice in the address bar you are now in your own personal github directory)
-3. Now we need to find the file we want to edit. Click through the directory structure until you find and are looking at the content of the file you want to change.
+3. Now we need to find the file we want to edit. Click through the directory structure until you find and are looking at the content of the file you want to change. (OR, from the "Read The Docs" link, look to the bottom right hand corner and find the box that says v: latest, for example. Click on that, and in the expanded box you should see a "View" and "Edit" option on Github. Click "Edit".)
 4. Next, press the pencil icon in the upper right next to the trash can icon.
 5. Make edits to the file as necessary.
 6. Next we want to commit our changes. But first we should note what we changed and why. Scroll to the bottom of the page and type your comments in the text field that reads, "Add an optional extended description..." Be sure to include at least one line explaining the reason you made your changes.

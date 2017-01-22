@@ -13,6 +13,5 @@ Phase 4: Iterate and Improve the Closed Loop
    ifttt-integration
    ifttt-google-assistant
    autotune
-
    
 
