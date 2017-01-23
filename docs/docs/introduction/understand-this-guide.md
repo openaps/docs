@@ -27,3 +27,7 @@ Well, actually, you don't.  If you can deal with diabetes, invoking shell script
 It may help to think of the OpenAPS setup as a tiny "diabetes brain" which is focused only on figuring out how much basal insulin you should be getting.  It does this by collecting all that background data we usually let our pumps deal with: what is your insulin sensitivity, your target BG, the duration of action for insulin, etc.  Then, it collects more immediate data, such as what is the current IOB, and basal rate, as well as checking out the CGM to see what your BG has been up to recently.  Then, it decides what should be changed (if anything) and tells your pump to go to a new temp basal rate, either higher or lower, depending on all the other factors.
 
 As you go through the steps to run the loop, the longer-term data is collected in the "settings" directory, with file names indicating what sort of data they contain.  The data representing what is going on right now is in the "monitor" directory, and the recommendation for what should change goes in the "enact" directory.  To close the loop, you will have added a "cron" script, which just directs the computer to do something at a certain time interval.  
+
+### Understanding the openaps toolkit
+
+You'll find detailed walkthrough instructions and more content related to the [original openaps toolkit pieces here](http://openaps.readthedocs.io/en/latest/docs/openaps-guide/index.html)
