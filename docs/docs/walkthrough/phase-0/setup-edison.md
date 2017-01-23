@@ -209,21 +209,21 @@ Bluetooth Tethering is only availble on the dev branch of Oref0 so this command 
 Finally dev branches need to run `cd ~/src/oref0/ && npm run global-install` for the new _oref0-online_ to work
 
 ### Installation using iPhone 
-settings>general>About>Bluetooth (the 13th line down). This is the MAC Address. Use it with the --btmac option and with both the `trust` and `pair` commands. The digits in this number are are hexidecimal which replaces 10, 11, 12, 13, 14, 15 with A, B, C, D, E, F. Notice that Bluetooth is one line below WiFi and is one larger than WiFi. (D+1=E)
 
-`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` See Phase 2, step 2 for instructions. This is an interactive program. This command differs from Phase2 Step2 with the addition of the --btmac option. 
+This command differs from Phase2 Step2 with the addition of the --btmac option.`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` iPhone: Settings>General>About>Bluetooth (the 13th line down). This is the MAC Address. Use it with the --btmac option. For further instruction for this interactive program see Phase 2 step 2.
+iPhone: Settings>Bluetooth  My Devices must be empty. If not then tap the information button and "forget" each line. 
 
-`hciconfig hci0 name $HOSTNAME` This will have bluetooth use the name you called Edison just after the Flash process.
+`hciconfig hci0 name $HOSTNAME` This will cause bluetooth to use the name you called Edison just after the Flash process.
 
 `bluetoothctl` 
 
-`help` just to make sure its working. If no help then reboot and begin again with hciconfig...
+`help` to verify function. Otherwise reboot and begin again with hciconfig...
 
 `power on`
 
 `scan on`
 
-`devices` Your iphone is listed by MAC Address and the Name you set in Settings>General>About>Name.
+`devices` Your iphone is listed by MAC Address and the Name you set in iPhone: Settings>General>About>Name.
 
 `agent on`
 
@@ -231,9 +231,9 @@ settings>general>About>Bluetooth (the 13th line down). This is the MAC Address. 
 
 `pair `FF:00:11:99:AA:BB Edison will say "not successful" because the iPhone must first accept the pairing. 
 
-Open iPhone screen to settings>bluetooth. Look for the name you called Edison and tap its line. Then confirm on the iPhone screen when it asks: Request confirmation Confirm passkey 123456
+iPhone: settings>bluetooth Look for the name you called Edison and tap its line. Then confirm on the iPhone screen when it asks: Request confirmation Confirm passkey 123456
 
-If you put network \{iPhone\} in /etc/wpa_supplicant/wpa_supplicant.conf then remove it and `reboot`. Now when you turn on Settings>Personal Hotspot or Settings>Cellular>Personal Hotspot your iPhone will drop wifi connection, go cellular, and Edison will connect by BT within one minute.
+If you put "network \{iPhone\}" in /etc/wpa_supplicant/wpa_supplicant.conf for Mobile Hotspot WiFi then remove it and `reboot`. Turn on Settings>Personal Hotspot or Settings>Cellular>Personal Hotspot. iPhone will activate cellular data and Edison will connect by BlueTooth within one minute. Edison will no longer be on the home network.
 
 ### Installation using Android
 You will need to get the Mac address from your phone or whatever device you are using.
