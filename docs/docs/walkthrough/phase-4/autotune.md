@@ -62,7 +62,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 **Note**: this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
-**Feedback**: Autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
+**Feedback**: Please note autotune is brand new, and still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
 **Step 1: Create VM**
 * You'll need a Linux machine to run Autotune for now, until Autotune is updated to [support Mac OS X](https://github.com/openaps/oref0/issues/327) or Windows.  If you don't already have access to a physical or virtual machine running Linux, you can either create a Linux VM locally using software like [VirtualBox](https://www.virtualbox.org/wiki/Downloads), or in the cloud with your favorite cloud service.
@@ -70,16 +70,15 @@ We are actively working to make it easier for people to run autotune as a one-of
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
 
 **Step 2: Install oref0 on the cloud VM**
-* After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
-* Install the jq package: `sudo apt-get install jq`
-* Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
-* And install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install` 
+* A. After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
+* B. Install the jq package: `sudo apt-get install jq`
+* C. Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
+* D. And install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install` 
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
 * C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.
-
 ```
 {
   "min_5m_carbimpact": 3,
@@ -127,12 +126,12 @@ We are actively working to make it easier for people to run autotune as a one-of
   "autosens_min": 0.7
 }
 ```
-Make sure to adjust these settings to match yours:
+* Make sure to adjust these settings to match yours:
   * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
   * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
   * "sensitivity" should be your iSF - in mg/dL/U (if using mmol/L/U multiply by 18)
   * "carb_ratio" at the end should be your carb ratio
-  
+
 * Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
 * D. Verify your profile.json is valid json by running `jq . profile.json` - if it prints a colorful version of your profile.json, you're good to proceed.  If not, go back and edit your profile.json to fix the error.
 * E. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
@@ -144,11 +143,27 @@ Make sure to adjust these settings to match yours:
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
+#### Why Isn't It Working At All?
+
+(First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
+
+* Are you using xDrip as a data source? If so, you need to run the autotune-mdi branch instead of the dev branch. Sub in autotune-mdi instead of dev in step 2-C and 2-D.
+* Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
+* Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
+* Check your profile.json and make sure it really matches the example - chances are there's a stray character in there.
+* Also check your pumpprofile.json and autotune.json - if it worked once or twice but then stopped working, it may have a bad file copy. If needed, follow Steps 3-E and 3-F again to re-copy a good profile.json to pumpprofile.json and autotune.json again.
+* Still not working? Post a question in [Gitter](https://gitter.im/nightscout/intend-to-bolus). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightcout in a way that's not through Care Portal app directly, etc. 
+
+#### What does this output from autotune mean? 
 Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).
 
 Remember, autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/nightscout/intend-to-bolus), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
 (If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).)
+
+#### Yay, It Worked! This is Cool!
+
+Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool.
 
 
 
