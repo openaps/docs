@@ -209,9 +209,9 @@ Bluetooth Tethering is only availble on the dev branch of Oref0 so this command 
 Finally dev branches need to run `cd ~/src/oref0/ && npm run global-install` for the new _oref0-online_ to work
 
 ### Installation using iPhone 
-settings>general>About>Bluetooth (the 13th line down). It is this number that will appear from the `devices` command while in the interactive program `bluetoothctl`. The digits in this number are are hexidecimal which replaces 10, 11, 12, 13, 14, 15 with A, B, C, D, E, F. Notice that Bluetooth is one larger than WiFi.
+settings>general>About>Bluetooth (the 13th line down). This is the MAC Address. Use it with the --btmac option and with both the `trust` and `pair` commands. The digits in this number are are hexidecimal which replaces 10, 11, 12, 13, 14, 15 with A, B, C, D, E, F. Notice that Bluetooth is one line below WiFi and is one larger than WiFi. (D+1=E)
 
-`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` See Phase 2, step 2 for instructions. This is an interactive program. 
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` See Phase 2, step 2 for instructions. This is an interactive program. This command differs from Phase2 Step2 with the addition of the --btmac option. 
 
 `hciconfig hci0 name $HOSTNAME` This will have bluetooth use the name you called Edison just after the Flash process.
 
@@ -223,7 +223,7 @@ settings>general>About>Bluetooth (the 13th line down). It is this number that wi
 
 `scan on`
 
-`devices` Your iphone is listed by MAC Address and Name which you set in Settings>General>About>Name.
+`devices` Your iphone is listed by MAC Address and the Name you set in Settings>General>About>Name.
 
 `agent on`
 
