@@ -5,7 +5,7 @@ Guide to understanding the openaps toolkit
 Welcome to openaps
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    intro
    installing
