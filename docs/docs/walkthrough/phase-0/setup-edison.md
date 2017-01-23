@@ -217,7 +217,7 @@ settings>general>About>Bluetooth (the 13th line down). This is the MAC Address. 
 
 `bluetoothctl` 
 
-`help` just to make sure its working.
+`help` just to make sure its working. If no help then reboot and begin again with hciconfig...
 
 `power on`
 
