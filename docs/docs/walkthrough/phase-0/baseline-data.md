@@ -6,6 +6,8 @@ There is no requirement to share your data to use the openaps toolset or partici
 
 Before getting started, we ask that you store at least 30 days of CGM data. For now, the easiest way to do that is to upload your Dexcom G4 receiver to Dexcom Studio or if you use Dexcom G5 the data is in the cloud at Dexcom Clarity, if you use a Medtronic CGM, upload your CGM data to CareLink.  If you use an Animas Vibe, upload your data to Tidepool or Diasend.  We suggest you get in the habit of doing this regularly so that you have ongoing data to show trends in your overall estimated average glucose (eAG, a good indicator in trends in A1c) and variations in your "time in range."
 
+(If you alre already a user of Nightscout and have been using it for more than 30 days with a CGM, then you also have CGM data logged in Nightscout that will be useful for looking back and for donating to research in the future if you so choose.)
+
 ## Recent A1c
 
 Go ahead and document your most recent A1c and keep it somewhere handy. This will allow you to compare your before/after results as well as be able to share it (if you choose) once there is a request from OpenAPS researchers, who may aggregate anonymous data to show what happens when people use OpenAPS.
