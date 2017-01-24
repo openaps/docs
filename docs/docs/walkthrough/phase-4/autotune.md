@@ -10,7 +10,7 @@ Auto"tune", by contrast, is designed to iteratively adjust basals, ISF, and carb
 
 ## How Autotune works
 
-There are two key pieces: oref0-autotune-prep and oref0-autotune-core
+There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more autotune code, you can see [oref0-autotune-(multiple files) listed in oref0/bin here](https://github.com/openaps/oref0/tree/dev/bin) - and there are also some autotune files in [oref0/lib](https://github.com/openaps/oref0/tree/dev/lib). 
 
 **1. oref0-autotune-prep:**
 
