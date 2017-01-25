@@ -87,25 +87,21 @@ We are actively working to make it easier for people to run autotune as a one-of
   "dia": your_dia,
   "basalprofile": [
     {
-      "i": 0,
       "start": "00:00:00",
       "minutes": 0,
       "rate": your_basal
     },
     {
-      "i": 1,
       "start": "08:00:00",
       "minutes": 480,
       "rate": your_basal
     },
     {
-      "i": 2,
       "start": "13:00:00",
       "minutes": 780,
       "rate": your_basal
     },
     {
-      "i": 3,
       "start": "21:00:00",
       "minutes": 1260,
       "rate": your_basal
@@ -114,12 +110,7 @@ We are actively working to make it easier for people to run autotune as a one-of
   "isfProfile": {
     "sensitivities": [
       {
-        "i": 0,
-        "start": "00:00:00",
-        "sensitivity": your_isf,
-        "offset": 0,
-        "x": 0,
-        "endOffset": 1440
+        "sensitivity": your_isf
       }
     ]
   },
