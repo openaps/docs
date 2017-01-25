@@ -19,7 +19,7 @@ This community of contributors believes in "paying it forward," and individuals 
 
    docs/introduction/index
    docs/walkthrough/index
-   docs/openaps-guide/index
+   
 
    Resources <docs/Resources/index>
    reference/index
