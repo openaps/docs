@@ -6,6 +6,8 @@ Members of the OpenAPS community have frequently expressed the desire to donate 
 
 For more background, see https://openaps.org/outcomes/data-commons/
 
+![screenshot from the OpenAPS Data Commons on Open Humans](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/OpenAPS_Data_Commons.png)
+
 ## How to upload your data to the OpenAPS Data Commons
 
 
@@ -16,9 +18,12 @@ For more background, see https://openaps.org/outcomes/data-commons/
  * **2**. Scroll down to the bottom of the page and click "Connect Nightscout Data Transfer". (Log in to your OH account first if you haven't already). 
  * **3**. It will take you to a page and ask for your Nightscout URL. Note the app DOES NOT store your URL but will just use it to fetch the data from Nightscout. Select the date range you want it to fetch data from. Tip: Start with two days or so of data to test that it works; you can then re-upload with a longer time frame of data. 
  * It will say "queued" on the page. You can refresh, and it should soon say "initiated". It may take several minutes to pull even a few days worth of data, so keep refreshing the page or come back later. Once done, it should show you a list of files that it has pulled, and provide download buttons if you want to download a local copy or open it to check that it correctly pulled data. Your screen should look like this:
+  
+  ![example of OpenHumans screen in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/Example_screen_from_NightscoutDataTransfer_app while data upload in progress.png)
  
  * You can always go back to the Nightscout Data Transfer app and see what data it has uploaded for you. It should look something like this:
 
+![example of data sources in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/How_data_looks_in_NightscoutDataTransferApp_OpenHumans.png)
 
 * **C**. Now that you have data in Open Humans, next [click here to go directly to the OpenAPS Data Commons project](https://www.openhumans.org/activity/openaps-data-commons/).
  * **1**. Carefully read the terms & consent to make sure you understand how your data is going to be used. You can also read the OpenAPS Data Commons research criteria here to better understand what criteria research projects are held to before they may be granted access to the data commons data. Note: the data will not be publicly available unless individuals or research groups meet this criteria and are vetted by a volunteer group from our community.
