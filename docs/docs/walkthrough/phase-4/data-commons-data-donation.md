@@ -34,4 +34,6 @@ For more background, see https://openaps.org/outcomes/data-commons/
    * We may contact you in the future (we will not see your email address, but will message you via Open Humans) to request to upload a new batch of data or fill out a survey for another research study that is accessing the Data Commons data.
     * Per the Terms and Conditions, you can *always* choose to delete and remove your data from Open Humans, or pull it from the OpenAPS Data Commons. Some data may have already been shared with individual research studies. However, if you contact dana@openaps.org, we will also do our best to remove it from any active/ongoing research studies.
  
- 
+## Notes about OpenHumans and other data
+
+You can also donate your data to places like the Nightscout Data Commons (once it is finished), or any other research project you find interesting on Open Humans. Make sure to read the terms and conditions clearly for each of the research studies you donate your data to, and in particular look for what types of data they may be asking you to share. In addition to Nightscout data, you can upload things like Fitbit or Moves data, etc. to Open Humans. 
