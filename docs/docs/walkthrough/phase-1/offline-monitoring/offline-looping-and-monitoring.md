@@ -10,10 +10,10 @@ Dexcom CGM or other CGM users will need alternative solutions, which range from 
 
 ## Offline monitoring
 
-* See [Pancreabble] for connecting your rig to your watch
+* See [Pancreabble](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/offline-monitoring/Pancreabble.html) for connecting your rig to your watch
 * See xDrip instructions for seeing offline loop status (coming soon)
 
-### Note about recovery from Camping Mode/Offline mode for Medtronic CGM users
+#### Note about recovery from Camping Mode/Offline mode for Medtronic CGM users:
 
 If you have been running offline for a significant amount of time, and use a Medtronic CGM, you may need to run
 
