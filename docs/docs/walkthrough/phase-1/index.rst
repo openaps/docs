@@ -6,10 +6,5 @@ Phase 1: Monitoring and Visualization
    
    
    nightscout-setup
-   offline-monitoring
-   offline-looping-and-monitoring
-
-
-
-
-
+   offline-monitoring/offline-looping-and-monitoring
+   offline-monitoring/Pancreabble
