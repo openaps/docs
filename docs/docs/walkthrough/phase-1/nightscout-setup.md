@@ -2,16 +2,15 @@
 
 ## Nightscout Introduction
 
-[Nightscout](http://nightscout.info) in their own words: Nightscout (CGM in the
-Cloud) is an open source, DIY project that allows real time access to a CGM data
+[Nightscout](http://nightscout.info) is an open source, DIY project that allows real time access to a CGM data
 via personal website, smartwatch viewers, or apps and widgets available for
 smartphones.
 
 It basically allows a user to upload CGM data from a variety of sources, to an
 online database and cloud computing service. The information is then processed
 and displayed visually as a graph. There are plugins that allow greater
-information to be shown about OpenAPS too. As the data is uploaded to an online
-website and then retrieved by OpenAPS it allows OpenAPS a wider range of
+information to be shown about OpenAPS, too. As the data is uploaded to an online
+website and then retrieved by OpenAPS, it allows OpenAPS a wider range of
 compatibility with various CGM solutions.
 
 **[Nightscout](http://nightscout.info) is the recommended way to visualize your
@@ -31,8 +30,8 @@ your data on a variety of additional devices. Once your website is up and
 running you can integrate Nightscout to your OpenAPS using the guide below.
 
 **NOTE**: If you plan to use Nightscout to vizualize a production OpenAPS instance, we
-recommend using the $7/mo Heroku plans, as OpenAPS' can reach the usage limits of 
-the free Azure plan and cause it to shut down for hours or days.
+recommend using Heroku, as OpenAPS' can reach the usage limits of 
+the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.
 
 ## Nightscout Integration
 
@@ -41,8 +40,7 @@ to your OpenAPS implementation.
 
 ### Nightscout Setup
 
-OpenAPS requires you to be on the Grilled Cheese master of Nightscout or any future dev versions, which can be
-found [here](https://github.com/nightscout/cgm-remote-monitor/tree/dev). If you
+OpenAPS requires you to be on the Grilled Cheese master (recommended as of January 2017) of Nightscout or any future dev versions, which can be found [here](https://github.com/nightscout/cgm-remote-monitor/tree/dev). If you
 are already using Nightscout, you may have to do a pull request (PR) to update the master branch in your repository. To update
 your version to the latest dev, go to the
 [Beta Test tool](http://nightscout.github.io/pages/test-beta/?branch=dev), look
@@ -106,7 +104,7 @@ should also show up in the list, and you may check the box to enable. You
 should now see the OpenAPS pill box (and any optional pump monitoring pill
 boxes) on the left side of the Nightscout page near the time. 
 
-Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
+Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
 
 ## How to display basal changes ("render basal")
 
@@ -117,12 +115,10 @@ We also recommend that you "render"/display the basal rates (the blue lines to s
 
 You need to create a profile in your Nightscout site that contains the Timezone,
 Duration of Insulin Activity (DIA), Insulin to carb ratio (I:C), Insulin
-Sensitivity Factor (ISF), Carbs Activity / Absorption rate, Basal Rates and
+Sensitivity Factor (ISF), Carbs Activity / Absorption rate (optional), Basal Rates and
 Target BG range.
 
-These settings are not currently updated from the values stored in the pump. You
-will need to keep the Nightscout profile in sync with any changes you make in
-your pump.
+**Note**: These settings are not currently updated from the values stored in the pump. OpenAPS will only work based on the values in your pump; not what you put into Nightscout. You will need to keep the Nightscout profile in sync with any changes you make in your pump to prevent later confusion.
 
 To configure your profile, on your Nightscout website, go to the Settings (3
 horizontal bars) in the upper right corner. Click on the Profile Editor button.
