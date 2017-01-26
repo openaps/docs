@@ -20,6 +20,9 @@ For more background, see https://openaps.org/outcomes/data-commons/
  * It will say "queued" on the page. You can refresh, and it should soon say "initiated". It may take several minutes to pull even a few days worth of data, so keep refreshing the page or come back later. Once done, it should show you a list of files that it has pulled, and provide download buttons if you want to download a local copy or open it to check that it correctly pulled data. Your screen should look like this:
   
   ![example of OpenHumans screen in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/Example_screen_from_NightscoutDataTransfer_app while data upload in progress.png)
+  
+  When completed, after refreshing the status bar should turn green and look something like this:
+  ![successful data transfer complete from Nightscout to OpenHumans](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/Successful_data_transfer_complete_screen_in_OpenHumans.png)
  
  * You can always go back to the Nightscout Data Transfer app and see what data it has uploaded for you. It should look something like this:
 
