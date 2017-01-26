@@ -199,31 +199,47 @@ You have now installed the operating system on your Edison! You can now proceed 
 
 The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
 
-The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your Android phone, it should work.
 
-First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
+Running this command will install all of the dependencies: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -` After a complete install the last line will say: openaps 0.1.5  or similar.
 
-```
-$ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+Bluetooth Tethering is only availble on the dev branch of Oref0 so this command differs from the command list in Phase 2.
+`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
-```
+Finally dev branches need to run `cd ~/src/oref0/ && npm run global-install` for the new _oref0-online_ to work
 
-due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
+### Installation using iPhone 
 
-```
-cd ~/src/oref0/ && npm run global-install
-```
+This command differs from Phase2 Step2 with the addition of the --btmac option.`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` iPhone: Settings>General>About>Bluetooth (the 13th line down). This is the MAC Address. Use it with the --btmac option. For further instruction for this interactive program see Phase 2 step 2.
+iPhone: Settings>Bluetooth  My Devices must be empty. If not then tap the information button and "forget" each line. 
 
-You will need to get the Mac address from your phone or whatever device you are using. on the 
-Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
-iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
+`hciconfig hci0 name $HOSTNAME` This will cause bluetooth to use the name you called Edison just after the Flash process.
 
-when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
+`bluetoothctl` 
 
-```
-cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
-```
+`help` to verify function. Otherwise reboot and begin again with hciconfig...
 
+`power on`
+
+`scan on`
+
+`devices` Your iphone is listed by MAC Address and the Name you set in iPhone: Settings>General>About>Name.
+
+`agent on`
+
+`trust `FF:00:11:99:AA:BB iPhone MAC Address can be copied and pasted from `devices` output.
+
+`pair `FF:00:11:99:AA:BB Edison will say "not successful" because the iPhone must first accept the pairing. 
+
+iPhone: settings>bluetooth Look for the name you called Edison and tap its line. Then confirm on the iPhone screen when it asks: Request confirmation Confirm passkey 123456
+
+If you put "network \{iPhone\}" in /etc/wpa_supplicant/wpa_supplicant.conf for Mobile Hotspot WiFi then remove it and `reboot`. Turn on Settings>Personal Hotspot or Settings>Cellular>Personal Hotspot. iPhone will activate cellular data and Edison will connect by BlueTooth within one minute. Edison will no longer be on the home network.
+
+### Installation using Android
+You will need to get the Mac address from your phone or whatever device you are using.
+Android -settings/about phone/ Status; you will see a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
+When you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF`
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
 Once you are installed and running. it may fail after installing the Bluez, just reboot your edison and run the above command again. 
 
@@ -251,13 +267,7 @@ For Android
 ********************************
 The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. 
 
-For iPhone
-********************************
-you must use the edison to initiate pairing
-```
-pair AA:BB:CC:DD:EE:FF
-```
-********************************
+
 you will see on the edison
 
 `Request confirmation
