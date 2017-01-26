@@ -129,7 +129,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 * Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
 * D. Verify your profile.json is valid json by running `jq . profile.json` - if it prints a colorful version of your profile.json, you're good to proceed.  If not, go back and edit your profile.json to fix the error.
-* E. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
+* E. Create a pumpprofile.json that is the same as your profile.json. On the command line run: `cp profile.json pumpprofile.json`
 * F. Create a third file from the command line by running: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
