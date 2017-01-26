@@ -12,6 +12,7 @@ Phase 1: Monitoring and Visualization
    visualization
    openaps-to-nightscout
    offline-monitoring
+   Campingmode
 
 
 
