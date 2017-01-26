@@ -1,6 +1,6 @@
 # Bluetooth tethering on Edison (optional) 
 
-## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 1-125-2017 
+## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 1-25-17 
 
 The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
 
@@ -105,5 +105,5 @@ Option 2 - If you have a serial console connection to your Edison and are using 
 
 Option 3 - Take a walk, and as soon as you are out of range of your wifi, you should see that a device is connected to your personal network. Shortly after that you will see things update on nightscout.
 
-This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
+This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable for some people - but not all. Further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
 
