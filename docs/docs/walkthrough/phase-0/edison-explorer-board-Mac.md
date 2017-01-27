@@ -178,7 +178,7 @@ Hostname and password
 **A-4.** Type “:wq” to write (save) and quit that screen.
 
 
-**B-1.** Enter vi /etc/wpa_supplicant/wpa_supplicant.conf
+**B-1.** Enter `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
 ![Wifi edit screen](../../Images/Edison/Wifi_add.png)
 
@@ -195,7 +195,7 @@ network={
 
 These are the wifi networks that your rig will be able to use to stay connected to internet. Examples shown in yellow.  One is my home wifi, the other is my iphone’s personal hotspot.
 
-![Phone wifi hotspot screen](../../Images/Edison/phone_hotspot_wifi.png)
+![Phone wifi hotspot screen](../../Images/Edison/Phone_hotspot_wifi.png)
 
 * Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone Settings>Personal Hotspot
 * You will definitely want to add it to the list of wifi networks.
@@ -216,7 +216,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 * Login to your Edison by entering `ssh root@edisonhost.local`
 * Enter your password that you set earlier
 
-![Login to your rig](../../Images/Edison/rig_login_time.png)
+![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
 ### 2. Installing the looping script (openaps-setup.sh)
 
