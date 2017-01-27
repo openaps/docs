@@ -37,7 +37,7 @@ The nuts and bolts are tiny, and the spaces are a little tight.  I find it reall
 
 Easiest to start with the explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring). Inside the little outline where the Edison will eventually sit.  Gold screws, as shown, with nuts on the backside.   Then lay the Edison board on top, aligning the screw holes.  Use small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.
 
-![Edison/Explorer Board rig with red light on](../Images/Edison/Edison_Explorer_Board.png) 
+![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
 
 ## Software-build your rig
 
