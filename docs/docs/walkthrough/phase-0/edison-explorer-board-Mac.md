@@ -170,6 +170,9 @@ Hostname and password
 
 ![Wifi edit screen](../../Images/Edison/Wifi_edit_screen.png)
 
+**HELPFUL TIP**:  If you are new to insert mode, realize that it inserts characters at the highlighted cursor (it does not overwrite the character showing beneath the cursor).  And, the default is that the cursor will be at the top left of the screen to start, so you will need to use the arrow keys to move the cursor to the area where you want to start typing.  If you freak out that you’ve made a change that you don’t want to commit...you can simply press the ESC key and then type (no quotes) “:q!” to quit without saving any of your typing/changes.
+
+
 **A-3.** Make the changes so they match the areas highlighted in yellow, above:
 * uncomment (remove the #) from the auto wlan0 line
 * add the wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
