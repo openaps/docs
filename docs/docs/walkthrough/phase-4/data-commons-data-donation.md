@@ -8,6 +8,8 @@ For more background, see https://openaps.org/outcomes/data-commons/
 
 ![screenshot from the OpenAPS Data Commons on Open Humans](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/OpenAPS_Data_Commons.png)
 
+(Tip: you may want to right click and open any links from this page in new windows.)
+
 ## How to upload your data to the OpenAPS Data Commons
 
 
