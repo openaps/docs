@@ -1,0 +1,3 @@
+# Phase 4: Starting to Close the Loop
+
+Phase 4 focuses on creating a schedule to automate the manual system you developed. Again, at this stage testing is critical and output of the system should be tracked and validated over a series of time, and include thorough edge case testing as you move from communicating with the pump and CGM to closing the loop. Don't test overnight until you are supremely confident in the operation of your system - remembering that you hold responsibility for the setup and operation of your system. You may want to have someone nearby the first time you run the system overnight, in addition to setting alarms to test and watch the system.
