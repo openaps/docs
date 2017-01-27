@@ -43,3 +43,12 @@ For more background, see https://openaps.org/outcomes/data-commons/
 ## Notes about OpenHumans and other data
 
 You can also donate your data to places like the Nightscout Data Commons (once it is finished), or any other research project you find interesting on Open Humans. Make sure to read the terms and conditions clearly for each of the research studies you donate your data to, and in particular look for what types of data they may be asking you to share. In addition to Nightscout data, you can upload things like Fitbit or Moves data, etc. to Open Humans. 
+
+## Frequently Asked Questions
+
+* **I filled out the survey. What next?** <br>
+You're all done! (For now. In the future, studies accessing the OpenAPS Data Commons may choose to send additional surveys to collect things like various QOL metrics, which you can choose to participate in or not.) Thanks for donating your data!
+
+* **Who is accessing the data?**<br>
+Any project from OpenHumans accessing the OpenAPS Data Commons should be listed on the page. We'll also keep a list going (probably here, on the [OpenAPS.org Data Commons page](https://openaps.org/outcomes/data-commons/)) to reflect the different studies using the data.
+
