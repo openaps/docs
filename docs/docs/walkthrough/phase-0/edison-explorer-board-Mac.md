@@ -206,7 +206,7 @@ These are the wifi networks that your rig will be able to use to stay connected 
 
 ![ifup wlan0 example](../../Images/Edison/ifup_wlan0.png)
 
-#### **1-10. Logging back into your rig**
+#### **1-10. Installing packages, SSH keys, and other settings**
 
 ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Edison “console” window, reboot, and login using an “ssh” command.
 
@@ -217,6 +217,32 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 * Enter your password that you set earlier
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
+
+* Enter these three lines, one-at-a-time (the first line will run fast, the second line will take a few minutes to complete, and the third line will take about 1-2 minutes)
+`dpkg -P nodejs nodejs-dev`
+
+`apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove`
+
+`apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate`
+
+* Enter these three lines, one-at-a-time (the first two will be fast, the last line will take you to a screen for setting up your timezone.  Screenshots are just for examples...in this case PST
+
+`adduser edison sudo`
+
+`adduser edison dialout`
+
+`dpkg-reconfigure tzdata`    # Set local time-zone
+
+![Time zone examples](../../Images/Edison/Time_zone.png)
+
+* Enter `vi /etc/logrotate.conf` then press “i” for INSERT mode, and make the following changes:
+
+ * set the log rotation to daily from weekly
+ * remove the #  from the “#compress” line
+
+* Press ESC and then type (no quotes) “:wq” to save and quit
+
+![Log rotation examples](../../Images/Edison/log_rotation.png)
 
 ### 2. Installing the looping script (openaps-setup.sh)
 
