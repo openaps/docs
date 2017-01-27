@@ -1,4 +1,4 @@
-### Making your first PR (pull request)
+### Making your first PR (Pull Request)
 
 At some point it will be suggested to you that you make a PR. PR is short for pull request.
 It's actually not too hard to do one and it is a great way to contribute. This documentation is here because people like you made PRs.
