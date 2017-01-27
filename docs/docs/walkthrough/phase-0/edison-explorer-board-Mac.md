@@ -55,21 +55,21 @@ Let’s start by downloading the updated operating system (it’s called Jubilin
 
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work. too). 
 
-![Explorer Board rig with two cables and red light on](../Images/Edison/ExplorerBoard_two_charging_cables.png) 
+![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
 Once you plug in the cables, you should see your Edison board in your Finder folder as a connected “device”.  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to reset your SMC first (it’s not hard to do, takes 2 minutes.)
 
-![Edison in Finder](../Images/Edison/Edison_in_Finder_folder.png) 
+![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
 
 The OpenAPS uses Terminal, kind of like Loop uses Xcode.  It’s our interaction with the code that forms the basis of the loop.  You may have never even used the Terminal app.  Go to your Applications folder and find the Terminal App in the Utilities folder.  Double click to open it.
 
-![Terminal example](../Images/Edison/Terminal_example.png)
+![Terminal example](../../Images/Edison/Terminal_example.png)
 
 Terminal app is an ugly, plain interface…but it does what we need to do, communicate with the Edison.  Basically, the Edison is a computer that lacks a keyboard and display.  By using a cable connected to the rig, we can login to the Edison and use Terminal as a way of interacting with the Edison. 
 
 When you first launch Terminal, you will probably see something rather plain like below.  The important thing to know is that the Terminal helps show you WHERE you are in your computer or Edison.  So, in the screenshot below, it’s telling me I am in my “iMac4K” user account.  If you are ever a little confused where you are…you can look to the left of the $ prompt and get an idea.
 
-![A look inside terminal](../Images/Edison/Inside_terminal.png)
+![A look inside terminal](../../Images/Edison/Inside_terminal.png)
 
 If you’re like me, you don’t “speak linux” (or python or java or…) nor do you really know what linux is.  So, you’ll be comforted to know that most of this setup is cut and paste commands into Terminal.  You won’t need to suddenly learn linux…just will need to follow directions and be willing  learn some basics.
 
@@ -83,17 +83,17 @@ The next steps will be done in the Terminal app.  If you see code lines in a gre
 
 You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password).  When you type the password, you will not see any letters appear in the Terminal screen..that is normal.  Terminal does not show keystrokes for passwords.
 
-![Enter return example](../Images/Edison/Enter_return.png)
+![Enter return example](../../Images/Edison/Enter_return.png)
 
 It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of commands scrolling by in Terminal window.  Just wait it out until you see the screen showing Installation successful and you’ll be returned to the $ Terminal prompt.
 
-![After Homebrew](../Images/Edison/After_Homebrew.png)
+![After Homebrew](../../Images/Edison/After_Homebrew.png)
 
 #### **1-2.  Install a bunch of other stuff (dfu-util, coreutils, gnu-getopt)**
 
 `brew install dfu-util coreutils gnu-getopt`
 
-![After installing other stuff](../Images/Edison/After_install_other_stuff.png)
+![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
 #### **1-3.  Install lsusb (copy and paste one line at a time, pressing enter after each)**
 
@@ -103,7 +103,7 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 `brew install lsusb`
 
-![After installing lsusb](../Images/Edison/after_install_lsusb.png)
+![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
 
 #### **1-4.     Start Edison console**
 
@@ -111,7 +111,7 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 You’ll be asked for your computer password again.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed.  Leave this window alone for a bit as we proceed with next steps.
 
-![Example terminal screen](../Images/Edison/change_me_out_for_jubilinux.png)
+![Example terminal screen](../../Images/Edison/change_me_out_for_jubilinux.png)
 
 #### **1-5. Flash the Edison**
 
@@ -119,7 +119,7 @@ You’ll be asked for your computer password again.  Enter it.  A blank screen w
 
 * In the new window, enter `cd ~/Downloads/jubilinux` This will change your directory. 
 
-![Change directories](../Images/Edison/cd_jubilinux.png)
+![Change directories](../../Images/Edison/cd_jubilinux.png)
 
 * Enter `./flashall.sh`
 * You’ll get a prompt that asks you to reboot.  You’re done with this screen for now.  Just leave it alone (**don’t close window**) and go to next step.
@@ -132,11 +132,11 @@ You’ll be asked for your computer password again.  Enter it.  A blank screen w
 
 You may see a message notification that the Edison “Disk Not Ejected Properly”.  Don’t worry...it is rebooting.  You will see some processes going on in the background.  This should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work.
 
-![Don't worry during Reboot](../Images/Edison/dont_worry_during_reboot.png)
+![Don't worry during Reboot](../../Images/Edison/dont_worry_during_reboot.png)
 
 After flashing is complete, watch the window as you may get asked to type control-D to continue.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After several more reboots (don’t panic), you should get a ubilinux login prompt.  Use login root and password edison.
 
-![Login after successful Reboot](../Images/Edison/login_after_successful_reboot.png)
+![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
 CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
 
@@ -151,7 +151,7 @@ Hostname and password
 `echo $myedisonhostname > /etc/hostname`
 `sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts`
 
-![Edison hostname and password screen](../Images/Edison/edison_hostname_password.png)
+![Edison hostname and password screen](../../Images/Edison/edison_hostname_password.png)
 
 * To change the password for your Edison to a more secure password than “edison”, enter passwd root
 
@@ -159,7 +159,7 @@ Hostname and password
 
 * SAVE PASSWORDS somewhere, you’ll want them.
 
-![Changing password screen](../Images/Edison/changing_edison_password.png)
+![Changing password screen](../../Images/Edison/changing_edison_password.png)
 
 #### **1-9. Multiple wifi networks**
 
