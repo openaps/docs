@@ -15,4 +15,5 @@ Phase 4: Iterate and Improve the Closed Loop
    ifttt-google-assistant
    autotune
    understanding-autotune
+   data-commons-data-donation
 
