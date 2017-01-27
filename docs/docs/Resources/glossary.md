@@ -1,5 +1,8 @@
 # Glossary
 
+
+## AP and OpenAPS high level terminology 
+
 <b>APS</b> - artificial pancreas system. Sometimes also referred to as "AP"
 
 <b>CGM</b> - continuous glucose monitor, a temporary glucose sensor that is injected into your skin (the needle is removed) for 3-7 days and, with twice a day calibrations, provides BG readings approximately every 5 minutes.
@@ -9,6 +12,8 @@
 <b>OpenAPS</b> - refers to an example build of the system when used without a hashtag (\#)
 
 <b>openaps</b> - the core suite of software tools under development by this community for use in an OpenAPS implementation
+
+<b>oref0</b> - "reference design implementation version 0" of the OpenAPS reference design. Aka, the key algorithm behind OpenAPS.
 
 <b>BG</b> - Blood Glucose
 
@@ -34,6 +39,8 @@
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
 
+## OpenAPS specific terminology 
+
 <b>OpenAPS Nightscout Status Messages</b> appear when the OpenAPS plugin is enabled.
   * <b>Looping ↻</b> - Success; Temp basal rate has been suggested.
   * <b>Enacted ⌁</b> - Success; Temp basal rate has been set.
@@ -49,4 +56,6 @@
 
 <b>Exp. Delta</b> - expected BG delta right now, considering all OpenAPS inputs (IOB, COB, etc).
 
-<b>RileyLink (RL)</b> - A custom designed Bluetooth Smart (BLE) to sub-1GHz module - it can be used to bridge any BLE capable smartphone to the world of sub-1GHz devices. This device is focused on talking to Medtronic insulin pumps and sensors.
+<b>snoozeBG</b> - predicted value of blood glucose adjusted for bolussnooze IOB
+
+<b>predBGs</b> - predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
