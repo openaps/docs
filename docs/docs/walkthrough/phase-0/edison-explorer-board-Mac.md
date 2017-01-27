@@ -163,6 +163,65 @@ Hostname and password
 
 #### **1-9. Multiple wifi networks**
 
+**A-1.** Enter
+`vi /etc/network/interfaces`
+
+**A-2.** A screen similar to the one below will appear.  Type “i” to enter INSERT mode for editing on the file.
+
+![Wifi edit screen](../../Images/Edison/Wifi_edit_screen.png)
+
+**A-3.** Make the changes so they match the areas highlighted in yellow, above:
+* uncomment (remove the #) from the auto wlan0 line
+* add the wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+* comment out (add #) to the wpa-ssid and wpa-psk lines as shown
+
+**A-4.** Type “:wq” to write (save) and quit that screen.
+
+
+**B-1.** Enter vi /etc/wpa_supplicant/wpa_supplicant.conf
+
+![Wifi edit screen](../../Images/Edison/Wifi_add.png)
+
+**B-2.** Type “i” to enter INSERT mode for editing on the file.
+
+**B-3.** Add the following for each wifi network you’d like to add.  
+
+```
+network={
+    ssid="my network"
+    psk="my wifi password"
+}
+```
+
+These are the wifi networks that your rig will be able to use to stay connected to internet. Examples shown in yellow.  One is my home wifi, the other is my iphone’s personal hotspot.
+
+![Phone wifi hotspot screen](../../Images/Edison/phone_hotspot_wifi.png)
+
+* Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone Settings>Personal Hotspot
+* You will definitely want to add it to the list of wifi networks.
+
+**B-4.** Type “:wq” to write (save) and quit that screen when you have finished adding the wifi networks.  You can always come back and add more networks as needed, using the same process.
+
+**C** Run `ifup wlan0` to make sure you can connect to wifi.  A successful connection should look similar (IP address numbers will be different than mine):
+
+![ifup wlan0 example](../../Images/Edison/ifup_wlan0.png)
+
+#### **1-10. Logging back into your rig**
+
+ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Edison “console” window, reboot, and login using an “ssh” command.
+
+* Type `reboot`
+* Wait as many lines of action go by in the Terminal window...eventually you will get to a prompt.  When you get that prompt.  Go ahead and close out the window.  Confirm that you want to “terminate”
+* Open a new Terminal window by pressing Command-N
+* Login to your Edison by entering `ssh root@edisonhost.local`
+* Enter your password that you set earlier
+
+![Login to your rig](../../Images/Edison/rig_login_time.png)
+
 ### 2. Installing the looping script (openaps-setup.sh)
 
+You'll now want to move on to the [Phase 1 instructions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/index.html) if you haven't already set up Nightscout; and if you've already done that, onward to [Phase 2 to install the closed loop](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/index.html)!
+
 ### 3. Personalising your closed loop
+
+See the [phase 3 documentation](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/index.html) for personalizing your closed loop.
