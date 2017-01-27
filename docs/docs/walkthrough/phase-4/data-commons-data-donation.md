@@ -49,6 +49,9 @@ You can also donate your data to places like the Nightscout Data Commons (once i
 * **I filled out the survey. What next?** <br>
 You're all done! (For now. In the future, studies accessing the OpenAPS Data Commons may choose to send additional surveys to collect things like various QOL metrics, which you can choose to participate in or not.) Thanks for donating your data!
 
+* **How much data should I donate?** <br>
+You can donate as much as you want, or as little as you want. However, many of the studies are interested in looking at before/after looping - so at a minimum, I'd suggest a month or two before you started looping. If you don't have any reason to limit what you share, I'd suggest sharing all of your Nightscout data to make it the most useful to all potential researchers. (This means don't bother to put a start or end date in the Nightscout Data Transfer tool; just put in your URL and hit upload.)
+
 * **Who is accessing the data?**<br>
 Any project from OpenHumans accessing the OpenAPS Data Commons should be listed on the page. We'll also keep a list going (probably here, on the [OpenAPS.org Data Commons page](https://openaps.org/outcomes/data-commons/)) to reflect the different studies using the data.
 
