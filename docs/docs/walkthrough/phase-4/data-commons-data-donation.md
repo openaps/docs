@@ -4,9 +4,9 @@
 
 Members of the OpenAPS community have frequently expressed the desire to donate their DIY closed loop data for scientific research; or to perform research themselves. The OpenAPS Data Commons was created to enable a simple way to share data sets from the community, both with traditional researchers who will create traditional research studies, and with groups or individuals from the community who want to review data as part of their own research projects. The OpenAPS Data Commons uses the “[Open Humans](https://www.openhumans.org/about/)” platform to enable people to easily upload and share their data.
 
-For more background, see https://openaps.org/outcomes/data-commons/
+For more background, see [the OpenAPS.org Data Commons page](https://openaps.org/outcomes/data-commons/).
 
-![screenshot from the OpenAPS Data Commons on Open Humans](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/OpenAPS_Data_Commons.png)
+![screenshot from the OpenAPS Data Commons on Open Humans](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/OpenAPS_Data_Commons.png)
 
 (Tip: you may want to right click and open any links from this page in new windows.)
 
@@ -22,14 +22,14 @@ For more background, see https://openaps.org/outcomes/data-commons/
  * Warning: if you want to upload ALL of your data (yay!), then don't put a start date. However, this will take a while, so don't expect it to be done in minutes, but may take upward of half an hour to an hour depending on how much Nightscout data you have - this is normal.
  * It will say "queued" on the page. You can refresh, and it should soon say "initiated". It may take several minutes to pull even a few days worth of data, so keep refreshing the page or come back later. Once done, it should show you a list of files that it has pulled, and provide download buttons if you want to download a local copy or open it to check that it correctly pulled data. Your screen should look like this:
   
-  ![example of OpenHumans screen in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/Example_screen_from_NightscoutDataTransfer_app while data upload in progress.png)
+  ![example of OpenHumans screen in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/Example_screen_from_NightscoutDataTransfer_app while data upload in progress.png)
   
   When completed, after refreshing the status bar should turn green and look something like this:
-  ![successful data transfer complete from Nightscout to OpenHumans](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/Successful_data_transfer_complete_screen_in_OpenHumans.png)
+  ![successful data transfer complete from Nightscout to OpenHumans](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/Successful_data_transfer_complete_screen_in_OpenHumans.png)
  
  * You can always go back to the [Nightscout Data Transfer app](https://www.openhumans.org/activity/nightscout-data-transfer/) and see what data it has uploaded for you. It should look something like this:
 
-![example of data sources in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/danamlewis-patch-1/docs/docs/walkthrough/phase-4/How_data_looks_in_NightscoutDataTransferApp_OpenHumans.png)
+![example of data sources in the Nightscout Data Transfer app](https://github.com/openaps/docs/blob/master/docs/docs/walkthrough/phase-4/How_data_looks_in_NightscoutDataTransferApp_OpenHumans.png)
 
 * **C**. Now that you have data in Open Humans, next [click here to go directly to the OpenAPS Data Commons project](https://www.openhumans.org/activity/openaps-data-commons/).
  * **1**. Scroll down and click "join". Carefully read the terms & consent to make sure you understand how your data is going to be used. You can also read the OpenAPS Data Commons research criteria here to better understand what criteria research projects are held to before they may be granted access to the data commons data. Note: the data will not be publicly available; it will only be shared privately and securely with individuals or research groups that meet this criteria and are vetted by a volunteer group from our community.
