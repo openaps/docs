@@ -22,7 +22,7 @@ For more background, see [the OpenAPS.org Data Commons page](https://openaps.org
  * Warning: if you want to upload ALL of your data (yay!), then don't put a start date. However, this will take a while, so don't expect it to be done in minutes, but may take upward of half an hour to an hour depending on how much Nightscout data you have - this is normal.
  * It will say "queued" on the page. You can refresh, and it should soon say "initiated". It may take several minutes to pull even a few days worth of data, so keep refreshing the page or come back later. Once done, it should show you a list of files that it has pulled, and provide download buttons if you want to download a local copy or open it to check that it correctly pulled data. Your screen should look like this:
   
-  ![example of OpenHumans screen in the Nightscout Data Transfer app](../../Images/Example_screen_from_NightscoutDataTransfer_app_while-data_upload_in_progress.png)
+  ![example of OpenHumans screen in the Nightscout Data Transfer app](../../Images/Example_screen_from_NightscoutDataTransfer_app_while_data_upload_in_progress.png)
   
   When completed, after refreshing the status bar should turn green and look something like this:
   ![successful data transfer complete from Nightscout to OpenHumans](../../Images/Successful_data_transfer_complete_screen_in_OpenHumans.png)
