@@ -42,6 +42,10 @@ Pull/clone the latest oref0 master by running:
 
 `mkdir -p ~/src; cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout master && git pull)`
 
+If you have been looping for awhile, are setting up an additional rig, are comfortable using the advanced features from the master branch, and want to test out the latest features of the oref0 dev branch (which may still be highly experimental) you can use:
+
+`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
+
 ## Step 2: Run oref0-setup
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. Also read below regarding port and other information to enter when running the script.
@@ -56,8 +60,8 @@ to run the script interactively, or get usage guidelines for providing inputs as
 * Directory name for your openaps
 * serial number of your pump
 * the mmeowlink port:
-    * -(/dev/spidev5.1 if using explorer board)
-    * -see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options)
+    * /dev/spidev5.1 if using explorer board
+    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options
 * how you are getting cgm data and cgm serial numbers if needed
 * nightscout host and api-secret if using nightscout 
 * whether you want any of the oref0 advanced implementations

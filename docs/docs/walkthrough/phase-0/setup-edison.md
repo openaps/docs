@@ -20,13 +20,20 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Windows PC:
 
-  -  To find the System Properties window go to (Control Panel > All Control Panel Items > System) page. At top left select "Remote settings".
-  -  Select the "Advanced" tab in System Properties window, under Performance click on `Settings`.
-  -  Select `Advanced` and click on `Change...` to change the page size.
-  -  On Virtual Memory window uncheck `Automatically manage paging file size ...` and set the Initial size and Maximum size to at least **1024** and **2048** (or larger, if your existing swap file is larger) and reboot.
-  - If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
-     Run the "Windows Stand Alone" executable located [here.](https://software.intel.com/en-us/iot/hardware/edison/downloads) Be sure to select the version appropriate for your Windows OS (64bit or 32bit). This will install usb drivers.  You do *not* need to flash the Edison or set up sercurity or wifi with that tool: if you do, then flashing Jubilinux (below) will just overwrite it.
-  - If you don't already have Putty installed, download the appropriate version for your machine from here: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+- Install the [Intel Edison drivers for Windows]( https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
+- Install [PuTTY]( http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Download the installation file that matches your PC's architecture (32-bit or 64-bit).
+
+Windows PCs with less than 6 GB of RAM  may need to have the size of the page file increased to flash the Edison. Close all unnecessary programs and attempt to flash the device. If the flash operation fails follow these steps to ensure enough swap space is allocated when the computer boots, then restart and try again. Only do this if flashing the device doesn't work without changing these settings.
+
+*Important: Write down the settings in the Virtual Memory window before you make any changes to your system. When you finish the flash process you must return these settings to their original values or Windows may become unstable.*
+
+ - Go to the Control Panel, click All Control Panel Items, then click System. At top left click the Remote Settings link.
+ - Select the Advanced tab in the System Properties window, then under Performance click Settings.
+ - On the Advanced tab click the Change... button to change the page size.
+ - In the Virtual Memory window uncheck "Automatically manage paging file size for all drives," click "Custom size," and set the initial size to at least 4096 MB. If you have already attempted this process at least once continue to increase this number by 1024 MB. Set the maximum size to 2048 MB higher than the initial size you used.
+ - Click the Set button, then click OK until all windows are closed.
+ - Reboot and attempt the flash proccess.
+
 
 ### If you're using a Mac:
 
@@ -124,6 +131,23 @@ iface wlan0 inet dhcp
 ```
 Comment out or delete the wpa-ssid and wpa-psk lines.
 
+After editing, your file should look like:
+
+```
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto usb0
+iface usb0 inet static
+    address 192.168.2.15
+    netmask 255.255.255.0
+
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `vi /etc/wpa_supplicant/wpa_supplicant.conf`
@@ -136,6 +160,7 @@ network={
     psk="my wifi password"
 }
 ```
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
 Run `ifup wlan0` to make sure you can connect to wifi
@@ -187,113 +212,6 @@ and add to the end of the file:
 ```    
 
 You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
-
-## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional] This is still in testing as of 1-1-2017 
-
-The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
-
-The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
-
-First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
-
-```
-$ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
-
-```
-
-due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
-
-```
-cd ~/src/oref0/ && npm run global-install
-```
-
-You will need to get the Mac address from your phone or whatever device you are using. on the 
-Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
-iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
-
-when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
-
-```
-cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
-```
-
-The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
-Once you are installed and running. it may fail after installing the Bluez, just reboot your edison and run the above command again. 
-
-note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
-
-```
-sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
-
-sudo hciconfig hci0 name $HOSTNAME
-
-bluetoothctl
-
-power off
-
-power on
-
-discoverable on
-
-agent on
-
-default-agent
-```
-
-For Android
-********************************
-The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. 
-
-For iPhone
-********************************
-you must use the edison to initiate pairing
-```
-pair AA:BB:CC:DD:EE:FF
-```
-********************************
-you will see on the edison
-
-`Request confirmation
-[agent] Confirm passkey 123456 (yes/no): yes`
-
-You must type in **yes** not just **y** to pair
-
-After, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
-
-Then on your phone you can hit the pair button that popped up.
-
-Execute the paired-devices command to list the paired devices -
-
-```
-paired-devices
-Device AA:BB:CC:DD:EE:FF Samsung S7
-```
-
-Your paired phone should be listed (in this example, a Samsung Galaxy S7). Copy the bluetooth address listed for it; we will need to provide this later.
-
-Now trust the mobile device 
-
-`trust AA:BB:CC:DD:EE:FF`
-
-Quit bluetoothctl with 'quit'.
-
-******************************
-**For Testing**
-Option 1 - If you are still on your home wifi you can test to see if you can pair by running (this only works with the Android)
-```
-sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
-
-sudo hciconfig hci0 name $HOSTNAME
-```
-then
-```
-sudo bt-pan client AA:BB:CC:DD:EE:FF
-```
-Option 2 - If you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot. (takes about 1 min after reboot for the Bluetooth Network to connect)
-
-Option 3 - Take a walk, and as soon as you are out of range of your wifi, you should see that a device is connected to your personal network. Shortly after that you will see things update on nightscout.
-
-This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable. But further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
 
 
 ## Troubleshooting
