@@ -286,7 +286,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 
 `adduser edison dialout`
 
-`dpkg-reconfigure tzdata`    # Set local time-zone
+`dpkg-reconfigure tzdata    # Set local time-zone`
 
 ![Time zone examples](../../Images/Edison/Time_zone.png)
 
