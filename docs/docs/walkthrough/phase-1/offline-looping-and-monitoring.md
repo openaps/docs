@@ -6,12 +6,14 @@ There are a number of ways to have an "offline" OpenAPS rig, and numerous ways t
 
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
 
-Dexcom CGM or other CGM users will need alternative solutions, which range from plugging in a receiver into your rig (Pi, or Edison rig), or using xDrip to get BGs locally. See below for more details.
+Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 2.)Hardwire (plugging CGM receiver into) your rig. 
+
+Explorer boards built prior to late January of 2017 are not allways working well with a hardwired CGM receiver. This can be fixed with a signal trace cut. Please see this document to cut the copper trace from pin 61 of the 70 pin connector: https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
 
 ## Offline monitoring
 
 * See Pancreabble instructions below for connecting your rig to your watch
-* See xDrip instructions below for seeing offline loop status (very rough WIP - please PR any fixes/edits to it)
+* See xDrip instructions for seeing offline loop status (coming soon)
 
 ### Note about recovery from Camping Mode/Offline mode for Medtronic CGM users:
 
@@ -166,3 +168,4 @@ If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB a
   ```
   openaps device add xdrip process 'bash -c "curl -s http://localhost:5000/api/v1/entries?count=288"'
   openaps report add monitor/glucose.json text xdrip shell
+
