@@ -187,10 +187,6 @@ Log in as root (with the password you just set above), and run:
 
 Then:
 
-    apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
-    
-And:
-
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
