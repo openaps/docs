@@ -31,11 +31,11 @@ Restart the Bluetooth daemon to start up the bluetooth services.  (This is norma
 
 `sudo killall bluetoothd`
 
-Wait a few seconds, and run:
+Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
 
 `sudo /usr/local/bin/bluetoothd --experimental &`
 
-and then
+Wait at least 10 seconds, and then run:
 
 `sudo hciconfig hci0 name $HOSTNAME`
 
