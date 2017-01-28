@@ -44,6 +44,8 @@ power on
 
 discoverable on
 
+scan on
+
 agent on
 
 default-agent
@@ -55,7 +57,7 @@ The adapter is now discoverable for three minutes. Search for bluetooth devices 
 
 For iPhone
 ********************************
-you must use the edison to initiate pairing
+Your iPhone must be on the Settings/Bluetooth screen, and then you must use the Edison to initiate pairing:
 ```
 pair AA:BB:CC:DD:EE:FF
 ```
@@ -67,9 +69,7 @@ you will see on the edison
 
 You must type in **yes** not just **y** to pair
 
-After, the phone may ask you to enter a PIN. If so, enter '0000' and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter 'yes'.
-
-Then on your phone you can hit the pair button that popped up.
+On your phone, tap the pair button that popped up.
 
 Execute the paired-devices command to list the paired devices -
 
@@ -78,7 +78,7 @@ paired-devices
 Device AA:BB:CC:DD:EE:FF Samsung S7
 ```
 
-Your paired phone should be listed (in this example, a Samsung Galaxy S7). Copy the bluetooth address listed for it; we will need to provide this later.
+Your paired phone should be listed (in this example, a Samsung Galaxy S7). 
 
 Now trust the mobile device 
 
@@ -87,20 +87,49 @@ Now trust the mobile device
 Quit bluetoothctl with 'quit'.
 
 ******************************
-**For Testing**
-Option 1 - If you are still on your home wifi you can test to see if you can pair by running (this only works with the Android)
-```
-sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
 
-sudo hciconfig hci0 name $HOSTNAME
-```
-then
-```
-sudo bt-pan client AA:BB:CC:DD:EE:FF
-```
-Option 2 - If you have a serial console connection to your Edison and are using wpa_supplicant, you can comment out your home wifi in `nano /etc/wpa_supplicant/wpa_supplicant.conf`, then reboot. (takes about 1 min after reboot for the Bluetooth Network to connect)
+*Testing*
 
-Option 3 - Take a walk, and as soon as you are out of range of your wifi, you should see that a device is connected to your personal network. Shortly after that you will see things update on nightscout.
+Before testing your connection, first restart the Bluetooth daemon:
 
-This has been tested with a Samsung Galaxy S7, and a iPhone 6s and has proven reliable for some people - but not all. Further testing is needed. So let it be known if you are able to get this to work or if you have problems.  
+`sudo killall bluetoothd`
 
+wait a moment, hit enter, and you should get a message like `[1]   Done                    sudo /usr/local/bin/bluetoothd --experimental`.  After that, or after a few more seconds, run:
+
+`sudo /usr/local/bin/bluetoothd --experimental &`
+
+and then
+
+`sudo hciconfig hci0 name $HOSTNAME`
+
+Make sure your phone's hotspot is enabled (but don't let anything connect via wifi).
+
+Now, try to establish a Bluetooth Network connection with your phone:
+
+`sudo bt-pan client AA:BB:CC:DD:EE:FF`
+
+You should see an indicator on your phone (a blue bar on iPhone) that your Bluetooth network connection has established.  Next you'll need to get an IP address:
+
+`sudo dhclient bnep0`
+
+If that succeeds, you should be able to run `ifconfig bnep0` and see something like:
+
+```
+bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
+          inet addr:172.20.10.4  Bcast:172.20.10.15  Mask:255.255.255.240
+```
+(for iPhone, the inet addr will always start with 172.20.10. - Android will likely be different)
+
+To disconnect the connection, you can run:
+
+`sudo bt-pan client -d AA:BB:CC:DD:EE:FF`
+
+Next, to test that Bluetooth starts up automatically, you can shut down your wifi for 2-3 minutes by running:
+
+`iwconfig wlan0 txpower off; sleep 120; iwconfig wlan0 txpower auto`
+
+About 1 min later, your bluetooth network should connect.  If it doesn't, you should be able to wait 3 minutes and reconnect.  If that doesn't work, you'll either need to reboot it or use a serial console connection to your Edison to troubleshoot further.
+
+About a minute after wifi comes back on, your Edison should automatically disconnect the Bluetooth connection.
+
+Finally, it's time to take a walk.  About a minute after walking out of range of your wifi, you should see that a device is connected to your phone via Bluetooth. Shortly after that you should see things update on Nightscout.  About a minute afer you come home, it should reconnect to wifi and automatically disconnect Bluetooth.
