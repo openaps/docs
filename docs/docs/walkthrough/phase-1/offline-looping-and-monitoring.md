@@ -6,9 +6,9 @@ There are a number of ways to have an "offline" OpenAPS rig, and numerous ways t
 
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
 
-Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 2.)Hardwire (plugging CGM receiver into) your rig. RPi to Dexcom uses standard to micro usb while Explorer to Dexcom uses micro to micro usb. 
+Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 2.)Hardwire (plugging CGM receiver into) your rig. 
 
-Explorer boards built prior to February of 2017 are not working with a hardwired CGM receiver. This can be fixed with a signal trace cut. Please see this document to cut the copper trace from pin 61 of the 70 pin connector: https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness Cut in two places and dig out the copper between. Cut by poking the point in. Avoid the narrow trace above the one being cut.
+Explorer boards built prior to late January of 2017 are not allways working well with a hardwired CGM receiver. This can be fixed with a signal trace cut. Please see this document to cut the copper trace from pin 61 of the 70 pin connector: https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
 
 ## Offline monitoring
 
