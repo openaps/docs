@@ -141,7 +141,7 @@ bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
 
 `iwconfig wlan0 txpower off; sleep 120; iwconfig wlan0 txpower auto`
 
-* About 1 min later, your bluetooth network should connect your rig to your phone (blue bar will pop up on the phone).  If it doesn't, you should be able to wait 3 minutes and your terminal session will automatically reconnect.  If that doesn't connect, you'll either need to reboot it or use a serial console connection to your Edison to troubleshoot further.
+* About 1 min later, your rig should connect to your phone with Bluetooth (blue bar will pop up on the iPhone).  If it doesn't, you should be able to wait 3 minutes and your terminal session should automatically reconnect.  If that doesn't connect, you'll either need to reboot it or use a serial console connection to your Edison to troubleshoot further.
 
 * About a minute after wifi comes back on (terminal session restores), your Edison should automatically disconnect the Bluetooth connection.
 
