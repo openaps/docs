@@ -76,7 +76,7 @@ The very first time may take a while (10-15 minutes) for it to successfully read
 
 ### Re-running the setup script
 
-In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features). To do so, you will be able to run `bash ~/myopenaps/oref0-runagain.sh` to start running the setup script again with those options. (You may first want to `cat oref0-runagain.sh` to see what options you have saved in there, and you can `nano oref0-runagain.sh` to change what's saved in the file to run the next time.
+In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features). To do so, you will be able to run `bash ~/myopenaps/oref0-runagain.sh` to start running the setup script again with those options. (You may first want to `cat oref0-runagain.sh` to see what options you have saved in there.  To run it again with different options, you can copy and paste and modify that output, or you can `nano oref0-runagain.sh` to change what's saved in the file to run the next time.)
 
 ## Step 3: Watch the logs
 
