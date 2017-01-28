@@ -20,7 +20,7 @@ https://www.sparkfun.com/products/13024
 https://www.sparkfun.com/products/13187
 
 * Lithium Battery
-(Katie recommends using the larger battery for a little longer battery life; but that may be slightly bigger than your Explorer Board.)
+(The larger battery will have a little longer battery life; but may be slightly bigger.)
 https://www.adafruit.com/products/328  (2500mAh battery)
 https://www.sparkfun.com/products/8483  (2000mAh battery)
 
@@ -224,6 +224,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
 * Enter these three lines, one-at-a-time (the first line will run fast, the second line will take a few minutes to complete, and the third line will take about 1-2 minutes)
+
 `dpkg -P nodejs nodejs-dev`
 
 `apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove`
