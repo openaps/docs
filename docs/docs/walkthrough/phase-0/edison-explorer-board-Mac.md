@@ -272,11 +272,13 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
-* Enter these two lines, one-at-a-time (the first line will run fast, and the second line will take several minutes to complete)
+* Enter these three lines, one-at-a-time (the first line will run fast, and the second and third lines may take several minutes to complete)
 
 `dpkg -P nodejs nodejs-dev`
 
 `apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove`
+
+`apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate`
 
 * Enter these three lines, one-at-a-time (the first two will be fast, the last line will take you to a screen for setting up your timezone.  Screenshots are just for examples...in this case PST
 
