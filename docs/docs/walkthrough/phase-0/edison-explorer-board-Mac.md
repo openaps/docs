@@ -57,7 +57,7 @@ Now we move to the Edison.  You’ll see two microB USB ports on your explorer b
 
 ![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
-Once you plug in the cables, you should see your Edison board in your Finder as a connected “device” (similar to what you would see if you plug in a USB).  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295) (it’s not hard to do, takes 2 minutes.)
+Once you plug in the cables, you should see your Edison board in your Finder as a connected “device” (similar to what you would see if you plug in a USB thumb drive).  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295) (it’s not hard to do, takes 2 minutes.)
 
 ![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
 
