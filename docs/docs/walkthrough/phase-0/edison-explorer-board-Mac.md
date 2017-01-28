@@ -95,13 +95,13 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 ![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
-#### **1-3.  Install lsusb (copy and paste one line at a time, pressing enter after each)**
+#### **1-3.  Install lsusb**
 
-`brew update             && \`
-
-`brew tap jlhonora/lsusb && \`
-
-`brew install lsusb`
+```
+brew update             && \
+brew tap jlhonora/lsusb && \
+brew install lsusb
+```
 
 ![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
 
@@ -109,7 +109,7 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 `sudo screen /dev/tty.usbserial-* 115200`
 
-You’ll be asked for your computer password again.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed.  Leave this window alone for a bit as we proceed with next steps.
+You’ll most likely be asked for your computer password again.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed.  Leave this window alone for a bit as we proceed with next steps.
 
 ![Example terminal screen](../../Images/Edison/change_me_out_for_jubilinux.png)
 
