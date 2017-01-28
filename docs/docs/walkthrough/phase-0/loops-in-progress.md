@@ -122,3 +122,4 @@ List of people who are working on closed loops:
 - Ahanu Banerjee (Pittsburgh, PA)
 - Ken Huat CHONG (Kuala Lumpur, Malaysia)
 - Daniel Bjørnbakk (Norway)
+- Katie DiSimone (Paso Robles, CA)
