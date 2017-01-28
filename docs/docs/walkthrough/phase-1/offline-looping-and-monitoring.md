@@ -52,9 +52,19 @@ Raspberry Pi/Intel Edison -> Bluetooth -> Pebble watch
 
 Using a Pebble watch can be especially helpful during the "open loop" phase: you can send the loop's recommendations directly to your wrist, making it easy to evaluate the decisions it would make in different contexts during the day (before/after eating, when active, etc.).
 
-See [Pancreabble] for setup instructions.
+See [Pancreabble] for initial setup instructions.
 
 [Pancreabble]: https://github.com/mddub/pancreabble
+
+Once you've done the first stages above, you'll need to do generate a status file that can be passed over to the Pebble Urchin watch face. Fortunately, the core of this is available in the Dev branch of oref0.
+
+Go to `~src/oref0/bin` and look for `peb-urchin-status.sh`. This gives you the basic framework to generate output files that can be used with Pancreabble. To use it, you'll need to install jq using:
+
+`apt-get install jq`
+
+If you get errors, you may need to run `apt-get update` ahead of attempting to install jq.
+
+Once jq is installed, the shell script runs and produces the `urchin-status.json` file which is needed to update the status on the pebble. It can be incorporated into an alias that regularly updates the pebble. You can modify it to produce messages that you want to see there.
 
 ### xDripAPS for offline BGs
 
@@ -67,7 +77,7 @@ xDripAPS is a lightweight microservice intended to be used on Raspberry Pi or In
 As of January 2017, support for xDripAPS is now included in the OpenAPS oref0-setup.sh script. Ensure that you use the dev branch, as this has not been merged with master yet. When running the oref0-setup.sh script, you will be prompted to specify a CGM type (e.g. MDT, G4). You can specify "xdrip" (without the quotes). This will install xDripAPS and all dependencies. Alternatively, manual installation instructions can be found at the bottom of this page.
 
 #### Overview of xDripAPS
-With xDripAPS, the flow of data is as follows - 
+With xDripAPS, the flow of data is as follows -
 
 (1) CGM transmitter --> (2) xDrip/xDrip+ Android app --> (3) OpenAPS rig (e.g. Edison) --> (4) Nightscout
 
@@ -86,14 +96,14 @@ For the xDrip app on your Android phone to be able to send CGM data to xDripAPS 
 
 There are two approaches for establishing a "personal" network between your phone and your OpenAPS rig. The first is to run a WiFi hotspot on your phone and connect your OpenAPS rig to the WiFi network your phone exposes. This is the easiest option, but there are two drawbacks - it drains your phone battery quickly, and your phone cannot connect to a normal WiFi network while the WiFi hotspot is enabled (it can connect to the internet via 3G/4G when coverage is available).
 
-The other option is to enable bluetooth tethering on your phone and have your OpenAPS rig connect to it. This does not drain the phone's battery as quickly and means that the phone can still connect to a normal WiFi network for internet access when available (and to 3G/4G networks when WiFi is not available). I use this approach 24/7 - my OpenAPS rig is permanently tethered to my Nexus 6P phone. I can get a full day of phone usage without running out of battery, unless I make a lot of calls or have a lot of screen-on time. 
+The other option is to enable bluetooth tethering on your phone and have your OpenAPS rig connect to it. This does not drain the phone's battery as quickly and means that the phone can still connect to a normal WiFi network for internet access when available (and to 3G/4G networks when WiFi is not available). I use this approach 24/7 - my OpenAPS rig is permanently tethered to my Nexus 6P phone. I can get a full day of phone usage without running out of battery, unless I make a lot of calls or have a lot of screen-on time.
 
 Instructions on both approaches can be found in the main OpenAPS documentation.
 
 ##### Configuring the xDrip Android app
 First, determine your OpenAPS rig's IP address within your "personal" network. If you can open a terminal session to your rig via serial, then `ifconfig wlan0` (when using the WiFi hostpost option) or `ifconfig bnep0` (when using bluetooth tethering) will display your IP address. Alternatively, you can use an Android app - there are lots of "Network IP Scanner" apps in the Play store. The Hurricane Electric Network Tools app works with both the WiFi hotspot and BT tethering options.
 
-Then, open xDrip or xDrip+ settings and in the REST API Upload setting, configure the following URL - 
+Then, open xDrip or xDrip+ settings and in the REST API Upload setting, configure the following URL -
 
 `http://<api_secret>@<rig_ip_address>:5000/api/v1/`
 
@@ -103,18 +113,18 @@ Note: ensure you enter http:// (NOT https://). <api_secret> is the plain-text AP
 
 If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB and ensure that the "Skip LAN uploads" option is NOT selected. If you don't have this setting, update to a recent version of the xDrip+ app. (This option was added to a nightly build around December 2016).
 
-#### Manual installation steps  
+#### Manual installation steps
 
 ##### N.B. It is recommended that you use the oref0-setup script as described above, rather than installing manually.
 
 1. Install SQLite3 -
 
-  a. Raspbian - 
+  a. Raspbian -
     ```
     apt-get install sqlite3
     ```
 
-  b. Yocto - 
+  b. Yocto -
     ```
     cd ~
     wget https://sqlite.org/2016/sqlite-tools-linux-x86-3150200.zip
@@ -134,20 +144,20 @@ If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB a
   git clone https://github.com/colinlennon/xDripAPS.git .xDripAPS
   ```
 
-4. Create directory for database file - 
+4. Create directory for database file -
   ```
   mkdir -p ~/.xDripAPS_data
   ```
 
-5. Add cron entry to start the microservice at startup - 
-  e.g. - 
+5. Add cron entry to start the microservice at startup -
+  e.g. -
   `@reboot         python /home/root/.xDripAPS/xDripAPS.py`
 
 6. Cofigure the xDrip Android app -
    ```
   xDrip > Settings > REST API Upload > Set Enabled and enter Base URL: http://[API_SECRET]@[Pi/Edison_IP_address]:5000/api/v1/
   ```
-  
+ 
   (Note: Enter your plain-text API_SECRET in the Android app, not the hashed version of it).
 
 
