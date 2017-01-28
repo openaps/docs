@@ -128,13 +128,18 @@ Once paired, type quit to exit.
 
 Currently the `peb-urchin-status.sh` has 1 notification and 3 different options for urchin messages.
 in you APS directory there is a file called 'pancreoptions.json' 
+```
 "urchin_loop_on": true,  <--- to turn on or off urchin watchface update
 "urchin_loop_status": false, <--- Gives a message on urchin watchface that it's running
 "urchin_iob": true,   <--- Gives a message on urchin watchface of current IOB
 "urchin_temp_rate": false, <--- Gives a message on urchin watchface of current temp basal
 "notify_temp_basal": false <--- Notificaiton of temp basal when one shows up in enact/suggested.json
-
+```
 note only one of the messages for the urchin watchface can be true at once
+
+the `peb-urchin-status.sh` gets called from the crontab and will run automatically.
+By default the urchin_loop_on, and urchin_iob is set to true. You must manually change notify_temp_basal to true to start getting temp basal notifications. 
+you can edit this file using `nano pancreoptions.json` from your APS directory.
 
 ### xDripAPS for offline BGs
 
