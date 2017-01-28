@@ -1,6 +1,6 @@
 # Setting up Edison/Explorer Board on a Mac - Alpha Instructions
 
-(This is testing a separate workflow for Mac only. Please refer to the main Edison setup guide as well for troubleshooting & full instructions for other computer setup processees.)
+(This is testing a separate workflow for Mac only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processees.)
 
 ## Hardware Assumptions for this page
 
@@ -10,24 +10,19 @@
 
 ## High Level Recommended Rig parts list
 
-* Explorer Board
-https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order
+* [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
 
-* Edison
-https://www.sparkfun.com/products/13024
+* [**Edison - link**](https://www.sparkfun.com/products/13024)
 
-* Nuts and Bolts
-https://www.sparkfun.com/products/13187
+* [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187)
 
-* Lithium Battery
-(The larger battery will have a little longer battery life; but may be slightly bigger.)
-https://www.adafruit.com/products/328  (2500mAh battery)
-https://www.sparkfun.com/products/8483  (2000mAh battery)
+* **Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
+ * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
+ * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
 
-* Cables 
-(you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
-https://www.adafruit.com/products/592 (3 ft long cable, USB-microB)
-https://www.adafruit.com/products/898 (6 inch long cable, USB-microB)
+* **Cables**  (you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
+ * [**3 ft long cable, USB-microB - link**](https://www.adafruit.com/products/592)
+ * [**6 inch long cable, USB-microB - link**](https://www.adafruit.com/products/898)
 
 ## Getting Physical: Build your rig/put the physical pieces together
 
@@ -97,11 +92,8 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 #### **1-3.  Install lsusb**
 
-```
-brew update             && \
-brew tap jlhonora/lsusb && \
-brew install lsusb
-```
+
+`brew update && brew tap jlhonora/lsusb && brew install lsusb`
 
 ![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
 
@@ -190,6 +182,7 @@ After several reboots (don’t panic), you should get a ubilinux login prompt.  
 
 ![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
+
 CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
 
 #### **1-8. Wifi for Edison**
@@ -208,6 +201,8 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 (without any modifications) and it will set your hostname in both places.
 
 ![Edison hostname and password screen](../../Images/Edison/edison_hostname_password.png)
+
+**IMPORTANT**
 
 * To change the password for your Edison to a more secure password than “edison”, enter `passwd root`
 
@@ -234,7 +229,7 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 * add `    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf` right below the iface wlan0 line.
 * comment out (add #) to the wpa-ssid and wpa-psk lines as shown
 
-**A-4.** Type “:wq” to write (save) and quit that screen.
+**A-4.** Press ESC then type “:wq” to write (save) and quit that screen.
 
 
 **B-1.** Enter `vi /etc/wpa_supplicant/wpa_supplicant.conf`
@@ -259,7 +254,7 @@ These are the wifi networks that your rig will be able to use to stay connected 
 * Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone Settings>Personal Hotspot
 * You will definitely want to add it to the list of wifi networks.
 
-**B-4.** Type “:wq” to write (save) and quit that screen when you have finished adding the wifi networks.  You can always come back and add more networks as needed, using the same process.
+**B-4.** Press ESC then type “:wq” to write (save) and quit that screen when you have finished adding the wifi networks.  You can always come back and add more networks as needed, using the same process.
 
 **C** Run `ifup wlan0` to make sure you can connect to wifi.  A successful connection should look similar (IP address numbers will be different than mine):
 
@@ -277,13 +272,11 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
-* Enter these three lines, one-at-a-time (the first line will run fast, the second line will take a few minutes to complete, and the third line will take about 1-2 minutes)
+* Enter these three lines, one-at-a-time (the first line will run fast, and the second line will take several minutes to complete)
 
 `dpkg -P nodejs nodejs-dev`
 
 `apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove`
-
-`apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate`
 
 * Enter these three lines, one-at-a-time (the first two will be fast, the last line will take you to a screen for setting up your timezone.  Screenshots are just for examples...in this case PST
 
@@ -291,7 +284,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 
 `adduser edison dialout`
 
-`dpkg-reconfigure tzdata`    # Set local time-zone
+`dpkg-reconfigure tzdata    # Set local time-zone`
 
 ![Time zone examples](../../Images/Edison/Time_zone.png)
 
@@ -300,9 +293,11 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
  * set the log rotation to daily from weekly
  * remove the #  from the “#compress” line
 
-* Press ESC and then type (no quotes) “:wq” to save and quit
+* Press ESC and then type “:wq” to save and quit
 
 ![Log rotation examples](../../Images/Edison/log_rotation.png)
+
+**Congratulations you have successfully flashed your edison and configured some basic settings. Time to move onto OpenAPS install**
 
 ### 2. Installing the looping script (openaps-setup.sh)
 

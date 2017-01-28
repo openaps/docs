@@ -187,10 +187,6 @@ Log in as root (with the password you just set above), and run:
 
 Then:
 
-    apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
-    
-And:
-
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
@@ -316,3 +312,5 @@ Some users have reported problems with connecting to internet sites.  If you are
      nameserver 8.8.8.8
 
 Also see the instructions [here](https://wiki.debian.org/NetworkConfiguration#The_resolvconf_program) to add these nameservers to your `/network/interfaces` file as the `resolv.conf` file is likely to be overwritten.
+
+Alternatively, add the nameservers you want to see in `resolv.conf` to `/etc/resolvconf/resolv.conf.d/tail` and they'll be automatically added to `resolv.conf`.
