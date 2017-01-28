@@ -175,7 +175,18 @@ Flashing rootfs, (it can take up to 10 minutes... Please be patient)
 ```
 in the terminal window where you ran `./flashall.sh`.  As it says, this should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work, in which case you should read through the [full docs] and try again, and/or check out the Troubleshooting section at the bottom.
 
-After flashing is complete, watch the window as you may get asked to type control-D to continue.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After several more reboots (don’t panic), you should get a ubilinux login prompt.  Use login root and password edison.
+After flashing is complete, watch the window as you should get asked to type control-D to continue.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
+
+```
+[**    ] A start job is running for /etc/rc.local Compatibili...14s / no limit)
+```
+for a few minutes: that's fine.  You can also expect to see an ugly red:
+```
+[FAILED] Failed to start Hostname Service.
+```
+That is also fine, and you can ignore it too.
+
+After several reboots (don’t panic), you should get a ubilinux login prompt.  Use login `root` and password `edison`.
 
 ![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
