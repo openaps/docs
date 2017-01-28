@@ -199,9 +199,13 @@ Now that you’ve finished flashing, the Edison is going to need a couple things
 Hostname and password
 
 * From that same screen we just left off , enter these three commands in succession
-`myedisonhostname=<thehostname-you-want`>  <---But replace the <> section with your chosen hostname.  I used “edisonhost” as the name, as shown in screenshot below.
-`echo $myedisonhostname > /etc/hostname`
-`sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts`
+`myedisonhostname=<thehostname-you-want>`  <---But replace the <> section with your chosen hostname.  I used “edisonhost” as the name, as shown in screenshot below.  Then paste in:
+
+```
+echo $myedisonhostname > /etc/hostname
+sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
+```
+(without any modifications) and it will set your hostname in both places.
 
 ![Edison hostname and password screen](../../Images/Edison/edison_hostname_password.png)
 
