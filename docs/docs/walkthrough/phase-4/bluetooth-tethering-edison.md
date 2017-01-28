@@ -4,38 +4,42 @@
 
 The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
 
-The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. so once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should work. 
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. So once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should automatically connect and get online. 
 
-First, Currently the Bluetooth Tethering is only availble on the dev branch of Oref0
+Currently the Bluetooth Tethering is only availble on the dev branch of oref0, so clone/pull the branch by running:
 
 ```
 $ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
 
 ```
 
-due to this being a dev branch, you will need to run the next instruction in order to get the new oref0-online to work
+Install the dev branch to get the new oref0-online to work:
 
 ```
 cd ~/src/oref0/ && npm run global-install
 ```
 
-You will need to get the Mac address from your phone or whatever device you are using. on the 
-Android -settings/about phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
-iPhone - settings/general/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
+You will need to get the MAC address from your phone or whatever device you are using.
+* On Android, go to Settings/About Phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
+* On iPhone, go to Settings/General/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
 
-when you run the oref0-setup you will need to add that to the install parameters replacing AA:BB:CC:DD:EE:FF with what you found above.
+Now we need to re-run oref0-setup with the Bluetooth option, replacing AA:BB:CC:DD:EE:FF with what you found above.  If you have the "To run again with these same options" command-line from the last time you ran oref0-setup, you can simply run that and append `--btmac=AA:BB:CC:DD:EE:FF` to the end.  If not, you can run it interactively using:
 
 ```
 cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
 ```
 
+Copy and paste the "To run again with these same options" command into your notes for the next time you need to run oref0-setup.
+
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
-Once you are installed and running. it may fail after installing the Bluez, just reboot your edison and run the above command again. 
+The oref0-setup script may fail after installing the Bluez.  If so, just reboot your edison and run the command you copied to your notes. 
 
 note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
 
 ```
-sudo killall bluetoothd; sudo /usr/local/bin/bluetoothd --experimental &
+sudo killall bluetoothd
+
+sudo /usr/local/bin/bluetoothd --experimental &
 
 sudo hciconfig hci0 name $HOSTNAME
 
