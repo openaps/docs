@@ -126,9 +126,9 @@ You’ll most likely be asked for your computer password again.  Enter it.  A bl
 
 ![Reboot](../../Images/Edison/reboot.png)
 
-#### **1-6.  Return to the other Terminal Window that we left off of in Step 4.  Enter reboot**
+#### **1-6.  Return to the other Terminal Window that we left off of in Step 4.**
 
-`reboot`
+* Enter `reboot`
 
 #### **1-7.  Now we wait and watch.**  
 
