@@ -68,6 +68,74 @@ If you get errors, you may need to run `apt-get update` ahead of attempting to i
 
 Once jq is installed, the shell script runs and produces the `urchin-status.json` file which is needed to update the status on the pebble. It can be incorporated into an alias that regularly updates the pebble. You can modify it to produce messages that you want to see there.
 
+When installing the oref0-setup you will need the pebble mac address, this can be found in Settings/System/Information/BT Address
+
+Once you've installed, you will need to pair the watch to your edison.
+### Bluetooth setup
+
+* Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
+
+`sudo killall bluetoothd`
+
+* Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
+
+`sudo /usr/local/bin/bluetoothd --experimental &`
+
+* Wait at least 10 seconds, and then run:
+
+`sudo hciconfig hci0 name $HOSTNAME`
+
+* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
+
+* Now launch the Bluetooth control program: `bluetoothctl`
+
+* And run: `power off`
+
+* then `power on`
+
+* and each of the following:
+
+```
+discoverable on
+
+scan on
+
+agent on
+
+default-agent
+```
+
+On Pebble
+********************************
+Settings/BLUETOOTH to make sure Pebble is in pairing mode
+
+from terminal 
+
+`trust AA:BB:CC:DD:EE:FF`
+`pair AA:BB:CC:DD:EE:FF`
+
+you might need to do this several times before it pairs
+
+you will see on the edison
+
+`Request confirmation
+[agent] Confirm passkey 123456 (yes/no): yes`
+
+* (WARNING: You must type in **yes** not just **y** to pair)
+
+Once paired, type quit to exit.
+
+
+Currently the `peb-urchin-status.sh` has 1 notification and 3 different options for urchin messages.
+in you APS directory there is a file called 'pancreoptions.json' 
+"urchin_loop_on": true,  <--- to turn on or off urchin watchface update
+"urchin_loop_status": false, <--- Gives a message on urchin watchface that it's running
+"urchin_iob": true,   <--- Gives a message on urchin watchface of current IOB
+"urchin_temp_rate": false, <--- Gives a message on urchin watchface of current temp basal
+"notify_temp_basal": false <--- Notificaiton of temp basal when one shows up in enact/suggested.json
+
+note only one of the messages for the urchin watchface can be true at once
+
 ### xDripAPS for offline BGs
 
 This is a REST microservice designed to allow xDrip CGM data to be used in OpenAPS. **Note as of 1/26/17:** The below documentation is WIP and needs additional testing.
