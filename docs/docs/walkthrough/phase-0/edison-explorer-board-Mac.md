@@ -209,9 +209,9 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 
 ![Edison hostname and password screen](../../Images/Edison/edison_hostname_password.png)
 
-* To change the password for your Edison to a more secure password than “edison”, enter passwd root
+* To change the password for your Edison to a more secure password than “edison”, enter `passwd root`
 
-* Follow the commands to reset the password.    Repeat for passwd edison  
+* Follow the commands to reset the password.    Repeat for `passwd edison`
 
 * SAVE PASSWORDS somewhere, you’ll want them.
 
