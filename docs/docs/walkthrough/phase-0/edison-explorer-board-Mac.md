@@ -43,21 +43,21 @@ Easiest to start with the explorer board and put on 2 nuts and gold screws (nuts
 
 Building the software into your rig is comprised of three steps:
 
-1. preparing the Edison (aka flashing the Edison)
-2. installing the “looping” code (aka setup script for oref0)
-3. customizing your loop 
+1. Preparing the Edison (aka flashing the Edison)
+2. Installing the “looping” code (aka setup script for oref0)
+3. Customizing your loop 
 
 ### 1. Preparing/flashing the Edison
 
-The Edison comes with an operating system that doesn’t work the best with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
+The Edison comes with an operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
 Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
 
-Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work. too). 
+Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
 
 ![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
-Once you plug in the cables, you should see your Edison board in your Finder folder as a connected “device”.  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](http://osxdaily.com/2010/03/24/when-and-how-to-reset-your-mac-system-management-controller-smc/) (it’s not hard to do, takes 2 minutes.)
+Once you plug in the cables, you should see your Edison board in your Finder as a connected “device” (similar to what you would see if you plug in a USB).  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295) (it’s not hard to do, takes 2 minutes.)
 
 ![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
 
@@ -71,7 +71,7 @@ When you first launch Terminal, you will probably see something rather plain lik
 
 ![A look inside terminal](../../Images/Edison/Inside_terminal.png)
 
-If you’re like me, you don’t “speak linux” (or python or java or…) nor do you really know what linux is.  So, you’ll be comforted to know that most of this setup is cut and paste commands into Terminal.  You won’t need to suddenly learn linux…just will need to follow directions and be willing  learn some basics.
+If you’re like me, you don’t “speak linux” (or python or java or…) nor do you really know what linux is.  So, you’ll be comforted to know that most of this setup is copy and paste commands into Terminal.  You won’t need to suddenly learn linux…just will need to follow directions and be willing  learn some basics.
 
 **IMPORTANT NOTE**: STEPS 1-8 will be updated periodically, and also will likely be out of date.  Since this is just a cheat sheet, it may not have all the troubleshooting tips or updated info that the main OpenAPS docs have.  If you get stuck and this guide’s set of instructions do not work at the moment, the place to look is the [OpenAPS Walkthrough Phase 0, Setting up your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html) for the full information on this part of the OpenAPS setup.
 
