@@ -27,9 +27,7 @@ Copy and paste the "To run again with these same options" command into your note
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
 The oref0-setup script may fail after installing the Bluez.  If so, just reboot your edison and run the command you copied to your notes. 
 
-note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
-
-Restart the Bluetooth daemon:
+Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online, but we want to test things manually first):
 
 `sudo killall bluetoothd`
 
