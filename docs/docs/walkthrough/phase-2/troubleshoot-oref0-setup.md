@@ -4,7 +4,7 @@
 
 You won't hurt anything by running the script (step 2) multiple times, as long as you name it something different. If you already have a working loop and are testing the setup scripts, just make sure to comment out in cron the loop you don't want running.
 
-## Should I enact cron?
+## Should I Enact Cron
 
 Cron is the scheduler that runs the loop. I.e. this is the automation feature to automate your closed loop. If you're using a test pump, it's pretty safe to go ahead and automate your loop. But if you're not sure, you can always come back and do this later.
 
@@ -12,11 +12,13 @@ If you're troubleshooting and looking to use `openaps` manually, cron must be mo
 
 To stop cron'd jobs and enter an openaps command:  `killall -g openaps; openaps <whatever>` 
 
-If you'd like to run multiple commands without having to do `killall -g openaps; ` before each one, you can run `sudo service cron stop` first.
-<br>
-To start cron: `sudo service cron start`
+####Turning Cron On and Off
 
-To prevent cron running on initial boot, either clear the `crontab -e` file or "comment out" (`#`) each line of the crontab file.  If you've cleared the crontab file, but would like to enable cron'd tasks, rerun the initial setup script (step 2) and indicate you'd like to use cron.  This will regenerate the configuration.
+When your plan is to run commands manually for an extended period of time you can turn cron off with `sudo service cron stop`. It is possible that OpenAPS commands will be in the pipeline and will still execute for up to ten minutes. During that time you should still run OpenAPS commands as `killall -g openaps; openaps use pump -h` for example. After that time you can run multiple commands without having to do `killall -g openaps; ` before each one.
+
+To start cron and its scheduled execution of commands enter at the command line: `sudo service cron start`
+
+To prevent cron running on initial boot use the command `crontab -e`. The first time running this command you will be asked to choose one of three simple text editors. This is the only way to edit the cron file. You can 1.)Delete each scheduled line, lines that start with `*`'s or a series of numbers or 2.)"comment out" (`#`) each scheduled line of the crontab file. To 'comment out" you put the symbol '#', hash any place on the line before any text. or 3.) press delete until the scheduled lines or the whole text file is empty. If you don't have a crontab file, but would like to enable cron'd tasks, rerun the initial setup script, oref0-setup.sh which is located in ~/scr/oref0/bin/ and answer 'y', you'd like to use cron when asked in the final question of the interactive program.  This will regenerate the configuration.
 
 ## How do I know if it is working?
 
