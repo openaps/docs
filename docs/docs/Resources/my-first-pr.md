@@ -15,15 +15,15 @@ OK, let's get started. For our example we are going to make an edit to the opena
 2. Github will automatically make changes only to your copy so you may edit either your copy or the main copy. There is no need to think any more about Fork. 
 3. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.
 4. Click on the black and green box at page bottom right with the word "v: latest" or similar. In the pop up window that appears click the word "edit". An alternative is to navigate the directory tree from https://github.com/openaps/docs to the page you want to edit and press the pencil icon in the upper right next to the trash can icon. 
-5. Make improvements using Markdown. This will help you as much as it will help others. Remember, you never truly understand until you teach. 
-6. Next we want to commit our changes. But first we should note what we changed and why. Scroll to the bottom of the page and type your comments in the text field that reads, "Add an optional extended description...". The default title has the file name. By convention don't change the default title field. Try to include a sentence explaining the __reason__ for the change. Relating the reason helps reviewers.
+5.  Make your edits to the file.
+6. Next we want to commit our changes. But first we should note what we changed and why. Scroll to the bottom of the page and type your comments in the text field that reads, "Add an optional extended description...". The default title has the file name. Try to include a sentence explaining the __reason__ for the change. Relating the reason helps reviewers understand what you are attempting to do with the PR.
 7. You have been working in the "<>Edit file" tab. Select the "Preview changes" tab for a fresh look to make sure everything you changed looks like you meant it to (typpos sic.). If you sight an improvement go back to the edit tab to make improvements and hang ten.
 8. Click the green "Propose file changes" or "Commit changes" button. In the page that appears click "Create Pull Request" and again in the next page click "Create Pull Request".
-9. That completes the opening of a pull request, PR. It has a number assigned to it located after the title and a hash mark. Return to this page to check for feedback. The edit will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps!
+9. That completes the opening of a pull request, PR. It has a number assigned to it located after the title and a hash mark. Return to this page to check for feedback (or, if you have Github notifications emailed to you, you will get emails notifying you of any activity on the pull request. The edit will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps!
 
 Congrats, you made your first contribution!
 
-If you are into Forks, Repositories and Diff files keep reading. 
+
 We now have an improved file that we want to be pulled back into the openaps/docs repository at https://github.com/openaps/docs
 
 1. Go to https://github.com/[YOUR_GITHUB_USERNAME]/docs
