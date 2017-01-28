@@ -3,7 +3,11 @@
 
 ## AP and OpenAPS high level terminology 
 
-<b>APS</b> - artificial pancreas system. Sometimes also referred to as "AP"
+<b>APS or AP</b> - artificial pancreas system. A term for a closed-loop automated insulin delivery system in which temporary basal adjustments are used to maintain BG levels at a user-specified target range.  
+
+<b>closed-loop</b> - closed-loop systems make automatic adjustments to basal delivery, without needing user-approval, based on an algorithm.
+
+<b>open-loop</b> - open-loop systems will suggest recommended adjustments to basal delivery, but will require specific user-approval prior to implementing.
 
 <b>CGM</b> - continuous glucose monitor, a temporary glucose sensor that is injected into your skin (the needle is removed) for 3-7 days and, with twice a day calibrations, provides BG readings approximately every 5 minutes.
 
