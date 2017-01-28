@@ -51,13 +51,13 @@ Building the software into your rig is comprised of three steps:
 
 The Edison comes with an operating system that doesn’t work the best with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
-Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download jubilinux.zip
+Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
 
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work. too). 
 
 ![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
-Once you plug in the cables, you should see your Edison board in your Finder folder as a connected “device”.  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to reset your SMC first (it’s not hard to do, takes 2 minutes.)
+Once you plug in the cables, you should see your Edison board in your Finder folder as a connected “device”.  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](http://osxdaily.com/2010/03/24/when-and-how-to-reset-your-mac-system-management-controller-smc/) (it’s not hard to do, takes 2 minutes.)
 
 ![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
 
