@@ -68,9 +68,9 @@ If you get errors, you may need to run `apt-get update` ahead of attempting to i
 
 Once jq is installed, the shell script runs and produces the `urchin-status.json` file which is needed to update the status on the pebble. It can be incorporated into an alias that regularly updates the pebble. You can modify it to produce messages that you want to see there.
 
-When installing the oref0-setup you will need the pebble mac address, this can be found in Settings/System/Information/BT Address
+When installing the oref0-setup you will need to replace all instances of AA:BB:CC:DD:EE:FF with the Pebble MAC address. This can be found in Settings/System/Information/BT Address.
 
-Once you've installed, you will need to pair the watch to your edison.
+Once you've installed, you will need to pair the watch to your Edison.
 ### Bluetooth setup
 
 * Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
