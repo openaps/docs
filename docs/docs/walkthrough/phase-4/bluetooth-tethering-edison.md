@@ -29,19 +29,33 @@ The oref0-setup script may fail after installing the Bluez.  If so, just reboot 
 
 note if you have rebooted the board (which you will have to on an Explorer board) you must run the following command to startup the bluetooth servies, this is needed because at this point in time, you are more than likely connected to your normal Wifi network. and the oref0-online script is run only runs this if the wifi network is not connected. so this will allow you to pair your BT to your phone while running on your home network. 
 
+Restart the Bluetooth daemon:
+
+`sudo killall bluetoothd`
+
+Wait a few seconds, and run:
+
+`sudo /usr/local/bin/bluetoothd --experimental &`
+
+and then
+
+`sudo hciconfig hci0 name $HOSTNAME`
+
+Now launch the Bluetooth control program:
+
+`bluetoothctl`
+
+And run:
+
+`power off`
+
+then
+
+`power on`
+
+and:
+
 ```
-sudo killall bluetoothd
-
-sudo /usr/local/bin/bluetoothd --experimental &
-
-sudo hciconfig hci0 name $HOSTNAME
-
-bluetoothctl
-
-power off
-
-power on
-
 discoverable on
 
 scan on
