@@ -122,11 +122,13 @@ You’ll most likely be asked for your computer password again.  Enter it.  A bl
 ![Change directories](../../Images/Edison/cd_jubilinux.png)
 
 * Enter `./flashall.sh`
-* You’ll get a prompt that asks you to reboot.  You’re done with this screen for now.  Just leave it alone (**don’t close window**) and go to next step.
+* You’ll get a prompt that asks you to "plug and reboot" the Edison.  You’re done with this screen for now.  Just leave it alone (**don’t close window**) and go to next step.
 
 ![Reboot](../../Images/Edison/reboot.png)
 
 #### **1-6.  Return to the other Terminal Window that we left off of in Step 4.  Enter reboot**
+
+`reboot`
 
 #### **1-7.  Now we wait and watch.**  
 
