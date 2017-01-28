@@ -188,6 +188,7 @@ Log in as root (with the password you just set above), and run:
 Then:
 
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+    sudo apt-get install -y npm
     
 And:
 
