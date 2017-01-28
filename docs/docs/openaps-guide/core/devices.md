@@ -17,7 +17,7 @@ usage: openaps-use [-h] [--format {text,json,base,stdout}] [--output OUTPUT]
                    device ...
 [... edited for brevity ...]
 Known Devices Menu:
-  These are the devices openaps knows about:    
+  These are the devices openaps knows about:
 
   device                Name and description:
 
@@ -113,7 +113,7 @@ Author: Ben West <bewest@gmail.com>
 Date:   Sun Mar 27 15:45:16 2016 -0700
 
     openaps-device add howdy process echo hello world!
-    
+
           TODO: better change descriptions
           /usr/local/bin/openaps-device add howdy process echo hello world!
 
@@ -130,12 +130,12 @@ index e69de29..d4a23d0 100644
 
 The `openaps * add` commands all change some of the INI configurations.
 
-Did the **use** menu change at all? `openap use -h`
+Did the **use** menu change at all? `openaps use -h`
 
 ```
 [...]
 Known Devices Menu:
-  These are the devices openaps knows about:    
+  These are the devices openaps knows about:
 
   device                Name and description:
     howdy               process - a fake vendor to run arbitrary commands
@@ -157,16 +157,16 @@ optional arguments:
 
 ## Device howdy:
   vendor openaps.vendors.process
-  
+
   process - a fake vendor to run arbitrary commands
-  
-      
+
+
 
   USAGE       Usage Details
     shell     run a process in a subshell
 ```
 
-Hmm, because this a *unix process*, the **use** for this one is called
+Hmm, because this is a *unix process*, the **use** for this one is called
 **shell**.  What happens if we just add that word to the end? `openaps use
 --format text howdy shell`
 
@@ -184,7 +184,7 @@ the registered **devices**.  We can interact with a device by using it.
 
 
 ## Summary
-  
+
 Hopefully this illustrates the relationship between the openaps **device** and
 **use** tools.  The `device` command allows bringing devices into your
 instance, and **use** allows interacting with them.  Let's take a deeper look

@@ -5,7 +5,7 @@ usage: openaps-get [-h] [--version]
                    [{glucose,basals,help,pump}]
                    [{simulator,static-file,medtronic,dexcom}] ...
 
-  
+
 
 positional arguments:
   {glucose,basals,help,pump}

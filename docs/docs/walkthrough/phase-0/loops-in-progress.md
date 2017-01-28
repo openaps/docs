@@ -1,8 +1,8 @@
 # Loops In Progress
 
-To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. This way we know how many people are in the development phase, too.
+To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. 
 
-New to Github, and PRs? Check out how to submit your first PR.
+New to Github, and PRs? [Check out how to submit your first PR](../../../../docs/docs/Resources/my-first-pr.md).
 
 List of people who are working on closed loops:
 
@@ -11,6 +11,114 @@ List of people who are working on closed loops:
 - Chris Hannemann
 - Sarah Howard
 - Mike Stebbins
+- Scott Hanselman
+- Greg Scull
 - Aaron Michelson
 - Jayson EWER --Intel Edison w/ TI--cc1111
 - Frank Best
+- Brooke Armstrong & Matt Pazoles
+- David Young
+- Paul Martin
+- Jarred Yaw
+- Shane Mitchell
+- Boris and Kayley Raskin
+- Andy Pabari
+- Rob Kresha - (Papillion, NE, USA)
+- Christian Robinson (London, UK)
+- Gary Kidd
+- Nathan Morse
+- Paul Davis (Brighton, UK)
+- Marion Barker (Sunnyvale, CA, USA)
+- Frank Jungman (San Diego, CA)
+- Sophie Thacher
+- Luis Betancourt (Veracruz, Mexico)
+- Tom Boudreau (Washington DC, USA)
+- Ryan Chen
+- Katherine Mason
+- Garrett Webb (Dallas, TX)
+- Brandon Faloona (Seattle, WA / Burbank, CA)
+- Keith Burns - for Heather (Richmond, VA)
+- Kim St. Dennis (Los Angeles, CA)
+- Gabriel and Gideon Arom (Chicago, IL / Los Angeles, CA)
+- Arlene Samowich (Nashville, TN)
+- Andy Probolus & Marianne Smith (Lancaster, PA)
+- Gregg Haroldson (Huntington Beach, CA)
+- Gera Yeremin (Santa Rosa , CA)
+- Ed Nykaza
+- Jeff Waters (Madison, WI)
+- Greg Hull (Wheaton, IL)
+- Sara and David Goya (Anaheim, CA)
+- Rafael Matuk (Chicago, IL)
+- Luuc Verburgh (Eindhoven, The Netherlands)
+- Julie Raines (Poughkeepsie, NY)
+- Brandon Parrish (Augusta, GA)
+- Katie Ellison (Bellevue, WA)
+- Sarah Easter (Georgetown, TX)
+- Terri Lyman (Prescott Valley, AZ)
+- Gina Lyon (Laurel, MS)
+- Eric Jensen (Swarthmore, PA)
+- John Dodds (Glasgow, UK)
+- Lindsey Maguire (Silicon Valley)
+- Dan Robinson (Chicago, IL)
+- Mitch Phillips - (Pennington, NJ)
+- Colin Barlow & Cassie Knox - (San Diego, CA)
+- Andrew H (Sydney, Australia)
+- Hichame Yessou (Milano, Italy)
+- Tim Street (London, UK)
+- Neal Harvey (Grants Pass, OR)
+- Patrick Metcalfe
+- Ken Webster (Hobart, Tas, Australia)
+- David Eddy (Madbury, NH)
+- Tirzah Heide for Nathanael (St. Louis, MO)
+- Tracy Osheroff (Seattle, WA)
+- Mike & Jennifer Crawford (Calgary, AB)
+- Matthew Byatt (Cambridge, UK)
+- Anna Hassan (New Orleans, LA)
+- Tony Zarro (Atlanta, GA)
+- Mike Wright (San Jose, CA)
+- Derek Rodeback (Loma Linda, CA)
+- Joanne Spotten (SLC, UT)
+- Sandra Keßler (Kassel, Germany)
+- Lukas Ondriga (Svaty Jur, Slovakia)
+- Dominic Herrington (Bishops Stortford, UK)
+- Taylor Fowler (Brooklyn, NY)
+- Mikel Curry
+- Aditya Dasnurkar
+- Jason Wittmer for Andrew (Clive, IA)
+- Kevin Ruess Marshall (Indianapolis, USA)
+- Keith Kubischta (Poway, CA)
+- Emily Kranz (Greensboro, NC)
+- Orla Wilson (Baltimore)
+- Jason Pell for Heidi and Mallory (New York, NY)
+- Patrick van Gestel (Hilvarenbeek, Netherlands)
+- Joe Moran (Los Altos, CA)
+- John & Gregory Kelleher (Sligo, Ireland)
+- Carine Bruyndoncx (Arendonk, Belgium)
+- Jordan Berger (SLC, UT)
+- James Henley (Friendswood, TX)
+- Amy Andrews (Boston, MA)
+- Ann Delano (Seattle, WA)
+- Marcus Whitley (Greenbrier, AR)
+- Trevor Wood (Santaquin, UT)
+- Anne Svejda (Virginia Beach, VA)
+- Jeff Kramer for Hannah (Clive, IA)
+- Melody Andrews-Caron (Ontario, Canada)
+- Andy Sharrow (Saginaw, MI)
+- John Benjamin (Clawson, MI)
+- Vince P. for Tristan (Ravenna, OH)
+- Anthony Cerrone (Danville, CA)
+- Rachel Aumaugher (Davison, MI)
+- Joe Greene (Jacksonville, NC)
+- Sebastien Lussier (Montreal, Canada)
+- Chris Harris (Sydney, Australia)
+- Lee Skelton (London, UK)
+- Jacqueline Burke (Troy, MI / Baltimore, MD)
+- Kate Hainsworth (Austin, TX)
+- Brian Rabinovitz (Chapel Hill, NC)
+- Stephen G. (Seattle, WA) 
+- Emily Stunek (Lake Shore, MN)
+- Lorenzo Conte (Chicago, IL)
+- Alasdair McLay (Derby, UK)
+- Ahanu Banerjee (Pittsburgh, PA)
+- Ken Huat CHONG (Kuala Lumpur, Malaysia)
+- Daniel Bjørnbakk (Norway)
