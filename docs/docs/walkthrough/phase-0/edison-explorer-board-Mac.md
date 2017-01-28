@@ -231,7 +231,7 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 
 **A-3.** Make the changes so they match the areas highlighted in yellow, above:
 * uncomment (remove the #) from the auto wlan0 line
-* add the wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+* add `    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf` right below the iface wlan0 line.
 * comment out (add #) to the wpa-ssid and wpa-psk lines as shown
 
 **A-4.** Type “:wq” to write (save) and quit that screen.
