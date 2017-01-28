@@ -272,7 +272,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
-* Enter these three lines, one-at-a-time (the first line will run fast, and the second line will take several minutes to complete)
+* Enter these two lines, one-at-a-time (the first line will run fast, and the second line will take several minutes to complete)
 
 `dpkg -P nodejs nodejs-dev`
 
