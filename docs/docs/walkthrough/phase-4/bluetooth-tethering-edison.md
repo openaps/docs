@@ -99,7 +99,7 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 
 ******************************
 
-### *Testing to make sure it works after you successfully did the above*
+### Testing to make sure it works after you successfully did the above
 
 * Before testing your connection, first restart the Bluetooth daemon again:
 
