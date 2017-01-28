@@ -143,6 +143,24 @@ network={
     psk="my wifi password"
 }
 ```
+
+After editing, your file should look like:
+
+```
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto usb0
+iface usb0 inet static
+    address 192.168.2.15
+    netmask 255.255.255.0
+
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
 Run `ifup wlan0` to make sure you can connect to wifi
