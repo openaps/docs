@@ -60,13 +60,14 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ## Connecting cables and starting console
 
-  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
+  - The Serial Port connection described in this section only functions after the Edison Compute Module has been flashed successfully. Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
 ### If you’re using a Raspberry Pi:
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC:
+  And if you're using an Edison Compute Module that has already been flashed successfully. 
   - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
   - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
   - Make sure you change the Speed(baudrate) from 9600 to 115200. 
