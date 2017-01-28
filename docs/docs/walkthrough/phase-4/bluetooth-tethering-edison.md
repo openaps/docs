@@ -27,7 +27,7 @@ Copy and paste the "To run again with these same options" command into your note
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
 The oref0-setup script may fail after installing the Bluez.  If so, just reboot your edison and run the command you copied to your notes. 
 
-Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online, but we want to test things manually first):
+Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
 
 `sudo killall bluetoothd`
 
@@ -38,6 +38,8 @@ Wait a few seconds, and run it again, until you get `bluetoothd: no process foun
 Wait at least 10 seconds, and then run:
 
 `sudo hciconfig hci0 name $HOSTNAME`
+
+If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
 
 Now launch the Bluetooth control program:
 
@@ -102,17 +104,19 @@ Quit bluetoothctl with 'quit'.
 
 *Testing*
 
-Before testing your connection, first restart the Bluetooth daemon:
+Before testing your connection, first restart the Bluetooth daemon again:
 
 `sudo killall bluetoothd`
 
-wait a moment, hit enter, and you should get a message like `[1]   Done                    sudo /usr/local/bin/bluetoothd --experimental`.  After that, or after a few more seconds, run:
+Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
 
 `sudo /usr/local/bin/bluetoothd --experimental &`
 
-and then
+Wait at least 10 seconds, and then run:
 
 `sudo hciconfig hci0 name $HOSTNAME`
+
+If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
 
 Make sure your phone's hotspot is enabled (but don't let anything connect via wifi).
 
