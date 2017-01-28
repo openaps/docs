@@ -92,11 +92,8 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 #### **1-3.  Install lsusb**
 
-```
-brew update             && \
-brew tap jlhonora/lsusb && \
-brew install lsusb
-```
+
+`brew update && brew tap jlhonora/lsusb && brew install lsusb`
 
 ![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
 
@@ -185,6 +182,7 @@ After several reboots (don’t panic), you should get a ubilinux login prompt.  
 
 ![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
+
 CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
 
 #### **1-8. Wifi for Edison**
@@ -203,6 +201,8 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 (without any modifications) and it will set your hostname in both places.
 
 ![Edison hostname and password screen](../../Images/Edison/edison_hostname_password.png)
+
+**IMPORTANT**
 
 * To change the password for your Edison to a more secure password than “edison”, enter `passwd root`
 
@@ -229,7 +229,7 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 * add `    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf` right below the iface wlan0 line.
 * comment out (add #) to the wpa-ssid and wpa-psk lines as shown
 
-**A-4.** Type “:wq” to write (save) and quit that screen.
+**A-4.** Press ESC then type “:wq” to write (save) and quit that screen.
 
 
 **B-1.** Enter `vi /etc/wpa_supplicant/wpa_supplicant.conf`
@@ -254,7 +254,7 @@ These are the wifi networks that your rig will be able to use to stay connected 
 * Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone Settings>Personal Hotspot
 * You will definitely want to add it to the list of wifi networks.
 
-**B-4.** Type “:wq” to write (save) and quit that screen when you have finished adding the wifi networks.  You can always come back and add more networks as needed, using the same process.
+**B-4.** Press ESC then type “:wq” to write (save) and quit that screen when you have finished adding the wifi networks.  You can always come back and add more networks as needed, using the same process.
 
 **C** Run `ifup wlan0` to make sure you can connect to wifi.  A successful connection should look similar (IP address numbers will be different than mine):
 
@@ -295,9 +295,11 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
  * set the log rotation to daily from weekly
  * remove the #  from the “#compress” line
 
-* Press ESC and then type (no quotes) “:wq” to save and quit
+* Press ESC and then type “:wq” to save and quit
 
 ![Log rotation examples](../../Images/Edison/log_rotation.png)
+
+**Congratulations you have successfully flashed your edison and configured some basic settings. Time to move onto OpenAPS install**
 
 ### 2. Installing the looping script (openaps-setup.sh)
 
