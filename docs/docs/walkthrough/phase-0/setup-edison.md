@@ -131,19 +131,6 @@ iface wlan0 inet dhcp
 ```
 Comment out or delete the wpa-ssid and wpa-psk lines.
 
-Press Esc and then type ':wq' and press Enter to write the file and quit
-
-`vi /etc/wpa_supplicant/wpa_supplicant.conf`
-
-Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
-
-```
-network={
-    ssid="my network"
-    psk="my wifi password"
-}
-```
-
 After editing, your file should look like:
 
 ```
@@ -159,6 +146,19 @@ iface usb0 inet static
 auto wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Press Esc and then type ':wq' and press Enter to write the file and quit
+
+`vi /etc/wpa_supplicant/wpa_supplicant.conf`
+
+Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
+
+```
+network={
+    ssid="my network"
+    psk="my wifi password"
+}
 ```
 
 Press Esc and then type ':wq' and press Enter to write the file and quit
