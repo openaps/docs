@@ -122,7 +122,7 @@ You’ll most likely be asked for your computer password again.  Enter it.  A bl
 ![Change directories](../../Images/Edison/cd_jubilinux.png)
 
 * Enter `./flashall.sh`
-* You’ll get a prompt that asks you to "plug and reboot" the Edison.  You’re done with this screen for now.  Just leave it alone (**don’t close window**) and go to next step.
+* You’ll get a prompt that asks you to "plug and reboot" the Edison board.  You’re done with this screen for now.  Just leave it alone (**don’t close window**) and go to next step.
 
 ![Reboot](../../Images/Edison/reboot.png)
 
@@ -132,9 +132,48 @@ You’ll most likely be asked for your computer password again.  Enter it.  A bl
 
 #### **1-7.  Now we wait and watch.**  
 
-You may see a message notification that the Edison “Disk Not Ejected Properly”.  Don’t worry...it is rebooting.  You will see some processes going on in the background.  This should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work.
+You may see a message notification that the Edison “Disk Not Ejected Properly”.  Don’t worry...it is rebooting.  You will see some processes going on in the background.  
 
 ![Don't worry during Reboot](../../Images/Edison/dont_worry_during_reboot.png)
+
+You should see:
+
+```
+Hit any key to stop autoboot:  0
+Target:blank
+Partitioning using GPT
+Writing GPT: success!
+Saving Environment to MMC...
+Writing to redundant MMC(0)... done
+Flashing already done...
+GADGET DRIVER: usb_dnl_dfu
+#
+DFU complete CRC32: 0x77ccc805
+DOWNLOAD ... OK
+Ctrl+C to exit ...
+######################################################################################################################
+```
+in the terminal window where you typed `reboot`, and
+```
+Using U-Boot target: edison-blankcdc
+Now waiting for dfu device 8087:0a99
+Please plug and reboot the board
+Flashing IFWI
+Download	[=========================] 100%      4194304 bytes
+Download	[=========================] 100%      4194304 bytes
+Flashing U-Boot
+Download	[=========================] 100%       245760 bytes
+Flashing U-Boot Environment
+Download	[=========================] 100%        65536 bytes
+Flashing U-Boot Environment Backup
+Download	[=========================] 100%        65536 bytes
+Rebooting to apply partition changes
+Now waiting for dfu device 8087:0a99
+Flashing boot partition (kernel)
+Download	[=========================] 100%      5980160 bytes
+Flashing rootfs, (it can take up to 10 minutes... Please be patient)
+```
+in the terminal window where you ran `./flashall.sh`.  As it says, this should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work, in which case you should read through the [full docs] and try again, and/or check out the Troubleshooting section at the bottom.
 
 After flashing is complete, watch the window as you may get asked to type control-D to continue.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After several more reboots (don’t panic), you should get a ubilinux login prompt.  Use login root and password edison.
 
