@@ -8,16 +8,11 @@ The main advantages of using BLE tethering are that it consumes less power on th
 
 Currently the Bluetooth Tethering is only availble on the dev branch of oref0, so clone/pull the branch by running:
 
-```
-$ mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
-
-```
+`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
 Install the dev branch to get the new oref0-online to work:
 
-```
-cd ~/src/oref0/ && npm run global-install
-```
+`cd ~/src/oref0/ && npm run global-install`
 
 You will need to get the MAC address from your phone or whatever device you are using.
 * On Android, go to Settings/About Phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
@@ -25,9 +20,7 @@ You will need to get the MAC address from your phone or whatever device you are 
 
 Now we need to re-run oref0-setup with the Bluetooth option, replacing AA:BB:CC:DD:EE:FF with what you found above.  If you have the "To run again with these same options" command-line from the last time you ran oref0-setup, you can simply run that and append `--btmac=AA:BB:CC:DD:EE:FF` to the end.  If not, you can run it interactively using:
 
-```
-cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF
-```
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF`
 
 Copy and paste the "To run again with these same options" command into your notes for the next time you need to run oref0-setup.
 
