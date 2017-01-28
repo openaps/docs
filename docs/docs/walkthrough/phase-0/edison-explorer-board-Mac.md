@@ -278,6 +278,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Ediso
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
 * Enter these three lines, one-at-a-time (the first line will run fast, the second line will take a few minutes to complete, and the third line will take about 1-2 minutes)
+
 `dpkg -P nodejs nodejs-dev`
 
 `apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove`
