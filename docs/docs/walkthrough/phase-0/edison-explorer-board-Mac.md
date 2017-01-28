@@ -1,6 +1,6 @@
 # Setting up Edison/Explorer Board on a Mac - Alpha Instructions
 
-(This is testing a separate workflow for Mac only. Please refer to the main Edison setup guide as well for troubleshooting & full instructions for other computer setup processees.)
+(This is testing a separate workflow for Mac only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processees.)
 
 ## Hardware Assumptions for this page
 
@@ -10,24 +10,19 @@
 
 ## High Level Recommended Rig parts list
 
-* Explorer Board
-https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order
+* [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
 
-* Edison
-https://www.sparkfun.com/products/13024
+* [**Edison - link**](https://www.sparkfun.com/products/13024)
 
-* Nuts and Bolts
-https://www.sparkfun.com/products/13187
+* [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187)
 
-* Lithium Battery
-(The larger battery will have a little longer battery life; but may be slightly bigger.)
-https://www.adafruit.com/products/328  (2500mAh battery)
-https://www.sparkfun.com/products/8483  (2000mAh battery)
+* **Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
+ * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
+ * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
 
-* Cables 
-(you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
-https://www.adafruit.com/products/592 (3 ft long cable, USB-microB)
-https://www.adafruit.com/products/898 (6 inch long cable, USB-microB)
+* **Cables**  (you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
+ * [**3 ft long cable, USB-microB - link**](https://www.adafruit.com/products/592)
+ * [**6 inch long cable, USB-microB - link**](https://www.adafruit.com/products/898)
 
 ## Getting Physical: Build your rig/put the physical pieces together
 
