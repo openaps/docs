@@ -28,7 +28,8 @@ For the Path 2 Headless install, you will need:
 
 ## Download and Install Raspbian Jessie
 
-Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspbian-version)), just treat it as a blank SD card and download and install the latest version of Raspbian (currently version 8.0, codename Jessie).
+Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspbian-version)), just treat it as a blank SD card and download and install the latest version of Raspbian (currently version 8.0, codename Jessie). The most recent update to this software has this note and as noted a new workaround may be required. 2016-11-25:
+  * SSH disabled by default; can be enabled by creating a file with name "ssh" in boot partition [here](https://downloads.raspberrypi.org/raspbian/release_notes.txt); 
 
 ### Download Raspbian
 Raspbian is the recommended operating system for OpenAPS. 
