@@ -1,12 +1,12 @@
 # Setting up Edison/Explorer Board on a Mac - Alpha Instructions
 
-(This is testing a separate workflow for Mac only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processees.)
+(This is testing a separate workflow for Mac only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processes.)
 
 ## Hardware Assumptions for this page
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires one extra step not documented here. See this page in OpenAPS docs for all compatible pumps.)
+3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#information-about-compatible-insulin-pumps).)
 
 ## High Level Recommended Rig parts list
 
@@ -16,7 +16,7 @@
 
 * [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187)
 
-* **Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
+* **At least one Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
  * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
  * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
 
