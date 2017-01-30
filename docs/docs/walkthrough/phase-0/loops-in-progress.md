@@ -124,3 +124,4 @@ List of people who are working on closed loops:
 - Daniel Bjørnbakk (Norway)
 - Katie DiSimone (Paso Robles, CA)
 - Rebecca Jervey (Philadelphia, PA)
+- Ivica Suran (Pazin, Croatia)
