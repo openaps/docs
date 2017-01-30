@@ -110,6 +110,9 @@ Please note:  If you are using a "test pump" that has not not received sufficien
 
 We also recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
+## How to display OpenAPS purple prediction/forecast lines
+
+Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”.
 
 ### Configure Nightscout profile
 
