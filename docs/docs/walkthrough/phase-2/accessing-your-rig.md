@@ -15,9 +15,9 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 ![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
 
-* Access to the rig will be using the Terminal App on the Mac (or command line tool on your flavor of computer)
+* Access to the rig will be using the Terminal App on the Mac, or PuTTY for Windows
 
-* Use the command ssh root@edisonhost.local  (**or whatever you named your edison host**)
+* Use the command ssh root@edisonhost.local (**or whatever you named your edison host**), or enter the equivalent settings into PuTTY.
 
 * If you get an error about the host not being found, it is likely that your rig is actually connected to a different wifi network than the computer.  Try the console method below.
 
@@ -28,13 +28,13 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 * Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.
 
-* Use the Terminal app on the Mac (or command line tool on your flavor of computer)
+* Use the Terminal app on the Mac, or follow [these directions for Windows](../phase-0/setup-edison.md#if-youre-using-a-windows-pc-for-console)
 
-* Use the command sudo screen /dev/tty.usbserial-* 115200 to enable “console” or  “screen” mode
+* If you're using a Mac, use the command `sudo screen /dev/tty.usbserial-* 115200` to enable “console” or “screen” mode
 
 * Press RETURN to bring up the edison’s login screen
 
-* Login as “root” with your root password (default is “edison”, but you may have changed it during the setup of the rig)
+* Login as “root” with your root password (you should have changed it during the setup of the rig - if not, please [go back and do so now](../phase-0/setup-edison.md#initial-edison-setup))
 
 ## If your iPhone and rig are on the same wifi network
 
@@ -42,7 +42,7 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 One of the most convenient ways to do quick edits on your rig’s settings may be by using an app on your iPhone.  You will need to make sure your rig and your iPhone are sharing the same network (e.g., home wifi, mifi, or personal hotspot) and here are the instructions.  Each connection point will need it’s own “host” setup in the app.
 
-* Download “Terminus SSH Shell/Console/Terminal” from iphone app store
+* Download “Terminus SSH Shell/Console/Terminal” from iPhone app store
 * Set up a new “host” in the app with the following information
 ```
 Alias:     enter a name that will remind you what network this connection is using (such as home wifi, mom’s iphone hotspot, or mifi device since each connection will have a unique IP address)
