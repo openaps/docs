@@ -112,7 +112,12 @@ We are actively working to make it easier for people to run autotune as a one-of
   "isfProfile": {
     "sensitivities": [
       {
-        "sensitivity": your_isf
+          "i": 0,
+          "start": "00:00:00",
+          "sensitivity": your_isf,
+          "offset": 0,
+          "x": 0,
+          "endOffset": 1440
       }
     ]
   },
