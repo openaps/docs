@@ -4,16 +4,15 @@
 * Dexcom G5 Mobile
 * Medtronic (MiniMed Paradigm REAL-Time Revel or Enlite)
 
-The openaps tool set currently supports three different CGM systems: the Dexcom
+
+The openaps tool set currently primarily supports three different CGM systems: the Dexcom
 G4 Platinum system (with or without the
 [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality), the
 newer Dexcom G5 Mobile system and the
-[Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor).
+[Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor). Other CGM or CGM-like devices (Libre) can also be used if the data is uploaded to Nightscout and the OpenAPS rig has Internet connectivity.
 
-With Dexcom G4, the Share platform is not required as communication with the
-receiver is usually accomplished via USB directly to the Pi. For Dexcom G5
-Mobile you can also use a compatible receiver (software upgraded G4 with Share
-receiver or a G5 Mobile Receiver). 
+With Dexcom G4, the Share platform is not required; but is valuable for uploading BG data to the cloud (and into Nightscout, which can then send BGs to the rig). However, without Share, a G4 receiver can instead be plugged in directly to the OpenAPS rig. For Dexcom G5 Mobile you can also use a compatible receiver (software upgraded G4 with Share
+receiver or a G5 Mobile Receiver), or also pull data from the Dexcom Share servers into Nightscout for use with an Internet-connected OpenAPS rig.
 
 NOTE: You can also pull CGM data from Nightscout as
 an alternative (including Dexcom G5 to iOS device + Nightscout Bridge plugin),
@@ -23,10 +22,10 @@ the associated pump, so that data can be retrieved using the CareLink USB stick.
 ### Using the Dexcom receiver CGM
 
 This refers to the Dexcom receiver hardware. Note that your Dexcom should be nearly fully
-charged before plugging it in to a Raspberry Pi. If, when you plug in your
+charged before plugging it in to a Raspberry Pi or Edison-based OpenAPS rigs. If, when you plug in your
 receiver, it causes your WiFi dongle to stop blinking, that is a sign that it is
 drawing too much power and needs to be charged. Once the receiver is fully
-charged, it will stay charged when connected to the Pi.
+charged, it will stay charged when connected to the rig.
 
 ### Pulling CGM data from the cloud
 
@@ -47,15 +46,12 @@ pulling CGM data from a Nightscout site
   raspberry pi. Learn more about the wixel setup
   [here](https://github.com/jamorham/python-usb-wixel-xdrip) and
   [here](https://github.com/ochenmiller/wixelpi_uploader).
+ * If you are using Abbott Freestyle Libre in combination with Sony smartwach 3 and xdrip+ (or possibly other combinations of technology to get Libre data up into the cloud), you can also pull CGM data directly from Nightcout.
+
 
 ### Using the Medtronic CGM
 
 Because the Medtronic pump collects data directly from the Enlite sensors,
 OpenAPS will retrieve CGM data in addition to your regular pump data from your
 pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data
-need a little special formatting after being retrieved. We'll discuss these
-special circumstances as they come up later.
-
-## Using Libre as CGM
-
-If you are using Abbott Freestyle Libre in combination with Sony smartwach 3 and xdrip+ you can also pull CGM data directly from Nightcout
+may need a little special formatting after being retrieved. If so, it will be specified in other areas of the documentation.
