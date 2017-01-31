@@ -55,3 +55,7 @@ OpenAPS will retrieve CGM data in addition to your regular pump data from your
 pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data
 need a little special formatting after being retrieved. We'll discuss these
 special circumstances as they come up later.
+
+## Using Libre as CGM
+
+If you are using Abbott Freestyle Libre in combination with Sony smartwach 3 and xdrip+ you can also pull CGM data directly from Nightcout
