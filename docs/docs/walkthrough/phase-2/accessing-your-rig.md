@@ -13,7 +13,7 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 ## If your computer and rig are on the same wifi network
 
-![If your computer and rig are on the same wifi network](../Images/Computer_rig_same_wifi.png)
+![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
 
 * Access to the rig will be using the Terminal App on the Mac (or command line tool on your flavor of computer)
 
@@ -24,7 +24,7 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 ## If your computer and rig are on different wifi networks
 
-![If your computer and rig are on different wifi networks](../Images/Computer_rig_different_wifi.png)
+![If your computer and rig are on different wifi networks](../../Images/Computer_rig_different_wifi.png)
 
 * Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.
 
@@ -38,7 +38,7 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 ## If your iPhone and rig are on the same wifi network
 
-![If your iPhone and rig are on the same wifi network](../Images/Iphone_rig_same_wifi.png)
+![If your iPhone and rig are on the same wifi network](../../Images/Iphone_rig_same_wifi.png)
 
 One of the most convenient ways to do quick edits on your rig’s settings may be by using an app on your iPhone.  You will need to make sure your rig and your iPhone are sharing the same network (e.g., home wifi, mifi, or personal hotspot) and here are the instructions.  Each connection point will need it’s own “host” setup in the app.
 
@@ -62,6 +62,6 @@ Private IP addresses are assigned for devices and are unique to the connection. 
 
 * If the rig is accessible by computer (by either method listed above, ssh or console) and the iPhone and rig are on same network as each other, you have a couple options.  You can login on Terminal app and use `ifconfig` to read the wlan0 inet address
 
-![ifconfig example](../Images/ifconfig_example.png)
+![ifconfig example](../../Images/ifconfig_example.png)
 
 OR login to your router to see the list of connected devices and find your edison rig.  Google your router’s brand name and “router login” (e.g., Netgear router login) to find out how to access your router’s administrative area.
