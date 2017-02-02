@@ -5,7 +5,9 @@ You will need to access your OpenAPS rig’s software when you want to:
 * Update your loop software (oref0 update, especially when new features are available)
 * Change your preferences.json (update max-iob, turn on/off advances features)
 * Change your pump (update pump serial number for different pump)
+* Change your Dexcom system (G4 to G5)
 * Change your Nightscout URL that you use
+* Get a new iPhone and need to re-pair bluetooth with rig
 * Add/change known wifi networks and network passwords
 * Run reports or check logs
 
