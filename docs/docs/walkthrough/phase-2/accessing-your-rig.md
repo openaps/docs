@@ -54,7 +54,7 @@ Password:     enter your root password
 ```
 * Clicking on the “host” in the app will launch an ssh connection with the rig and you can use the iPhone to access the rig’s software.  They must be on the same network as the “host” connection specifies though, or else the connection will fail.
 
-### How to determine the IP address of your rig?
+## How to determine the IP address of your rig?
 
 Private IP addresses are assigned for devices and are unique to the connection.  So, your rig’s IP address when using your iPhone’s hotspot will be different than your rig’s IP address when using your home wifi.  So, you’ll need to find the IP address for the particular connection you are using.
 
