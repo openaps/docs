@@ -17,7 +17,7 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 * Access to the rig will be using the Terminal App on the Mac, or PuTTY for Windows
 
-* Use the command ssh root@edisonhost.local (**or whatever you named your edison host**), or enter the equivalent settings into PuTTY.
+* Use the command `ssh root@edisonhost.local` (**or whatever you named your edison host**), or enter the equivalent settings into PuTTY.
 
 * If you get an error about the host not being found, it is likely that your rig is actually connected to a different wifi network than the computer.  Try the console method below.
 
