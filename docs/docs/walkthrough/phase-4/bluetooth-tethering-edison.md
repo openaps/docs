@@ -8,14 +8,6 @@ The main advantages of using BLE tethering are that it consumes less power on th
 
 ### Install dependencies 
 
-Currently the Bluetooth Tethering is only availble on the dev branch of oref0, so clone/pull the branch by running:
-
-`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
-
-Install the dev branch to get the new oref0-online to work:
-
-`cd ~/src/oref0/ && npm run global-install`
-
 You will need to get the MAC address from your phone or whatever device you are using.
 * On Android, go to Settings/About Phone/ Status; you will a Bluetooth adress looking like AA:BB:CC:DD:EE:FF 
 * On iPhone, go to Settings/General/About and it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
