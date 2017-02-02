@@ -5,7 +5,9 @@ You will need to access your OpenAPS rig’s software when you want to:
 * Update your loop software (oref0 update, especially when new features are available)
 * Change your preferences.json (update max-iob, turn on/off advances features)
 * Change your pump (update pump serial number for different pump)
+* Change your Dexcom system (G4 to G5)
 * Change your Nightscout URL that you use
+* Get a new iPhone and need to re-pair bluetooth with rig
 * Add/change known wifi networks and network passwords
 * Run reports or check logs
 
@@ -17,7 +19,7 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 * Access to the rig will be using the Terminal App on the Mac, or PuTTY for Windows
 
-* Use the command ssh root@edisonhost.local (**or whatever you named your edison host**), or enter the equivalent settings into PuTTY.
+* Use the command `ssh root@edisonhost.local` (**or whatever you named your edison host**), or enter the equivalent settings into PuTTY.
 
 * If you get an error about the host not being found, it is likely that your rig is actually connected to a different wifi network than the computer.  Try the console method below.
 
