@@ -1,6 +1,6 @@
 # WIP Autotune Feature
 
-Autotune is a feature created in late December 2016 and is currently in beta (early testing) mode in the oref0 dev branch.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading. Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1).
+Autotune is a feature created in late December 2016 and is currently in beta ( testing) mode.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading. Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1).
 
 ## The difference between autotune and autosens:
 
@@ -38,7 +38,7 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 Autotune is currently being tested by a few users on the command line. There has been some additional work to make it easier to export to Excel for review.
 
 How to run it as a one-off:
-* First, make sure you have dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install`
+* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 * Install jq: `sudo apt-get install jq`
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
 * Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the 20-30% min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
@@ -48,9 +48,9 @@ If you have issues running it, questions about reviewing the data, or want to pr
 
 #### Phase B: Running Autotune in OpenAPS closed loop system
 
-Autotune is in the dev branch of OpenAPS, to test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
+You can also test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
 
-If you're running dev branch, you can set up autotune as part of the setup scripts, and have it run nightly and adjust a new autotune profile.
+You can set up autotune as part of the oref0-setup script, and have it run nightly and adjust a new autotune profile.
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
@@ -76,8 +76,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 **Step 2: Install oref0 on the cloud VM**
 * A. After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 * B. Install the jq package: `sudo apt-get install jq`
-* C. Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
-* D. And install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install` 
+* C. Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
@@ -147,7 +146,9 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the autotune-mdi branch instead of the dev branch. Sub in autotune-mdi instead of dev in step 2-C and 2-D.
+* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the autotune-mdi branch of oref0:
+  * Pull/clone the oref0 autotune-mdi branch by running: `mkdir -p ~/src; cd ~/src && git clone -b autotune-mdi git://github.com/openaps/oref0.git || (cd oref0 && git checkout autotune-mdi && git pull); cd`
+  * Install the oref0 autotune-mdi branch: `cd ~/src/oref0 && git checkout autotune-mdi && sudo npm run global-install`
 * Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
