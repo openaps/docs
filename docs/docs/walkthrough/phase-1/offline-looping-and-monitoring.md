@@ -58,7 +58,7 @@ See [Pancreabble] for initial setup instructions.
 
 [Pancreabble]: https://github.com/mddub/pancreabble
 
-Once you've done the first stages above, you'll need to do generate a status file that can be passed over to the Pebble Urchin watch face. Fortunately, the core of this is available in the Dev branch of oref0.
+Once you've done the first stages above, you'll need to do generate a status file that can be passed over to the Pebble Urchin watch face. Fortunately, the core of this is available in oref0.
 
 Go to `~src/oref0/bin` and look for `peb-urchin-status.sh`. This gives you the basic framework to generate output files that can be used with Pancreabble. To use it, you'll need to install jq using:
 
