@@ -9,7 +9,7 @@ Phase 2: Creating a PLGM Loop
    considerations
    oref0-setup
    troubleshoot-oref0-setup
-
+   accessing-your-rig
 
    
 
