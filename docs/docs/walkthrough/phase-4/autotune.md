@@ -140,6 +140,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
 * ^ Sub in your Nightscout URL.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
+If you want to run many dates, enter the following: --start-date=YYYY-MM-DD --end-date=YYYY-MM-DD
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
 #### Why Isn't It Working At All?
@@ -155,6 +156,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 * Check your profile.json and make sure it really matches the example - chances are there's a stray character in there.
 * Also check your pumpprofile.json and autotune.json - if it worked once or twice but then stopped working, it may have a bad file copy. If needed, follow Steps 3-E and 3-F again to re-copy a good profile.json to pumpprofile.json and autotune.json again.
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightcout in a way that's not through Care Portal app directly, etc. 
+*If VM is already set up, and you are returning to your VM for another session of autotune, make sure that you input this into your VM at the start to sync up date/time with your pump. `sudo dpkg-reconfigure tzdata` 
 
 #### What does this output from autotune mean? 
 Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).
