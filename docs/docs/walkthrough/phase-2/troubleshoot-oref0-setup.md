@@ -40,12 +40,14 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 To do this:
 
   ```
+  killall -g openaps
   openaps alias remove get-settings
   openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
   ```
   The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted.
 
   ```
+  killall -g openaps
   openaps alias remove gather
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
   ```
