@@ -9,7 +9,7 @@ You must use a DATA micro USB to USB cable. How do you know if your cable is for
 
 ## Prerequisites
 
-### If you’re using a Raspberry Pi to flash:
+### If you’re using a Raspberry Pi - prerequisites:
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
 
@@ -18,7 +18,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   -  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
   -  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
 
-### If you're using a Windows PC:
+### If you're using a Windows PC - prerequisites:
 
 - Install the [Intel Edison drivers for Windows]( https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
 - Install [PuTTY]( http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Download the installation file that matches your PC's architecture (32-bit or 64-bit).
@@ -35,7 +35,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - Reboot and attempt the flash proccess.
 
 
-### If you're using a Mac:
+### If you're using a Mac to flash - prerequisites:
 
   -  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
   -  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
@@ -63,16 +63,16 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
   - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
-### If you’re using a Raspberry Pi:
+### If you’re using a Raspberry Pi for console:
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
-### If you're using a Windows PC:
+### If you're using a Windows PC for console:
   - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
   - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
   - Make sure you change the Speed(baudrate) from 9600 to 115200. 
   - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
 
-### If you're using a Mac:
+### If you're using a Mac for console:
   - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
   
 ### All platforms:
@@ -81,13 +81,13 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ## Flashing image onto the Edison
 
-### If you’re using a Raspberry Pi:
+### If you’re using a Raspberry Pi - starting flash:
   - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
 
-### If you’re using a Mac
+### If you’re using a Mac - starting flash:
   - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
 
-### If you're using a Windows PC:
+### If you're using a Windows PC - starting flash:
   - In the "flash window" from the Download Image instructions above, run `flashall.bat`
 
 ### All platforms:
@@ -186,6 +186,10 @@ Log in as root (with the password you just set above), and run:
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
 
 Then:
+
+    apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+    
+And:
 
     adduser edison sudo
     adduser edison dialout
