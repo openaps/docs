@@ -13,7 +13,7 @@ Explorer boards built prior to late January of 2017 are not allways working well
 ## Offline monitoring
 
 * See Pancreabble instructions below for connecting your rig to your watch
-* See xDrip instructions for seeing offline loop status (coming soon)
+* See xDrip instructions for seeing offline loop status
 
 ### Note about recovery from Camping Mode/Offline mode for Medtronic CGM users:
 
@@ -149,7 +149,7 @@ Do you use OpenAPS and xDrip? Until now, this usually means you need an internet
 
 xDripAPS is a lightweight microservice intended to be used on Raspberry Pi or Intel Edison OpenAPS rigs. Users of the xDrip Android app can use the "REST API Upload" option to send CGM data to this service. The service stores the data in a SQLite3 database. The service can be invoked from within OpenAPS to retrieve CGM data. This approach allows for offline/camping-mode looping. No internet access is required, just a local, or "personal" network between the Android phone and the OpenAPS rig (using either WiFi hotspotting or bluetooth tethering).
 
-As of January 2017, support for xDripAPS is now included in the OpenAPS oref0-setup.sh script. Ensure that you use the dev branch, as this has not been merged with master yet. When running the oref0-setup.sh script, you will be prompted to specify a CGM type (e.g. MDT, G4). You can specify "xdrip" (without the quotes). This will install xDripAPS and all dependencies. Alternatively, manual installation instructions can be found at the bottom of this page.
+As of oref0 v0.4.0 (Jan 2017), support for xDripAPS is now included in the OpenAPS oref0-setup.sh script. When running the oref0-setup.sh script, you will be prompted to specify a CGM type (e.g. MDT, G4). You can specify "xdrip" (without the quotes). This will install xDripAPS and all dependencies. Alternatively, manual installation instructions can be found at the bottom of this page.
 
 #### Overview of xDripAPS
 With xDripAPS, the flow of data is as follows -
