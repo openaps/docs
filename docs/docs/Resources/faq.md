@@ -29,7 +29,7 @@ This particular setup below is an original setup, similar to what was first used
 
 The most common setup as of late 2015/early 2016 has evolved to be a smaller rig, with similar components. The Edison chip is the mini-computer, and the Explorer Board hosts it along with the radio stick to communicate with the CGM and pump.
 
-![Example OpenAPS "Explorer Board" rig](../../Images/Explorer_Board_Rig.png)
+![Example OpenAPS "Explorer Board" rig](../Images/Explorer_Board_Rig.png)
 
 For more details on the exact hardware required to build an OpenAPS, see the
 [Hardware](../walkthrough/phase-0/hardware.md) section.
