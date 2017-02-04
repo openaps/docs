@@ -11,7 +11,6 @@ Resources
    troubleshooting
    wifi
    history
-   other-projects
    faq
    glossary
 
