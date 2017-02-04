@@ -13,8 +13,8 @@ Since OpenAPS rig needs internet connection, most of the times we would prefer t
 
 On the iPhone, download these two apps:
 
-Terminus – SSH Shell/Console/Terminal 
-iNet
+* Terminus – SSH Shell/Console/Terminal 
+* iNet
 
 ![Example of apps](../../Images/Example_iphone_apps.png)
 
@@ -39,13 +39,13 @@ You can tell your rig is connected to your iPhone when you see a blue bar above 
 * Click on the big “NETWORK SCANNER” 
 ![Network scanner app](../../Images/network_scanner.png)
 
-Click on the three little bars in the upper right, and then choose “Scan Settings” from the drop down list that will appear.
+* Click on the three little bars in the upper right, and then choose “Scan Settings” from the drop down list that will appear.
 
 ![Scan settings](../../Images/scan_settings.png)
 
-Edit the Start IP and End IP scan settings to  172.20.10.1 and 172.20.10.100  (devices connected to your iPhone hotspot will be in that range).
+* Edit the Start IP and End IP scan settings to  172.20.10.1 and 172.20.10.100  (devices connected to your iPhone hotspot will be in that range).
 
-Press the blue/black “Scan” button on the bottom right of the screen (it may be a little hidden because the display gets a little pushed down by the hotspot bar on the top of iPhone).
+* Press the blue/black “Scan” button on the bottom right of the screen (it may be a little hidden because the display gets a little pushed down by the hotspot bar on the top of iPhone).
 
 ![Edit start and end IP and pres scan](../../Images/edit_network_scanner.png)
 
