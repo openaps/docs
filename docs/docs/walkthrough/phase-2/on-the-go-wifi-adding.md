@@ -20,7 +20,7 @@ On the iPhone, download these two apps:
 
 ## 2. Hotspot connect iPhone and rig
 
-You should have already added your iPhone’s hotspot info to the wifi network list previously.  If you have questions about how to do that, see the Simple Mac setup guide.  
+You should have already added your iPhone’s hotspot info to the wifi network list previously.  If you have questions about how to do that, see the [Simple Mac setup guide](../phase-0/edison-explorer-board-Mac.md).  
 
 But, as a hint, you can find your iPhone hotspot information under Settings, Personal Hotspot. Your network name and password are listed there.  Use the `vi /etc/wpa_supplicant/wpa_supplicant.conf` command while logged on the rig from a computer.
 
@@ -43,7 +43,7 @@ You can tell your rig is connected to your iPhone when you see a blue bar above 
 
 ![Scan settings](../../Images/scan_settings.png)
 
-* Edit the Start IP and End IP scan settings to  172.20.10.1 and 172.20.10.100  (devices connected to your iPhone hotspot will be in that range).
+* Edit the Start IP and End IP scan settings to  172.20.10.1 and 172.20.10.20  (devices connected to your iPhone hotspot will be in that range).
 
 * Press the blue/black “Scan” button on the bottom right of the screen (it may be a little hidden because the display gets a little pushed down by the hotspot bar on the top of iPhone).
 
@@ -83,7 +83,11 @@ Congrats…you should now see the host you just created.  If you click on that h
 
 You’re IN!  Congrats!  
 
-Now, you’ll want to enter :
+**Warning** The instructions below describe how to edit your rig's network settings, which determine whether your rig can connect to your hotspot.  Just in case you might mess up the config and "step on your own air hose", be sure you have a backup method of connecting to your rig (perhaps using Bluetooth, or your laptop and a USB console connection) or a backup rig available.  Be careful when editing wpa_supplicant.conf to copy the syntax exactly, to avoid having it refuse to load the config at all due to a misplaced quote or curly brace or something.
+
+If you are out and about, don't have a backup method of connecting, and this is your only rig, you might want to consider waiting until you get home to change your wpa_supplicant config.
+
+If you're ready to proceed, you’ll want to enter :
 
 `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
