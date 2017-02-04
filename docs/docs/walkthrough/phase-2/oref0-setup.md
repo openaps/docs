@@ -56,6 +56,10 @@ Run this:
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments. 
 
+Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
+
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF`
+
 **Be prepared to enter the following items:** 
 * Directory name for your openaps
 * serial number of your pump
@@ -67,12 +71,12 @@ to run the script interactively, or get usage guidelines for providing inputs as
 * whether you want any of the oref0 advanced implementations
 * whether or not you want to automate your loop (using cron)
 
-**Hint:** if you're not sure if you need something (advanced features), you probably don't, but for more information on the advanced features, see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html). Also, scheduling something in cron means scheduling the loop to run automatically. So if you want an automated closed loop, Yes, you want to schedule it in cron. If you don't want an automated loop yet, you can always come back and run the script again later to automate. In addition, running the script again will update the various packages that the script installs.
+**Hint:** If you're not sure if you need something (advanced features), you probably don't, but for more information on the advanced features, see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html). Also, scheduling something in cron means scheduling the loop to run automatically. So if you want an automated closed loop, Yes, you want to schedule it in cron. If you don't want an automated loop yet, you can always come back and run the `bash ~/myopenaps/oref0-runagain.sh` command later to automate. In addition, running the script again will update the various packages that the script installs.
 
 **Worldwide pump users**
 If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
 
-The very first time may take a while (10-15 minutes) for it to successfully read and pull a full history from your pump. Wait at least 15 minutes when watching the log (see below, step 3) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to comment out or delete any existing crons before adding another. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of trouble shooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next.
+The very first time may take a while (10-15 minutes) for it to successfully read and pull a full history from your pump. Wait at least 15 minutes when watching the log (see below, step 3) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to comment out (add `#` in front of cron lines) or delete (`crontab -r` will delete the whole cron) any existing crons before adding another. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of troubleshooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next.
 
 ### Re-running the setup script
 
@@ -83,3 +87,5 @@ In the future, you may want to run the setup script again (such as when you want
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
 
 `tail -F /var/log/openaps/pump-loop.log`
+
+Type control-C to exit the loop log.
