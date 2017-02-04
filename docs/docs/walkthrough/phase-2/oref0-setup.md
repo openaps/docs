@@ -50,15 +50,15 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. Also read below regarding port and other information to enter when running the script.
 
-Run this:
+Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
+
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address)
+
+Otherwise if you don't want Bluetooth tethering, run this:
 
 `cd && ~/src/oref0/bin/oref0-setup.sh`
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments. 
-
-Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
-
-`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF`
 
 **Be prepared to enter the following items:** 
 * Directory name for your openaps
