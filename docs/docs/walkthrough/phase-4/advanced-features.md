@@ -8,8 +8,7 @@ If you choose to enable the optional advanced meal-assist feature, then after yo
 
 Like all features and steps, you'll want to carefully enable, test, and observe the outcomes of this feature. To turn this feature on, run the setup script from phase 2 and choose advanced features. 
 
-With AMA, once you enable forecast display in your Nightscout configuration (see the Nightscout documentation for the correct variables to set) you will have 3 purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
-
+With AMA, once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have 3 purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
 
 * (Usually) Top line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption 
 

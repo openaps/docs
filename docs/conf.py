@@ -61,8 +61,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OpenAPS'
-copyright = u'2016, Ben West, Dana Lewis, and openaps contributors'
-author = u'Ben West, Dana Lewis, Scott Leibrand, openaps community'
+copyright = u'2017, the #OpenAPS community'
+author = u'the #OpenAPS community'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

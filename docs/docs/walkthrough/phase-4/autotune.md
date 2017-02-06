@@ -1,6 +1,6 @@
 # WIP Autotune Feature
 
-Autotune is a feature created in late December 2016 and is currently in beta (early testing) mode in the oref0 dev branch.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading.
+Autotune is a feature created in late December 2016 and is currently in beta ( testing) mode.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading. Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1).
 
 ## The difference between autotune and autosens:
 
@@ -38,7 +38,7 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 Autotune is currently being tested by a few users on the command line. There has been some additional work to make it easier to export to Excel for review.
 
 How to run it as a one-off:
-* First, make sure you have dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install`
+* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 * Install jq: `sudo apt-get install jq`
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
 * Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the 20-30% min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
@@ -48,9 +48,9 @@ If you have issues running it, questions about reviewing the data, or want to pr
 
 #### Phase B: Running Autotune in OpenAPS closed loop system
 
-Autotune is in the dev branch of OpenAPS, to test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
+You can also test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
 
-If you're running dev branch, you can set up autotune as part of the setup scripts, and have it run nightly and adjust a new autotune profile.
+You can set up autotune as part of the oref0-setup script, and have it run nightly and adjust a new autotune profile.
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
@@ -64,16 +64,19 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 **Feedback**: Please note autotune is brand new, and still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/openaps/autotune), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
+**Paying it forward**: Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1). You can also create a pull request to help edit and improve this documentation. (See a "[my first PR guide](http://openaps.readthedocs.io/en/latest/docs/Resources/my-first-pr.html)" here if you haven't done a pull request before.)
+
 **Step 1: Create VM**
 * You'll need a Linux machine to run Autotune for now, until Autotune is updated to [support Mac OS X](https://github.com/openaps/oref0/issues/327) or Windows.  If you don't already have access to a physical or virtual machine running Linux, you can either create a Linux VM locally using software like [VirtualBox](https://www.virtualbox.org/wiki/Downloads), or in the cloud with your favorite cloud service.
 * For cloud servers, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free-trial/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
+* Make sure your VM is using the same timezone as your pump.  You can change timezone using `sudo dpkg-reconfigure tzdata`
+* If your VM is outside the US, particularly in a country that uses `,` as a decimal separator, make sure your system locale is set to `en_US.utf8` or another locale that uses `.` as the decimal separator.
 
 **Step 2: Install oref0 on the cloud VM**
 * A. After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 * B. Install the jq package: `sudo apt-get install jq`
-* C. Pull/clone the latest oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
-* D. And install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install` 
+* C. Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
@@ -85,25 +88,21 @@ We are actively working to make it easier for people to run autotune as a one-of
   "dia": your_dia,
   "basalprofile": [
     {
-      "i": 0,
       "start": "00:00:00",
       "minutes": 0,
       "rate": your_basal
     },
     {
-      "i": 1,
       "start": "08:00:00",
       "minutes": 480,
       "rate": your_basal
     },
     {
-      "i": 2,
       "start": "13:00:00",
       "minutes": 780,
       "rate": your_basal
     },
     {
-      "i": 3,
       "start": "21:00:00",
       "minutes": 1260,
       "rate": your_basal
@@ -112,12 +111,12 @@ We are actively working to make it easier for people to run autotune as a one-of
   "isfProfile": {
     "sensitivities": [
       {
-        "i": 0,
-        "start": "00:00:00",
-        "sensitivity": your_isf,
-        "offset": 0,
-        "x": 0,
-        "endOffset": 1440
+          "i": 0,
+          "start": "00:00:00",
+          "sensitivity": your_isf,
+          "offset": 0,
+          "x": 0,
+          "endOffset": 1440
       }
     ]
   },
@@ -134,26 +133,30 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 * Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
 * D. Verify your profile.json is valid json by running `jq . profile.json` - if it prints a colorful version of your profile.json, you're good to proceed.  If not, go back and edit your profile.json to fix the error.
-* E. Create a pumpprofile.json that is the same as your settings.json. On the command line run: `cp profile.json pumpprofile.json`
+* E. Create a pumpprofile.json that is the same as your profile.json. On the command line run: `cp profile.json pumpprofile.json`
 * F. Create a third file from the command line by running: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
 * ^ Sub in your Nightscout URL.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
+* If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
 #### Why Isn't It Working At All?
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the autotune-mdi branch instead of the dev branch. Sub in autotune-mdi instead of dev in step 2-C and 2-D.
+* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the autotune-mdi branch of oref0:
+  * Pull/clone the oref0 autotune-mdi branch by running: `mkdir -p ~/src; cd ~/src && git clone -b autotune-mdi git://github.com/openaps/oref0.git || (cd oref0 && git checkout autotune-mdi && git pull); cd`
+  * Install the oref0 autotune-mdi branch: `cd ~/src/oref0 && git checkout autotune-mdi && sudo npm run global-install`
 * Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
 * Check your profile.json and make sure it really matches the example - chances are there's a stray character in there.
 * Also check your pumpprofile.json and autotune.json - if it worked once or twice but then stopped working, it may have a bad file copy. If needed, follow Steps 3-E and 3-F again to re-copy a good profile.json to pumpprofile.json and autotune.json again.
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightcout in a way that's not through Care Portal app directly, etc. 
+* If VM is already set up, and you are returning to your VM for another session of autotune, double-check that your VM timezone matches your pump: `sudo dpkg-reconfigure tzdata` 
 
 #### What does this output from autotune mean? 
 Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).
@@ -164,7 +167,4 @@ Remember, autotune is still a work in progress (WIP). Please provide feedback al
 
 #### Yay, It Worked! This is Cool!
 
-Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool.
-
-
-
+Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool. You can also help us tackle some of the known issues and feature requests listed [here](./understanding-autotune.md).

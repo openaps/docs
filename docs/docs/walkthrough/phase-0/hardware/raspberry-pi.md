@@ -1,5 +1,6 @@
 # Hardware information for Raspberry Pi setups
 
+(**Note:** _If you're defaulting to Raspberry Pi because that's what you've seen pictures or heard stories of - you should also check out the Edison-based rig page for details on a smaller, more mobile friendly option. A Pi/TI stick rig is a good "at home" rig, but most people want the smallest, which is an Edision/Explorer Board rig [(pictured here)](https://twitter.com/danamlewis/status/776248916077522944?ref_src=twsrc%5Etfw) that they can slip in their pocket. The [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html) has the Edison required hardware._)
 
 The Raspberry Pi (RPi) is a credit-card sized single-board computer. The RPi
 primarily uses Linux kernel based operating systems, which must be installed by

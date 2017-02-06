@@ -11,8 +11,6 @@ Resources
    troubleshooting
    wifi
    history
-   other-projects
    faq
    glossary
-
-
+   switching-between-DIY-systems
