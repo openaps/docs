@@ -1,4 +1,4 @@
-#Welcome
+# Introduction
 
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
@@ -42,9 +42,9 @@ At the end of the previous stages and after 3 consecutive nights with no hardwar
 ----------
 **You may be looking for:**
 
-* [Live help with your implementation](http://openaps.readthedocs.io/en/latest/docs/introduction/communication-support-channels.html) (Hint: [Check out the Gitter Intend-to-Bolus chat](https://gitter.im/nightscout/intend-to-bolus))
+* [Live help with your implementation](http://openaps.readthedocs.io/en/latest/docs/introduction/communication-support-channels.html) (Hint: [Check out this Gitter channel](https://gitter.im/nightscout/intend-to-bolus))
 
-* [Old setup directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/manual/index.html)
+* ["Old" setup directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/manual/index.html)
 
 *  [OpenAPS Reference Design](https://openaps.org/reference-design/)
 
