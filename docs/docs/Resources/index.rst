@@ -13,5 +13,4 @@ Resources
    history
    faq
    glossary
-
-
+   switching-between-DIY-systems
