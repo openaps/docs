@@ -50,9 +50,29 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. Also read below regarding port and other information to enter when running the script.
 
+**Be prepared to enter the following items:** 
+* Directory name for your openaps
+* serial number of your pump
+* the mmeowlink port for TI stick or explorer board (built in TI stick):
+    * /dev/spidev5.1 if using explorer board
+    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options
+* (if you're using a carelink, you will NOT be using mmeowlink)
+* how you are getting cgm data and cgm serial numbers if needed
+* nightscout host and api-secret if using nightscout 
+* whether you want any of the oref0 advanced features
+* whether or not you want to automate your loop (using cron)
+
+**Hint:** If you're not sure if you need something (advanced features), you probably don't, but for more information on the advanced features, see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html). Also, scheduling something in cron means scheduling the loop to run automatically. So if you want an automated closed loop, Yes, you want to schedule it in cron. If you don't want an automated loop yet, you can always come back and run the `bash ~/myopenaps/oref0-runagain.sh` command later to automate. In addition, running the script again will update the various packages that the script installs.
+
+**Read this note before running the script**: The very first time may take a while (10-15 minutes) for it to successfully read and pull a full history from your pump. Wait at least 15 minutes while watching the log (see below, in step 3 on this page) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to comment out (add `#` in front of cron lines) or delete (`crontab -r` will delete the whole cron) any existing crons before adding another. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of troubleshooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next.
+
 Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
 
+#### Setup script with Bluetooth
+
 `cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address)
+
+#### Setup script without Bluetooth tethering 
 
 Otherwise if you don't want Bluetooth tethering, run this:
 
@@ -60,23 +80,9 @@ Otherwise if you don't want Bluetooth tethering, run this:
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments. 
 
-**Be prepared to enter the following items:** 
-* Directory name for your openaps
-* serial number of your pump
-* the mmeowlink port:
-    * /dev/spidev5.1 if using explorer board
-    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options
-* how you are getting cgm data and cgm serial numbers if needed
-* nightscout host and api-secret if using nightscout 
-* whether you want any of the oref0 advanced implementations
-* whether or not you want to automate your loop (using cron)
-
-**Hint:** If you're not sure if you need something (advanced features), you probably don't, but for more information on the advanced features, see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html). Also, scheduling something in cron means scheduling the loop to run automatically. So if you want an automated closed loop, Yes, you want to schedule it in cron. If you don't want an automated loop yet, you can always come back and run the `bash ~/myopenaps/oref0-runagain.sh` command later to automate. In addition, running the script again will update the various packages that the script installs.
-
 **Worldwide pump users**
 If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
 
-The very first time may take a while (10-15 minutes) for it to successfully read and pull a full history from your pump. Wait at least 15 minutes when watching the log (see below, step 3) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to comment out (add `#` in front of cron lines) or delete (`crontab -r` will delete the whole cron) any existing crons before adding another. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of troubleshooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next.
 
 ### Re-running the setup script
 
