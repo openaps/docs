@@ -7,7 +7,7 @@
 
 Welcome to the [openaps](https://github.com/openaps/) documentation!
 
-This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information) and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
+This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the [OpenAPS reference design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). By proceeding to use these tools or any piece within, you agree to the copyright (see [LICENSE.txt](/license.txt) for more information) and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
 
 ----------
 ### A Note on DIY and the "Open" Part of OpenAPS
