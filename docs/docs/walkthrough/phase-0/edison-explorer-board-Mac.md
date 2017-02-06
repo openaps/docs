@@ -272,6 +272,8 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Ediso
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
+* Run `ping google.com` to make sure your rig is online.  If not, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.
+
 * Enter these three lines, one-at-a-time (the first line will run fast, and the second and third lines may take several minutes to complete)
 
 `dpkg -P nodejs nodejs-dev`
