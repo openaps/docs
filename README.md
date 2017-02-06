@@ -30,14 +30,14 @@ Get the equipment you need; record baseline data, configure your hardware, insta
 * **Phase 1: Monitoring and Visualization Setup**<br>
 Prepare Nightscout or other visualization tools that are key for monitoring a closed loop.
 
-* **Phase 2: Creating a a PLGM or open loop**<br>
+* **Phase 2: Creating a PLGM or open loop**<br>
 Use the setup script to build a basic loop; you can choose to run the loop manually ("open loop" mode), or automate your loop. At this stage, you should review and refine algorithms, test different scenarios for safety, etc.
 
 * **Phase 3: Understanding Your Loop and Tweaking Settings**<br>
 Analyze the basal recommendations that are outputted from your system; run in a test environment for multiple days to configure safety settings that are right for you before moving forward. 
 
 * **Phase 4: Iterate and Improve the Closed Loop**<br>
-At the end of the previous stages and after 3 consecutive nights with no hardware failures and at least 1 night without low alarms, you can move into advanced features like meal-assist and auto-sensitivity tuning. Also improve the functionality of the system with additional software or hardware development
+At the end of the previous stages and after 3 consecutive nights with no hardware failures and at least 1 night without low alarms, you can move into advanced features like meal-assist and auto-sensitivity tuning, and improve the functionality of the system with additional software or hardware development.
 
 ----------
 **You may be looking for:**
