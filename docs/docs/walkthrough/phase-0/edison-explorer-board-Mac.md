@@ -262,12 +262,12 @@ These are the wifi networks that your rig will be able to use to stay connected 
 
 #### **1-10. Installing packages, SSH keys, and other settings**
 
-ALRIGHTY...Your Edison is coming along.  Now we are going to logout of the Edison “console” window, reboot, and login using an “ssh” command.
+ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Edison “console” window (in case we can't get in via ssh), reboot, and login using an “ssh” command from a new Terminal window.
 
 * Type `reboot`
-* Wait as many lines of action go by in the Terminal window...eventually you will get to a prompt.  When you get that prompt.  Go ahead and close out the window.  Confirm that you want to “terminate”
+* Wait as many lines of action go by in the Terminal window...eventually you will get to a prompt.
 * Open a new Terminal window by pressing Command-N
-* Login to your Edison by entering `ssh root@edisonhost.local`
+* Login to your Edison by entering `ssh root@edisonhost.local` (changing edisonhost to the hostname you selected above)
 * Enter your password that you set earlier
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
