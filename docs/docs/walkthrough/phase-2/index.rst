@@ -11,6 +11,7 @@ Phase 2: Creating a PLGM Loop
    troubleshoot-oref0-setup
    accessing-your-rig
    on-the-go-wifi-adding
+   update-your-rig
 
    
 
