@@ -59,6 +59,8 @@ The high level process for building a system, as outlined in [the rest of the do
  * `<myopenaps>` contains all of the personalization for you; your preferences.json file is here, and all of the information from the oref0-setup interactive process goes into different files here.
  * at the end of oref0-setup, you will use cron to schedule and automate your closed loop. Once it's running, it will also create various logs that are stored on the Edison, so you can see what it has done in the past; what it is doing now; and why it is doing or has done anything. 
 
+![Example - how different phases related to the physic rig](../Images/High_level_components_OpenAPS_setup_process.png)
+
 When you run your closed loop: 
 * The longer-term data is collected in the "settings" directory, with file names indicating what sort of data they contain.  
 * The data representing what is going on right now is in the "monitor" directory
