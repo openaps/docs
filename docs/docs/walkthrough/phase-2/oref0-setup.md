@@ -88,6 +88,8 @@ If you are running from the master branch and not the WW branch, you'll need to 
 
 In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features). To do so, you will be able to run `bash ~/myopenaps/oref0-runagain.sh` to start running the setup script again with those options. (You may first want to `cat oref0-runagain.sh` to see what options you have saved in there.  To run it again with different options, you can copy and paste and modify that output, or you can `nano oref0-runagain.sh` to change what's saved in the file to run the next time.)
 
+If you are running this and the file does not exist; it means you have not run oref0-setup since your last oref0 update. You will need to run oref0-setup per the above section (with or without Bluetooth); then in the future you can use oref0-runagain.sh.
+
 ## Step 3: Watch the logs
 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
