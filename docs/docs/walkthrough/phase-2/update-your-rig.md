@@ -4,11 +4,11 @@ You've probably heard about all kinds of cool new features that you want to try.
 
 However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.
 
-## To get on a refreshed "master" branch with the new stuff
+## To get the new stuff from the newest released version of oref0
 
 1. `sudo npm install -g oref0`
 
-## To get on "dev" branch to test the new stuff
+## To get on "dev" branch to test even more recently added new stuff
 
 Or, if the feature you want hasn't been released yet, and you want to test the latest untested development version of `oref0`, run:
 
