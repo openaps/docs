@@ -59,6 +59,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * (if you're using a carelink, you will NOT be using mmeowlink)
 * how you are getting cgm data and cgm serial numbers if needed
 * nightscout host and api-secret if using nightscout 
+    * NOTE: Do NOT add a trailing "/" to your URL
 * whether you want any of the oref0 advanced features
 * whether or not you want to automate your loop (using cron)
 
