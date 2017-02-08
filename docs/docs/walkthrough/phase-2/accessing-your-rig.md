@@ -67,3 +67,7 @@ Private IP addresses are assigned for devices and are unique to the connection. 
 ![ifconfig example](../../Images/ifconfig_example.png)
 
 OR login to your router to see the list of connected devices and find your edison rig.  Google your router’s brand name and “router login” (e.g., Netgear router login) to find out how to access your router’s administrative area.
+
+## Shortcut to see IP and wifi network name that your rig is on
+
+**Tip**: for rigs updated ([here is how](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/update-your-rig.html) after 2/7/17, you can also now type `wifi` hit enter; it will bring up the last 100 lines of the network log so you can see your IP address AND the network name of the wifi that your rig is on.

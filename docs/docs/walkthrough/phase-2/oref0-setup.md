@@ -88,10 +88,15 @@ If you are running from the master branch and not the WW branch, you'll need to 
 
 In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features). To do so, you will be able to run `bash ~/myopenaps/oref0-runagain.sh` to start running the setup script again with those options. (You may first want to `cat oref0-runagain.sh` to see what options you have saved in there.  To run it again with different options, you can copy and paste and modify that output, or you can `nano oref0-runagain.sh` to change what's saved in the file to run the next time.)
 
+If you are running this and the file does not exist, that just means you have not run oref0-setup since updating oref0 to 0.4.0 or later. You will need to run oref0-setup per the above section (with or without Bluetooth); then in the future you can use oref0-runagain.sh.
+
 ## Step 3: Watch the logs
 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
 
+(For rigs updated to master after 2/7/17 ([here is how to update](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/update-your-rig.html)), you can simply type the letter "l" (aka the single letter `l`), or use the full tail command below to see the logs).
+
 `tail -F /var/log/openaps/pump-loop.log`
 
 Type control-C to exit the loop log.
+
