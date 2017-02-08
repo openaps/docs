@@ -94,6 +94,9 @@ If you are running this and the file does not exist, that just means you have no
 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
 
+(For rigs updated to master after 2/7/17 ([here is how to update](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/update-your-rig.html)), you can simply type the letter "l" (aka the single letter `l`), or use the full tail command below to see the logs).
+
 `tail -F /var/log/openaps/pump-loop.log`
 
 Type control-C to exit the loop log.
+
