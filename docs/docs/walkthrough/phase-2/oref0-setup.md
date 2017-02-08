@@ -48,17 +48,17 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 
 ## Step 2: Run oref0-setup
 
-__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. Also read below regarding port and other information to enter when running the script.
+__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. 
 
 **Be prepared to enter the following items:** 
 * Directory name for your openaps
 * serial number of your pump
-* the mmeowlink port for TI stick or explorer board (built in TI stick):
-    * /dev/spidev5.1 if using explorer board
-    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for other port options
+* if you are using an explorer board
+* if not an explorer board, and not a carelink stick, you'll need to enter the mmeowlink port for TI stick or explorer board (built in TI stick):
+    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
 * (if you're using a carelink, you will NOT be using mmeowlink)
-* how you are getting cgm data and cgm serial numbers if needed
-* nightscout host and api-secret if using nightscout 
+* how you are getting cgm data
+* nightscout URL and api-secret
 * whether you want any of the oref0 advanced features
 * whether or not you want to automate your loop (using cron)
 
@@ -68,11 +68,11 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 
 Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
 
-#### Setup script with Bluetooth
+#### oref0-setup.sh script with Bluetooth
 
 `cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address)
 
-#### Setup script without Bluetooth tethering 
+#### oref0-setup.sh script without Bluetooth tethering 
 
 Otherwise if you don't want Bluetooth tethering, run this:
 
@@ -83,8 +83,7 @@ to run the script interactively, or get usage guidelines for providing inputs as
 **Worldwide pump users**
 If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
 
-
-### Re-running the setup script
+### Re-running the oref0-setup.sh script
 
 In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features). To do so, you will be able to run `bash ~/myopenaps/oref0-runagain.sh` to start running the setup script again with those options. (You may first want to `cat oref0-runagain.sh` to see what options you have saved in there.  To run it again with different options, you can copy and paste and modify that output, or you can `nano oref0-runagain.sh` to change what's saved in the file to run the next time.)
 
