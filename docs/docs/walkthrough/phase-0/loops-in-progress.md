@@ -126,3 +126,4 @@ List of people who are working on closed loops:
 - Rebecca Jervey (Philadelphia, PA)
 - Ivica Suran (Pazin, Croatia)
 - David Rimmer (Melbourne, Australia)
+- Kyle King (Opelika, AL)
