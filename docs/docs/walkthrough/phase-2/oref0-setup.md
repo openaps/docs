@@ -51,14 +51,14 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. 
 
 **Be prepared to enter the following items:** 
-* Directory name for your openaps
+* directory name for your openaps
 * serial number of your pump
-* if you are using an explorer board
-* if not an explorer board, and not a carelink stick, you'll need to enter the mmeowlink port for TI stick or explorer board (built in TI stick):
+* whether or not you are using an Explorer board
+* if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
     * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
-* (if you're using a carelink, you will NOT be using mmeowlink)
-* how you are getting cgm data
-* nightscout URL and api-secret
+* (if you're using a Carelink, you will NOT be using mmeowlink)
+* how you are getting CGM data
+* Nightscout URL and API secret
 * whether you want any of the oref0 advanced features
 * whether or not you want to automate your loop (using cron)
 
