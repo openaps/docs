@@ -92,7 +92,7 @@ In the future, you may want to run the setup script again (such as when you want
 
 When you decide to enable the new loop in cron, follow the log file (and watch Nightscout) to make sure that it is working properly:
 
-(As of 2/6/17, you can simply type the letter "l", or use the full tail command below to see the logs).
+(For rigs updated to master after 2/7/17 ([here is how to update](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/update-your-rig.html)), you can simply type the letter "l" (aka the single letter `l`), or use the full tail command below to see the logs).
 
 `tail -F /var/log/openaps/pump-loop.log`
 
