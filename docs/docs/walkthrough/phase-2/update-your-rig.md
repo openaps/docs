@@ -2,7 +2,7 @@
 
 You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html#re-running-the-setup-script)).
 
-However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which branch of oref0 you are currently running, `cd src/oref0` and then `git branch`. 
+However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which branch of oref0 you are currently running, `cd ~/src/oref0` and then `git branch`. 
 
 ## Step 1: Install the new version
 
