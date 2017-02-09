@@ -127,3 +127,4 @@ List of people who are working on closed loops:
 - Ivica Suran (Pazin, Croatia)
 - David Rimmer (Melbourne, Australia)
 - Kyle King (Opelika, AL)
+- Sonya Neufer
