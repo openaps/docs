@@ -134,11 +134,11 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 ### Troubleshooting
 * Loop - depending on environment and t1d's habits, RileyLink may require retuning to get Loop running again (automatically scheduled to retune at 14 minute intervals, but sometimes manual tunes are required). 
 * OpenAPS - once setup and network connected, there is little required troubleshooting of rig. Most problems should self-resolve in <10 minutes, and if not a power button push usually solves the issue.  Also, parents can login to rig remotely to troubleshoot, reboot, etc. (when using the same wifi network as the rig) using an iPhone app.
- * Is it looping? (Check on pump to see if temp basal has been set)
- * What do the logs say? (Check the OpenAPS logs and/or the OpenAPS pill; it will probably say why it is stuck)
- * Reboot the rig (either via logging in, or using the power button on the rig)
- * Make sure it’s connected to wifi
- * Make sure you’re in range of the rig; CGM data is flowing; etc. 
+  * Is it looping? (Check on pump to see if temp basal has been set)
+  * What do the logs say? (Check the OpenAPS logs and/or the OpenAPS pill; it will probably say why it is stuck)
+  * Reboot the rig (either via logging in, or using the power button on the rig)
+  * Make sure it’s connected to wifi
+  * Make sure you’re in range of the rig; CGM data is flowing; etc. 
 
 ## Running multiple kinds of DIY systems
 * You can run different DIY systems (like Loop and OpenAPS) side-by-side, if you want to compare algorithms and how they behave.

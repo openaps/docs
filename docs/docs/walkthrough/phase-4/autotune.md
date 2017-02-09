@@ -81,7 +81,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
-* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.
 ```
 {
   "min_5m_carbimpact": 3,
@@ -147,9 +147,9 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the autotune-mdi branch of oref0:
-  * Pull/clone the oref0 autotune-mdi branch by running: `mkdir -p ~/src; cd ~/src && git clone -b autotune-mdi git://github.com/openaps/oref0.git || (cd oref0 && git checkout autotune-mdi && git pull); cd`
-  * Install the oref0 autotune-mdi branch: `cd ~/src/oref0 && git checkout autotune-mdi && sudo npm run global-install`
+* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the dev branch of oref0:
+  *  Pull/clone the oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
+  * Install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install`
 * Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
