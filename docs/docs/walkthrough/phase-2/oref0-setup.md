@@ -117,5 +117,5 @@ alias cgm-dexusb-loop=" tail -f /var/log/openaps/cgm-dexusb-loop.log
 ```
 after you make the changes you will need to run `source ~/.bash_profile` to make the changes active.
 
-Note - not all logs are being used for everyone setup. so you can ignore the aliases that you don't need.
-this can also be used with any commands that you normally run. 
+Note - not all logs are being used for everyone's setup, so you can ignore the aliases that you don't need.
+This can also be used to create easy aliases for any other commands that you normally run. 
