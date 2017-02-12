@@ -40,8 +40,8 @@ Autotune is currently being tested by a few users on the command line. There has
 How to run it as a one-off:
 * First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 * Install jq: `sudo apt-get install jq`
-* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
 * Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the 20-30% min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
+* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
 
 If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).
 
@@ -70,8 +70,10 @@ We are actively working to make it easier for people to run autotune as a one-of
 * You'll need a Linux machine to run Autotune for now, until Autotune is updated to [support Mac OS X](https://github.com/openaps/oref0/issues/327) or Windows.  If you don't already have access to a physical or virtual machine running Linux, you can either create a Linux VM locally using software like [VirtualBox](https://www.virtualbox.org/wiki/Downloads), or in the cloud with your favorite cloud service.
 * For cloud servers, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free-trial/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
 * We recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments we use on the Pi and Edison for OpenAPS
+* If you have no experience an easy way to start is the VirtualBox as VM and Ubuntu as Linux OS. Step-by-step setup instructions can be found here: https://www.youtube.com/watch?v=ncA85gRAJxk  
 * Make sure your VM is using the same timezone as your pump.  You can change timezone using `sudo dpkg-reconfigure tzdata`
 * If your VM is outside the US, particularly in a country that uses `,` as a decimal separator, make sure your system locale is set to `en_US.utf8` or another locale that uses `.` as the decimal separator.
+* If you're interacting with your VM via its graphical interface, make sure you have installed a browser at your VM (i.e.  Firefox) then open the currect page from your VM. You may think that copying from your Windows/iOS and pasting in your Linux terminal would work but is not as simple .. and yes, there is lots of copying / pasting!  To make copying and pasting simpler, it is often better to `ssh` directly to your VM, rather than using its graphical interface (or the cloud provider's console interface).
 
 **Step 2: Install oref0 on the cloud VM**
 * A. After VM setup, do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
@@ -81,7 +83,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
-* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.
 ```
 {
   "min_5m_carbimpact": 3,
@@ -147,9 +149,9 @@ We are actively working to make it easier for people to run autotune as a one-of
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the autotune-mdi branch of oref0:
-  * Pull/clone the oref0 autotune-mdi branch by running: `mkdir -p ~/src; cd ~/src && git clone -b autotune-mdi git://github.com/openaps/oref0.git || (cd oref0 && git checkout autotune-mdi && git pull); cd`
-  * Install the oref0 autotune-mdi branch: `cd ~/src/oref0 && git checkout autotune-mdi && sudo npm run global-install`
+* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the dev branch of oref0:
+  *  Pull/clone the oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
+  * Install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install`
 * Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
@@ -157,6 +159,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 * Also check your pumpprofile.json and autotune.json - if it worked once or twice but then stopped working, it may have a bad file copy. If needed, follow Steps 3-E and 3-F again to re-copy a good profile.json to pumpprofile.json and autotune.json again.
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightcout in a way that's not through Care Portal app directly, etc. 
 * If VM is already set up, and you are returning to your VM for another session of autotune, double-check that your VM timezone matches your pump: `sudo dpkg-reconfigure tzdata` 
+* Invalid calculations may be due to the locale settings of your VM (correct settings are `en_US.utf-8` or another locale that uses `.` as the decimal separator). An easy way to overcome such a problem is to add `env LANG=en_US.UTF-8` in front of your command for running autotune, it should look like this: `env LANG=en_US.UTF-8 oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
 
 #### What does this output from autotune mean? 
 Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).

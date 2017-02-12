@@ -134,15 +134,19 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 ### Troubleshooting
 * Loop - depending on environment and t1d's habits, RileyLink may require retuning to get Loop running again (automatically scheduled to retune at 14 minute intervals, but sometimes manual tunes are required). 
 * OpenAPS - once setup and network connected, there is little required troubleshooting of rig. Most problems should self-resolve in <10 minutes, and if not a power button push usually solves the issue.  Also, parents can login to rig remotely to troubleshoot, reboot, etc. (when using the same wifi network as the rig) using an iPhone app.
- * Is it looping? (Check on pump to see if temp basal has been set)
- * What do the logs say? (Check the OpenAPS logs and/or the OpenAPS pill; it will probably say why it is stuck)
- * Reboot the rig (either via logging in, or using the power button on the rig)
- * Make sure it’s connected to wifi
- * Make sure you’re in range of the rig; CGM data is flowing; etc. 
+  * Is it looping? (Check on pump to see if temp basal has been set)
+  * What do the logs say? (Check the OpenAPS logs and/or the OpenAPS pill; it will probably say why it is stuck)
+  * Reboot the rig (either via logging in, or using the power button on the rig)
+  * Make sure it’s connected to wifi
+  * Make sure you’re in range of the rig; CGM data is flowing; etc. 
 
 ## Running multiple kinds of DIY systems
+
 * You can run different DIY systems (like Loop and OpenAPS) side-by-side, if you want to compare algorithms and how they behave.
-* **Tip:** For those who like Loop's capabilities for bolusing from the phone, but don't want the requirement to enter carb absorption rates by meal, you can set Loop to "open loop" mode and use it for bolusing, and otherwise allow OpenAPS to be the primary closed loop to take advantage of the [Advanced Meal Assist (AMA)](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#advanced-meal-assist-or-ama) algorithm, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#auto-sensitivity-mode) to automatically adjust ISF, etc.  With Loop in "open loop" mode, you can optionally use the Loop interface to enter carbs and upload them to Nightscout where OpenAPS can retrieve them, or enter carbs into Nightscout any [other way](../walkthrough/phase-4/ifttt-integration.md).
+* For those who like Loop's capabilities for bolusing from the phone, but don't want the requirement to enter carb absorption rates by meal, you can set Loop to "open loop" mode and use it for bolusing, and otherwise allow OpenAPS to be the primary closed loop to take advantage of the [Advanced Meal Assist (AMA)](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#advanced-meal-assist-or-ama) algorithm, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#auto-sensitivity-mode) to automatically adjust ISF, etc. However, see the following safety warnings below.
+ * **SAFETY WARNING:** If you choose to keep a Loop rig running alongside OpenAPS, you MUST turn off Loop's ability to write to Nightscout. If you neglect to do this, Nightscout will display double entries of carbs and/or boluses and greatly confuse you in the future. To enter carbs, you can enter directly through Nightscout Care Portal; [use the variety of IFTTT configurations to enter carbs to Nightscout via your Pebble watch, Alexa, Siri, etc.](../walkthrough/phase-4/ifttt-integration.md); or enter using the pump's bolus wizard. Even if you're just using the Loop app in open loop mode, and enter carbs or bolus from the pump bolus wizard for use in OpenAPS, you need to turn off Loop's ability to write to Nightscout.  If you don't, Loop will read the boluses and carbs entered via the pump, upload them to Nightscout, and the duplicate entries will result in suboptimal post-meal decisions. You can either turn off Loop's ability to write to Nightscout, or simply close the app, but reopening the app for even a few minutes may still cause it to double enter to Nightscout if uploads are not disabled. If you do not plan to actively use Loop and DO want to bolus from the pump (via bolus wizard or easy bolus button) with OpenAPS, you should either disable Loop's Nightscout uploads, or plan to close the Loop app and not run them side-by-side. 
+ * **Caution**: You may want to disable the Nightscout COB pill, especially if you are using multiple DIY closed loop systems, as it will likely cause confusion. You should look to the (DIY closed loop system you are using)'s pill for information about COB. This means looking in the OpenAPS or Loop pill for information about COB. 
+
 
 ---
 
