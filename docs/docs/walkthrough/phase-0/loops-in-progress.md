@@ -50,6 +50,7 @@ List of people who are working on closed loops:
 - Sara and David Goya (Anaheim, CA)
 - Rafael Matuk (Chicago, IL)
 - Luuc Verburgh (Eindhoven, The Netherlands)
+- Iain Cartwright (Adelaide, Australia)
 - Julie Raines (Poughkeepsie, NY)
 - Brandon Parrish (Augusta, GA)
 - Katie Ellison (Bellevue, WA)
@@ -126,3 +127,6 @@ List of people who are working on closed loops:
 - Rebecca Jervey (Philadelphia, PA)
 - Ivica Suran (Pazin, Croatia)
 - David Rimmer (Melbourne, Australia)
+- Kyle King (Opelika, AL)
+- Sonya Neufer
+- Sacha M (New Zealand)

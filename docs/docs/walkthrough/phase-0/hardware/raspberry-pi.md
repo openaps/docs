@@ -13,8 +13,7 @@ via an SSH client on Windows, Mac OS X, Linux, iOS, or Android.
 The RPi has 4 USB ports, an Ethernet port, an HDMI port, and a micro USB
 power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will
 need to access the USB ports, micro USB power-in jack, and possibly the Ethernet
-jack (if wireless failure occurs). You will not require the HDMI port or a
-monitor.
+jack (if wireless failure occurs). 
 
 High level list of supplies needed for a Pi-based setup:
 * One of the following:
