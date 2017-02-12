@@ -13,7 +13,7 @@ Since OpenAPS rig needs internet connection, most of the times we would prefer t
 
 On the iPhone, download these two apps:
 
-* Terminus – SSH Shell/Console/Terminal 
+* Termius – SSH Shell/Console/Terminal 
 * iNet
 
 ![Example of apps](../../Images/Example_iphone_apps.png)
@@ -60,7 +60,7 @@ We are all done with the iNet app.
 
 ## 4. Set up a connection to the rig on the iPhone
 
-Now we are moving over to the Terminus app.  When you first open the app, it will prompt you to add a new host.  Go ahead and click the button to add a new host.  You are going to fill out the following lines:
+Now we are moving over to the Termius app.  When you first open the app, it will prompt you to add a new host.  Go ahead and click the button to add a new host.  You are going to fill out the following lines:
 ```
 Alias – pick a name that let’s you know this is the rig when it’s hotspotted with your iPhone
 
