@@ -44,7 +44,7 @@ The high level process for building a system, as outlined in [the rest of the do
 * Then, you'll run [oref0-setup.sh](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html#step-2-run-oref0-setup) to create your closed loop, personalize it, and schedule it to automatically run. 
 
 **Phase 3**: 
-* You've technically created your loop, but you'll want to [read this section to understand what it's doing, and how to further personalize your setup](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/index.html).
+* At this point you'll have a working closed loop, but to make it work well for you, you'll want to [read this section to understand what it's doing, and how to further personalize your setup](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/index.html).
 
 **Phase 4**:
 * [Tell us you've closed the loop](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/keeping-up-to-date.html), and enable any [advanced features](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html) that you're ready for!
@@ -53,11 +53,11 @@ The high level process for building a system, as outlined in [the rest of the do
 
 ### Understanding how all the pieces fit together
 
-#### What goes on your Edison
+#### What goes on your Edison/Pi
 * `oref0` is stored under `src` (which stands for "source"). This means, to find and look at the underylying oref0 code, you must `cd` into src, and then into oref0.
 * at the same home level as oref0, after you have run oref0-setup.sh, you will see `<myopenaps>` directory. 
  * `<myopenaps>` contains all of the personalization for you; your preferences.json file is here, and all of the information from the oref0-setup interactive process goes into different files here.
- * at the end of oref0-setup, you will use cron to schedule and automate your closed loop. Once it's running, it will also create various logs that are stored on the Edison, so you can see what it has done in the past; what it is doing now; and why it is doing or has done anything. 
+ * at the end of oref0-setup, you will use cron to schedule and automate your closed loop. Once it's running, it will also create various logs that are stored on the Edison/Pi, so you can see what it has done in the past; what it is doing now; and why it is doing or has done anything. 
 
 ![Example - how different phases related to the physic rig](../Images/High_level_components_OpenAPS_setup_process.png)
 
