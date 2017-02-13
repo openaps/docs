@@ -111,9 +111,9 @@ alias network="tail -n 100 -F /var/log/openaps/network.log"
 alias ns-loop="tail -n 100 -F /var/log/openaps/ns-loop.log"
 alias pump-loop="tail -n 100 -F /var/log/openaps/pump-loop.log"
 alias urchin-loop="tail -n 100 -F /var/log/openaps/urchin-loop.log"
-alias cgm-loop="tail -n 100 -F /var/log/openaps/cgm-loop.log
-alias xdrip-loop="tail -n 100 -F /var/log/openaps/xdrip-loop.log
-alias cgm-dexusb-loop="tail -n 100 -F /var/log/openaps/cgm-dexusb-loop.log
+alias cgm-loop="tail -n 100 -F /var/log/openaps/cgm-loop.log"
+alias xdrip-loop="tail -n 100 -F /var/log/openaps/xdrip-loop.log"
+alias cgm-dexusb-loop="tail -n 100 -F /var/log/openaps/cgm-dexusb-loop.log"
 ```
 after you make the changes you will need to run `source ~/.bash_profile` to make the changes active.
 
