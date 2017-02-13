@@ -105,15 +105,15 @@ so run `nano .bash_profile`
 
 add these lines or edit them to whatever you would like
 ```
-alias autosens-loop=" tail -f /var/log/openaps/autosens-loop.log"
-alias autotune=" tail -f /var/log/openaps/autotune.log"
-alias network=" tail -f /var/log/openaps/network.log"
-alias ns-loop=" tail -f /var/log/openaps/ns-loop.log"
-alias pump-loop=" tail -f /var/log/openaps/pump-loop.log"
-alias urchin-loop=" tail -f /var/log/openaps/pump-loop.log"
-alias cgm-loop=" tail -f /var/log/openaps/cgm-loop.log
-alias xdrip-loop=" tail -f /var/log/openaps/xdrip-loop.log
-alias cgm-dexusb-loop=" tail -f /var/log/openaps/cgm-dexusb-loop.log
+alias autosens-loop="tail -n 100 -F /var/log/openaps/autosens-loop.log"
+alias autotune="tail -n 100 -F /var/log/openaps/autotune.log"
+alias network="tail -n 100 -F /var/log/openaps/network.log"
+alias ns-loop="tail -n 100 -F /var/log/openaps/ns-loop.log"
+alias pump-loop="tail -n 100 -F /var/log/openaps/pump-loop.log"
+alias urchin-loop="tail -n 100 -F /var/log/openaps/urchin-loop.log"
+alias cgm-loop="tail -n 100 -F /var/log/openaps/cgm-loop.log
+alias xdrip-loop="tail -n 100 -F /var/log/openaps/xdrip-loop.log
+alias cgm-dexusb-loop="tail -n 100 -F /var/log/openaps/cgm-dexusb-loop.log
 ```
 after you make the changes you will need to run `source ~/.bash_profile` to make the changes active.
 
