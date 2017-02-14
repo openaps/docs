@@ -42,6 +42,7 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [Rob Kresha's design with the battery compartment stacked on-top of the board compartment](http://www.thingiverse.com/thing:2020161)
 * [Gustavo's 3D design](https://github.com/Perceptus/explorer_board_case_2)
 * [Sulka Haro's 3D design](https://www.tinkercad.com/things/4a6VffpcuNt)
+* [Luis's ventilated acrylic simple design](https://drive.google.com/drive/folders/0BxeFg9yJZ_FZdWJEcG5KMXdUMjg?usp=sharing)
 
 # Next steps after you get your hardware
 
