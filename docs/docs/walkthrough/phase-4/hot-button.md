@@ -16,9 +16,9 @@ After button click the command is executed and the results are displayed in the 
 It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
 
 To setup activity mode run:
-```./set_temp_target.sh "Activity Mode" 80```
+```./set_temp_target.sh "Activity Mode" 130```
 To setup eating soon mode run:
-```./set_temp_target.sh "Eating Soon" 130```
+```./set_temp_target.sh "Eating Soon" 80```
 
 The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
 To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove ```openaps ns-temptargets``` from ns-loop. 
