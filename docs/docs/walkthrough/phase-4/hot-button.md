@@ -4,7 +4,7 @@
 [Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especialy useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
 
 ## App Setup 
-To setup the button you need to long click. At first setup the Server Settings and set them as default. For every other button you can load them.
+To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.
 
 ## Basic commands
 To the Command part of the button setup you can write any command which you would run in the ssh session. For example to show the automatic sensitivity ratio, you can set:
