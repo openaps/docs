@@ -131,3 +131,4 @@ List of people who are working on closed loops:
 - Sonya Neufer
 - Sacha M (New Zealand)
 - Joe Dunn for Lizzie
+- Michele Lawford (Ontario, Canada)
