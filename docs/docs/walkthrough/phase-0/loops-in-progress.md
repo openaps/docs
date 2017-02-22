@@ -132,3 +132,4 @@ List of people who are working on closed loops:
 - Sacha M (New Zealand)
 - Joe Dunn for Lizzie
 - Michele Lawford (Canada)
+- parenthetic (diabetic)
