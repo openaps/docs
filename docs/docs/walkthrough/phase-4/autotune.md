@@ -34,7 +34,7 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 
 #### Phase A: Running Autotune in “manual” mode on the command line
 
-Autotune is currently being tested by a users on the command line. There has been some additional work to make it easier to export to Excel for review.
+If tou have an OpenAPS rig and want to test autoune manually, you can do so manually on the command line. There has been some additional work to make it easier to export to Excel for review.
 
 How to run it as a one-off:
 * First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
