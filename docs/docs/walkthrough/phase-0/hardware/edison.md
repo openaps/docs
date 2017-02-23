@@ -42,7 +42,7 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [Rob Kresha's design with the battery compartment stacked on-top of the board compartment](http://www.thingiverse.com/thing:2020161)
 * [Gustavo's 3D design](https://github.com/Perceptus/explorer_board_case_2)
 * [Sulka Haro's 3D design](https://www.tinkercad.com/things/4a6VffpcuNt)
-* [danimaniac's 3D vented case w/ rounded edges](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
+* [danimaniac's 3D case w/ Power Button, rounded edges, vents](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
 
 # Next steps after you get your hardware
 
