@@ -2,12 +2,9 @@
 
 For more information review https://github.com/openaps/oref0/issues/58
 
-1)	Install the latest dev branch of `oref0`:
-```
-sudo npm install -g git://github.com/openaps/oref0.git'#dev'
-```
+1)	(Removed)
 
-2)	Next in order for the new auto-sensitivity report to run, you need to have at least 24 hours worth of pump history data and enough bg readings (24 hours).
+2)	In order for the new auto-sensitivity report to run, you need to have at least 24 hours worth of pump history data and enough bg readings (24 hours).
 In your `openaps.ini` apply the following changes:
 ```
 [report "monitor/glucose.json"]

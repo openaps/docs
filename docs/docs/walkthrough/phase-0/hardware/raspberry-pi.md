@@ -1,5 +1,6 @@
 # Hardware information for Raspberry Pi setups
 
+(**Note:** _If you're defaulting to Raspberry Pi because that's what you've seen pictures or heard stories of - you should also check out the Edison-based rig page for details on a smaller, more mobile friendly option. A Pi/TI stick rig is a good "at home" rig, but most people want the smallest, which is an Edision/Explorer Board rig [(pictured here)](https://twitter.com/danamlewis/status/776248916077522944?ref_src=twsrc%5Etfw) that they can slip in their pocket. The [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html) has the Edison required hardware._)
 
 The Raspberry Pi (RPi) is a credit-card sized single-board computer. The RPi
 primarily uses Linux kernel based operating systems, which must be installed by
@@ -12,8 +13,7 @@ via an SSH client on Windows, Mac OS X, Linux, iOS, or Android.
 The RPi has 4 USB ports, an Ethernet port, an HDMI port, and a micro USB
 power-in jack that accepts 2.1 Amp power supplies. In this tutorial, you will
 need to access the USB ports, micro USB power-in jack, and possibly the Ethernet
-jack (if wireless failure occurs). You will not require the HDMI port or a
-monitor.
+jack (if wireless failure occurs). 
 
 High level list of supplies needed for a Pi-based setup:
 * One of the following:
@@ -52,13 +52,7 @@ Raspberry Pi 2. So when selecting portable battery packs bear this in mind.
 
 ## CareLink USB Stick
 
-Currently, the primary supported device (in the OpenAPS documentation) for
-uploading pump data and interfacing on the #OpenAPS is the CareLink USB stick for the Pi.
-We recommend you purchase at least two sticks because if one breaks, acquiring
-another stick will take time and will delay development. Additionally, due to
-the short range of communication between the CareLink stick and the Medtronic
-pumps, some users set up multiple sticks in different locations to maximize the
-chances of successful transmissions. Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
+The easiest device for uploading pump data and interfacing OpenAPS is the CareLink USB stick for the RPi. Due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions. CareLink is not the modern communication device sold by Medtronic. CareLink has been replaced by a newer system but OpenAPS uses the older original communication device, CareLink. Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
 
 A limitation of the Carelink USB stick is the short range of radio
 communications with the Medtronic pump. The radio signals are transmitted from

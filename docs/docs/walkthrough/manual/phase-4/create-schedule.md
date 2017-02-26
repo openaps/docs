@@ -34,15 +34,3 @@ Another example would be to use cron to automatically resolve git corruption iss
 
 It prepares a cron template to change to the current directory and runs
 whatever was specified, sending all output to syslog.
-
-**Note**: `cron-5-minute-helper` is currently on the `dev` branch of `oref0`. To
-install:
-```
-sudo npm install -g git://github.com/openaps/oref0.git#dev
-```
-Be aware that switching to the dev version of `oref0` will potentially include
-other changes still in active development. You'll want to revert to the latest
-release before using other `oref0` features:
-```
-sudo npm install -g git://github.com/openaps/oref0.git
-```
