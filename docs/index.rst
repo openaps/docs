@@ -1,15 +1,20 @@
-Welcome to OpenAPS's documentation!
-==============================================
+# Introduction
 
-This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the OpenAPS reference design. By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information; and the full README here: https://github.com/openaps/docs/blob/master/README.md ) and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
+Welcome to the [openaps](https://github.com/openaps/) documentation!
 
-*A Note on DIY and the "Open" Part of OpenAPS*
+This documentation supports implementing a self driven, Do It Yourself (DIY) artificial pancreas, based on the [OpenAPS Reference Design](http://openaps.org/open-artificial-pancreas-system-openaps-reference-design/). By proceeding to use these tools or any [openaps](https://github.com/openaps/) repositories, you agree to abide by the copyright agreement and release any contributors from any liability. You assume full responsibility for all actions and outcomes related to use of these tools or ideas. [Please read the copyright agreement before proceeding](https://github.com/openaps/docs/blob/master/license.txt).
 
-This is a set of development tools to support a self-driven DIY implementation. Any person choosing to use these tools is solely responsible for testing and implementing these tools independently or together as a system.
+* [Latest verified docs](https://openaps.readthedocs.org/en/latest/index.html)
+* [In-development or "dev" docs](https://openaps.readthedocs.org/en/dev/index.html)
 
-The DIY part of OpenAPS is important. While formal training or experience as an engineer or a developer is not a prerequisite, a growth mindset is required to learn to work with the "building blocks" that will help you develop your OpenAPS instance. Remember as you consider this project that this is not a "set and forget" system; an OpenAPS implementation requires diligent and consistent testing and monitoring to ensure each piece of the system is monitoring, predicting, and controlling as desired. The performance and quality of your system lies solely with you.
+----------
+## A Note on DIY and the Open Part of OpenAPS
 
-This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways.
+This is a set of development tools to support a self driven DIY implementation of an open source artificial pancreas, OpenAPS. Any individual choosing to use these tools is solely responsible for testing, verifying, and implementing each of these tools independently or together as a system.
+
+The [DIY part of OpenAPS is important](http://bit.ly/1NBbZtO). A growth and learning mindset is required to work with the "building blocks" that will help develop your OpenAPS system. **This is not a set and forget system**; an OpenAPS system requires persistent attention. Users must do blood glucose tests frequently and watch continuous glucose monitors vigilantly, in order to ensure each piece of the system is monitoring, predicting, and controlling blood glucose safely, given user defined constraints. The performance and quality of your OpenAPS system relies solely on you.
+
+This community of contributors believes in paying it forward, and individuals who are implementing these tools are asked to contribute by asking questions, [helping improve this documentation](docs/docs/Resources/my-first-pr.md), and contributing in other ways.
 
 
 
