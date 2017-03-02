@@ -37,7 +37,7 @@ If you are planning to make a lot of edits, including adding images to help illu
 
 * As you go and save screenshots, rename the screenshots to a descriptive name - but try not to use spaces as that confuses Github. Instead, use underscores. I.e. Example_batch_images_upload.png rather than "Example batch images upload.png". 
 * You can upload images in batches easily by:
- * 1. Navigate to the [images folder](https://github.com/openaps/docs/tree/master/docs/docs/Images) - but make sure you are in your fork/copy of the docs Images folder to be able to do this (replace "openaps" in the URL with your github username).
+ * 1. Navigate to the images folder (https://github.com/openaps/docs/tree/master/docs/docs/Images - but make sure you are in your fork/copy of the docs Images folder to be able to do this (replace "openaps" in the URL with your github username)).
  * 2. Click in the upper right corner where it says "Upload files"
  * 3. Drag and drop your images into the screen
  * 4. Commit these to your branch
