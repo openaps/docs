@@ -30,7 +30,7 @@ The Explorer board is where all the communications are housed for the rig, as we
 
 The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
 
-Easiest to start with the explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring). Inside the little outline where the Edison will eventually sit.  Gold screws, as shown, with nuts on the backside.   Then lay the Edison board on top, aligning the screw holes.  Use small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.
+Easiest to start with the explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring). Inside the little outline where the Edison will eventually sit.  Gold screws, as shown, with nuts on the backside.   Then lay the Edison board on top, aligning the screw holes.  Use small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the edison board can wobble off the connection to the explorer board and you will get looping failures.
 
 ![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
 
@@ -275,6 +275,8 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Ediso
 * Enter your password that you set earlier
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
+
+* Run `ping google.com` to make sure your rig is online.  If your rig shows up as online successfully, you can enter control-c to exit the ping.  If the rig isn't online, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.
 
 * Enter these three lines, one-at-a-time (the first line will run fast, and the second and third lines may take several minutes to complete)
 
