@@ -6,7 +6,7 @@ Autotune is a feature created in late December 2016 and is currently in beta ( t
 
 Autosensitivity/resistance mode (aka “autosens”) is an advanced feature you can enable that looks at 24 hours of data and makes adjustments to ISF and targets based on the resulting sensitivity calculations. If you have a dying pump site, or have been sick and are resistant, your ISF is likely to be calculated down by autosens and then used in OpenAPS calculations accordingly. The opposite for being more sensitive is true as well. (Here’s a blog post describing autosensitivity during sick days.)
 
-Auto"tune", by contrast, is designed to iteratively adjust basals, ISF, and carb ratio over the course of weeks.  Because it makes changes more slowly than autosens, autotune ends up drawing on a larger pool of data, and is therefore able to differentiate whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Whereas we don’t recommend changing basals or ISF based on the output of autosens (because it’s only looking at 24h of data, and can't tell apart the effects of basals vs. the effect of ISF), autotune is intended to be used to help guide basal, ISF, *and* carb ratio changes because it’s tracking trends over a large period of time. See below for how it can be used as a manual one-off calculation or in a closed loop setting, along with notes about the safety caps designed to go with it.
+Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb ratio over the course of weeks.  Because it makes changes more slowly than autosens, autotune ends up drawing on a larger pool of data, and is therefore able to differentiate whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Whereas we don’t recommend changing basals or ISF based on the output of autosens (because it’s only looking at 24h of data, and can't tell apart the effects of basals vs. the effect of ISF), autotune is intended to be used to help guide basal, ISF, *and* carb ratio changes because it’s tracking trends over a large period of time. See below for how it can be used as a manual one-off calculation or in a closed loop setting, along with notes about the safety caps designed to go with it.
 
 ## How Autotune works
 
@@ -28,19 +28,18 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 * For basals, it divides the day into hour long increments. It calculates the total deviations for that hour increment and calculates what change in basal would be required to adjust those deviations to 0. It then applies 20% of that change needed to the three hours prior (because of insulin impact time). If increasing basal, it increases each of the 3 hour increments by the same amount. If decreasing basal, it does so proportionally, so the biggest basal is reduced the most.
 * For ISF, it calculates the 50th percentile (median) deviation for the entire day and determines how much ISF would need to change to get that deviation to 0. It applies 10% of that as an adjustment to ISF.
 * For CSF, it calculates the total deviations over all of the day's mealtimes and compares to the deviations that are expected based on existing CSF and the known amount of carbs entered, and applies 10% of that adjustment to CSF.
-* Autotune applies a 20% limit on how much a given basal, or ISF or CSF, can vary from what is in the existing pump profile, so that if it's running as part of your loop, autotune can't get too far off without a chance for a human to review the changes.
-* (FUTURE TODO: Instead of 20% hardcoded safety cap, use autosens min and max ratios.)
+* Autotune limits how far it can adjust (or recommend adjustment, if running autotune outside oref0 closed loop) basal, or ISF or CSF, from what is in the existing pump profile.  Autotune uses the same autosens_max and autosens_min multipliers found in your preferences.json for oref0.  So if autotune is running as part of your loop, autotune can't get too far off without a chance for a human to review the changes.
 
 ### Different ways to utilize Autotune
 
 #### Phase A: Running Autotune in “manual” mode on the command line
 
-Autotune is currently being tested by a few users on the command line. There has been some additional work to make it easier to export to Excel for review.
+If you have an OpenAPS rig and want to test autoune manually, you can do so manually on the command line. There has been some additional work to make it easier to export to Excel for review.
 
 How to run it as a one-off:
 * First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 * Install jq: `sudo apt-get install jq`
-* Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the 20-30% min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
+* Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
 
 If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).
@@ -48,9 +47,9 @@ If you have issues running it, questions about reviewing the data, or want to pr
 
 #### Phase B: Running Autotune in OpenAPS closed loop system
 
-You can also test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in 261) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps in place to limit the amount of tuning that can be done at any time – by 20%, compared to the underlying pump profile. It will be tracked against the pump profile, and if over time the tuning constantly is recommending 20% (or more) than what’s on the pump, people can use this to inform whether they may want to tune the basals and ratios in those directions.
+You can also test running autotune every night as part of a closed loop. This means that autotune would be iteratively running (as described in [#261](https://github.com/openaps/oref0/issues/261)) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps (your autosens_max and autosens_min) in place to limit the amount of tuning that can be done at any time compared to the underlying pump profile. The autotune_recommendations will be tracked against the current pump profile, and if over time the tuning constantly is recommending changes beyond the caps, people can use this to inform whether they may want to tune the basals and ratios in those directions.
 
-You can set up autotune as part of the oref0-setup script, and have it run nightly and adjust a new autotune profile.
+You can choose to set up autotune as part of the oref0-setup script, and have it run nightly and adjust a new autotune profile.  It is important to realize that when autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately (e.g., steroid medication started), you may have to temporarily suspend autotune to allow loop to use your pump's adjusted basal program.  
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
@@ -83,7 +82,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
-* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.  Every comma, quote mark, and bracket matter on this file, so please double-check carefully.
 ```
 {
   "min_5m_carbimpact": 3,
@@ -160,6 +159,7 @@ We are actively working to make it easier for people to run autotune as a one-of
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightcout in a way that's not through Care Portal app directly, etc. 
 * If VM is already set up, and you are returning to your VM for another session of autotune, double-check that your VM timezone matches your pump: `sudo dpkg-reconfigure tzdata` 
 * Invalid calculations may be due to the locale settings of your VM (correct settings are `en_US.utf-8` or another locale that uses `.` as the decimal separator). An easy way to overcome such a problem is to add `env LANG=en_US.UTF-8` in front of your command for running autotune, it should look like this: `env LANG=en_US.UTF-8 oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
+* Did you turn on Nightscout authentication with the setting `AUTH_DEFAULT_ROLES`?  Currently Autotune will only work with the `readable` setting.  See [issue #397](https://github.com/openaps/oref0/issues/397) in Github.
 
 #### What does this output from autotune mean? 
 Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).
