@@ -161,6 +161,15 @@ network={
 }
 ```
 
+If you want to add open networks to your list, then add:
+
+```
+network={
+        key_mgmt=NONE
+        priority=-999
+}
+```
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
 Run `ifup wlan0` to make sure you can connect to wifi
