@@ -119,9 +119,8 @@ Run these commands to set secure passwords:
   
 ## Multiple Wifi Networks:
 
-`vi /etc/network/interfaces`
+`nano /etc/network/interfaces`
 
-Type 'i' to get into INSERT mode
 * Uncomment 'auto wlan0'
 * Edit the next two lines to read:
 ```
@@ -148,11 +147,11 @@ iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-Press Esc and then type ':wq' and press Enter to write the file and quit
+Press Ctrl-O to save, Enter to keep the same filename, and Ctrl-X to exit.
 
-`vi /etc/wpa_supplicant/wpa_supplicant.conf`
+`nano /etc/wpa_supplicant/wpa_supplicant.conf`
 
-Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
+Add the following to the end, once for each network you want to add:
 
 ```
 network={
@@ -161,7 +160,7 @@ network={
 }
 ```
 
-Press Esc and then type ':wq' and press Enter to write the file and quit
+Press Ctrl-O to save, Enter to keep the same filename, and Ctrl-X to exit.
 
 Run `ifup wlan0` to make sure you can connect to wifi
 
@@ -195,7 +194,7 @@ And:
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
 
-Edit (with `nano` or `vi`) /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+Edit (with `nano` or `vi`) /etc/logrotate.conf and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
