@@ -30,3 +30,21 @@ OK, let's get started. For our example we are going to make an edit to the opena
 Congrats, you made your first contribution!
 
 PS, your fork and branch will still be sitting on your own personal GitHub account. After you get a notification that your PR has been merged, you can delete your branch if you are done with it (Step 8's notification area will provide a link to delete the branch once it has been closed or merged). For future edits, if you follow this procedure the edits will always start with an updated version of the openaps repositories.  If you choose to use another method to start a PR request (e.g., editing starting from your forked repo's master branch as the starting point), you will need to ensure your repo is up-to-date by performing a "compare" first and merging in any updates that have happened since you last updated your fork.  Since people tend to forget to update their repos, we recommend using the PR process outlined above until you get familiar with performing "compares".
+
+### Advanced tips for adding multiple images to documentation
+
+If you are planning to make a lot of edits, including adding images to help illustrate parts of the documentation (thank you!), you may want to take the following approach:
+
+* As you go and save screenshots, rename the screenshots to a descriptive name - but try not to use spaces as that confuses Github. Instead, use underscores. I.e. Example_batch_images_upload.png rather than "Example batch images upload.png". 
+* You can upload images in batches easily by:
+ * 1. Navigate to the [images folder](https://github.com/openaps/docs/tree/master/docs/docs/Images)
+ * 2. Click in the upper right corner where it says "Upload files"
+ * 3. Drag and drop your images into the screen
+ * 4. Select a new branch name/create a PR, or commit to your local master branch if you're doing this in your repository.
+ * 5. Now, you can look for the URL/relative path of each file (example, you can see [this individual image has it's own URL and path](https://github.com/openaps/docs/blob/master/docs/docs/Images/Example_batch_images_upload.png) and use that to refer to when adding images into a page in the documentation.
+ * 6. To see examples of how to add the images, you can look at the "raw" code of a page to see an example from a page that already has the images embedded successfully. The main thing is to have a plain text description, followed by a link with a relative path to the image, like this: `![Example of uploading images in batches](../Images/Example_batch_images_upload.png)`
+ 
+ (That code is exactly how the image below is embedded to be displayed.)
+ 
+![Example of uploading images in batches](../Images/Example_batch_images_upload.png)
+
