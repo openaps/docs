@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get install -y git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog strace tcpdump screen acpid vim locate && \
+sudo apt-get install -y git python python-dev python-software-properties python-numpy python-pip nodejs-legacy npm watchdog strace tcpdump screen acpid vim locate jq && \
 sudo pip install -U openaps && \
 sudo pip install -U openaps-contrib && \
 sudo openaps-install-udev-rules && \
