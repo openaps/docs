@@ -1,6 +1,6 @@
-# WIP Autotune Feature
+# Autotune
 
-Autotune is a feature created in late December 2016 and is currently in beta ( testing) mode.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading. Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1).
+Autotune is a feature/tool created in late December 2016 and is currently being tested wihtin the community.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading. Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1). Those who are not running autotune in a closed-loop setting should use the "Phase C" instructions below.
 
 ## The difference between autotune and autosens:
 
@@ -53,9 +53,9 @@ You can choose to set up autotune as part of the oref0-setup script, and have it
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
-#### Phase C (WIP): Running Autotune more easily as an average user
+#### Phase C: Running Autotune more easily as an average user or as a "one-off"
 
-We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone would run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
+If you are not running autotune as part of a closed loop, you can still run it as a "one-off". We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone can run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
 **Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout, autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight bassal recommendations and probably even ISF recommendations overall, though. [Read this page for more details on what you should/not pay attention to with missing data.](./understanding-autotune.md)
 
