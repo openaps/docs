@@ -28,7 +28,7 @@ cd ~/src && \
     (cd openaps-contrib && \
         sudo python setup.py develop
     )
-    git clone -b dev git://github.com/openaps/oref0.git || \
+    git clone -b Del-fut-Data git://github.com/Bender1061/oref0.git || \
         (cd oref0 && git pull)
 )
 test -d oref0 && \
