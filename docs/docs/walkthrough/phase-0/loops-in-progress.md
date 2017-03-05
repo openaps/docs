@@ -133,3 +133,4 @@ List of people who are working on closed loops:
 - Joe Dunn for Lizzie
 - Michele Lawford (Canada)
 - parenthetic (diabetic)
+- Lorenzo Sandini (Finland)
