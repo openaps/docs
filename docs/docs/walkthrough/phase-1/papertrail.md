@@ -6,7 +6,7 @@ If you want to remotely view the rig's logs/loops, you can use Papertrail servic
 
 Go to http://papertrailapp.com and setup a new account.  Choose to setup a new system.  Notice the header at the top of the new system setup that says the path and port that your logs will go to.  You’ll need that information later.
 
-![Papertrail hosting information](../Images/papertrail_host.png)
+![Papertrail hosting information](../../Images/papertrail_host.png)
 
 ### Login to your rig
 
@@ -93,4 +93,4 @@ type ESC and ":wq" to save changes and exit.
 
 and then go to your papertrailapp website to see the log
 
-![papertrail log example](../Images/papertrail.png)
+![papertrail log example](../../Images/papertrail.png)
