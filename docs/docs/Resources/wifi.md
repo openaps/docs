@@ -24,7 +24,7 @@ You can add a line to your cron that will check to see if <YOURWIFINAME> is avai
 When you turn on your hotspot it will only broadcast for 90 seconds and then stop (even if it is flipped on). So, when you leave your house you need to go into the hotspot setting screen (and flip on if needed). Leave this screen open until you see your rig has connected. It make only take a few seconds or a full minute.
 
 ## I am not able to connect to my wireless access point on my iPhone 
-Consider changeing your iPhone's name...  In most cases iPhone will set the phone's ssid to something like "James’s iPhone"  Apple likes to put a curly apostrophe (’) into the SSID instead of a straight one (')  Your choices from here are either change the apostrophe or change the name.  To change the name on the iPhone.
+Consider changeing your iPhone's name...  In most cases iPhone will set the phone's ssid to something like "James’s iPhone"  Apple likes to put a curly apostrophe (’) into the SSID instead of a straight one (')  Your choices from here are either change the apostrophe in wpa_supplicant.conf, or change the name on the phone.  To change the name on the iPhone:
    * On your iOS device, go to Settings > General > About.
    * Tap the first line, which shows the name of your device.
    * Rename your device, then tap Done.
