@@ -7,3 +7,4 @@ Phase 1: Monitoring and Visualization
    
    nightscout-setup
    offline-looping-and-monitoring
+   papertrail
