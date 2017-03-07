@@ -26,6 +26,6 @@ alias cat-runagain="cd ~/myopenaps && cat oref0-runagain.sh"
 <br>
 Exit the nano editor by pressing `control-x`, then typing `y` to save file, and then `return` to save with same file name.
 <br>
-* Tell your rig to use this profile (note: this command will need to be done after each update to the profile too, or the new aliases won't be activated)
+* Tell your rig to use this profile (note: this command will need to be done after each update to the profile too, or the new aliases won't be activated until you reboot)
 <br>
 `source ~/.bash_profile`
