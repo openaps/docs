@@ -8,7 +8,7 @@ However, if it's a brand-new feature that's being tested or is recently added to
 
 #### Recommended: To get the new stuff from the newest released master version of oref0
 
-1. `cd ~/src/oref0 && git checkout master && sudo npm install -g oref0`
+1. `cd ~/src/oref0 && git checkout master && git pull && sudo npm install -g oref0`
 
 #### Optional: To get on "dev" branch to test even more recently added new stuff
 
