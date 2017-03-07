@@ -6,9 +6,13 @@ There are a number of ways to have an "offline" OpenAPS rig, and numerous ways t
 
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
 
-Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 2.)Hardwire (plugging CGM receiver into) your rig. 
+Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  
+* 1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 
+* 2.) Hardwire (plugging CGM receiver into) your rig. 
 
-Explorer boards built prior to late January of 2017 are not allways working well with a hardwired CGM receiver. This can be fixed with a signal trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see this document for details on how to cut the copper trace from pin 61 of the 70 pin connector: https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
+  * Explorer boards built prior to late January of 2017 are not always working well/automatically with a CGM receiver plugged in. This can be fixed with a signal trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see [this document for details on how to cut the copper trace from pin 61 of the 70 pin connector](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness). Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
+  * Explorer Boards that shipped the end of February 2017/first week of March 2017 should enable users to simply plug in the CGM receiver and a second battery (in addition to the lipo) in order to run offline and pull BGs from the receiver. 
+
 
 ## Offline monitoring
 
