@@ -4,7 +4,7 @@ Linux command lines can be long-to-type and difficult-to-remember.  Sometimes it
 
 * Create a blank profile
 <br>
-`nano .bash_profile`
+`nano ~/.bash_profile`
 <br>
 * Copy and paste (or make your own aliases) the following aliases into the blank profile
 <br>
