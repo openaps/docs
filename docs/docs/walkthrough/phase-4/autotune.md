@@ -81,9 +81,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
  * 3.) Install Node for (NPM)
 `brew install node`
  * 4.)Install JQ from Homebrew
- `brew install jq`
- * Note: Later in the install you may have errors that complain about not being able to run the "cp -up" command. If you see this error, simply copy and paste the line it is trying to run, delete the `-up` from that line, and run that line manually.
- 
+ `brew install jq` 
  
 **Step 2: Install oref0**
 * A. Now do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, the last line will say something like: `openaps 0.1.5  (although the version number may have been incremented)`. If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
