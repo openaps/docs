@@ -19,7 +19,7 @@ alias cat-wifi="cat /etc/wpa_supplicant/wpa_supplicant.conf"
 alias edit-pref="cd ~/myopenaps && vi preferences.json"
 alias log-wifi="tail -n 100 -F /var/log/openaps/network.log"
 alias git-branch="cd ~/src/oref0 && git branch"
-alias cat-autotune="cd ~/myopenaps/autotune && cat autotune_recommendations.log
+alias cat-autotune="cd ~/myopenaps/autotune && cat autotune_recommendations.log"
 alias edit-runagain="cd ~/myopenaps && nano oref0-runagain.sh"
 alias cat-runagain="cd ~/myopenaps && cat oref0-runagain.sh"
 ```
