@@ -134,4 +134,5 @@ List of people who are working on closed loops:
 - Michele Lawford (Canada)
 - parenthetic (diabetic)
 - Lorenzo Sandini (Finland)
-Deidra Little (Seattle, WA)
+- Deidra Little (Seattle, WA)
+- Greg Uhlenkott (Grangeville, ID)
