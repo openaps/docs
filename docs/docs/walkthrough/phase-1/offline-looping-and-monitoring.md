@@ -8,7 +8,7 @@ Medtronic CGM users can, by default, automatically loop offline because the rig 
 
 Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  
 * 1.) Use xDrip. See: http://stephenblackwasalreadytaken.github.io/xDrip/ 
-* 2.) Plug the CGM receiver direclty into your rig via USB. 
+* 2.) Plug the CGM receiver directly into your rig via USB. 
 
   * Explorer Boards that shipped at or after the end of February 2017/first week of March 2017 should enable users to simply plug in the CGM receiver to the OTG port, and a USB battery into the UART port, in order to run offline and pull BGs from the receiver. 
   * Explorer boards built prior to late January of 2017 are not always working well/automatically with a CGM receiver plugged in. This can be fixed with a single trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see [this document for details on how to cut the copper trace from pin 61 of the 70 pin connector](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness). Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
