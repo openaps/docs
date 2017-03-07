@@ -9,19 +9,19 @@ Linux command lines can be long-to-type and difficult-to-remember.  Sometimes it
 * Copy and paste (or make your own aliases) the following aliases into the blank profile
 <br>
 ```
-alias autosens-loop=" tail -f /var/log/openaps/autosens-loop.log"
-alias autotune=" tail -f /var/log/openaps/autotune.log"
-alias ns-loop=" tail -f /var/log/openaps/ns-loop.log"
-alias pump-loop=" tail -f /var/log/openaps/pump-loop.log"
-alias cat-pref=" cd ~/myopenaps && cat preferences.json"
-alias edit-wifi=" vi /etc/wpa_supplicant/wpa_supplicant.conf"
-alias cat-wifi=" cat /etc/wpa_supplicant/wpa_supplicant.conf"
-alias edit-pref=" cd ~/myopenaps && vi preferences.json"
-alias log-wifi=" tail -f /var/log/openaps/network.log"
-alias git-branch=" cd ~/src/oref0 && git branch"
-alias cat-autotune=" cd ~/myopenaps/autotune && cat autotune_recommendations.lo$
-alias edit-runagain=" cd ~/myopenaps && nano oref0-runagain.sh"
-alias cat-runagain=" cd ~/myopenaps && cat oref0-runagain.sh"
+alias autosens-loop="tail -n 100 -F /var/log/openaps/autosens-loop.log"
+alias autotune="tail -n 100 -F /var/log/openaps/autotune.log"
+alias ns-loop="tail -n 100 -F /var/log/openaps/ns-loop.log"
+alias pump-loop="tail -n 100 -F /var/log/openaps/pump-loop.log"
+alias cat-pref="cd ~/myopenaps && cat preferences.json"
+alias edit-wifi="vi /etc/wpa_supplicant/wpa_supplicant.conf"
+alias cat-wifi="cat /etc/wpa_supplicant/wpa_supplicant.conf"
+alias edit-pref="cd ~/myopenaps && vi preferences.json"
+alias log-wifi="tail -n 100 -F /var/log/openaps/network.log"
+alias git-branch="cd ~/src/oref0 && git branch"
+alias cat-autotune="cd ~/myopenaps/autotune && cat autotune_recommendations.lo$
+alias edit-runagain="cd ~/myopenaps && nano oref0-runagain.sh"
+alias cat-runagain="cd ~/myopenaps && cat oref0-runagain.sh"
 ```
 <br>
 Exit the nano editor by pressing `control-x`, then typing `y` to save file, and then `return` to save with same file name.
