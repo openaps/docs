@@ -136,3 +136,4 @@ List of people who are working on closed loops:
 - Lorenzo Sandini (Finland)
 - Deidra Little (Seattle, WA)
 - Greg Uhlenkott (Grangeville, ID)
+- Song Ming Jie (China)
