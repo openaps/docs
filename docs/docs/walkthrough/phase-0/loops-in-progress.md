@@ -137,3 +137,4 @@ List of people who are working on closed loops:
 - Deidra Little (Seattle, WA)
 - Greg Uhlenkott (Grangeville, ID)
 - Song Ming Jie (China)
+- Chuck Vanderwist (Western Colorado, USA)
