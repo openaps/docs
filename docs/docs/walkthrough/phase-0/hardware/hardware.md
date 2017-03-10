@@ -7,8 +7,8 @@ but the following items are recommended for getting started.
 _The basic setup requires:_
 * a compatible insulin pump
 * a Dexcom G4 or G5 CGM, or a Medtronic CGM
-* a small computer
-* a radio stick
+* a small computer (Rasberry Pi, or Intel Edison, for example)
+* a radio stick (not necessary for an Intel Edison plugged into an Explorer Board, which has radio comms built in)
 * a battery 
 
 If you come across something that doesn't seem to work, is no longer available, or if you
