@@ -206,7 +206,7 @@ Edit (with `nano` or `vi`) /etc/logrotate.conf and set the log rotation to `dail
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
-If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the edison (directions you can adapt are here: http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux)
+If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison (directions you can adapt are here: [http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux)).
 
 If you're *not* using the Explorer board, are running as the `edison` users, and want to be able to run sudo without typing a password, run:
 ```
