@@ -1,16 +1,20 @@
 # IFTTT Integration
 
-Want to be able to set or cancel temp targets from your Pebble, Alexa, or anything supports IFTT?  You need an IFTTT.com and Maker account.  Check it the YouTube Video below to see some sample integrations:
+Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or anything supports IFTT?  You need an IFTTT.com account.  Check out the YouTube Video below to see some sample integrations:
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
 
 ## Prerequisites
 
-* Get an IFTTT.com account
-* Make sure you have a [Maker account](https://ifttt.com/maker)
+* Get an [IFTTT account](https://ifttt.com/join) 
 * Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>`
-* Or, open a console window in your browser while viewing your Nightscout site, hit refresh, and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""
+* Or, open a console window in your browser while viewing your Nightscout site, hit refresh, and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""  For Safari users on Mac, you can see a console window by selecting Develop from the Safari top menu, and then Show Page Source.  Your hashed API secret can be copied and pasted, as shown below
+
+
+
+
+
 * Get the app ThisButton for your Pebble
 
 ## Putting it all together
