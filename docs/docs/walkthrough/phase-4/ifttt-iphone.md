@@ -7,32 +7,77 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ## Prerequisites
 
+* First we need to gather one thing called your "hashed API Secret".  This is basically your Nightscout site's API secret, but scrambled into a confusing long string.  Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>` while logged into your rig 
+---OR----
+* In your internet browser, open a console window while viewing your Nightscout site, hit refresh, and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""  For Safari users on Mac, you can see a console window by selecting Develop from the Safari top menu, and then Show Page Source.  Your hashed API secret can be copied and pasted, as shown below
+![IFTTT sign up](../../Images/hashed_API.png)
+
 * Get an [IFTTT account](https://ifttt.com/join) 
-* Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>`
-* Or, open a console window in your browser while viewing your Nightscout site, hit refresh, and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""  For Safari users on Mac, you can see a console window by selecting Develop from the Safari top menu, and then Show Page Source.  Your hashed API secret can be copied and pasted, as shown below
 
-
-
-
-
-* Get the app ThisButton for your Pebble
+![IFTTT sign up](../../Images/IFTTT_signup.png)
 
 ## Putting it all together
 
-* Log in to IFTTT.com.
-* Select "My Applets" -> "New Applet" -> click the large "+This" -> search for Maker.
-* Click "receive a web request" for step 2.
-* Trigger aka Event Name: eating_soon (Maker requests must be lowercase and use underscores and not spaces)
-* Now select "+That" and search for Maker again.
-* Click "Make web request" for step 4.
-* Action:  https://your_url_hereish.azurewebsites.net/api/v1/treatments.json <- Only change your url, don't modify what comes after it
-* Method: Post
-* Content Type: application/json
-* Body:
+* Login to your IFTTT.com account and select the "New Applet" button.
+
+![IFTTT new applet](../../Images/IFTTT_newapplet.png)
+
+* In the screen that appears, click on the blue "+this" part of the screen
+
+![IFTTT this](../../Images/IFTTT_this.png)
+
+* In the next screen, type "button" in the search field and then click on the red box labelled "ButtonWidget"
+
+![IFTTT button widget](../../Images/IFTTT_button.png)
+
+* Connect the buttonwidget by clicking on the large red "connect" button
+
+![IFTTT button connect](../../Images/IFTTT_connect1.png)
+
+* Click on the large red "button press" box 
+
+![IFTTT button press](../../Images/IFTTT_buttonpress.png)
+
+* Click on the blue "+that" text
+
+![IFTTT then](../../Images/IFTTT_that.png)
+
+* Enter "maker" in the search field and click on the Maker app
+
+![IFTTT maker](../../Images/IFTTT_maker.png)
+
+* Connect the Maker app
+
+![IFTTT maker connect](../../Images/IFTTT_connect2.png)
+
+* Select the grey "Make a Web Request" box
+
+![IFTTT web request](../../Images/IFTTT_webrequest.png)
+
+*  Now you will have a blank web request template to complete.  The following info should be filled in:
+
+URL: https://yoursite.herokuapp.com/api/v1/treatments.json
+Method: POST
+Content Type: application/json
+
+Body:  The content of the body will depend on the action that you would like this particular button press to perform.  Some sample content:
+
+Eating soon
 ```
-  {"enteredBy": "ThisButton-Maker", "eventType": "Temporary Target", "reason": "Eating Soon", "targetTop": 80, "targetBottom": 80, "duration": 60, "secret": "a_totally_hashed_password_goes_here!!!"}
+  {"enteredBy": "IFTTT", "eventType": "Temporary Target", "reason": "Eating Soon", "targetTop": 80, "targetBottom": 80, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
 ```
-![Maker Request](../../Images/maker_request.png)
+Activity
+```
+  {"enteredBy": "IFTTT", "eventType": "Temporary Target", "reason": "Activity", "targetTop": 140, "targetBottom": 120, "duration": 120, "secret": "your_hashed_api_goes_here!!!"}
+```
+Cancel Temp Target
+```
+{"enteredBy": "IFTTT", "eventType": "Temporary Target", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+```
+Low Treatment
+```
+{"enteredBy": "IFTTT", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
+```
 
 ## Understanding the JSON in the Body:
 
@@ -43,6 +88,9 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 * duration: you can make them as long or as short as you want - enter what you want
 * secret: your hashed API secret key
 
+* Click the "Create Action" button on the bottom of the screen when you finish.  You can repeat the process above to create new applets for as many IFTTT actions as you'd like to create.
+
+
 ## Test your Maker request by going here:
 
 * [https://ifttt.com/maker](https://ifttt.com/maker)
@@ -52,18 +100,6 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 * Select "Test it"
   * Mine shows in about 5 seconds
   * Some folks have a bug where they need to refresh the browser.  Wait at least 30 seconds before trying this, though.
-
-## Create more events / requests!
-
-* To do a carb entry into NS via this method (such as to inform it that you are correcting for a low with 15 carbs). Create a +15 carb button. The JSON body would be (again the "entered by" and "reason" fields are just for tracking purposes)
-```
-{"enteredBy": "IFTTT-15carbs", "reason": "15 carbs", "carbs": 15, "secret": "a_totally_hashed_password_goes_here!!!"}
-```
-* activity_mode would be 140 for an hour...or whatever you want - just change the high and low targets and durations from the above example.  
-* You definitely want to create a cancel_temp_target as well.  It would look like this:
-```
-{"enteredBy": "Alexa-Maker", "eventType": "Temporary Target", "duration": 0, "secret": "a_totally_hashed_password_goes_here!!!"}
-```
 
 ## Hook it up with ThisButton for the Pebble Watch - pictured at the very top of this page
 
