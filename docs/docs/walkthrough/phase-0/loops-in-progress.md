@@ -139,3 +139,4 @@ List of people who are working on closed loops:
 - Greg Uhlenkott (Grangeville, ID)
 - Song Ming Jie (China)
 - Chuck Vanderwist (Western Colorado, USA)
+- James Corbett (Greenbrier, TN USA)
