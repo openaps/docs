@@ -5,7 +5,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
 
-## Prerequisites
+## IFTTT Setup for phones
 
 * First we need to gather one thing called your "hashed API Secret".  This is basically your Nightscout site's API secret, but scrambled into a confusing long string for safety.  Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>` while logged into your rig 
 ---OR----
@@ -16,8 +16,6 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 * Get an [IFTTT account](https://ifttt.com/join) 
 
 ![IFTTT sign up](../../Images/IFTTT_signup.png)
-
-## Putting it all together
 
 * Login to your IFTTT.com account and select the "New Applet" button.
 
@@ -124,15 +122,17 @@ Low Treatment
 
 ![IFTTT NS enable](../../Images/IFTTT_enable.png)
 
-## Test your Maker request by going here:
+## Install IFTTT on your iPhone
 
-* [https://ifttt.com/maker](https://ifttt.com/maker)
-* Go to the settings and copy-paste the url into a new window
-* Replace the {event} with one of the event like: eating_soon
-* Should look like: https://maker.ifttt.com/trigger/eating_soon/with/key/{of_course_this_is_the_actual_maker_key_here_xalsdjflaksjdflakjsdf}
-* Select "Test it"
-  * Mine shows in about 5 seconds
-  * Some folks have a bug where they need to refresh the browser.  Wait at least 30 seconds before trying this, though.
+ ![IFTTT Today Widget with #OpenAPS related commands](../../Images/Example_IFTTT_Today_widget_for_OpenAPS_usage.PNG)
+
+![IFTTT Today View](../../Images/IFTTT_today.PNG)
+
+* Download the IFTTT app on your phone and log in.
+* Go into the "Today View" of your iPhone (downswipe from top of iPhone) and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
+* You can also add homescreen quick buttons, if you prefer those to widgets.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
+
+![IFTTT homescreen](../../Images/IFTTT_homescreen.png)
 
 ## Hook it up with ThisButton for the Pebble Watch - pictured at the very top of this page
 
@@ -146,21 +146,8 @@ Low Treatment
 * Fire up the ThisButton app on your Pebble and try setting a new temp target.
 * You can also add the ThisButton app as a short cut on your Pebble. If you don’t have shortcuts already, press and hold either the up, down, or middle button and follow the prompts. If you have both shortcuts programmed and want to change one, go to menu > settings> quick launch and follow prompts.
 
-## Using the DoButton
+## Alexa integration
+* Since you have IFTTT / Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa. You will need to add "alexa" to your ENABLE line in your Nightscout host settings (azure) or config vars (heroku).
 
-* You can hook it up and use it with the DoButton app that supports IFTTT calls...it has been tested and works using the information in 1 above.  You might need to email yourself the JSON so you can copy and paste it easily.  I permanently deleted this email afterwards since it has my secret key in it.
-
-* Since you have IFTTT / Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa.
   ![Maker Request](../../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
-
-## Add to the "Today" widget on your iPhone
-
- ![IFTTT Today Widget with #OpenAPS related commands](../../Images/Example_IFTTT_Today_widget_for_OpenAPS_usage.PNG)
-
-
-* Make sure you have the IFTTT app on your phone and that you are logged in.
-* Go into the "Today" (downswipe from top of phone) and scroll to the bottom - you should see 1 new widget available; otherwise click "edit". This should show a list of available widgets to add to your screen. Select IFTTT.
-* It should pull in any existing applets from your IFTTT account that are set to be run by "DoButton". This means if you only added applets/recipes to work with ThisButton on Pebble, you'll need to set additional recipes up. Do similar to the above steps to add new applets; the only difference is to start with If (DoButton) Then (Maker event), aka select "DoButton" for the first tool integration, rather than Maker in both places. 
-* All of the same steps apply for the Maker information for the "Then that" part - insert your URL, select POST, Content Type: application/json, etc. You'll probably want to copy and paste from your other applets, but make sure to edit the text to show that these will be entered by "DoButton" rather than "ThisButton_Maker" or similar.
-* Once you've saved, these applets should show up in your Today widget for IFTTT!
