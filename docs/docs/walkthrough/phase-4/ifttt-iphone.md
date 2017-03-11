@@ -116,15 +116,13 @@ Low Treatment
 
 ![IFTTT markerkey](../../Images/IFTTT_makerkey.png)
 
-* Login to your Nightscout site host (azure or heroku) and add "maker" to your ENABLE line.
+* Login to your Nightscout site host (azure or heroku) and (1) add your Maker Key to the MAKER_KEY line and (2) add "maker" to your ENABLE line.
 
 ![IFTTT NS marker key](../../Images/IFTTT_NSkey.png)
 
 ![IFTTT NS enable](../../Images/IFTTT_enable.png)
 
-## Install IFTTT on your iPhone
-
- ![IFTTT Today Widget with #OpenAPS related commands](../../Images/Example_IFTTT_Today_widget_for_OpenAPS_usage.PNG)
+## Install IFTTT app on your iPhone
 
 ![IFTTT Today View](../../Images/IFTTT_today.PNG)
 
@@ -136,9 +134,7 @@ Low Treatment
 
 ## Hook it up with ThisButton for the Pebble Watch - pictured at the very top of this page
 
-* You need to enter / get your Maker API key in the Settings for ThisButton on your phone when you go into the Pebble App
-   * Your API can be found at the top of your MAKER settings (Note: There is a settings page for IFTTT and for Maker, you must be on the maker page to access Maker settings)
-   * For some _absurd_ reason, the API is shown in a sans-serif font, so it's best to copy and paste the key into a document and change to a serif font (like Times New Roman) - Otherwise you can't tell the difference between an upper case i and a lower case L.
+* You need to enter your Maker key in the Settings for ThisButton on your phone when you go into the Pebble App
 * Under Events, there are two fields
    * Name: what shows up on your watch
    * Event: the name of the Maker event to fire.  It will have underscores in it like: `eating_soon`.
@@ -147,7 +143,7 @@ Low Treatment
 * You can also add the ThisButton app as a short cut on your Pebble. If you don’t have shortcuts already, press and hold either the up, down, or middle button and follow the prompts. If you have both shortcuts programmed and want to change one, go to menu > settings> quick launch and follow prompts.
 
 ## Alexa integration
-* Since you have IFTTT / Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa. You will need to add "alexa" to your ENABLE line in your Nightscout host settings (azure) or config vars (heroku).
+* Since you have IFTTT/Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa. You will need to add "alexa" to your ENABLE line in your Nightscout host settings (azure) or config vars (heroku).
 
   ![Maker Request](../../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
