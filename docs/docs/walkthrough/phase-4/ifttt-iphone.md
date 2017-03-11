@@ -55,10 +55,16 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT web request](../../Images/IFTTT_webrequest.png)
 
-*  Now you will have a blank web request template to complete.  The following info should be filled in:
+*  Now you will have a blank web request template to complete.  
 
-URL: https://yoursite.herokuapp.com/api/v1/treatments.json
+![IFTTT action fields](../../Images/IFTTT_actionfields.png)
+
+The following info should be filled in:
+
+URL: https://yoursite.herokuapp.com/api/v1/treatments.json (change the "yoursite" part to your NS info)
+
 Method: POST
+
 Content Type: application/json
 
 Body:  The content of the body will depend on the action that you would like this particular button press to perform.  You can only do ONE of the actions per button.  Some sample content:
@@ -80,7 +86,7 @@ Low Treatment
 {"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
 ```
 
-## Understanding the JSON in the Body:
+### Understanding the JSON in the Body:
 
 * enteredBy: Will show up on the NS website this way - enter what you want
 * eventType: defines what we are doing - leave as is
@@ -91,7 +97,6 @@ Low Treatment
 
 * Click the "Create Action" button on the bottom of the screen when you finish.  You can repeat the process above to create new applets for as many IFTTT actions as you'd like to create.
 
-![IFTTT action fields](../../Images/IFTTT_actionfields.png)
 
 * You can change the title of your Applet now to something meaningful.  You can turn on notifications, too, using the slider shown.  If you turn on the notifications, you will get an alert on your phone and pebble watch when the button press has been successfully deployed.  Finish the IFTTT button by clicking on the Finish button that appears.  
 
