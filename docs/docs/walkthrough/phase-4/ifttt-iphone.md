@@ -1,6 +1,6 @@
 # IFTTT Integration
 
-Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or anything that supports If This, Then That (IFTTT)?  Check out the YouTube Video below to see some sample integrations:
+Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or anything that supports If This, Then That (IFTTT)?  Check out the YouTube Video below to see some sample integrations (click on the watchface photo to start video):
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
