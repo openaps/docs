@@ -96,7 +96,7 @@ Low Treatment
 * Click the "Create Action" button on the bottom of the screen when you finish.
 
 
-* You can change the title of your Applet now to something meaningful.  You can turn on notifications, too, using the slider shown.  If you turn on the notifications, you will get an alert on your phone and pebble watch when the button press has been successfully deployed.  Finish the IFTTT button by clicking on the Finish button that appears.  
+* Now is your chance to change the title of your Applet now to something meaningful.  You can turn on notifications, too, using the slider shown.  If you turn on the notifications, you will get an alert on your phone and pebble watch when the button press has been successfully deployed.  Finish the IFTTT button by clicking on the Finish button that appears.  
 
 ![IFTTT finish](../../Images/IFTTT_finish.png)
 
