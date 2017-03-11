@@ -80,13 +80,19 @@ If you are not running autotune as part of a closed loop, you can still run it a
 
 **Step 1b: Prep your Mac**
 * MAC USERS: Follow these steps instead of 1a above if you want to run autotune on your Mac. (Mac users can instead do the above instructions if they prefer to create a Linux virtual machine to run it on):
- * 1.) Install Homebrew
+* To run AutoTune using a Mac you will use the Terminal application. Open the Terminal application on your Mac (it is located in the Utilities application folder on your Mac). For more information about using Terminal see: http://openaps.readthedocs.io/en/latest/docs/introduction/understand-this-guide.html#before-you-get-started
+* After you open a Terminal window, copy and paste the commands for each of the following steps, and then hit the return key after you paste each command, which will execute it. If you are asked for a password, enter the password for your Mac.
+* For example, the first step is to install Homebrew on your Mac. To do this you need to copy and paste the following command and then hit the return key: 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+* Tip for New Mac Users: If you typically use a Windows machine and you keep trying to do a control-c (copy) and control-v (paste), remember, on a Mac use command-c (copy) and command-v (paste) instead.
+
+ * 1.) Install Homebrew:
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
- * 2.) Install Coreutils
+ * 2.) Install Coreutils:
  `brew install coreutils`
- * 3.) Install Node for (NPM)
+ * 3.) Install Node for (NPM):
 `brew install node`
- * 4.)Install JQ from Homebrew
+ * 4.)Install JQ from Homebrew:
  `brew install jq` 
  
 **Step 2: Install oref0**
