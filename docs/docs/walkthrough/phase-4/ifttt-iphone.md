@@ -1,15 +1,16 @@
 # IFTTT Integration
 
-Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or anything supports IFTT?  You need an IFTTT.com account.  Check out the YouTube Video below to see some sample integrations:
+Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or anything that supports If This, Then That (IFTTT)?  Check out the YouTube Video below to see some sample integrations:
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
 
 ## Prerequisites
 
-* First we need to gather one thing called your "hashed API Secret".  This is basically your Nightscout site's API secret, but scrambled into a confusing long string.  Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>` while logged into your rig 
+* First we need to gather one thing called your "hashed API Secret".  This is basically your Nightscout site's API secret, but scrambled into a confusing long string for safety.  Find out what your NS hashed secret key is by running the command to find out: `nightscout hash-api-secret <your_secret_key>` while logged into your rig 
 ---OR----
-* In your internet browser, open a console window while viewing your Nightscout site, hit refresh, and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""  For Safari users on Mac, you can see a console window by selecting Develop from the Safari top menu, and then Show Page Source.  Your hashed API secret can be copied and pasted, as shown below
+* In your internet browser, open a console window while viewing your Nightscout site.  Make sure you have "authenticated" your site by using your API secret in the Nightscout settings area (hint: if you see a little padlock in the upper left corner of the site, you haven't authenticated it).  Refresh the site and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""  For Safari users on Mac, you can open the console window by selecting "Develop" from the Safari top menu, and then "Show Page Source".  Your hashed API secret can be copied and pasted from that line, as shown below.  Save that somewhere easy to get to again, because you will be using it later.
+
 ![IFTTT sign up](../../Images/hashed_API.png)
 
 * Get an [IFTTT account](https://ifttt.com/join) 
@@ -60,23 +61,23 @@ URL: https://yoursite.herokuapp.com/api/v1/treatments.json
 Method: POST
 Content Type: application/json
 
-Body:  The content of the body will depend on the action that you would like this particular button press to perform.  Some sample content:
+Body:  The content of the body will depend on the action that you would like this particular button press to perform.  You can only do ONE of the actions per button.  Some sample content:
 
 Eating soon
 ```
-  {"enteredBy": "IFTTT", "eventType": "Temporary Target", "reason": "Eating Soon", "targetTop": 80, "targetBottom": 80, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
+  {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Eating Soon", "targetTop": 80, "targetBottom": 80, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
 ```
 Activity
 ```
-  {"enteredBy": "IFTTT", "eventType": "Temporary Target", "reason": "Activity", "targetTop": 140, "targetBottom": 120, "duration": 120, "secret": "your_hashed_api_goes_here!!!"}
+  {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Activity", "targetTop": 140, "targetBottom": 120, "duration": 120, "secret": "your_hashed_api_goes_here!!!"}
 ```
 Cancel Temp Target
 ```
-{"enteredBy": "IFTTT", "eventType": "Temporary Target", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+{"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
 Low Treatment
 ```
-{"enteredBy": "IFTTT", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
+{"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
 ```
 
 ## Understanding the JSON in the Body:
@@ -90,6 +91,33 @@ Low Treatment
 
 * Click the "Create Action" button on the bottom of the screen when you finish.  You can repeat the process above to create new applets for as many IFTTT actions as you'd like to create.
 
+![IFTTT action fields](../../Images/IFTTT_actionfields.png)
+
+* You can change the title of your Applet now to something meaningful.  You can turn on notifications, too, using the slider shown.  If you turn on the notifications, you will get an alert on your phone and pebble watch when the button press has been successfully deployed.  Finish the IFTTT button by clicking on the Finish button that appears.  
+
+![IFTTT finish](../../Images/IFTTT_finish.png)
+
+* Repeat the setup for New Applets for as many automated actions as you would like to setup.
+
+![IFTTT applets](../../Images/IFTTT_applets.png)
+
+## Enable IFTTT in your Nightscout site
+
+* Find your Maker Key by going to your IFTTT account, Services and then clicking on Maker, then Maker settings.
+
+![IFTTT services account](../../Images/IFTTT_services.png)
+
+![IFTTT services2](../../Images/IFTTT_services2.png)
+
+* You will see your Maker Key as the last part of the URL; copy and paste that last part (the red underlined part as shown)
+
+![IFTTT markerkey](../../Images/IFTTT_makerkey.png)
+
+* Login to your Nightscout site host (azure or heroku) and add "maker" to your ENABLE line.
+
+![IFTTT NS marker key](../../Images/IFTTT_NSkey.png)
+
+![IFTTT NS enable](../../Images/IFTTT_enable.png)
 
 ## Test your Maker request by going here:
 
