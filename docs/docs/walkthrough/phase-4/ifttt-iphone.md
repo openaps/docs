@@ -122,16 +122,17 @@ Low Treatment
 
 ![IFTTT NS enable](../../Images/IFTTT_enable.png)
 
-## Install IFTTT app on your iPhone
+## Install IFTTT app on your iPhone/Android
 
 * Download the IFTTT app on your phone and log in.
-* Go into the "Today View" of your iPhone (downswipe from top of iPhone) and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
 
-![IFTTT Today View](../../Images/IFTTT_today.PNG)
-
-* You can also add homescreen quick buttons, if you prefer those to widgets.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
+* You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
 
 ![IFTTT homescreen](../../Images/IFTTT_homescreen.PNG)
+
+* For iPhone users, if you downswipe from the top of your iPhone screen, you will have the Today view or Notifications showing.  They are separate pages; Today view is on the left, Notifications is on the right.  You can left/right swipe to go between them.  Go into the Today view and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
+
+![IFTTT Today View](../../Images/IFTTT_today.PNG)
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
