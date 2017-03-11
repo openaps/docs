@@ -130,7 +130,7 @@ Low Treatment
 * Go into the "Today View" of your iPhone (downswipe from top of iPhone) and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
 * You can also add homescreen quick buttons, if you prefer those to widgets.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
 
-![IFTTT homescreen](../../Images/IFTTT_homescreen.png)
+![IFTTT homescreen](../../Images/IFTTT_homescreen.PNG)
 
 ## Hook it up with ThisButton for the Pebble Watch - pictured at the very top of this page
 
@@ -143,7 +143,7 @@ Low Treatment
 * You can also add the ThisButton app as a short cut on your Pebble. If you don’t have shortcuts already, press and hold either the up, down, or middle button and follow the prompts. If you have both shortcuts programmed and want to change one, go to menu > settings> quick launch and follow prompts.
 
 ## Alexa integration
-* Since you have IFTTT/Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa. You will need to add "alexa" to your ENABLE line in your Nightscout host settings (azure) or config vars (heroku).
+* Since you have IFTTT/Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa. You will need to add "alexa" to your ENABLE line in your Nightscout host settings (azure) or config vars (heroku).  And then repeat the steps above, but instead of using "ButtonWidget" service we started with earlier (the "+if" part of the setup)...you will use the "AmazonAlexa" service.
 
   ![Maker Request](../../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
