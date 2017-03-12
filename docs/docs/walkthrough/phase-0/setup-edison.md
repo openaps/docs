@@ -48,8 +48,8 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 [Jubilinux](http://www.robinkirkman.com/jubilinux/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps below that are required when starting from ubilinux.
 
   - Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
-  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
-  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window", keep it open for later.
+  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command promt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
+  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
   
   For Windows OS:
   
@@ -67,17 +67,19 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC for console:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
-  - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
-  - Make sure you change the Speed(baudrate) from 9600 to 115200. 
-  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. this is the port you are looking for.
+  - Right-click on that port. Choose Properties. Change the speed (baudrate) to 115200
+  - Open PuTTY, change from SSH to Serial. It normally defaults to Com1 and speed of 9600. Change the Com number to the number you found when you plugged into the Explorer board. Change the speed to 115200 to match the settings you updated in the last step. 
+  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. 
+  - The PUTTY window will open and only show a cursor box.
+   - You may need to click on Enter on your key board a few times. 
 
 ### If you're using a Mac for console:
   - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
   
 ### All platforms:
   - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
-  - Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
+  - Now you will see a login prompt for the edison on the console screen. Login using the username "root" and no password. This will have us ready to reboot from the command line when we are ready.
 
 ## Flashing image onto the Edison
 
@@ -105,24 +107,37 @@ Log in as root/edison via serial console.
 
 Type/edit the following:
 
-    myedisonhostname=<thehostname-you-want>
+    myedisonhostname=<thehostname-you-want>     #Do not type the <>
 
 And then paste the following to rename your Edison accordingly:
 
     echo $myedisonhostname > /etc/hostname
     sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 
-Run these commands to set secure passwords:
+Run these commands to set secure passwords: Keep in mind. To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.
 
-    passwd root
-    passwd edison
+    passwd root      #It will ask you to enter your new password for the root directory 2 times. Type it in the same both times. 
+    passwd edison    #It will ask you to enter your new password for the Edison directory 2 times. Type it in the same both times.
   
+## Single Wifi Network:
+
+To use SSH in the next phase you must set up this setting to be the network your computer is currently on. You can change it later.
+
+nano /etc/network/interfaces
+    - Uncomment 'auto wlan0'
+    - wpa-ssid <your wifi network name>     # do not include <>
+    - wpa-psk <your wifi password>          # do not include <>
+    
+  sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old repositories
+  
+  reboot      # to set hostname and configuration wifi
+
 ## Multiple Wifi Networks:
 
 `vi /etc/network/interfaces`
 
 Type 'i' to get into INSERT mode
-* Uncomment 'auto wlan0' (remove the `#` at the beginning of the line)
+* Uncomment 'auto wlan0'
 * Edit the next two lines to read:
 ```
 auto wlan0
@@ -178,6 +193,8 @@ Run `ifup wlan0` to make sure you can connect to wifi
 
 `reboot` so you can connect via ssh
 
+ Close the current serial window
+ 
 If you need more details on setting up wpa_supplicant.conf, see one of these guides:
 
 * [http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/](http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/)
@@ -188,7 +205,23 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 ## Install packages, ssh keys, and other settings
 
-From a new terminal or PuTTY window, `ssh myedisonhostname.local`.
+## If using Windows OS
+
+The following MUST use SSH to work properly in Windows with the least amount of issues.
+
+- Reopen a serial window
+
+- Choose the same Com and speed of 115200
+- Hit enter a few times to get login prompt
+- Login to root using the new password you assigned
+- type the following and hit enter
+
+     ifconfig
+     
+     If your wifi settings worked correctly you will get information about wlan0. Copy the ip address. You will need this to SSH
+     
+     Reboot
+From a new terminal or PuTTY window, `ssh myedisonhostname.local`. On a Windows machine it is easier to use the ip address you just found using ifconfig
 
 Log in as root (with the password you just set above), and run:
 
@@ -204,8 +237,9 @@ And:
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
+       Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER
 
-Edit (with `nano` or `vi`) /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+Edit (with `nano` or `vi`) /etc/logrotate.conf On a Windows OS nano works best in SSH  set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
