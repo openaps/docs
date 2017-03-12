@@ -35,20 +35,17 @@ High level list of supplies needed for a Pi-based setup:
       graphics interface on your TV screen\]
     * USB Mouse \[optional, for the same purpose\]
 
-## Raspberry Pi 2
-The Raspberry Pi 2 has fewer and lower spec components and so draws less
-power, but requires a WiFi adapter to be also purchased. The spec makes no
-difference to the OpenAPS app, so either model is suitable choice.
+## Raspberry Pi 2 and 3
 
-[Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
+[Raspberry Pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) are both excellent choices for your first implementation of OpenAPS. When handeling RPi2 it was found that the microSD could be inadvertantly dislodged crashing the system and sometimes corrupting the data and program present on the microSD. The RPi3 has fixed that design flaw. Example RPi3's have tighter fitting USB connectors which is good for signal quality. Example RPi3's provide longer distance communication range for the CareLink. 
 
-## Raspberry Pi 3 Model B  
+We discourage the use of a powered USB hub to provide more power to CareLink. The RPi USB port does not correctly power the computer. You may disconnect the power supply while the powered USB hub remains connected. In that circumstance the RPi will attempt to reboot using the power available and fail. This may corrupt the data and program on the microSD and may even damage the circuit board. 
 
-The Raspberry Pi 3 has higher specs and built-in WiFi and Bluetooth, so it draws
-more power. As a consequence, it has a shorter battery life than the
-Raspberry Pi 2. So when selecting portable battery packs bear this in mind.
+For the more advanced RPi3 a larger power supply is suggested, 2.4Amps and 5.25Volts. We never want to under power computers but we want a convienent size to take the system mobile. When away from a single power supply some example systems successfully power the RPi with a battery that provides 2.1A, 5V and stores 10Ah, 10000mAh. The programming has changed since the time when we were actively developing RPi systems. We don't want you to decide on battery size from anecdotes. But two rules of thumb are: 1.)Larger AmpHour ratings of the same battery type both last longer and are larger in size. 2.)More powerful computers of the same chip technology use more power. (RPi2 and 3 use versions of quad core ARM and RPi3 is much more powerful.)
 
-[Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+RPi3 is a direct replacement for RPi2. RPi3 has an on board Edimax WiFi. The Edimax WiFi adapter is commonly sold with RPi2. If you use the Edimax WiFi adapter on a RPi2 then a fully programmed micoSD may be taken out of one version of RPi and successfully inserted into the other.  
+
+
 
 ## CareLink USB Stick
 
