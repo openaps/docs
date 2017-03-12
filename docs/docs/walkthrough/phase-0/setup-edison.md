@@ -68,11 +68,9 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
   
 ### If you're using a Windows PC for console:
   - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. this is the port you are looking for.
-  - Right-click on that port. Choose Properties. Change the speed (baudrate) to 115200
-  - Open PuTTY, change from SSH to Serial. It normally defaults to Com1 and speed of 9600. Change the Com number to the number you found when you plugged into the Explorer board. Change the speed to 115200 to match the settings you updated in the last step. 
-  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. 
-  - The PUTTY window will open and only show a cursor box.
-   - You may need to click on Enter on your key board a few times. 
+  - Open PuTTY, change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer board. Change the speed (baud rate) to 115200. 
+  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration window. 
+  - The PUTTY window will open and only show a cursor box. 
 
 ### If you're using a Mac for console:
   - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
