@@ -16,6 +16,8 @@ Now we need to re-run oref0-setup with the Bluetooth option, replacing AA:BB:CC:
 
 `cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF`
 
+NOTE:  Make sure the MAC address is in ALL CAPS.
+
 Copy and paste the "To run again with these same options" command into your notes for the next time you need to run oref0-setup.
 
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
