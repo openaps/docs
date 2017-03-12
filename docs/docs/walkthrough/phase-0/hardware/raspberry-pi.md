@@ -1,6 +1,6 @@
 # Hardware information for Raspberry Pi setups
 
-(**Note:** _If you're defaulting to Raspberry Pi because that's what you've seen pictures or heard stories of - you should also check out the Edison-based rig page for details on a smaller, more mobile friendly option. A Pi/TI stick rig is a good "at home" rig, but most people want the smallest, which is an Edision/Explorer Board rig [(pictured here)](https://twitter.com/danamlewis/status/776248916077522944?ref_src=twsrc%5Etfw) that they can slip in their pocket. The [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html) has the Edison required hardware._)
+(**Note:** _If you're defaulting to Raspberry Pi because that's what you've seen pictures or heard stories of - you should also check out the Edison-based setup instructions for details on a smaller, more mobile friendly option. A Pi/TI stick rig is a good "at home" rig, but most people want the smallest, which is an Edision/Explorer Board rig [(pictured here)](https://twitter.com/danamlewis/status/776248916077522944?ref_src=twsrc%5Etfw) that they can slip in their pocket. The [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html) has the Edison required hardware._ The Edison/Explorer Board setup is the main community-supported setup moving forward after March 2017.)
 
 The Raspberry Pi (RPi) is a credit-card sized single-board computer. The RPi
 primarily uses Linux kernel based operating systems, which must be installed by
@@ -50,9 +50,9 @@ Raspberry Pi 2. So when selecting portable battery packs bear this in mind.
 
 [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 
-## CareLink USB Stick
+## CareLink USB Stick - NOT RECOMMENDED
 
-The easiest device for uploading pump data and interfacing OpenAPS is the CareLink USB stick for the RPi. Due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions. CareLink is not the modern communication device sold by Medtronic. CareLink has been replaced by a newer system but OpenAPS uses the older original communication device, CareLink. Some places to purchase: [Medtronic](https://medtronicdiabetes.secure.force.com/store/remotes-parts/carelink-usb-device/usb-wireless-upload-device) or [American Diabetes Wholesale](http://www.adwdiabetes.com/product/minimed-carelink-usb-upload_1164.htm).
+The easiest device for uploading pump data and interfacing OpenAPS is the CareLink USB stick for the RPi. Due to the short range of communication between the CareLink stick and the Medtronic pumps, some users set up multiple sticks in different locations to maximize the chances of successful transmissions. CareLink is not the modern communication device sold by Medtronic. CareLink has been replaced by a newer system but OpenAPS uses the older original communication device, CareLink. 
 
 A limitation of the Carelink USB stick is the short range of radio
 communications with the Medtronic pump. The radio signals are transmitted from
@@ -60,7 +60,7 @@ the end of the stick opposite the USB connector, on the flat grey side of the
 stick (see this [set of experiments](https://gist.github.com/channemann/0ff376e350d94ccc9f00)
 for details). Using a USB extension cable and angling the stick appropriately will assist in improving the connection. See [Rerii 90 Degree USB Extension Cable](http://www.amazon.com/gp/product/B00ZQVADNM) or [Mediabridge Products USB Extension Cable](https://www.mediabridgeproducts.com/product/usb-2-0-usb-extension-cable-a-male-to-a-female-6-inches/).
 
-## Alternative to Carelink USB - Use a TI stick
+## Recommended alternative to Carelink USB - Use a TI stick
 
 A [TI stick](http://www.ti.com/tool/cc1111emk868-915) has improved range compared to a carelink stick. However, the main setup docs refer to a carelink stick, so if you pick a TI stick you'll want to head over to [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for information about preparing and using the TI stick. Then, come back to Phase 1 docs to continue your setup process.
 
