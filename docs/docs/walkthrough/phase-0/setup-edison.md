@@ -48,7 +48,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 [Jubilinux](http://www.robinkirkman.com/jubilinux/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps below that are required when starting from ubilinux.
 
   - Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
-  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command promt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
+  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
   - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
   
   For Windows OS:
@@ -117,25 +117,12 @@ Run these commands to set secure passwords: To use SSH (which you will need to d
     passwd root      #It will ask you to enter your new password for the root user 2 times. Type it in the same both times. 
     passwd edison    #It will ask you to enter your new password for the edison user 2 times. Type it in the same both times.
   
-## Single Wifi Network:
-
-To use SSH in the next phase you must set up this setting to be the network your computer is currently on. You can change it later.
-
-nano /etc/network/interfaces
-    - Uncomment 'auto wlan0'
-    - wpa-ssid <your wifi network name>     # do not include <>
-    - wpa-psk <your wifi password>          # do not include <>
-    
-  sed -i '/^deb http...ubilinux.*$/d' /etc/apt/sources.list    # remove any old repositories
-  
-  reboot      # to set hostname and configuration wifi
-
-## Multiple Wifi Networks:
+## Set up Wifi:
 
 `vi /etc/network/interfaces`
 
 Type 'i' to get into INSERT mode
-* Uncomment 'auto wlan0'
+* Uncomment 'auto wlan0' (remove the `#` at the beginning of the line)
 * Edit the next two lines to read:
 ```
 auto wlan0
@@ -165,7 +152,7 @@ Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
-Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
+Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add.  Be sure to include the quotes around the network name and password.
 
 ```
 network={
@@ -187,11 +174,13 @@ If you have a hidden wifi network add the line `scan_ssid=1`.
 
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
-Run `ifup wlan0` to make sure you can connect to wifi
+`reboot` to apply the wifi changes and (hopefully) get online
 
-`reboot` so you can connect via ssh
+After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi.
 
- Close the current serial window
+Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.
+
+Leave the serial window open in case you can't get in via SSH and need to fix your wifi config.
  
 If you need more details on setting up wpa_supplicant.conf, see one of these guides:
 
@@ -203,23 +192,7 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 ## Install packages, ssh keys, and other settings
 
-## If using Windows OS
-
-The following MUST use SSH to work properly in Windows with the least amount of issues.
-
-- Reopen a serial window
-
-- Choose the same Com and speed of 115200
-- Hit enter a few times to get login prompt
-- Login to root using the new password you assigned
-- type the following and hit enter
-
-     ifconfig
-     
-     If your wifi settings worked correctly you will get information about wlan0. Copy the ip address. You will need this to SSH
-     
-     Reboot
-From a new terminal or PuTTY window, `ssh myedisonhostname.local`. On a Windows machine it is easier to use the ip address you just found using ifconfig
+From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
 Log in as root (with the password you just set above), and run:
 
@@ -237,7 +210,7 @@ And:
     dpkg-reconfigure tzdata    # Set local time-zone
        Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER
 
-Edit (with `nano` or `vi`) /etc/logrotate.conf On a Windows OS nano works best in SSH  set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+Edit (with `nano` or `vi`) /etc/logrotate.conf and change the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
