@@ -62,7 +62,7 @@ for details). Using a USB extension cable and angling the stick appropriately wi
 
 ## Recommended alternative to Carelink USB - Use a TI stick
 
-A [TI stick](http://www.ti.com/tool/cc1111emk868-915) has improved range compared to a carelink stick. However, the main setup docs refer to a carelink stick, so if you pick a TI stick you'll want to head over to [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for information about preparing and using the TI stick. Then, come back to Phase 1 docs to continue your setup process.
+A [TI stick](http://www.ti.com/tool/cc1111emk868-915) has improved range compared to a Carelink stick. However, the main setup docs refer to a Carelink stick, so if you pick a TI stick you'll want to head over to [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for information about preparing and using the TI stick. Then, come back to Phase 1 docs to continue your setup process.
 
 ## Micro SD Card
 
