@@ -112,10 +112,10 @@ And then paste the following to rename your Edison accordingly:
     echo $myedisonhostname > /etc/hostname
     sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 
-Run these commands to set secure passwords: Keep in mind. To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.
+Run these commands to set secure passwords: To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
 
-    passwd root      #It will ask you to enter your new password for the root directory 2 times. Type it in the same both times. 
-    passwd edison    #It will ask you to enter your new password for the Edison directory 2 times. Type it in the same both times.
+    passwd root      #It will ask you to enter your new password for the root user 2 times. Type it in the same both times. 
+    passwd edison    #It will ask you to enter your new password for the edison user 2 times. Type it in the same both times.
   
 ## Single Wifi Network:
 
