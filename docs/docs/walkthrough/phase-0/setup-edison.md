@@ -122,7 +122,7 @@ Run these commands to set secure passwords:
 `vi /etc/network/interfaces`
 
 Type 'i' to get into INSERT mode
-* Uncomment 'auto wlan0'
+* Uncomment 'auto wlan0' (remove the `#` at the beginning of the line)
 * Edit the next two lines to read:
 ```
 auto wlan0
