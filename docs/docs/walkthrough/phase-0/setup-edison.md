@@ -48,8 +48,8 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 [Jubilinux](http://www.robinkirkman.com/jubilinux/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps below that are required when starting from ubilinux.
 
   - Download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
-  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line)
-  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`.  This is your "flash window", keep it open for later.
+  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
+  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
   
   For Windows OS:
   
@@ -67,17 +67,18 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
 ### If you're using a Windows PC for console:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX.  
-  - Open PuTTY, change from SSH to Serial, and connect to that COMXX port. 
-  - Make sure you change the Speed(baudrate) from 9600 to 115200. 
-  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration wondow. You may need to click on Enter on your key board a few times. 
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. this is the port you are looking for.
+  - Open PuTTY, change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer board. Change the speed (baud rate) to 115200. 
+  - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration window. 
+  - Continue with the All platforms section below.
 
 ### If you're using a Mac for console:
   - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
   
 ### All platforms:
   - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
-  - Now you will see a login prompt for the edison on the console screen. Login with username root and no password. This will have us ready to reboot from the command line when we are ready.
+  - Now you will see a login prompt for the edison on the console screen. Login using the username "root" (all lowercase) and no password. This will have us ready to reboot from the command line when we are ready.
+  - Don't resize your console window: it will likely mess up your terminal's line wrapping.  (Once you get wifi working and connect with SSH you can resize safely.)
 
 ## Flashing image onto the Edison
 
@@ -105,24 +106,24 @@ Log in as root/edison via serial console.
 
 Type/edit the following:
 
-    myedisonhostname=<thehostname-you-want>
+    myedisonhostname=<thehostname-you-want>     #Do not type the <>
 
 And then paste the following to rename your Edison accordingly:
 
     echo $myedisonhostname > /etc/hostname
     sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 
-Run these commands to set secure passwords:
+Run these commands to set secure passwords.  It will ask you to enter your new password for each user 2 times. Type the password in the same both times.  To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
 
     passwd root
     passwd edison
   
-## Multiple Wifi Networks:
+## Set up Wifi:
 
 `vi /etc/network/interfaces`
 
 Type 'i' to get into INSERT mode
-* Uncomment 'auto wlan0'
+* Uncomment 'auto wlan0' (remove the `#` at the beginning of the line)
 * Edit the next two lines to read:
 ```
 auto wlan0
@@ -152,7 +153,7 @@ Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
-Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add:
+Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add.  Be sure to include the quotes around the network name and password.
 
 ```
 network={
@@ -170,24 +171,29 @@ network={
 }
 ```
 
+If you have a hidden wifi network add the line `scan_ssid=1`.
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
-Run `ifup wlan0` to make sure you can connect to wifi
+`reboot` to apply the wifi changes and (hopefully) get online
 
-`reboot` so you can connect via ssh
+After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi.
 
-If you need more details on setting up wpa-supplicant, see one of these guides:
+Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.
 
-http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
+Leave the serial window open in case you can't get in via SSH and need to fix your wifi config.
+ 
+If you need more details on setting up wpa_supplicant.conf, see one of these guides:
 
-http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/
-
-http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks
+* [http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/](http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/)
+* [http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/](http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/)
+* [http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks](http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks)
+* [http://www.cs.upc.edu/lclsi/Manuales/wireless/files/wpa_supplicant.conf](http://www.cs.upc.edu/lclsi/Manuales/wireless/files/wpa_supplicant.conf)
 
 
 ## Install packages, ssh keys, and other settings
 
-From a new terminal or PuTTY window, `ssh myedisonhostname.local`.
+From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
 Log in as root (with the password you just set above), and run:
 
@@ -203,12 +209,13 @@ And:
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
+       Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER
 
-Edit (with `nano` or `vi`) /etc/logrotate.conf and set the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+Edit (with `nano` or `vi`) /etc/logrotate.conf and change the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
-If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the edison (directions you can adapt are here: http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux)
+If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison (directions you can adapt are here: [http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux)).
 
 If you're *not* using the Explorer board, are running as the `edison` users, and want to be able to run sudo without typing a password, run:
 ```
