@@ -1,10 +1,20 @@
 # Bluetooth tethering on Edison (optional) 
 
-## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional]
+Your cell phone can act as a mobile "hotspot" to allow your rig to access the internet.  This is an important part of keeping your rig looping, if you don't have offline BG data setup, as you move around areas without known wifi networks.
 
-The Intel Edison can be tethered to a smartphone and share the phone's internet connection (via cell data). <b>Bluetooth tethering/hotspot needs to be enabled and configured on the phone device and your carrier/plan must allow tethering.</b> 
+A few things to know about using your phone's hotspot feature:
 
-The main advantages of using Bluetooth tethering are that it consumes less power on the phone device than using the personal hotspot WiFi. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your Bluetooth-paired phone. So once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should automatically connect and get online. If you do not enable setup Bluetooth tethering, you will need to add your hotspot information to the wpa_supplicant list and remember to manually toggle your hotspot off/on as you enter/leave known wifi connections.
+1. Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot feature is enabled and BT tethering is enabled.
+2. Hotspot, when activated, uses your cell phone's data.  Know what your cell phone plan data limits are and consider if you want to change/update based on your frequency of hotspot use.  You can get an estimate of cell data use by resetting your cell data use, at the beginning of the day, within your phone.
+3. A device (like your rig) can be connected to your phone's hotspot in one of 3 ways; wifi connection, BT tether, or USB plug.
+
+** wifi connection:  You need to set up your wpa_supplicant list to include your hotspot information; network name and password.  The wifi signal for the hotspot is not constantly broadcast by your phone, however.  So when you want to use the wifi connection to your hotspot (for example, you are leaving your home wifi network and traveling), you will need to manually toggle your hotspot on so that the phone will broadcast a wifi signal for the rig to connect to.  The other consideration is that since this is a wifi connection, the rig will not automatically disconnect when you come into one of your other known wifi networks.  You will have to remember to manually disconnect (toggle hotspot off), if you do not wish to continue using cell data when you are home.  Hotspot done by wifi connections also use more phone battery than a BT tether connection.
+
+** BT tether:  BT tethering requires your phone and rig to be BT-paired before they can connect (that's what this section of the docs is specifcally about).  The advantage of connecting to your hotspot via BT tether is that it will happen automatically.  You do not have to remember to toggle hotspot.  Simply leave your hotspot toggled on as usual, leave the house, and within a few minutes (or sooner) your rig will BT tether to the hotspot.  Your rig will then use your cell phone as its internet connection.  
+
+** USB plug: You can plug devices into your cell phone to use hotspot.  However, the phone would pull battery power from your rig and would drain your battery fairly quickly.  This is not a recommended connection method for openaps use.
+
+## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
 ### Install dependencies 
 
