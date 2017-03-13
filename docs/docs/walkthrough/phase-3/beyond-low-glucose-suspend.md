@@ -20,7 +20,6 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 
 {
 	"max_iob": 0,
-	"type": "current",
 	"max_daily_safety_multiplier": 3,
 	"current_basal_safety_multiplier": 4,
 	"autosens_max": 1.2,
@@ -33,7 +32,7 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 	"carbratio_adjustmentratio": 1
 }
 
-#### Max IOB: 
+#### max_iob: 
 
 This will default to zero. After several days or weeks, depending on your comfort level, you may choose to adjust this number. (Remember in the future if you re-run the setup scripts, it will default back to zero so you will come in here to adjust the max iob, as it is an OpenAPS-specific setting).
 

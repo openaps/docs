@@ -6,14 +6,19 @@ There are a number of ways to have an "offline" OpenAPS rig, and numerous ways t
 
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
 
-Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 2.)Hardwire (plugging CGM receiver into) your rig. 
+Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  
+* 1.) Use xDrip. See: http://stephenblackwasalreadytaken.github.io/xDrip/ 
+* 2.) Plug the CGM receiver directly into your rig via USB. 
 
-Explorer boards built prior to late January of 2017 are not allways working well with a hardwired CGM receiver. This can be fixed with a signal trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see this document for details on how to cut the copper trace from pin 61 of the 70 pin connector: https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
+  * Explorer Boards that shipped at or after the end of February 2017/first week of March 2017 should enable users to simply plug in the CGM receiver to the OTG port, and a USB battery into the UART port, in order to run offline and pull BGs from the receiver. 
+  * Explorer boards built prior to late January of 2017 are not always working well/automatically with a CGM receiver plugged in. This can be fixed with a single trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see [this document for details on how to cut the copper trace from pin 61 of the 70 pin connector](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness). Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
+
 
 ## Offline monitoring
 
 * See Pancreabble instructions below for connecting your rig to your watch
-* See xDrip instructions for seeing offline loop status
+* See xDrip instructions below for seeing offline loop status
+* See HotButton instructions below for setting temp targets and controlling your rig offline via an Android
 
 ### Note about recovery from Camping Mode/Offline mode for Medtronic CGM users:
 
@@ -229,9 +234,7 @@ If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB a
   `@reboot         python /home/root/.xDripAPS/xDripAPS.py`
 
 6. Cofigure the xDrip Android app -
-   ```
-  xDrip > Settings > REST API Upload > Set Enabled and enter Base URL: http://[API_SECRET]@[Pi/Edison_IP_address]:5000/api/v1/
-  ```
+  `xDrip > Settings > REST API Upload > Set Enabled and enter Base URL: http://[API_SECRET]@[Pi/Edison_IP_address]:5000/api/v1/`
  
   (Note: Enter your plain-text API_SECRET in the Android app, not the hashed version of it).
 
@@ -241,4 +244,34 @@ If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB a
   ```
   openaps device add xdrip process 'bash -c "curl -s http://localhost:5000/api/v1/entries?count=288"'
   openaps report add monitor/glucose.json text xdrip shell
+  ```
 
+### Hot Button
+
+#### Purpose
+[Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especialy useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
+
+#### App Setup 
+To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.
+
+#### Basic commands
+To the Command part of the button setup you can write any command which you would run in the ssh session. For example to show the automatic sensitivity ratio, you can set:
+`cat /root/myopenaps/settings/autosens.json`
+
+After button click the command is executed and the results are displayed in the black text area bellow the buttons. 
+
+#### Temporary targets
+It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
+
+To setup activity mode run:
+`./set_temp_target.sh "Activity Mode" 130`
+
+To setup eating soon mode run:
+`./set_temp_target.sh "Eating Soon" 80`
+
+The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
+To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove `openaps ns-temptargets` from ns-loop. 
+
+#### SSH Login Speedup
+To speed up the command execution you can add to the `/etc/ssh/sshd_config` the following line:
+`UseDNS no`

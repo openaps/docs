@@ -2,9 +2,9 @@
 
 ## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional]
 
-The Intel Edison can be tethered to a smartphone and share the phone's internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. 
+The Intel Edison can be tethered to a smartphone and share the phone's internet connection (via cell data). <b>Bluetooth tethering/hotspot needs to be enabled and configured on the phone device and your carrier/plan must allow tethering.</b> 
 
-The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your paired phone. So once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should automatically connect and get online. 
+The main advantages of using Bluetooth tethering are that it consumes less power on the phone device than using the personal hotspot WiFi. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your Bluetooth-paired phone. So once you are away from your home wifi, as long as you have the Bluetooth tethering turned on, on your phone, it should automatically connect and get online. If you do not enable setup Bluetooth tethering, you will need to add your hotspot information to the wpa_supplicant list and remember to manually toggle your hotspot off/on as you enter/leave known wifi connections.
 
 ### Install dependencies 
 
@@ -16,10 +16,19 @@ Now we need to re-run oref0-setup with the Bluetooth option, replacing AA:BB:CC:
 
 `cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF`
 
+NOTE:  Make sure the MAC address is in ALL CAPS.
+
 Copy and paste the "To run again with these same options" command into your notes for the next time you need to run oref0-setup.
 
 The first time running the script will take quite a bit longer as it is installing Bluez on your edison.
 The oref0-setup script may fail after installing the Bluez.  If so, just reboot your edison and run the command you copied to your notes. 
+
+You can confirm that Bluez has properly installed by using `bluetoothd --version`.  If Bluez installed properly, `5.37` should be returned.  If it did not install properly, you will likely see `5.28`.  The procedures below will not work with the outdated version, so make sure you get `5.37` installed before continuing.
+
+```
+root@edisonhost:~# bluetoothd --version
+5.37
+```
 
 ### Bluetooth setup
 
@@ -31,21 +40,25 @@ The oref0-setup script may fail after installing the Bluez.  If so, just reboot 
 
 `sudo /usr/local/bin/bluetoothd --experimental &`
 
+As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
+
+![Bluetooth sudo commands](../../Images/BT_sudos.png)
+
 * Wait at least 10 seconds, and then run:
 
 `sudo hciconfig hci0 name $HOSTNAME`
 
-* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
+* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `sudo killall bluetoothd` and wait longer between steps.
 
 * Now launch the Bluetooth control program: `bluetoothctl`
-
-* And run: `power off`
-
-* then `power on`
 
 * and each of the following:
 
 ```
+power off
+
+power on
+
 discoverable on
 
 scan on
@@ -54,6 +67,7 @@ agent on
 
 default-agent
 ```
+![Bluetooth pairing](../../Images/BT_pairing.png)
 
 For Android
 ********************************
@@ -61,12 +75,12 @@ The adapter is now discoverable for three minutes. Search for bluetooth devices 
 
 For iPhone
 ********************************
-Your iPhone must be on the Settings/Bluetooth screen, and then you must use the Edison to initiate pairing:
+<b>Your iPhone must be on the Settings/Bluetooth screen</b>, and then you use the Edison to initiate pairing:
 ```
 pair AA:BB:CC:DD:EE:FF
 ```
 ********************************
-you will see on the edison
+If successful, you will see on the Edison:
 
 `Request confirmation
 [agent] Confirm passkey 123456 (yes/no): yes`
@@ -74,6 +88,8 @@ you will see on the edison
 * (WARNING: You must type in **yes** not just **y** to pair)
 
 * On your phone, tap the pair button that popped up.
+
+Troubleshooting note: If after the `pair AA:BB:CC:DD:EE:FF` command you get a response of `Failed to pair: org.bluez.Error.AlreadyExists`, that means you likely have already tried to pair previously...but have run into problems getting it to run properly.  Double-check that your cell provider allows for personal hotspots and bluetooth tethering.  Make sure you have enabled those for your device.  If you have confirmed those, you can `remove AA:BB:CC:DD:EE:FF` and start at the sudo commands again to attempt a fresh pairing.
 
 * Execute the `paired-devices` command to list the paired devices -
 
@@ -88,6 +104,7 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 `trust AA:BB:CC:DD:EE:FF`
 
 * Quit bluetoothctl by typing 'quit' and hitting enter.
+
 
 ******************************
 

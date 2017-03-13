@@ -140,6 +140,25 @@ Below is correct definition
     remainder =
     insulin_sensitivities = settings/insulin_sensitivities.json
 
+### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
+
+Basic steps using an Intel Edison with Explorer Board, checking with openaps mmtune to see if it is resolved yet:
+  * Double check that your port in pump.ini is correct
+  * Reboot your rig
+  * Run `oref0-runagain`
+  * Fully power down and start up your rig
+  * Remove and re-add your pump device
+
+If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, you may need to re-flash your radio chip:
+  * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
+  * Flash the radio chip:
+```
+wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+ccprog -p 19,7,36 erase
+ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+```
+  * Reboot, and try `openaps mmtune` to make sure it works
+
 
 ### CareLink RF timeout errors
 

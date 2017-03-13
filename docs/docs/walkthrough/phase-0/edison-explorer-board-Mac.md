@@ -30,7 +30,7 @@ The Explorer board is where all the communications are housed for the rig, as we
 
 The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
 
-Easiest to start with the explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring). Inside the little outline where the Edison will eventually sit.  Gold screws, as shown, with nuts on the backside.   Then lay the Edison board on top, aligning the screw holes.  Use small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.
+It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
 ![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
 
@@ -97,13 +97,15 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 ![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
 
-#### **1-4.     Start Edison console**
+#### **1-4.     Start Edison in screen mode**
 
 `sudo screen /dev/tty.usbserial-* 115200`
 
 You’ll most likely be asked for your computer password again.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed.  Leave this window alone for a bit as we proceed with next steps.
 
 ![Example terminal screen](../../Images/Edison/change_me_out_for_jubilinux.png)
+
+If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", close that terminal window.  Then unplug the usb cables from your computer (not from the Edison...leave those ones as is) and swap the USB ports they were plugged in.  Open a new terminal window, use the `sudo screen /dev/tty.usbserial-* 115200` command again.  Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
 
 #### **1-5. Flash the Edison**
 
@@ -167,7 +169,7 @@ Flashing rootfs, (it can take up to 10 minutes... Please be patient)
 ```
 in the terminal window where you ran `./flashall.sh`.  As it says, this should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work, in which case you should read through the [full docs] and try again, and/or check out the Troubleshooting section at the bottom.
 
-After flashing is complete, watch the window as you should get asked to type control-D to continue.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
+After flashing is complete, watch the window as you should get asked to type **control-D to continue**.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
 
 ```
 [**    ] A start job is running for /etc/rc.local Compatibili...14s / no limit)
@@ -178,7 +180,7 @@ for a few minutes: that's fine.  You can also expect to see an ugly red:
 ```
 That is also fine, and you can ignore it too.
 
-After several reboots (don’t panic), you should get a ubilinux login prompt.  Use login `root` and password `edison`.
+After several reboots (don’t panic), you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Step 1-4 and start the flash process over again).  Use login `root` and password `edison`.
 
 ![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
@@ -198,7 +200,7 @@ Hostname and password
 echo $myedisonhostname > /etc/hostname
 sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 ```
-(without any modifications) and it will set your hostname in both places.
+(without any modifications) and it will set your hostname in both places.  (note: screenshot below is a little different than you will see on your screen.  You will see root@ubilinux)
 
 ![Edison hostname and password screen](../../Images/Edison/edison_hostname_password.png)
 
@@ -229,7 +231,7 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 * add `    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf` right below the iface wlan0 line.
 * comment out (add #) to the wpa-ssid and wpa-psk lines as shown
 
-**A-4.** Press ESC then type “:wq” to write (save) and quit that screen.
+**A-4.** Press ESC then type “:wq” (no quotes) and enter to write (save) and quit that screen.  When you press ESC, you won't initially see much different, but when you type ":wq", you will see the characters appear in the lower left of the screen.
 
 
 **B-1.** Enter `vi /etc/wpa_supplicant/wpa_supplicant.conf`
@@ -260,19 +262,21 @@ These are the wifi networks that your rig will be able to use to stay connected 
 
 ![ifup wlan0 example](../../Images/Edison/ifup_wlan0.png)
 
+If you don't see a message showing you are successfully connected, go back to the start of Step 1-9 and make sure that you don't have any typos in those two files.
+
 #### **1-10. Installing packages, SSH keys, and other settings**
 
-ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Edison “console” window (in case we can't get in via ssh), reboot, and login using an “ssh” command from a new Terminal window.
+ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Edison “screen” terminal window (in case we can't get in via ssh), reboot, and login using an “ssh” command from a new Terminal window.
 
 * Type `reboot`
-* Wait as many lines of action go by in the Terminal window...eventually you will get to a prompt.
+* Wait as many lines of action go by in the Terminal window...eventually you will get to a prompt that has your new edisonhost name login.  We aren't going to login right now.  Just saving that window in case we need it later.
 * Open a new Terminal window by pressing Command-N
-* Login to your Edison by entering `ssh root@edisonhost.local` (changing edisonhost to the hostname you selected above)
+* Login to your Edison by entering `ssh root@edisonhost.local` (changing edisonhost to the hostname you selected earlier above)
 * Enter your password that you set earlier
 
 ![Login to your rig](../../Images/Edison/Rig_login_time.png)
 
-* Run `ping google.com` to make sure your rig is online.  If not, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.
+* Run `ping google.com` to make sure your rig is online.  If your rig shows up as online successfully, you can enter control-c to exit the ping.  If the rig isn't online, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.
 
 * Enter these three lines, one-at-a-time (the first line will run fast, and the second and third lines may take several minutes to complete)
 
@@ -295,7 +299,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Ediso
 * Enter `vi /etc/logrotate.conf` then press “i” for INSERT mode, and make the following changes:
 
  * set the log rotation to daily from weekly
- * remove the #  from the “#compress” line
+ * remove the # from the “#compress” line
 
 * Press ESC and then type “:wq” to save and quit
 
