@@ -80,7 +80,7 @@ For iPhone
 pair AA:BB:CC:DD:EE:FF
 ```
 ********************************
-you will see on the Edison
+If successful, you will see on the Edison:
 
 `Request confirmation
 [agent] Confirm passkey 123456 (yes/no): yes`
@@ -88,6 +88,8 @@ you will see on the Edison
 * (WARNING: You must type in **yes** not just **y** to pair)
 
 * On your phone, tap the pair button that popped up.
+
+Troubleshooting note: If after the `pair AA:BB:CC:DD:EE:FF` command you get a response of `Failed to pair: org.bluez.Error.AlreadyExists`, that means you likely have already tried to pair previously...but have run into problems getting it to run properly.  Double-check that your cell provider allows for personal hotspots and bluetooth tethering.  Make sure you have enabled those for your device.  If you have confirmed those, you can `remove AA:BB:CC:DD:EE:FF` and start at the sudo commands again to attempt a fresh pairing.
 
 * Execute the `paired-devices` command to list the paired devices -
 
@@ -102,6 +104,7 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 `trust AA:BB:CC:DD:EE:FF`
 
 * Quit bluetoothctl by typing 'quit' and hitting enter.
+
 
 ******************************
 
