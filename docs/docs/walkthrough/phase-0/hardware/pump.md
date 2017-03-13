@@ -10,9 +10,11 @@ Currently, only the following Medtronic MiniMed models allow us to remotely set 
     523/723 (with firmware 2.4A or lower)
     554/754 (European Veo, with firmware 2.6A or lower; OR Canadian Veo with firmware 2.7A or lower)
 
-## How to check pump firmware
+NOTE: For European/WorldWide users who have access to a `DANA*R` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R` pump. [See here for instructions and details related to AndroidAPS](https://github.com/MilosKozak/AndroidAPS).
 
-To check firmware, hit Esc on the home screen and scroll all the way to the bottom. You can also go into the Utilities menu and look for a PC Connect option. If that is present, the pump will not work for looping. If it’s absent, it should be able to receive temp basal commands.)
+## How to check pump firmware (check for presence of PC Connect)
+
+To check firmware, hit Esc on the home screen and scroll all the way to the bottom. You can also go into the Utilities menu and "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will not work for looping. If it’s absent, it should be able to receive temp basal commands.)
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 

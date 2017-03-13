@@ -1,6 +1,6 @@
 # General Setup and Project Prep
 
-The initial setup process is broken into three parts: acquiring the hardware you need; storing baseline data; and configuring the Raspberry Pi or Intel Edison. 
+The initial setup process is broken into three parts: acquiring the hardware you need; storing baseline data; and configuring the hardware (i.e. Edison). 
 
 At this stage, you may want to begin documenting each step that you take. This will help in two ways.
 
