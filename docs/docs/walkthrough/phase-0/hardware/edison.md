@@ -1,10 +1,20 @@
 # Hardware information for Intel Edison-based setups
 
-Note: The Edison/Explorer Board combination is the rig setup recommended by the community for size, range, and portability reasons.
+Note: The Edison/Explorer Board combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
+
+* Explorer Board
+* Edison (which you can now order pre-flashed with Jubilinux)
+* Nuts and Bolts to hold the Edison on to the Explorer Board
+* At least one Lithium battery
+* 2 cables
 
 ## Edison 
 
-[Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) - Get it from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider. Be aware that there are four versions: 1-EDI2.LPON, 2-EDI2.SPON, 3-EDI2.LPOF, and 4-EDI2.SPOF. Option 1 claims lower power consumption, and if so would be better for a portable rig.  Option 2 is the more common version, with theoretically higher consumption because of the more power dedicated to wifi. If you purchase a development kit, this is the version you will get. Versions 3 and 4 require an external antenna.  To date no one has done any side-by-side testing of power consumption between the LPON and SPON Edison versions, so it is unclear how much difference (if any) the model number would make to power consumption in real-world conditions with an OpenAPS rig. So, get whichever one is cheapest/you decide you want.
+[Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
+
+* Option A (**RECOMMENDED - this will save you several hours**): [Buy an Edison that is already flashed with Jublinux - see here](https://enhanced-radio-devices.myshopify.com/products/intel-edison-w-jubilinux). You can order it from the same manufacturer that makes the Explorer Boards (see below). 
+
+* Option B: Get it out of the box from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider - and follow the instructions to flash it. Be aware that there are four versions: 1-EDI2.LPON, 2-EDI2.SPON, 3-EDI2.LPOF, and 4-EDI2.SPOF. Option 1 claims lower power consumption, and if so would be better for a portable rig.  Option 2 is the more common version, with theoretically higher consumption because of the more power dedicated to wifi. If you purchase a development kit, this is the version you will get. Versions 3 and 4 require an external antenna.  To date no one has done any side-by-side testing of power consumption between the LPON and SPON Edison versions, so it is unclear how much difference (if any) the model number would make to power consumption in real-world conditions with an OpenAPS rig. So, get whichever one is cheapest/you decide you want.
 
 The different model numbers or variants of the Intel Edison Compute Module do not appear to be documented on Intel's website or at many of the online retailers. However, the different variants can be seen in the product listings at [Mouser](http://www.mouser.com/Embedded-Solutions/Computing/_/N-aez39?Keyword=intel+edison) and [Arrow](https://www.arrow.com/en/products/search?q=intel%20edison&filters=Manufacturer_name:Intel;).
 
@@ -64,4 +74,4 @@ There are a few 3D-printed cases that are being designed, so check back here for
 
 # Next steps after you get your hardware
 
-Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html)" page.
+Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html)" page. If you bought an Edison un-flashed from Amazon, etc. you will start at the top of the page to flash your Edison with Jubilinux. Otherwise, if you bought a pre-flashed Edison with Jubilinux, [you can skip down to the section of the docs here where you will log in to the Edison as root](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup) and go on from there.
