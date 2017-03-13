@@ -2,7 +2,7 @@
 
 ## Configure Bluetooth Low Energy tethering on Edison running Jubilinux [optional]
 
-The Intel Edison can be tethered to a smartphone and share the phone's internet connection (via cell data). <b>Bluetooth tethering/hotspot needs to be enabled and configured on the phone device and your carrier/plan must allow tethering.</> 
+The Intel Edison can be tethered to a smartphone and share the phone's internet connection (via cell data). <b>Bluetooth tethering/hotspot needs to be enabled and configured on the phone device and your carrier/plan must allow tethering.</b> 
 
 The main advantages of using BLE tethering are that it consumes less power on the phone device than using the personal hotspot WiFi. The way the script is currently setup, the Edison will try to connect to Wifi first, if it is unable to connect, it will then try to connect with your BT-paired phone. So once you are away from your home wifi, as long as you have the BT tethering turned on, on your phone, it should automatically connect and get online. If you do not enable setup BT tethering, you will need to add your hotspot information to the wpa_supplicant list and remember to manually toggle your hotspot off/on as you enter/leave known wifi connections.
 
@@ -67,6 +67,7 @@ agent on
 
 default-agent
 ```
+![Bluetooth pairing](../../Images/BT_pairing.png)
 
 For Android
 ********************************
