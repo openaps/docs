@@ -1,4 +1,4 @@
-# Understanding the output of oref0-determine-basal
+# Understanding the oref0-determine-basal logic
 
 The key logic behind any oref0 implementation of OpenAPS lies in the oref0-determine-basal.js code, which is what takes all of the inputs you've collected and makes a temp basal recommendation you can then enact if appropriate.  As such, it is important to understand how determine-basal makes its decisions, and how to interpret its output, so you can decide for yourself whether the recommendations it is making are appropriate for your situation, or if further adjustments are required before closing the loop or letting it run unattended.
 
@@ -12,26 +12,28 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
 {"carbs":0,"boluses":0}
 {"delta":-2,"glucose":110,"avgdelta":-2.5}
 {"duration":0,"rate":0,"temp":"absolute"}
-{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0}
+{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}
 {"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}
 ```
 
 * meal.json = `{"carbs":0,"boluses":0}`
-  * If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
   * carbs = # of carbs consumed
-  * boluses = amount of insulin delivered
-  * This data comes from what is entered by user into pump/nightscout
+  * boluses = amount of bolus insulin delivered
+  
+  Those data come from what you entered into your pump or Nightscout web app. If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
 * glucose.json = `{"delta":-2,"glucose":110,"avgdelta":-2.5}`
   * delta = change from the previous BG (usually 5 minutes earlier)
   * glucose = most recent BG
   * avgdelta = average change since 3 data points earlier (usually 15 minutes earlier)
-  * This data comes from your connected cgm or from nightscout
+  
+  Those data come from your connected CGM or from your Nightscout web app.
 * temp_basal.json = `{"duration":0,"rate":0,"temp":"absolute"}`
   * duration = length of time temp basal will run. A duration of 0 indicates none is running
   * rate = Units/hr basal rate is set to
   * temp = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
-  * This data comes from the pump
-* iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2016-10-26T20:07:37.000Z"}`
+  
+  Those data come from your pump.
+* iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2"2017-03-17T00:34:51.000Z"}`
   * iob = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
   * activity = the amount that BG "should" be rising or falling based on iob.
   Insulin activity is used (by multiplying activity * ISF) to determine BGI (blood glucose impact), the amount that BG "should" be rising or falling based on insulin activity alone.
@@ -39,13 +41,15 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
   * basaliob = insulin on board attributed to basal rate, excluding the IOB effect of boluses
   * netbasalinsulin = net of basal insulin compared to preprogrammed pump basal rate
   * time = current time
-  * This data calculated based on information received from your pump
+  
+  Those data are calculated based on information received from your pump.
 * preferences.json = `{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}`
 	* Contains all of the user’s relevant pump settings
-	* max_iob = maximum allowed insulin on board. This is an important safety measure and integral part of the OpenAPS design.
-	* This data is set during the openAPS setup script (or modified by you directly) and based on information received from your pump
+	* max_iob = maximum allowed insulin on board. **This is an important safety measure and integral part of the OpenAPS design.**
+	
+	Those data are set during the openAPS setup script (or modified by you directly) and based on information received from your pump.
 
-## Output
+## Summary of outputs
 
 After displaying the summary of all input data, oref0-determine-basal outputs a recommended temp basal JSON (stored in suggested.json), which includes an explanation of why it's recommending that.  It might look something like this:
 
