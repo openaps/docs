@@ -142,7 +142,7 @@ CGM Sensor Start
 
 ![IFTTT Today View](../../Images/IFTTT_today.PNG)
 
-If you end up with more than four IFTTT widgets, they will appear in reverse-order of when they were created...which may not be the same as you'd prefer them to appear on your widget bar.  If you'd like to reorder them:
+If you end up with more than four IFTTT applets, they will appear in reverse-order of when they were created...which may not be the same as you'd prefer them to appear on your widget bar.  If you'd like to reorder them:
 
   * go into your iPhone's IFTTT app
   * click on My Applets
