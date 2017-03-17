@@ -87,7 +87,7 @@ Pump Site Change
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Site Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
-Dexcom Sensor Start
+CGM Sensor Start
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Sensor Start", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
