@@ -142,6 +142,15 @@ CGM Sensor Start
 
 ![IFTTT Today View](../../Images/IFTTT_today.PNG)
 
+If you end up with more than four IFTTT widgets, they will appear in reverse-order of when they were created...which may not be the same as you'd prefer them to appear on your widget bar.  If you'd like to reorder them:
+
+  * go into your iPhone's IFTTT app
+  * click on My Applets
+  * click on the gear icon in upper left of screen
+  * click on Widgets
+  * click on the pencil icon in upper right of screen
+  * click and hold the three lines that appear on the right side of the widget that you want to move.  Drag the widget to the order in the list that you'd like it to appear in your widget quickscreen.
+
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
 * Load the ThisButton app from the Pebble Store.
