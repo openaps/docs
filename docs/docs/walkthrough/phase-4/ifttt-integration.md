@@ -83,6 +83,14 @@ Low Treatment
 ```
 {"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
 ```
+Pump Site Change
+```
+{"enteredBy": "IFTTT-button", "eventType": "Site Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+```
+CGM Sensor Start
+```
+{"enteredBy": "IFTTT-button", "eventType": "Sensor Start", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+```
 
 ### Understanding the JSON in the Body:
 
@@ -133,6 +141,15 @@ Low Treatment
 * For iPhone users, if you downswipe from the top of your iPhone screen, you will have the Today view or Notifications showing.  They are separate pages; Today view is on the left, Notifications is on the right.  You can left/right swipe to go between them.  Go into the Today view and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
 
 ![IFTTT Today View](../../Images/IFTTT_today.PNG)
+
+If you end up with more than four IFTTT applets, they will appear in reverse-order of when they were created...which may not be the same as you'd prefer them to appear on your widget bar.  If you'd like to reorder them:
+
+  * go into your iPhone's IFTTT app
+  * click on My Applets
+  * click on the gear icon in upper left of screen
+  * click on Widgets
+  * click on the pencil icon in upper right of screen
+  * click and hold the three lines that appear on the right side of the widget that you want to move.  Drag the widget to the order in the list that you'd like it to appear in your widget quickscreen.
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
