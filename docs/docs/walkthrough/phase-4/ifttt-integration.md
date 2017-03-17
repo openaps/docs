@@ -83,6 +83,14 @@ Low Treatment
 ```
 {"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
 ```
+Pump Site Change
+```
+{"enteredBy": "IFTTT-button", "eventType": "Site Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+```
+Dexcom Sensor Start
+```
+{"enteredBy": "IFTTT-button", "eventType": "Sensor Start", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+```
 
 ### Understanding the JSON in the Body:
 
