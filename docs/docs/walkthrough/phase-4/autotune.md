@@ -98,7 +98,7 @@ Mac install commands:
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
-* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (updating minutes to match - minutes from midnight, not duration of basal), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.  Every comma, quote mark, and bracket matter on this file, so please double-check carefully.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (update the minutes to match your basal start time; the minutes are number of minutes from midnight to the start of basal, e.g., a basal starting at 5:00am will have a minutes entry of 5 x 60 = 300 minutes and a basal starting at 7:30am will have a minutes entry of 7.5 x 60 = 450 minutes), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.  Every comma, quote mark, and bracket matter on this file, so please double-check carefully.
 ```
 {
   "min_5m_carbimpact": 3,
