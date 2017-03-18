@@ -33,7 +33,7 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
   * temp = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
   
   Those data come from your pump.
-* iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2"2017-03-17T00:34:51.000Z"}`
+* iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}`
   * iob = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
   * activity = the amount that BG "should" be rising or falling based on iob.
   Insulin activity is used (by multiplying activity * ISF) to determine BGI (blood glucose impact), the amount that BG "should" be rising or falling based on insulin activity alone.
