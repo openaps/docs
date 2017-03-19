@@ -33,7 +33,7 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
 * Check to make sure your receiver is plugged in, if you're plugging a receiver in.
 * Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct.
-* Check and make sure your receiver is >50% charged (if battery low, it may drain the Pi and prevent it from operating).
+* Check and make sure your receiver is >50% charged (if battery low, it may drain the rig and prevent it from operating).
 * Check and make sure your pump is in range of the radio stick.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
 * 512  users - make sure that you have created your static json files as outlined in https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-0/hardware/pump.html for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json. You will also have to remove the calls for them from the your get-settings alias.
