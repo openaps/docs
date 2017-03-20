@@ -41,7 +41,8 @@ The Edison comes with an operating system, called Yocto, that doesn’t work eas
 ![Putty](../../Images/Edison/putty3.png)
 
 ****************************
-<b>Side Note regarding computers with less than 6 GB RAM</b>
+#### <b>Side Note regarding computers with less than 6 GB RAM</b>
+
 Windows PCs with less than 6 GB of RAM  may need to have the size of the page file increased to flash the Edison. You can check your RAM as shown in the Control Panel picture above.  If less than 6 GB is showing, then close all unnecessary programs and attempt to flash the device. If the flash operation fails follow these steps to ensure enough swap space is allocated when the computer boots, then restart and try again. Only do this if flashing the device doesn't work without changing these settings.
 
 *Important: Write down the settings in the Virtual Memory window before you make any changes to your system. When you finish the flash process you must return these settings to their original values or Windows may become unstable.*
@@ -58,7 +59,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ![winzip](../../Images/Edison/winzip.png)
 
-- Download [Jubilinux](http://www.robinkirkman.com/jubilinux/jubilinux.zip)  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and double-click the `jubilinux.zip` folder.  When you double-click (assuming you are using WinZip or similar), you will choose the location to save the unzipped folder to.  Saving it to your root user directory is a good idea...but where ever you put it, remember so we can find it later.
+- Download [Jubilinux](http://www.robinkirkman.com/jubilinux/jubilinux.zip).  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and double-click the `jubilinux.zip` folder.  When you double-click (assuming you are using WinZip or similar), you will choose the location to save the unzipped folder to.  Saving it to your root user directory is a good idea...but where ever you put it, remember so we can find it later.
 
 ![Unzip jubilinux](../../Images/Edison/jubilinux_unzip.png)
 
@@ -103,7 +104,7 @@ Once you plug in the cables, you should see your Edison board pop-up as a connec
   ![Putty port](../../Images/Edison/putty_port.png)
 
  - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" window of what is happening on your Edison. Move that window over to the right side of your screen without resizing it, if you can.  (We are going to open another window later on the left side.)
-- Now you will see a login prompt for the edison on the console screen. Login using the username "root" (all lowercase) and no password. This will have us ready to enter the commands coming up in the next steps later.
+- Now you will see a login prompt for the Edison on the console screen. Login using the username "root" (all lowercase) and no password. This will have us ready to enter the commands coming up in the next steps later.
   
 - Now we are going to open a second window...a "flash" window...using a different program than PuTTY.  Go to your Windows Start menu and search for a program called Command Prompt.  Open Command Prompt and you should be given at a prompt for your User Root directory.  Assuming you saved your jubilinux folder to your user root directory (as described above), enter `cd jubilinux` in the prompt and press return.  If you saved it somewhere else, you will need to navigate to that location.  Move that flash window to the left side of the screen.
 
@@ -129,11 +130,11 @@ After you press Control-D, the flashing will continue
 
 ![flash continues](../../Images/Edison/mid_flash.png)
 
-After several reboots (don’t panic), you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Step 1-2 and start the flash process over again).  Use login `root` and password `edison`.
+After several reboots (don’t panic), you should get a ubilinux login prompt (If you see Yocto instead of ubilinux, then you need to go back to Step 1-2 and start the flash process over again).  Use login `root` and password `edison`.
 
 ![Successful flash](../../Images/Edison/successful.png)
 
-CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
+CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going.
 
 ### **1-4 Hostname for Edison**
 
@@ -228,7 +229,7 @@ Press Esc and then type ':wq' and press Enter to write the file and quit.
 
 After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi.
 
-Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below. Alternatively, if you know how to login to your router, you can also see the edison's IP address there.
+Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below. Alternatively, if you know how to login to your router, you can also see the Edison's IP address there.
 
 ![IP address](../../Images/Edison/ip_address.png)
 
@@ -266,5 +267,4 @@ dpkg-reconfigure tzdata
 
 ![Log Rotate edits](../../Images/Edison/logrotate.png)
 
-You have now installed the operating system and wifi networks on your Edison! You can now proceed to the next steps in Phases 1-4.
-
+You have now installed the operating system and wifi networks on your Edison! https://diyps.org/2014/05/14/diyps-findings-help-people-with-type-1-diabetes-better-manage-post-meal-blood-glucose-levels/
