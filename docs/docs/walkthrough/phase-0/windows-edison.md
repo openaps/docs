@@ -7,29 +7,13 @@
 1.  Using an Explorer Board and Edison
 2.  Using an Windows computer
 
-### High Level Recommended Rig parts list
-
-* [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
-
-* [**Edison - link**](https://www.sparkfun.com/products/13024)
-
-* [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187)
-
-* **At least one Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
- * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
- * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
-
-* **Cables**  (you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
- * [**3 ft long cable, USB-microB - link**](https://www.adafruit.com/products/592)
- * [**6 inch long cable, USB-microB - link**](https://www.adafruit.com/products/898)
-
 ### Getting Physical: Build your rig/put the physical pieces together
 
-The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
+The Explorer Board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
 
 The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
 
-It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
+It's easiest to start with the Explorer Board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer Board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
 ![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
 
@@ -109,11 +93,11 @@ Once you plug in the cables, you should see your Edison board pop-up as a connec
 
 ![Edison popup](../../Images/Edison/edison_popup.png)
 
- - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. this is the port you are looking for.  If only one shows up, that is your Edison's port.
+ - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer Board. Notice which port disappears. this is the port you are looking for.  If only one shows up, that is your Edison's port.
  
 ![Port Select](../../Images/Edison/port.png)
  
-  - Open PuTTY, change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer board. Change the speed (baud rate) to 115200. 
+  - Open PuTTY, change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer Board. Change the speed (baud rate) to 115200. 
   - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration window.
   
   ![Putty port](../../Images/Edison/putty_port.png)
