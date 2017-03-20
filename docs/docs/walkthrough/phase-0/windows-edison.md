@@ -2,13 +2,13 @@
 
 (This is testing a separate workflow for Windows only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processes.)
 
-## Hardware Assumptions for this page
+### Hardware Assumptions for this page
 
 1.  Using an explorer board and Edison
 2.  Using an Windows computer
 3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#information-about-compatible-insulin-pumps).)
 
-## High Level Recommended Rig parts list
+### High Level Recommended Rig parts list
 
 * [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
 
@@ -24,7 +24,7 @@
  * [**3 ft long cable, USB-microB - link**](https://www.adafruit.com/products/592)
  * [**6 inch long cable, USB-microB - link**](https://www.adafruit.com/products/898)
 
-## Getting Physical: Build your rig/put the physical pieces together
+### Getting Physical: Build your rig/put the physical pieces together
 
 The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
 
@@ -34,21 +34,11 @@ It's easiest to start with the Explorer board and put on 2 nuts and gold screws 
 
 ![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
 
-## Software-build your rig
-
-Building the software into your rig is comprised of three steps:
-
-1. Preparing the Edison (aka flashing the Edison)
-2. Installing the “looping” code (aka setup script for oref0)
-3. Customizing your loop 
-
-This guide sheet is designed just for the first step.  The OpenAPS docs call this Phase O.
-
-### 1. Preparing/flashing the Edison
+## Preparing/flashing the Edison
 
 The Edison comes with an operating system, called Yocto, that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  Both your Windows computer and the Edison board will need some work.
 
-#### **1-1.     Prepare Windows Computer**
+### **1-1 Prepare Windows Computer**
 
 - Install the [Intel Edison drivers for Windows]( https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. After it is done downloading, click on the downloaded file and it will execute installation.
 
@@ -87,7 +77,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 - Download [Jubilinux](http://www.robinkirkman.com/jubilinux/jubilinux.zip)  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and double-click the `jubilinux.zip` folder.  When you double-click (assuming you are using WinZip or similar), you will choose the location to save the unzipped folder to.  Saving it to your root user directory is a good idea...but where ever you put it, remember so we can find it later.
 
-![Putty](../../Images/Edison/putty3.png)
+![Unzip jubilinux](../../Images/Edison/jubilinux_unzip.png)
 
 Your root directory is the set of folder that exist under your User name in Windows.  In this screenshot, the user's name is `vitov` and the unzipped jubilinux folder has been saved in the root directory of user vitov.
 
@@ -111,7 +101,7 @@ When you sucessfully move those two folders into the jubilinux folder, you shoul
 
 ![Ready to Flashall](../../Images/Edison/ready.png)
 
-#### **1-2.     Prepare Edison**
+### **1-2  Prepare Edison**
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
 
 ![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
@@ -138,7 +128,7 @@ Your screens should look like this:
 
   ![Ready to Flash](../../Images/Edison/ready_to_flash.png)
   
-#### **1-3. Flash the Edison**
+### **1-3 Flash the Edison**
 
 * In your flash window on the right (command prompt window), enter `flashall.bat`
 
@@ -162,7 +152,7 @@ After several reboots (don’t panic), you should get a ubilinux login prompt (I
 
 CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
 
-#### **1-4. Hostname for Edison**
+### **1-4 Hostname for Edison**
 
 Now that you’ve finished flashing, the Edison is going to need a couple things to finish setting it up; Hostname/passwords and Multiple WiFi networks
 
@@ -186,10 +176,10 @@ sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
 * SAVE PASSWORDS somewhere, you’ll want them.
 *****************************
 
-#### **1-5. Multiple wifi networks**
 
+### **1.5  Set up Wifi**
 
-## Enter `vi /etc/network/interfaces`
+Enter `vi /etc/network/interfaces`
 
 Type “i” to enter INSERT mode for editing on the file.
 
@@ -225,7 +215,7 @@ iface wlan0 inet dhcp
 
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
-## `vi /etc/wpa_supplicant/wpa_supplicant.conf`
+`vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
 Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add.  Be sure to include the quotes around the network name and password.
 
@@ -249,7 +239,7 @@ If you have a hidden wifi network add the line `scan_ssid=1`.
 
 Press Esc and then type ':wq' and press Enter to write the file and quit.
 
-## Test internet connection
+### **1.6  Test internet connection**
 
 `reboot` to apply the wifi changes and (hopefully) get online
 
@@ -269,7 +259,7 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 * [http://www.cs.upc.edu/lclsi/Manuales/wireless/files/wpa_supplicant.conf](http://www.cs.upc.edu/lclsi/Manuales/wireless/files/wpa_supplicant.conf)
 
 
-## Install packages, ssh keys, and other settings
+### **1.7 Install packages, ssh keys, and other settings**
 
 From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
@@ -289,9 +279,9 @@ adduser edison dialout
 dpkg-reconfigure tzdata
 ```
 
-Run `vi /etc/logrotate.conf` and change the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space.
+`vi /etc/logrotate.conf` and change the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space.
 
 ![Log Rotate edits](../../Images/Edison/logrotate.png)
 
-You have now installed the operating system on your Edison! You can now proceed to the next steps in Phase 1-4.
+You have now installed the operating system and wifi networks on your Edison! You can now proceed to the next steps in Phases 1-4.
 
