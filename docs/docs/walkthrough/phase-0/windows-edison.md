@@ -4,9 +4,8 @@
 
 ### Hardware Assumptions for this page
 
-1.  Using an explorer board and Edison
+1.  Using an Explorer Board and Edison
 2.  Using an Windows computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#information-about-compatible-insulin-pumps).)
 
 ### High Level Recommended Rig parts list
 
