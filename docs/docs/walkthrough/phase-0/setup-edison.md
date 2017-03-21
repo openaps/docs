@@ -340,7 +340,7 @@ Alternatively, add the nameservers you want to see in `resolv.conf` to `/etc/res
 
 Some users have reported problems where the local router uses the same IP block as that of usb0 config.  The default configuration for usb0 in `/etc/network/interfaces` uses 192.168.2.15, so if your local router also uses 192.168.2.xx you may not be able to properly connect to your Edison using SSH, and external connectivity may intermittently fail.
 
-To check which IP address your router is using, you can run `ipconfig` on Windows or `ifconfig` on Mac/Linux.  If you're getting an address starting with 192.168.2.x, you'll want to edit your Edison's configuration to use a different network for usb0:
+To check which IP address your router is using, you can run `ipconfig` on Windows or `ifconfig` on Mac/Linux.  If you're getting an address starting with 192.168.2.x, you'll want to edit your Edison's configuration to use a different subnet for usb0:
 
 use: `vi /etc/network/interfaces`
 to edit the static usb0 interface address from 192.168.2.15 to another valid private IP, like 192.168.29.29.  The resulting config should look like:
