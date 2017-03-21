@@ -33,7 +33,7 @@ Make sure to check through the following list before asking on Gitter if your se
 * Did you put in the right SN for the pump? Should be numbers only...
 * Check to make sure your carelink and/or radio stick is plugged in.
 * Check to make sure your receiver is plugged in, if you're plugging a receiver in.
-* Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct. Check your Nightscout URL, too - it's one of the most common errors to mistype that.
+* Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct. Check your Nightscout URL, too - it's one of the most common errors to mistype that. (And FWIW, you shouldn't be typing things like that in the first place: that's what copy and paste are for.)
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the rig battery and prevent it from operating).
 * Check and make sure your pump is in range of the radio stick.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
@@ -61,4 +61,7 @@ To do this:
   * Start by killing anything that's currently running. ` killall -g openaps`
   * Look and see what's running in your cron. `crontab -l`
   * Run whichever alias is failing to see what commands it is running. I.e. if the pump loop is failing, it's `openaps pump-loop`, which you can run to show what's inside it by `openaps alias show pump-loop`. 
-  * Run each of those commands next individually, and that should give you a better idea of where it's failing or getting stuck. Do this, and share back (if needed) with your troubleshooter about where you think it's getting stuck. 
+  * Run each of those commands next individually, and that should give you a better idea of where it's failing or getting stuck. Do this, and share back (if needed) with your troubleshooter about where you think it's getting stuck.  If that still doesn't give you or your troubleshooter enough info, keep drilling down further:
+  * For example, if your pump-loop.log always shows `Error, retrying` after `Old pumphistory:`, then you'd want to run `openaps refresh-old-pumphistory` manually to reproduce the problem and see if you can get more error details.
+  * If necessary, you can drill down further.  So in this example, you might want to run `openaps alias show refresh-old-pumphistory` to see what *that* alias does, and then `openaps gather` to drill down further.
+  * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
