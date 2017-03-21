@@ -342,8 +342,7 @@ Some users have reported problems where the local router uses the same IP block 
 
 To check which IP address your router is using, you can run `ipconfig` on Windows or `ifconfig` on Mac/Linux.  If you're getting an address starting with 192.168.2.x, you'll want to edit your Edison's configuration to use a different subnet for usb0:
 
-use: `vi /etc/network/interfaces`
-to edit the static usb0 interface address from 192.168.2.15 to another valid private IP, like 192.168.29.29.  The resulting config should look like:
+Use `vi /etc/network/interfaces` to edit the static usb0 interface address from 192.168.2.15 to another valid private IP, like 192.168.29.29.  The resulting config should look like:
 
 ```
 # interfaces(5) file used by ifup(8) and ifdown(8)
