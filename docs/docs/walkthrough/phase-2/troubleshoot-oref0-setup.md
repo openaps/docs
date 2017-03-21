@@ -27,6 +27,8 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 
 ## It's not working yet:
 
+Make sure to check through the following list before asking on Gitter if your setup is not working (yet). Remember if you just ran oref0-setup.sh, wait a good ~20 minutes before seeking help. Time, and the below list of steps, resolves 99% of problems. Also check out [this blog post for tips if asking for help online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
+
 * Check to make sure that your pump is in absolute and not % mode for temp basals.
 * Did you put in the right SN for the pump? Should be numbers only...
 * Check to make sure your carelink and/or radio stick is plugged in.
