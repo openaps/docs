@@ -336,22 +336,28 @@ Also see the instructions [here](https://wiki.debian.org/NetworkConfiguration#Th
 Alternatively, add the nameservers you want to see in `resolv.conf` to `/etc/resolvconf/resolv.conf.d/tail` and they'll be automatically added to `resolv.conf`.
 
 
-###router uses the same IP block as that usb0 config (able to ping external but not LAN addresses)
+### IP address conflicts (able to ping external but not LAN addresses)
 
-Some users have reported problems where the local router uses the same IP block as that of usb0 config (eg where ```/etc/network/interfaces   ``` returns a 192.168.2.xx and ipconfig on the local router also returns 192.168.2.xx
+Some users have reported problems where the local router uses the same IP block as that of usb0 config.  The default configuration for usb0 in `/etc/network/interfaces` uses 192.168.2.15, so if your local router also uses 192.168.2.xx you may not be able to properly connect to your Edison using SSH, and external connectivity may intermittently fail.
 
-use: vi /etc/network/interfaces
-to edit the static usb0 interface from below to something like 192.168.29.29
-```# interfaces(5) file used by ifup(8) and ifdown(8)
+To check which IP address your router is using, you can run `ipconfig` on Windows or `ifconfig` on Mac/Linux.  If you're getting an address starting with 192.168.2.x, you'll want to edit your Edison's configuration to use a different network for usb0:
+
+use: `vi /etc/network/interfaces`
+to edit the static usb0 interface address from 192.168.2.15 to another valid private IP, like 192.168.29.29.  The resulting config should look like:
+
+```
+# interfaces(5) file used by ifup(8) and ifdown(8)
 auto lo
 iface lo inet loopback
 
 auto usb0
 iface usb0 inet static
-    address 192.168.2.15
+    address 192.168.29.29
     netmask 255.255.255.0
 
 auto wlan0
 iface wlan0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf```
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
 
+Once that looks correct, save the file and `reboot` your rig for the changes to take effect.
