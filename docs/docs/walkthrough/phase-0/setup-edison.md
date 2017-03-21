@@ -334,3 +334,24 @@ Some users have reported problems with connecting to internet sites.  If you are
 Also see the instructions [here](https://wiki.debian.org/NetworkConfiguration#The_resolvconf_program) to add these nameservers to your `/network/interfaces` file as the `resolv.conf` file is likely to be overwritten.
 
 Alternatively, add the nameservers you want to see in `resolv.conf` to `/etc/resolvconf/resolv.conf.d/tail` and they'll be automatically added to `resolv.conf`.
+
+
+###router uses the same IP block as that usb0 config (able to ping external but not LAN addresses)
+
+Some users have reported problems where the local router uses the same IP block as that of usb0 config (eg where ```/etc/network/interfaces   ``` returns a 192.168.2.xx and ipconfig on the local router also returns 192.168.2.xx
+
+use: vi /etc/network/interfaces
+to edit the static usb0 interface from below to something like 192.168.29.29
+```# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto usb0
+iface usb0 inet static
+    address 192.168.2.15
+    netmask 255.255.255.0
+
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf```
+
