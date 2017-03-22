@@ -32,12 +32,12 @@ This community of contributors believes in "paying it forward," and individuals 
    docs/walkthrough/phase-0/setup
    docs/walkthrough/phase-0/baseline-data
    docs/walkthrough/phase-0/hardware/hardware
-   docs/walkthrough/phase-0/hardware/pump
-   docs/walkthrough/phase-0/hardware/CGM
+   Compatible Pumps <docs/walkthrough/phase-0/hardware/pump>
+   Compatible CGMs <docs/walkthrough/phase-0/hardware/CGM>
    docs/walkthrough/phase-0/hardware/edison
    docs/walkthrough/phase-0/setup-edison
-   docs/walkthrough/phase-0/edison-explorer-board-Mac
-   docs/walkthrough/phase-0/loops-in-progress
+   Edison/Explorer Board (setup with Mac) <docs/walkthrough/phase-0/edison-explorer-board-Mac>
+   Make Your First PR <docs/walkthrough/phase-0/loops-in-progress>
    
    
 .. toctree::
@@ -45,11 +45,11 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Visualizing & Monitoring
    
-  #  docs/walkthrough/phase-1/index
-   docs/walkthrough/phase-1/nightscout-setup
-   docs/walkthrough/phase-1/offline-looping-and-monitoring
-   docs/walkthrough/phase-1/papertrail
-   docs/walkthrough/phase-1/add-alias
+   # docs/walkthrough/phase-1/index
+   Set up Nightscout <docs/walkthrough/phase-1/nightscout-setup>
+   Offline Looping/Monitoring Offline <docs/walkthrough/phase-1/offline-looping-and-monitoring>
+   Papertrail (optional) <docs/walkthrough/phase-1/papertrail>
+   Handy shortcuts to add <docs/walkthrough/phase-1/add-alias>
    
 .. toctree::
    :maxdepth: 2
@@ -57,11 +57,11 @@ This community of contributors believes in "paying it forward," and individuals 
    :caption: Creating your DIY Closed Loop
     
    #  docs/walkthrough/phase-2/index   
-   docs/walkthrough/phase-2/oref0-setup
-   docs/walkthrough/phase-2/troubleshoot-oref0-setup
+   Setup script <docs/walkthrough/phase-2/oref0-setup>
+   Troubleshooting setup script <docs/walkthrough/phase-2/troubleshoot-oref0-setup>
    docs/walkthrough/phase-2/accessing-your-rig
-   docs/walkthrough/phase-2/on-the-go-wifi-adding
-   docs/walkthrough/phase-2/update-your-rig
+   Add other wifi on the go <docs/walkthrough/phase-2/on-the-go-wifi-adding>
+   Update your rig <docs/walkthrough/phase-2/update-your-rig>
    
 .. toctree::
    :maxdepth: 2
@@ -69,8 +69,8 @@ This community of contributors believes in "paying it forward," and individuals 
    :caption: Understanding Your Loop and Tweaking Settings
    
    # docs/walkthrough/phase-3/index  
-   docs/walkthrough/phase-3/Understand-determine-basal
-   docs/walkthrough/phase-3/beyond-low-glucose-suspend
+   Understand what your rig is doing & why <docs/walkthrough/phase-3/Understand-determine-basal>
+   Updating preferences & more <docs/walkthrough/phase-3/beyond-low-glucose-suspend>
 
 .. toctree::
    :maxdepth: 2
@@ -79,8 +79,8 @@ This community of contributors believes in "paying it forward," and individuals 
    
    # docs/walkthrough/phase-4/index  
    docs/walkthrough/phase-4/Usability-considerations
-   docs/walkthrough/phase-4/keeping-up-to-date
-   docs/walkthrough/phase-4/advanced-features
+   Tell us you're looping! <docs/walkthrough/phase-4/keeping-up-to-date>
+   Advanced Features (AMA, etc.) <docs/walkthrough/phase-4/advanced-features>
    docs/walkthrough/phase-4/bluetooth-tethering-edison
    docs/walkthrough/phase-4/ifttt-integration
    docs/walkthrough/phase-4/autotune
