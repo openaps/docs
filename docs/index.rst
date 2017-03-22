@@ -14,13 +14,11 @@ This community of contributors believes in "paying it forward," and individuals 
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :glob:
 
    docs/introduction/index
    docs/walkthrough/index
-   
-
    Resources <docs/Resources/index>
    reference/index
 
