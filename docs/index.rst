@@ -1,7 +1,7 @@
 Welcome to OpenAPS's documentation!
 ==============================================
 
-This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the OpenAPS reference design. By proceeding to use these tools or any piece within, you agree to the copyright (see [LICENSE.txt](https://github.com/openaps/docs/blob/master/license.txt) for more information; and [the full README here[(https://github.com/openaps/docs/blob/master/README.md) and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
+This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the OpenAPS reference design. By proceeding to use these tools or any piece within, you agree to `the copyright <https://github.com/openaps/docs/blob/master/license.txt>`_ for more information; and `the full README here <https://github.com/openaps/docs/blob/master/README.md>`_ and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
 
 *A Note on DIY and the "Open" Part of OpenAPS*
 
@@ -19,7 +19,7 @@ This community of contributors believes in "paying it forward," and individuals 
    :caption: Before You Begin
 
    # docs/introduction/index
-   docs/introduction/understand-this-guide
+   Understanding this guide (read me first!) <docs/introduction/understand-this-guide>
    docs/introduction/contribute
    docs/introduction/communication-support-channels
    
