@@ -148,7 +148,7 @@ html_theme_options = {
 }
 
 """
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'default'
 html_theme_options = {
   'display_github': True,
   'github_user': 'openaps',
