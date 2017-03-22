@@ -1,7 +1,7 @@
 Welcome to OpenAPS's documentation!
 ==============================================
 
-This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the OpenAPS reference design. By proceeding to use these tools or any piece within, you agree to the copyright (see LICENSE.txt for more information; and the full README here: https://github.com/openaps/docs/blob/master/README.md ) and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
+This documentation support a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the OpenAPS reference design. By proceeding to use these tools or any piece within, you agree to the copyright (see [LICENSE.txt](https://github.com/openaps/docs/blob/master/license.txt) for more information; and [the full README here[(https://github.com/openaps/docs/blob/master/README.md) and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
 
 *A Note on DIY and the "Open" Part of OpenAPS*
 
@@ -23,41 +23,43 @@ This community of contributors believes in "paying it forward," and individuals 
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Phase 0 - General Setup, Equipment Gathering & Prep
+   :caption: General Setup
    
    docs/walkthrough/phase-0/index
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Phase 1 - Visualizing & Monitoring
+   :caption: Visualizing & Monitoring
    
    docs/walkthrough/phase-1/index   
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Phase 2 - Creating your DIY (PLGM) Closed Loop
+   :caption: Creating your DIY Closed Loop
    
    docs/walkthrough/phase-2/index  
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Phase 3 -  Understanding Your Loop and Tweaking Settings
+   :caption: Understanding Your Loop and Tweaking Settings
    
    docs/walkthrough/phase-3/index   
 
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Phase 4 -  Advanced Features (Iterate & Improve Your DIY Closed Loop)
+   :caption: Advanced Features 
    
    docs/walkthrough/phase-4/index  
 
 .. toctree::
    :maxdepth: 2
    :glob:
+   :caption: Resources/Reference
+   
    Resources <docs/Resources/index>
    reference/index
 
