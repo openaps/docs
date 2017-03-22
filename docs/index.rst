@@ -19,6 +19,9 @@ This community of contributors believes in "paying it forward," and individuals 
    :caption: Before You Begin
 
    docs/introduction/index
+   docs/introduction/understand-this-guide
+   docs/introduction/contribute
+   docs/introduction/communication-support-channels
    
 .. toctree::
    :maxdepth: 2
@@ -26,6 +29,16 @@ This community of contributors believes in "paying it forward," and individuals 
    :caption: General Setup
    
    docs/walkthrough/phase-0/index
+   docs/walkthrough/phase-0/setup
+   docs/walkthrough/phase-0/baseline-data
+   docs/walkthrough/phase-0/hardware/hardware
+   docs/walkthrough/phase-0/hardware/pump
+   docs/walkthrough/phase-0/hardware/CGM
+   docs/walkthrough/phase-0/hardware/edison
+   docs/walkthrough/phase-0/setup-edison
+   docs/walkthrough/phase-0/edison-explorer-board-Mac
+   docs/walkthrough/phase-0/loops-in-progress
+   
    
 .. toctree::
    :maxdepth: 2
