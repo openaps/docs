@@ -18,7 +18,7 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Before You Begin
 
-   docs/introduction/index
+   # docs/introduction/index
    docs/introduction/understand-this-guide
    docs/introduction/contribute
    docs/introduction/communication-support-channels
@@ -28,7 +28,7 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: General Setup
    
-   docs/walkthrough/phase-0/index
+   # docs/walkthrough/phase-0/index
    docs/walkthrough/phase-0/setup
    docs/walkthrough/phase-0/baseline-data
    docs/walkthrough/phase-0/hardware/hardware
@@ -45,7 +45,7 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Visualizing & Monitoring
    
-   docs/walkthrough/phase-1/index
+  #  docs/walkthrough/phase-1/index
    docs/walkthrough/phase-1/nightscout-setup
    docs/walkthrough/phase-1/offline-looping-and-monitoring
    docs/walkthrough/phase-1/papertrail
@@ -56,6 +56,7 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Creating your DIY Closed Loop
     
+   #  docs/walkthrough/phase-2/index   
    docs/walkthrough/phase-2/oref0-setup
    docs/walkthrough/phase-2/troubleshoot-oref0-setup
    docs/walkthrough/phase-2/accessing-your-rig
@@ -76,7 +77,7 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Advanced Features 
    
-   docs/walkthrough/phase-4/index  
+   # docs/walkthrough/phase-4/index  
    docs/walkthrough/phase-4/Usability-considerations
    docs/walkthrough/phase-4/keeping-up-to-date
    docs/walkthrough/phase-4/advanced-features
