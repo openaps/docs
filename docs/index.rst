@@ -14,11 +14,50 @@ This community of contributors believes in "paying it forward," and individuals 
 
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :glob:
+   :caption: Before You Begin
 
    docs/introduction/index
-   docs/walkthrough/index
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Phase 0 - General Setup, Equipment Gathering & Prep
+   
+   docs/walkthrough/phase-0/index
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Phase 1 - Visualizing & Monitoring
+   
+   docs/walkthrough/phase-1/index   
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Phase 2 - Creating your DIY (PLGM) Closed Loop
+   
+   docs/walkthrough/phase-2/index  
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Phase 3 -  Understanding Your Loop and Tweaking Settings
+   
+   docs/walkthrough/phase-3/index   
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Phase 4 -  Advanced Features (Iterate & Improve Your DIY Closed Loop)
+   
+   docs/walkthrough/phase-4/index  
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
    Resources <docs/Resources/index>
    reference/index
 
