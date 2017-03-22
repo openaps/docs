@@ -67,7 +67,9 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Understanding Your Loop and Tweaking Settings
    
-   docs/walkthrough/phase-3/index   
+   # docs/walkthrough/phase-3/index  
+   docs/walkthrough/phase-3/Understand-determine-basal
+   docs/walkthrough/phase-3/beyond-low-glucose-suspend
 
 .. toctree::
    :maxdepth: 2
@@ -75,6 +77,13 @@ This community of contributors believes in "paying it forward," and individuals 
    :caption: Advanced Features 
    
    docs/walkthrough/phase-4/index  
+   docs/walkthrough/phase-4/Usability-considerations
+   docs/walkthrough/phase-4/keeping-up-to-date
+   docs/walkthrough/phase-4/advanced-features
+   docs/walkthrough/phase-4/bluetooth-tethering-edison
+   docs/walkthrough/phase-4/ifttt-integration
+   docs/walkthrough/phase-4/autotune
+   docs/walkthrough/phase-4/data-commons-data-donation
 
 .. toctree::
    :maxdepth: 2
