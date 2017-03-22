@@ -45,14 +45,22 @@ This community of contributors believes in "paying it forward," and individuals 
    :glob:
    :caption: Visualizing & Monitoring
    
-   docs/walkthrough/phase-1/index   
+   docs/walkthrough/phase-1/index
+   docs/walkthrough/phase-1/nightscout-setup
+   docs/walkthrough/phase-1/offline-looping-and-monitoring
+   docs/walkthrough/phase-1/papertrail
+   docs/walkthrough/phase-1/add-alias
    
 .. toctree::
    :maxdepth: 2
    :glob:
    :caption: Creating your DIY Closed Loop
-   
-   docs/walkthrough/phase-2/index  
+    
+   docs/walkthrough/phase-2/oref0-setup
+   docs/walkthrough/phase-2/troubleshoot-oref0-setup
+   docs/walkthrough/phase-2/accessing-your-rig
+   docs/walkthrough/phase-2/on-the-go-wifi-adding
+   docs/walkthrough/phase-2/update-your-rig
    
 .. toctree::
    :maxdepth: 2
