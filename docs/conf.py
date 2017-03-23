@@ -51,6 +51,10 @@ source_parsers = {
 }
 
 
+# Attempting to add some css changes:
+def setup(app):
+    app.add_stylesheet('_static/css/custom.css') 
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 source_suffix = ['.md', '.rst', ]
