@@ -53,7 +53,7 @@ source_parsers = {
 
 # Attempting to add some css changes:
 def setup(app):
-    app.add_stylesheet(`css/custom.css') 
+    app.add_stylesheet(`custom.css') 
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
