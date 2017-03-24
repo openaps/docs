@@ -140,3 +140,4 @@ List of people who are working on closed loops:
 - Song Ming Jie (China)
 - Chuck Vanderwist (Western Colorado, USA)
 - James Corbett (Greenbrier, TN USA)
+- Meghan Rutledge (Dallas, TX)
