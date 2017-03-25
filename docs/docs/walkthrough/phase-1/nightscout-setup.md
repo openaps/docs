@@ -1,5 +1,12 @@
 # Visualization and Monitoring
 
+### Before you get started
+
+* **Note about COB**: OpenAPS dynamically calculates COB if you have turned on AMA. To see your COB, look inside the OpenAPS pill. We highly recommend disabling the separate NS COB pill (i.e. remove it from variables even) as it causes bugs, and great confusion, because it will do a static decay and/or mess up your NS up. BWP COB/Care Portal COB is also based on static decay and is NOT what OpenAPS is using. 
+* **Repeated for clarity**: turn off all other COB displays and look to the OpenAPS pill or tail your logs to get your updated COB information.
+* If you plan to use Nightscout to vizualize a production OpenAPS instance, we recommend using Heroku, as OpenAPS' can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.
+
+
 ## Nightscout Introduction
 
 [Nightscout](http://nightscout.info) is an open source, DIY project that allows real time access to a CGM data
@@ -28,10 +35,6 @@ At this point it is recommended that you go to the
 excellent guides of how to get various CGM systems working as well as displaying
 your data on a variety of additional devices. Once your website is up and
 running you can integrate Nightscout to your OpenAPS using the guide below.
-
-**NOTE**: If you plan to use Nightscout to vizualize a production OpenAPS instance, we
-recommend using Heroku, as OpenAPS' can reach the usage limits of 
-the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.
 
 ## Nightscout Integration
 

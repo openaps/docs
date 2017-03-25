@@ -4,6 +4,8 @@ There are several ways to communicate with other participants and contributors i
 
 **Note:** It's best practice not to share your pump's serial number, so make sure not to include it in pictures or pasted text output when seeking help on pump communication.
 
+**Related**: You may want to read [this blog post for tips on how to best seek help when troubleshooting online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/) - there is a lot of information you can provide proactively when seeking help that will aid in getting your issue resolved more quickly.
+
 ### Gitter
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
 
