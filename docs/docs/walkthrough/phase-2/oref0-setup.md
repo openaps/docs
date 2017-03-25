@@ -16,7 +16,7 @@ Running this code will install all of the dependencies for you automatically:
 
 If the install was successful, the last line will say something like:
     
-    openaps 0.2.0  (although the version number may have been incremented)
+    openaps 0.1.5  (although the version number may have been incremented)
 
 If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 
