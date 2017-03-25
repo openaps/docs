@@ -10,42 +10,43 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
 
 ```
 {"carbs":0,"boluses":0}
-{"delta":-2,"glucose":110,"avgdelta":-2.5}
+{"delta":5,"glucose":161,"short_avgdelta":4.5,"long_avgdelta":3.92}
 {"duration":0,"rate":0,"temp":"absolute"}
 {"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}
 {"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}
 ```
 
 * meal.json = `{"carbs":0,"boluses":0}`
-  * carbs = # of carbs consumed
-  * boluses = amount of bolus insulin delivered
+  * `carbs` = # of carbs consumed
+  * `boluses` = amount of bolus insulin delivered
   
   Those data come from what you entered into your pump or Nightscout web app. If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
-* glucose.json = `{"delta":-2,"glucose":110,"avgdelta":-2.5}`
-  * delta = change from the previous BG (usually 5 minutes earlier)
-  * glucose = most recent BG
-  * avgdelta = average change since 3 data points earlier (usually 15 minutes earlier)
+* glucose.json = `{"delta":5,"glucose":161,"short_avgdelta":4.5,"long_avgdelta":3.92}`
+  * `delta` = change in BG between `glucose` (most recent BG) and an average of BG value from between 2.5 and 7.5 minutes ago (usually just a single BG value from 5 minutes ago)
+  * `glucose` = most recent BG
+  * `short_avgdelta` = change in BG between `glucose` (most recent BG) and an average of BG values from between 2.5 and 17.5 minutes ago (that average represents what BG levels were approximately 10 minutes ago)
+  * `long_avgdelta` = change in BG between `glucose` (most recent BG) and an average of BG values from between 17.5 and 42.5 minutes ago (that average represents what BG levels were approximately 30 minutes ago)
   
   Those data come from your connected CGM or from your Nightscout web app.
 * temp_basal.json = `{"duration":0,"rate":0,"temp":"absolute"}`
-  * duration = length of time temp basal will run. A duration of 0 indicates none is running
-  * rate = Units/hr basal rate is set to
-  * temp = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
+  * `duration` = length of time temp basal will run. A duration of 0 indicates none is running
+  * `rate` = Units/hr basal rate is set to
+  * `temp` = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
   
   Those data come from your pump.
 * iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}`
-  * iob = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
-  * activity = the amount that BG "should" be rising or falling based on iob.
+  * `iob` = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
+  * `activity` = the amount that BG "should" be rising or falling based on iob.
   Insulin activity is used (by multiplying activity * ISF) to determine BGI (blood glucose impact), the amount that BG "should" be rising or falling based on insulin activity alone.
-  * bolussnooze = used to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in
-  * basaliob = insulin on board attributed to basal rate, excluding the IOB effect of boluses
-  * netbasalinsulin = net of basal insulin compared to preprogrammed pump basal rate
-  * time = current time
+  * `bolussnooze` = used to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in
+  * `basaliob` = insulin on board attributed to basal rate, excluding the IOB effect of boluses
+  * `netbasalinsulin` = net of basal insulin compared to preprogrammed pump basal rate
+  * `time` = current time
   
   Those data are calculated based on information received from your pump.
 * preferences.json = `{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}`
 	* Contains all of the user’s relevant pump settings
-	* max_iob = maximum allowed insulin on board. **This is an important safety measure and integral part of the OpenAPS design.**
+	* `max_iob` = maximum allowed insulin on board. **This is an important safety measure and integral part of the OpenAPS design.**
 	
 	Those data are set during the openAPS setup script (or modified by you directly) and based on information received from your pump.
 
