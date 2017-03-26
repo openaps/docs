@@ -141,3 +141,4 @@ List of people who are working on closed loops:
 - Chuck Vanderwist (Western Colorado, USA)
 - James Corbett (Greenbrier, TN USA)
 - Meghan Rutledge (Dallas, TX)
+- Rick Warren (Vancouver, BC, Canada)
