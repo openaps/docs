@@ -6,14 +6,19 @@ There are a number of ways to have an "offline" OpenAPS rig, and numerous ways t
 
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
 
-Dexcom CGM users and users of other CGMs will have alternatives to input blood glucose values localy.  1.) Use xDrip see: http://stephenblackwasalreadytaken.github.io/xDrip/ 2.)Hardwire (plugging CGM receiver into) your rig. 
+Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  
+* 1.) Use xDrip. See: http://stephenblackwasalreadytaken.github.io/xDrip/ 
+* 2.) Plug the CGM receiver directly into your rig via USB. 
 
-Explorer boards built prior to late January of 2017 are not allways working well with a hardwired CGM receiver. This can be fixed with a signal trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see this document for details on how to cut the copper trace from pin 61 of the 70 pin connector: https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
+  * Explorer Boards that shipped at or after the end of February 2017/first week of March 2017 should enable users to simply plug in the CGM receiver to the OTG port, and a USB battery into the UART port, in order to run offline and pull BGs from the receiver. 
+  * Explorer boards built prior to late January of 2017 are not always working well/automatically with a CGM receiver plugged in. This can be fixed with a single trace cut, but doing so will break the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see [this document for details on how to cut the copper trace from pin 61 of the 70 pin connector](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness). Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
+
 
 ## Offline monitoring
 
 * See Pancreabble instructions below for connecting your rig to your watch
-* See xDrip instructions for seeing offline loop status
+* See xDrip instructions below for seeing offline loop status
+* See HotButton instructions below for setting temp targets and controlling your rig offline via an Android
 
 ### Note about recovery from Camping Mode/Offline mode for Medtronic CGM users:
 
@@ -143,13 +148,13 @@ you can edit this file using `nano pancreoptions.json` from your APS directory.
 
 ### xDripAPS for offline BGs
 
-This is a REST microservice designed to allow xDrip CGM data to be used in OpenAPS. **Note as of 1/26/17:** The below documentation is WIP and needs additional testing.
+**Note as of 1/26/17:** The below documentation is WIP and needs additional testing.
 
-Do you use OpenAPS and xDrip? Until now, this usually means you need an internet connection to upload your CGM data to Nightscout and then have OpenAPS download it from there to use in your loop. This repository allows you to get your CGM data from xDrip into OpenAPS without the need for an internet connection.
+Do you use OpenAPS and the xDrip Android App? Until now this required an internet connection to upload your xDrip Android App CGM data to an online Nightscout instance (the OpenAPS community recommends utilizing Heroku). Then your data was downloaded to your OpenAPS rig for use in your online loop. The xDripAPS code resides on your OpenAPS rig and allows the direct transfer of xDrip Android App CGM data to your OpenAPS rig without an internet connection. xDripAPS creates an offline OpenAPS rig which utilizes a "local" or "personal" network (WiFi hotspot or Bluetooth tethering) for direct communication between the xDrip Android device and the OpenAPS rig. Data which is 'missing' from Nightscout will be uploaded when the OpenAPS rig regains internet connectivity.
 
-xDripAPS is a lightweight microservice intended to be used on Raspberry Pi or Intel Edison OpenAPS rigs. Users of the xDrip Android app can use the "REST API Upload" option to send CGM data to this service. The service stores the data in a SQLite3 database. The service can be invoked from within OpenAPS to retrieve CGM data. This approach allows for offline/camping-mode looping. No internet access is required, just a local, or "personal" network between the Android phone and the OpenAPS rig (using either WiFi hotspotting or bluetooth tethering).
+The OpenAPS community recommends an Explorer Board / Intel Edison rig, but xDripAPS also works with a Raspberry Pi rig. 
 
-As of oref0 v0.4.0 (Jan 2017), support for xDripAPS is now included in the OpenAPS oref0-setup.sh script. When running the oref0-setup.sh script, you will be prompted to specify a CGM type (e.g. MDT, G4). You can specify "xdrip" (without the quotes). This will install xDripAPS and all dependencies. Alternatively, manual installation instructions can be found at the bottom of this page.
+Configuring an offline OpenAPS rig is quite easy because the OpenAPS setup script (oref0-setup.sh v0.4.0 and later) supports an automated installation of xDripAPS and dependencies. When running the OpenAPS setup script you simply specify "xdrip" (without the quotes) when promped to specify a CGM type (e.g. MDT, G4). Alternatively, manual installation instructions can be found at the bottom of this page.
 
 #### Overview of xDripAPS
 With xDripAPS, the flow of data is as follows -
@@ -164,10 +169,10 @@ With xDripAPS, the flow of data is as follows -
 #### Setup Steps (using oref0-setup.sh script)
 
 ##### Setting up your OpenAPS rig
-Install OpenAPS as per the documentation. When running the oref0-setup script, you will be prompted to specify a CGM source. Enter "xdrip" (without the quotes).
+Install OpenAPS as per the documentation. While running the oref0-setup script you will be prompted to specify a CGM source. Enter "xdrip" (without the quotes). The setup script takes care of the rest! Follow the remainder of the setup script as normal.
 
 ##### Connect your Android phone and your OpenAPS rig
-For the xDrip app on your Android phone to be able to send CGM data to xDripAPS on your OpenAPS rig, they need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity. Data which is 'missing' from Nightscout will be uploaded when you regain internet connectivity.
+For the xDrip app on your Android phone to be able to send CGM data to xDripAPS on your OpenAPS rig, they need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity. 
 
 There are two approaches for establishing a "personal" network between your phone and your OpenAPS rig. The first is to run a WiFi hotspot on your phone and connect your OpenAPS rig to the WiFi network your phone exposes. This is the easiest option, but there are two drawbacks - it drains your phone battery quickly, and your phone cannot connect to a normal WiFi network while the WiFi hotspot is enabled (it can connect to the internet via 3G/4G when coverage is available).
 
@@ -180,13 +185,17 @@ First, determine your OpenAPS rig's IP address within your "personal" network. I
 
 Then, open xDrip or xDrip+ settings and in the REST API Upload setting, configure the following URL -
 
-`http://<api_secret>@<rig_ip_address>:5000/api/v1/`
+`http://<nightscout_api_secret>@<rig_ip_address>:5000/api/v1/`
 
-Note: ensure you enter http:// (NOT https://). <api_secret> is the plain-text API secret you used when you set up OpenAPS/Nightscout and <rig_ip_address> is the IP address of your OpenAPS rig (starting 192.168). For example, this is the value I have configured (I have obscured my API secret) -
-
+A few notes to clarify:
+     - enter "http://" NOT "https://
+     - <nightscout_api_secret> is the plain-text API secret used when creating your online Nightscout instance.
+     - <rig_ip_address> is the IP address of your OpenAPS rig assigned by your WiFi hotspot or Bluetooth tether connection. It will take
+       the form of: 192.168.xxx.xx
+       
 ![REST API Upload setting](https://github.com/colinlennon/xDripAPS/blob/master/xDrip_REST_API_cropped.png "REST API Upload setting")
 
-If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB and ensure that the "Skip LAN uploads" option is NOT selected. If you don't have this setting, update to a recent version of the xDrip+ app. (This option was added to a nightly build around December 2016).
+If using xDrip+ navigate to Settings > Cloud Upload > MongoDB and uncheck the "Skip LAN uploads" option. Do not turn on the "Enable Nightscout Mongo DB sync" option. If you don't have these options, update to a recent version of the xDrip+ app. (This option was added to a nightly build around December 2016).
 
 #### Manual installation steps
 
@@ -229,9 +238,7 @@ If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB a
   `@reboot         python /home/root/.xDripAPS/xDripAPS.py`
 
 6. Cofigure the xDrip Android app -
-   ```
-  xDrip > Settings > REST API Upload > Set Enabled and enter Base URL: http://[API_SECRET]@[Pi/Edison_IP_address]:5000/api/v1/
-  ```
+  `xDrip > Settings > REST API Upload > Set Enabled and enter Base URL: http://[API_SECRET]@[Pi/Edison_IP_address]:5000/api/v1/`
  
   (Note: Enter your plain-text API_SECRET in the Android app, not the hashed version of it).
 
@@ -241,4 +248,34 @@ If using xDrip+ you also need to navigate to Settings > Cloud Upload > MongoDB a
   ```
   openaps device add xdrip process 'bash -c "curl -s http://localhost:5000/api/v1/entries?count=288"'
   openaps report add monitor/glucose.json text xdrip shell
+  ```
 
+### Hot Button
+
+#### Purpose
+[Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especialy useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
+
+#### App Setup 
+To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.
+
+#### Basic commands
+To the Command part of the button setup you can write any command which you would run in the ssh session. For example to show the automatic sensitivity ratio, you can set:
+`cat /root/myopenaps/settings/autosens.json`
+
+After button click the command is executed and the results are displayed in the black text area bellow the buttons. 
+
+#### Temporary targets
+It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
+
+To setup activity mode run:
+`./set_temp_target.sh "Activity Mode" 130`
+
+To setup eating soon mode run:
+`./set_temp_target.sh "Eating Soon" 80`
+
+The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
+To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove `openaps ns-temptargets` from ns-loop. 
+
+#### SSH Login Speedup
+To speed up the command execution you can add to the `/etc/ssh/sshd_config` the following line:
+`UseDNS no`

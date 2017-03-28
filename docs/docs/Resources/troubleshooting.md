@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting.
+Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting. Here is also a [good blog post to read with tips on how to best seek help online to troubleshoot](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
 ## Generally useful linux commands
 
@@ -139,6 +139,25 @@ Below is correct definition
     device = get-profile
     remainder =
     insulin_sensitivities = settings/insulin_sensitivities.json
+
+### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
+
+Basic steps using an Intel Edison with Explorer Board, checking with openaps mmtune to see if it is resolved yet:
+  * Double check that your port in pump.ini is correct
+  * Reboot your rig
+  * Run `oref0-runagain`
+  * Fully power down and start up your rig
+  * Remove and re-add your pump device
+
+If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, you may need to re-flash your radio chip:
+  * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
+  * Flash the radio chip:
+```
+wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+ccprog -p 19,7,36 erase
+ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+```
+  * Reboot, and try `openaps mmtune` to make sure it works
 
 
 ### CareLink RF timeout errors

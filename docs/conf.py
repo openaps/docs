@@ -27,6 +27,9 @@ import alabaster
 
 # -- General configuration ------------------------------------------------
 
+# RTD
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
@@ -47,6 +50,10 @@ source_parsers = {
   '.md': CommonMarkParser,
 }
 
+
+# Attempting to add some css changes:
+def setup(app):
+    app.add_stylesheet(`custom.css') 
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -122,7 +129,7 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+#html_theme = 'default`
 
 
 extra_nav_links = {
@@ -148,7 +155,7 @@ html_theme_options = {
 }
 
 """
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'default'
 html_theme_options = {
   'display_github': True,
   'github_user': 'openaps',
