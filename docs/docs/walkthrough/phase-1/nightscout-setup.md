@@ -260,7 +260,7 @@ You do not have to enter all the information in the profile if you are using Ope
 .. note:: You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
 
 <p align="center">
-<img src="../img/ns_deploybranch.png" width="450">
+<img src="../img/deploy_branch.png" width="450">
 </p> 
 
 ### Understanding the OpenAPS pill
