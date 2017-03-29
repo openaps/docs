@@ -59,7 +59,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 .. note:: The `extract all` command comes standard for all Windows machines.  However, in some instances, it may not be active for zipped files. If you do not see the `extract all` option in the right-click menu, you can download an extraction software called 7-zip by clicking [here](https://ninite.com/7zip-putty/).  The link also will download a PuTTY installer, in case you had trouble downloading it in the earlier steps.  Use the 7zip program to extract your files below if the `extract all` is missing.
 
-Your root directory is the set of folder that exist under your User name in Windows.  In this screenshot, the user's name is `vitov` and the unzipped jubilinux folder has been saved in the root directory of user vitov.
+Your root directory is the set of folders that exist under your User name in Windows.  In this screenshot, the user's name is `vitov` and the unzipped jubilinux folder has been saved in the root directory of user vitov.
 
 ![Root User](../../Images/Edison/root.png)
 
