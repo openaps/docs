@@ -55,23 +55,15 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - Reboot and attempt the flash proccess.
 ******************************
 
-- Download [WinZip](http://download.winzip.com/gl/nkln/winzip21_downwz.exe) or similar program to allow you to unzip/uncompress the files we are going to download in the next steps.  WinZip offers a free "evaluation version", or you can buy it for approximately $30.  Install WinZip by double-clicking on the downloaded file. 
+- Download [Jubilinux](http://www.robinkirkman.com/jubilinux/jubilinux.zip).  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and right-click the `jubilinux.zip` folder.  Select `extract all` from the menu.  Saving it to your root user directory is a good idea...but where ever you put it, remember so we can find it later.
 
-![winzip](../../Images/Edison/winzip.png)
-
-- Download [Jubilinux](http://www.robinkirkman.com/jubilinux/jubilinux.zip).  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and double-click the `jubilinux.zip` folder.  When you double-click (assuming you are using WinZip or similar), you will choose the location to save the unzipped folder to.  Saving it to your root user directory is a good idea...but where ever you put it, remember so we can find it later.
-
-![Unzip jubilinux](../../Images/Edison/jubilinux_unzip.png)
+.. note:: The `extract all` command comes standard for all Windows machines.  However, in some instances, it may not be active for zipped files. If you do not see the `extract all` option in the right-click menu, you can download an extraction software called 7-zip by clicking [here](https://ninite.com/7zip-putty/).  The link also will download a PuTTY installer, in case you had trouble downloading it in the earlier steps.  Use the 7zip program to extract your files below if the `extract all` is missing.
 
 Your root directory is the set of folder that exist under your User name in Windows.  In this screenshot, the user's name is `vitov` and the unzipped jubilinux folder has been saved in the root directory of user vitov.
 
 ![Root User](../../Images/Edison/root.png)
 
-- Download [DFU-Util](https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz).  This download is also in a compressed format.  In this download, we are actually only interested in two files `libusb-1.0.dll` and `dfu-util.exe`.  We are going to unzip the whole folder using WinZip again (double-clicking on the `dfu-util-0.8-binaries.tar.xz` in Downloads folder).  We again will save it to any place you'd like, just remember where so we can find it later.
-
-![DFU-Util](../../Images/Edison/dfu_util.png)
-
-![DFU-Util unzip](../../Images/Edison/dfu_unzip.png)
+- Download [DFU-Util](https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz).  This download is also in a compressed format.  In this download, we are actually only interested in two files `libusb-1.0.dll` and `dfu-util.exe`.  We are going to unzip the whole folder (right-click on the `dfu-util-0.8-binaries.tar.xz` in Downloads folder and choose `extract all`).  We again will save it to any place you'd like, just remember where so we can find it later.
 
 Once you unzip the folder, go to the unzipped folder and look inside.  You will find a folder called `win32-mingw32`.  You want inside that folder.
 
@@ -114,7 +106,7 @@ Your screens should look like this:
   
 ### **1-3 Flash the Edison**
 
-* In your flash window on the right (command prompt window), enter `flashall.bat`
+* In your flash window on the left (command prompt window), enter `flashall.bat`
 
 * You’ll get a prompt that asks you to "plug and reboot" the Edison board.  You’re done with this screen for now.  Just leave it alone (**don’t close window**) and go to next step.
 
@@ -126,7 +118,7 @@ You will see many, many messages go by on the screens (mostly on the right-side 
 
   ![Control D to continue](../../Images/Edison/control_d.png)
 
-After you press Control-D, the flashing will continue
+After you press Control-D, the flashing will continue.
 
 ![flash continues](../../Images/Edison/mid_flash.png)
 
@@ -245,9 +237,9 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 ### **1.7 Install packages, ssh keys, and other settings**
 
-From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
+From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `myedisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
-Log in as root (with the password you just set above), and run (first line will be quick, second and third lines will take awhile):
+Login as root (with the password you just set above), and run (first line will be quick, second and third lines will take awhile):
 
 ```
 dpkg -P nodejs nodejs-dev
@@ -267,4 +259,4 @@ dpkg-reconfigure tzdata
 
 ![Log Rotate edits](../../Images/Edison/logrotate.png)
 
-You have now installed the operating system and wifi networks on your Edison! https://diyps.org/2014/05/14/diyps-findings-help-people-with-type-1-diabetes-better-manage-post-meal-blood-glucose-levels/
+You have now installed the operating system and wifi networks on your Edison! You can move onto the next steps in building your OpenAPS rig.
