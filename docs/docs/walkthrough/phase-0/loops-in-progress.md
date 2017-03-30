@@ -136,7 +136,7 @@ List of people who are working on closed loops:
 - Lorenzo Sandini (Finland)
 - Deidra Little (Seattle, WA)
 - Tim Mathis (Fort Walton Beach, FL)
-- Greg Uhlenkott (Grangeville, ID)
+- Greg Uhlenkott (Grangeville, ID, USA)
 - Song Ming Jie (China)
 - Chuck Vanderwist (Western Colorado, USA)
 - James Corbett (Greenbrier, TN USA)
