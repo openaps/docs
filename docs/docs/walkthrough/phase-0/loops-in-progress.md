@@ -143,3 +143,4 @@ List of people who are working on closed loops:
 - Meghan Rutledge (Dallas, TX)
 - Rick Warren (Vancouver, BC, Canada)
 - Carl-Johan Wehtje (London, UK)
+- Cameron Renwick (Muskoka, Ontario, Canada)
