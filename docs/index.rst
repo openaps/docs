@@ -94,14 +94,3 @@ This documentation support a self-driven Do-It-Yourself (DIY) implementation of 
    Resources <docs/Resources/index>
    reference/index
 
-
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
