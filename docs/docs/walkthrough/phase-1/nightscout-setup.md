@@ -32,7 +32,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 * Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup.  Don’t forget to check your email to confirm your Heroku account.
 
 <p align="center">
-<img src="../img/heroku_signup.jpg" width="450">
+<img src="../phase-1/img/heroku_signup.jpg" width="450">
 </p> 
 
 * Create an account at [GitHub](https://github.com)
@@ -50,7 +50,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 * Scroll down until you see the purple `Deploy to Heroku` button.  Click that button.
 
 <p align="center">
-<img src="../img/deploy_heroku.jpg" width="450">
+<img src="../phase-1/img/deploy_heroku.jpg" width="450">
 </p> 
 
 * Give your app a name, this will be the prefix of your NS site’s URL. For example, `https://yourappname.herokuapp.com`
@@ -138,37 +138,37 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 * Click the purple `Deploy` button at the bottom of screen
 
 <p align="center">
-<img src="../img/deploy_button.jpg" width="450">
+<img src="../phase-1/img/deploy_button.jpg" width="450">
 </p> 
 
 * Wait a little bit while Heroku builds your NS app.  You’ll see some text scroll by in the Build App box, and then finally, you will have a message that the NS app was successfully deployed.
 
 <p align="center">
-<img src="../img/deploy_success.jpg" width="450">
+<img src="../phase-1/img/deploy_success.jpg" width="450">
 </p> 
 
 * You can verify your site’s successful build by clicking `View` (you should see black site with a profile warning).  You will be redirected to a profile set-up page.  (If it doesn't redirect automatically, refresh your webpage).  
 
 <p align="center">
-<img src="../img/no_profile.jpg" width="450">
+<img src="../phase-1/img/no_profile.jpg" width="450">
 </p> 
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
 <p align="center">
-<img src="../img/profile.jpg" width="450">
+<img src="../phase-1/img/profile.jpg" width="450">
 </p> 
 
 * Assuming your previous browser tab is still open for "Create a new App | Heroku", let's go back to that tab.  This time instead of choosing the `View` option, we are going to select the `Manage App` button. Then, select the `Settings` tab near the top of the screen on your Heroku app.
 
 <p align="center">
-<img src="../img/settings_heroku.jpg" width="450">
+<img src="../phase-1/img/settings_heroku.jpg" width="450">
 </p> 
 
 * Click on `Reveal Config  Vars`. Scroll down the bottom of the Config Vars lines until you find the last blank one.  You are going to add several additional lines of config vars for Loop use; the DEVICESTATUS_ADVANCED is a required line, the others just make Nightscout more useful when using OpenAPS.
 
 <p align="center">
-<img src="../img/add_vars.jpg" width="450">
+<img src="../phase-1/img/add_vars.jpg" width="450">
 </p> 
 
 <table>
@@ -241,14 +241,14 @@ You do not have to enter all the information in the profile if you are using Ope
 * Click on `Open App` in the top right corner of your Heroku site.
 
 <p align="center">
-<img src="../img/open_app.jpg" width="450">
+<img src="../phase-1/img/open_app.jpg" width="450">
 </p> 
 
 
 * Click on the settings (those three horizontal lines in upper right corner).  Now check that your basal render is selected to either default or icicle (personal preference for how the temp basals show as blue lines in NS site), check the boxes that you’d like display pills in the SHOW PLUGINS (usually all of them), and then press save. Your NIGHTSCOUT site is all set-up.  Congrats!
 
 <p align="center">
-<img src="../img/settings_ns.jpg" width="450">
+<img src="../phase-1/img/settings_ns.jpg" width="450">
 </p> 
 
 .. note:: If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
@@ -260,7 +260,7 @@ You do not have to enter all the information in the profile if you are using Ope
 .. note:: You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
 
 <p align="center">
-<img src="../img/deploy_branch.png" width="450">
+<img src="../phase-1/img/deploy_branch.png" width="450">
 </p> 
 
 ### Understanding the OpenAPS pill
