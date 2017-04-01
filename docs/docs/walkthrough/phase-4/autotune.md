@@ -164,9 +164,6 @@ Mac install commands:
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-* Are you using xDrip as a data source or HAPP for treatments? If so, you need to run the dev branch of oref0:
-  *  Pull/clone the oref0 dev branch by running: `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull); cd`
-  * Install the oref0 dev branch: `cd ~/src/oref0 && git checkout dev && sudo npm run global-install`
 * Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
