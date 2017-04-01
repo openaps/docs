@@ -44,7 +44,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 * Click the `Fork` button in the upper right corner
 
 <p align="center">
-<img src="../../img/ns_fork.jpg" width="450">
+<img src="/img/ns_fork.jpg" width="450">
 </p> 
 
 * Scroll down until you see the purple `Deploy to Heroku` button.  Click that button.
