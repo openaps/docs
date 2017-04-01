@@ -1,8 +1,8 @@
-# Understanding the *oref0-determine-basal.js* logic
+# Understanding the determine-basal logic
 
-The key logic behind any oref0 implementation of OpenAPS lies in the *oref0-determine-basal.js* code, which is what takes all of the inputs you've collected and makes a temp basal recommendation you can then enact if appropriate.  As such, it is important to understand how determine-basal makes its decisions, and how to interpret its output, so you can decide for yourself whether the recommendations it is making are appropriate for your situation, or if further adjustments are required before closing the loop or letting it run unattended.
+The core, lowest level logic behind any oref0 implementation of OpenAPS can be found in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js). That code pulls together the required inputs (namely, recent CGM readings; current pump settings,including insulin on board and carbohydrates consumed; and your profile settings) and performs the calculations to make the recommeneded changes in temp basal rates that OpenAPS could/will enact. 
 
-The recommendation is to run for several days in "low glucose management" loop mode, watching the output, in order to decide what your "max basal" setting should be. Based on how often you disagreed or counteracted what the loop was recommending, this might influence how you set your max basal.
+Short of reading the actual code, one way to start to understand the key `determine-basal` logic is to understand the inputs passed into the script/program and how to interpret the outputs from the script/program. 
 
 ## Summary of inputs
 
