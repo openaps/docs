@@ -1,29 +1,20 @@
 # Visualization and Monitoring
 
-### Before you get started
-
-* **Note about COB**: OpenAPS dynamically calculates COB if you have turned on AMA. To see your COB, look inside the OpenAPS pill. We highly recommend disabling the separate NS COB pill (i.e. remove it from variables even) as it causes bugs, and great confusion, because it will do a static decay and/or mess up your NS up. BWP COB/Care Portal COB is also based on static decay and is NOT what OpenAPS is using. 
-* **Repeated for clarity**: turn off all other COB displays and look to the OpenAPS pill or tail your logs to get your updated COB information.
-* If you plan to use Nightscout to vizualize a production OpenAPS instance, we recommend using Heroku, as OpenAPS' can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.
-
-
 ## Nightscout Introduction
 
 [Nightscout](http://nightscout.info) is an open source, DIY project that allows real time access to a CGM data
 via personal website, smartwatch viewers, or apps and widgets available for
-smartphones.
+smartphones. Setting up a Nightscout web app is the recommended way to visualize your
+OpenAPS closed loop.
 
-It basically allows a user to upload CGM data from a variety of sources, to an
+Nightscout allows a user to upload CGM data from a variety of sources, to an
 online database and cloud computing service. The information is then processed
 and displayed visually as a graph. There are plugins that allow greater
 information to be shown about OpenAPS, too. As the data is uploaded to an online
 website and then retrieved by OpenAPS, it allows OpenAPS a wider range of
 compatibility with various CGM solutions.
 
-**[Nightscout](http://nightscout.info) is the recommended way to visualize your
-OpenAPS closed loop.** 
-
-Even if you don't choose to share your Nightscout instance
+Even if you don't choose to share your Nightscout web app
 with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
 your data and also allowing you to customize watchfaces with your OpenAPS data.
@@ -35,6 +26,10 @@ At this point it is recommended that you go to the
 excellent guides of how to get various CGM systems working as well as displaying
 your data on a variety of additional devices. Once your website is up and
 running you can integrate Nightscout to your OpenAPS using the guide below.
+
+### Where to set up your Nightscout web app 
+
+When setting up a a Nightscout web app, there are two recommended web app hosting services: [Microsoft Azure](https://azure.microsoft.com/en-us/) and [Heroku](https://www.heroku.com/).  We recommend using Heroku for your Nightscout web app, as OpenAPS can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.
 
 ## Nightscout Integration
 
@@ -108,6 +103,21 @@ should now see the OpenAPS pill box (and any optional pump monitoring pill
 boxes) on the left side of the Nightscout page near the time. 
 
 Please note:  If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
+
+
+
+### A Note about Nightscout's COB Pill
+
+If you have the Advanced Meal Assist (AMA) OpenAPS feature turned on, OpenAPS calculates COB *dynamically*. To see your COB on your Nightscout web app, look inside the OpenAPS pill. 
+
+Nightscout, however, has its own COB pill, which decays carbs *statically* is is **NOT** used in OpenAPS calculations.
+
+**We highly recommend NOT using the Nightscout COB pill.** We even recommend removing it from your Nightscout ENABLE web app settings as it causes bugs, and great confusion, because it will do a static decay and/or mess up your Nightscout. 
+
+**Note also**: Nightscout's Bolus Wizard Preview (BWP) pill and carbs entered through Nightscout's Care Portal are also both decayed *statically* and are **NOT** used in OpenAPS calculations. 
+
+**To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
+
 
 ## How to display basal changes ("render basal")
 
