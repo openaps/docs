@@ -2,7 +2,7 @@
 
 ### Before you get started
 
-.. warning:: **Note about COB**: OpenAPS dynamically calculates COB if you have turned on AMA. To see your COB, look inside the OpenAPS pill. We highly recommend disabling the separate NS COB pill (i.e. remove it from the ENABLE line even) as it causes bugs, and great confusion, because it will do a static decay. Additionally, many users have experienced laggy NS performance due to the NS COB pill.
+**Note about COB**: OpenAPS dynamically calculates COB if you have turned on AMA. To see your COB, look inside the OpenAPS pill. We highly recommend disabling the separate NS COB pill (i.e. remove it from the ENABLE line even) as it causes bugs, and great confusion, because it will do a static decay. Additionally, many users have experienced laggy NS performance due to the NS COB pill.
 
 ## Nightscout Introduction
 
@@ -31,9 +31,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup.  Don’t forget to check your email to confirm your Heroku account.
 
-<p align="center">
-<img src="../phase-1/img/heroku_signup.jpg" width="450">
-</p> 
+![Heroku signup example](../phase-1/img/heroku_signup.jpg)
 
 * Create an account at [GitHub](https://github.com)
 
