@@ -143,6 +143,8 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
+**Note:**  OpenAPS will only work based on the values in your pump; not what you put into Nightscout. You will need to keep the Nightscout profile in sync with any changes you make in your pump to prevent later confusion.
+
 ![Profile for basals](../phase-1/img/profile.jpg)
 
 * Assuming your previous browser tab is still open for "Create a new App | Heroku", let's go back to that tab.  This time instead of choosing the `View` option, we are going to select the `Manage App` button. Then, select the `Settings` tab near the top of the screen on your Heroku app.
@@ -238,6 +240,14 @@ You do not have to enter all the information in the profile if you are using Ope
 **Note:** You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
 
 ![Deploy branch](../phase-1/img/deploy_branch.jpg)
+
+## How to display basal changes ("render basal")
+
+ICYMI: werecommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
+
+## How to display OpenAPS purple prediction/forecast lines
+
+Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”.
 
 ### Understanding the OpenAPS pill
 
