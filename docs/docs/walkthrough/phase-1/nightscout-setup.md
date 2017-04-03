@@ -35,21 +35,17 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Create an account at [GitHub](https://github.com)
 
-.. note:: If you already have an existing GitHub account and NS site, you may just need to update your repository by doing a Compare in GitHub.  Use `https://github.com/yourgithubname/cgm-remote-monitor/compare/master...nightscout:master` and replace yourgithub name.  Click the big green `Create pull request` button. Another screen will appear, fill in a title and click button to `create the pull request`, and then you can `Merge pull request`, and finally `Confirm merge`.  That process updated your Nightscout repository in Github.  You can click the Fork Button on your repository now and follow along with the steps below the fork.
+**Note:** If you already have an existing GitHub account and NS site, you may just need to update your repository by doing a Compare in GitHub.  Use `https://github.com/yourgithubname/cgm-remote-monitor/compare/master...nightscout:master` and replace yourgithub name.  Click the big green `Create pull request` button. Another screen will appear, fill in a title and click button to `create the pull request`, and then you can `Merge pull request`, and finally `Confirm merge`.  That process updated your Nightscout repository in Github.  You can click the Fork Button on your repository now and follow along with the steps below the fork.
 
 * Go to the [Nightscout cgm-remote-monitor repository](https://github.com/nightscout/cgm-remote-monitor)
 
 * Click the `Fork` button in the upper right corner
 
-<p align="center">
-<img src="../phase-1/img/ns_fork.jpg" width="450">
-</p> 
+![Fork example](../phase-1/img/ns_fork.jpg)
 
 * Scroll down until you see the purple `Deploy to Heroku` button.  Click that button.
 
-<p align="center">
-<img src="../phase-1/img/deploy_heroku.jpg" width="450">
-</p> 
+![Deploy to heroku button](../phase-1/img/deploy_heroku.jpg)
 
 * Give your app a name, this will be the prefix of your NS site’s URL. For example, `https://yourappname.herokuapp.com`
 
@@ -135,39 +131,27 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Click the purple `Deploy` button at the bottom of screen
 
-<p align="center">
-<img src="../phase-1/img/deploy_button.jpg" width="450">
-</p> 
+![Deploy](../phase-1/img/deploy_button.jpg)
 
 * Wait a little bit while Heroku builds your NS app.  You’ll see some text scroll by in the Build App box, and then finally, you will have a message that the NS app was successfully deployed.
 
-<p align="center">
-<img src="../phase-1/img/deploy_success.jpg" width="450">
-</p> 
+![Successful deploy](../phase-1/img/deploy_success.jpg)
 
 * You can verify your site’s successful build by clicking `View` (you should see black site with a profile warning).  You will be redirected to a profile set-up page.  (If it doesn't redirect automatically, refresh your webpage).  
 
-<p align="center">
-<img src="../phase-1/img/no_profile.jpg" width="450">
-</p> 
+![No profile](../phase-1/img/no_profile.jpg)
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
-<p align="center">
-<img src="../phase-1/img/profile.jpg" width="450">
-</p> 
+![Profile for basals](../phase-1/img/profile.jpg)
 
 * Assuming your previous browser tab is still open for "Create a new App | Heroku", let's go back to that tab.  This time instead of choosing the `View` option, we are going to select the `Manage App` button. Then, select the `Settings` tab near the top of the screen on your Heroku app.
 
-<p align="center">
-<img src="../phase-1/img/settings_heroku.jpg" width="450">
-</p> 
+![Heroku settings](../phase-1/img/settings_heroku.jpg)
 
 * Click on `Reveal Config  Vars`. Scroll down the bottom of the Config Vars lines until you find the last blank one.  You are going to add several additional lines of config vars for Loop use; the DEVICESTATUS_ADVANCED is a required line, the others just make Nightscout more useful when using OpenAPS.
 
-<p align="center">
-<img src="../phase-1/img/add_vars.jpg" width="450">
-</p> 
+![Add vars](../phase-1/img/add_vars.jpg)
 
 <table>
 <thead>
@@ -238,28 +222,22 @@ You do not have to enter all the information in the profile if you are using Ope
 
 * Click on `Open App` in the top right corner of your Heroku site.
 
-<p align="center">
-<img src="../phase-1/img/open_app.jpg" width="450">
-</p> 
+![Open app](../phase-1/img/open_app.jpg)
 
 
 * Click on the settings (those three horizontal lines in upper right corner).  Now check that your basal render is selected to either default or icicle (personal preference for how the temp basals show as blue lines in NS site), check the boxes that you’d like display pills in the SHOW PLUGINS (usually all of them), and then press save. Your NIGHTSCOUT site is all set-up.  Congrats!
 
-<p align="center">
-<img src="../phase-1/img/settings_ns.jpg" width="450">
-</p> 
+![NS Settings](../phase-1/img/settings_ns.jpg)
 
-.. note:: If you are using a "test pump" that has not not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically.
+**Note:** If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
 
-.. note:: Users Switching from Azure to Heroku: At this time you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again.
+**Note:** Users Switching from Azure to Heroku: At this time you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again.
 
-.. note:: Users Switching from Azure to Heroku: If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
+**Note:** Users Switching from Azure to Heroku: If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
 
-.. note:: You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
+**Note:** You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
 
-<p align="center">
-<img src="../phase-1/img/deploy_branch.jpg" width="450">
-</p> 
+![Deploy branch](../phase-1/img/deploy_branch.jpg)
 
 ### Understanding the OpenAPS pill
 
@@ -271,5 +249,3 @@ minutes: Enacted, Looping, Waiting, and Warning:
 * Enacted means OpenAPS has recently enacted the pump
 * Looping means OpenAPS is running but has not enacted the pump
 * Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
-
-
