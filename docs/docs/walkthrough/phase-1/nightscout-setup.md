@@ -2,7 +2,7 @@
 
 ## Nightscout Introduction
 
-[Nightscout](http://nightscout.info) is an open source, DIY project that allows real time access to a CGM data
+[Nightscout](http://nightscout.info) is an open source, DIY project that allows real-time access to a CGM data
 via personal website, smartwatch viewers, or apps and widgets available for
 smartphones. Setting up a Nightscout web app is the recommended way to visualize your
 OpenAPS closed loop.
@@ -26,14 +26,14 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * If you plan to use Nightscout with OpenAPS, we recommend using Heroku, as OpenAPS can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.  Currently, the only added benefit to choosing the $7/mo Heroku plan vs the free Heroku plan is a section showing site use metrics for performance (such as response time).  This has limited benefit to the average OpenAPS user.  **In short, Heroku is the free and OpenAPS-friendly option for NS hosting.**
 
-* Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup.  Don’t forget to check your email to confirm your Heroku account.
+* Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup before the app will deploy.  You'll need confirm your Heroku account by clicking a link sent via email.
 
 ![Heroku signup example](../phase-1/img/heroku_signup.jpg)
 
 * Create an account at [GitHub](https://github.com)
-
-**Note:** If you already have an existing GitHub account and NS site, you may just need to update your repository by doing a Compare in GitHub.  Use `https://github.com/yourgithubname/cgm-remote-monitor/compare/master...nightscout:master` and replace yourgithub name.  Click the big green `Create pull request` button. Another screen will appear, fill in a title and click button to `create the pull request`, and then you can `Merge pull request`, and finally `Confirm merge`.  That process updated your Nightscout repository in Github.  You can click the Fork Button on your repository now and follow along with the steps below the fork.
-
+*****************
+**Note:** If you already have an existing GitHub account and NS site, you may just need to update your repository by doing a Compare in GitHub.  Use `https://github.com/yourgithubname/cgm-remote-monitor/compare/master...nightscout:master` and replace yourgithub name.  Click the big green `Create pull request` button. Another screen will appear, fill in a title and click button to `create the pull request`, and then you can `Merge pull request`, and finally `Confirm merge`.  That process updates your Nightscout repository in Github.  Once updated, you can skip the "click the Fork Button" step below and start following along with the purple `Deploy to Heroku` button step from your updated Nightscout cgm-remote-monitor repository.
+*****************
 * Go to the [Nightscout cgm-remote-monitor repository](https://github.com/nightscout/cgm-remote-monitor)
 
 * Click the `Fork` button in the upper right corner
@@ -67,7 +67,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>ENABLE</th>
-<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.  Notice we are not including cob here. If you have other plugins that you would like to enable, please add them here.)</td>
+<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.  **Notice we are not including cob here.** If you have other plugins that you would like to enable, please add them here.)</td>
 </tr>
 <tr>
 <th>DISABLE</th>
@@ -95,7 +95,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>PUSHOVER lines</th>
-<td>Can be left blank for now.   See PUSHOVER section if you want to integrate PUSHOVER notifications with NS later.</td>
+<td>Can be left blank for now.  If you decide to use Pushover later, you can come back and add your info to these lines.</td>
 </tr>
 <tr>
 <th>CUSTOM_TITLE</th>
@@ -126,7 +126,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 **The remaining variables can be left at their default values.**</br></br>
 
-* Click the purple `Deploy` button at the bottom of screen
+* Click the purple `Deploy` button at the bottom of screen.
 
 ![Deploy](../phase-1/img/deploy_button.jpg)
 
@@ -140,7 +140,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
-**Note:**  OpenAPS will only work based on the values in your pump; not what you put into Nightscout. You will need to keep the Nightscout profile in sync with any changes you make in your pump to prevent later confusion.
+**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into Nightscout profile. You will need to keep the Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering.
 
 ![Profile for basals](../phase-1/img/profile.jpg)
 
@@ -234,11 +234,11 @@ If you are using a "test pump" that has not received sufficient data in some tim
 
 ### Switching from Azure to Heroku
 
-* If you want to switch from Azure to Heroku, you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again. 
-  * _(This assumes you are switching after having already set up OpenAPS. If you're switching before setting up the rest of OpenAPS, just remember to use your Heroku URL in the future when asked for your Nightscout URL.)_
+* If you are a current OpenAPS user and want to switch from Azure to Heroku, you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again. 
+
 * If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
 
-**Note:** You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
+**Note:** It's a good idea to to check your deployment connection in Heroku's dashboard after your deploy (typically this still needs to be manually connected after initial setup).  Go your `Deploy` tab in your Heroku dashboard, click on the GitHub service, and select your GitHub cgm-remote-monitor repository.  You can select the cgm-remote-monitor branch you'd like to deploy at the bottom of the screen.  Both master and dev branches work for OpenAPS.
 
 ![Deploy branch](../phase-1/img/deploy_branch.jpg)
 
@@ -247,21 +247,21 @@ If you are using a "test pump" that has not received sufficient data in some tim
 
 If you have the Advanced Meal Assist (AMA) OpenAPS feature turned on, OpenAPS calculates COB *dynamically*. To see your COB on your Nightscout web app, look inside the OpenAPS pill. _(If it says "undefined", this means you do NOT have AMA turned on.)_
 
-Nightscout, however, has its own COB pill, which decays carbs *statically* is is **NOT** used in OpenAPS calculations.
+Nightscout, however, has its own COB pill, which decays carbs *statically*, and it is **NOT** used in OpenAPS calculations.
 
 * **We highly recommend NOT using the Nightscout COB pill.** We even recommend removing it from your Nightscout ENABLE web app settings as it causes bugs, and great confusion, because it will do a static decay and/or mess up your Nightscout. 
 
-* **Note also**: Nightscout's Bolus Wizard Preview (BWP) pill and carbs entered through Nightscout's Care Portal are also both decayed *statically* and are **NOT** used in OpenAPS calculations. 
+* **Note also**: Nightscout's Bolus Wizard Preview (BWP) pill also decays carbs *statically*. 
 
 * **To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
 
 ### How to display basal changes ("render basal")
 
-* ICYMI: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
+* In case you missed it during setup: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
 ### How to display OpenAPS purple prediction/forecast lines
 
-* Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable.
+* Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.
 
 ### Understanding the OpenAPS pill
 
