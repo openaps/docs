@@ -16,7 +16,9 @@ Running this code will install all of the dependencies for you automatically:
 
 If the install was successful, the last line will say something like:
     
-    openaps 0.2.0  (although the version number may have been incremented)
+    openaps 0.1.5  
+
+The version number above may have been incremented from what is shown here, and that is okay. All you are really looking for is `openaps` followed by a version number.  This lets you know that the install has completed successfully.
 
 If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 
@@ -57,7 +59,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
     * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
 * (if you're using a Carelink, you will NOT be using mmeowlink)
-* how you are getting CGM data
+* how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
 * Nightscout URL and API secret
 * whether you want any of the oref0 advanced features
 * whether or not you want to automate your loop (using cron)
