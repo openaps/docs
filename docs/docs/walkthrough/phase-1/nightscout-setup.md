@@ -245,23 +245,23 @@ If you are using a "test pump" that has not received sufficient data in some tim
 
 ### A Note about Nightscout's COB Pill
 
-If you have the Advanced Meal Assist (AMA) OpenAPS feature turned on, OpenAPS calculates COB *dynamically*. To see your COB on your Nightscout web app, look inside the OpenAPS pill. 
+If you have the Advanced Meal Assist (AMA) OpenAPS feature turned on, OpenAPS calculates COB *dynamically*. To see your COB on your Nightscout web app, look inside the OpenAPS pill. _(If it says "undefined", this means you do NOT have AMA turned on.)_
 
 Nightscout, however, has its own COB pill, which decays carbs *statically* is is **NOT** used in OpenAPS calculations.
 
-**We highly recommend NOT using the Nightscout COB pill.** We even recommend removing it from your Nightscout ENABLE web app settings as it causes bugs, and great confusion, because it will do a static decay and/or mess up your Nightscout. 
+* **We highly recommend NOT using the Nightscout COB pill.** We even recommend removing it from your Nightscout ENABLE web app settings as it causes bugs, and great confusion, because it will do a static decay and/or mess up your Nightscout. 
 
-**Note also**: Nightscout's Bolus Wizard Preview (BWP) pill and carbs entered through Nightscout's Care Portal are also both decayed *statically* and are **NOT** used in OpenAPS calculations. 
+* **Note also**: Nightscout's Bolus Wizard Preview (BWP) pill and carbs entered through Nightscout's Care Portal are also both decayed *statically* and are **NOT** used in OpenAPS calculations. 
 
-**To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
+* **To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
 
 ### How to display basal changes ("render basal")
 
-ICYMI: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
+* ICYMI: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
 ### How to display OpenAPS purple prediction/forecast lines
 
-Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable.
+* Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable.
 
 ### Understanding the OpenAPS pill
 
