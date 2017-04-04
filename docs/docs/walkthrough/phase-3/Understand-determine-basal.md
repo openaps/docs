@@ -20,24 +20,26 @@ When running `oref0-determine-basal.js`, the first thing you'll see is a summary
 
 ```
 {"carbs":0,"boluses":0}
-{"delta":-2,"glucose":110,"avgdelta":-2.5}
+{"delta":5,"glucose":161,"short_avgdelta":4.5,"long_avgdelta":3.92}
 {"duration":0,"rate":0,"temp":"absolute"}
 {"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}
 {"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}
 ```
 
 * meal.json = `{"carbs":0,"boluses":0}`
-  * carbs = # of carbs consumed
-  * boluses = amount of bolus insulin delivered
+  * `carbs` = # of carbs consumed
+  * `boluses` = amount of bolus insulin delivered
   
   Those data come from what you entered into your pump or Nightscout web app. If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
-* glucose.json = `{"delta":-2,"glucose":110,"avgdelta":-2.5}`
-  * delta = change from the previous BG (usually 5 minutes earlier)
-  * glucose = most recent BG
-  * avgdelta = average change since 3 data points earlier (usually 15 minutes earlier)
+* glucose.json = `{"delta":5,"glucose":161,"short_avgdelta":4.5,"long_avgdelta":3.92}`
+  * `delta` = change in BG between `glucose` (most recent BG) and an average of BG value from between 2.5 and 7.5 minutes ago (usually just a single BG value from 5 minutes ago)
+  * `glucose` = most recent BG
+  * `short_avgdelta` = change in BG between `glucose` (most recent BG) and an average of BG values from between 2.5 and 17.5 minutes ago (that average represents what BG levels were approximately 10 minutes ago)
+  * `long_avgdelta` = change in BG between `glucose` (most recent BG) and an average of BG values from between 17.5 and 42.5 minutes ago (that average represents what BG levels were approximately 30 minutes ago)
   
   Those data come from your connected CGM or from your Nightscout web app.
 * temp_basal.json = `{"duration":0,"rate":0,"temp":"absolute"}`
+
   * duration = Length of time temp basal will run. A duration of 0 indicates none is running.
   * rate = Units/hr basal rate is set to
   * temp = Type of temporary basal rate in use. OpenAPS uses `absolute` basal rates only.
@@ -51,12 +53,13 @@ When running `oref0-determine-basal.js`, the first thing you'll see is a summary
   * netbasalinsulin = this variable isn't used in OpenAPS logic anymore, but hasn't been removed from iob.json yet.
   * hightempinsulin = this variable isn't used in OpenAPS logic anymore, but hasn't been removed from iob.json yet.
   * time = current time
-  
+
   Those data are calculated based on information received from your pump.
 * preferences.json = `{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}`
 	* Contains all of the user’s relevant pump settings
+
 	* max_iob = maximum amount of net IOB that OpenAPS will ever allow when setting a high-temp basal rate. **This is an important safety measure and integral part of the OpenAPS design.** You should set this value based on your current basal rates and insulin sensitivy factor (ISF, or `sens` in the OpenAPS code) and after studying how the OpenAPS algorithm performs in low-glucose suspend mode for (at least) several days.
-	
+
 	Those data are set during the openAPS setup script (or modified by you directly) and based on information received from your pump.
 
 ## Summary of outputs
