@@ -24,6 +24,6 @@ You can charge your rig via either port
 
 The little black button on the end of the board near the JST connector is the power button. To 
 
-### Where is the radio stick?
+### Where is the radio?
 
 The radio and antenna are down on the end of the board where you see a little white stick. (Opposite end of the board from where your battery connects at the JST connector). 
