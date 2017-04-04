@@ -1,12 +1,22 @@
-# Understanding the oref0-determine-basal logic
+# Understanding the determine-basal logic
 
-The key logic behind any oref0 implementation of OpenAPS lies in the oref0-determine-basal.js code, which is what takes all of the inputs you've collected and makes a temp basal recommendation you can then enact if appropriate.  As such, it is important to understand how determine-basal makes its decisions, and how to interpret its output, so you can decide for yourself whether the recommendations it is making are appropriate for your situation, or if further adjustments are required before closing the loop or letting it run unattended.
+The core, lowest level logic behind any oref0 implementation of OpenAPS can be found in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js). That code pulls together the required inputs (namely, recent CGM readings; current pump settings,including insulin on board and carbohydrates consumed; and your profile settings) and performs the calculations to make the recommeneded changes in temp basal rates that OpenAPS could/will enact. 
 
-The recommendation is to run for several days in "low glucose management" loop mode, watching the output, in order to decide what your "max basal" setting should be. Based on how often you disagreed or counteracted what the loop was recommending, this might influence how you set your max basal.
+Short of reading the actual code, one way to start to understand the key `determine-basal` logic is to understand the inputs passed into the script/program and how to interpret the outputs from the script/program. 
 
 ## Summary of inputs
 
-The determine-basal algorithm requires a number of inputs, which are passed in JSON files such as iob.json, currenttemp.json, glucose.json, profile.json, and optionally meal.json.  When running oref0-determine-basal.js with the appropriate inputs, the first thing you'll see is a summary of all the provided inputs, which might look something like this:
+The `determine-basal` algorithm requires 4 input files:
+* iob.json
+* currenttemp.json
+* glucose.json
+* profile.json
+
+In addition, the algorithm can accept 2 optional input files:
+* meal.json
+* autosens.json
+
+When running `oref0-determine-basal.js`, the first thing you'll see is a summary of all the inputs, which might look something like this:
 
 ```
 {"carbs":0,"boluses":0}
@@ -29,25 +39,27 @@ The determine-basal algorithm requires a number of inputs, which are passed in J
   
   Those data come from your connected CGM or from your Nightscout web app.
 * temp_basal.json = `{"duration":0,"rate":0,"temp":"absolute"}`
-  * `duration` = length of time temp basal will run. A duration of 0 indicates none is running
-  * `rate` = Units/hr basal rate is set to
-  * `temp` = type of temporary basal rate in use. OpenAPS uses absolute basal rates only
+
+  * duration = Length of time temp basal will run. A duration of 0 indicates none is running.
+  * rate = Units/hr basal rate is set to
+  * temp = Type of temporary basal rate in use. OpenAPS uses `absolute` basal rates only.
   
   Those data come from your pump.
 * iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}`
-  * `iob` = net insulin on board compared to preprogrammed pump basal rates. This takes all basal, temp basal, and bolus information into account
-  * `activity` = the amount that BG "should" be rising or falling based on iob.
-  Insulin activity is used (by multiplying activity * ISF) to determine BGI (blood glucose impact), the amount that BG "should" be rising or falling based on insulin activity alone.
-  * `bolussnooze` = used to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in
-  * `basaliob` = insulin on board attributed to basal rate, excluding the IOB effect of boluses
-  * `netbasalinsulin` = net of basal insulin compared to preprogrammed pump basal rate
-  * `time` = current time
-  
+  * iob = Units of Insulin on Board (IOB), ***net*** of your pre-programmed basal rates. Net IOB takes all pre-programmed basal, OpenAPS temp basal, and bolus insulin into account. Note: `iob` can be negative when OpenAPS temp basal rate is below your pre-programmed basal rate (referred to as "low-temping").
+  * activity = Units of insulin active in the previous minute. Approximately equal to (net IOB, 1 minute ago) - (net IOB, now).
+  * bolussnooze = Units of bolus IOB, if duration of insulin activity (dia) was half what you specified in your pump settings. (`dia_bolussnooze_divisor` in profile.json is set by default to equal 2, but you may adjust this if you'd like OpenAPS to activate a low-temp sooner or later after bolusing.) `bolussnooze` is used in *oref0-determine-basal.js* to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in.
+  * basaliob = Units of ***net*** basal Insulin on Board (iob). This value does not include the IOB effects of boluses; just the difference between OpenAPS temp basal rates and your pre-programmed basal rates. As such, this value can be negative when OpenAPS has set a low-temp basal rate. Note: `max_iob` (described below) provides a constraint on how high this value can be. The `determine-basal` logic will not recommend a temp basal rate that will result in `basaliob` being greater than `max_iob`.
+  * netbasalinsulin = this variable isn't used in OpenAPS logic anymore, but hasn't been removed from iob.json yet.
+  * hightempinsulin = this variable isn't used in OpenAPS logic anymore, but hasn't been removed from iob.json yet.
+  * time = current time
+
   Those data are calculated based on information received from your pump.
 * preferences.json = `{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}`
 	* Contains all of the user’s relevant pump settings
-	* `max_iob` = maximum allowed insulin on board. **This is an important safety measure and integral part of the OpenAPS design.**
-	
+
+	* max_iob = maximum amount of net IOB that OpenAPS will ever allow when setting a high-temp basal rate. **This is an important safety measure and integral part of the OpenAPS design.** You should set this value based on your current basal rates and insulin sensitivy factor (ISF, or `sens` in the OpenAPS code) and after studying how the OpenAPS algorithm performs in low-glucose suspend mode for (at least) several days.
+
 	Those data are set during the openAPS setup script (or modified by you directly) and based on information received from your pump.
 
 ## Summary of outputs
