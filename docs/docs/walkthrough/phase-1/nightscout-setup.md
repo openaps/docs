@@ -228,11 +228,15 @@ You do not have to enter all the information in the profile if you are using Ope
 
 ![NS Settings](../phase-1/img/settings_ns.jpg)
 
-**Note:** If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
+### It's not working - I'm missing data in Nightscout? 
 
-**Note:** Users Switching from Azure to Heroku: At this time you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again.
+If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
 
-**Note:** Users Switching from Azure to Heroku: If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
+### Switching from Azure to Heroku
+
+* If you want to switch from Azure to Heroku, you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again. 
+  * _(This assumes you are switching after having already set up OpenAPS. If you're switching before setting up the rest of OpenAPS, just remember to use your Heroku URL in the future when asked for your Nightscout URL.)_
+* If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
 
 **Note:** You can easily change to a different branch for deployment of your Nightscout site. Check out your `Deploy` tab in your Heroku dashboard, make sure you are connected to your GitHub cgm-remote-monitor repository, and select the branch you'd like to deploy at the bottom of the screen.
 
@@ -251,14 +255,13 @@ Nightscout, however, has its own COB pill, which decays carbs *statically* is is
 
 **To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
 
-
-## How to display basal changes ("render basal")
+### How to display basal changes ("render basal")
 
 ICYMI: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
-## How to display OpenAPS purple prediction/forecast lines
+### How to display OpenAPS purple prediction/forecast lines
 
-Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”.
+Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable.
 
 ### Understanding the OpenAPS pill
 
