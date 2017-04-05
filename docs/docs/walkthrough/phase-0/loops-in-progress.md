@@ -145,3 +145,4 @@ List of people who are working on closed loops:
 - Carl-Johan Wehtje (London, UK)
 - Cameron Renwick (Muskoka, Ontario, Canada)
 - Cameron Chunn (Huntsville, AL)
+- Patrick & Lesly Kelly for Addy (Tempe, AZ)
