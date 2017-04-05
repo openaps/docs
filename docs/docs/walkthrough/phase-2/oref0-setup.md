@@ -48,6 +48,8 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 
 `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
+`npm run global-install`
+
 ## Step 2: Run oref0-setup
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. 
