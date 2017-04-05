@@ -41,7 +41,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT then](../../Images/IFTTT_that.png)
 
-* Enter "maker" in the search field and click on the Maker app
+* Enter "maker" in the search field and click on the Maker Webhooks app
 
 ![IFTTT maker](../../Images/IFTTT_maker.png)
 
@@ -49,7 +49,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT maker connect](../../Images/IFTTT_connect2.png)
 
-* Select the grey "Make a Web Request" box
+* Select the green "Make a Web Request" box
 
 ![IFTTT web request](../../Images/IFTTT_webrequest.png)
 
@@ -150,6 +150,8 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
   * click on Widgets
   * click on the pencil icon in upper right of screen
   * click and hold the three lines that appear on the right side of the widget that you want to move.  Drag the widget to the order in the list that you'd like it to appear in your widget quickscreen.
+
+![IFTTT Today View](../../Images/IFTTT_reorder.PNG)
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
