@@ -41,7 +41,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT then](../../Images/IFTTT_that.png)
 
-* Enter "maker" in the search field and click on the Maker app
+* Enter "maker" in the search field and click on the Maker Webhooks app
 
 ![IFTTT maker](../../Images/IFTTT_maker.png)
 
@@ -49,7 +49,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT maker connect](../../Images/IFTTT_connect2.png)
 
-* Select the grey "Make a Web Request" box
+* Select the green "Make a Web Request" box
 
 ![IFTTT web request](../../Images/IFTTT_webrequest.png)
 
@@ -136,11 +136,11 @@ CGM Sensor Start
 
 * You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
 
-![IFTTT homescreen](../../Images/IFTTT_homescreen.PNG)
+![IFTTT homescreen](../../Images/IFTTT_homescreen.png)
 
 * For iPhone users, if you downswipe from the top of your iPhone screen, you will have the Today view or Notifications showing.  They are separate pages; Today view is on the left, Notifications is on the right.  You can left/right swipe to go between them.  Go into the Today view and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
 
-![IFTTT Today View](../../Images/IFTTT_today.PNG)
+![IFTTT Today View](../../Images/IFTTT_today.png)
 
 If you end up with more than four IFTTT applets, they will appear in reverse-order of when they were created...which may not be the same as you'd prefer them to appear on your widget bar.  If you'd like to reorder them:
 
@@ -150,6 +150,8 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
   * click on Widgets
   * click on the pencil icon in upper right of screen
   * click and hold the three lines that appear on the right side of the widget that you want to move.  Drag the widget to the order in the list that you'd like it to appear in your widget quickscreen.
+
+![IFTTT Today View](../../Images/IFTTT_reorder.png)
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
