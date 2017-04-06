@@ -90,11 +90,7 @@ Your screens should look like this:
 
 * Return to the screen on the right (the PuTTY window) and enter `reboot` 
 
-You will see many, many messages go by on the screens (mostly on the right-side screen).  Keep your eyes peeled though because there is a required step by you coming up.  At some point, you will see a little pause in the cursor at the bottom of the right-side screen.  And there will be a message that says "type Control D to continue".  Type Control-D to continue.  
-
-  ![Control D to continue](../../Images/Edison/control_d.png)
-
-After you press Control-D, the flashing will continue.
+You will see many, many messages go by on the screens (mostly on the right-side screen).  
 
 ![flash continues](../../Images/Edison/mid_flash.png)
 
