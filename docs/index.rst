@@ -35,6 +35,7 @@ This documentation support a self-driven Do-It-Yourself (DIY) implementation of 
    Compatible Pumps <docs/walkthrough/phase-0/hardware/pump>
    Compatible CGMs <docs/walkthrough/phase-0/hardware/CGM>
    docs/walkthrough/phase-0/hardware/edison
+   Understanding the Explorer Board "rig" <docs/walkthrough/phase-0/understanding-your-Explorer-Board-rig>
    docs/walkthrough/phase-0/setup-edison
    Edison/Explorer Board (setup with Mac) <docs/walkthrough/phase-0/edison-explorer-board-Mac>
    Make Your First PR <docs/walkthrough/phase-0/loops-in-progress>
