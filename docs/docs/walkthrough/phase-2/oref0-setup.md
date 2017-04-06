@@ -48,6 +48,8 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 
 `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
+`npm run global-install`
+
 ## Step 2: Run oref0-setup
 
 __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. 
@@ -59,7 +61,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
     * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
 * (if you're using a Carelink, you will NOT be using mmeowlink)
-* how you are getting CGM data
+* how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
 * Nightscout URL and API secret
 * whether you want any of the oref0 advanced features
 * whether or not you want to automate your loop (using cron)
