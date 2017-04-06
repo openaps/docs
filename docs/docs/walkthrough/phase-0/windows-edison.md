@@ -7,16 +7,6 @@
 1.  Using an Explorer Board and Edison
 2.  Using an Windows computer
 
-### Getting Physical: Build your rig/put the physical pieces together
-
-The Explorer Board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
-
-The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
-
-It's easiest to start with the Explorer Board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer Board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
-
-![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
-
 ## Preparing/flashing the Edison
 
 The Edison comes with an operating system, called Yocto, that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  Both your Windows computer and the Edison board will need some work.
@@ -55,9 +45,9 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - Reboot and attempt the flash proccess.
 ******************************
 
-- Download [Jubilinux](http://www.robinkirkman.com/jubilinux/jubilinux.zip).  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and right-click the `jubilinux.zip` folder.  Select `extract all` from the menu.  Saving it to your root user directory is a good idea.  Your root directory is the set of folders that exist under your User name in Windows.  For example, the destination for saving jubilinux to your root directory would be `C:\Users\yourusername\jubilinux`
+- Download the latest [jubilinux.zip](http://www.jubilinux.org/dist/).  Jubiliniux will download in a zipped format to your Downloads folder.  Locate the folder in your Downloads and right-click the `jubilinux.zip` folder.  Select `extract all` from the menu.  Saving it to your root user directory is a good idea.  Your root directory is the set of folders that exist under your User name in Windows.  For example, the destination for saving jubilinux to your root directory would be `C:\Users\yourusername\jubilinux`
 
-.. note:: The `extract all` command comes standard for all Windows machines.  However, in some instances, it may not be active for zipped files. If you do not see the `extract all` option in the right-click menu, right-click the zipped file, choose `Properties` at the bottom of the context menu.  On the General tab, click on the button next to the "opens with" and change it to use Windows Explorer.  Apply the change and select `OK` to save the change.  You should now be able to right-click the jubilinux.zip file to extract all.
+**Note** The `extract all` command comes standard for all Windows machines.  However, in some instances, it may not be active for zipped files. If you do not see the `extract all` option in the right-click menu, right-click the zipped file, choose `Properties` at the bottom of the context menu.  On the General tab, click on the button next to the "opens with" and change it to use Windows Explorer.  Apply the change and select `OK` to save the change.  You should now be able to right-click the jubilinux.zip file to extract all.
 
 - Now we are going to download two files from DFU-UTIL: [libusb-1.0.dll](http://dfu-util.sourceforge.net/releases/dfu-util-0.8-binaries/win32-mingw32/libusb-1.0.dll) and [dfu-util.exe](http://dfu-util.sourceforge.net/releases/dfu-util-0.8-binaries/win32-mingw32/dfu-util.exe). Click on those two links to download the files to your Downloads folder.  Navigate to your Downloads folder and choose to "move" those folders to the jubilinux folder that you unzipped earlier.  When you sucessfully move those two folders into the jubilinux folder, you should see files/folders inside the jubilinux folder like so:
 
