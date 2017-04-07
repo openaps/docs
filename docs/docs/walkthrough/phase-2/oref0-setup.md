@@ -24,7 +24,7 @@ If you do not see this or see error messages, try running it multiple times. It 
 
 (Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
 
-### Manual Installation
+### (If you did the above, skip this) Manual Installation
 
 If you prefer to install the dependencies yourself, the following Debian/Ubuntu packages are required:
 
