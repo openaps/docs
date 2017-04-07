@@ -70,7 +70,7 @@ If you’re like me, you don’t “speak linux” (or python or java or…) nor
 
 **IMPORTANT NOTE**: STEPS 1-10 will be updated periodically, and also will likely be out of date.  Since this is just a cheat sheet for Mac users, it may not have all the troubleshooting tips or updated info that the main OpenAPS docs have.  If you get stuck and this guide’s set of instructions do not work at the moment, the place to look is the [OpenAPS Walkthrough Phase 0, Setting up your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html) for the full information on this part of the OpenAPS setup.
 
-The next steps will be done in the Terminal app.  If you see code lines in a grey box, that’s what you want to copy and paste into Terminal, and then press enter.  Don’t try typing it…you’ll likely miss a space or add a typo.  So, let’s start…
+The next steps will be done in the Terminal app.  If you see red colored text/code lines in a box, that’s what you want to copy and paste into Terminal, and then press enter.  Don’t try typing it…you’ll likely miss a space or add a typo.  So, let’s start…
 
 #### **1-1. Install homebrew**
 
@@ -91,7 +91,6 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 ![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
 #### **1-3.  Install lsusb**
-
 
 `brew update && brew tap jlhonora/lsusb && brew install lsusb`
 
@@ -169,7 +168,7 @@ Flashing rootfs, (it can take up to 10 minutes... Please be patient)
 ```
 in the terminal window where you ran `./flashall.sh`.  As it says, this should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work, in which case you should read through the [full docs] and try again, and/or check out the Troubleshooting section at the bottom.
 
-After flashing is complete, watch the window as you should get asked to type **control-D to continue**.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
+OLDER JUBILINUX VERSIONS: After flashing is complete, watch the window as you should get asked to type **control-D to continue**.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
 
 ```
 [**    ] A start job is running for /etc/rc.local Compatibili...14s / no limit)
@@ -179,6 +178,8 @@ for a few minutes: that's fine.  You can also expect to see an ugly red:
 [FAILED] Failed to start Hostname Service.
 ```
 That is also fine, and you can ignore it too.
+
+NEWER JUBLINUX VERSIONS (0.1.0 and later): You probably won't get asked to Control-D and that is fine.
 
 After several reboots (don’t panic), you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Step 1-4 and start the flash process over again).  Use login `root` and password `edison`.
 
