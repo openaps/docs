@@ -72,17 +72,17 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 
 Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
 
-#### oref0-setup.sh script with Bluetooth
-
-`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address)
-
-#### oref0-setup.sh script without Bluetooth tethering 
-
-Otherwise if you don't want Bluetooth tethering, run this:
+#### oref0-setup.sh script (without Bluetooth tethering - recommended to do for your first setup )
 
 `cd && ~/src/oref0/bin/oref0-setup.sh`
 
 to run the script interactively, or get usage guidelines for providing inputs as command line arguments. 
+
+#### oref0-setup.sh script with Bluetooth
+
+If you have a working setup and are ready to add Bluetooth tethering to the mix:
+
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address)
 
 **Worldwide pump users**
 If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
