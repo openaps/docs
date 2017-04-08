@@ -111,7 +111,7 @@ Type/edit the following:
 And then paste the following to rename your Edison accordingly:
 
     echo $myedisonhostname > /etc/hostname
-    sed -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
+    sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 
 Run these commands to set secure passwords.  It will ask you to enter your new password for each user 2 times. Type the password in the same both times.  To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
 
