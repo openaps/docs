@@ -115,7 +115,7 @@ Hostname and password
 Then run the next two lines, one at a time, without modification.
 ```
 echo $myedisonhostname > /etc/hostname
-sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
+sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 ```
 
 *****************************

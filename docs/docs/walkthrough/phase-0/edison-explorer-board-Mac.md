@@ -199,7 +199,7 @@ Hostname and password
 
 ```
 echo $myedisonhostname > /etc/hostname
-sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
+sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 ```
 (without any modifications) and it will set your hostname in both places.  (note: screenshot below is a little different than you will see on your screen.  You will see root@ubilinux)
 
