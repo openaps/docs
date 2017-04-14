@@ -31,122 +31,47 @@ openaps first-upload
 from inside your openAPS directory, before your loop will start updating correctly to your nightscout site.
 
 ### Pancreabble
-
-_(TO DO Note - Pancreabble instructions for OpenAPS need to be re-worked to reflect the oref0-setup script way of making it work. Below is notes about Pancreabble setup prior to oref0-setup.sh being in existence.)_
-
-[Pancreabble] is a way to monitor your loop _locally_, by pairing a Pebble smartwatch directly with the Raspberry Pi or Intel Edison.
-
-In other words, whereas the default setup looks like this:
-
+Use Pancreabble to monitor OpenAPS _locally_. Instead of this:
 ```
-Raspberry Pi/Intel Edison -> network -> Nightscout server -> network -> smartphone
-                                                                     |
-                                                                     -> laptop
-                                                                     |
-                                                                     -> Pebble watch
+Edison Explorer -> network -> Nightscout server -> network -> smartphone -> Bluetooth -> Pebble watch
 ```
-
-And by default, your Pebble is paired thus:
-
+With Pancreabble, the _local_ setup looks like this:
 ```
-               smartphone -> Bluetooth -> Pebble watch
+Edison Explorer -> Bluetooth -> Pebble watch
 ```
+#### Pair the Pebble with your phone, and use your phone to install Urchin.
+In phone browser open this file
+Urchin address : https://raw.githubusercontent.com/mddub/urchin-cgm/master/release/urchin-cgm.pbw
+Choices will appear on your phone. Select "open in pebble apps".
+Now pebble watchfaces includes “urchin"
+ 
+#### Pair the Pebble with the Pi/Edison using the setup instructions below. 
+"Forget" previous pairings of the phone with watch and watch with OpenAPS rig. Tap the "i" information on the bluetooth pairings and then tap "forget".
 
-With Pancreabble, the setup looks like this:
+Go to the OpenAPS documentation section on Bluetooth pairing in "Phase-1" and follow those directions. 
 
+The only difference is that we are pairing with the pebble and not the iphone. The Pebble watch does not respond like the iPhone with Request confirmation [agent] Confirm passkey 991934 (yes/no): yes. Pebble responds as shown below: 
 ```
-Raspberry Pi/Intel Edison -> Bluetooth -> Pebble watch
+[NEW] Device 6E:67:C4:54:D8:43 Pebble Time LE 86AB
+[bluetooth]# trust 6E:67:C4:54:D8:43
+[CHG] Device 6E:67:C4:54:D8:43 Trusted: yes
+Changing 6E:67:C4:54:D8:43 trust succeeded
+[bluetooth]# pair 6E:67:C4:54:D8:43
+Attempting to pair with 6E:67:C4:54:D8:43
+[CHG] Device 6E:67:C4:54:D8:43 Paired: yes
+Pairing successful
+[Pebble Time LE 86AB]#
 ```
-
-Using a Pebble watch can be especially helpful during the "open loop" phase: you can send the loop's recommendations directly to your wrist, making it easy to evaluate the decisions it would make in different contexts during the day (before/after eating, when active, etc.).
-
-See [Pancreabble] for initial setup instructions.
-
-[Pancreabble]: https://github.com/mddub/pancreabble
-
-Once you've done the first stages above, you'll need to do generate a status file that can be passed over to the Pebble Urchin watch face. Fortunately, the core of this is available in oref0.
-
-Go to `~src/oref0/bin` and look for `peb-urchin-status.sh`. This gives you the basic framework to generate output files that can be used with Pancreabble. To use it, you'll need to install jq using:
-
-`apt-get install jq`
-
-If you get errors, you may need to run `apt-get update` ahead of attempting to install jq.
-
-Once jq is installed, the shell script runs and produces the `urchin-status.json` file which is needed to update the status on the pebble. It can be incorporated into an alias that regularly updates the pebble. You can modify it to produce messages that you want to see there.
-
-When installing the oref0-setup you will need to replace all instances of AA:BB:CC:DD:EE:FF with the Pebble MAC address. This can be found in Settings/System/Information/BT Address.
-
-Once you've installed, you will need to pair the watch to your Edison.
-### Bluetooth setup
-
-* Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
-
-`sudo killall bluetoothd`
-
-* Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
-
-`sudo /usr/local/bin/bluetoothd --experimental &`
-
-* Wait at least 10 seconds, and then run:
-
-`sudo hciconfig hci0 name $HOSTNAME`
-
-* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
-
-* Now launch the Bluetooth control program: `bluetoothctl`
-
-* And run: `power off`
-
-* then `power on`
-
-* and each of the following:
-
+This is the output and how I know what to input. I see a bluetooth address temporarily assigned to Pebble. I trust that address and pair that address. 
+#### How Urchin works
+The file `peb-urchin-status.sh` gets called from crontab. Urchin shows data from the OpenAPS rig on your pebble watch. It will show blood sugar, temporary basal rate, insulin on board for example. The watchface is configurable. Currently the `peb-urchin-status.sh` has 1 notification (when temp basal is changed) and 3 different options for urchin messages. To change the default settings shown below edit `pancreoptions.json` from your <myopenaps> directory. Only one of the messages for the urchin watchface can be true at once
 ```
-discoverable on
-
-scan on
-
-agent on
-
-default-agent
+"urchin_loop_on": true,  to turn on or off urchin watchface update
+"urchin_loop_status": false,  Gives a message on urchin watchface that it's running
+"urchin_iob": true,    Gives a message on urchin watchface of current IOB
+"urchin_temp_rate": false,  Gives a message on urchin watchface of current temp basal
+"notify_temp_basal": false  Notificaiton of temp basal when one shows up in enact/suggested.json
 ```
-
-On Pebble
-********************************
-Settings/BLUETOOTH to make sure Pebble is in pairing mode
-
-from terminal 
-
-`trust AA:BB:CC:DD:EE:FF`
-`pair AA:BB:CC:DD:EE:FF`
-
-you might need to do this several times before it pairs
-
-you will see on the edison
-
-`Request confirmation
-[agent] Confirm passkey 123456 (yes/no): yes`
-
-* (WARNING: You must type in **yes** not just **y** to pair)
-
-Once paired, type quit to exit.
-
-
-Currently the `peb-urchin-status.sh` has 1 notification and 3 different options for urchin messages.
-in you APS directory there is a file called 'pancreoptions.json' 
-```
-"urchin_loop_on": true,  <--- to turn on or off urchin watchface update
-"urchin_loop_status": false, <--- Gives a message on urchin watchface that it's running
-"urchin_iob": true,   <--- Gives a message on urchin watchface of current IOB
-"urchin_temp_rate": false, <--- Gives a message on urchin watchface of current temp basal
-"notify_temp_basal": false <--- Notificaiton of temp basal when one shows up in enact/suggested.json
-```
-note only one of the messages for the urchin watchface can be true at once
-
-the `peb-urchin-status.sh` gets called from the crontab and will run automatically.
-By default the urchin_loop_on, and urchin_iob is set to true. You must manually change notify_temp_basal to true to start getting temp basal notifications. 
-you can edit this file using `nano pancreoptions.json` from your APS directory.
-
 ### xDripAPS for offline BGs
 
 **Note as of 1/26/17:** The below documentation is WIP and needs additional testing.
