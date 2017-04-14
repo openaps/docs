@@ -68,6 +68,6 @@ You've probably run into an error in your setup where someone has recommended "r
    * **For example**, if your pump-loop.log always shows `Error, retrying` after `Old pumphistory:`, then you'd want to run `openaps refresh-old-pumphistory` manually to reproduce the problem and see if you can get more error details.
    * If necessary, you can drill down further.  So in this example, you might want to run `openaps alias show refresh-old-pumphistory` to see what *that* alias does, and then `openaps gather` to drill down further.
    * Don't use `2>/dev/null` or `>/dev/null ` parts of commands, because they will hide output of commands
-   * If a command does not return output, check with `echo $?` if the exit code returns `0`. If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
+   * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
    * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
- * Still no luck? Try the []Troubleshooting](http://openaps.readthedocs.io/en/master/docs/Resources/troubleshooting.html) page or ask for help.
+ * Still no luck? Try the [Troubleshooting](http://openaps.readthedocs.io/en/master/docs/Resources/troubleshooting.html) page or ask for help.
