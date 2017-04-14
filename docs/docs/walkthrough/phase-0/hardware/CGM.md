@@ -23,7 +23,7 @@ Your OpenAPS implementation can also pull CGM data from a Nightscout site in add
 * If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.
 * You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found [here](http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge).
 * You can also use part of the DIY receiver set up - the wixel – directly to the raspberry pi. Learn more about the wixel setup [here](https://github.com/jamorham/python-usb-wixel-xdrip) and [here](https://github.com/ochenmiller/wixelpi_uploader).
- * If you are using Abbott Freestyle Libre in combination with Sony smartwach 3 and xdrip+ (or possibly other combinations of technology to get Libre data up into the cloud), you can also pull CGM data directly from Nightcout.
+ * If you are using Abbott Freestyle Libre in combination with Sony smartwach 3 and xdrip+ (or possibly other combinations of technology to get Libre data up into the cloud), you can also pull CGM data directly from Nightscout.
 
 
 ### Using the Medtronic CGM

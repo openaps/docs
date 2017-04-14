@@ -46,7 +46,7 @@ Building the software into your rig is comprised of three steps:
 
 The Edison comes with an operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
-Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download [jubilinux.zip](http://www.robinkirkman.com/jubilinux/jubilinux.zip)
+Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download [jubilinux.zip](http://www.jubilinux.org/dist/)
 
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
 
@@ -70,7 +70,7 @@ If you’re like me, you don’t “speak linux” (or python or java or…) nor
 
 **IMPORTANT NOTE**: STEPS 1-10 will be updated periodically, and also will likely be out of date.  Since this is just a cheat sheet for Mac users, it may not have all the troubleshooting tips or updated info that the main OpenAPS docs have.  If you get stuck and this guide’s set of instructions do not work at the moment, the place to look is the [OpenAPS Walkthrough Phase 0, Setting up your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html) for the full information on this part of the OpenAPS setup.
 
-The next steps will be done in the Terminal app.  If you see code lines in a grey box, that’s what you want to copy and paste into Terminal, and then press enter.  Don’t try typing it…you’ll likely miss a space or add a typo.  So, let’s start…
+The next steps will be done in the Terminal app.  If you see red colored text/code lines in a box, that’s what you want to copy and paste into Terminal, and then press enter.  Don’t try typing it…you’ll likely miss a space or add a typo.  So, let’s start…
 
 #### **1-1. Install homebrew**
 
@@ -91,7 +91,6 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 ![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
 #### **1-3.  Install lsusb**
-
 
 `brew update && brew tap jlhonora/lsusb && brew install lsusb`
 
@@ -169,7 +168,7 @@ Flashing rootfs, (it can take up to 10 minutes... Please be patient)
 ```
 in the terminal window where you ran `./flashall.sh`.  As it says, this should take about 10 minutes.  It may appear like nothing is happening for awhile, but wait it out.  If it didn’t take long at all...chances are that the flash didn’t really work, in which case you should read through the [full docs] and try again, and/or check out the Troubleshooting section at the bottom.
 
-After flashing is complete, watch the window as you should get asked to type **control-D to continue**.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
+OLDER JUBILINUX VERSIONS: After flashing is complete, watch the window as you should get asked to type **control-D to continue**.  If so, go ahead and press (don’t type that out, just press the keys) control-D to keep going.  After one of the reboots, you'll probably see:
 
 ```
 [**    ] A start job is running for /etc/rc.local Compatibili...14s / no limit)
@@ -179,6 +178,8 @@ for a few minutes: that's fine.  You can also expect to see an ugly red:
 [FAILED] Failed to start Hostname Service.
 ```
 That is also fine, and you can ignore it too.
+
+NEWER JUBLINUX VERSIONS (0.1.0 and later): You probably won't get asked to Control-D and that is fine.
 
 After several reboots (don’t panic), you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Step 1-4 and start the flash process over again).  Use login `root` and password `edison`.
 
@@ -198,7 +199,7 @@ Hostname and password
 
 ```
 echo $myedisonhostname > /etc/hostname
-sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
+sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 ```
 (without any modifications) and it will set your hostname in both places.  (note: screenshot below is a little different than you will see on your screen.  You will see root@ubilinux)
 
