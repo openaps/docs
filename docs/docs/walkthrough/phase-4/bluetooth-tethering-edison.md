@@ -90,6 +90,8 @@ For Android
 ********************************
 The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter 'yes'. Then click 'pair' on the phone. 
 
+Remember you need to enable the sharing of your phones internet connection via Bluetooth go to Settings -> More -->Tethering & portable hotspot -> Bluetooth tethering [enable]
+
 For iPhone
 ********************************
 <b>Your iPhone must be on the Settings/Bluetooth screen</b>, and then you use the Edison to initiate pairing:
