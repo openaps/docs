@@ -147,3 +147,4 @@ List of people who are working on closed loops:
 - Cameron Chunn (Huntsville, AL)
 - Patrick & Lesly Kelly for Addy (Tempe, AZ)
 - Melanie Mason for Toby (Leicester, UK)
+- Mohamed Ali Bedair (Cairo, Egypt)
