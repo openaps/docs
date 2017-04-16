@@ -95,7 +95,7 @@ For each different situation, the determine-basal output will be slightly differ
 
 If after reading through the code you are still unclear as to why determine-basal made a given decision (or think it may be the wrong decision for the situation), please join the #intend-to-bolus channel on Gitter, paste your output and any other context, and we'll be happy to discuss with you what it was doing and why, and whether that's the best thing to do in that and similar situations.
 
-## Note about Square Boluses, Dual Wave Boluses and Basal Pump Settings of Zero
+## Note about Square Boluses, Dual Wave Boluses, and Basal Pump Settings of Zero
 
 Due to the way the Medtronic Pumps operate, it should be known that temp basals can only be set when there is no bolus running, including extended (square) / dual wave boluses.  
 
