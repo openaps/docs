@@ -77,7 +77,8 @@ Once jq is installed, the shell script runs and produces the `urchin-status.json
 When installing the oref0-setup you will need to replace all instances of AA:BB:CC:DD:EE:FF with the Pebble MAC address. This can be found in Settings/System/Information/BT Address.  NOTE: Make sure the MAC address is in ALL CAPS.
 
 Once you've installed, you will need to pair the watch to your Edison.
-### Bluetooth setup
+
+#### Bluetooth setup for Pancreabble
 
 * Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
 
@@ -111,8 +112,8 @@ agent on
 default-agent
 ```
 
-On Pebble
-********************************
+#### On Your Pebble
+
 Settings/BLUETOOTH to make sure Pebble is in pairing mode
 
 from terminal 
@@ -146,6 +147,8 @@ note only one of the messages for the urchin watchface can be true at once
 the `peb-urchin-status.sh` gets called from the crontab and will run automatically.
 By default the urchin_loop_on, and urchin_iob is set to true. You must manually change notify_temp_basal to true to start getting temp basal notifications. 
 you can edit this file using `nano pancreoptions.json` from your APS directory.
+
+********************************
 
 ### xDripAPS for offline BGs
 
