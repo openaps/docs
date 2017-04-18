@@ -39,6 +39,7 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is near your rig. Closer is better, e.g. check if it works when the pump and rig are at most 20 inches (50 cm) apart.
 * Check that your pump battery is not empty.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
+* Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the follwoing display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
 * 512  users - make sure that you have created your static json files as outlined [here](https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-0/hardware/pump.html) for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json. You will also have to remove the calls for them from the your get-settings alias.
 To do this:
@@ -55,7 +56,7 @@ To do this:
   openaps alias remove gather
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
   ```
-  
+
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
 You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
