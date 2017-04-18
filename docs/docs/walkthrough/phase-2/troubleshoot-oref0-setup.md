@@ -55,7 +55,10 @@ To do this:
   openaps alias remove gather
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
   ```
-  
+ 
+Check to make sure you have a carb ratio set manually in your medtronic insulin pump, if it is not done, the follwoing display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
+ 
+ 
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
 You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
