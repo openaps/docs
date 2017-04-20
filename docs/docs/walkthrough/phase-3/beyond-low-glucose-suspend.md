@@ -25,6 +25,7 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 	"autosens_max": 1.2,
 	"autosens_min": 0.7,
 	"autosens_adjust_targets": true,
+        "maxCOB": 120
 	"override_high_target_with_low": false,
 	"skip_neutral_temps": false,
 	"bolussnooze_dia_divisor": 2,
@@ -55,6 +56,10 @@ The other side of the autosens safety limits, putting a cap on how low autosens 
 #### autosens_adjust_targets: 
 
 This is used to allow autosens to adjust BG targets, in addition to ISF and basals.
+
+#### maxCOB:
+
+This defaults maxCOB to 120 because that's the most a typical body can absorb over 4 hours. (If someone enters more carbs or stacks more; OpenAPS will just truncate dosing based on 120. Essentially, this just limits AMA as a safety cap against weird COB calculations due to fluky data.)
 
 #### override_high_target_with_low: 
 
