@@ -1,5 +1,7 @@
 # Troubleshooting oref0-setup script process
 
+Please be patient. It can take 15-20 minutes for your new OpenAPS rig to enact temp basal rates on your insulin pump after powering on for the first time. Your OpenAPS rig can require the same 15-20 minutes if it's been powered off for more than 20 minutes. It often takes less time but don't over-react. Your rig has to establish network connections, pull CGM data, pump history data, and perform complex calculations prior to enacting temp basals. If your insulin pump does not indicate a temp basal after approximately 15-20 minutes, however, you can begin troubleshooting the cause. A simple reboot, instead of a power on, should take much less time.
+
 ## Re-run the script again
 
 You won't hurt anything by running the script (step 2) multiple times, as long as you name it something different. If you already have a working loop and are testing the setup scripts, just make sure to comment out in cron the loop you don't want running.
@@ -20,6 +22,8 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 
 ## How do I know if it is working?
 
+Please be patient. We can not emphasize this enough.
+
 * Check your pump to see if it is setting temp basals.
 * "Tail" the pump log to see what is is doing: `tail -F /var/log/openaps/pump-loop.log`
 * A very basic test to see if the pump communication works is to issue a `openaps use pump model`. That should return your pump model. If it displays an error or an empty string your rig can't communicate with your pump.
@@ -28,7 +32,7 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 
 ## It's not working yet:
 
-Make sure to check through the following list before asking on Gitter if your setup is not working (yet). Remember if you just ran oref0-setup.sh, wait a good ~20 minutes before seeking help. Time, and the below list of steps, resolves 99% of problems. Also check out [this blog post for tips if asking for help online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
+Make sure to check through the following list before asking on Gitter if your setup is not working (yet). Remember if you just ran oref0-setup.sh, wait a good ~20 minutes as mentioned above before seeking help. Time, and the below list of steps, resolves 99% of problems. Also check out [this blog post for tips if asking for help online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
 * Check to make sure that your pump is in absolute and not % mode for temp basals.
 * Did you put in the right SN for the pump? Should be numbers only...
