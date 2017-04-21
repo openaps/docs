@@ -150,3 +150,4 @@ List of people who are working on closed loops:
 - Mohamed Ali Bedair (Cairo, Egypt)
 - Hilary Koch (Waterville, ME)
 - Eric Feibelman (Alachua, FL)
+- Winfried Kuiper (Langballig, Germany)
