@@ -149,3 +149,4 @@ List of people who are working on closed loops:
 - Melanie Mason for Toby (Leicester, UK)
 - Mohamed Ali Bedair (Cairo, Egypt)
 - Hilary Koch (Waterville, ME)
+- Eric Feibelman (Alachua, FL)
