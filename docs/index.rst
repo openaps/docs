@@ -59,7 +59,7 @@ This documentation support a self-driven Do-It-Yourself (DIY) implementation of 
    :caption: Creating your DIY Closed Loop
     
    #  docs/walkthrough/phase-2/index   
-   SETUP SCRIPT <docs/walkthrough/phase-2/oref0-setup>
+   ** Setup Script ** <docs/walkthrough/phase-2/oref0-setup>
    Troubleshooting setup script <docs/walkthrough/phase-2/troubleshoot-oref0-setup>
    docs/walkthrough/phase-2/accessing-your-rig
    Add other wifi on the go <docs/walkthrough/phase-2/on-the-go-wifi-adding>
