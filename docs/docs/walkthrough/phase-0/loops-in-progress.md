@@ -150,3 +150,4 @@ List of people who are working on closed loops:
 - Hilary Koch (Waterville, ME)
 - Eric Feibelman (Alachua, FL)
 - Winfried Kuiper (Langballig, Germany)
+- Selin Aygün (Ankara,Türkiye)
