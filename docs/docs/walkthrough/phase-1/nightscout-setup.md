@@ -278,7 +278,7 @@ minutes: Enacted, Looping, Waiting, and Warning:
 
 If you suddenly find that Nightscout is not showing treatments (bolus, carbs, finger BGs etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
 
-You probably somehow got a future-dated treatment. 
+You probably somehow got a future-dated treatment. One possible reason is a clock-time mismatch between your devices - for example, your BG meter.
 
 **To resolve:**
 * Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). 
