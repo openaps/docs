@@ -30,13 +30,13 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 * Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.
 
-* Use the Terminal app on the Mac, or follow [these directions for Windows](../phase-0/setup-edison.md#if-youre-using-a-windows-pc-for-console)
+* Use the Terminal app on the Mac, or follow [these directions for Windows](../phase-0/setup-edison.html#if-you-re-using-a-windows-pc-for-console)
 
 * If you're using a Mac, use the command `sudo screen /dev/tty.usbserial-* 115200` to enable “console” or “screen” mode
 
 * Press RETURN to bring up the edison’s login screen
 
-* Login as “root” with your root password (you should have changed it during the setup of the rig - if not, please [go back and do so now](../phase-0/setup-edison.md#initial-edison-setup))
+* Login as “root” with your root password (you should have changed it during the setup of the rig - if not, please [go back and do so now](../phase-0/setup-edison.html#initial-edison-setup))
 
 ## If your iPhone and rig are on the same wifi network
 
