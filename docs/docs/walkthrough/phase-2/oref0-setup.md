@@ -82,7 +82,7 @@ to run the script interactively, or get usage guidelines for providing inputs as
 
 If you have a working setup and are ready to add Bluetooth tethering to the mix:
 
-`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address)
+`cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address) NOTE: Make sure the MAC address is in ALL CAPS.
 
 **Worldwide pump users**
 If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.

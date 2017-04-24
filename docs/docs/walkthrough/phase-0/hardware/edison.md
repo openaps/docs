@@ -29,6 +29,8 @@ You can use any charger with a USB plug, including a wall power charger. The Exp
 
 The following link is to a LiPo battery that is currently most commonly being used with the Explorer board rigs.  https://www.adafruit.com/products/2011. (If it is out of stock on Adafruit, it can be purchased from various sellers on Amazon here: [Adafruit Battery Packs Lithium Ion Battery 3.7v 2000mAh](https://www.amazon.com/Battery-Packs-Lithium-3-7v-2000mAh/dp/B0137ITW46)
 
+Alternative, but common, higher capacity batteries include the Adafruit Lithium Ion Polymer Battery - 3.7v 2500mAh (PRODUCT ID: 328) and the Adafruit Lithium Ion Cylindrical Battery - 3.7v 2200mAh (PRODUCT ID: 1781). They can be viewed here: https://www.adafruit.com/category/574 and comparables can be easilly located with an internet search.
+
 ## Explorer Board or another base board 
 
 You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. However, the recommended board to use is the [Explorer Board](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It is going to be the main board supported by the docs moving forward. It also has the benefits of a built-in radio. Use the link above to find/purchase an Explorer board.
@@ -68,7 +70,7 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [Gustavo's 3D design](https://github.com/Perceptus/explorer_board_case_2)
 * [Sulka Haro's 3D design](https://www.tinkercad.com/things/4a6VffpcuNt)
 * [tazitoo's 3D design: CAD](https://www.tinkercad.com/things/aRYGnHXt7Ta-explorer-case/editv2) ([or STL for 3D printing](http://www.thingiverse.com/thing:2106917))
-* [danimaniac's 3D case w/ Power Button, rounded edges, vents](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
+* [danimaniac's Protective Cases & Accessories](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
 * [Luis's ventilated acrylic simple design](https://drive.google.com/drive/folders/0BxeFg9yJZ_FZdWJEcG5KMXdUMjg?usp=sharing)
 * [Small clear plastic case perfect for larger Sparkfun 2000mah battery: #8483](http://www.ebay.com/itm/272062812611)
 
