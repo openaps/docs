@@ -257,6 +257,24 @@ These are the wifi networks that your rig will be able to use to stay connected 
 * Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone Settings>Personal Hotspot
 * You will definitely want to add it to the list of wifi networks.
 
+Some wifi networks require you to accept a terms and conditions prior to allowing access.  For example, Starbucks coffee shops and many hotels.  These networks are termed "captive" networks and connecting your rig to them is currently not an option.
+
+Other wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school district wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
+
+```
+network={
+   scan_ssid=1
+   ssid="network name"
+   password="wifi password"
+   identity="wifi username"
+   key_mgmt=WPA-EAP
+   pairwise=CCMP TKIP
+   group=CCMP TKIP WEP104 WEP40
+   eap=TTLS PEAP TLS
+   priority=1
+}
+```
+
 **B-4.** Press ESC then type “:wq” to write (save) and quit that screen when you have finished adding the wifi networks.  You can always come back and add more networks as needed, using the same process.
 
 **C** Run `ifup wlan0` to make sure you can connect to wifi.  A successful connection should look similar (IP address numbers will be different than mine):
