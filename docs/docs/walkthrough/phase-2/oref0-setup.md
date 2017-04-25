@@ -80,7 +80,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 
 **Read this note before running the script**: The very first time may take a while (15-20 minutes) for it to successfully read and pull a full history from your pump. Wait at least 20 minutes while watching the log (see below, in step 3 on this page) before asking for help. If it looks like it is giving you an error message, make sure you completed step 0 and 1 (see above!). If in doubt, run step 0 and step 1 again, and run the setup script (step 2) again as well. It will not hurt to run it multiple times, but you will probably want to answer `yes` to the setup script prompt asking if you want to delete any existing crons. Go on to the [next page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) for other ideas of troubleshooting. Read that page's troubleshooting tips before jumping into Gitter with questions about what to try next [and make sure to utilize these tips when asking for help](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
-Most users will likely want to setup Bluetooth Tethering.  Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to run the setup script below for BT and pairing directions.
+**Two options for running the oref0-setup script are with or without BT**  Eventually, most users will want to run their rig with BT enabled.  You can run the script with Bluetooth and always come back at a later time to finish the pairing steps in Phase 4.  Until you finish the pairing, your rig will rely on known wifi networks in your wpa-supplicant list that you setup in Phase 0 (or on any offline setups that you have done).
 
 #### oref0-setup.sh script (without Bluetooth tethering - recommended to do for your first setup )
 
@@ -90,12 +90,22 @@ to run the script interactively, or get usage guidelines for providing inputs as
 
 #### oref0-setup.sh script with Bluetooth
 
-If you have a working setup and are ready to add Bluetooth tethering to the mix:
+If you want to add Bluetooth tethering to the mix:
 
 `cd && ~/src/oref0/bin/oref0-setup.sh --btmac=AA:BB:CC:DD:EE:FF` (where AA:BB:CC:DD:EE:FF is your phone's BT MAC address) NOTE: Make sure the MAC address is in ALL CAPS.
 
+Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to complete the BT pairing.
+
 **Worldwide pump users**
 If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
+
+When you've successfully answered all the input questions from the setup script, it will print a summary of the inputs for you before asking if you want to continue, as shown below:
+
+![NPM install](../../Images/setup_entries.png)
+
+After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop).  Usually you'll want to answer `yes` and also then press `enter` to reboot after the cron is installed.
+
+![NPM install](../../Images/cron_reboot.png)
 
 ### Re-running the oref0-setup.sh script
 
