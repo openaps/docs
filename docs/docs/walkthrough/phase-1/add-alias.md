@@ -1,6 +1,8 @@
 # Adding shortcuts to command lines
 
-Linux command lines can be long-to-type and difficult-to-remember.  Sometimes it is really helpful to create aliases for frequently used commands or combination of commands that you'll use in your OpenAPS rig.  Here's a short set of instructions for setting up aliases.  You can customize the initial list of aliases however you'd like.
+Linux command lines can be long-to-type and difficult-to-remember.  Sometimes it is really helpful to create aliases (a.k.a, shortcuts) for frequently used commands or combination of commands that you'll use in your OpenAPS rig.  Here's a short set of instructions for setting up aliases.  You can customize the initial list of aliases however you'd like.
+
+By setting up these aliases, you can just use the shortcut command while logged into your rig instead of typing out the much longer version of the command.  For example, typing `cat-pref` will show you a print out of your preferences.json file.  Typing `edit-wifi` will bring up your wpa-supplicant file so that you can add or edit wifi networks for your rig.
 
 * Create a blank profile
 <br>
