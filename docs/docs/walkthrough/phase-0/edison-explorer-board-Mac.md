@@ -1,4 +1,4 @@
-# Setting up Edison/Explorer Board on a Mac - Alpha Instructions
+# Setting up Edison/Explorer Board on a Mac
 
 (This is testing a separate workflow for Mac only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processes.)
 
@@ -250,8 +250,6 @@ Now your Edison has a new hostname.  (note: screenshot below is a little differe
 
 **B-1.** Enter `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
-![Wifi edit screen](../../Images/Edison/Wifi_add.png)
-
 **B-2.** Type “i” to enter INSERT mode for editing on the file.
 
 **B-3.** Add the following for each wifi network you’d like to add.  
@@ -263,12 +261,17 @@ network={
 }
 ```
 
-These are the wifi networks that your rig will be able to use to stay connected to internet. Examples shown in yellow.  One is my home wifi, the other is my iphone’s personal hotspot.
+The networks you enter here are the wifi networks that your rig will be able to use to stay connected to internet. Examples shown below.  One is my home wifi, the other is my iphone’s personal hotspot.
+
+![Wifi edit screen](../../Images/Edison/Wifi_add.png)
 
 ![Phone wifi hotspot screen](../../Images/Edison/Phone_hotspot_wifi.png)
 
-* Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone Settings>Personal Hotspot
-* You should add it to the list of wifi networks as a backup if your BT tethering to hotspot does not work.
+* Note: If you don’t know your personal hotspot’s information, you can find it under your iPhone's Settings, Personal Hotspot as shown in the screenshot.
+
+* You should add your personal hotspot to the list of wifi networks as a backup if your BT-tethering to hotspot does not work.  By toggling your hotspot off-on, it will generate a wifi-tether signal for approximately 90 seconds, so that your rig can find it and connect.  Since wifi-tethers are similar to a regular wifi connection, your rig will not automatically hop off this connection when it gets to your home wifi network.  You will need to remember to turn off your wifi-tether if you want your rig to connect back to your home wifi network.  By contrast, a hotspot connection done by BT-tether does not require any toggling and your rig will connect/disconnect as it leaves/comes to a known wifi network in your wp_supplicant list.  
+
+* If you haven't done it, a good idea is to update the name of your iPhone to remove any apostrophes.  Apple's default is to name iPhones with an apostrophe such as "Katie's iPhone".  This can cause some problems for wifi connections sometimes.  You can rename your iPhone by going into your iPhone's Settings, General, About, and then Name.
 
 Some wifi networks require you to accept a terms and conditions prior to allowing access.  For example, Starbucks coffee shops and many hotels.  These networks are termed "captive" networks and connecting your rig to captive networks is currently not an option.
 
