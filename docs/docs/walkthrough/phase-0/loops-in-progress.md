@@ -152,3 +152,4 @@ List of people who are working on closed loops:
 - Winfried Kuiper (Langballig, Germany)
 - Selin Aygün (Ankara,Türkiye)
 - Ken Kotch (Boulder, CO, USA)
+- Brian Densmore (Clovis, CA, USA)
