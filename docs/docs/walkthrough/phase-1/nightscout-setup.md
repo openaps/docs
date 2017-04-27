@@ -274,13 +274,13 @@ minutes: Enacted, Looping, Waiting, and Warning:
 * Looping means OpenAPS is running but has not enacted the pump
 * Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
 
-### All of a sudden, Nightscout is no longer showing treatments (bolus, carbs) on the graph or rendering my basals.
+### All of a sudden, Nightscout is no longer showing treatments (bolus, carbs, finger BGs) on the graph or rendering my basals.
 
-If you suddenly find that Nightscout is not showing treatments (bolus, carbs, etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
+If you suddenly find that Nightscout is not showing treatments (bolus, carbs, finger BGs etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
 
-You probably somehow got a future-dated treatment. 
+You probably somehow got a future-dated treatment. One possible reason is a clock-time mismatch between your devices - for example, your BG meter, pump, CGM, or OpenAPS rig may have different dates or times set.
 
-**To resolve:**
-* Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). 
+**To remove future treatments:**
+* Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). If the future treatments were caused by a time mismatch, you'll need to resolve that first, or the future dated treatments may simply be re-uploaded.
 
 ![How to delete future-dated treaments](../../Images/Remove_future_treatments.png)
