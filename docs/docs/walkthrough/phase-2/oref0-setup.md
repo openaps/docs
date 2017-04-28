@@ -48,9 +48,7 @@ If you have been looping for awhile, are setting up an additional rig, are comfo
 
 `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
-Then cd into ~/src/oref0 and enter:
-
-`npm run global-install` (note this is only necessary for the dev branch, NOT for master)
+`cd ~/src/oref0 && npm run global-install` (note this is only necessary for the dev branch, NOT for master)
 
 ## Step 2: Run oref0-setup
 
