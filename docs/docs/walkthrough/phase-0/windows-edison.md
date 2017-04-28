@@ -189,6 +189,24 @@ network={
 
 If you have a hidden wifi network add the line `scan_ssid=1`.
 
+Some wifi networks require you to accept a terms and conditions prior to allowing access.  For example, Starbucks coffee shops and many hotels.  These networks are termed "captive" networks and connecting your rig to them is currently not an option.
+
+Other wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school district wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
+
+```
+network={
+   scan_ssid=1
+   ssid="network name"
+   password="wifi password"
+   identity="wifi username"
+   key_mgmt=WPA-EAP
+   pairwise=CCMP TKIP
+   group=CCMP TKIP WEP104 WEP40
+   eap=TTLS PEAP TLS
+   priority=1
+}
+```
+
 Press Esc and then type ':wq' and press Enter to write the file and quit.
 
 ### **1.6  Test internet connection**
