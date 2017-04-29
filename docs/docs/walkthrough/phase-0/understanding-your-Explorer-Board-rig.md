@@ -32,6 +32,11 @@ The little black button on the end of the board near the JST connector is the po
 
 The radio and antenna are down on the end of the board where you see a little white stick. (Opposite end of the board from where your battery connects at the JST connector). 
 
+### Cutting the trace to improve radio communication
+Some OpenAPS users have found that cutting a portion of the explorer board's hidden copper wire (called a trace) will improve radio comms with the pump. Before doing this, remember to disconnect any attached battery or power source first. For non-euro pumps (916 tuning pumps), you're looking to cut near that white line that is between the 1 and the 5 in the "915." Consider cutting on the 1-side rather than the exact spot where the white "cut" line is drawn because it is so close to the corner where the rest of the copper wire goes. To make the cut, use a sharp x-acto blade to cut through the copper just beneath the green surface of board. It will take a few swipes and you'll hear a small scraping noise when you get to the wire.
+
+https://www.facebook.com/groups/TheLoopedGroup/permalink/1854229718127019/?hc_location=ufi
+
 ### Lipo Battery
 
 Lipo batteries are great for a lot of things…but taking damage is not one of them.  Please treat lipo batteries with care.  Keep them protected from puncture.  The explorer board has some “pointy” parts on the underside, so providing some protection from the board’s squish is a good idea.  A small piece of protection (such as a business card or non-conductive thin foam sheet) will help protect the battery from the board above it.  
