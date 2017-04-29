@@ -73,6 +73,7 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [danimaniac's Protective Cases & Accessories](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
 * [Luis's ventilated acrylic simple design](https://drive.google.com/drive/folders/0BxeFg9yJZ_FZdWJEcG5KMXdUMjg?usp=sharing)
 * [Small clear plastic case perfect for larger Sparkfun 2000mah battery: #8483](http://www.ebay.com/itm/272062812611)
+* [Robert Silvers and Eric Burt's case for Explorer and 2500 mAh battery](http://www.thingiverse.com/thing:2282398)
 
 ### Soft Cases 
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=90) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). To order, just pick the pattern/fabric for a Dexcom G4/G5 case (per the link) and put that you want it OpenAPS sized or 2x3" in the notes.
