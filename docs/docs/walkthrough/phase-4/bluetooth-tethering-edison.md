@@ -25,17 +25,19 @@ A few things to know about using your phone's hotspot feature:
 
 * Certain phones don't work well using bluetooth tethering with OpenAPS. Various users have experimented, and the list below shows those that have been found to work okay, those that don't and those with variable effectiveness. If you have something that is not on the list, please feel free to add it.
 
-Cellphone | Works with Bluetooth Tethering? | Issues/Experiences with BT | Use with xDrip/xDripAPS and Dexcom G5
-----------|---------------------------------|----------------------------|--------------------------------------
-LG Nexus 5X with Android 7 | Yes | Supports tethering to both Wifi and Cellular network. No issues switching. | Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
-Google Pixel with Android 7 | Yes | Supports tethering to both Wifi and Cellular network. No issues switching.| Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
-Sony Xperia Z5 Compact with Android 7 | Yes | Works with tethering for network access. It regularly disconnects from the rig (which doesn't seem to affect data flow) and roughly every 24-36 hours this results in complete loss of connectivity and requires a full reboot of the rig and the phone. Doesn't work well with phone swapping between Wifi and mobile - causes BT dropouts that require a reboot of the rig. | No issues running xDrip/xDripAPS alongside the tethered connection. Achieves 90%+ packet collection from Dexcom G5. 
-Xiaomi Redmi 4 with MIUI 8 (Android 6) | No | Tethering can be set up, but it drops regularly requiring rig reboots. When phone switches between Wifi and cellular signal requires rig to be rebooted. | Significant packet drops and data becomes almost unusable.
-Xiaomi Redmi 3 with MIUI 6 (Android 5)| Yes | No issues seen when tethered to cellular network. Doesn't allow tethering to wifi. | Works fine with Dexcom G5 - 90% collection rate.
-Samsung Galaxy S6 (Android 7) | Yes | Tethering to rig and cellular works okay. No data on swapping between cellular and wifi connections. | Use with Dexcom G5 and rig not effective. Significant packet loss.
-Samsung Galaxy Junior | Yes | Phone tethering switching between wifi and mobile not elegant and causes some issues | Difficulties found when using xDrip with the OpenAPS tethering. Packet loss occurs.
-iPhone | Yes | Users have experienced various levels of success with the iPhone bluetooth tethering and when the rig switches  between wifi and BT | Not Applicable. Experimental version of Loop to do something similar doesn't yet have feedback.
-Acer Phone | No | Many data drops on the bluetooth connection for rig. Recommended to avoid. | xDrip compatibility is poor - numerous drops throughout the day.
+<TABLE border="1"
+          summary="This table gives details about various cellphones used with BT Tethering with OpenAPS rigs">
+<TR><TH>Cellphone<TH>Works with Bluetooth Tethering?<TH>Issues/Experiences with BT<TH>Use with xDrip/xDripAPS and Dexcom G5
+<TR><TH>LG Nexus 5X with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
+<TR><TH>Google Pixel with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
+<TR><TH>Sony Xperia Z5 Compact with Android 7<TD>Yes<TD>Works with tethering for network access. It regularly disconnects from the rig (which doesn't seem to affect data flow) and roughly every 24-36 hours this results in complete loss of connectivity and requires a full reboot of the rig and the phone. Doesn't work well with phone swapping between Wifi and mobile - causes BT dropouts that require a reboot of the rig.<TD>No issues running xDrip/xDripAPS alongside the tethered connection. Achieves 90%+ packet collection from Dexcom G5. 
+<TR><TH>Xiaomi Redmi 4 with MIUI 8 (Android 6)<TD>No<TD>Tethering can be set up, but it drops regularly requiring rig reboots. When phone switches between Wifi and cellular signal requires rig to be rebooted.<TD>Significant packet drops and data becomes almost unusable.
+<TR><TH>Xiaomi Redmi 3 with MIUI 6 (Android 5)<TD>Yes<TD>No issues seen when tethered to cellular network. Doesn't allow tethering to wifi.<TD>Works fine with Dexcom G5 - 90% collection rate.
+<TR><TH>Samsung Galaxy S6 (Android 7)<TD>Yes<TD>Tethering to rig and cellular works okay. No data on swapping between cellular and wifi connections.<TD>Use with Dexcom G5 and rig not effective. Significant packet loss.
+<TR><TH>Samsung Galaxy Junior<TD>Yes<TD>Phone tethering switching between wifi and mobile not elegant and causes some issues<TD>Difficulties found when using xDrip with the OpenAPS tethering. Packet loss occurs.
+<TR><TH>iPhone<TD>Yes<TD>Users have experienced various levels of success with the iPhone bluetooth tethering and when the rig switches  between wifi and BT<TD>Not Applicable. Experimental version of Loop to do something similar doesn't yet have feedback.
+<TR><TH>Acer Phone<TD>No<TD>Many data drops on the bluetooth connection for rig. Recommended to avoid.<TD>xDrip compatibility is poor - numerous drops throughout the day.
+</TABLE>
 
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
