@@ -153,3 +153,4 @@ List of people who are working on closed loops:
 - Selin Aygün (Ankara,Türkiye)
 - Ken Kotch (Boulder, CO, USA)
 - Brian Densmore (Clovis, CA, USA)
+- Jesse Szypulski (Louisville, KY, USA) Edison / Explorer Board
