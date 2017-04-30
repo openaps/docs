@@ -44,3 +44,7 @@ Lipo batteries are great for a lot of things…but taking damage is not one of t
 Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The lipo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html#cases) for both hard and soft case ideas).  
 
 There are several places to get lipo batteries, with lots of different dimensions and capacities.  A 2000 mAh lipo will get you about 12-14 hours of use, assuming you have the standard setup (which is what you get following these docs) running. 
+
+### What happens if you have multiple rigs?
+
+If you have multiple OpenAPS rigs, they’re built to be polite to each other - so even if you had 2+ rigs in same room, they won’t trip each other up. They “wait for silence” before issuing any commands to the pump. By having multiple rigs throughout a house, you can move from room-to-room without carrying rigs because the rigs will pass-off comms as you moves in and out of the rig’s range. Stationary rigs will not need lipo batteries and can be plugged directly into the wall from the explorer board.
