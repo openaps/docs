@@ -13,16 +13,49 @@ You will need to access your OpenAPS rig’s software when you want to:
 
 Since the rig is basically a computer without a screen or keyboard, there are various options to get you access you’ll need.  The option available will depend mostly on the wifi network your gear is connected to.
 
+If you are using a Mac computer, access will be using the Terminal App which comes with the computer.  It can be found in the Utilities folder within Applications.
+
+If you are using a Windows computer, access will be using PuTTY program.  You likely already downloaded it when you setup your OpenAPS rig.  If you are at a new computer and need to [install Edison drivers](https://software.intel.com/en-us/iot/hardware/edison/downloads) and [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).  If you need details about installing them, go back to the [Windows guide Step 1-1](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/windows-edison.html#)
+
 ## If your computer and rig are on the same wifi network
 
 ![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
 
-* Access to the rig will be using the Terminal App on the Mac, or PuTTY for Windows
+# For Mac computers
 
-* Use the command `ssh root@edisonhost.local` (**or whatever you named your edison host**), or enter the equivalent settings into PuTTY.
+* Open the Terminal App found in the Utilities folder in Applications.
 
-* If you get an error about the host not being found, it is likely that your rig is actually connected to a different wifi network than the computer.  Try the console method below.
+* Use the command `ssh root@edisonhost.local` (**or whatever you named your edison host**, in the example below, the hostname was edison1).  If this is your first time logging in to the rig on the computer, you may get a message about the authenticity of the host and whether you want to add the key fingerprint to the list of known hosts.  Go ahead and answer yes.  You will be asked for the password for the rig...enter your root password that you setup in Phase 0 (the default was edison).  Realize that keystrokes will not appear as you enter the password.  A successful login will result in a screen similar to below.
 
+![Mac ssh login](../../Images/access_mac1.png)
+
+* If you get an error about "could not resolve hostname", it is likely that your rig is actually connected to a different wifi network than the computer. Try the screen method (directions below) for connecting to your rig.
+
+![Mac ssh unknown host](../../Images/access_mac2.png)
+
+* If you get an scary looking error about "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!" that is likely because you are attempting to login to a rig that has the same hostname as a previous rig that has been logged into on the computer.  (This is why you want to use unique hostnames if you are going to have multiple rigs.)  You can delete the history of known hosts for the rig by entering the commands `cd .ssh` and then `rm known_hosts`.  This will delete the log of known hosts on your computer.  There's no significant downside to removing the known_host log, except that you will need to answer yes to the key fingerprint additions again for the first time you login to old rigs again.  After you delete the known hosts, you can use the `ssh root@edisonhost.local` command to login, as described above.
+
+![Mac spoofing error](../../Images/access_mac3.png)
+
+# For Windows computers
+
+* Open PuTTY program
+
+* Click the SSH radio button and then enter the IP address of the rig on the "Host Name" line in PuTTY.  If you do not know the IP address of the rig, you can obtain it by logging on using Serial connection (described below) and using the command `ifconfig`.
+
+![Windows IP address for rig](../../Images/access_4.png)
+
+Alternatively, you can log in to your wifi router and find your rig's IP address.
+
+![Windows IP address for rig](../../Images/access_ip.png)
+
+* Click the Open button and, if this is your first time logging into the rig using PuTTY using ssh, you may see a warning regarding the server's host key.  Click yes to add the host key to PuTTY's cache. 
+
+![Windows key hostname](../../Images/access_6.png)
+
+* Login using login name `root` and password is whatever you changed it to during setup in Phase 0.  The default password was edison.  As you type the password, no keystrokes will appear on the screen.  Successful login will leave you at a prompt for the root user.
+
+![Windows IP address for rig](../../Images/access_7.png)
 
 ## If your computer and rig are on different wifi networks
 
@@ -30,13 +63,15 @@ Since the rig is basically a computer without a screen or keyboard, there are va
 
 * Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.
 
+# For Mac computers
+
 * Use the Terminal app on the Mac, or follow [these directions for Windows](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#if-you-re-using-a-windows-pc-for-console)
 
-* If you're using a Mac, use the command `sudo screen /dev/tty.usbserial-* 115200` to enable “console” or “screen” mode
+* If you're using a Mac, use the command `sudo screen /dev/tty.usbserial-* 115200` to enable “screen” mode.  You will be prompted to enter a password.  Enter your **computer's password** not the rig's password here.
 
-* Press RETURN to bring up the edison’s login screen
+* You may see a blank screen.  Press RETURN to bring up the edison’s login screen.  Login as “root” with your root password (you should have changed it from the default of `edison` during the setup of the rig - if not, please [go back and do so now](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup)
 
-* Login as “root” with your root password (you should have changed it during the setup of the rig - if not, please [go back and do so now](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup)
+* If instead, you see a message at the bottom of the screen that says "Sorry, could not find a PTY." that usually means the system has not cleared a previous screen session.  Close out terminal app, restart the computer, and try again.  This will clear the error.
 
 ## If your iPhone and rig are on the same wifi network
 
