@@ -69,9 +69,35 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 
 * If you're using a Mac, use the command `sudo screen /dev/tty.usbserial-* 115200` to enable “screen” mode.  You will be prompted to enter a password.  Enter your **computer's password** not the rig's password here.
 
-* You may see a blank screen.  Press RETURN to bring up the edison’s login screen.  Login as “root” with your root password (you should have changed it from the default of `edison` during the setup of the rig - if not, please [go back and do so now](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup)
+![Mac Screen first password](../../Images/access_mac_password.png)
 
-* If instead, you see a message at the bottom of the screen that says "Sorry, could not find a PTY." that usually means the system has not cleared a previous screen session.  Close out terminal app, restart the computer, and try again.  This will clear the error.
+* You may see a blank screen.  Press RETURN to bring up the edison’s login screen.  Login as `root` and use your root password (you should have changed it from the default of `edison` during the setup of the rig - if not, please [go back and do so now](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup).  A successful login will look like below.
+
+![Mac Screen successful login](../../Images/access_mac_screen.png)
+
+* If instead, you see a message at the bottom of the screen that says "Sorry, could not find a PTY." that usually means the system has not cleared a previous screen session.  If you only had the rig connected by one cable in the UART port on rig, you can simply unplug the rig from the computer and move to a new USB port on the computer.  If you don't have any "new" USB ports that were not used by the previous login attempt, then close out terminal app, restart the computer, and try again.  This will clear the error.
+
+![Mac Screen message for busy port](../../Images/access_mac_sorry.png)
+
+* If instead you see a message at the bottom of the screen that says "Cannot exec '/dev/tty.usbserial-*': No such file or directory", double check that you have your rig and computer connected via the rig's UART port.  Using the OTG port will cause this error message.  Or typos in the screen command will have same result.  Double check your spelling, or better yet...use copy and paste whenever possible.
+
+![Mac Screen message for OTG port](../../Images/access_mac_no_exec.png)
+
+# For Windows Users
+
+* Plug your rig into your computer using a data cable and the UART port on the rig.
+
+* Navigate to your Control Panel and then to Device Manager.  Click on the Ports to open your USB serial port.  Find the COM port that the rig is connected to.  In the screenshot below, COM7.  Note: different USB ports will have different numbers.  If you regularly plug your rig into the computer and use this connection type, you may need to make sure you update the COM number in the steps below if you are switching between different USB ports.  
+
+![Windows COM port number](../../Images/access_1.png)
+
+* Open PuTTY program.  Click on the Serial radio button, enter the COM number you got from the previous step into the Serial line number and change the speed to 115200.  Click on Open button.
+
+![Windows serial setup](../../Images/access_2.png)
+
+* Enter `root` for the login and the password is whatever you changed it to during setup in Phase 0.  The default password was edison.  As you type the password, no keystrokes will appear on the screen.  Successful login will leave you at a prompt for the root user as shown below.
+
+![Windows serial login success](../../Images/access_3.png)
 
 ## If your iPhone and rig are on the same wifi network
 
