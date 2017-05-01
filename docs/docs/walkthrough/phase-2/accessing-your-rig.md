@@ -61,7 +61,7 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 
 ![If your computer and rig are on different wifi networks](../../Images/Computer_rig_different_wifi.png)
 
-* Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.
+**Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.  You will need a cable capable of transmitting data.  If you try all of the steps below and are unsuccessful at connecting, try a new cable.**
 
 ### For Mac computers
 
@@ -84,8 +84,6 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 ![Mac Screen message for OTG port](../../Images/access_mac_no_exec.png)
 
 ### For Windows Users
-
-* Plug your rig into your computer using a data cable and the UART port on the rig.
 
 * Navigate to your Control Panel and then to Device Manager.  Click on the Ports to open your USB serial port.  Find the COM port that the rig is connected to.  In the screenshot below, COM7.  Note: different USB ports will have different numbers.  If you regularly plug your rig into the computer and use this connection type, you may need to make sure you update the COM number in the steps below if you are switching between different USB ports.  
 
