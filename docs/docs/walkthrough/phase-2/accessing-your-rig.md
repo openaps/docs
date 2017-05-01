@@ -41,11 +41,15 @@ If you are using a Windows computer, access will be using PuTTY program.  You li
 
 * Open PuTTY program
 
-* Click the SSH radio button and then enter the IP address of the rig on the "Host Name" line in PuTTY.  If you do not know the IP address of the rig, you can obtain it by logging on using Serial connection (described below) and using the command `ifconfig`.
+* Click the SSH radio button and then enter the IP address of the rig on the "Host Name" line in PuTTY.  
+
+![Windows IP address for rig](../../Images/access_5.png)
+
+* If you do not know the IP address of the rig, you can obtain it by first logging on using Serial connection (described below) and using the command `ifconfig`.
 
 ![Windows IP address for rig](../../Images/access_4.png)
 
-Alternatively, you can log in to your wifi router and find your rig's IP address.
+Alternatively, you can login to your wifi router and find your rig's IP address.
 
 ![Windows IP address for rig](../../Images/access_ip.png)
 
@@ -96,6 +100,7 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 * Enter `root` for the login and the password is whatever you changed it to during setup in Phase 0.  The default password was edison.  As you type the password, no keystrokes will appear on the screen.  Successful login will leave you at a prompt for the root user as shown below.
 
 ![Windows serial login success](../../Images/access_3.png)
+
 
 ## If your iPhone and rig are on the same wifi network
 
