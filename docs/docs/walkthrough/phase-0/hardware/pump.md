@@ -1,5 +1,7 @@
 # Information about compatible insulin pumps
 
+NOTE: If you are considering moving from Multiple Daily Injections (MDI) to an insulin pump,, it is important that you have  VERY detailed knowledge about the way a pump works. Insulin pumps use both basal and bolus settings for dosing and only use fast acting insulin. If you just purchased a compatible pump you are probably eager to start closing the loop. OpenAPS uses the settings and information that is manually set by the user (usually with help from their Healthcare Provider) into the pump to make dosing recommendations. First things first: understand how to safely use your pump before proceeding.
+
 !["Can I do OpenAPS with this pump?"](../Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
 
 Currently, only the following Medtronic MiniMed models allow us to remotely set temporary basal rate commands, which is required to do OpenAPS:
