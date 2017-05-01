@@ -127,13 +127,13 @@ This will work anytime, anywhere when you log into your rig and is a necessary s
 
 Also, there are several loop logs contained within your OpenAPS setup...not just a pump-loop.  For example, there are also logs for the following operations in your rig:
 
-Autosens adjustments log: `tail -F /var/log/openaps/autosens-loop.log`
+* Autosens adjustments log: `tail -F /var/log/openaps/autosens-loop.log`
 
-Nightscout log: `tail -F /var/log/openaps/ns-loop.log`
+* Nightscout log: `tail -F /var/log/openaps/ns-loop.log`
 
-oref0-online or wifi connection log: `tail -F /var/log/openaps/network.log`
+* oref0-online or wifi connection log: `tail -F /var/log/openaps/network.log`
 
-Autotune log: `tail -F /var/log/openaps/autotune.log`
+* Autotune log: `tail -F /var/log/openaps/autotune.log`
 
 Please see [Phase 1 Papertrail](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/papertrail.html) for an easy way to track all your logs in one easy setup.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig.  Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 
