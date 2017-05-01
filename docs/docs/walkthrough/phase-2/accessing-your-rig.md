@@ -49,11 +49,7 @@ If you are using a Windows computer, access will be using PuTTY program.  You li
 
 ![Windows IP address for rig](../../Images/access_4.png)
 
-Alternatively, you can login to your wifi router and find your rig's IP address.
-
-![Windows IP address for rig](../../Images/access_ip.png)
-
-* Click the Open button and, if this is your first time logging into the rig using PuTTY using ssh, you may see a warning regarding the server's host key.  Click yes to add the host key to PuTTY's cache. 
+* Click the "Open" button in the PuTTY window and, if this is your first time logging into the rig using PuTTY using ssh, you may see a warning regarding the server's host key.  Click yes to add the host key to PuTTY's cache. 
 
 ![Windows key hostname](../../Images/access_6.png)
 
