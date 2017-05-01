@@ -12,19 +12,18 @@ OK, let's get started. For our example we are going to make an edit to the opena
 
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 ![Fork repo](../Images/PR0.png)
-2. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.
-![RTD io](../Images/PR1.png)
-3. Click on the black and green box at page bottom right with the word "v: latest" or similar. In the pop up window that appears click the word "edit". An alternative is to navigate the directory tree from https://github.com/openaps/docs to the page you want to edit and press the pencil icon in the upper right next to the trash can icon. 
+2. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.  Click on the black box at page bottom right with the green word "v: latest" or similar. In the pop up window that appears click the word "edit". Or you can click on the "Edit in Github" link in the upper right corner. 
 ![edit doc](../Images/PR2.png)
-4.  Either of the options in Step 3 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
+![RTD io](../Images/PR1.png)
+3.  Either of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
 ![Edit branch](../Images/PR3.png)
-5. You have been working in the "<>Edit file" tab. Select the "Preview changes" tab for a fresh look to make sure everything you changed looks like you meant it to (typpos sic.). If you see a needed improvement, go back to the edit tab to make more improvements.
+4. You have been working in the "<>Edit file" tab. Select the "Preview changes" tab for a fresh look to make sure everything you changed looks like you meant it to (typpos sic.). If you see a needed improvement, go back to the edit tab to make more improvements.
 ![preview mode](../Images/PR5.png)
-6. When you have finished your edits, scroll to the bottom of the page.  In the box at the bottom, provide your comments in the text field that reads, "Add an optional extended description...". The default title has the file name. Try to include a sentence explaining the __reason__ for the change. Relating the reason helps reviewers understand what you are attempting to do with the PR.
+5. When you have finished your edits, scroll to the bottom of the page.  In the box at the bottom, provide your comments in the text field that reads, "Add an optional extended description...". The default title has the file name. Try to include a sentence explaining the __reason__ for the change. Relating the reason helps reviewers understand what you are attempting to do with the PR.
 ![commit comments](../Images/PR4.png)
-7. Click the green "Propose file changes" or "Commit changes" button. In the page that appears click "Create Pull Request" and again in the next page click "Create Pull Request".
+6. Click the green "Propose file changes" or "Commit changes" button. In the page that appears click "Create Pull Request" and again in the next page click "Create Pull Request".
 ![create pull request](../Images/PR6.png)
-8. That completes the opening of a pull request, PR. GitHub assigns the PR a number, located after the title and a hash mark. Return to this page to check for feedback (or, if you have Github notifications emailed to you, you will get emails notifying you of any activity on the PR). The edit will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps! If you want to check on the progress of the PR, you can click on the bell logo in the upper right corner of your GitHub account and see all your PRs.
+7. That completes the opening of a pull request, PR. GitHub assigns the PR a number, located after the title and a hash mark. Return to this page to check for feedback (or, if you have Github notifications emailed to you, you will get emails notifying you of any activity on the PR). The edit will now be in a list of PR's that the team will review and potentially give feedback on before committing to the main documentation for openaps! If you want to check on the progress of the PR, you can click on the bell logo in the upper right corner of your GitHub account and see all your PRs.
 ![PR tracking](../Images/PR7.png)
 
 Congrats, you made your first contribution!
@@ -37,11 +36,17 @@ If you are planning to make a lot of edits, including adding images to help illu
 
 * As you go and save screenshots, rename the screenshots to a descriptive name - but try not to use spaces as that confuses Github. Instead, use underscores. I.e. Example_batch_images_upload.png rather than "Example batch images upload.png". 
 * You can upload images in batches easily by:
+ 
  * 1. Navigate to the images folder (https://github.com/openaps/docs/tree/master/docs/docs/Images - but make sure you are in your fork/copy of the docs Images folder to be able to do this (replace "openaps" in the URL with your github username)).
+ 
  * 2. Click in the upper right corner where it says "Upload files"
+ 
  * 3. Drag and drop your images into the screen
+ 
  * 4. Commit these to your branch
+ 
  * 5. Now, you can look for the URL/relative path of each file (example, you can see [this individual image has it's own URL and path](https://github.com/openaps/docs/blob/master/docs/docs/Images/Example_batch_images_upload.png) and use that to refer to when adding images into a page in the documentation.
+ 
  * 6. To see examples of how to add the images, you can look at the "raw" code of a page to see an example from a page that already has the images embedded successfully. The main thing is to have a plain text description, followed by a link with a relative path to the image, like this: `![Example of uploading images in batches](../Images/Example_batch_images_upload.png)`
  
  (That code is exactly how the image below is embedded to be displayed.)
