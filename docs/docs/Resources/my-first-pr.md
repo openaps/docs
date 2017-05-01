@@ -12,8 +12,9 @@ OK, let's get started. For our example we are going to make an edit to the opena
 
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 ![Fork repo](../Images/PR0.png)
-2. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.  Click on the black box at page bottom right with the green word "v: latest" or similar. In the pop up window that appears click the word "edit". Or you can click on the "Edit in Github" link in the upper right corner, and then click the pencil icon that appears in the top bar of the page contents to be edited. 
+2. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.  Click on the black box at bottom left of page with the green word "v: latest" or similar. In the pop up window that appears, click the word "edit" for editing in GitHub.  
 ![edit doc](../Images/PR1.png)
+Or you can click on the "Edit in Github" link in the upper right corner, and then click the pencil icon that appears in the top bar of the page contents to be edited.
 ![RTD io](../Images/PR2.png)
 3.  Either of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
 ![Edit branch](../Images/PR3.png)
@@ -35,23 +36,23 @@ PS, your fork and branch will still be sitting on your own personal GitHub accou
 If you are planning to make a lot of edits, including adding images to help illustrate parts of the documentation (thank you!), you may want to take the following approach:
 
 * As you go and save screenshots, rename the screenshots to a descriptive name - but try not to use spaces as that confuses Github. Instead, use underscores. I.e. Example_batch_images_upload.png rather than "Example batch images upload.png". 
+
 * You can upload images in batches easily by:
  
- * 1. Navigate to the images folder (https://github.com/openaps/docs/tree/master/docs/docs/Images - but make sure you are in your fork/copy of the docs Images folder to be able to do this (replace "openaps" in the URL with your github username)).
+ 1. Navigate to the images folder (https://github.com/openaps/docs/tree/master/docs/docs/Images - but make sure you are in your fork/copy of the docs Images folder to be able to do this (replace "openaps" in the URL with your github username)).
  
- * 2. Click in the upper right corner where it says "Upload files"
+ 2. Click in the upper right corner where it says "Upload files"
  
- * 3. Drag and drop your images into the screen
+ 3. Drag and drop your images into the screen
  
- * 4. Commit these to your branch
+ 4. Commit these to your branch
  
- * 5. Now, you can look for the URL/relative path of each file (example, you can see [this individual image has it's own URL and path](https://github.com/openaps/docs/blob/master/docs/docs/Images/Example_batch_images_upload.png) and use that to refer to when adding images into a page in the documentation.
+ 5. Now, you can look for the URL/relative path of each file (example, you can see [this individual image has it's own URL and path](https://github.com/openaps/docs/blob/master/docs/docs/Images/Example_batch_images_upload.png) and use that to refer to when adding images into a page in the documentation.
  
- * 6. To see examples of how to add the images, you can look at the "raw" code of a page to see an example from a page that already has the images embedded successfully. The main thing is to have a plain text description, followed by a link with a relative path to the image, like this: `![Example of uploading images in batches](../Images/Example_batch_images_upload.png)`
+ 6. To see examples of how to add the images, you can look at the "raw" code of a page to see an example from a page that already has the images embedded successfully. The main thing is to have a plain text description, followed by a link with a relative path to the image, like this: `![Example of uploading images in batches](../Images/Example_batch_images_upload.png)`
  
  (That code is exactly how the image below is embedded to be displayed.)
  
 ![Example of uploading images in batches](../Images/Example_batch_images_upload.png)
 
- * 7. Now, once done adding images/making adjustments, you can submit a PR back to the master copy of the OpenAPS docs.
-
+ 7. Now, once done adding images/making adjustments, you can submit a PR back to the master copy of the OpenAPS docs.
