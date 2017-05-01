@@ -12,9 +12,9 @@ OK, let's get started. For our example we are going to make an edit to the opena
 
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 ![Fork repo](../Images/PR0.png)
-2. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.  Click on the black box at page bottom right with the green word "v: latest" or similar. In the pop up window that appears click the word "edit". Or you can click on the "Edit in Github" link in the upper right corner. 
-![edit doc](../Images/PR2.png)
-![RTD io](../Images/PR1.png)
+2. Go to http://openaps.readthedocs.io/en/latest/docs/introduction/index.html or similar and navigate to the page you want to edit.  Click on the black box at page bottom right with the green word "v: latest" or similar. In the pop up window that appears click the word "edit". Or you can click on the "Edit in Github" link in the upper right corner, and then click the pencil icon that appears in the top bar of the page contents to be edited. 
+![edit doc](../Images/PR1.png)
+![RTD io](../Images/PR2.png)
 3.  Either of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
 ![Edit branch](../Images/PR3.png)
 4. You have been working in the "<>Edit file" tab. Select the "Preview changes" tab for a fresh look to make sure everything you changed looks like you meant it to (typpos sic.). If you see a needed improvement, go back to the edit tab to make more improvements.
