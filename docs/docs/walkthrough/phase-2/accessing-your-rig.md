@@ -21,7 +21,7 @@ If you are using a Windows computer, access will be using PuTTY program.  You li
 
 ![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
 
-# For Mac computers
+### For Mac computers
 
 * Open the Terminal App found in the Utilities folder in Applications.
 
@@ -37,7 +37,7 @@ If you are using a Windows computer, access will be using PuTTY program.  You li
 
 ![Mac spoofing error](../../Images/access_mac3.png)
 
-# For Windows computers
+### For Windows computers
 
 * Open PuTTY program
 
@@ -63,7 +63,7 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 
 * Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.
 
-# For Mac computers
+### For Mac computers
 
 * Use the Terminal app on the Mac, or follow [these directions for Windows](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#if-you-re-using-a-windows-pc-for-console)
 
@@ -83,7 +83,7 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 
 ![Mac Screen message for OTG port](../../Images/access_mac_no_exec.png)
 
-# For Windows Users
+### For Windows Users
 
 * Plug your rig into your computer using a data cable and the UART port on the rig.
 
@@ -106,14 +106,18 @@ Alternatively, you can log in to your wifi router and find your rig's IP address
 One of the most convenient ways to do quick edits on your rig’s settings may be by using an app on your iPhone.  You will need to make sure your rig and your iPhone are sharing the same network (e.g., home wifi, mifi, or personal hotspot) and here are the instructions.  Each connection point will need it’s own “host” setup in the app.
 
 * Download “Terminus SSH Shell/Console/Terminal” from iPhone app store
-* Set up a new “host” in the app with the following information
+
+* Set up a new “host” in the app with the following information.  Remeber, you will need to setup a new "host" for every rig and every wifi connection that you will use to connect.  For example, I have three rigs that I regularly connect to on my home wifi network; edison1 (the rig my daughter regularly wears), edison2 (the rig we keep in her bedroom), and edison3 (the rig we keep in the living room).  Since my daughter's mobile rig (edison1) can sometimes need to be accessed while we are on the road, I also have a host setup for when her rig is connected to my phone's hotspot.
+
 ```
-Alias:     enter a name that will remind you what network this connection is using (such as home wifi, mom’s iphone hotspot, or mifi device since each connection will have a unique IP address)
+Alias:     enter a name that will remind you which rig and what network (such as rig name @ home wifi, iphone hotspot, or mifi device since each connection will have a unique IP address)
 Username:     root
-Hostname:     enter the IP address of the rig
-Password:     enter your root password 
+Hostname:     enter the IP address of the rig on that particular wifi network (see below if you need help finding the IP address)
+Password:     enter your rig's root password 
 ```
 * Clicking on the “host” in the app will launch an ssh connection with the rig and you can use the iPhone to access the rig’s software.  They must be on the same network as the “host” connection specifies though, or else the connection will fail.
+
+![Terminus app hostnaming](../../Images/terminus.png)
 
 ## How to determine the IP address of your rig?
 
@@ -123,7 +127,8 @@ Private IP addresses are assigned for devices and are unique to the connection. 
 
 * If iPhone and rig are connected via the iPhone’s personal hotspot, you can download an app such as iNet to scan the network for devices and find your edison rig.  The IP address will be listed with the scan information.
 
-* If the rig is accessible by computer (by either method listed above, ssh or console) and the iPhone and rig are on same network as each other, you have a couple options.  You can login on Terminal app and use `ifconfig` to read the wlan0 inet address
+
+* If the rig is accessible by computer (by either method listed above, ssh or console) **AND** the iPhone and rig are on same network as each other, you have a couple options.  You can login on Terminal app and use `ifconfig` to read the wlan0 inet address
 
 ![ifconfig example](../../Images/ifconfig_example.png)
 
