@@ -157,8 +157,10 @@ If you are using an Intel Edison with Explorer Board, and that does not resolve 
   * Flash the radio chip:
 ```
 wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
-ccprog -p 19,7,36 erase
-ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+cd ~/src/ccprog && make
+~/src/ccprog/ccprog -p 19,7,36 erase
+wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+~/src/ccprog/ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
   * Reboot, and try `openaps mmtune` to make sure it works
 
