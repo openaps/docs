@@ -153,6 +153,7 @@ Basic steps using an Intel Edison with Explorer Board, checking with `openaps mm
 
 If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, you may need to re-flash your radio chip:
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
+  * Build ccprog ('compile' it so you can run it: `cd ccprog; make ccprog`
   * Flash the radio chip:
 ```
 wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
