@@ -155,3 +155,4 @@ List of people who are working on closed loops:
 - Brian Densmore (Clovis, CA, USA)
 - Jesse Szypulski (Louisville, KY, USA) Edison / Explorer Board
 - Robert Silvers (Norwell, MA)
+- Eric Metzler (St. Paul, MN)
