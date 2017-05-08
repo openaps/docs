@@ -12,7 +12,9 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `pwd` (Show the present working directory (your current location within the filesystem).)
 
-`sudo <command>`
+`sudo <command>` (Super-user do. Temporarily elevates the current users permission to that of root.)
+
+`apt-get install <package>` (Aptitude is a package manager, when a package is missing it will (usually) be there and can be installed by issuing 'apt-get install <missing package name>.)
 
 `tail -f /var/log/syslog`
 
