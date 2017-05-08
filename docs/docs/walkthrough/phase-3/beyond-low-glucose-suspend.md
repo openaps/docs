@@ -31,6 +31,13 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 	"bolussnooze_dia_divisor": 2,
 	"min_5m_carbimpact": 3,
 	"carbratio_adjustmentratio": 1
+	// WARNING: the following are advanced oref1 features; do not enable until you've run oref0 (basic setup) for a while
+	"autotune_isf_adjustmentFraction": 0.5,
+        "remainingCarbsCap": 0,
+        "enableUAM": false,
+        "enableSMB_with_bolus": false,
+        "enableSMB_with_COB": false,
+        "enableSMB_with_temptarget": false
 }
 
 #### max_iob: 
@@ -81,6 +88,29 @@ This is a setting for default carb absorption impact per 5 minutes. The default 
 
 This is another safety setting that may be useful for those with secondary caregivers who aren’t dedicated to looking up net IOB and being aware of the status of the closed loop system. The default is 1 (i.e. do not adjust the carb ratio; off). However, in the secondary caregiver situation you may want to set a higher carb ratio to reduce the size of a manual bolus given at any time. With this ratio set to 1.1, for example, the loop would multiple the carb inputs by 10%, and use that number to calculate additional insulin. This can also be used by OpenAPS users who rely on the bolus wizard to calculate their meal bolus, but who want to only bolus for a fraction of the meal, and allow advanced meal assist to high-temp for the rest.
 
+#### autotune_isf_adjustmentFraction
+
+This keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment, 0 is no adjustment from pump ISF.
+
+#### remainingCarbsCap
+
+This is the amount of the maximum number of carbs we'll assume will absorb over 4h if we don't yet see carb absorption. 
+
+#### enableUAM
+
+This enables detection of unannounced meal (UAM) carb absorption.
+
+#### enableSMB_with_bolus
+
+This enables supermicrobolus for DIA hours after a manual bolus.
+
+#### enableSMB_with_COB
+
+This enables supermicrobolus (SMB) while carb activity (COB) is positive.
+
+#### enableSMB_with_temptarget 
+
+This enables supermicrobolus (SMB) with eating soon or lower temp targets. I.e. if your target is usually 100mg/dl, a temp target of 99 (or 80, the typical eating soon target), it will enable SMB.
 
 ## Editing your preferences.json
 
