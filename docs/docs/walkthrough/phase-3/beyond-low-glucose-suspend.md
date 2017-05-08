@@ -18,6 +18,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) are i
 
 Note: the “max basal” rate is the one safety setting that you set in your pump. It should not be confused with “max daily” or “max current” as described below. The system will use whichever of these three values is the lowest as the ceiling for the temps it will set. So, if your pump’s max basal is 1.0u, but your 3x and 4x multipliers would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
 
+```
 {
 	"max_iob": 0,
 	"max_daily_safety_multiplier": 3,
@@ -39,6 +40,7 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
         "enableSMB_with_COB": false,
         "enableSMB_with_temptarget": false
 }
+```
 
 #### max_iob: 
 
