@@ -49,7 +49,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 * Fill out the information lines in the `Config Variables` Section of that page, as shown below.  Some of the lines can stay with the default entries already provided.
 
 
-<table>
+<table border="1">
 <thead>
 <tr>
 <th>KEY</th>
@@ -152,7 +152,7 @@ You do not have to enter all the information in the profile if you are using Ope
 
 ![Add vars](../phase-1/img/add_vars.jpg)
 
-<table>
+<table border="1">
 <thead>
 <tr>
 <th>KEY</th>
