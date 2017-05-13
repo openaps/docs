@@ -346,7 +346,7 @@ Firstly, you need to set up the script that will do this for you. An example is 
 rm ~/myopenaps/enact/index.html
 touch ~/myopenaps/enact/index.html
 
-(cat ~/myopenaps/enact/smb-enacted.json | jq -r .timestamp | awk '{print substr($0,13,4)}') >> ~/myopenaps/enact/index.html
+(cat ~/myopenaps/enact/smb-enacted.json | jq -r .timestamp | awk '{print substr($0,12,5)}') >> ~/myopenaps/enact/index.html
 
 (cat ~/myopenaps/enact/smb-enacted.json | jq -r .reason) >> ~/myopenaps/enact/index.html
 (echo -n 'TBR: ' && cat ~/myopenaps/enact/smb-enacted.json | jq .rate) >> ~/myopenaps/enact/index.html                                  
@@ -354,6 +354,7 @@ touch ~/myopenaps/enact/index.html
 (echo -n 'Edison Battery: ' && cat ~/myopenaps/monitor/edison-battery.json | jq -r .battery | tr '\n' ' ' && echo '%') >> ~/myopenaps/enact/index.html
 (echo -n 'Insulin Remaining: ' && cat ~/myopenaps/monitor/reservoir.json) >> ~/myopenaps/enact/index.html
 ```
+You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
 
 It can be set up where you choose, either in your openaps directory or at root.
 
