@@ -1,6 +1,6 @@
-# Papertrail remote monitoring of OpenAPS logs (optional) 
+# Papertrail remote monitoring of OpenAPS logs (RECOMMENDED) 
 
-If you want to remotely view the rig's logs/loops, you can use Papertrail service.  For single rig monitoring, you should be able to use the free Papertrail account without a problem.  Use of this service can help you remotely troubleshoot when the rig has an error.
+If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We highly recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
 
 ### Get an account at Papertrail
 
@@ -18,7 +18,7 @@ Copy and paste the code that is displayed in your new system setup's shaded box,
 
 ### Aggregating logs
 
-* Copy and paste each of these four command lines, one at a time.
+* Copy and paste each of these four command lines, one at a time.  The screenshot below shows the successful results of each command.  The first command will run for a short time and end with similar information to the green box.  The remaining three commands will not display anything specific as a result of the command.
 
 `wget https://github.com/papertrail/remote_syslog2/releases/download/v0.19/remote_syslog_linux_i386.tar.gz`
 
@@ -27,6 +27,8 @@ Copy and paste the code that is displayed in your new system setup's shaded box,
 `cd remote_syslog`
 
 `sudo cp ./remote_syslog /usr/local/bin`
+
+![Papertrail aggregating](../../Images/aggregating_logs.png)
 
 * Create the file that will store all the logs you'd like to aggregate:
 
@@ -94,3 +96,38 @@ type ESC and ":wq" to save changes and exit.
 and then go to your papertrailapp website to see the log
 
 ![papertrail log example](../../Images/papertrail.png)
+
+### Optimize Papertrail use
+
+To make the most of your Papertrail logs, setting up some of your account settings and filters will help streamline your troubleshooting
+
+#### Account Filters
+
+Adding filters to your incoming Papertrail logs will help minimize unuseful data (and help keep you below your data caps) and streamline your review of your relevant OpenAPS logs.  You can go to your Papertrail account's `Settings` and then choose the `Log Destinations`. Click on `Log Filters` to go to the screen where you can add specific filters.
+
+![papertrail log destinations](../../Images/log_destinations.png)
+
+Click on the `Add Log Filter` button and add three filters for `CRON`, `libmraa`, and `sudo`.  Save the changes and within 60 seconds, your logs will be filtered.  The CRON, libmraa, and sudo logs usually provide very little help for troubleshooting OpenAPS problems.  You can always undo these filters, if you want to see what those provide in the future.
+
+![papertrail log filters](../../Images/log_filters.png)
+
+#### Saved Filters
+
+Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved filters, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful filters to find those issues fastest are:
+
+* `pump-loop.log` to see just your pump loop...similar to using the `l` command when logged into your rig.  If you see that pump history is having errors, look at your pump tuning results (filter below).  If you have good tuning results (tuning in the -80s or lower), but the pump is still not responding with a pump history...wait about 15 minutes.  If it still doesn't respond, try rebooting the rig or changing your pump battery if it is low.
+
+* `pump-loop.log 916` will show just your pump tuning results.  If you see `916, 0, -99` tuning results, then you know that your rig is not getting a useable communication with your pump.  Try moving your pump and rig closer together.  Check if your pump battery is good.
+
+* `network` will show just your oref0-online results and whether/which wifi network your rig is connected to.  If you see results of `192.168.1.XX`, then your rig is likely connected to a wifi network.  If you see results of `172.20.10.XX` then your rig is likely connected to your phone's personal hotspot.
+
+* `pump-loop.log adjust` will show your basal and ISF adjustments being made by autosens, if enabled.
+
+If you are running multiple rigs, you can also setup these filters to include the hostname of a particular rig, if you want to filter just for that rig.  For example, this screenshot below would be setting and saving up a filter for a particular rig with the hostname of `edison1` and only for its pump-loop.log.  
+
+![papertrail log filters](../../Images/save_filter.png)
+
+Once you get your desired filters saved, it is an easy process to make them more accessible on your mobile device by using the `add to homescreen` button.  For example, below are the quick links to the saved filters for an OpenAPS user with three rigs...
+
+![papertrail homescreen buttons](../../Images/papertrail_home_buttons.png)
+

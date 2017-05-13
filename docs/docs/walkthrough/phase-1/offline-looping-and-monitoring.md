@@ -150,7 +150,7 @@ you can edit this file using `nano pancreoptions.json` from your APS directory.
 
 ********************************
 
-### xDripAPS for offline BGs
+### xDripAPS for offline BGs for Android users
 
 **Note as of 1/26/17:** The below documentation is WIP and needs additional testing.
 
@@ -263,7 +263,7 @@ http://<nightscout_api_secret>@<rig_ip_address1>:5000/api/v1/ http://<nightscout
   openaps report add monitor/glucose.json text xdrip shell
   ```
 
-### Hot Button
+### Hot Button - also for Android users
 
 #### Purpose
 [Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especialy useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
@@ -292,3 +292,44 @@ To be able to use the script, the most straigtforward solution is to disable the
 #### SSH Login Speedup
 To speed up the command execution you can add to the `/etc/ssh/sshd_config` the following line:
 `UseDNS no`
+
+********************************
+
+### Local, offline BGs for iPhone users using a separate Loop app
+
+These instructions describe how to use a Loopkit/Loop app as a glucose data source for offline looping using OpenAPS. Note that most of the features of Loop itself are not used in this modification; we are using Loop simply as a local bridge for glucose data from the G5 transmitter to the OpenAPS rig. If you have a working version of Loop already installed, it is recommended build this branch as a separate app by using a unique bundle identifier.
+
+Also, for those unfamiliar with Loop, note the below instructions are about creating a developer account to self-deploy the app. This is free, but you'd have to re-build the app every 7 days (and it will probably drive you crazy). Otherwise, it's $99 for a developer licenese where you don't have to re-deploy weekly. (For other alternatives for offline BG, see the top of this page).
+
+#### Prerequisites for using Loop app on iPhone for local, offline BGs to the rig
+1. Build (and deploy to your iPhone) a version of Loop using the `lookout` branch from @thebookins. Follow the instructions in [Loop Docs](https://loopkit.github.io/loopdocs/) but install Loop as follows:
+```
+git clone https://github.com/thebookins/Loop.git
+git checkout lookout
+```
+(alternatively, merge the `lookout` changes with your own Loop fork). Depending on the version of XCode you are using, it may be necessary to rebuild the linked frameworks using carthage:
+```
+carthage update --platform iOS
+```
+
+2. If you haven't already done so, install the dev branch of OpenAPS using the [setup script](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html) with `xdrip` as the glucose source.
+
+3. Step 2 will set up [xDripAPS](https://github.com/colinlennon/xDripAPS) on your OpenAPS rig. This is a Python program that exposes a very simplified NightScout instance running on the rig to which we can send glucose data. A couple of changes to xDripAPS are required to get it to accept glucose data from Loop. Pull these changes as follows:
+```
+cd
+rm -r .xDripAPS
+git clone https://github.com/thebookins/xDripAPS.git $HOME/.xDripAPS
+cd .xDripAPS
+git checkout lookout
+```
+
+4. Setup up [Bluetooth tethering](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) between your iPhone and your OpenAPS rig.
+
+5. Open Loop and the Dexcom app on your iPhone. The Dexcom app will control the G5 transmitter; Loop just listens in.
+
+#### Setup
+1. In Loop, select G5 Transmitter in Settings and enter the G5 Transmitter ID. Do not add the pump serial number as we are using Loop only as a local bridge to get BG data to OpenAPS. (Without a RileyLink, it's impossible to control the pump anyway.)
+
+2. In Loop, select Nightscout in Settings and enter the local URL for your edison. This will be something like `http://172.20.10.3:5000`. Enter your API secret.
+
+All done. Loop will now send glucose data to the edison URL every five minutes, ready to be picked up by oref0.

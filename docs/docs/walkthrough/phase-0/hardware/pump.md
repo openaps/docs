@@ -41,6 +41,10 @@ Note: If you're buying a pump online, we recommend you ask the seller to confirm
 firmware version of the pump. (You may also want to consider asking for a video
 of the pump with working functionality before purchasing.)
 
+## Make sure you understand your pump basics
+
+If you are considering moving from Multiple Daily Injections (MDI) to an insulin pump - or changing brands/types of pumps - it is important that you have VERY detailed knowledge about the way a pump works. Insulin pumps use both basal and bolus settings for dosing and only use fast acting insulin. If you just purchased a compatible pump you are probably eager to start closing the loop. OpenAPS uses the settings and information that is manually set by the user (usually with help from their Healthcare Provider) into the pump to make dosing adjustments. First things first: make sure you understand how to safely use your pump in "manual mode" before proceeding.
+
 ## Battery usage
 
 Repeated wireless communication with the pump drains the battery quite quickly.

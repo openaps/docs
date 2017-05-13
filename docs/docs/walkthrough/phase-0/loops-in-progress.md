@@ -56,7 +56,7 @@ List of people who are working on closed loops:
 - Katie Ellison (Bellevue, WA)
 - Sarah Easter (Georgetown, TX)
 - Terri Lyman (Prescott Valley, AZ)
-- Gina Lyon (Laurel, MS)
+- Gina Lyon (Laurel, MS) Edison-Explorer Bd, DexG5
 - Eric Jensen (Swarthmore, PA)
 - John Dodds (Glasgow, UK)
 - Lindsey Maguire (Silicon Valley)
@@ -153,3 +153,6 @@ List of people who are working on closed loops:
 - Selin Aygün (Ankara,Türkiye)
 - Ken Kotch (Boulder, CO, USA)
 - Brian Densmore (Clovis, CA, USA)
+- Jesse Szypulski (Louisville, KY, USA) Edison / Explorer Board
+- Robert Silvers (Norwell, MA)
+- Eric Metzler (St. Paul, MN)
