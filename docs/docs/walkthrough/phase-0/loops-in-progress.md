@@ -156,3 +156,4 @@ List of people who are working on closed loops:
 - Jesse Szypulski (Louisville, KY, USA) Edison / Explorer Board
 - Robert Silvers (Norwell, MA)
 - Eric Metzler (St. Paul, MN)
+- Helene Brashear (Austin, TX)
