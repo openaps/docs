@@ -157,3 +157,4 @@ List of people who are working on closed loops:
 - Robert Silvers (Norwell, MA)
 - Eric Metzler (St. Paul, MN)
 - Helene Brashear (Austin, TX)
+- Jeremy B. for CM (New York, NY)
