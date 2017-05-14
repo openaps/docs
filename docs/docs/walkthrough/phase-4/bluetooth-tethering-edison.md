@@ -84,7 +84,7 @@ As shown in the "success" section below, you should see a single line returned w
 
 * Now launch the Bluetooth control program: `bluetoothctl`
 
-* and each of the following:
+* and type each of the following:
 
 ```
 power off
