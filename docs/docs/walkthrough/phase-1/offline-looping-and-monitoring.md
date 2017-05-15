@@ -330,6 +330,6 @@ git checkout lookout
 #### Setup
 1. In Loop, select G5 Transmitter in Settings and enter the G5 Transmitter ID. Do not add the pump serial number as we are using Loop only as a local bridge to get BG data to OpenAPS. (Without a RileyLink, it's impossible to control the pump anyway.)
 
-2. In Loop, select Nightscout in Settings and enter the local URL for your edison (which is your edison's `http://[YOUR EDISON'S IP ADDRES]`. This will be something like `http://192.168.2.10`. Then, enter your API secret as requested in Loop.
+2. In Loop, select Nightscout in Settings and enter the local ip address for your edison in URL format with the addition of `:5000` at the end (which whill look like this `http://[YOUR EDISON'S IP ADDRES]:5000`). Then, enter your API secret as requested in Loop.
 
 All done. Loop will now send glucose data to the edison URL every five minutes, ready to be picked up by oref0.
