@@ -158,3 +158,4 @@ List of people who are working on closed loops:
 - Eric Metzler (St. Paul, MN)
 - Helene Brashear (Austin, TX)
 - Jeremy B. for CM (New York, NY)
+- Molly Duerr (Minneapolis, MN)
