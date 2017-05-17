@@ -333,3 +333,47 @@ git checkout lookout
 2. In Loop, select Nightscout in Settings and enter the local IP address for your Edison in URL format with the addition of `:5000` at the end (which will look like this `http://[YOUR EDISON'S IP ADDRESS]:5000`). Then, enter your API secret as requested in Loop.
 
 All done. Loop will now send glucose data to the edison URL every five minutes, ready to be picked up by oref0.
+
+********************************
+
+### Creating an information web page that can be picked up using the rig's URL.
+
+**TODO** - implement this as a proper oref0 script that can be installed by oref0-setup
+
+This allows you to extract data from the various files that OpenAPS creates and access the locally from the phone that is connected to the rig, giving a full information set.
+
+Firstly, you need to set up the script that will do this for you. An example is shown below:
+
+```
+rm ~/myopenaps/enact/index.html
+touch ~/myopenaps/enact/index.html
+
+(cat ~/myopenaps/enact/smb-enacted.json | jq -r .timestamp | awk '{print substr($0,12,5)}') >> ~/myopenaps/enact/index.html
+
+(cat ~/myopenaps/enact/smb-enacted.json | jq -r .reason) >> ~/myopenaps/enact/index.html
+(echo -n 'TBR: ' && cat ~/myopenaps/enact/smb-enacted.json | jq .rate) >> ~/myopenaps/enact/index.html                                  
+(echo -n 'IOB: ' && cat ~/myopenaps/enact/smb-enacted.json | jq .IOB) >> ~/myopenaps/enact/index.html
+(echo -n 'Edison Battery: ' && cat ~/myopenaps/monitor/edison-battery.json | jq -r .battery | tr '\n' ' ' && echo '%') >> ~/myopenaps/enact/index.html
+(echo -n 'Insulin Remaining: ' && cat ~/myopenaps/monitor/reservoir.json) >> ~/myopenaps/enact/index.html
+```
+You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
+
+It can be set up where you choose, either in your openaps directory or at root.
+
+You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron:
+
+```
+@reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337
+```
+The final thing to do is to make sure the script runs regularly to collect the data and publish it. This requires an additional cron line:
+
+```
+*/5 * * * * (bash /root/http.sh) 2>&1 | tee -a /var/log/openaps/http.log
+```
+In this case the script is running from the /root directory and I am publishing to the ~/myopenaps/enact directory.
+
+To access this from an iphone browser, enter something like the following: http://172.20.10.x:1337/index.html and you should receive an unformatted html page with the data in it. If you want to improve the output for a browser, the script can be modified to generate html tags that will allow formatting and could provide colouring if various predicted numbers were looking too low.
+
+On Android, you can download http-widget (https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en_GB) and add a widget to your home screen that will display this data.
+
+If you use a Samsung Gear S3 watch, you can use the above http-widget with Wearable Widgets (http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.
