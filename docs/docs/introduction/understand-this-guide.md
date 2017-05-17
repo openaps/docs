@@ -56,7 +56,10 @@ The high level process for building a system, as outlined in [the rest of the do
 **Phase 3**: LOOP PREFERENCES
 * At the end of Phase 2, you'll have a working closed loop that by default is a <b>low-threshold suspension loop</b>.  After you are comfortable with the loop's performance in preventing lows, you can enable it to perform to include help with correcting high blood sugar as well.  For that change, along with many other helpful settings, you'll want to [read this section to understand what it's doing, and how to further personalize your setup](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/index.html). 
 
-**Phase 4**: ADVANCED FEATURES
+**Phase 4**: SYSTEM CONTROL
+* Install ITTT as a way to use a phone or smart watch to announce meals, set an activity mode, or consume carbs to treat a low.
+
+**Phase 5**: ADVANCED FEATURES
 * [Tell us you've closed the loop](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/keeping-up-to-date.html), and enable any [advanced features](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html) that you're ready for!
 
 **WARNING:** the links above are quick-links to various sections, but there are other steps you will need to do to not miss anything. We recommend [starting at the top of the docs here](http://openaps.readthedocs.io/en/latest/index.html) and making sure you don't miss any pages of instructions. 
