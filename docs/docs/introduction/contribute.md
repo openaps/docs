@@ -13,5 +13,4 @@ If you're not sure where to get started, here are some ways to get involved:
 * Spread the word about #OpenAPS and get others involved; the more, the merrier. (You can direct them to [OpenAPS.org](http://OpenAPS.org) for more information.)
 * Consider calling your device manufacturer and ask about communication protocols in order to understand how your device operates.
 
-If you would like to work on the core openaps code, take a look at the openaps [contributing guidelines](https://github.com/openaps/openaps/blob/master/CONTRIBUTING.md) before getting started.
-#thank you everyone for all your work
+If you would like to work on the core openaps code, take a look at the openaps [contributing guidelines](https://github.com/openaps/openaps/blob/master/CONTRIBUTING.md) before getting started. Thank you for your contributions!
