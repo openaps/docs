@@ -11,9 +11,8 @@ oref1 is different than oref0, the baseline "traditional" OpenAPS implementation
 * Read the following:
   * 1. The updated reference design (https://openaps.org/reference-design/) that explains the differences between oref0 and oref1
   * 2. The following two posts for background on oref1:
-  https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/
-  AND
-  https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/
+   1. https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/
+   2. https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/
 * Make sure you understand what SMB & UAM stand for (**read the above posts, we know you skipped them**!)
 * Plan to have a learning curve. You will interact with oref1 differently when on SMB and UAM than how you were interacting with oref0. In particular: **do not do correction boluses**; use temp targets to give the rig a "nudge". You are very likely to overshoot if you try to do things manually on top of what SMB has already done!
 
@@ -27,10 +26,13 @@ Single SMB amounts are limited by several factors.  The largest a single SMB bol
 * 1/3 of the Insulin Required amount, or
 * the remaining portion of your maxIOB setting in preferences
 
+(History of SMB development: https://github.com/openaps/oref0/issues/262)
+
 ## Undertanding UAM 
 
 UAM will be triggered if the preference is toggled on and there is carb activity detected based on positive deviations. 
 
+(History of UAM development: https://github.com/openaps/oref0/issues/297)
 
 ## How to turn on SMB/UAM
 
@@ -52,4 +54,3 @@ In other words: If it is set to zero, the SMB will be "less aggressive" than if 
 2. Common errors include:
 * Not including the enable flag and just changing preferences. You should see "Starting supermicrobolus pump-loop at..." in pump-loop.log if you have successfully enabled everything.
 * Pump clock being >1 minute off. This means 60 seconds. Not 61 seconds; 68 seconds; 90 seconds. Needs to be less than 60 seconds apart. `"Checking pump clock: "2017-05-16T15:46:32-04:00" is within 1m of current time: Tue May 16 15:47:40 EDT 2017` is an example of a >60 second gap that needs fixing before it will work properly. We are adding code to automatically attempt to fix this, but until that is merged you'll need to do so manually.
-
