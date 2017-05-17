@@ -92,7 +92,7 @@ This is another safety setting that may be useful for those with secondary careg
 
 #### autotune_isf_adjustmentFraction
 
-This keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment, 0 is no adjustment from pump ISF.
+This keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment (the previous default), 0 is no adjustment from pump ISF.
 
 #### remainingCarbsCap
 
@@ -108,11 +108,11 @@ This enables supermicrobolus for DIA hours after a manual bolus.
 
 #### enableSMB_with_COB
 
-This enables supermicrobolus (SMB) while carb activity (COB) is positive.
+This enables supermicrobolus (SMB) while carbs on board (COB) is positive.
 
 #### enableSMB_with_temptarget 
 
-This enables supermicrobolus (SMB) with eating soon or lower temp targets. I.e. if your target is usually 100mg/dl, a temp target of 99 (or 80, the typical eating soon target), it will enable SMB.
+This enables supermicrobolus (SMB) with eating soon or lower temp targets. For example, if your target is usually 100mg/dL, a temp target of 99 (or 80, the typical eating soon target) will enable SMB.
 
 ## Editing your preferences.json
 
