@@ -79,9 +79,13 @@ Cancel Temp Target
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
-Low Treatment
+Low Treatment (change carb amount to match your typical low treatment)
 ```
-{"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
+{"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 10, "secret": "your_hashed_api_goes_here!!!"}
+```
+Low Treatment with a 60 min high target to help recovery
+```
+{"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "low treatment", "carbs": 5, "targetTop": 120, "targetBottom": 120, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
 ```
 Pump Site Change
 ```
