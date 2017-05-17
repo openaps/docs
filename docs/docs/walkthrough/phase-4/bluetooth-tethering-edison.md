@@ -137,7 +137,7 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 
   `trust AA:BB:CC:DD:EE:FF`
 
-* Quit bluetoothctl by typing 'quit' and hitting enter.
+* Quit bluetoothctl by typing `quit` and then enter.
 
 
 ******************************
