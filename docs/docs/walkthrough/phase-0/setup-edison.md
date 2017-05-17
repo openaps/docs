@@ -220,10 +220,6 @@ Log in as root (with the password you just set above), and run:
     dpkg -P nodejs nodejs-dev
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
-
-Then:
-
-    apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
     
 And:
 
