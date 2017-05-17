@@ -32,8 +32,8 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 	"bolussnooze_dia_divisor": 2,
 	"min_5m_carbimpact": 3,
 	"carbratio_adjustmentratio": 1
-	// WARNING: the following are advanced oref1 features; do not enable until you've run oref0 (basic setup) for a while
 	"autotune_isf_adjustmentFraction": 0.5,
+	// WARNING: the following are advanced oref1 features; do not enable until you've run oref0 (basic setup) for a while
         "remainingCarbsCap": 0,
         "enableUAM": false,
         "enableSMB_with_bolus": false,
