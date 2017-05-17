@@ -336,7 +336,9 @@ All done. Loop will now send glucose data to the edison URL every five minutes, 
 
 ********************************
 
-### Creating an information web page that can be picked up using the rigs URL.
+### Creating an information web page that can be picked up using the rig's URL.
+
+**TODO** - implement this as a proper oref0 script that can be installed by oref0-setup
 
 This allows you to extract data from the various files that OpenAPS creates and access the locally from the phone that is connected to the rig, giving a full information set.
 
