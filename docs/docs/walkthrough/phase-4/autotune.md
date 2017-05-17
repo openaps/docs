@@ -98,7 +98,21 @@ Mac install commands:
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
-* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (update the minutes to match your basal start time; the minutes are number of minutes from midnight to the start of basal, e.g., a basal starting at 5:00am will have a minutes entry of 5 x 60 = 300 minutes and a basal starting at 7:30am will have a minutes entry of 7.5 x 60 = 450 minutes), and add more entries if needed. Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one.  You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error.  Every comma, quote mark, and bracket matter on this file, so please double-check carefully.
+* C. Create a profile file by typing `nano profile.json`. Copy and paste the example below, but input your information from your pump.  Change the basal profile times to match yours (update the minutes to match your basal start time; the minutes are number of minutes from midnight to the start of basal, e.g., a basal starting at 5:00am will have a minutes entry of 5 x 60 = 300 minutes and a basal starting at 7:30am will have a minutes entry of 7.5 x 60 = 450 minutes), and add more entries if needed.  It's very common for first-time users to have problems that result from mistakes introduced into this file.  Some common ones to check:
+  * Be sure that all of the } lines in basalprofile have a comma after them, *except* the last one. 
+  * You need to use a 0 before any entries with a decimal point, such as a basal rate of `0.35`; without the 0 before the decimal point, your autotune will have an error. 
+  * If you don't like editing in the terminal, you can edit the profile files in a text editor.  However be aware that TextEdit will replace normal quotes (") with curly quotes (“) if you have "smartquotes" enabled in preferences, and this difference will make autotune fail.  You can download BBEdit (https://www.barebones.com/products/bbedit/) if you want a simple text editor that works well.  The trial version is sufficient, you won't be using advanced featues.
+ 
+Every comma, quote mark, and bracket matter on this file, so please double-check carefully.
+
+* Make sure to adjust these settings to match yours:
+  * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
+  * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
+  * "sensitivity" should be your iSF - in mg/dL/U (if using mmol/L/U multiply by 18)
+  * "carb_ratio" at the end should be your carb ratio
+
+* Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
+
 ```
 {
   "min_5m_carbimpact": 3,
@@ -142,13 +156,7 @@ Mac install commands:
   "autosens_min": 0.7
 }
 ```
-* Make sure to adjust these settings to match yours:
-  * dia - Duration of Insulin Action (DIA), in hours (e.g., 4.5, or 3). Usually determined by the type of insulin and its effectiveness on you.
-  * basal profile - you need at least one basal rate in here. You can create multiple of these for all of your basal rates, which will give you an easier visual comparing your current basals to what autotune recommends (see visual example), but at a minimum you just need one here for autotune to run. But we recommend putting all or most of your basals in, in order for autotune to appropriately cap at the safety limits (and compare to 20% above or below your existing basals). If you do not put your full basal profile in, it will not compare to those with the safety cap because it does not know about it.
-  * "sensitivity" should be your iSF - in mg/dL/U (if using mmol/L/U multiply by 18)
-  * "carb_ratio" at the end should be your carb ratio
 
-* Make sure to exit the profile.json when done editing this file - Control-X and hit yes to save.
 * D. Verify your profile.json is valid json by running `jq . profile.json` - if it prints a colorful version of your profile.json, you're good to proceed.  If not, go back and edit your profile.json to fix the error.
 * E. Create a pumpprofile.json that is the same as your profile.json. On the command line run: `cp profile.json pumpprofile.json`
 * F. Create a third file from the command line by running: `cp profile.json autotune.json`
