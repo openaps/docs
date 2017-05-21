@@ -1,10 +1,10 @@
 #!/bin/bash
 (
-set -e
 echo Scanning for wifi networks:
 wpa_cli scan
 echo -e "\nStrongest networks found:"
 wpa_cli scan_res | sort -grk 3 | head | awk -F '\t' '{print $NF}' | uniq
+set -e
 echo -e "\nWARNING: this script will back up and remove all of your current wifi configs.\nPress Ctrl-C to cancel, or:"
 read -p "Enter your network name: " -r
 SSID=$REPLY
@@ -23,5 +23,6 @@ cat wpa_supplicant.conf
 echo -e "\nAttempting to bring up wlan0:\n"
 ifdown wlan0; ifup wlan0
 echo -ne "\nWifi SSID: "; iwgetid -r
+sleep 5
 cd /tmp/; wget https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-install.sh; bash ./openaps-install.sh
 )
