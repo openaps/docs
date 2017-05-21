@@ -56,3 +56,13 @@ In other words: If it is set to zero, the SMB will be "less aggressive" than if 
 2. Common errors include:
 * Not including the enable flag and just changing preferences. You should see "Starting supermicrobolus pump-loop at..." in pump-loop.log if you have successfully enabled everything.
 * Pump clock being >1 minute off. This means 60 seconds. Not 61 seconds; 68 seconds; 90 seconds. Needs to be less than 60 seconds apart. `"Checking pump clock: "2017-05-16T15:46:32-04:00" is within 1m of current time: Tue May 16 15:47:40 EDT 2017` is an example of a >60 second gap that needs fixing before it will work properly. We are adding code to automatically attempt to fix this, but until that is merged you'll need to do so manually.
+
+## Pushover, SMB, and OpenAPS
+
+If enabled (must be done manually for now), you can get Pushover alerts in the following situations:
+* When OpenAPS thinks carbs are needed to bring eventual BG up, and low temps alone won't be enough to do it
+* Alerts about SMB behavior and the amount of insulin OpenAPS thinks you require (insulinReq). **This does not mean to do a manual bolus for the amount of insulinReq.** You will also see note about the attempt to SMB. You should use this notification as a reminder to tell the rig about anything you know it doesn't (like "oh yea, I want to enter my carbs for this meal"), or decide if you want to manually bolus if it thinks you need that amount of insulin. **But, you should not do the full insulinReq as a manual bolus;** keep in mind you may want to not do anything at all and let SMB safely handle the increased need for insulin in case something changes, or you may choose to do a small manual bolus for a portion (subtracting out the SMBs delivered) of the insulinReq at that time if you know something it doesn't (i.e. meal). 
+
+Cautions:
+1. You are likely to cause yourself a low if you do too much. Be very careful about doing manual boluses based on Pushover alerts; see above about not doubling up on a microbolus that's just been delivered.
+2. If the rig attempts to deliver a microbolus AND you have the bolus wizard menu open; it may cause the pump to error (and maybe reset). **Recommendation**: If you are getting Pushover alerts and decide to manually bolus in addition to the SMBs, you may want to use the "easy bolus" (up button arrow) method for bolusing, which is less likely to cause the pump to receive this error. (If you're not able to deliver the easy bolus, that means the rig has sent an SMB underneath, and you'll have to hit escape, wait for the SMB to finish delivering, and then perform your manual bolus. 
