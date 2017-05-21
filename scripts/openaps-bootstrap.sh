@@ -5,7 +5,8 @@ wpa_cli scan
 echo -e "\nStrongest networks found:"
 wpa_cli scan_res | sort -grk 3 | head | awk -F '\t' '{print $NF}' | uniq
 set -e
-echo -e "\nWARNING: this script will back up and remove all of your current wifi configs.\nPress Ctrl-C to cancel, or:"
+echo -e /"\nWARNING: this script will back up and remove all of your current wifi configs."
+read -p "Press Ctrl-C to cancel, or press Enter to continue:" -r
 read -p "Enter your network name: " -r
 SSID=$REPLY
 read -p "Enter your network password: " -r
