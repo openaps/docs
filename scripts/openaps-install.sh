@@ -6,7 +6,7 @@ myedisonhostname=$REPLY
 echo $myedisonhostname > /etc/hostname
 sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 
-dpkg -P nodejs nodejs-dev
+#dpkg -P nodejs nodejs-dev
 apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
 apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
 adduser edison sudo
