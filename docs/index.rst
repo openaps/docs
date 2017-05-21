@@ -37,7 +37,8 @@ This documentation support a self-driven Do-It-Yourself (DIY) implementation of 
    docs/walkthrough/phase-0/hardware/edison
    Understanding the Explorer Board "rig" <docs/walkthrough/phase-0/understanding-your-Explorer-Board-rig>
    docs/walkthrough/phase-0/setup-edison
-   Edison/Explorer Board (setup with Mac) <docs/walkthrough/phase-0/edison-explorer-board-Mac>
+   FOR MAC: Edison/Explorer Board Setup <docs/walkthrough/phase-0/edison-explorer-board-Mac>
+   FOR WINDOWS: Edison/Explorer Board Setup <docs/walkthrough/phase-0/windows-edison>
    Make Your First PR <docs/walkthrough/phase-0/loops-in-progress>
    
    
