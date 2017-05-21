@@ -1,11 +1,13 @@
 # Setting Up Your Intel Edison
 
-The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, so that the config is as-close to the Raspberry Pi as possible. This fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
+The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, as this fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
 ## Helpful notes before you get started
 Your Explorer Board has 2 micro USB connectors, they both provide power. On the community developed Edison Explorer Board the port labeled OTG is for flashing, and the one labeled UART provides console login. You must connect both ports to your computer to complete the flash process.
 
 You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
+
+The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi).  If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/windows-edison.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html). 
 
 ## Prerequisites
 
@@ -111,7 +113,7 @@ Type/edit the following:
 And then paste the following to rename your Edison accordingly:
 
     echo $myedisonhostname > /etc/hostname
-    sed -i"" "s/localhost$/localhost $myedisonhostname/" /etc/hosts
+    sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 
 Run these commands to set secure passwords.  It will ask you to enter your new password for each user 2 times. Type the password in the same both times.  To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
 
@@ -173,6 +175,24 @@ network={
 
 If you have a hidden wifi network add the line `scan_ssid=1`.
 
+Some wifi networks require you to accept a terms and conditions prior to allowing access.  For example, Starbucks coffee shops and many hotels.  These networks are termed "captive" networks and connecting your rig to them is currently not an option.
+
+Other wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school district wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
+
+```
+network={
+   scan_ssid=1
+   ssid="network name"
+   password="wifi password"
+   identity="wifi username"
+   key_mgmt=WPA-EAP
+   pairwise=CCMP TKIP
+   group=CCMP TKIP WEP104 WEP40
+   eap=TTLS PEAP TLS
+   priority=1
+}
+```
+
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `reboot` to apply the wifi changes and (hopefully) get online
@@ -199,9 +219,6 @@ Log in as root (with the password you just set above), and run:
 
     dpkg -P nodejs nodejs-dev
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
-
-Then:
-
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
     
 And:

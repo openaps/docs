@@ -49,7 +49,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 * Fill out the information lines in the `Config Variables` Section of that page, as shown below.  Some of the lines can stay with the default entries already provided.
 
 
-<table>
+<table border="1">
 <thead>
 <tr>
 <th>KEY</th>
@@ -130,7 +130,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 ![Deploy](../phase-1/img/deploy_button.jpg)
 
-* Wait a little bit while Heroku builds your NS app.  You’ll see some text scroll by in the Build App box, and then finally, you will have a message that the NS app was successfully deployed.
+* Wait a little bit while Heroku builds your NS app.  You’ll see some text scroll by in the Build App box, and then finally, you will have a message that the NS app was successfully deployed.  If the app fails to deploy, it may be that you have not added your credit card information to your account yet.  Go add that information in your account billing section, and then come back and press the deploy button again.  Don't worry, your account is still free unless you choose otherwise.  The credit card simply gives you added dyno hours on your free account (win-win).
 
 ![Successful deploy](../phase-1/img/deploy_success.jpg)
 
@@ -152,7 +152,7 @@ You do not have to enter all the information in the profile if you are using Ope
 
 ![Add vars](../phase-1/img/add_vars.jpg)
 
-<table>
+<table border="1">
 <thead>
 <tr>
 <th>KEY</th>
@@ -219,6 +219,8 @@ You do not have to enter all the information in the profile if you are using Ope
 </tbody>
 </table>
 
+If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers (G4 Share2 app or G5 Mobile app) and are outside the US, you will need to add a setting for `BRIDGE_SERVER` and set the value to `EU`.
+
 * Click on `Open App` in the top right corner of your Heroku site.
 
 ![Open app](../phase-1/img/open_app.jpg)
@@ -273,3 +275,14 @@ minutes: Enacted, Looping, Waiting, and Warning:
 * Enacted means OpenAPS has recently enacted the pump
 * Looping means OpenAPS is running but has not enacted the pump
 * Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
+
+### All of a sudden, Nightscout is no longer showing treatments (bolus, carbs, finger BGs) on the graph or rendering my basals.
+
+If you suddenly find that Nightscout is not showing treatments (bolus, carbs, finger BGs etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
+
+You probably somehow got a future-dated treatment. One possible reason is a clock-time mismatch between your devices - for example, your BG meter, pump, CGM, or OpenAPS rig may have different dates or times set.
+
+**To remove future treatments:**
+* Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). If the future treatments were caused by a time mismatch, you'll need to resolve that first, or the future dated treatments may simply be re-uploaded.
+
+![How to delete future-dated treaments](../../Images/Remove_future_treatments.png)

@@ -12,7 +12,9 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `pwd` (Show the present working directory (your current location within the filesystem).)
 
-`sudo <command>`
+`sudo <command>` (Super-user do. Temporarily elevates the current users permission to that of root.)
+
+`apt-get install <package>` (Aptitude is a package manager, when a package is missing it will (usually) be there and can be installed by issuing 'apt-get install <missing package name>.)
 
 `tail -f /var/log/syslog`
 
@@ -34,13 +36,13 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `pip freeze`
 
-`sudo reboot`
+`sudo reboot` (Reboot the system)
 
 `sudo shutdown -h now` (The correct way to shut down the Raspberry Pi from the command line. Wait for the green light to stop blinking before removing the power supply.)
 
 `dmesg` (Displays all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.)
 
-`uptime`
+`uptime` (Show how long the system is running and show load average of last minute/5 minutes/15 minutes)
 
 `crontab -l` (Display cron jobs)
 
@@ -142,20 +144,23 @@ Below is correct definition
 
 ### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
 
-Basic steps using an Intel Edison with Explorer Board, checking with openaps mmtune to see if it is resolved yet:
+Basic steps using an Intel Edison with Explorer Board, checking with `openaps mmtune` to see if it is resolved yet:
   * Double check that your port in pump.ini is correct
+  * Check that your rig is in close range of your pump
+  * Check that your pump battery is not empty
   * Reboot your rig
   * Run `oref0-runagain`
   * Fully power down and start up your rig
   * Remove and re-add your pump device
 
-If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, you may need to re-flash your radio chip:
+If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
+  * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
   * Flash the radio chip:
 ```
 wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
-ccprog -p 19,7,36 erase
-ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+./ccprog -p 19,7,36 erase
+./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
   * Reboot, and try `openaps mmtune` to make sure it works
 
