@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-read -p "Enter your Edison's hostname: " -r
+read -p "Enter your Edison's new hostname (this will be your rig's "name" in the future, so make sure to write it down): " -r
 myedisonhostname=$REPLY
 echo $myedisonhostname > /etc/hostname
 sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
