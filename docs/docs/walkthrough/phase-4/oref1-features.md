@@ -61,7 +61,12 @@ In other words: If it is set to zero, the SMB will be "less aggressive" than if 
 
 If enabled (must be done manually for now), you can get Pushover alerts in the following situations:
 * When OpenAPS thinks carbs are needed to bring eventual BG up, and low temps alone won't be enough to do it
+
+![Pushover example of carbs needed](../../Images/Pushover_carbs_needed.PNG)
+
 * Alerts about SMB behavior and the amount of insulin OpenAPS thinks you require (insulinReq). **This does not mean to do a manual bolus for the amount of insulinReq.** You will also see note about the attempt to SMB. You should use this notification as a reminder to tell the rig about anything you know it doesn't (like "oh yea, I want to enter my carbs for this meal"), or decide if you want to manually bolus if it thinks you need that amount of insulin. **But, you should not do the full insulinReq as a manual bolus;** keep in mind you may want to not do anything at all and let SMB safely handle the increased need for insulin in case something changes, or you may choose to do a small manual bolus for a portion (subtracting out the SMBs delivered) of the insulinReq at that time if you know something it doesn't (i.e. meal). 
+
+![(Pushover example of insulinReq](../../Images/Pushover_insulinReq_SMB.PNG)
 
 Cautions:
 1. You are likely to cause yourself a low if you do too much. Be very careful about doing manual boluses based on Pushover alerts; see above about not doubling up on a microbolus that's just been delivered.
