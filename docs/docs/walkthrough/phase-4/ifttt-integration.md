@@ -67,6 +67,8 @@ Content Type: application/json
 
 Body:  The content of the body will depend on the action that you would like this particular button press to perform.  You can only do ONE of the actions per button.  Some sample content:
 
+### Example IFTTT trigger conent
+
 Eating soon
 ```
   {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Eating Soon", "targetTop": 80, "targetBottom": 80, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
