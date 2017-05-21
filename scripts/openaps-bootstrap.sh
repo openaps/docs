@@ -23,5 +23,5 @@ cat wpa_supplicant.conf
 echo -e "\nAttempting to bring up wlan0:\n"
 ifdown wlan0; ifup wlan0
 echo -ne "\nWifi SSID: "; iwgetid -r
-curl -s https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-install.sh | bash -
+cd /tmp/; wget https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-install.sh; bash ./openaps-install.sh
 )
