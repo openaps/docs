@@ -57,7 +57,7 @@ Warning: bad cables cause a lot of headaches during the Edison flashing process,
 
 ## Micro USB to Micro USB OTG Cable
 
-You may need to connect your Dexcom Receiver to your Explorer Board for offline looping.  For this you will need to use a micro USB to micro USB OTG cable. Here is an example of a cable that will work: [BestGameSetups Micro USB to Micro USB OTG (On-The-Go) 12" (30cm) Data Cable](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW)
+You may need to connect your Dexcom Receiver to your Explorer Board for offline looping.  For this you will need to use a micro USB to micro USB OTG cable (or an OTG adapter). Here is an example of a cable that will work: [BestGameSetups Micro USB to Micro USB OTG (On-The-Go) 12" (30cm) Data Cable](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW)
 
 ## Nuts and Bolts
 
