@@ -1,10 +1,27 @@
 # Installing OpenAPS on your rig
 
+### Prep for Mac and PC users
+PC users: follow these instructions to get PUTTY and customize it. Then, follow the rest of the instructions below.
+Mac users: open Terminal and continue below.
 
-## Wifi bootstrap
+### Plug in your cables
 
+### Log in to your rig
 
-## **Be prepared to enter the following items:** 
+Copy and paste this: `ssh root@edison/local` and hit enter. Use the password that came with your Edison (probably edison).
+
+You should now see the command prompt change to be root.
+
+### Copy and paste to run this script
+
+Copy and paste the script from https://github.com/openaps/docs/blob/dev/scripts/openaps-bootstrap.sh. Hit enter.
+
+The script will ask you for the following: 
+* Type in your wifi, and your password when it comes up.
+* Select your time zone. 
+* Change your hostname. **Make sure to write down your hostname; this is how you will log in in the future**
+
+**Also be prepared to enter the following items:** 
 
 * directory name for your openaps
 * email address for github commits
