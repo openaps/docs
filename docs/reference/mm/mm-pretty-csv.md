@@ -1,3 +1,0 @@
-# `mm-pretty-csv`
-
-## Help
