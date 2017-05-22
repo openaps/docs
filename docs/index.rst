@@ -31,9 +31,9 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :caption: Gear Up
 
    docs/Gear Up/hardware
-   Compatible Pumps <Gear Up/pump>
-   Compatible CGMs <Gear Up/CGM>
-   Get your rig parts <Gear Up/edison> 
+   Compatible Pumps <docs/Gear Up/pump>
+   Compatible CGMs <docs/Gear Up/CGM>
+   Get your rig parts <docs/Gear Up/edison> 
    
 .. toctree::
    :maxdepth: 2
@@ -90,7 +90,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :caption: Give Back-Pay It Forward
 
    Donate your data <docs/Give Back-Pay It Forward/data-commons-data-donation>
-   Help others <docs/Give Back-Pay It Forward/contribute>
+   Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
 
 
 .. toctree::
