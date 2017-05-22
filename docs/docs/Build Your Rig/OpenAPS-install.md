@@ -1,7 +1,8 @@
 # Installing OpenAPS on your rig
 
 ### Prep for Mac and PC users
-PC users: follow these instructions to get PUTTY and customize it. Then, follow the rest of the instructions below.
+PC users: [follow these instructions to get PUTTY](windows-putty-prep.md). Then, follow the rest of the instructions below.
+
 Mac users: open Terminal and continue below.
 
 ### Plug in your cables
