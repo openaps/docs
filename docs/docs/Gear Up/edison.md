@@ -83,11 +83,3 @@ There are a few 3D-printed cases that are being designed, so check back here for
 ### Soft Cases 
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=90) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). To order, just pick the pattern/fabric for a Dexcom G4/G5 case (per the link) and put that you want it OpenAPS sized or 2x3" in the notes.
 
-
-# Next steps after you get your hardware
-
-Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html)" page. **Note that this page has setup instructions for all types of computers, and also has the most thorough troubleshooting section**. There is also an Edison setup page for Mac specifically ([see the Mac-Edison page here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html)) and for PC specifically ([see the PC-Edison page here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/windows-edison.html)). Even with the Mac or PC specific pages, you may find the main page with all setup types to have the most thorough troubleshooting section if you run into any trouble. 
-
-* If you bought an Edison un-flashed from Amazon, etc. you will start at the top of one of those pages to flash your Edison with Jubilinux. 
-* If you bought a pre-flashed Edison with Jubilinux, [you can skip down to the section of the docs here where you will log in to the Edison as root](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup) and go on from there. (That's a link to the page with all setups; but you can find the same section in the Mac or PC page listed above). 
-* **Note**: If you don't know how to log in to your Edison as root, [you may find this page for accessing your rig](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/accessing-your-rig.html) to be a good read first.
