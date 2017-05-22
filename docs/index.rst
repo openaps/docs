@@ -21,15 +21,14 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :glob:
    :caption: Understanding OpenAPS (Overview)
 
-   How OpenAPS works <docs/Understanding OpenAPS (Overview)/how-openaps-works-overview>
-   How this guide works/overview of steps <docs/Understanding OpenAPS (Overview)/overview-of-build-process>
-   docs/introduction/communication-support-channels
+   How OpenAPS works <docs/Understanding OpenAPS-Overview/how-openaps-works-overview>
+   How this guide works/overview of steps <docs/Understanding OpenAPS-Overview/overview-of-build-process>
+   Where to go for help <docs/Understanding OpenAPS-Overview/communication-support-channels>
    
 .. toctree::
    :maxdepth: 2
    :glob:
    :caption: Gear Up
-   
 
    docs/Gear Up/hardware
    Compatible Pumps <Gear Up/pump>
@@ -50,7 +49,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
    :caption: Build Your Rig
     
@@ -61,19 +60,19 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Customize/Iterate
+   :caption: Customize-Iterate
 
-   Enable Bluetooth tethering <docs/Customize/Iterate/bluetooth-tethering-edison>
-   IFTTT and Pebble buttons <docs/Customize/Iterate/ifttt-integration>
-   Autosens <docs/Customize/Iterate/autosens>
-   Autotune <docs/Customize/Iterate/autotune>
-   Understanding Autotune<docs/Customize/Iterate/understanding-autotune>
-   oref1: SMB and UAM <docs/Customize/Iterate/oref1>
-   Offline Looping <docs/Customize/Iterate/offline-looping-and-monitoring>
-   Add more wifi to your rig <docs/Customize/Iterate/on-the-go-wifi-adding>
-   Tips & tricks <docs/Customize/Iterate/usability-considerations>
-   Update your rig in the future <docs/Customize/Iterate/update-your-rig>
-   How to run oref0-setup.sh again <docs/Customize/Iterate/oref0-runagain>
+   Enable Bluetooth tethering <docs/Customize-Iterate/bluetooth-tethering-edison>
+   IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
+   Autosens <docs/Customize-Iterate/autosens>
+   Autotune <docs/Customize-Iterate/autotune>
+   Understanding Autotune <docs/Customize-Iterate/understanding-autotune>
+   oref1: SMB and UAM <docs/Customize-Iterate/oref1>
+   Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
+   Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
+   Tips & tricks <docs/Customize-Iterate/usability-considerations>
+   Update your rig in the future <docs/Customize-Iterate/update-your-rig>
+   How to run oref0-setup.sh again <docs/Customize-Iterate/oref0-runagain>
 
 .. toctree::
    :maxdepth: 2
@@ -88,10 +87,10 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Give Back/Pay It Forward
+   :caption: Give Back-Pay It Forward
 
-   Donate your data <docs/Give Back/Pay It Forward/data-commons-data-donation>
-   Help others <docs/Give Back/Pay It Forward/contribute>
+   Donate your data <docs/Give Back-Pay It Forward/data-commons-data-donation>
+   Help others <docs/Give Back-Pay It Forward/contribute>
 
 
 .. toctree::
