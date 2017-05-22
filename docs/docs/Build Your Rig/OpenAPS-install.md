@@ -2,6 +2,7 @@
 
 ### Prep Steps
 PC users: [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
+
 Mac users: [follow these instructions to open Terminal and plug in your rig](mac-prep.md). Then, follow the rest of the instructions below.
 
 ### Log in to your rig
