@@ -3,7 +3,6 @@ Troubleshooting
 
 .. toctree::
    :maxdepth: 4
-
    
    General_linux_troubleshooting
    Pump-rig-communications-troubleshooting
