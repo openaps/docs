@@ -82,7 +82,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    General linux troubleshooting <docs/Troubleshooting/General_linux_troubleshooting>
    Pump-rig troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
    CGM-rig troubleshooting <docs/Troubleshooting/CGM-rig-communications-troubleshooting>
-   Rig-NS troubleshooting <docs/Troubleshooting/Rig—NS-communications-troubleshooting>
+   Rig-NS troubleshooting <docs/Troubleshooting/Rig-NS-communications-troubleshooting>
 
 .. toctree::
    :maxdepth: 2
