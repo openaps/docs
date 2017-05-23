@@ -26,5 +26,6 @@ echo -e "\nAttempting to bring up wlan0:\n"
 ifdown wlan0; ifup wlan0
 echo -ne "\nWifi SSID: "; iwgetid -r
 sleep 5
-cd /tmp/; wget http://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-install.sh; bash ./openaps-install.sh
+# TODO check for options to fix the certificate activation error message for https
+cd /tmp/; wget --no-check-certificate https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-install.sh; bash ./openaps-install.sh
 )
