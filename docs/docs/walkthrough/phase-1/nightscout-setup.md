@@ -113,14 +113,6 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 <th>BRIDGE_PASSWORD</th>
 <td>Enter your Dexcom Share Account password.</td>
 </tr>
-<tr>
-<th>BG_TARGET_TOP</th>
-<td>Enter the numeric value of the top of your target BG.</td>
-</tr>
-<tr>
-<th>BG_TARGET_BOTTOM</th>
-<td>Enter the numeric value of the bottom of your target BG.</td>
-</tr>
 </tbody>
 </table>
 
