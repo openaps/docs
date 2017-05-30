@@ -161,3 +161,4 @@ List of people who are working on closed loops:
 - Molly Duerr (Minneapolis, MN)
 - Amber K (Ithaca, NY)
 - Melanie Shapiro (Gainesville, FL)
+- Brandon (Philly)
