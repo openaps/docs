@@ -350,7 +350,7 @@ Some users have reported problems with connecting to internet sites.  If you are
 
 Also see the instructions [here](https://wiki.debian.org/NetworkConfiguration#The_resolvconf_program) to add these nameservers to your `/network/interfaces` file as the `resolv.conf` file is likely to be overwritten.
 
-Alternatively, add the nameservers you want to see in `resolv.conf` to `/etc/resolvconf/resolv.conf.d/tail` and they'll be automatically added to `resolv.conf`.
+Alternatively, add the nameservers you want to see in `resolv.conf` to `/etc/resolvconf/resolv.conf.d/tail` and they'll be automatically added to `resolv.conf`. (You may need to create the folder by running this command first: `mkdir -p /etc/resolvconf/resolv.conf.d`)
 
 
 ### IP address conflicts (able to ping external but not LAN addresses)

@@ -159,3 +159,6 @@ List of people who are working on closed loops:
 - Helene Brashear (Austin, TX)
 - Jeremy B. for CM (New York, NY)
 - Molly Duerr (Minneapolis, MN)
+- Amber K (Ithaca, NY)
+- Melanie Shapiro (Gainesville, FL)
+- Brandon (Philly)

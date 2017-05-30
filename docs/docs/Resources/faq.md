@@ -32,5 +32,5 @@ The most common setup as of late 2015/early 2016 has evolved to be a smaller rig
 ![Example OpenAPS "Explorer Board" rig](../Images/Explorer_Board_rig.png)
 
 For more details on the exact hardware required to build an OpenAPS, see the
-[Hardware](../walkthrough/phase-0/hardware.md) section.
+[Hardware](../walkthrough/phase-0/hardware/hardware.md) section.
 
