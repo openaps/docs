@@ -162,3 +162,4 @@ List of people who are working on closed loops:
 - Amber K (Ithaca, NY)
 - Melanie Shapiro (Gainesville, FL)
 - Brandon (Philly)
+- Justin W (Charlottesville, VA)
