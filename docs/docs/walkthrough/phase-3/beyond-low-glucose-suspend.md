@@ -34,7 +34,9 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 	"carbratio_adjustmentratio": 1
 	"autotune_isf_adjustmentFraction": 0.5,
 	// WARNING: the following are advanced oref1 features; do not enable until you've run oref0 (basic setup) for a while
+	// also, do not blindly turn all of these on; only enable specifics if you know what each one does
         "remainingCarbsCap": 0,
+	"remainingCarbsFraction": 0.7
         "enableUAM": false,
         "enableSMB_with_bolus": false,
         "enableSMB_with_COB": false,
@@ -97,6 +99,10 @@ This keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF 
 #### remainingCarbsCap
 
 This is the amount of the maximum number of carbs we'll assume will absorb over 4h if we don't yet see carb absorption. 
+
+#### remainingCarbsFraction
+
+This is the fraction of carbs we'll assume will absorb over 4h if we don't yet see carb absorption. Most people won't need to change this - leave at the default (0.7).
 
 #### enableUAM
 
