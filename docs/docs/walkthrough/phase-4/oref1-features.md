@@ -1,7 +1,8 @@
 # oref1 (super advanced features)
 
 NOTE OF CAUTION:
-oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
+* oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
+* As of June 1, oref1-related features are still being tested in the "dev" branch. 
 
 ## Only run oref1 with the following caveats in mind: 
 
