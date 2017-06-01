@@ -70,7 +70,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
     * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
 * (if you're using a Carelink, you will NOT be using mmeowlink)
-* how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
+* how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  g4 and g4-raw are both used with the dexcom reciever plugged into your rig.  Use g4-raw to have your BG data also uploaded to your nightscout site.  Use xdrip if you are using an uploader that sends data to the xdrip+ app on an Android.  See [xdripAPS](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#xdripaps-for-offline-bgs-for-android-users) for setup details. Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
 * Nightscout URL and API secret
 * whether you want any of the oref0 advanced features (AMA, Autosens, and/or Autotune)
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot
