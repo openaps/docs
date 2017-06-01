@@ -11,8 +11,8 @@ NOTE OF CAUTION:
 * **We are making a STRONG recommendation that you also have run autotune prior to enabling SMB.** Why? Because if you have wonky ISF settings, for example, you may be more likely to go low or high with SMB. It will help a lot to have run autotune and be aware if the algorithm is recommending changes to ISF, basal, and/or carb ratio. You are not required to run autotune automatically/nightly as part of your loop with SMB; but you should at least run it manually and get an idea for how confident you are in your settings being right or not; and keep that in mind when evaluating SMB outcomes for yourself.
 * You should have basals of > 0.5 U/hr. (SMB is *not* advisable for those with very small basals; since .1U is the smallest increment that can be bolused by SMB.  We are also adding a basal check to diable SMB when basals are < 0.3 U/hr.)
 * Read the following:
-  * 1. The updated reference design ([https://openaps.org/reference-design/](https://openaps.org/reference-design/)) that explains the differences between oref0 and oref1
-  * 2. The following two posts for background on oref1:
+  * A. The updated reference design ([https://openaps.org/reference-design/](https://openaps.org/reference-design/)) that explains the differences between oref0 and oref1
+  * B. The following two posts for background on oref1:
     * [https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/](https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/)
     *  [https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/](https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/)
 * Make sure you understand what SMB & UAM stand for (**read the above posts, we know you skipped them**!)
