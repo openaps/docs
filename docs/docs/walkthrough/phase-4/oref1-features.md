@@ -59,7 +59,10 @@ In other words: If it is set to zero, the SMB will be "less aggressive" than if 
 
 ## Pushover, SMB, and OpenAPS
 
-If enabled (must be done manually for now), you can get Pushover alerts in the following situations:
+_This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts._
+
+If enabled (under advanced features in oref0-setup.sh), and you have oref1 enabled, you can get Pushover alerts in the following situations:
+
 * When OpenAPS thinks carbs are needed to bring eventual BG up, and a 30m low temp won't be enough to do it
 
 ![Pushover example of carbs needed](../../Images/Pushover_carbs_needed.PNG)
