@@ -89,6 +89,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    docs/walkthrough/phase-4/bluetooth-tethering-edison
    docs/walkthrough/phase-4/ifttt-integration
    docs/walkthrough/phase-4/autotune
+   oref1 <docs/walkthrough-phase-4/oref1-features>
    docs/walkthrough/phase-4/data-commons-data-donation
 
 .. toctree::
