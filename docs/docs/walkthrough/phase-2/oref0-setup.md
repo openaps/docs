@@ -30,7 +30,7 @@ If you do not see the screen above, or see error messages, try running it multip
 
 (Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
 
-### (If you did the above, skip this) Manual Installation
+### (If you did the above, skip this and go on to Step 1) Manual Installation
 
 If you prefer to install the dependencies yourself, the following Debian/Ubuntu packages are required:
 
