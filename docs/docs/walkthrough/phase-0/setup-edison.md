@@ -221,12 +221,12 @@ Log in as root (with the password you just set above), and run:
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
     
-And:
+And then enter eachof the next three lines one by one...:
 
     adduser edison sudo
     adduser edison dialout
     dpkg-reconfigure tzdata    # Set local time-zone
-       Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER
+       [Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER]
 
 Edit (with `nano` or `vi`) /etc/logrotate.conf and change the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 
