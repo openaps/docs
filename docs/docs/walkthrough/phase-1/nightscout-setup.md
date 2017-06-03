@@ -62,6 +62,10 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 <td>Create your own API_SECRET…this is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` symbol.</td>
 </tr>
 <tr>
+<th>AUTH_DEFAULT_ROLES</th>
+<td>When `readable`, anyone can view Nightscout without a token. Setting it to `denied` will require authentication. Setting it to `denied` is recommended but requires oref 0.5.0-dev.</td>
+</tr>
+<tr>
 <th>DISPLAY_UNITS</th>
 <td>enter either mg/dl or mmol</td>
 </tr>
@@ -231,6 +235,24 @@ You do not have to enter all the information in the profile if you are using Ope
 ### It's not working - I'm missing data in Nightscout? 
 
 If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
+
+### Switching from API_SECRET to token based authentication
+
+Starting with oref0 0.5.0 you can secure your Nightscout.
+
+Change the following environment variables of your Nightscout:
+- `AUTH_DEFAULT_ROLES` from `readable` to `denied`
+
+Visit https://yournightscout/admin/
+- Add a new Role
+Name: oref0rig
+Permissions: api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read
+(../phase-1/img/role-oref0rig.png)
+
+- Add a new Subject
+Name: the name of your rig (same as the hostname of your rig)
+Roles: oref0rig
+(../phase-1/img/subject-oref0rig.png)
 
 ### Switching from Azure to Heroku
 
