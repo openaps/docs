@@ -236,7 +236,7 @@ You do not have to enter all the information in the profile if you are using Ope
 
 If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
 
-### Switching from API_SECRET to token based authentication
+### Switching from API_SECRET to token based authentication for your rig
 
 Starting with oref0 0.5.0 you can secure your Nightscout.
 
@@ -245,14 +245,20 @@ Change the following environment variables of your Nightscout:
 
 Visit https://yournightscout/admin/
 - Add a new Role
-Name: oref0rig
-Permissions: api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read
-(../phase-1/img/role-oref0rig.png)
+
+Name: `oref0rig`
+
+Permissions: `api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read`
+
+![AddRole])(../phase-1/img/role-oref0rig.png)
 
 - Add a new Subject
+
 Name: the name of your rig (same as the hostname of your rig)
-Roles: oref0rig
-(../phase-1/img/subject-oref0rig.png)
+
+Roles: `oref0rig`
+
+![AddSubject](../phase-1/img/subject-oref0rig.png)
 
 ### Switching from Azure to Heroku
 
