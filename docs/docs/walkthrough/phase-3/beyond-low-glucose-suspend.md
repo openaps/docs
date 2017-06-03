@@ -4,11 +4,11 @@ You may have noticed that in the previous phase, in observing low glucose suspen
 
 Once you have spent several days observing the loop in the previous mode and made sure your basals and bolus strategies are in good shape, you may consider moving to the next step.
 
-This means adjusting your max iob amount in your preferences.json file.
+This means adjusting your max_iob amount in your preferences.json file.
 
 Keep in mind this is one of the key safety features of OpenAPS. You do NOT want this to be a super large amount. The point of this setting is to ensure that the loop can not excessively high temp you; if you need high temps consistently to get you to this amount, your baseline basals are off OR you missed a meal bolus OR you are sick OR there is some other extenuating circumstance; but in all of these cases, they should require manual intervention and you should not expect the loop to solve for this.
 
-A good rule of thumb is for max iob to be no more than 3 times your highest basal rate. Keep in mind you can start conservatively and change this number over time as you evaluate further how the system works for you.
+A good rule of thumb is for max_iob to be no more than 3 times your highest basal rate. Keep in mind you can start conservatively and change this number over time as you evaluate further how the system works for you.
 
 (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
 
@@ -18,6 +18,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) are i
 
 Note: the “max basal” rate is the one safety setting that you set in your pump. It should not be confused with “max daily” or “max current” as described below. The system will use whichever of these three values is the lowest as the ceiling for the temps it will set. So, if your pump’s max basal is 1.0u, but your 3x and 4x multipliers would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
 
+```
 {
 	"max_iob": 0,
 	"max_daily_safety_multiplier": 3,
@@ -25,12 +26,23 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
 	"autosens_max": 1.2,
 	"autosens_min": 0.7,
 	"autosens_adjust_targets": true,
+        "maxCOB": 120
 	"override_high_target_with_low": false,
 	"skip_neutral_temps": false,
 	"bolussnooze_dia_divisor": 2,
 	"min_5m_carbimpact": 3,
 	"carbratio_adjustmentratio": 1
+	"autotune_isf_adjustmentFraction": 0.5,
+	// WARNING: the following are advanced oref1 features; do not enable until you've run oref0 (basic setup) for a while
+	// also, do not blindly turn all of these on; only enable specifics if you know what each one does
+        "remainingCarbsCap": 0,
+	"remainingCarbsFraction": 0.7
+        "enableUAM": false,
+        "enableSMB_with_bolus": false,
+        "enableSMB_with_COB": false,
+        "enableSMB_with_temptarget": false
 }
+```
 
 #### max_iob: 
 
@@ -56,6 +68,10 @@ The other side of the autosens safety limits, putting a cap on how low autosens 
 
 This is used to allow autosens to adjust BG targets, in addition to ISF and basals.
 
+#### maxCOB:
+
+This defaults maxCOB to 120 because that's the most a typical body can absorb over 4 hours. (If someone enters more carbs or stacks more; OpenAPS will just truncate dosing based on 120. Essentially, this just limits AMA as a safety cap against weird COB calculations due to fluky data.)
+
 #### override_high_target_with_low: 
 
 Defaults to false, but can be turned on if you have a situation where you want someone (a school caregiver, for example) to use the bolus wizard for meal boluses. If set to “True”, then the bolus wizard will calculate boluses with the high end of the BG target, but OpenAPS will target the low end of that range. So if you  have a target range of 100-120; and set this to true; bolus wizard will adjust to 120 and the loop will target 100. If you have this on, you probably also want a wide range target, rather than a narrow (i.e. 100-100) target.
@@ -76,6 +92,33 @@ This is a setting for default carb absorption impact per 5 minutes. The default 
 
 This is another safety setting that may be useful for those with secondary caregivers who aren’t dedicated to looking up net IOB and being aware of the status of the closed loop system. The default is 1 (i.e. do not adjust the carb ratio; off). However, in the secondary caregiver situation you may want to set a higher carb ratio to reduce the size of a manual bolus given at any time. With this ratio set to 1.1, for example, the loop would multiple the carb inputs by 10%, and use that number to calculate additional insulin. This can also be used by OpenAPS users who rely on the bolus wizard to calculate their meal bolus, but who want to only bolus for a fraction of the meal, and allow advanced meal assist to high-temp for the rest.
 
+#### autotune_isf_adjustmentFraction
+
+This keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment (the previous default), 0 is no adjustment from pump ISF.
+
+#### remainingCarbsCap
+
+This is the amount of the maximum number of carbs we'll assume will absorb over 4h if we don't yet see carb absorption. 
+
+#### remainingCarbsFraction
+
+This is the fraction of carbs we'll assume will absorb over 4h if we don't yet see carb absorption. Most people won't need to change this - leave at the default (0.7).
+
+#### enableUAM
+
+This enables detection of unannounced meal (UAM) carb absorption.
+
+#### enableSMB_with_bolus
+
+This enables supermicrobolus for DIA hours after a manual bolus.
+
+#### enableSMB_with_COB
+
+This enables supermicrobolus (SMB) while carbs on board (COB) is positive.
+
+#### enableSMB_with_temptarget 
+
+This enables supermicrobolus (SMB) with eating soon or lower temp targets. For example, if your target is usually 100mg/dL, a temp target of 99 (or 80, the typical eating soon target) will enable SMB.
 
 ## Editing your preferences.json
 

@@ -1,5 +1,7 @@
 # Troubleshooting oref0-setup script process
 
+Please be patient. It can take 15-20 minutes for your new OpenAPS rig to enact temp basal rates on your insulin pump after powering on for the first time. Your OpenAPS rig can require the same 15-20 minutes if it's been powered off for more than 20 minutes. It often takes less time but don't over-react. Your rig has to establish network connections, pull CGM data, pump history data, and perform complex calculations prior to enacting temp basals. If your insulin pump does not indicate a temp basal after approximately 15-20 minutes, however, you can begin troubleshooting the cause. A simple reboot, instead of a power on, should take much less time.
+
 ## Re-run the script again
 
 You won't hurt anything by running the script (step 2) multiple times, as long as you name it something different. If you already have a working loop and are testing the setup scripts, just make sure to comment out in cron the loop you don't want running.
@@ -20,6 +22,8 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 
 ## How do I know if it is working?
 
+Please be patient. We can not emphasize this enough.
+
 * Check your pump to see if it is setting temp basals.
 * "Tail" the pump log to see what is is doing: `tail -F /var/log/openaps/pump-loop.log`
 * A very basic test to see if the pump communication works is to issue a `openaps use pump model`. That should return your pump model. If it displays an error or an empty string your rig can't communicate with your pump.
@@ -28,7 +32,7 @@ To prevent cron running on initial boot, either clear the `crontab -e` file or "
 
 ## It's not working yet:
 
-Make sure to check through the following list before asking on Gitter if your setup is not working (yet). Remember if you just ran oref0-setup.sh, wait a good ~20 minutes before seeking help. Time, and the below list of steps, resolves 99% of problems. Also check out [this blog post for tips if asking for help online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
+Make sure to check through the following list before asking on Gitter if your setup is not working (yet). Remember if you just ran oref0-setup.sh, wait a good ~20 minutes as mentioned above before seeking help. Time, and the below list of steps, resolves 99% of problems. Also check out [this blog post for tips if asking for help online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
 * Check to make sure that your pump is in absolute and not % mode for temp basals.
 * Did you put in the right SN for the pump? Should be numbers only...
@@ -39,6 +43,7 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is near your rig. Closer is better, e.g. check if it works when the pump and rig are at most 20 inches (50 cm) apart.
 * Check that your pump battery is not empty.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
+* Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the follwoing display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
 * 512  users - make sure that you have created your static json files as outlined [here](https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-0/hardware/pump.html) for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json. You will also have to remove the calls for them from the your get-settings alias.
 To do this:
@@ -55,7 +60,7 @@ To do this:
   openaps alias remove gather
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
   ```
-  
+
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
 You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
@@ -71,3 +76,25 @@ You've probably run into an error in your setup where someone has recommended "r
    * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
    * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
  * Still no luck? Try the [Troubleshooting](http://openaps.readthedocs.io/en/master/docs/Resources/troubleshooting.html) page or ask for help.
+
+### 512 users / 712 users / x12 users
+
+If you have one of the x12 model pumps, you need to do the following:
+* Add pump settings files manually. Certain commands like Re.ad Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. Create  raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json See this example: https://gist.github.com/amazaheri/033b85760156054dd858 
+* Adapt the aliases as following so it doesn't call for non-existing pump files:
+
+First, do these:
+  ```
+  killall -g openaps
+  openaps alias remove get-settings
+  openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
+  ```
+  The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted.
+  So also do these:
+
+  ```
+  killall -g openaps
+  openaps alias remove gather
+  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
+  ```
+  There may be at least another step missing. If you figure out a missing step from the above for x12, PLEASE PUT IN A PR AND DOCUMENT WHAT THIS IS!

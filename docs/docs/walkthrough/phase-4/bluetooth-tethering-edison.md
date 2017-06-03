@@ -17,9 +17,28 @@ A few things to know about using your phone's hotspot feature:
 ### Pros and Cons (and usability) of Wifi Hotspot vs. BT Tethering Hotspot
 
 * If you choose **wifi hotspot**, you must manually turn it on; wait for the rig to connect; and when you get home, you must manually turn it off or your rig might not switch to your home wifi (depending on your settings in wpa_supplicant.conf). This option also consumes more battery on the phone.
-* If you choose to enable **BT tethering**, it takes more work to set it up, but it will automatically pick up when your rig loses wifi (i.e. walking out the door) without you even having to pull your phone out of your pocket; it automatically allows the rig to pick back up on wifi when it finds a known wifi network; and it consumes less battery on the phone compared to your wifi hotspot. 
+* If you choose to enable **BT tethering**, it takes more work to set it up, but it will automatically pick up when your rig loses wifi (i.e. walking out the door) without you even having to pull your phone out of your pocket; it automatically allows the rig to pick back up on wifi when it finds a known wifi network; and it consumes less battery on the phone compared to your wifi hotspot.
 
 ![Bluetooth papertrail oref0 online switch](../../Images/BT_papertrail.PNG)
+
+### Phone selection for BT Tethering
+
+* Certain phones don't work well using bluetooth tethering with OpenAPS. Various users have experimented, and the list below shows those that have been found to work okay, those that don't and those with variable effectiveness. If you have something that is not on the list, please feel free to add it.
+
+<TABLE border="1"
+          summary="This table gives details about various cellphones used with BT Tethering with OpenAPS rigs">
+<TR><TH>Cellphone<TH>Works with Bluetooth Tethering?<TH>Issues/Experiences with BT<TH>Use with xDrip/xDripAPS and Dexcom G5
+<TR><TH>LG Nexus 5X with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
+<TR><TH>Google Pixel with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
+<TR><TH>Sony Xperia Z5 Compact with Android 7<TD>Yes<TD>Works with tethering for network access. It regularly disconnects from the rig (which doesn't seem to affect data flow) and roughly every 24-36 hours this results in complete loss of connectivity and requires a full reboot of the rig and the phone. Doesn't work well with phone swapping between Wifi and mobile - causes BT dropouts that require a reboot of the rig.<TD>No issues running xDrip/xDripAPS alongside the tethered connection. Achieves 90%+ packet collection from Dexcom G5. 
+<TR><TH>Xiaomi Redmi 4 with MIUI 8 (Android 6)<TD>No<TD>Tethering can be set up, but it drops regularly requiring rig reboots. When phone switches between Wifi and cellular signal requires rig to be rebooted.<TD>Significant packet drops and data becomes almost unusable.
+<TR><TH>Xiaomi Redmi 3 with MIUI 6 (Android 5)<TD>Yes<TD>No issues seen when tethered to cellular network. Doesn't allow tethering to wifi.<TD>Works fine with Dexcom G5 - 90% collection rate.
+<TR><TH>Samsung Galaxy S6 (Android 7)<TD>Yes<TD>Tethering to rig and cellular works okay. No data on swapping between cellular and wifi connections.<TD>Use with Dexcom G5 and rig not effective. Significant packet loss.
+<TR><TH>Samsung Galaxy Junior<TD>Yes<TD>Phone tethering switching between wifi and mobile not elegant and causes some issues<TD>Difficulties found when using xDrip with the OpenAPS tethering. Packet loss occurs.
+<TR><TH>iPhone<TD>Yes<TD>Users have experienced various levels of success with the iPhone bluetooth tethering and when the rig switches  between wifi and BT<TD>Not Applicable. Experimental version of Loop to do something similar doesn't yet have feedback.
+<TR><TH>Acer Phone<TD>No<TD>Many data drops on the bluetooth connection for rig. Recommended to avoid.<TD>xDrip compatibility is poor - numerous drops throughout the day.
+<TR><TH>Samsumg Galaxy S7 Edge (G935F) Android 7.0<TD>Yes<TD>Excellent BT tether using apps 'Bt AutoTether' and 'BT Tether'<TD>xDrip+ with G5 > 95% capture.
+</TABLE>
 
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
@@ -66,7 +85,7 @@ As shown in the "success" section below, you should see a single line returned w
 
 * Now launch the Bluetooth control program: `bluetoothctl`
 
-* and each of the following:
+* and type each of the following:
 
 ```
 power off
@@ -119,7 +138,7 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 
   `trust AA:BB:CC:DD:EE:FF`
 
-* Quit bluetoothctl by typing 'quit' and hitting enter.
+* Quit bluetoothctl by typing `quit` and then enter.
 
 
 ******************************
@@ -170,3 +189,11 @@ bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
 * About a minute after wifi comes back on (terminal session restores), your Edison should automatically disconnect the Bluetooth connection.
 
 Finally, it's time to take a walk.  About a minute after walking out of range of your home wifi, you should see that a device is connected to your phone via Bluetooth. Shortly after that you should see things update on Nightscout.  About a minute afer you come home, it should reconnect to wifi and automatically disconnect Bluetooth.
+
+### Additional App requirement on Android to enable automatic BT Tethering reconnects
+
+On Android, the Bluetooth tether will shutdown if there is no tethering request within 3 minutes. Installing the application "BTAutoTethering" on your phone from the Play store will resolve this issue and allow the rig to switch to your phone when out of wifi range with no manual intervention. 
+
+This app has been used by numerous OpenAPS users, and found to work. It can be found here: https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en Other Auto Tethering apps are available if you prefer something different.
+
+

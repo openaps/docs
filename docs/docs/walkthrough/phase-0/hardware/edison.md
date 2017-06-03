@@ -55,6 +55,10 @@ You will need two micro USB cables - with a micro connector on one end and a sta
 
 Warning: bad cables cause a lot of headaches during the Edison flashing process, so it may be worth verifying before you start if you have good cables that can transfer data.
 
+## Micro USB to Micro USB OTG Cable
+
+You may need to connect your Dexcom Receiver to your Explorer Board for offline looping.  For this you will need to use a micro USB to micro USB OTG cable (or an OTG adapter). Here is an example of a cable that will work: [BestGameSetups Micro USB to Micro USB OTG (On-The-Go) 12" (30cm) Data Cable](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW)
+
 ## Nuts and Bolts
 
 You will likely want to screw your Edison onto the Explorer Board to stabilize the rig. You can order a kit, or use (2) M2 screws and (6) M2 nuts (four used as spacers). Here's an example of a harware pack with screws and nuts that will work: [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187)
@@ -73,6 +77,8 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [danimaniac's Protective Cases & Accessories](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
 * [Luis's ventilated acrylic simple design](https://drive.google.com/drive/folders/0BxeFg9yJZ_FZdWJEcG5KMXdUMjg?usp=sharing)
 * [Small clear plastic case perfect for larger Sparkfun 2000mah battery: #8483](http://www.ebay.com/itm/272062812611)
+* [Robert Silvers and Eric Burt's case for Explorer and 2500 mAh battery](http://www.thingiverse.com/thing:2282398)
+* [Robert Silvers' case for Explorer and 2000 or 2500 mAh battery](http://www.thingiverse.com/thing:2291125)
 
 ### Soft Cases 
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=90) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). To order, just pick the pattern/fabric for a Dexcom G4/G5 case (per the link) and put that you want it OpenAPS sized or 2x3" in the notes.
@@ -80,4 +86,8 @@ There are a few 3D-printed cases that are being designed, so check back here for
 
 # Next steps after you get your hardware
 
-Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html)" page. If you bought an Edison un-flashed from Amazon, etc. you will start at the top of the page to flash your Edison with Jubilinux. Otherwise, if you bought a pre-flashed Edison with Jubilinux, [you can skip down to the section of the docs here where you will log in to the Edison as root](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup) and go on from there.
+Once you've gotten your equipment, you'll want to head to the "[Setting Up Your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html)" page. **Note that this page has setup instructions for all types of computers, and also has the most thorough troubleshooting section**. There is also an Edison setup page for Mac specifically ([see the Mac-Edison page here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html)) and for PC specifically ([see the PC-Edison page here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/windows-edison.html)). Even with the Mac or PC specific pages, you may find the main page with all setup types to have the most thorough troubleshooting section if you run into any trouble. 
+
+* If you bought an Edison un-flashed from Amazon, etc. you will start at the top of one of those pages to flash your Edison with Jubilinux. 
+* If you bought a pre-flashed Edison with Jubilinux, [you can skip down to the section of the docs here where you will log in to the Edison as root](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#initial-edison-setup) and go on from there. (That's a link to the page with all setups; but you can find the same section in the Mac or PC page listed above). 
+* **Note**: If you don't know how to log in to your Edison as root, [you may find this page for accessing your rig](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/accessing-your-rig.html) to be a good read first.

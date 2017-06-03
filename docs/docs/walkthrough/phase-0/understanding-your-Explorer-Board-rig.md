@@ -32,6 +32,11 @@ The little black button on the end of the board near the JST connector is the po
 
 The radio and antenna are down on the end of the board where you see a little white stick. (Opposite end of the board from where your battery connects at the JST connector). 
 
+### Cutting the trace to improve radio communication
+Some OpenAPS users have found that cutting a portion of the Explorer Board's hidden copper antenna wire (called a trace) will improve radio comms with the pump. Before doing this, remember to disconnect any attached battery or power source first. For North American (NA) pumps (using the 916MHz band), you're looking to cut near that white line that is between the 1 and the 5 in the "915." Consider cutting on the 1-side rather than the exact spot where the white "cut" line is drawn because it is so close to the corner where the rest of the copper wire goes. To make the cut, use a sharp x-acto blade to cut through the copper just beneath the green surface of board. It will take a few swipes and you'll hear a small scraping noise when you get through the wire.  Make sure you've cut all the way through the wire to the green circuit board material on the other side.
+
+Watch this video for an example: https://www.facebook.com/groups/TheLoopedGroup/permalink/1854229718127019/?hc_location=ufi
+
 ### Lipo Battery
 
 Lipo batteries are great for a lot of things…but taking damage is not one of them.  Please treat lipo batteries with care.  Keep them protected from puncture.  The explorer board has some “pointy” parts on the underside, so providing some protection from the board’s squish is a good idea.  A small piece of protection (such as a business card or non-conductive thin foam sheet) will help protect the battery from the board above it.  
@@ -39,3 +44,7 @@ Lipo batteries are great for a lot of things…but taking damage is not one of t
 Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The lipo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html#cases) for both hard and soft case ideas).  
 
 There are several places to get lipo batteries, with lots of different dimensions and capacities.  A 2000 mAh lipo will get you about 12-14 hours of use, assuming you have the standard setup (which is what you get following these docs) running. 
+
+### What happens if you have multiple rigs?
+
+If you have multiple OpenAPS rigs, they’re built to be polite to each other - so even if you had 2+ rigs in same room, they won’t trip each other up. They “wait for silence” before issuing any commands to the pump. By having multiple rigs throughout a house, you can move from room-to-room without carrying rigs because the rigs will pass-off comms as you moves in and out of the rig’s range. While stationary rigs will not need lipo batteries and can be plugged directly into the wall from the explorer board, you may still want to consider hooking up a battery so that the rig can quickly be taken with you on the go if needed and should the power fail you can still stay looping.

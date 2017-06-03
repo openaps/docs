@@ -67,6 +67,8 @@ Content Type: application/json
 
 Body:  The content of the body will depend on the action that you would like this particular button press to perform.  You can only do ONE of the actions per button.  Some sample content:
 
+### Example IFTTT trigger conent
+
 Eating soon
 ```
   {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Eating Soon", "targetTop": 80, "targetBottom": 80, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
@@ -79,9 +81,13 @@ Cancel Temp Target
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
-Low Treatment
+Low Treatment (change carb amount to match your typical low treatment)
 ```
-{"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 15, "secret": "your_hashed_api_goes_here!!!"}
+{"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 10, "secret": "your_hashed_api_goes_here!!!"}
+```
+Low Treatment with a 60 min high target to help recovery
+```
+{"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "low treatment", "carbs": 5, "targetTop": 120, "targetBottom": 120, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
 ```
 Pump Site Change
 ```
@@ -171,3 +177,10 @@ Note: ThisButton does not work on Pebble Round watches.  You can search for IFTT
 
   ![Maker Request](../../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
+  
+## Google Calendar integration
+
+* Using the Google Calendar Applet with IFTTT is useful to trigger temp targets that may occur on a recurring schedule, although you can also schedule a one-time event in advance as well.  If you already have IFTTT/Maker requests working it's easy to add.  Follow the directions for Setup for Phones above, but rather than choosing "Button Widget" type "Google Calendar" in the search field and then click on the box labeled "Google Calendar".  
+* You will need make sure to allow the Google Calendar Applet access to your Google Calendar.  When you do this it will ask which calendar you want to connect.  You can use your main calendar, or a calendar you've set up especially for IFTTT events.  You'll need to do this ahead of time using the administrative functions of Google Calendar.  To do this click on the gear icon at the upper right of Google Calendar (google.com/calendar, not the Applet in IFTTT), choose settings, choose the calendar tab (upper left) and then click the button to make a new calendar.  Call it whatever you want and set permissions as appropriate.  
+* Once you've connected the appropriate calendar, continue your setup in IFTTT and choose "Event from search starts".  Type a phrase that you'll use on the Google Calendar to denote a temp target (or other event).  For example "Eating Soon" or "Activity" and then click the button that says create trigger. Click on the blue "+that" text and continue to follow the directions as above from Setup for Phones above to connect the Maker app and make the appropriate Web request.  
+* Now on your Google Calendar (make sure you create the event on whichever calendar you've connected to the Google Calendar IFTTT applet) you can create recurring events or one-time events to trigger temp targets.  Use the same phrase that you used to create the trigger (Eating Soon, Activity, etc).  For example, if you get up every day and eat at the same time during the week, schedule Eating Soon on those days at the appropriate time.  If you know you're going to take a day off work or school just remember to delete the event ahead of that date, or change as appropriate.  Gym class for a child or sports practice only some days of a month?  Sit down and schedule Activity Mode for those dates well in advance so you don't have to remember at the time and they'll trigger automatically.   
