@@ -250,7 +250,7 @@ Name: `oref0rig`
 
 Permissions: `api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read`
 
-![AddRole])(../phase-1/img/role-oref0rig.png)
+![AddRole](../phase-1/img/role-oref0rig.png)
 
 - Add a new Subject
 
