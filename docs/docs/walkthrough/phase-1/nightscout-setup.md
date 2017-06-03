@@ -150,7 +150,7 @@ You do not have to enter all the information in the profile if you are using Ope
 
 ![Heroku settings](../phase-1/img/settings_heroku.jpg)
 
-* Click on `Reveal Config  Vars`. Scroll down the bottom of the Config Vars lines until you find the last blank one.  You are going to add several additional lines of config vars for Loop use; the DEVICESTATUS_ADVANCED is a required line, the others just make Nightscout more useful when using OpenAPS.
+* Click on `Reveal Config  Vars`. Scroll down the bottom of the Config Vars lines until you find the last blank one.  You are going to add several additional lines of config vars for OpenAPS use; the DEVICESTATUS_ADVANCED is a required line, the others just make Nightscout more useful when using OpenAPS.
 
 ![Add vars](../phase-1/img/add_vars.jpg)
 
