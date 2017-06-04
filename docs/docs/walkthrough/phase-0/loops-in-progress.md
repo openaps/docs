@@ -164,3 +164,4 @@ List of people who are working on closed loops:
 - Brandon (Philly)
 - Justin W (Charlottesville, VA)
 - Chris Creek (Martinsburg, PA)
+- Tom Petrillo (San Diego, CA)
