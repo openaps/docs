@@ -165,3 +165,4 @@ List of people who are working on closed loops:
 - Justin W (Charlottesville, VA)
 - Chris Creek (Martinsburg, PA)
 - Tom Petrillo (San Diego, CA)
+- Christian Driver for Lucy (Wilmslow, UK)
