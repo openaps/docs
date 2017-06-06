@@ -166,3 +166,4 @@ List of people who are working on closed loops:
 - Chris Creek (Martinsburg, PA)
 - Tom Petrillo (San Diego, CA)
 - Christian Driver for Lucy (Wilmslow, UK)
+- Katie Aldridge
