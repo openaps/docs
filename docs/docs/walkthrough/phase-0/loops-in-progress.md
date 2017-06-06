@@ -167,3 +167,4 @@ List of people who are working on closed loops:
 - Tom Petrillo (San Diego, CA)
 - Christian Driver for Lucy (Wilmslow, UK)
 - Katie Aldridge
+- Darlene Morissette (Winnipeg, MB, Canada)
