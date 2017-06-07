@@ -6,7 +6,7 @@ Please make sure to complete ALL steps on this page. **If you skip parts of step
 
 ## Step 0: Dependencies
 
-You first need to install the base openaps toolkit and its dependencies.
+You first need to install the base openaps toolkit and its dependencies. If you are starting here with a pre-flashed jubilinux compute module **stop**. The first things to do start at section 1-4 Install Packages.
 
 ### Automated Installation Script
 
