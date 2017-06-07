@@ -13,6 +13,7 @@ You first need to install the base openaps toolkit and its dependencies.
 Running this code will install all of the dependencies for you automatically:
  
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
+(If you receive a message, especially with a pre-flashed board, about no sudo command, run "apt-get install sudo" first and then run the code ^^above)
 
 You will see some colorful screens go by such as the screenshot below:
 
