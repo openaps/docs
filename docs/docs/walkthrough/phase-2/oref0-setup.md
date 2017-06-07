@@ -14,6 +14,8 @@ Running this code will install all of the dependencies for you automatically:
  
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
+(If you run into errors with code above, you likely skipped installing required code packages at http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#install-packages-ssh-keys-and-other-settings, go back and install them and then run code again)
+
 You will see some colorful screens go by such as the screenshot below:
 
 ![NPM install](../../Images/npm_screenshot.png) 
