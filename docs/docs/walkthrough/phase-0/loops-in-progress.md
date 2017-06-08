@@ -168,3 +168,4 @@ List of people who are working on closed loops:
 - Christian Driver for Lucy (Wilmslow, UK)
 - Katie Aldridge
 - Darlene Morissette (Winnipeg, MB, Canada)
+- Jake Punshon (Saskatoon, SK, Canada)
