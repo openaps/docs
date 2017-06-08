@@ -191,4 +191,4 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 
 ![papertrail subg error message](../../Images/subg_rfspy.png)
 
-![papertrail subg lights](../../Images/subg_rfspy2.png)
+![papertrail subg lights](../../Images/subg_rfspy2.jpg)
