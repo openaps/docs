@@ -10,7 +10,7 @@ Go to http://papertrailapp.com and setup a new account.  Choose to setup a new s
 
 ### System logging 
 
-Login to your rig. If you need help with that, please see the Accessing Your Rig section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
+Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/accessing-your-rig.html) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
 
 ### Aggregating logs
 
@@ -131,7 +131,7 @@ Once you get your desired filters saved, it is an easy process to make them more
 
 Papertrail can be very valuable to quickly troubleshoot a rig, becuase it is quite easy to see all the loops that log information about your rig's actions.  BUT, the way that the information comes into Papertrail is based on the time the action took place.  So, you'll be seeing information stream by that may or may not help you troubleshoot WHICH area your issues are.
 
-First, let's start with messages that **ARE NOT ERRORS***
+First, let's start with messages that **ARE NOT ERRORS**
 
 * Anything in the first 15 minutes (pretty much) of a new loop setup.  Let the loop run for 15 minutes before you start to investigate the messages.  Many messages resolve themselves during that time, such as `cat: enact/enacted.json: No such file or directory` is because the loop hasn't enacted a temp basal suggestion yet...so the file doesn't exist.
 
@@ -189,6 +189,6 @@ AND also edit your hosts file to remove "localhost" from the list.  Use `nano /e
 
 If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#could-not-get-subg-rfspy-state-or-version-have-you-got-the-right-port-device-and-radio-type) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
 
-![papertrail delete localhost](../../Images/subg_rfspy.png)
+![papertrail subg error message](../../Images/subg_rfspy.png)
 
-![papertrail delete localhost](../../Images/subg_rfspy2.png)
+![papertrail subg lights](../../Images/subg_rfspy2.png)
