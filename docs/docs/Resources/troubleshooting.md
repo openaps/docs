@@ -42,7 +42,7 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `dmesg` (Displays all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.)
 
-`uptime` (Show how long the system is running and show load average of last minute/5 minutes/15 minutes)
+`uptime` (Shows how long the system has been running and the load average of last minute/5 minutes/15 minutes)
 
 `crontab -l` (Display cron jobs)
 
