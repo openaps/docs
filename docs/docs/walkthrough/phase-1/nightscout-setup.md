@@ -256,58 +256,58 @@ If you want to secure your Nightscout and CGM data, then all rigs need to have o
 Here are the steps you need to follow:
 
 1. Visit https://mynightscout.herokuapp.com/admin
-- Add a new Role
+    - Add a new Role
 
-Name: `oref0rig`
+    Name: `oref0rig`
 
-Permissions: `api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read`
+    Permissions: `api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read`
 
-![AddRole](../phase-1/img/role-oref0rig.png)
+    ![AddRole](../phase-1/img/role-oref0rig.png)
 
 2. Add a new Subject
 
-Name: the name of your rig (same as the hostname of your rig). 
-Note: Nightscout will shorten the name to 10 characters in your accesstoken, e.g. `myedisonhostname` becomes `myedisonho-0dccda4ae591e763`
+    Name: the name of your rig (same as the hostname of your rig). 
+    Note: Nightscout will shorten the name to 10 characters in your accesstoken, e.g. `myedisonhostname` becomes `myedisonho-0dccda4ae591e763`
 
-Roles: `oref0rig`
+    Roles: `oref0rig`
 
-![AddSubject](../phase-1/img/subject-oref0rig.png)
+    ![AddSubject](../phase-1/img/subject-oref0rig.png)
 
-Press Save button.
+    Press Save button.
 
-In the Subject - People, Device etc. view you'll see the accesstoken for your rig, e.g. `myrigname-27c914cabc506fa3`
-
+    In the Subject - People, Device etc. view you'll see the accesstoken for your rig, e.g. `myrigname-27c914cabc506fa3`
 
 3. You need your rig to use the token based authentication token. This can be done in three different ways:
 
-- Using the `oref0-setup.sh` interactive setup. Enter the accesstoken (subjectname and hash of 16 characters, e.g. `myrigname-27c914cabc506fa3`)
-    Example of the interactive setup:
-    ```
-Are you using Nightscout? If not, press enter.
-If so, what is your Nightscout host? (i.e. https://mynightscout.herokuapp.com)? https://mynightscout.herokuapp.com
-Ok, https://mynightscout.herokuapp.com it is.
+    - Using the `oref0-setup.sh` interactive setup. Enter the accesstoken (subjectname and hash of 16 characters, e.g. `myrigname-27c914cabc506fa3`)
+        Example of the interactive setup:
+        ```
+        Are you using Nightscout? If not, press enter.
+        If so, what is your Nightscout host? (i.e. https://mynightscout.herokuapp.com)? https://mynightscout.herokuapp.com
+        Ok, https://mynightscout.herokuapp.com it is.
 
-Starting with oref 0.5.0 you can use token based authentication to Nightscout. This is preferred and makes it possible to deny anonymous access to your Nightscout instance. It's more secure than using your API_SECRET. Do you want to use token based authentication [Y]/n?y
-What Nightscout access token (i.e. subjectname-hashof16characters) do you want to use for this rig? myrigname-27c914cabc506fa3
-```
+        Starting with oref 0.5.0 you can use token based authentication to Nightscout. This is preferred and makes it possible to deny anonymous access to your Nightscout instance. It's more secure than using your API_SECRET. Do you want to use token based authentication [Y]/n?y
+        What Nightscout access token (i.e. subjectname-hashof16characters) do you want to use for this rig? myrigname-27c914cabc506fa3
+        ```
 
-- Using the `oref0-setup` or `oref0-runagain.sh` command line, use `--api-secret=token=myrigname-27c914cabc506fa3`. Don't forget to start with `token=`.
-    During install it will connect to the Nightscout and check if the permissions are ok. If OK you'll see this in your log:
-    ```
-2017-06-10 19:46:14,758 INFO Nightscout host: https://mynightscout.herokuapp.com
-2017-06-10 19:46:14,816 INFO Starting new HTTPS connection (1): mynightscout.herokuapp.com
-2017-06-10 19:46:15,911 INFO Succesfully got Nightscout authorization token
-2017-06-10 19:46:15,925 INFO All permissions in Nightscout are ok
-```
-    If it's not ok it will exit the setup script and tell you which permissions are missing.
+    - Using the `oref0-setup` or `oref0-runagain.sh` command line.
+        Use `--api-secret=token=myrigname-27c914cabc506fa3`. Don't forget to start with `token=`.
+        During install it will connect to the Nightscout and check if the permissions are ok. If OK you'll see this in your log:
+        ```
+        2017-06-10 19:46:14,758 INFO Nightscout host: https://mynightscout.herokuapp.com
+        2017-06-10 19:46:14,816 INFO Starting new HTTPS connection (1): mynightscout.herokuapp.com
+        2017-06-10 19:46:15,911 INFO Succesfully got Nightscout authorization token
+        2017-06-10 19:46:15,925 INFO All permissions in Nightscout are ok
+        ```
+        If it's not ok it will exit the setup script and tell you which permissions are missing.
 
-- Change the token in `ns.ini`. It's the third argument of the the `args=` line, e.g.
-    ```
-[device "ns"]
-fields = oper
-cmd = nightscout
-args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
-```
+    - Change the token in `ns.ini`. It's the third argument of the the `args=` line, e.g.
+        ```
+        [device "ns"]
+        fields = oper
+        cmd = nightscout
+        args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
+        ```
 
 4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout.
 
