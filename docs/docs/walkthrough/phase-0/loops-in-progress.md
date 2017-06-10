@@ -164,3 +164,8 @@ List of people who are working on closed loops:
 - Brandon (Philly)
 - Justin W (Charlottesville, VA)
 - Chris Creek (Martinsburg, PA)
+- Tom Petrillo (San Diego, CA)
+- Christian Driver for Lucy (Wilmslow, UK)
+- Katie Aldridge
+- Darlene Morissette (Winnipeg, MB, Canada)
+- Jake Punshon (Saskatoon, SK, Canada)
