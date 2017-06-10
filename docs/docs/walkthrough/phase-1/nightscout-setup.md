@@ -240,7 +240,7 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 ### Switching from API_SECRET to token based authentication for your rig
 
-You can secure your Nightscout and CGM data with [token based authentication](http://www.nightscout.info/wiki/welcome/website-features/0-9-features/authentication-roles .
+You can secure your Nightscout and CGM data with [token based authentication](http://www.nightscout.info/wiki/welcome/website-features/0-9-features/authentication-roles).
 This requires Nightscout 0.9 (Grilled Cheese) and oref0 0.5.0 or later.
 
 This has the following advantages:
