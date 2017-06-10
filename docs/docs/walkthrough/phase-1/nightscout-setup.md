@@ -240,23 +240,22 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 ### Switching from API_SECRET to token based authentication for your rig
 
-You can secure your Nightscout and CGM data with 
-[token based authentication] (http://www.nightscout.info/wiki/welcome/website-features/0-9-features/authentication-roles
-. This requires Nightscout 0.9 (Grilled Cheese) and oref0 0.5.0 or later.
+You can secure your Nightscout and CGM data with [token based authentication](http://www.nightscout.info/wiki/welcome/website-features/0-9-features/authentication-roles .
+This requires Nightscout 0.9 (Grilled Cheese) and oref0 0.5.0 or later.
 
 This has the following advantages:
 - You can deny public access to your Nightscout. 
 - Each rig uses it's own security token to authenticate to Nightscout.
 - With the old `API_SECRET` authentication all the rigs had all the privileges to your Nightscout (similar to root or Administrator users).
 - The `API_SECRET` method for authentication rigs/devices is deprecated in Nightscout, and token based authentication is the preferred way.
-- In case you loose a rig or it gets stolen you can deny access to Nightscout for that one rig. Otherwise you need to change your API_SECRET and change all the other rigs.
+- In case you loose a rig or it gets stolen you can deny access to Nightscout for that one rig. Otherwise you need to change your API_SECRET and reconfigure all the other rigs.
 
 You can migrate each rig individual from `API_SECRET` authentication to token based authentication.
 If you want to secure your Nightscout and CGM data, then all rigs need to have oref0 version 0.5.0+ and all be configured with token based authentication.
 
 Here are the steps you need to follow:
 
-1. Visit https://yournightscout/admin/
+1. Visit https://mynightscout.herokuapp.com/admin
 - Add a new Role
 
 Name: `oref0rig`
@@ -275,7 +274,7 @@ Roles: `oref0rig`
 
 Press Save button.
 
-In the Subject - People, Device etc. view you'll see the accesstoken for your rig, e.g. `myrigname-25c914bdbc596ea3`
+In the Subject - People, Device etc. view you'll see the accesstoken for your rig, e.g. `myrigname-27c914cabc506fa3`
 
 
 3. You need your rig to use the token based authentication token. This can be done in three different ways:
@@ -287,28 +286,37 @@ If so, what is your Nightscout host? (i.e. https://mynightscout.herokuapp.com)? 
 Ok, https://mynightscout.herokuapp.com it is.
 
 Starting with oref 0.5.0 you can use token based authentication to Nightscout. This is preferred and makes it possible to deny anonymous access to your Nightscout instance. It's more secure than using your API_SECRET. Do you want to use token based authentication [Y]/n?y
-What Nightscout access token (i.e. subjectname-hashof16characters) do you want to use for this rig? myrigname-25c914bdbc596ea3
+What Nightscout access token (i.e. subjectname-hashof16characters) do you want to use for this rig? myrigname-27c914cabc506fa3
 ```
 
-- Using the `oref0-setup` or `oref0-runagain.sh` command line, use `--api-secret=token=myrigname-25c914bdbc596ea3`. Don't forget to start with `token=`.
+- Using the `oref0-setup` or `oref0-runagain.sh` command line, use `--api-secret=token=myrigname-27c914cabc506fa3`. Don't forget to start with `token=`.
+During install it will connect to the Nightscout and check if the permissions are ok. If OK you'll see this in your log:
+```
+2017-06-10 19:46:14,758 INFO Nightscout host: https://mynightscout.herokuapp.com
+2017-06-10 19:46:14,816 INFO Starting new HTTPS connection (1): mynightscout.herokuapp.com
+2017-06-10 19:46:15,911 INFO Succesfully got Nightscout authorization token
+2017-06-10 19:46:15,925 INFO All permissions in Nightscout are ok
+```
+If it's not ok it will exit the setup script and tell you which permissions are missing.
 
 - Change the token in `ns.ini`. It's the third argument of the the `args=` line, e.g.
 ```
 [device "ns"]
 fields = oper
 cmd = nightscout
-args = ns https://mynightscout.herokuapp.com token=myrigname-25c914bdbc596ea3
+args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
 ```
 
-4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status`. You'll see the update in openaps pill in Nightscout.
+4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout.
 
-5. When all the rigs are 0.5.0 and are using token based authentication, you can change the environment variables of your Nightscout:
+5. When all the rigs are 0.5.0 and are all using token based authentication, you can change the environment variables of your Nightscout:
 - `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied`. If you don't care about your CGM data being public, you can also set `AUTH_DEFAULT_ROLES` to `readable`, but this is not recommended.
 
 Important:
-- Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `token=myrigname-25c914bdbc596ea3` on the internet
-- The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-25c914bdbc596ea3`
+- Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the internet
+- The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-27c914cabc506fa3`. When token based authentication is used the API_SECRET on the rig will always start with `token=` instead of a hash.
 - You must always secure your Nightscout site with secure http (https), so don't use http://mynightscout.herokuapp.com but always use https://mynightscout.herokuapp.com 
+- Keep your API_SECRET as a root/Adminsitrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
 
 ### Switching from Azure to Heroku
 
