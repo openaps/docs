@@ -260,7 +260,15 @@ Here are the steps you need to follow:
 
     Name: `oref0rig`
 
-    Permissions: `api:devicestatus:create, api:devicestatus:read, api:entries:create, api:entries:read, api:treatments:create, api:treatments:read`
+    Permissions:  Add the following 6 permissions. Note that the default window is to small to fit them all.
+    ```
+    api:devicestatus:create, 
+    api:devicestatus:read, 
+    api:entries:create, 
+    api:entries:read, 
+    api:treatments:create, 
+    api:treatments:read
+    ```
 
     ![AddRole](../phase-1/img/role-oref0rig.png)
 
