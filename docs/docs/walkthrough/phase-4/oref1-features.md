@@ -31,7 +31,7 @@ Single SMB amounts are limited by several factors.  The largest a single SMB bol
 
 (History of SMB development: https://github.com/openaps/oref0/issues/262)
 
-## Undertanding UAM 
+## Understanding UAM 
 
 UAM will be triggered if the preference is toggled on and there is carb activity detected based on positive deviations. 
 
