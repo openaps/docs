@@ -169,3 +169,4 @@ List of people who are working on closed loops:
 - Katie Aldridge
 - Darlene Morissette (Winnipeg, MB, Canada)
 - Jake Punshon (Saskatoon, SK, Canada)
+- Elisa Kelley (Austin, TX)
