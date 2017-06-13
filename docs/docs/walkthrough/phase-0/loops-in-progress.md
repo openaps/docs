@@ -171,3 +171,4 @@ List of people who are working on closed loops:
 - Jake Punshon (Saskatoon, SK, Canada)
 - Elisa Kelley (Austin, TX)
 - Stuart Raphael (Sydney, Australia)
+- Dan Durham (Edmonton, AB, Canada)
