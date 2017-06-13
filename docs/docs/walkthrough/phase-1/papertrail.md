@@ -181,7 +181,7 @@ The solution to this is to login to your rig and use this command `systemctl dis
 
 ![papertrail avahi disable](../../Images/avahi-fix.png)
 
-AND also make this edit using `nano /etc/default/avahi-daemon`...change the number on the last line from `1` to `0` so that it reads `AVAHI_DAEMON_DETECT_LOCAL=0` as shown in the screenshot below.
+AND also make this edit using `vi /etc/default/avahi-daemon`  Change the number on the last line from `1` to `0` so that it reads `AVAHI_DAEMON_DETECT_LOCAL=0` as shown in the screenshot below. (remember `i` to enter INSERT mode for editing, and `esc` and `:wq` to save and exit the editor)
 
 ![papertrail avahi disable](../../Images/avahi-fix2.png)
 
