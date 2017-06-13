@@ -169,7 +169,7 @@ If you find a .git lock error is causing a long period of time where your loop i
 
 **FLAKEY WIFI**
 
-Having flaky router or wifi issues?  Some routers or ISPs (I still haven't completely determined the cause) will not work nice with the Avahi-daemon.  What the means for you...spotty time staying connected to your wifi.  Does your rig not loop consistently?  Sometimes are you getting kicked out of ssh sessions with your rig?  Look for this message `kernel:  [101078.937641] wl_host_event: mismatched OUI, bailing` or the message shown in the screenshot below:
+Having flaky router or wifi issues?  Some routers or ISPs (I still haven't completely determined the cause) will not work nice with the Avahi-daemon.  What the means for you...spotty time staying connected to your wifi.  Does your rig not loop consistently?  Sometimes are you getting kicked out of ssh sessions with your rig?  Look for the message shown in the screenshot below:
 
 ![papertrail avahi error](../../Images/avahi.png)
 
@@ -181,9 +181,11 @@ The solution to this is to login to your rig and use this command `systemctl dis
 
 ![papertrail avahi disable](../../Images/avahi-fix.png)
 
-AND also edit your hosts file to remove "localhost" from the list.  Use `nano /etc/hosts` and delete the `localhost` from the 127.0.0.1 line so that it only lists the hostname of your rig...as shown below.  (NOTE:  Your edison hostname will be different than shown on the image below.)  Also by removing localhost, your papertrail systems will all be under one name, not split between localhost and your edison hostname.
+AND also make this edit using `nano /etc/default/avahi-daemon`...change the number on the last line from `1` to `0` so that it reads `AVAHI_DAEMON_DETECT_LOCAL=0` as shown in the screenshot below.
 
-![papertrail delete localhost](../../Images/localhost.png)
+![papertrail avahi disable](../../Images/avahi-fix2.png)
+
+`reboot` your rig after the change to enable the fix.
 
 **subg_rfspy state or version??**
 
