@@ -45,7 +45,162 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
 * Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the follwoing display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
-* 512  users - make sure that you have created your static json files as outlined [here](https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-0/hardware/pump.html) for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json. You will also have to remove the calls for them from the your get-settings alias.
+* 512  users - make sure that you have created your static json files as outlined below for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json
+
+To do this, you will need to create the file location for the raw-pump settings.json file:
+Make sure you are in your openaps directory.
+Type dir to see the current list of files, you should see something like this: 
+
+cgm                     meal.ini         oref0-runagain.sh  settings
+cgm.ini                 mmtune_old.json  pebble.ini         tz.ini
+detect-sensitivity.ini  monitor          preferences.json   units.ini
+determine-basal.ini     ns-glucose.ini   pump.ini           upload
+enact                   ns.ini           pump-session.json  xdrip.ini
+get-profile.ini         openaps.ini      raw-cgm
+iob.ini                 oref0.ini    
+
+To create the file location for the settings.json file type mkdir raw-pump
+Next, change the directory to the file you just created by typing cd raw-pump
+Once you are here root:~/openaps/raw-pump#  type nano settings.json .  
+This will open a text editor where you can add your raw pump settings.  You can use the examples below for each file.
+
+**ENSURE YOU MAKE CHANGES TO THE SETTINGS TO MATCH WHAT IS CURRENTLY ON YOUR PUMP**
+
+Paste the code, once personalized, into the text editor, and type Ctl-X, when it asks if you want to save, Yes, and keep the 
+settings.json name
+
+Repeat the steps above for the following files: bg-targets-raw.json, and the selected-basal-profile.json.
+
+Once complete, when you change directory (cd) to raw-pump and type dir and you should see the following files:
+
+ settings.json     bg-targets-raw.json     selected-basal-profile.json
+
+
+
+#selected-basal-profile.json
+
+
+  {
+    "i": 0,
+    "start": "00:00:00",
+    "rate": 1.15,
+    "minutes": 0
+  },
+  {
+    "i": 1,
+    "start": "02:30:00",
+    "rate": 1.20,
+    "minutes": 150
+  },
+  {
+    "i": 2,
+    "start": "06:00:00",
+    "rate": 1.15,
+    "minutes": 360
+  },
+  {
+    "i": 3,
+    "start": "09:00:00",
+    "rate": 1.05,
+    "minutes": 600
+  },
+  {
+    "i": 4,
+    "start": "11:30:00",
+    "rate": 1.05,
+    "minutes": 690
+  },
+  {
+    "i": 5,
+    "start": "14:00:00",
+    "rate": 1.05,
+    "minutes": 840
+  },
+  {
+    "i": 6,
+    "start": "18:30:00",
+    "rate": 1.05,
+    "minutes": 1110
+  },
+  {
+    "i": 7,
+    "start": "23:00:00",
+    "rate": 1.05,
+    "minutes": 1380
+  }
+
+
+###############################
+
+ #Sample_BG_Targets.json
+
+{
+  "units": "mg/dL", 
+  "targets": [
+    {
+      "high": 145, 
+      "start": "00:00:00", 
+      "low": 125, 
+      "offset": 0, 
+      "i": 0, 
+      "x": 0
+    }, 
+    {
+      "high": 145, 
+      "start": "06:00:00", 
+      "low": 125, 
+      "offset": 360, 
+      "i": 12, 
+      "x": 1
+    }, 
+    {
+      "high": 145, 
+      "start": "20:00:00", 
+      "low": 125, 
+      "offset": 1200, 
+      "i": 40, 
+      "x": 2
+    }
+  ], 
+  "first": 1
+}
+
+#################################
+
+
+ #Sample_Pump_Settings.json
+
+
+{
+  "low_reservoir_warn_point": 5, 
+  "keypad_lock_status": 0, 
+  "maxBasal": 1, 
+  "temp_basal": {
+    "percent": 100, 
+    "type": "Units/hour"
+  }, 
+  "low_reservoir_warn_type": 0, 
+  "insulinConcentration": 100, 
+  "audio_bolus_enable": false, 
+  "variable_bolus_enable": true, 
+  "alarm": {
+    "volume": -1, 
+    "mode": 1
+  }, 
+  "rf_enable": false, 
+  "auto_off_duration_hrs": 0, 
+  "block_enable": false, 
+  "timeformat": 1, 
+  "insulin_action_curve": 3, 
+  "audio_bolus_size": 0, 
+  "selected_pattern": 0, 
+  "patterns_enabled": true, 
+  "maxBolus": 3.0, 
+  "paradigm_enabled": 1
+}
+
+
+You will also have to remove the calls for them from the your get-settings alias.
 To do this:
 
   ```
