@@ -79,6 +79,44 @@ See [Pancreabble] for initial setup instructions.
 
 [Pancreabble]: https://github.com/mddub/pancreabble
 
+Caveats setting up Pancreabble:
+
+Issue 1: You need bluetooth version 5.37 or above `bluetoothd --version`. You can do this ala this
+````
+# Install Bluez for BT Tethering
+        echo Checking bluez installation
+        bluetoothdversion=$(bluetoothd --version || 0)
+        bluetoothdminversion=5.37
+        bluetoothdversioncompare=$(awk 'BEGIN{ print "'$bluetoothdversion'"<"'$bluetoothdminversion'" }')
+        if [ "$bluetoothdversioncompare" -eq 1 ]; then
+            killall bluetoothd &>/dev/null #Kill current running version if its out of date and we are updating it
+            cd $HOME/src/ && wget https://www.kernel.org/pub/linux/bluetooth/bluez-5.44.tar.gz && tar xvfz bluez-5.44.tar.gz || die "Couldn't download bluez"
+            cd $HOME/src/bluez-5.44 && ./configure --enable-experimental --disable-systemd && \
+            make && sudo make install && sudo cp ./src/bluetoothd /usr/local/bin/ || die "Couldn't make bluez"
+            oref0-bluetoothup
+        else
+            echo bluez v ${bluetoothdversion} already installed
+        fi
+````
+Issue 2: Use the mac address straight from the Pebble via: Settings --> System -->Information on the watch
+
+Issue 3: The OpenAPS setup script tries to set up the Pebble but does not currently work (as of 6/14/2017).  Developers are currently working to get it fixed.
+
+Issue 4: In the docs here
+````
+# in your openaps directory:
+openaps vendor add pancreabble
+openaps device add pebble pancreabble /dev/rfcomm0
+openaps use pebble notify "hello" "testing"
+````
+When you are adding a device, call it something other than pebble so you don't get name collisions...so line two above becomes:
+````
+ openaps device add pbl pancreabble /dev/rfcomm0
+ ````
+Use pbl or whatever you call it from now on...
+
+Issue 5: Docs read `Add these lines to /etc/rf.local so that Bluetooth is initialized and the Pebble is paired and bound to /dev/rfcomm0 on boot`: ...should read `Add these lines to /etc/rc.local so that Bluetooth is initialized and the Pebble is paired and bound to /dev/rfcomm0 on boot:`
+
 Once you've done the first stages above, you'll need to do generate a status file that can be passed over to the Pebble Urchin watch face. Fortunately, the core of this is available in oref0.
 
 Go to `~src/oref0/bin` and look for `peb-urchin-status.sh`. This gives you the basic framework to generate output files that can be used with Pancreabble. To use it, you'll need to install jq using:
