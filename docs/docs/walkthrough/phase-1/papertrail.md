@@ -1,6 +1,6 @@
 # Papertrail remote monitoring of OpenAPS logs (RECOMMENDED) 
 
-If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We highly recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
+If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We HIGHLY recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
 
 ### Get an account at Papertrail
 
@@ -8,13 +8,9 @@ Go to http://papertrailapp.com and setup a new account.  Choose to setup a new s
 
 ![Papertrail hosting information](../../Images/papertrail_host.png)
 
-### Login to your rig
-
-Assuming you are on the same wifi network as your rig, use `ssh root@<edisonhost>.local` replacing <edisonhost> with whatever you have named your edisonhost on your rig.  If not on same network, use screen mode and connect rig with a cable to your computer.  `sudo screen /dev/tty.usbserial-* 115200` 
-
 ### System logging 
 
-Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
+Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/accessing-your-rig.html) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
 
 ### Aggregating logs
 
@@ -43,6 +39,8 @@ files:
  -  /var/log/openaps/ns-loop.log
  -  /var/log/openaps/network.log
  -  /var/log/openaps/autotune.log
+ -  /var/log/openaps/cgm-loop.log
+ -  /var/log/openaps/pushover.log
 destination:
   host: logs5.papertrailapp.com # NOTE: change this to YOUR papertrail host!
   port: 12345   # NOTE: change to your Papertrail port
@@ -113,13 +111,11 @@ Click on the `Add Log Filter` button and add three filters for `CRON`, `libmraa`
 
 #### Saved Filters
 
-Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved filters, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful filters to find those issues fastest are:
+Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved filters, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful filters to save to find those issues fastest are:
 
-* `pump-loop.log` to see just your pump loop...similar to using the `l` command when logged into your rig.  If you see that pump history is having errors, look at your pump tuning results (filter below).  If you have good tuning results (tuning in the -80s or lower), but the pump is still not responding with a pump history...wait about 15 minutes.  If it still doesn't respond, try rebooting the rig or changing your pump battery if it is low.
+* `pump-loop.log` to see just your pump loop...similar to using the `l` command when logged into your rig.  
 
-* `pump-loop.log 916` will show just your pump tuning results.  If you see `916, 0, -99` tuning results, then you know that your rig is not getting a useable communication with your pump.  Try moving your pump and rig closer together.  Check if your pump battery is good.
-
-* `network` will show just your oref0-online results and whether/which wifi network your rig is connected to.  If you see results of `192.168.1.XX`, then your rig is likely connected to a wifi network.  If you see results of `172.20.10.XX` then your rig is likely connected to your phone's personal hotspot.
+* `network` will show just your oref0-online results and whether/which wifi network your rig is connected to.  If you see results of `192.168.1.XX`, then your rig is likely connected to a wifi network.  If you see results of `172.20.10.XX` then your rig is likely connected to your phone's personal hotspot.  If you see `error, cycling network` results, you should check out troublehsooting steps.
 
 * `pump-loop.log adjust` will show your basal and ISF adjustments being made by autosens, if enabled.
 
@@ -131,3 +127,70 @@ Once you get your desired filters saved, it is an easy process to make them more
 
 ![papertrail homescreen buttons](../../Images/papertrail_home_buttons.png)
 
+#### Troubleshooting using Papertrail
+
+Papertrail can be very valuable to quickly troubleshoot a rig, becuase it is quite easy to see all the loops that log information about your rig's actions.  BUT, the way that the information comes into Papertrail is based on the time the action took place.  So, you'll be seeing information stream by that may or may not help you troubleshoot WHICH area your issues are.
+
+First, let's start with messages that **ARE NOT ERRORS**
+
+* Anything in the first 15 minutes (pretty much) of a new loop setup.  Let the loop run for 15 minutes before you start to investigate the messages.  Many messages resolve themselves during that time, such as `cat: enact/enacted.json: No such file or directory` is because the loop hasn't enacted a temp basal suggestion yet...so the file doesn't exist.
+
+* `Radio ok. Listening: .No pump comms detected from other rigs` This message is NOT an error.  This means your rig is checking to make sure it is not interrupting another rig that may already be talking to your pump.  It's being polite.
+
+* `[system] Failed to activate service 'org.freedesktop.hostname1': timed out` This message is NOT an error. Jubilinux does not use the hostname service...so it does not activate.
+
+* Many messages that say there are failures, are not really failures for your rig.  For example, there are a lot of scary looking messages when your rig is changing networks from wifi to/from BT...an unfiltered papertrail will show every message like this:
+
+![papertrail homescreen buttons](../../Images/error-messages.png)
+
+But, really, most of those messages are the normal course of the rig telling you what's going on.  Like "Hey, I seem to have disconnected from the wifi...I'm going to look for BT now.  Hold on.  I need to organize myself.  Bringing up my stuff I need to find BT.  Ok, found a BT device.  Well, I can connect to it, but some of the features I don't need...like an audio BT connection."  But, the rig doesn't speak English...it speaks code.  So, if you don't speak code...sometimes a filer for `network` might help you filter for the English bits of info a little better.  Here's what that same period of time looked like with a `network` filter applied.  It's a little more clear that my rig was changing from a BT tether to a wifi connection when you filter the results.
+
+![papertrail homescreen buttons](../../Images/network-filter.png)
+
+Therefore when you start to troubleshoot, **USE YOUR FILTERS** to narrow down the logs that you are looking at.  Here are some specific errors/issues you may find.
+
+**PUMP TUNING**
+
+Use `pump-loop` search filter to start with.  What messages are you seeing?  Poor pump comms are one of the most frequent causes of loops stopping.  If you see `916, 0, -99` tuning results, then you know that your rig is not getting a useable communication with your pump.  Try moving your pump and rig closer together.  Check if your pump battery is good.  
+
+![papertrail poor pump tune](../../Images/poor_tuning.png)
+ 
+ Ideally you should be seeing pump tuning somewhat like the filter for `mmtune` below shows...this is a kid at school, carrying the rig in a purse/backpack.  Some periods of time she leaves her rig behind (like PE class) and other shorter times where there's poor pump comms.  But, generally speaking seeing mmtune results in the 70s and 80s will sustain good looping.
+ 
+![papertrail mm tune](../../Images/mmtune.png)
+
+**GIT LOCK**
+
+There are files that get written to in a directory called `/root/myopenaps/.git`  Sometimes a process crashes and causes a file in that directory to get locked and the writing can't continue.  Your loop may fail as a result.  This can be a short term issue, and it could resolve on it's own...other times it may require you to delete the file that is causing the problem.  For example, below is a short-term error.  The message says there is a problem in the `/root/myopenaps/.git` and I may need to remove that file to get things going again.  However, you can also see that a few minutes later, the problem resolved on its own.
+
+If you find a .git lock error is causing a long period of time where your loop is failing, you can remove the file, as the error suggests by using `rm -rf /root/myopenaps/.git/filename`  or you can delete the whole `.git` directory (it will get rebuilt by the loop automatically) with `rm -rf /root/myopenaps/.git`
+
+![papertrail git lock](../../Images/git-lock.png)
+
+**FLAKEY WIFI**
+
+Having flaky router or wifi issues?  Some routers or ISPs (I still haven't completely determined the cause) will not work nice with the Avahi-daemon.  What the means for you...spotty time staying connected to your wifi.  Does your rig not loop consistently?  Sometimes are you getting kicked out of ssh sessions with your rig?  Look for the message shown in the screenshot below:
+
+![papertrail avahi error](../../Images/avahi.png)
+
+Or alternatively, if you see this message when you login to your rig:
+
+![papertrail avahi at login](../../Images/avahi2.png)
+
+The solution to this is to login to your rig and use this command `systemctl disable avahi-daemon` as shown below
+
+![papertrail avahi disable](../../Images/avahi-fix.png)
+
+AND also make this edit using `vi /etc/default/avahi-daemon`  Change the number on the last line from `1` to `0` so that it reads `AVAHI_DAEMON_DETECT_LOCAL=0` as shown in the screenshot below. (remember `i` to enter INSERT mode for editing, and `esc` and `:wq` to save and exit the editor)
+
+![papertrail avahi disable](../../Images/avahi-fix2.png)
+
+`reboot` your rig after the change to enable the fix.
+
+**subg_rfspy state or version??**
+
+If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#could-not-get-subg-rfspy-state-or-version-have-you-got-the-right-port-device-and-radio-type) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
+
+![papertrail subg error message](../../Images/subg_rfspy.png)
+
+![papertrail subg lights](../../Images/subg_rfspy2.jpg)

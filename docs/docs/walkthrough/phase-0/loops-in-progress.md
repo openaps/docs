@@ -168,3 +168,8 @@ List of people who are working on closed loops:
 - Christian Driver for Lucy (Wilmslow, UK)
 - Katie Aldridge
 - Darlene Morissette (Winnipeg, MB, Canada)
+- Jake Punshon (Saskatoon, SK, Canada)
+- Elisa Kelley (Austin, TX)
+- Stuart Raphael (Sydney, Australia)
+- Dan Durham (Edmonton, AB, Canada)
+- Niels Hartvig (Odense, Denmark)
