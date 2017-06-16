@@ -99,7 +99,9 @@ A JSON file did not contain entries.
 
 ### Unable to upload to http//my-nightscout-website.com
 
-OpenAPS has failed to upload to the configured nightscout website.
+OpenAPS has failed to upload to the configured nightscout website. If you're using a Medtronic CGM and no BG readings appear in nightscout, connect to your rig and the directory of your openaps app (default is myopenaps) run
+
+`openaps first-upload`
 
 ### [No JSON object could be decoded](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=openaps+%27No+JSON+object+could+be+decoded%27)
 
