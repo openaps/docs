@@ -76,3 +76,25 @@ You've probably run into an error in your setup where someone has recommended "r
    * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
    * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
  * Still no luck? Try the [Troubleshooting](http://openaps.readthedocs.io/en/master/docs/Resources/troubleshooting.html) page or ask for help.
+
+### 512 users / 712 users / x12 users
+
+If you have one of the x12 model pumps, you need to do the following:
+* Add pump settings files manually. Certain commands like Re.ad Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. Create  raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json See this example: https://gist.github.com/amazaheri/033b85760156054dd858 
+* Adapt the aliases as following so it doesn't call for non-existing pump files:
+
+First, do these:
+  ```
+  killall -g openaps
+  openaps alias remove get-settings
+  openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
+  ```
+  The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted.
+  So also do these:
+
+  ```
+  killall -g openaps
+  openaps alias remove gather
+  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
+  ```
+  There may be at least another step missing. If you figure out a missing step from the above for x12, PLEASE PUT IN A PR AND DOCUMENT WHAT THIS IS!

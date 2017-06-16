@@ -233,19 +233,24 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `myedisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
-Login as root (with the password you just set above), and run (first line will be quick, second and third lines will take awhile):
+Login as root (with the password you just set above), and run the following lines one by one. The first line "dpkg -P ... " will be quick. Check the printout to see that it ran without error. Then run the apt-get lines one at a time. They will take a long while.
+
 
 ```
 dpkg -P nodejs nodejs-dev
+
 apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
+
 apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
 ```
 
-And then run the next lines (first two will be quick, the last one will take you into a timezone selection menu)
+And then run the next lines (first two will be quick, the last one will take you into a timezone selection menu.  Run each line separately until finished)
 
 ```
 adduser edison sudo
+
 adduser edison dialout
+
 dpkg-reconfigure tzdata
 ```
 

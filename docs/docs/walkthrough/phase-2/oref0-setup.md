@@ -14,6 +14,8 @@ Running this code will install all of the dependencies for you automatically:
  
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
 
+(If you run into errors with code above, you likely skipped installing required code packages at http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#install-packages-ssh-keys-and-other-settings, go back and install them and then run code again)
+
 You will see some colorful screens go by such as the screenshot below:
 
 ![NPM install](../../Images/npm_screenshot.png) 
@@ -30,7 +32,7 @@ If you do not see the screen above, or see error messages, try running it multip
 
 (Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
 
-### (If you did the above, skip this) Manual Installation
+### (If you did the above, skip this and go on to Step 1) Manual Installation
 
 If you prefer to install the dependencies yourself, the following Debian/Ubuntu packages are required:
 
@@ -67,9 +69,10 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * email address for github commits
 * serial number of your pump
 * whether or not you are using an Explorer board
-* if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
+* if you're not using an Explorer board or a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
     * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
-* (if you're using a Carelink, you will NOT be using mmeowlink)
+    * Note: if you're using a Carelink, you will NOT be using mmeowlink
+    * Note: if you're using an Explorer board, you will be using mmeowlink but this will be setup automatically
 * how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
 * Nightscout URL and API secret
 * whether you want any of the oref0 advanced features (AMA, Autosens, and/or Autotune)
