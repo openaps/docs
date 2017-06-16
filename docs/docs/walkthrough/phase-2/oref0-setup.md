@@ -13,6 +13,7 @@ You first need to install the base openaps toolkit and its dependencies.
 Running this code will install all of the dependencies for you automatically:
  
 `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`
+(If you receive a message, especially with a pre-flashed board, about no sudo command, run "apt-get install sudo" first and then run the code ^^above)
 
 (If you run into errors with code above, you likely skipped installing required code packages at http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html#install-packages-ssh-keys-and-other-settings, go back and install them and then run code again)
 
