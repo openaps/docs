@@ -69,7 +69,7 @@ If you have one of the x12 model pumps, you need to do the following. Note there
  * A. Add pump settings files manually. Certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. You'll be creating raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json.
   * To do this, you will need to create the file location for the raw-pump settings.json file:
   * Make sure you are in your myopenaps directory.
-  * Type `di`r to see the current list of files, you should see something like this: 
+  * Type `dir` to see the current list of files, you should see something like this: 
 ```
 cgm                     meal.ini         oref0-runagain.sh  settings
 cgm.ini                 mmtune_old.json  pebble.ini         tz.ini
