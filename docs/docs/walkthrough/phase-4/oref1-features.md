@@ -66,7 +66,7 @@ In other words: If it is set to zero, the SMB will be "less aggressive" than if 
 
 ## Pushover, SMB, and OpenAPS
 
-_This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts._
+_This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). Pushover is a way to easily send messages to your phone from another device with simple messages. If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts._
 
 If enabled (under advanced features in oref0-setup.sh), and you have oref1 enabled, you can get Pushover alerts in the following situations:
 
@@ -81,3 +81,20 @@ If enabled (under advanced features in oref0-setup.sh), and you have oref1 enabl
 Cautions:
 1. You are likely to cause yourself a low if you manually administer too much insulin. Be very careful about doing manual boluses based on Pushover alerts; see above about not doubling up on a microbolus that's just been delivered.
 2. If the rig attempts to deliver a microbolus AND you have the bolus wizard menu open, it may cause the pump to error (and maybe reset). **Recommendation**: If you are getting Pushover alerts and decide to manually bolus in addition to the SMBs, you may want to use the "easy bolus" (up button arrow) method for bolusing, which is less likely to cause the pump to receive this error. When using the easy bolus, you may not be able to deliver the easy bolus if the rig has sent an SMB underneath.  In that case, you'll have to hit escape, wait for the SMB to finish delivering, and then perform your manual bolus (adjusting for the insulin just delivered). 
+
+### If you are new to Pushover:
+
+Pushover is a way to easily send messages to your phone from another device with simple messages. (kind of like getting a text message from your OpenAPS rig), but to use this you must first have Pushover installed on your iPhone or Android (download from your OS's store).
+
+ - Log into https://pushover.net/. From this page you will see your User Key. 
+ - At the bottom of the page you will see "Your Applications   (Create an Application/API Token)". You must first create an API Token:
+ - Click on the link provided. You must supply a Name for your application, such as "OpenAPS", and change the type to _Script_ 
+ - Then Check the box _"By checking this box, you agree that you have read our Terms of Service and our Guide to Being Friendly to our API"_
+- This will give you a pushover token.
+
+To put these in your setup you must add them to the oref0-setup.sh parameters, either by saying "Yes" to advanced features in the oref0-setup.sh script and entering the info there, or by running the following on the command line from your rig:
+
+- `cd && ~/src/oref0/bin/oref0-setup.sh --pushover_token=yourpushovertolken --pushover_user=yourpushoverkey`
+
+(_note you will still need to add the correct nomenclature for oref1 in order to use oref1 and pushover_)
+
