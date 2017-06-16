@@ -45,12 +45,32 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
 * Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the follwoing display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
-* 512  users - make sure that you have created your static json files as outlined below for raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json
+* 512/712 users - see the section at the bottom of the page
 
-To do this, you will need to create the file location for the raw-pump settings.json file:
-Make sure you are in your openaps directory.
-Type dir to see the current list of files, you should see something like this: 
+## Running commands manually to see what's not working from an oref0-setup.sh setup process
+  
+You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
+  
+ * Start by killing anything that's currently running. ` killall -g openaps`
+ * Look and see what's running in your cron. `crontab -l`
+ * If you want to do more than one command of debugging, it's best to disable your cronjobs, use `/etc/init.d/cron stop`. Don't forget to start the cronjobs afterwards or reboot your rig to make sure the cronjobs will be running.
+ * Run whichever alias is failing to see what commands it is running. I.e. if the pump loop is failing, it's `openaps pump-loop`, which you can run to show what's inside it by `openaps alias show pump-loop`. 
+ * Run each of those commands next individually, and that should give you a better idea of where it's failing or getting stuck. Do this, and share back (if needed) with your troubleshooter about where you think it's getting stuck.  If that still doesn't give you or your troubleshooter enough info, keep drilling down further:
+   * **For example**, if your pump-loop.log always shows `Error, retrying` after `Old pumphistory:`, then you'd want to run `openaps refresh-old-pumphistory` manually to reproduce the problem and see if you can get more error details.
+   * If necessary, you can drill down further.  So in this example, you might want to run `openaps alias show refresh-old-pumphistory` to see what *that* alias does, and then `openaps gather` to drill down further.
+   * Don't use `2>/dev/null` or `>/dev/null ` parts of commands, because they will hide output of commands
+   * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
+   * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
+ * Still no luck? Try the [Troubleshooting](http://openaps.readthedocs.io/en/master/docs/Resources/troubleshooting.html) page or ask for help.
 
+### 512 users / 712 users / x12 users
+
+If you have one of the x12 model pumps, you need to do the following. Note there are TWO major steps, of creating the files and then adjusting aliases:
+ * A. Add pump settings files manually. Certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. You'll be creating raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json.
+  * To do this, you will need to create the file location for the raw-pump settings.json file:
+  * Make sure you are in your myopenaps directory.
+  * Type `di`r to see the current list of files, you should see something like this: 
+```
 cgm                     meal.ini         oref0-runagain.sh  settings
 cgm.ini                 mmtune_old.json  pebble.ini         tz.ini
 detect-sensitivity.ini  monitor          preferences.json   units.ini
@@ -58,28 +78,27 @@ determine-basal.ini     ns-glucose.ini   pump.ini           upload
 enact                   ns.ini           pump-session.json  xdrip.ini
 get-profile.ini         openaps.ini      raw-cgm
 iob.ini                 oref0.ini    
-
-To create the file location for the settings.json file type mkdir raw-pump
-Next, change the directory to the file you just created by typing cd raw-pump
-Once you are here root:~/openaps/raw-pump#  type nano settings.json .  
-This will open a text editor where you can add your raw pump settings.  You can use the examples below for each file.
-
-**ENSURE YOU MAKE CHANGES TO THE SETTINGS TO MATCH WHAT IS CURRENTLY ON YOUR PUMP**
-
-Paste the code, once personalized, into the text editor, and type Ctl-X, when it asks if you want to save, Yes, and keep the 
-settings.json name
-
-Repeat the steps above for the following files: bg-targets-raw.json, and the selected-basal-profile.json.
-
-Once complete, when you change directory (cd) to raw-pump and type dir and you should see the following files:
-
+```
+ * To create the file location for the settings.json file: `mkdir raw-pump`
+ * Next, change the directory to the file you just created: `cd raw-pump`
+ * (Confirm your command prompt looks like `root:~/openaps/raw-pump#`)
+ * Now do: `nano settings.json`
+ * This will open a text editor where you can add your raw pump settings.  You can use the examples further below for each file.
+ * Suggestion - copy and paste the below files into some kind of editor (i.e. Word) and make changes to match your pump, first)
+ * **WARNING**: Make sure you change the code below to match YOUR settings and what is on YOUR pump. Otherwise, it'll loop off of whatever you put it in, so this needs to be correct.
+ * Paste the code, once personalized, into the text editor.
+ * Hit escape to exit insert mode, if needed.
+ * `Ctl-X`, and when it asks if you want to save, Yes, and keep the settings.json name
+ * Repeat the steps above for also creating the following files: bg-targets-raw.json, and the selected-basal-profile.json.
+ * Once complete, when you change directory (cd) to raw-pump and type dir and you should see the following files:
+```
  settings.json     bg-targets-raw.json     selected-basal-profile.json
+```
+### Example files for 512/712 users:
 
+#### selected-basal-profile.json
 
-
-#selected-basal-profile.json
-
-
+```
   {
     "i": 0,
     "start": "00:00:00",
@@ -128,12 +147,10 @@ Once complete, when you change directory (cd) to raw-pump and type dir and you s
     "rate": 1.05,
     "minutes": 1380
   }
+```
+#### Sample_BG_Targets.json
 
-
-###############################
-
- #Sample_BG_Targets.json
-
+```
 {
   "units": "mg/dL", 
   "targets": [
@@ -164,13 +181,11 @@ Once complete, when you change directory (cd) to raw-pump and type dir and you s
   ], 
   "first": 1
 }
+```
 
-#################################
+#### Sample_Pump_Settings.json
 
-
- #Sample_Pump_Settings.json
-
-
+```
 {
   "low_reservoir_warn_point": 5, 
   "keypad_lock_status": 0, 
@@ -198,58 +213,21 @@ Once complete, when you change directory (cd) to raw-pump and type dir and you s
   "maxBolus": 3.0, 
   "paradigm_enabled": 1
 }
+```
 
-
-You will also have to remove the calls for them from the your get-settings alias.
-To do this:
-
+* B. Adapt the aliases as following so it doesn't call for non-existing pump files:
+  * First, copy and paste each of these three individually:
+  
   ```
   killall -g openaps
   openaps alias remove get-settings
   openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
   ```
-  The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted.
-
-  ```
+  
+  * The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted. So also do these three lines individually, copying and pasting in:
+```
   killall -g openaps
   openaps alias remove gather
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
-  ```
+```
 
-## Running commands manually to see what's not working from an oref0-setup.sh setup process
-  
-You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
-  
- * Start by killing anything that's currently running. ` killall -g openaps`
- * Look and see what's running in your cron. `crontab -l`
- * If you want to do more than one command of debugging, it's best to disable your cronjobs, use `/etc/init.d/cron stop`. Don't forget to start the cronjobs afterwards or reboot your rig to make sure the cronjobs will be running.
- * Run whichever alias is failing to see what commands it is running. I.e. if the pump loop is failing, it's `openaps pump-loop`, which you can run to show what's inside it by `openaps alias show pump-loop`. 
- * Run each of those commands next individually, and that should give you a better idea of where it's failing or getting stuck. Do this, and share back (if needed) with your troubleshooter about where you think it's getting stuck.  If that still doesn't give you or your troubleshooter enough info, keep drilling down further:
-   * **For example**, if your pump-loop.log always shows `Error, retrying` after `Old pumphistory:`, then you'd want to run `openaps refresh-old-pumphistory` manually to reproduce the problem and see if you can get more error details.
-   * If necessary, you can drill down further.  So in this example, you might want to run `openaps alias show refresh-old-pumphistory` to see what *that* alias does, and then `openaps gather` to drill down further.
-   * Don't use `2>/dev/null` or `>/dev/null ` parts of commands, because they will hide output of commands
-   * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
-   * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
- * Still no luck? Try the [Troubleshooting](http://openaps.readthedocs.io/en/master/docs/Resources/troubleshooting.html) page or ask for help.
-
-### 512 users / 712 users / x12 users
-
-If you have one of the x12 model pumps, you need to do the following:
-* Add pump settings files manually. Certain commands like Re.ad Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. Create  raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json See this example: https://gist.github.com/amazaheri/033b85760156054dd858 
-* Adapt the aliases as following so it doesn't call for non-existing pump files:
-
-First, do these:
-  ```
-  killall -g openaps
-  openaps alias remove get-settings
-  openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
-  ```
-  The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted.
-  So also do these:
-
-  ```
-  killall -g openaps
-  openaps alias remove gather
-  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
-  ```
-  There may be at least another step missing. If you figure out a missing step from the above for x12, PLEASE PUT IN A PR AND DOCUMENT WHAT THIS IS!
