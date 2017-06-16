@@ -27,19 +27,20 @@
 
 <b>Basal</b> - baseline insulin level that is pre-programmed into your pump and mimics the insulin your pancreas would give throughout the day and night
 
-<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.
+<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.  While what's displayed in your NS IOB pill may match what IOB is in your current loop, it's probably a good practive not to rely on this pill alone for knowing how much IOB.
 
-<b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates as well as bolus activity. 
+<b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates (see Basal IOB below) as well as bolus activity. 
 
-<b>Basal IOB</b> - difference (positive or negative) between amount of insulin on board delivered via basal rates, and the amount specified by the profile basal rate.
+<b>Basal IOB</b> - difference (positive or negative) between amount of insulin on board delivered via basal rates (including any temporary basal rates), and the amount specified by your standard profile basal rate.
 
 <b>Treatments IOB</b> - amount of insulin on board delivered via boluses. Reported by some pumps as 'active insulin'.
 
-<b>DIA</b> - duration of insulin action, or how long the insulin is active in your body. (Ranges 3-6 hours typically)
+<b>DIA</b> - duration of insulin action, or how long the insulin is active in your body (Ranges 3-6 hours typically).
 
-<b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates for one unit of insulin. Example: 1 u of insulin for 10 carbs
+<b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates that are covered by one unit of insulin. Example: 1 u of insulin for 10 carbs.
 
-<b>ISF</b> - insulin sensitivity factor - the amount of insulin that drops your BG by a certain amount. Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
+<b>ISF</b> - insulin sensitivity factor - the expected decrease in BG as a result of one unit of insulin. 
+Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
 
@@ -60,6 +61,6 @@
 
 <b>Exp. Delta</b> - expected BG delta right now, considering all OpenAPS inputs (IOB, COB, etc).
 
-<b>snoozeBG</b> - predicted value of blood glucose adjusted for bolussnooze IOB
+<b>snoozeBG</b> - predicted value of blood glucose adjusted for bolussnooze IOB. SnoozeBG will never exceed EventualBG.
 
 <b>predBGs</b> - predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
