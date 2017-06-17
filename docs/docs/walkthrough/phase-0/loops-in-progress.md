@@ -173,3 +173,4 @@ List of people who are working on closed loops:
 - Stuart Raphael (Sydney, Australia)
 - Dan Durham (Edmonton, AB, Canada)
 - Niels Hartvig (Odense, Denmark)
+- Dirk Gastaldo (Newbury Park, CA, USA)
