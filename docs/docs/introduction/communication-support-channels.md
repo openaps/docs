@@ -1,4 +1,4 @@
-# Where to go for help with your implementation
+# Where to go for help
 
 There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](../Resources/index.rst) section for additional assistance.
 
