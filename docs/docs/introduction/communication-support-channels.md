@@ -19,12 +19,10 @@ Gitter has a search function to find old information, but since it isn't threade
 
 Tag someone! You can tag particular people if you have a question by using the `@` symbol and then typing their username.  This will help notify the person that you are "speaking to them".  You can also private message people by hovering over their profile picture and choosing the "chat privately" button.
 
-<p align="center">
-<img src="../img/gitter_pm.jpg" width="700">
-</p> 
-
+![Gitter PM sample](../Images/gitter_pm.jpg)
 ************
 **A note about posting photos or screenshots in Gitter**
+
 Gitter has a mobile app which works great for posting text, but does not allow for posting images directly.  If you need to post a photo using the mobile app, you'll have to host your photo file somewhere like Dropbox and post the link to the file location.
 
 Using the desktop application, you can simply drag and drop the file into the Gitter chat window.  The file will upload and then display in the chat thread after a short period of time to upload.
@@ -42,9 +40,7 @@ Posting multiple lines of copy-paste from your rig will also sometimes be needed
 
 The copy-pasted lines should have 3 single quotes on the line above and the line below.  The example below shows, on the bottom, how the formatted text yielded the black box of text in Gitter.  Using this format helps troubleshooters read your information easier than unformatted copy and paste.
 
-<p align="center">
-<img src="../img/gitter_marks.jpg" width="700">
-</p> 
+![Gitter tickmarks](../Images/gitter_marks.jpg)
 
 ### Facebook
 
@@ -52,12 +48,7 @@ There is also a [Looped Group](https://www.facebook.com/groups/TheLoopedGroup/?f
 
 The Looped Group has grown considerably in the last 6 months and has many users on both systems.  You can search for previous posts on topics that may interest you.  Note:  If you are asking for troubleshooting help, screenshots and additional information about where you are in your problem will help get the best response.
 
-<p align="center">
-
-<img src="../img/looped.jpg" width="700">
-
-</p> 
-
+![FB group header](../Images/looped.jpg)
 
 ### Google Group - everyone is recommended and welcome to join!
 A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev). Request access to participate and see some of the archived discussions. If you're new, make sure to introduce yourself!
