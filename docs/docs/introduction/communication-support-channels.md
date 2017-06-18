@@ -17,7 +17,7 @@ There are several ways to communicate with other participants and contributors i
 
 Gitter has a search function to find old information, but since it isn't threaded converations, you may need to spend some time reading the posts after the search result to find the ultimate resolution to the question.  So, if you find a particularly useful bit of information that you couldn't find in the docs...please make a PR to the docs so that the information is permanently stored for others to find.
 
-Tag someone! You can tag particular people if you have a question by using the `@` symbol and then typing their username.  This will help notify the person that you are "speaking to them".  You can also private message people by hovering over their profile picture and choosing the "chat privately" button.
+Tag someone! You can tag particular people if you are responding to them directly by using the `@` symbol and then typing their username.  This will help notify the person that you are "speaking to them".  If someone asks you for information that shouldn't be shared in the public channel, you can also private message people by hovering over their profile picture and choosing the "chat privately" button. Please do not abuse the tagging or PM features: most questions are best asked untagged in the appropriate channel, so that anyone can respond to them as soon as they read Gitter and see the question. There are people from all over the world online at all hours who can help with most kinds of questions, and the core developers usually read every message in Gitter a few times per day and try to answer any questions that got missed.
 
 ![Gitter PM sample](../Images/gitter_pm.jpg)
 ************
@@ -28,7 +28,7 @@ Gitter has a mobile app which works great for posting text, but does not allow f
 Using the desktop application, you can simply drag and drop the file into the Gitter chat window.  The file will upload and then display in the chat thread after a short period of time to upload.
 *************
 
-Posting copy-paste code from your rig is also another valuable activity for troubleshooting.  To post a single line of information, you can use the single-backtick-quote that is found on the key to the left of the number 1 key on the keyboard.  (hint: it is under the ~ on the same key).  You can also extended-hold the single quote key on your iPhone keypad to bring up the single-backtick-quote that will work in Gitter.  If you start and stop a portion of your text with those single quotes, it will `look like this`.
+Posting copy-paste code from your rig is also another valuable activity for troubleshooting.  To post a single line of information, you can use the single-backtick-quote that is found on the key to the left of the number 1 key on the keyboard.  (hint: it is under the ~ on the same key).  You can also long-press the single quote key on your iPhone keypad to bring up the single-backtick-quote that will work in Gitter.  If you start and stop a portion of your text with those single quotes, it will `look like this`.
 
 Posting multiple lines of copy-paste from your rig will also sometimes be needed.  You can do that by:
 
@@ -38,7 +38,7 @@ Posting multiple lines of copy-paste from your rig will also sometimes be needed
 * press `control-enter` again to get another new line
 * enter 3 single quotes to end the section
 
-The copy-pasted lines should have 3 single quotes on the line above and the line below.  The example below shows, on the bottom, how the formatted text yielded the black box of text in Gitter.  Using this format helps troubleshooters read your information easier than unformatted copy and paste.
+The copy-pasted lines should have 3 backticks on the line above and the line below.  The example below shows, on the bottom, how the formatted text yielded the black box of text in Gitter.  Using this format helps troubleshooters read your information easier than unformatted copy and paste.
 
 ![Gitter tickmarks](../Images/gitter_marks.jpg)
 
