@@ -320,6 +320,7 @@ Also, for those unfamiliar with Loop, note the below instructions are about crea
 1. Build (and deploy to your iPhone) a version of Loop using the `lookout` branch from @thebookins. Follow the instructions in [Loop Docs](https://loopkit.github.io/loopdocs/) but install Loop as follows:
 ```
 git clone https://github.com/thebookins/Loop.git
+cd Loop
 git checkout lookout
 ```
 (alternatively, merge the `lookout` changes with your own Loop fork). Depending on the version of XCode you are using, it may be necessary to rebuild the linked frameworks using carthage:
