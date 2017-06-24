@@ -174,3 +174,4 @@ List of people who are working on closed loops:
 - Dan Durham (Edmonton, AB, Canada)
 - Niels Hartvig (Odense, Denmark)
 - Dirk Gastaldo (Newbury Park, CA, USA)
+- Steven Miller (Vancouver, BC, Canada)
