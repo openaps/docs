@@ -126,7 +126,7 @@ THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! T
 
 Type control-C to exit the pump-loop log.
 
-This will work anytime, anywhere when you log into your rig and is a necessary stip for troubleshooting in the future. Do not move forward without having done this step. 
+This will work anytime, anywhere when you log into your rig and is a necessary step for troubleshooting in the future. Do not move forward without having done this step. 
 
 Also, there are several loop logs contained within your OpenAPS setup...not just a pump-loop.  For example, there are also logs for the following operations in your rig:
 
