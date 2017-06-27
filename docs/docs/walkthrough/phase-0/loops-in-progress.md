@@ -175,3 +175,4 @@ List of people who are working on closed loops:
 - Niels Hartvig (Odense, Denmark)
 - Dirk Gastaldo (Newbury Park, CA, USA)
 - Steven Miller (Vancouver, BC, Canada)
+- Kyle Larsen (Provo, UT)
