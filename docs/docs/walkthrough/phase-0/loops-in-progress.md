@@ -177,3 +177,4 @@ List of people who are working on closed loops:
 - Clayton McCook (Edmond, OK, USA)
 - Kris Schmitz (Washington, DC/New Brunswick, NJ)
 - Steven Miller (Vancouver, BC, Canada)
+- Kyle Larsen (Provo, UT)
