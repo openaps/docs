@@ -178,3 +178,4 @@ List of people who are working on closed loops:
 - Kris Schmitz (Washington, DC/New Brunswick, NJ)
 - Steven Miller (Vancouver, BC, Canada)
 - Kyle Larsen (Provo, UT)
+- Ben Fowler (Huntsville, AL)
