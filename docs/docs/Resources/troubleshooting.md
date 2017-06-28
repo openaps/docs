@@ -72,7 +72,7 @@ Warning: do not run any openaps commands with sudo in front of it `sudo openaps`
 
 ## Debugging Disk Space Issues
 
-If you are having errors related to disk space shortages as determined by `df -h` you can use a very lightweight and fast tool called ncdu (a command-line disk usage analyzer) to determine what folders and files on your system are using the most disk space. You can install ncdu as follows: `sudo apt-get install ncdu`. You can run it by running the following command: `sudo cd / && sudo ncdu` and follow the interactive screen to find your disk hogging folders.
+If you are having errors related to disk space shortages as determined by `df -h` you can use a very lightweight and fast tool called ncdu (a command-line disk usage analyzer) to determine what folders and files on your system are using the most disk space. You can install ncdu as follows: `sudo apt-get install ncdu`. You can run it by running the following command: `cd / && sudo ncdu` and follow the interactive screen to find your disk hogging folders.
 
 ## Environment variables
 
