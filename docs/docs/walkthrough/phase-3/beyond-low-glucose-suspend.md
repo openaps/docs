@@ -29,6 +29,7 @@ Note: the “max basal” rate is the one safety setting that you set in your pu
         "maxCOB": 120
 	"override_high_target_with_low": false,
 	"skip_neutral_temps": false,
+	"unsuspend_if_no_temp": false,
 	"bolussnooze_dia_divisor": 2,
 	"min_5m_carbimpact": 3,
 	"carbratio_adjustmentratio": 1
@@ -79,6 +80,10 @@ Defaults to false, but can be turned on if you have a situation where you want s
 #### skip_neutral_temps: 
 
 Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
+
+### unsuspend_if_no_temp
+
+Defaults to false. If set to true, OpenAPS will resume pump (un-suspend) if there is no zero temp running. The recommended behavior for removing the pump for your body (for shower, pool, etc.) is to zero temp and suspend, so that OpenAPS can accurately track IOB. However, some people will reattach the pump after the activity and forget to unsuspend, so even though the temp to zero expires, they are not getting insulin delivered because of the suspend. So, if set to true, the pump will un-suspend once the zero temp expires. 
 
 #### bolussnooze_dia_divisor: 
 
