@@ -43,6 +43,8 @@ If you're unsure whether you need to cut your Explorer Board's antenna, you prob
 
 ![Image of Antenna](antenna0.jpg)
 
+You can also add an external antenna to the explorer board such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com.
+
 ## Radio stick (only if not using Explorer Board)
 
 We recommend the Explorer Board with a built-in radio (see above), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
@@ -79,10 +81,14 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [Small clear plastic case perfect for larger Sparkfun 2000mah battery: #8483](http://www.ebay.com/itm/272062812611)
 * [Robert Silvers and Eric Burt's case for Explorer and 2500 mAh battery](http://www.thingiverse.com/thing:2282398)
 * [Robert Silvers' case for Explorer and 2000 or 2500 mAh battery](http://www.thingiverse.com/thing:2291125)
+* [Small Plastic Clear Case for 2500 mAh battery](http://www.ebay.com/itm/272062812611) - Since a Tic-Tac box is too small for the 2500.
 
 ### Soft Cases 
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=90) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). To order, just pick the pattern/fabric for a Dexcom G4/G5 case (per the link) and put that you want it OpenAPS sized or 2x3" in the notes.
 
+## Other Options
+
+* [Heat Shrink Tubing](https://www.amazon.com/gp/product/B009IILEVY)  
 
 # Next steps after you get your hardware
 
