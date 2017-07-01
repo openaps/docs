@@ -27,6 +27,9 @@ import alabaster
 
 # -- General configuration ------------------------------------------------
 
+# RTD
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
@@ -61,8 +64,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OpenAPS'
-copyright = u'2016, Ben West, Dana Lewis, and openaps contributors'
-author = u'Ben West, Dana Lewis, Scott Leibrand, openaps community'
+copyright = u'2017, the #OpenAPS community'
+author = u'the #OpenAPS community'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -122,7 +125,7 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+#html_theme = 'default`
 
 
 extra_nav_links = {
@@ -148,7 +151,7 @@ html_theme_options = {
 }
 
 """
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'default'
 html_theme_options = {
   'display_github': True,
   'github_user': 'openaps',

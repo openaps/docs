@@ -10,9 +10,11 @@ Currently, only the following Medtronic MiniMed models allow us to remotely set 
     523/723 (with firmware 2.4A or lower)
     554/754 (European Veo, with firmware 2.6A or lower; OR Canadian Veo with firmware 2.7A or lower)
 
-## How to check pump firmware
+NOTE: For European/WorldWide users who have access to a `DANA*R` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R` pump. [See here for instructions and details related to AndroidAPS](https://github.com/MilosKozak/AndroidAPS).
 
-To check firmware, hit Esc on the home screen and scroll all the way to the bottom. You can also go into the Utilities menu and look for a PC Connect option. If that is present, the pump will not work for looping. If it’s absent, it should be able to receive temp basal commands.)
+## How to check pump firmware (check for presence of PC Connect)
+
+To check firmware, hit Esc on the home screen and scroll all the way to the bottom. You can also go into the Utilities menu and "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will not work for looping. If it’s absent, it should be able to receive temp basal commands.)
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
@@ -38,6 +40,10 @@ pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.c
 Note: If you're buying a pump online, we recommend you ask the seller to confirm the
 firmware version of the pump. (You may also want to consider asking for a video
 of the pump with working functionality before purchasing.)
+
+## Make sure you understand your pump basics
+
+If you are considering moving from Multiple Daily Injections (MDI) to an insulin pump - or changing brands/types of pumps - it is important that you have VERY detailed knowledge about the way a pump works. Insulin pumps use both basal and bolus settings for dosing and only use fast acting insulin. If you just purchased a compatible pump you are probably eager to start closing the loop. OpenAPS uses the settings and information that is manually set by the user (usually with help from their Healthcare Provider) into the pump to make dosing adjustments. First things first: make sure you understand how to safely use your pump in "manual mode" before proceeding.
 
 ## Battery usage
 

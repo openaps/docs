@@ -10,10 +10,11 @@ Phase 4: Iterate and Improve the Closed Loop
    Usability-considerations
    keeping-up-to-date
    advanced-features
+   bluetooth-tethering-edison
    ifttt-integration
    ifttt-google-assistant
    autotune
-   autotune-ns
-
-   
+   understanding-autotune
+   oref1-features
+   data-commons-data-donation
 

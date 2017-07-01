@@ -12,6 +12,8 @@ It may be tempting on day one to set your targets to mirror your traditional BG 
 
 Don't try to do everything the first week: think long term. You should start setting your glucose target range higher and wider, i.e. 130-150 mg/dL (7.2-8.3 mmol/L). However, do not set your range wider than about 20 mg/dL, as this often causes confusions for new loopers. Once you can reproducibly get your sugars in a wider and higher band without going low, you can then *slowly* reduce the target range to your ideal target range.
 
+Target BG target is set on your pump. Navigate to Bolus -> Bolus Wizard Setup -> Edit Settings -> BG Target
+
 Try to remember to set your Nightscout profile to match your pump as you make changes, to also limit confusion. Update target BG, basal rates, ISF and carb ratios to stay the same as on your pump. Data from the pump not Nightscout is used to drive the closed loop; having Nightscout display different targets and incorrect settings may be confusing. 
 
 ## What should pump settings be?

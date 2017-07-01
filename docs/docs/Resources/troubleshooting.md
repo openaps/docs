@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting.
+Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting. Here is also a [good blog post to read with tips on how to best seek help online to troubleshoot](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
 ## Generally useful linux commands
 
@@ -12,7 +12,9 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `pwd` (Show the present working directory (your current location within the filesystem).)
 
-`sudo <command>`
+`sudo <command>` (Super-user do. Temporarily elevates the current users permission to that of root.)
+
+`apt-get install <package>` (Aptitude is a package manager, when a package is missing it will (usually) be there and can be installed by issuing 'apt-get install <missing package name>.)
 
 `tail -f /var/log/syslog`
 
@@ -34,13 +36,13 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `pip freeze`
 
-`sudo reboot`
+`sudo reboot` (Reboot the system)
 
 `sudo shutdown -h now` (The correct way to shut down the Raspberry Pi from the command line. Wait for the green light to stop blinking before removing the power supply.)
 
 `dmesg` (Displays all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.)
 
-`uptime`
+`uptime` (Shows how long the system has been running and the load average of last minute/5 minutes/15 minutes)
 
 `crontab -l` (Display cron jobs)
 
@@ -67,6 +69,10 @@ You may see an error that references a loose object, or a corrupted git reposito
 It is recommended to run `oref0-reset-git` in cron so that if the repository gets corrupted it can quickly reset itself. 
 
 Warning: do not run any openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
+
+## Debugging Disk Space Issues
+
+If you are having errors related to disk space shortages as determined by `df -h` you can use a very lightweight and fast tool called ncdu (a command-line disk usage analyzer) to determine what folders and files on your system are using the most disk space. You can install ncdu as follows: `sudo apt-get install ncdu`. You can run it by running the following command: `cd / && sudo ncdu` and follow the interactive screen to find your disk hogging folders.
 
 ## Environment variables
 
@@ -97,7 +103,9 @@ A JSON file did not contain entries.
 
 ### Unable to upload to http//my-nightscout-website.com
 
-OpenAPS has failed to upload to the configured nightscout website.
+OpenAPS has failed to upload to the configured nightscout website. If you're using a Medtronic CGM and no BG readings appear in nightscout, connect to your rig and the directory of your openaps app (default is myopenaps) run
+
+`openaps first-upload`
 
 ### [No JSON object could be decoded](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=openaps+%27No+JSON+object+could+be+decoded%27)
 
@@ -139,6 +147,28 @@ Below is correct definition
     device = get-profile
     remainder =
     insulin_sensitivities = settings/insulin_sensitivities.json
+
+### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
+
+Basic steps using an Intel Edison with Explorer Board, checking with `openaps mmtune` to see if it is resolved yet:
+  * Double check that your port in pump.ini is correct
+  * Check that your rig is in close range of your pump
+  * Check that your pump battery is not empty
+  * Reboot your rig
+  * Run `oref0-runagain`
+  * Fully power down and start up your rig
+  * Remove and re-add your pump device
+
+If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
+  * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
+  * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
+  * Flash the radio chip:
+```
+wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+./ccprog -p 19,7,36 erase
+./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+```
+  * Reboot, and try `openaps mmtune` to make sure it works
 
 
 ### CareLink RF timeout errors

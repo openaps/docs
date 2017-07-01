@@ -1,6 +1,13 @@
 # Glossary
 
-<b>APS</b> - artificial pancreas system. Sometimes also referred to as "AP"
+
+## AP and OpenAPS high level terminology 
+
+<b>APS or AP</b> - artificial pancreas system. A term for a closed-loop automated insulin delivery system in which temporary basal adjustments are used to maintain BG levels at a user-specified target range.  
+
+<b>closed-loop</b> - closed-loop systems make automatic adjustments to basal delivery, without needing user-approval, based on an algorithm.
+
+<b>open-loop</b> - open-loop systems will suggest recommended adjustments to basal delivery, but will require specific user-approval prior to implementing.
 
 <b>CGM</b> - continuous glucose monitor, a temporary glucose sensor that is injected into your skin (the needle is removed) for 3-7 days and, with twice a day calibrations, provides BG readings approximately every 5 minutes.
 
@@ -10,6 +17,8 @@
 
 <b>openaps</b> - the core suite of software tools under development by this community for use in an OpenAPS implementation
 
+<b>oref0</b> - "reference design implementation version 0" of the OpenAPS reference design. Aka, the key algorithm behind OpenAPS.
+
 <b>BG</b> - Blood Glucose
 
 <b>BGI</b> (BG Impact) - The degree to which BG "should" be rising or falling. OpenAPS calculates this value to determine the 'Eventual BG'. This value can be used to make other high/low basal decisions in advanced implementations of OpenAPS.
@@ -18,21 +27,24 @@
 
 <b>Basal</b> - baseline insulin level that is pre-programmed into your pump and mimics the insulin your pancreas would give throughout the day and night
 
-<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.
+<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.  While what's displayed in your NS IOB pill may match what IOB is in your current loop, it's probably a good practive not to rely on this pill alone for knowing how much IOB.
 
-<b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates as well as bolus activity. 
+<b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates (see Basal IOB below) as well as bolus activity. 
 
-<b>Basal IOB</b> - difference (positive or negative) between amount of insulin on board delivered via basal rates, and the amount specified by the profile basal rate.
+<b>Basal IOB</b> - difference (positive or negative) between amount of insulin on board delivered via basal rates (including any temporary basal rates), and the amount specified by your standard profile basal rate.
 
 <b>Treatments IOB</b> - amount of insulin on board delivered via boluses. Reported by some pumps as 'active insulin'.
 
-<b>DIA</b> - duration of insulin action, or how long the insulin is active in your body. (Ranges 3-6 hours typically)
+<b>DIA</b> - duration of insulin action, or how long the insulin is active in your body (Ranges 3-6 hours typically).
 
-<b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates for one unit of insulin. Example: 1 u of insulin for 10 carbs
+<b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates that are covered by one unit of insulin. Example: 1 u of insulin for 10 carbs.
 
-<b>ISF</b> - insulin sensitivity factor - the amount of insulin that drops your BG by a certain amount. Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
+<b>ISF</b> - insulin sensitivity factor - the expected decrease in BG as a result of one unit of insulin. 
+Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>NS, or Nightscout</b> - a cloud-based visualization and remote-monitoring tool. 
+
+## OpenAPS specific terminology 
 
 <b>OpenAPS Nightscout Status Messages</b> appear when the OpenAPS plugin is enabled.
   * <b>Looping ↻</b> - Success; Temp basal rate has been suggested.
@@ -49,4 +61,6 @@
 
 <b>Exp. Delta</b> - expected BG delta right now, considering all OpenAPS inputs (IOB, COB, etc).
 
-<b>RileyLink (RL)</b> - A custom designed Bluetooth Smart (BLE) to sub-1GHz module - it can be used to bridge any BLE capable smartphone to the world of sub-1GHz devices. This device is focused on talking to Medtronic insulin pumps and sensors.
+<b>snoozeBG</b> - predicted value of blood glucose adjusted for bolussnooze IOB. SnoozeBG will never exceed EventualBG.
+
+<b>predBGs</b> - predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
