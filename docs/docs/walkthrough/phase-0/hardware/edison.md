@@ -45,6 +45,8 @@ If you're unsure whether you need to cut your Explorer Board's antenna, you prob
 
 You can also add an external antenna to the explorer board such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com.
 
+![Image of Antenna](antenna1.jpg)
+
 ## Radio stick (only if not using Explorer Board)
 
 We recommend the Explorer Board with a built-in radio (see above), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
