@@ -24,7 +24,7 @@ If the install was successful, the last line will say something like:
     
     openaps 0.1.5  
 
-The version number above may have been incremented from what is shown here, and that is okay. All you are really looking for is `openaps` followed by a version number.  This lets you know that the install has completed successfully.
+The version number above may have been incremented from what is shown here, and that is okay. **All you are really looking for is `openaps` followed by a version number.**  This lets you know that the install has completed successfully.
 
 ![NPM install](../../Images/dependencies_success.png)
 
@@ -54,15 +54,17 @@ Pull/clone the latest oref0 master by running:
 
 ![NPM install](../../Images/clone_oref0.png)
 
+
 If you have been looping for awhile, are setting up an additional rig, are comfortable using the advanced features from the master branch, and want to test out the latest features of the oref0 dev branch (which may still be highly experimental) you can use:
 
 `mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
 
 `cd ~/src/oref0 && npm run global-install` (note this is only necessary for the dev branch, NOT for master)
 
+
 ## Step 2: Run oref0-setup
 
-__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. 
+__Note:__ If you're using the 915MHz Explorer board, you'll need to log in as root to run oref0-setup.sh, as the mraa package doesn't yet support running under an ordinary user account. This means you should have logged in as root@<yourrigname>.local. If you do not see that in your command line tool (see above screenshots for example), you probably skipped some other steps - go back and re-read the docs and make sure you log in as root when it says to.
 
 **Be prepared to enter the following items:** 
 * directory name for your openaps
@@ -70,7 +72,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * serial number of your pump
 * whether or not you are using an Explorer board
 * if you're not using an Explorer board or a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
-    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
+    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink#troubleshooting-mmtune-or-finding-your-correct-port) for directions on finding your port (something like `/dev/ttACM1`).
     * Note: if you're using a Carelink, you will NOT be using mmeowlink
     * Note: if you're using an Explorer board, you will be using mmeowlink but this will be setup automatically
 * how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
@@ -99,8 +101,7 @@ If you want to add Bluetooth tethering to the mix:
 
 Please see [Phase 4](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) for the directions to complete the BT pairing.
 
-**Worldwide pump users**
-If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
+---
 
 When you've successfully answered all the input questions from the setup script, it will print a summary of the inputs for you before asking if you want to continue, as shown below:
 
@@ -126,7 +127,7 @@ THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! T
 
 Type control-C to exit the pump-loop log.
 
-This will work anytime, anywhere when you log into your rig and is a necessary stip for troubleshooting in the future. Do not move forward without having done this step. 
+This will work anytime, anywhere when you log into your rig and is a necessary step for troubleshooting in the future. Do not move forward without having done this step. 
 
 Also, there are several loop logs contained within your OpenAPS setup...not just a pump-loop.  For example, there are also logs for the following operations in your rig:
 
@@ -140,4 +141,10 @@ Also, there are several loop logs contained within your OpenAPS setup...not just
 
 Please see [Phase 1 Papertrail](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/papertrail.html) for an easy way to track all your logs in one easy setup.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig.  Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 
+## Step 4: You're not done yet
 
+You're looping? Congrats! However, you're not done yet. There's still more to learn - make sure you read the next few sections for information to make sure you know how to read your logs and [answer the question of "why is it doing what it is doing?"](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/Understand-determine-basal.html); make sure [you're in the right mode](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#going-beyond-low-glucose-suspend-mode) (do you only want it to limit insulin when dropping low? do you want it to increase insulin when your BG is high?), plus [customize all the other settings](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#understanding-your-preferences-json). 
+
+Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
+
+(Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see the [next page on troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) you should work through before asking for help.)
