@@ -1,6 +1,6 @@
 # Loops In Progress
 
-To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. 
+To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. If you're already looping, make sure to also check out and follow [this page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/keeping-up-to-date.html) from later in the docs.
 
 New to Github, and PRs? [Check out how to submit your first PR](../../../../docs/docs/Resources/my-first-pr.md).
 
@@ -173,3 +173,10 @@ List of people who are working on closed loops:
 - Stuart Raphael (Sydney, Australia)
 - Dan Durham (Edmonton, AB, Canada)
 - Niels Hartvig (Odense, Denmark)
+- Dirk Gastaldo (Newbury Park, CA, USA)
+- Clayton McCook (Edmond, OK, USA)
+- Kris Schmitz (Washington, DC/New Brunswick, NJ)
+- Steven Miller (Vancouver, BC, Canada)
+- Kyle Larsen (Provo, UT)
+- Ben Fowler (Huntsville, AL)
+- Giuseppe Acito (Roma, Italy)
