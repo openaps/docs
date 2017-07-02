@@ -46,14 +46,19 @@ It will then continue to run a while (~10+ minutes) before initiating the oref0-
 * whether you want things like Autosensitivity (recommended), and/or Autotune
 * whether you want any oref1-related advanced features - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot
-* whether or not you want to automate your loop (using cron)
-* After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop).  Usually you'll want to answer `yes` and also then press `enter` to reboot after the cron is installed.
+* After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop).  Usually you'll want to answer `y` - and also then press `enter` to reboot after the cron is installed.
+
+#### Log in again, and change your password
+
+If this is your first build, after it reboots it will prompt you to log back in. Log in as "root" and the password from before (probably edison). It will ask you a second time for the current password (probably edison). However, now it will prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.
+
+Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
 
 ## How to watch your logs - REQUIRED!
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
-It's easy: simply type the letter l (for logs). This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`. 
+It's easy: simply type the letter `l` (for logs). (*This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`*.)
 
 Done watching the logs? Type control-C to exit the pump-loop log.
 
