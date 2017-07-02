@@ -80,8 +80,8 @@ You've probably run into an error in your setup where someone has recommended "r
 ### 512 users / 712 users / x12 users
 
 If you have one of the x12 model pumps, you need to do the following:
-* Add pump settings files manually. Certain commands like Re.ad Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. Create  raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json See this example: https://gist.github.com/amazaheri/033b85760156054dd858 
-* Adapt the aliases as following so it doesn't call for non-existing pump files:
+* Add pump settings files manually. Certain commands like Read Pump Status, Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a static json for needed info missing to successfully run the loop. Create  raw-pump/settings.json, raw-pump/bg-targets-raw.json, and raw-pump/selected-basal-profile.json See this example: https://gist.github.com/amazaheri/033b85760156054dd858 
+* Adapt the aliases as following so it doesn't call for non-existing pump files or issue commands that are not supported by the pump:
 
 First, do these:
   ```
@@ -95,6 +95,16 @@ First, do these:
   ```
   killall -g openaps
   openaps alias remove gather
-  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
+  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"' 
+  openaps alias remove monitor-pump
+  openaps alias add monitor-pump "report invoke monitor/clock.json monitor/temp_basal.json monitor/pumphistory.json monitor/pumphistory-zoned.json monitor/clock-zoned.json monitor/iob.json monitor/meal.json monitor/reservoir.json monitor/battery.json"
   ```
-  There may be at least another step missing. If you figure out a missing step from the above for x12, PLEASE PUT IN A PR AND DOCUMENT WHAT THIS IS!
+ If you copy these commands and paste them into a terminal to run them, hit enter to make sure that the last command is actually executed.  
+ Use the following commands to check the aliases to make sure they are as above:
+ ```
+ openaps alias show get-settings
+ openaps alias show gather
+ openaps alias show monitor-pump
+ ```
+ 
+  This has been tested using a 712 pump
