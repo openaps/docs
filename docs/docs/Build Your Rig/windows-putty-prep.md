@@ -38,10 +38,8 @@ Once you plug in the cables, you should see your Edison board pop-up as a connec
 ![Putty port](../Images/Edison/putty_port.png)
 
  - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" window of what is happening on your Edison. Move that window over to the right side of your screen without resizing it, if you can.  (We are going to open another window later on the left side.)
-- Now you will see a login prompt for the Edison on the console screen. Login using the username "root" (all lowercase) and no password. This will have us ready to enter the commands coming up in the next steps later.
+- Now you will see a login prompt for the Edison on the console screen. Login using the username "root" (all lowercase) and no password.
+
+Head back to the other directions to continue the setup.
   
-- Now we are going to open a second window...a "flash" window...using a different program than PuTTY.  Go to your Windows Start menu and search for a program called Command Prompt.  Open Command Prompt and you should be given at a prompt for your User Root directory.  Assuming you saved your jubilinux folder to your user root directory (as described above), enter `cd jubilinux` in the prompt and press return.  If you saved it somewhere else, you will need to navigate to that location.  Move that flash window to the left side of the screen.
 
-Your screens should look like this:
-
-![Ready to Flash](../Images/Edison/ready_to_flash.png)
