@@ -11,8 +11,6 @@ First, copy and paste: `sudo screen /dev/tty.usbserial-* 115200`, then hit enter
 
 You’ll most likely be asked for your **computer password**.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed. 
 
-![Example terminal screen](../../Images/Edison/change_me_out_for_jubilinux.png)
-
 If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", close that terminal window.  Then unplug the usb cables from your computer (not from the Edison...leave those ones as is) and swap the USB ports they were plugged in.  Open a new terminal window, use the `sudo screen /dev/tty.usbserial-* 115200` command again.  Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
 
 (**Note**: In the future, you will log into your rig by typing `ssh root@edison.local`, when you do not have the rig plugged into your computer. Also note that if you change your hostname, it will be `ssh root@whatyounamedit.local`)
@@ -27,7 +25,11 @@ The script will do some initial installing, check the wifi, and ask you to hit e
 
 It will run for a while again, and then ask you for the following: 
 * Type in your wifi and hit enter; and type your wifi password and hit enter.
+
+![Example of wifi bootstrap script finding wifi options](../Images/Edison/openaps-bootstrap-wifi-setup.png)
+
 * Change your hostname. **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@whatyounamedit.local`**
+
 * Pick your time zone. (i.e. in the US, you'd hit enter on US; and scroll and find your time zone, such as Eastern)
 
 It will then continue to run a while (~10+ minutes) before initiating the oref0-setup.sh script automatically, which will ask you for the following:
