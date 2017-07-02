@@ -34,6 +34,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    # docs/walkthrough/phase-0/index
    docs/walkthrough/phase-0/setup
    docs/walkthrough/phase-0/baseline-data
+   docs/walkthrough/phase-0/wifi
    docs/walkthrough/phase-0/hardware/hardware
    Compatible Pumps <docs/walkthrough/phase-0/hardware/pump>
    Compatible CGMs <docs/walkthrough/phase-0/hardware/CGM>
