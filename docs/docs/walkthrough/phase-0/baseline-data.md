@@ -1,4 +1,4 @@
-# Collect your data
+# Collect your data and get prepared
 
 Before getting started, we ask that you store at least 30 days of CGM data.  Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses.  For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/nightscout-setup.html).  By logging and collecting a recent history of your insulin+BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases.
 
@@ -6,11 +6,11 @@ If you aren't using Nightscout, you can upload your Dexcom G4 receiver to Dexcom
 
 Later in these docs is a link to donate your data to a project called [OpenHumans](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/data-commons-data-donation.html).  There is no requirement to share your data or participate in the OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so at will and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
 
-# Practice good CGM habits
+## Practice good CGM habits
 
 A good quality CGM session is a critical part of successful looping.  If you're used to stretching your sensor sessions out until failure...you may want to reconsider this approach as you will have failed looping times, too.  One technique that has helped eliminate early sensor jumpiness in a session is to "presoak" a new sensor before the old one dies when you notice the old sensor is getting jumpy or loses calibration.  To read more about this presoak technique, check out this [blog post](https://diyps.org/2016/06/27/how-to-soak-a-new-cgm-sensor-for-better-first-day-bgs/).  As well, be diligent about your sensor calibration habits.  Only calibrate on flat arrows and when BGs are steady.  Many loopers calibrate once or twice a day only; at bedtime (after dinner has finished digesting) and/or just before getting out of bed.
 
-# Use your gear
+## Use your gear
 
 Starting a DIY loop system like OpenAPS means you are probably switching pumps, and quite possibly using Nightscout for the first time. You may find, like many new users, that settings you thought you had dialed in before will need to be adjusted.  Good news...there's several tools and techiques to get your off to the right start.  They include:
 
@@ -19,13 +19,13 @@ Starting a DIY loop system like OpenAPS means you are probably switching pumps, 
 * Collect your carb, bolus, and BG history using Nightscout
 * Use Autotune to analyse and fine-tune your pump settings
 
-## Start Medtronic pump
+### Start Medtronic pump
 
 Many of us have come from Omnipods, Animas, or T-slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your t1d kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well.
 
 **You should definitely test your basals, ISFs, carb ratios, and DIA all over again now that you've switched pumps and infusion sets. If those settings aren't correct, looping isn't a good idea.**
 
-### Pump settings
+#### Pump settings
 
 There are a couple areas in the pump that will need to be set specifically in order to allow OpenAPS to loop.  Since you are going to be looping soon, you might as well set them correctly in your pump now:
 
@@ -41,7 +41,7 @@ There are a couple areas in the pump that will need to be set specifically in or
 
 * If you have periods in the day where your pump normally has basal settings of zero - your loop will not work! You can resolve this by setting the lowest possible basal setting your pump will permit. OpenAPS will then issue temp basals of zero, as needed.
 
-### Easy Bolus Button
+#### Easy Bolus Button
 
 Setting up the Easy Bolus feature for your pump now (and practicing it) may help you avoid a small, annoying pump error later.  If you are going to use the (super advanced, not for beginners) SMB (super microbolus) feature, then you need to be aware of the potential for pump error due to remote bolus commands. When the pump is engaged to bolus with a remote bolus command from the rig and another bolus is initiated from the pump manually, the pump will error out with an A52 error. The pump will not deliver the bolus, the reservoir will rewind and the pump time needs to be reset.  Put simply, two bolus commands coming in at once cause the pump to error and rewind.
 
@@ -49,7 +49,7 @@ One way to minimize this error is by checking the pump before giving a bolus. Ch
 
 The Easy Bolus button allows you to quickly use the arrow buttons on your pump to give a set increment of insulin.  For example, if you setup your Easy Bolus button to have 0.5 unit increments, every click of the `up arrow` on the pump will increment a bolus of 0.5 units...push button 4 times and you are setting up a 2.0 unit bolus.  You still have to click the `ACT` button twice to confirm and start the delivery of the bolus.  Since the button presses are usually pretty quick, there's less likelihood of radio communication interference with a rig's SMB command.  You can use IFTTT buttons to enter the carbs in your Nightscout site (or use careportal in Nightscout directly).  For example, having IFTTT buttons for 5, 10, and 20g carb entries (or whatever your common meal amounts are) can make entering in food pretty easy. So, the Easy Bolus method requires the ability to roughly estimate your meal bolus (e.g., total carbs divided by carb ratio)...but so long as you are close, the loop should be able to make up any amount of bolus that was slightly over/under done by using the Easy Bolus button.
 
-### Extended and Dual Wave substitute
+#### Extended and Dual Wave substitute
 
 Due to the way the Medtronic pumps operate, temp basals can only be set when there is no bolus running; this including extended (square) / dual wave boluses.  So, if you're used to extended or dual wave boluses for carb heavy meals (e.g. pizza), which may still be the optimal approach for you, OpenAPS will not be able to provide temp basals during the extended bolus.  You won't be looping during those types of boluses.
 
@@ -57,7 +57,7 @@ But, you don't need the square/dual wave boluses anymore, as OpenAPS will help s
 
 Some of the super advanced features you'll learn about later - Unannounced Meals and Supermicrobolus (UAM/SMBs) - also help smooth the transition from extended bolusing.  Some users have found that entering in carbs alone can be effective, especially in helping later BG rises from slow-absorping carbs.  Once you get your loop running, and are ready for the advanced features, you may be interested in playing with the various techniques available for heavy, slow carb meals.
 
-## Autotune
+### Autotune
 
 You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great...now autotune can give you a headstart to fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/autotune.html) for how to deal with multiple values. You can run autotune before you get your loop setup...it doesn't have to run on a rig.
 
