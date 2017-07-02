@@ -377,3 +377,25 @@ iface wlan0 inet dhcp
 ```
 
 Once that looks correct, save the file and `reboot` your rig for the changes to take effect.
+
+
+### Interrupting Kernel Messages in Console/Screen Mode
+
+![Example kernel message](https://user-images.githubusercontent.com/24418738/27111189-17c4acd8-5074-11e7-8873-54470e94c638.jpg)
+
+#### Fix for individual console/screen session:
+
+Type this at the prompt:   `dmesg -D`
+
+#### Permanant solution:
+
+`vi /etc/rc.local`
+press i for insert mode
+
+add this line:    sudo dmesg -n 1
+
+![adding dmesg](https://user-images.githubusercontent.com/24418738/27111188-17c46c3c-5074-11e7-8a5f-d29c85873293.jpg)
+
+(remember to save and exit the vi editor by using esc and then :wq)
+
+
