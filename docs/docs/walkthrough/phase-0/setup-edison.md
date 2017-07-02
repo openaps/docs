@@ -382,16 +382,18 @@ Once that looks correct, save the file and `reboot` your rig for the changes to 
 ### Interrupting Kernel Messages in Console/Screen Mode
 https://user-images.githubusercontent.com/24418738/27111189-17c4acd8-5074-11e7-8873-54470e94c638.jpg
 
-Fix for individual console/screen session:
-type this at the prompt:   dmesg -D
+#### Fix for individual console/screen session:
 
-Permanant solution:
+Type this at the prompt:   `dmesg -D`
 
-vi /etc/rc.local
+#### Permanant solution:
+
+`vi /etc/rc.local`
 press i for insert mode
-add this line:    sudo dmesg -n 1
-https://user-images.githubusercontent.com/24418738/27111188-17c46c3c-5074-11e7-8a5f-d29c85873293.jpg
 
+add this line:    sudo dmesg -n 1
+
+https://user-images.githubusercontent.com/24418738/27111188-17c46c3c-5074-11e7-8a5f-d29c85873293.jpg
 
 (remember to save and exit the vi editor by using esc and then :wq)
 
