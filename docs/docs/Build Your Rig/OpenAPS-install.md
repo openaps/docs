@@ -7,22 +7,34 @@ Mac users: [follow these instructions to open Terminal and plug in your rig](mac
 
 ### Log in to your rig
 
-Copy and paste this: `ssh root@edison/local` and hit enter. Use the password that came with your Edison (probably edison).
+First, copy and paste: `sudo screen /dev/tty.usbserial-* 115200`, then hit enter.
+
+You’ll most likely be asked for your **computer password**.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed. 
+
+![Example terminal screen](../../Images/Edison/change_me_out_for_jubilinux.png)
+
+If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", close that terminal window.  Then unplug the usb cables from your computer (not from the Edison...leave those ones as is) and swap the USB ports they were plugged in.  Open a new terminal window, use the `sudo screen /dev/tty.usbserial-* 115200` command again.  Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
+
+(**Note**: In the future, you will log into your rig by typing `ssh root@edison.local`, when you do not have the rig plugged into your computer. Also note that if you change your hostname, it will be `ssh root@whatyounamedit.local`)
 
 You should now see the command prompt change to be root.
 
-### Copy and paste to run this script
+### Copy and paste to run the wifi and oref0-setup scripts
 
 Copy and paste the script from https://github.com/openaps/docs/blob/dev/scripts/openaps-bootstrap.sh. Hit enter.
 
-The script will ask you for the following: 
-* Type in your wifi, and your password when it comes up.
-* Select your time zone. 
-* Change your hostname. **Make sure to write down your hostname; this is how you will log in in the future**
+The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.
 
-**Also be prepared to enter the following items:** 
+It will run for a while again, and then ask you for the following: 
+* Type in your wifi and hit enter; and type your wifi password and hit enter.
+* Change your hostname. **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@whatyounamedit.local`**
+* Pick your time zone. (i.e. in the US, you'd hit enter on US; and scroll and find your time zone, such as Eastern)
 
-* directory name for your openaps
+It will then continue to run a while (~10+ minutes) before initiating the oref0-setup.sh script automatically, which will ask you for the following:
+
+**Be prepared to enter the following items:** 
+
+* directory name for your openaps - we recommend the default `myopenaps` 
 * email address for github commits
 * serial number of your pump
 * whether or not you are using an Explorer board
@@ -31,7 +43,8 @@ The script will ask you for the following:
 * (if you're using a Carelink, you will NOT be using mmeowlink)
 * how you are getting CGM data.  The options are `g4` (default), `g4-raw`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.
 * Nightscout URL and API secret
-* whether you want any of the oref0 advanced features (AMA, Autosens, and/or Autotune)
+* whether you want things like Autosensitivity (recommended), and/or Autotune
+* whether you want any oref1-related advanced features - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot
 * whether or not you want to automate your loop (using cron)
 * **Worldwide pump users**
@@ -62,4 +75,4 @@ Also, there are several loop logs contained within your OpenAPS setup...not just
 
 * Autotune log: `tail -F /var/log/openaps/autotune.log`
 
-You may also want to run Papertrail ADD LINK HERE ABOUT PAPERTRAIL.
+You may also want to run Papertrail.
