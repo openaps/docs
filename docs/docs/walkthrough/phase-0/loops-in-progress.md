@@ -179,3 +179,4 @@ List of people who are working on closed loops:
 - Steven Miller (Vancouver, BC, Canada)
 - Kyle Larsen (Provo, UT)
 - Ben Fowler (Huntsville, AL)
+- Giuseppe Acito (Roma, Italy)
