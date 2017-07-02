@@ -1,4 +1,4 @@
-# Installing OpenAPS on your rig
+# Installing OpenAPS on your rig with an already-flashed-Edison
 
 ### Prep Steps
 PC users: [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
@@ -70,4 +70,12 @@ Also, there are several loop logs contained within your OpenAPS setup...not just
 
 * Autotune log: `tail -F /var/log/openaps/autotune.log`
 
-You may also want to run Papertrail.
+(Normal docs:) Please see [Phase 1 Papertrail](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/papertrail.html) for an easy way to track all your logs in one easy setup.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig.  Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+
+## You're not done yet - switch back to the main/normal docs for more customizations
+
+You're looping? Congrats! However, you're not done yet. There's still more to learn - make sure you read the next few sections for information to make sure you know how to read your logs and [answer the question of "why is it doing what it is doing?"](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/Understand-determine-basal.html); make sure [you're in the right mode](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#going-beyond-low-glucose-suspend-mode) (do you only want it to limit insulin when dropping low? do you want it to increase insulin when your BG is high?), plus [customize all the other settings](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#understanding-your-preferences-json). 
+
+Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
+
+(Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see the [next page on troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) you should work through before asking for help.)
