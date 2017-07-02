@@ -19,7 +19,9 @@ You should now see the command prompt change to be root.
 
 ### Copy and paste to run the wifi and oref0-setup scripts
 
-Copy and paste the script from https://github.com/openaps/docs/blob/dev/scripts/openaps-bootstrap.sh. Hit enter.
+Go to this webpage in a separate page: https://github.com/openaps/docs/blob/dev/scripts/openaps-bootstrap.sh.
+
+Copy all of those lines; go back to Terminal and paste into the command line. Then, hit enter.
 
 The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.
 
