@@ -11,9 +11,9 @@ If you're not already, make sure you're logged into your rig via root. You shoul
 
 ### Copy and paste to run the wifi and oref0-setup scripts
 
-Go to this webpage in a separate page: https://github.com/openaps/docs/blob/dev/scripts/openaps-bootstrap.sh.
+Go to [this webpage](https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-bootstrap.sh) in a separate tab/window.
 
-Copy all of those lines; go back to Terminal and paste into the command line. Then, hit enter.
+Copy all of those lines; go back to Terminal/PuTTY and paste into the command line. Then, hit enter.
 
 The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.
 
