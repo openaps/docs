@@ -81,7 +81,7 @@ iob.ini                 oref0.ini
 ```
  * To create the file location for the settings.json file: `mkdir raw-pump`
  * Next, change the directory to the file you just created: `cd raw-pump`
- * (Confirm your command prompt looks like `root:~/openaps/raw-pump#`)
+ * (Confirm your command prompt looks like `root:~/myopenaps/raw-pump#`)
  * Now do: `nano settings.json`
  * This will open a text editor where you can add your raw pump settings.  You can use the examples further below for each file.
  * Suggestion - copy and paste the below files into some kind of editor (i.e. Word) and make changes to match your pump, first)
@@ -96,9 +96,16 @@ iob.ini                 oref0.ini
 ```
 ### Example files for 512/712 users:
 
-#### selected-basal-profile.json
+#### Sample file for selected-basal-profile.json
+
+Note:  The format for the basal rates is the "minutes" value refers to the "minutes from midnight" for whatever rate schedule you are setting.  For example, the 6:00 am rate in the example file below is a rate of 1.15 units/hour and 6:00 am is 360 minutes since midnight passed (6 hours x 60 minutes per hour).  
+
+If you have a basal rate less than 1.0 unit/hour, make sure to include a zero before the decimal point such as `0.55`
+
+You can add or delete basal rates to the sample file below, but pay close attention to syntax.  The last basal rate in the profile needs end without a comma after the last `}`
 
 ```
+  [
   {
     "i": 0,
     "start": "00:00:00",
@@ -147,8 +154,11 @@ iob.ini                 oref0.ini
     "rate": 1.05,
     "minutes": 1380
   }
+  ]
 ```
-#### Sample_BG_Targets.json
+#### Sample file for bg-targets-raw.json
+
+Note: the "offset" is the same concept and calculation as "minutes" in the sample file below...it is the minutes since midnight for that particular target to start.
 
 ```
 {
@@ -183,13 +193,15 @@ iob.ini                 oref0.ini
 }
 ```
 
-#### Sample_Pump_Settings.json
+#### Sample Pump settings file for settings.json
+
+notes are added with `#` on the lines you want to adjust or pay attention to in particular
 
 ```
 {
-  "low_reservoir_warn_point": 5, 
+  "low_reservoir_warn_point": 5, #adjust to your warning level of units remaining
   "keypad_lock_status": 0, 
-  "maxBasal": 1, 
+  "maxBasal": 1,  #adjust to your preferred max temp basal
   "temp_basal": {
     "percent": 100, 
     "type": "Units/hour"
@@ -202,15 +214,15 @@ iob.ini                 oref0.ini
     "volume": -1, 
     "mode": 1
   }, 
-  "rf_enable": false, 
+  "rf_enable": true,  #you will want this set to true or else your pump will not tune properly 
   "auto_off_duration_hrs": 0, 
   "block_enable": false, 
   "timeformat": 1, 
-  "insulin_action_curve": 3, 
+  "insulin_action_curve": 3, #adjust to your selected duration of insulin action in whole hour increments
   "audio_bolus_size": 0, 
   "selected_pattern": 0, 
   "patterns_enabled": true, 
-  "maxBolus": 3.0, 
+  "maxBolus": 3.0,  #adjust to your preferred max single bolus units
   "paradigm_enabled": 1
 }
 ```
@@ -219,15 +231,18 @@ iob.ini                 oref0.ini
   * First, copy and paste each of these three individually:
   
   ```
-  killall -g openaps
+  cd ~/myopenaps && killall -g openaps
   openaps alias remove get-settings
   openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
   ```
   
   * The 512 also does not have the ability to report bolusing so the “gather” alias also has to be adjusted. So also do these three lines individually, copying and pasting in:
 ```
-  killall -g openaps
+  cd ~/myopenaps && killall -g openaps
   openaps alias remove gather
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
 ```
 
+* C. Copy the files you created in the `raw-pump` directory into the settings directory
+
+`cd ~/myopenaps && cp ./raw-pump/bg-targets-raw.json ./settings/ && cp ./raw-pump/selected-basal-profile.json ./settings/ && cp ./raw-pump/settings.json ./settings/`
