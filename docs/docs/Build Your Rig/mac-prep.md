@@ -16,4 +16,4 @@ Terminal is how we communicate with the Edison.  Basically, the Edison is a comp
 
 When you first launch Terminal, you will probably see something rather plain like below.  The important thing to know is that the Terminal helps show you WHERE you are in your computer or Edison.  So, in the screenshot below, it’s telling me I am in my “iMac4K” user account.  If you are ever a little confused where you are…you can look to the left of the $ prompt and get an idea.
 
-![A look inside terminal](../Images/Edison/Inside_terminal.png)
+![Terminal](../Images/Edison/Inside_terminal.png)
