@@ -23,7 +23,7 @@ Starting a DIY loop system like OpenAPS means you are probably switching pumps, 
 
 Many of us have come from Omnipods, Animas, or T-slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your t1d kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well.
 
-**You should definitely test your basals, ISFs, carb ratios, and DIA all over again now that you've switched pumps and infusion sets. If those settings aren't correct, looping isn't a good idea. **
+**You should definitely test your basals, ISFs, carb ratios, and DIA all over again now that you've switched pumps and infusion sets. If those settings aren't correct, looping isn't a good idea.**
 
 ### Pump settings
 
