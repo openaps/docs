@@ -47,21 +47,15 @@ It will then continue to run a while (~10+ minutes) before initiating the oref0-
 * whether you want any oref1-related advanced features - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot
 * whether or not you want to automate your loop (using cron)
-* **Worldwide pump users**
-If you are running from the master branch and not the WW branch, you'll need to follow the instructions at https://github.com/oskarpearson/mmeowlink/wiki/Non-USA-pump-settings to ensure that the correct frequency is used by mmtune.
 * After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop).  Usually you'll want to answer `yes` and also then press `enter` to reboot after the cron is installed.
 
-## How to watch your logs
+## How to watch your logs - REQUIRED!
 
-Watch the logs - REQUIRED
+THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
-THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. It's easy:
+It's easy: simply type the letter l (for logs). This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`. 
 
-(For rigs updated to master after 2/7/17 ([here is how to update](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/update-your-rig.html)), you can simply type the letter "l" (aka the single letter `l`), or use the full tail command below to see the logs).
-
-`tail -F /var/log/openaps/pump-loop.log`
-
-Type control-C to exit the pump-loop log.
+Done watching the logs? Type control-C to exit the pump-loop log.
 
 This will work anytime, anywhere when you log into your rig and is a necessary step for troubleshooting in the future. Do not move forward without having done this step. 
 
