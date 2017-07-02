@@ -81,8 +81,7 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [Robert Silvers' case for Explorer and 2000 or 2500 mAh battery](http://www.thingiverse.com/thing:2291125)
 
 ### Soft Cases 
-* [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=90) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). To order, just pick the pattern/fabric for a Dexcom G4/G5 case (per the link) and put that you want it OpenAPS sized or 2x3" in the notes.
-
+* [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=120) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). The OpenAPS-sized case can be made any any pattern/fabric she uses elsewhere on the site.
 
 # Next steps after you get your hardware
 
