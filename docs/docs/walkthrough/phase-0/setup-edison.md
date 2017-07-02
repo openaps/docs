@@ -215,12 +215,14 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
-Log in as root (with the password you just set above), and run:
+Log in as root (with the password you just set above), and run each of the next three commands:
 
     dpkg -P nodejs nodejs-dev
     apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
     apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
     
+Be prepared, the second step above takes quite a long time.
+
 And:
 
     adduser edison sudo
