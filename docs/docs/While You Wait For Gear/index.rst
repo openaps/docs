@@ -5,6 +5,7 @@ While You Wait For Gear
    :maxdepth: 4
 
    
+   collect-data-and-prepare
    loops-in-progress
    nightscout-setup
    understanding-your-Explorer-Board-rig
