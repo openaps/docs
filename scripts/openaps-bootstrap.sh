@@ -8,7 +8,7 @@ wpa_cli scan_res | sort -grk 3 | head | awk -F '\t' '{print $NF}' | uniq
 set -e
 echo -e /"\nWARNING: this script will back up and remove all of your current wifi configs."
 read -p "Press Ctrl-C to cancel, or press Enter to continue:" -r
-echo -e "\nNOTE: Do not use quotes to preserve spaces in the network name and password you enter."
+echo -e "\nNOTE: Spaces in your network name or password are ok. Do not add quotes."
 read -p "Enter your network name: " -r
 SSID=$REPLY
 read -p "Enter your network password: " -r
