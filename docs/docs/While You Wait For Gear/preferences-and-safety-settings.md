@@ -6,6 +6,7 @@ Note: the “max basal” rate is one safety setting that you set in your pump. 
 
 ### Commonly-adjusted preferences:
 
+```
 {
         "max_iob": 0,
         "max_daily_safety_multiplier": 3,
@@ -20,6 +21,7 @@ Note: the “max basal” rate is one safety setting that you set in your pump. 
         "enableSMB_with_temptarget": false,
         "enableUAM": false
 }
+```
 
 #### max_iob: 
 
@@ -123,7 +125,7 @@ To change your max iob in your preferences.json file:
 
 First, you need to change directory:
 
-`cd <myopenaps>`
+`cd myopenaps`
 
 Use the nano text editor to open your preferences.json file:
 
@@ -137,4 +139,4 @@ To check that you have done this successfully run the following:
 
 You should see the amended max IOB you have entered. Remember if you run the setup script in the future, it will default back to 0 max IOB, but you can always follow this same process to change it again.
 
-
+Similarly, if you'd like to add any of the other preferences back in and change the value, copy and paste the name intro your list of preferences.json file, following the format of the example at the top of this page.
