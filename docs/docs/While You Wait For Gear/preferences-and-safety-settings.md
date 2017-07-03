@@ -119,6 +119,10 @@ This is the amount of the maximum number of carbs we'll assume will absorb over 
 
 This is the fraction of carbs we'll assume will absorb over 4h if we don't yet see carb absorption.
 
+#### autotune_isf_adjustmentFraction:
+
+The default of 0.5 for this value keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment, 0 is no adjustment from pump ISF.
+
 ## Editing your preferences.json
 
 To change your max iob in your preferences.json file:
