@@ -123,7 +123,7 @@ If you are running multiple rigs, you can also setup these filters to include th
 
 ![papertrail log filters](../../Images/save_filter.png)
 
-Once you get your desired filters saved, it is an easy process to make them more accessible on your mobile device by using the `add to homescreen` button.  For example, below are the quick links to the saved filters for an OpenAPS user with three rigs...
+Once you get your desired filters saved, it is an easy process to make them more accessible in a web browser on your mobile device.  For example, using the Safari app on an iPhone while viewing the results of one of your filters select the Share button on the bottom of your screen and then press the `Add to Home Screen` button.  Below are the quick links to the saved filters for an OpenAPS user with three rigs...
 
 ![papertrail homescreen buttons](../../Images/papertrail_home_buttons.png)
 
