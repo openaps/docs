@@ -61,10 +61,6 @@ Many people occasionally forget to resume / unsuspend their pump after reconnect
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.
 
-#### enableUAM
-
-This enables detection of unannounced meal (UAM) carb absorption.
-
 #### enableSMB_with_bolus
 
 This enables supermicrobolus for DIA hours after a manual bolus.
@@ -74,6 +70,12 @@ This enables supermicrobolus for DIA hours after a manual bolus.
 This enables supermicrobolus (SMB) while carbs on board (COB) is positive.
 
 #### enableSMB_with_temptarget 
+
+This enables supermicrobolus (SMB) with eating soon / low temp targets. With this feature enabled, any temporary target below 100mg/dL, such as a temp target of 99 (or 80, the typical eating soon target) will enable SMB.
+
+#### enableUAM
+
+This enables detection of unannounced meal (UAM) carb absorption.
 
 ### Other preferences:
 
@@ -107,11 +109,11 @@ This is another safety setting that may be useful for those with secondary careg
 
 This defaults maxCOB to 120 because that's the most a typical body can absorb over 4 hours. (If someone enters more carbs or stacks more; OpenAPS will just truncate dosing based on 120. Essentially, this just limits AMA as a safety cap against weird COB calculations due to fluky data.)
 
-#### remainingCarbsCap
+#### remainingCarbsCap:
 
 This is the amount of the maximum number of carbs we'll assume will absorb over 4h if we don't yet see carb absorption. 
 
-#### remainingCarbsFraction
+#### remainingCarbsFraction:
 
 This is the fraction of carbs we'll assume will absorb over 4h if we don't yet see carb absorption.
 
