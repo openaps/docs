@@ -12,3 +12,4 @@ While You Wait For Gear
    Understand-determine-basal
    monitoring-OpenAPS
    preferences-and-safety-settings
+   understanding-wifi-options
