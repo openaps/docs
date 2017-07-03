@@ -39,17 +39,21 @@ UAM will be triggered if the preference is toggled on and there is carb activity
 
 ## How to turn on SMB/UAM
 
-1. As of July 1, 2017, SMB/UAM and other oref1 features are in the dev branch of OpenAPS. You should be comfortable updating your rig to the dev branch.
+* As of July 1, 2017, SMB/UAM and other oref1 features are in the dev branch of OpenAPS. You should be comfortable updating your rig to the dev branch.
 
-2. To test SMB and UAM, you'll need to run oref0-setup. oref1-related options will be under the advanced features menu. (Or, you can add it via a "microbolus" enable flag to configure it to use SMB in oref0-pump-loop, and also enable the appropriate enableSMB settings in preferences.json). I would enable them one at a time, in your preferred order, and then closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing it in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
+* To test SMB and UAM, you'll need to run oref0-setup. oref1-related options will be under the advanced features menu. (Or, you can add it via a "microbolus" enable flag to configure it to use SMB in oref0-pump-loop, and also enable the appropriate enableSMB settings in preferences.json). I would enable them one at a time, in your preferred order, and then closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing it in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
 There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html) for more details on all the settings, but the short version is:
 
-* enableSMB_with_bolus means SMB will be enabled DIA hours after a manual bolus
-* enableSMB_with_COB means SMB will be enabled when you've entered carbs
-* enableSMB_with_temptarget means SMB will be enabled with eating soon or lower temp targets. For example, if your target is usually 100mg/dL, a temp target of 99 (or 80, the typical eating soon target) will enable SMB. Conversely, a higher temp target (101 if your target is 100) will disable SMB. Related, the second safety phrase you need to know is "gate".
+```
+ * enableSMB_with_bolus means SMB will be enabled DIA hours after a manual bolus
+ * enableSMB_with_COB means SMB will be enabled when you've entered carbs
+ * enableSMB_with_temptarget means SMB will be enabled with eating soon or lower temp targets. 
+ For example, if your target is usually 100mg/dL, a temp target of 99 (or 80, the typical eating soon target) will enable SMB. 
+ Conversely, a higher temp target (101 if your target is 100) will disable SMB. 
+```
 
-3. To test UAM, you'll need to enableUAM in preferences.json. UAM can be enabled without SMB, but it won't be very effective without enableSMB_with_bolus. You'll probably also want to make sure your nightscout is updated to the latest version to make sure that you can take advantage of UAM prediction lines. To test UAM, you'll first want to be familiar with SMB's "normal" behavior, and then test, with a small meal, giving an up-front bolus (of more than 30m worth of basal, so it can be distinguished from an SMB) and not entering carbs. You'll probably also want to do an "eating soon mode" temporary target or bolus beforehand. You can then observe, by watching the NS purple line predictions and the pump-loop.log, whether your OpenAPS rig is SMB'ing appropriately when it starts to see UAM carb impact.
+* To test UAM, you'll need to enableUAM in preferences.json. UAM can be enabled without SMB, but it won't be very effective without enableSMB_with_bolus. You'll probably also want to make sure your nightscout is updated to the latest version to make sure that you can take advantage of UAM prediction lines. To test UAM, you'll first want to be familiar with SMB's "normal" behavior (related, the second safety phrase you need to know is "gate"), and then test, with a small meal, giving an up-front bolus (of more than 30m worth of basal, so it can be distinguished from an SMB) and not entering carbs. You'll probably also want to do an "eating soon mode" temporary target or bolus beforehand. You can then observe, by watching the NS purple line predictions and the pump-loop.log, whether your OpenAPS rig is SMB'ing appropriately when it starts to see UAM carb impact.
 
 ## Troubleshooting
 
