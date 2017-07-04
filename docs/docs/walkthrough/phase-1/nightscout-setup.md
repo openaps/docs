@@ -63,7 +63,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>AUTH_DEFAULT_ROLES</th>
-<td>When `readable`, anyone can view Nightscout without a token. Setting it to `denied` will require authentication. Setting it to `denied` is recommended but requires oref 0.5.0-dev.</td>
+<td>When `readable`, anyone can view Nightscout without a token. Setting it to `denied` will require authentication. Setting it to `denied` requires oref 0.5.0-dev.</td>
 </tr>
 <tr>
 <th>DISPLAY_UNITS</th>
@@ -320,7 +320,7 @@ Here are the steps you need to follow:
 4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout.
 
 5. When all the rigs are 0.5.0 and are all using token based authentication, you can change the environment variables of your Nightscout:
-- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied`. If you don't care about your CGM data being public, you can also set `AUTH_DEFAULT_ROLES` to `readable`, but this is not recommended.
+- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied` if you wish to block read-only access to your Nightscout instance. If you don't mind your CGM data being accessible to anyone with your Nightscout URL, you can just leave `AUTH_DEFAULT_ROLES` as `readable`.
 
 Important:
 - Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the internet
