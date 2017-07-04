@@ -180,3 +180,4 @@ List of people who are working on closed loops:
 - Kyle Larsen (Provo, UT)
 - Ben Fowler (Huntsville, AL)
 - Giuseppe Acito (Roma, Italy)
+- Mark M (Chicago, IL)
