@@ -15,6 +15,7 @@ The rig uploads the following information to NS:
   * current temp basal rate and duration/time set
   * pump status; bolusing or suspended, reservoir volume, pump battery voltage
   * pump notes; time changes, profile changes, battery changes, alarms (these show as grey dots on NS site)
+  * if a MDT enlite user, BGs will be read directly from the pump
   
 * From OpenAPS looping, the additional information is also uploaded:
   * determine-basal information (such as IOB, COB, temp basal enacted, etc) goes to fill out the OpenAPS pill in NS
