@@ -245,12 +245,12 @@ This requires Nightscout 0.9 (Grilled Cheese) and oref0 0.5.0 or later.
 
 This has the following advantages:
 - You can deny public access to your Nightscout. 
-- Each rig uses it's own security token to authenticate to Nightscout.
+- Each rig uses its own security token to authenticate to Nightscout.
 - With the old `API_SECRET` authentication all the rigs had all the privileges to your Nightscout (similar to root or Administrator users).
 - The `API_SECRET` method for authentication rigs/devices is deprecated in Nightscout, and token based authentication is the preferred way.
-- In case you loose a rig or it gets stolen you can deny access to Nightscout for that one rig. Otherwise you need to change your API_SECRET and reconfigure all the other rigs.
+- In case you lose a rig or it gets stolen you can deny access to Nightscout for that one rig. Otherwise you need to change your API_SECRET and reconfigure all the other rigs.
 
-You can migrate each rig individual from `API_SECRET` authentication to token based authentication.
+You can migrate each rig independently from `API_SECRET` authentication to token based authentication.
 If you want to secure your Nightscout and CGM data, then all rigs need to have oref0 version 0.5.0+ and all be configured with token based authentication.
 
 Here are the steps you need to follow:
@@ -294,7 +294,7 @@ Here are the steps you need to follow:
         If so, what is your Nightscout host? (i.e. https://mynightscout.herokuapp.com)? https://mynightscout.herokuapp.com
         Ok, https://mynightscout.herokuapp.com it is.
 
-        Starting with oref 0.5.0 you can use token based authentication to Nightscout. This is preferred and makes it possible to deny anonymous access to your Nightscout instance. It's more secure than using your API_SECRET. Do you want to use token based authentication [Y]/n?y
+        Starting with oref 0.5.0 you can use token based authentication to Nightscout. This makes it possible to deny anonymous access to your Nightscout instance. It's more secure than using your API_SECRET. Do you want to use token based authentication y/[N]? y
         What Nightscout access token (i.e. subjectname-hashof16characters) do you want to use for this rig? myrigname-27c914cabc506fa3
         ```
 
