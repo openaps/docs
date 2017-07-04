@@ -26,4 +26,3 @@ sed -i "s/#compress/compress/g" /etc/logrotate.conf
 curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
 mkdir -p ~/src; cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout master && git pull)
 cd && ~/src/oref0/bin/oref0-setup.sh
-

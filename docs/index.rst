@@ -19,78 +19,79 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Before You Begin
+   :caption: Understanding OpenAPS (Overview)
 
-   # docs/introduction/index
-   Understanding this guide (read me first!) <docs/introduction/understand-this-guide>
-   docs/introduction/contribute
-   docs/introduction/communication-support-channels
+   How OpenAPS works <docs/Understanding OpenAPS-Overview/how-openaps-works-overview>
+   How this guide works/overview of steps <docs/Understanding OpenAPS-Overview/overview-of-build-process>
+   Where to go for help <docs/Understanding OpenAPS-Overview/communication-support-channels>
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: General Setup
-   
-   # docs/walkthrough/phase-0/index
-   docs/walkthrough/phase-0/setup
-   docs/walkthrough/phase-0/baseline-data
-   docs/walkthrough/phase-0/hardware/hardware
-   Compatible Pumps <docs/walkthrough/phase-0/hardware/pump>
-   Compatible CGMs <docs/walkthrough/phase-0/hardware/CGM>
-   docs/walkthrough/phase-0/hardware/edison
-   Understanding the Explorer Board "rig" <docs/walkthrough/phase-0/understanding-your-Explorer-Board-rig>
-   docs/walkthrough/phase-0/setup-edison
-   FOR MAC: Edison/Explorer Board Setup <docs/walkthrough/phase-0/edison-explorer-board-Mac>
-   FOR WINDOWS: Edison/Explorer Board Setup <docs/walkthrough/phase-0/windows-edison>
-   Make Your First PR <docs/walkthrough/phase-0/loops-in-progress>
-   
+   :caption: Gear Up
+
+   docs/Gear Up/hardware
+   Compatible Pumps <docs/Gear Up/pump>
+   Compatible CGMs <docs/Gear Up/CGM>
+   Get your rig parts <docs/Gear Up/edison> 
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Visualizing & Monitoring
+   :caption: While You Wait For Gear
    
-   # docs/walkthrough/phase-1/index
-   Setting up Nightscout (recommended) <docs/walkthrough/phase-1/nightscout-setup>
-   Offline Looping/Monitoring Offline <docs/walkthrough/phase-1/offline-looping-and-monitoring>
-   Papertrail (optional) <docs/walkthrough/phase-1/papertrail>
-   Handy shortcuts to add <docs/walkthrough/phase-1/add-alias>
+   Collect your data & prepare <docs/While You Wait For Gear/collect-data-and-prepare>
+   Make Your First PR <docs/While You Wait For Gear/loops-in-progress>
+   Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
+   Understand your Explorer Board rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
+   Understand determine-basal (OpenAPS math) <docs/While You Wait For Gear/Understand-determine-basal>
+   Monitoring OpenAPS <docs/While You Wait For Gear/monitoring-OpenAPS>
+   Preferences and Safety Settings <docs/While You Wait For Gear/preferences-and-safety-settings>
+   Understanding your wifi options <docs/While You Wait For Gear/understanding-wifi-options>
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
-   :caption: Creating your DIY Closed Loop
+   :caption: Build Your Rig
     
-   #  docs/walkthrough/phase-2/index   
-   --Setup Script-- <docs/walkthrough/phase-2/oref0-setup>
-   Troubleshooting setup script <docs/walkthrough/phase-2/troubleshoot-oref0-setup>
-   docs/walkthrough/phase-2/accessing-your-rig
-   Add other wifi on the go <docs/walkthrough/phase-2/on-the-go-wifi-adding>
-   Update your rig <docs/walkthrough/phase-2/update-your-rig>
-   
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Understanding Your Loop and Tweaking Settings
-   
-   # docs/walkthrough/phase-3/index  
-   Understand what your rig is doing & why <docs/walkthrough/phase-3/Understand-determine-basal>
-   Updating preferences & more <docs/walkthrough/phase-3/beyond-low-glucose-suspend>
+   Installing OpenAPS <docs/Build Your Rig/OpenAPS-install>
+   Tell us you’re looping <docs/Build Your Rig/keeping-up-to-date>
+
 
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Advanced Features 
+   :caption: Customize-Iterate
+
+   Enable Bluetooth tethering <docs/Customize-Iterate/bluetooth-tethering-edison>
+   IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
+   Autosens <docs/Customize-Iterate/autosens>
+   Autotune <docs/Customize-Iterate/autotune>
+   Understanding Autotune <docs/Customize-Iterate/understanding-autotune>
+   oref1: SMB and UAM <docs/Customize-Iterate/oref1>
+   Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
+   Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
+   Tips & tricks <docs/Customize-Iterate/usability-considerations>
+   Update your rig in the future <docs/Customize-Iterate/update-your-rig>
+   How to run oref0-setup.sh again <docs/Customize-Iterate/oref0-runagain>
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Troubleshooting
    
-   # docs/walkthrough/phase-4/index  
-   Usability: Tips & Tricks <docs/walkthrough/phase-4/Usability-considerations>
-   Tell us you're looping! <docs/walkthrough/phase-4/keeping-up-to-date>
-   Advanced Features (AMA, etc.) <docs/walkthrough/phase-4/advanced-features>
-   docs/walkthrough/phase-4/bluetooth-tethering-edison
-   docs/walkthrough/phase-4/ifttt-integration
-   docs/walkthrough/phase-4/autotune
-   oref1 <docs/walkthrough/phase-4/oref1-features>
-   docs/walkthrough/phase-4/data-commons-data-donation
+   General linux troubleshooting <docs/Troubleshooting/General_linux_troubleshooting>
+   Pump-rig troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
+   CGM-rig troubleshooting <docs/Troubleshooting/CGM-rig-communications-troubleshooting>
+   Rig-NS troubleshooting <docs/Troubleshooting/Rig-NS-communications-troubleshooting>
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Give Back-Pay It Forward
+
+   Donate your data <docs/Give Back-Pay It Forward/data-commons-data-donation>
+   Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
 
 .. toctree::
    :maxdepth: 2
@@ -98,5 +99,3 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :caption: Resources/Reference
    
    Resources <docs/Resources/index>
-   reference/index
-

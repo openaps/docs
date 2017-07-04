@@ -17,33 +17,21 @@ This community of contributors believes in paying it forward, and individuals wh
 
 
 ----------
-## OpenAPS System Development Phases
-
+## Building an OpenAPS 
 This documentation is organized into a series of phases that progressively build upon the openaps development tools towards a working OpenAPS system.
 
-The phases are as follows:
+1. Get the equipment you need; record baseline data, configure your hardware, install software, and become familiar with the openaps environment. 
 
-* **Phase 0: General Setup**<br>
-Get the equipment you need; record baseline data, configure your hardware, install software, and become familiar with the openaps environment. 
+2. Prepare Nightscout or other visualization tools that are key for monitoring a closed loop; get familiar with OpenAPS decision-making.
 
-* **Phase 1: Monitoring and Visualization Setup**<br>
-Prepare Nightscout or other visualization tools that are key for monitoring a closed loop.
+3. Use the script to enable wifi on your rig and build a basic loop.
 
-* **Phase 2: Creating a PLGM or open loop**<br>
-Use the setup script to build a basic loop; you can choose to run the loop manually ("open loop" mode), or automate your loop. At this stage, you should review and refine algorithms, test different scenarios for safety, etc.
-
-* **Phase 3: Understanding Your Loop and Tweaking Settings**<br>
-Analyze the basal recommendations that are outputted from your system; run in a test environment for multiple days to configure safety settings that are right for you before moving forward. 
-
-* **Phase 4: Iterate and Improve the Closed Loop**<br>
-At the end of the previous stages and after 3 consecutive nights with no hardware failures and at least 1 night without low alarms, you can move into advanced features like advanced meal assist (AMA) and auto-sensitivity tuning ("autosens" and "autotune"), and improve the functionality of the system with additional software or hardware development.
+4. Customize & iterate your loop with advanced features
 
 ----------
 **You may be looking for:**
 
 * [Live help with your implementation](http://openaps.readthedocs.io/en/latest/docs/introduction/communication-support-channels.html) (Hint: [Check out this Gitter channel](https://gitter.im/nightscout/intend-to-bolus))
-
-* ["Old" setup directions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/manual/index.html)
 
 *  [OpenAPS Reference Design](https://openaps.org/reference-design/)
 
