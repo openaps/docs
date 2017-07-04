@@ -43,7 +43,7 @@ Your NS data is stored in a place called an mLab database.  This mLab database i
 
 If you are seeing strange behavior in your previously-working-fine NS site, go ahead and check your mLab database.  To access your mLab database, you will need to click on the mLab integration from within your Heroku dashboard as shown below
 
-![mLab access from Heroku dashboard](../Images/mlab-link.jpg) 
+![mLab access from Heroku dashboard](../Images/mlab_link.jpg) 
 
 From that screen, you will need to click on the HOME link near the top left of the page.
 
@@ -51,7 +51,7 @@ From that screen, you will need to click on the HOME link near the top left of t
 
 The resulting screen will show you the important information to direct where you need to take action. There are **TWO areas where the 500 MB data limit can be an issue**.  One issue area is the `size on disk`, which is the virtual space that your database takes up.  As data is written onto your database, sometimes it is written inefficiently and virtually "spreads out" to take up more room than it normally would. The other issue area is the `size` which is the actual data stored in your database.  Depending on where your issue is, you may need to **compact data (if `size on disk` is the issue)** or **cleanout data (if `size` is the issue)**. 
 
-![mLab database sizes](../Images/mlab-size2.jpg) 
+![mLab database sizes](../Images/mlab_size2.jpg) 
 
 ### Compact data
 
@@ -88,15 +88,15 @@ If your mLab database issue is `size `, then you will need to cleanout some of t
 
 ![mLab collection select](../Images/delete-docs.png) 
 
-*  You can confirm that your cleanout has resolved the problem, by checking that your database size is below 500 MB now.  Click on the `Home` link in top left.  Then review the size of the database as shown.
+*  You can confirm that your cleanout has resolved the problem, by checking that your database size is below 500 MB now.  Click on the `Home` link in top left.  Then review the size of the database as shown (note: Screenshots are from different databases...they are just to show how to navigate and what results you are looking for. Minor inconsistencies in continuity of the screenshots should be ignored).
 
-![mLab collection select](../Images/mlab_size.png) 
+![mLab collection select](../Images/mlab_size.jpg) 
 
 #### Nightscout Admin Tools
 
 If you go to your Nightscout site's settings (the three horizontal bars in the upper right of your Nightscout site), you will be able to access your Admin Tools for the site.  These include some useful quick mLab actions, includig deleting documents from the `devicestatus` collection similar to the action we took in the steps above.  But, it's worth noting that if you have errant future data in your Nightscout site that is causing problems (usually during time changes or overseas travel), you can clean-out future entries through this portal, too.
 
-![mLab collection select](../Images/admin-tools.jpg) 
+![mLab collection select](../Images/admin_tools.jpg) 
 
 ## Future data
 
