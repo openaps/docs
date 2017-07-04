@@ -1,4 +1,4 @@
-# Troubleshooting communications issues between the rig and Nightscout
+# Troubleshooting Nightscout issues
 
 The rig and Nightscout are good friends. Information is usually two-way so long as the rig has access to the internet (aka, online use).  When rigs go "offline", NS will go stale until internet is again available.
 
