@@ -104,7 +104,7 @@ Sometimes data gets recorded into your NS site that can be date stamped into the
 
 ## Nightscout info incorrect
 
-There are three pills (aka, information boxes) that are noteworthy about your NS display.
+There are three pills (aka, information boxes) that are noteworthy about your NS display, and that people commonly interpret as "incorrect" despite all the warnings/explanations in these docs.
 
 * **IOB** pill will normally display the IOB reported by your OpenAPS pill.  If your loop is failing or NS communications are down because the rig has gone offline, there's a good possibility that your IOB pill will be displaying an incorrect IOB based on the careportal's method of calculating IOB (rather than OpenAPS's way).  You can determine the source of your IOB pill's information by clicking or hovering on the pill.  If the pills says "OpenAPS", then it's good to use that data.  Additionally, it should report the portion of IOB termed "basal IOB", which is the IOB from of temp basal adjustments and SMBs, if enabled.
 
