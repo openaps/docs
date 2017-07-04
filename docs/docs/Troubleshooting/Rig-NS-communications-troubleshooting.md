@@ -27,12 +27,11 @@ The rig uploads the following information to NS:
 
 The careportal "treatment" entries and BG data are the two most important items transmitted from NS to the rig.
 
-* Careportal entries transmitted and USED by the loop are:
+* Careportal entries transmitted and **USED** by the loop are:
   * carb entries
   * temp BG targets
-  
-* Careportal entries NOT used by the loop are:
-  * insulin treatment entries; boluses must be read from the pump itself.
+
+* BG values from Dexcom share servers via the NS bridge
 
 ## mLab maintenance
 
