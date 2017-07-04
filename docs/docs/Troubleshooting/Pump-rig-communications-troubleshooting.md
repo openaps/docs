@@ -2,7 +2,7 @@
 
 ## Basics of communications
 
-If your looping is to be successful, you will need good communications between the pump and rig.  They communicate with each other using radio frequency (rf).  If you have an North American (NA) pump, the rf band used is 915 mHz.  If you have a European (WW) pump, the rf band is 858 mHz.  As part of the setup script, you will be telling the rig which type of pump you have so that it can properly use the right rf band to communicate with the pump.  When the rig wants to talk with the pump, it will start by "tuning the rf"...basically it will try several frequencies around the 915 mHz frequency and choose the exact frequency that has the strongest reponse.  The tuning process for the pump is called "mmtune".
+If your looping is to be successful, you will need good communications between the pump and rig.  They communicate with each other using radio frequency (rf).  If you have an North American (NA) pump, the rf band used is 916 mHz.  If you have a European (WW) pump, the rf band is 858 mHz.  As part of the setup script, you will be telling the rig which type of pump you have so that it can properly use the right rf band to communicate with the pump.  When the rig wants to talk with the pump, it will start by "tuning the rf"...basically it will try several frequencies around the 916 mHz frequency and choose the exact frequency that has the strongest reponse.  The tuning process for the pump is called "mmtune".
 
 For example, here's the results of a pump tune:
 ```
@@ -38,7 +38,7 @@ For example, here's the results of a pump tune:
   "usedDefault": false
   ```
   
-The rig scanned frequencies between 916.300 and 916.876 mHz, and set the frequency for pump communications to 916.612 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  Results of `0, -99` indicate no pump communications are going on.  This is an undesireable result.  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.588, 916.612, and 916.636 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
+The rig scanned frequencies between 916.300 and 916.876 mHz, and set the frequency for pump communications to 916.612 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  **Results of `0, -99` indicate NO pump communications.  This is an undesireable result.**  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.588, 916.612, and 916.636 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
 
 ### How can you see the results of your pump tuning?
 
@@ -59,7 +59,7 @@ mmtune: "916.636", 5, -89 waiting for 58 second silence before continuing
 
 2. If you setup Papertrail, search for mmtune.  For example, as shown:
 
-![Papertrail mmtune results](../../Images/papertrail-mmtune-sample.png) 
+![Papertrail mmtune results](../Images/papertrail-mmtune-sample.png) 
 
 
 3. If you want to manually preform an mmtune, login to your rig and `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps mmtune && sudo service cron start` will show the selected frequency of the entire scan, for example, here's the terminal results of that command on a rig called edison3:
