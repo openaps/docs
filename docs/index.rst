@@ -55,6 +55,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :caption: Build Your Rig
     
    Installing OpenAPS <docs/Build Your Rig/OpenAPS-install>
+   512/712 pump users <docs/Build Your Rig/x12-users>
    Tell us you’re looping <docs/Build Your Rig/keeping-up-to-date>
 
 
