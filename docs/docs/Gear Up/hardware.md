@@ -18,7 +18,7 @@ suggestions.
 To start, here is a high-level guide for understanding if your pump is
 compatible for OpenAPS. To be compatible, we must be able to send remote temporary basal rate commands to it.
 
-!["Can I do OpenAPS with this pump?"](../Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
+!["Can I do OpenAPS with this pump?"](../Images/Can_I_close_the_loop_with_this_pump_May_20_2016.jpg)
 
 If you're interested in working on communication for another pump (Omnipod,
 Animas, etc), [click here](http://bit.ly/1nTtccH) to join the collaboration
