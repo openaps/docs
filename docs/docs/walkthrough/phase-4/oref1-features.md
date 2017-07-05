@@ -2,7 +2,7 @@
 
 NOTE OF CAUTION:
 * oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
-* As of July 1, oref1-related features are still being tested in the "dev" branch. 
+* As of July 1, oref1-related features are still being tested in the "dev" branch. In order to enable SMB, you'll need to read the docs carefully for information required in the setup script to enable oref1-related features.
 
 ## Only run oref1 with the following caveats in mind: 
 
