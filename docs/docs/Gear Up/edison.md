@@ -41,7 +41,7 @@ The antenna on the Explorer board is a strip of copper underneath the green oute
 
 If you're unsure whether you need to cut your Explorer Board's antenna, you probably don't.  And if you decide you need slightly more range after using the Edison+Explorer rig for a few weeks, you can always come back later and do so then.
 
-![Image of Antenna](antenna0.jpg)
+![Image of Antenna](../Images/antenna0.jpg)
 
 ## Radio stick (only if not using Explorer Board)
 
