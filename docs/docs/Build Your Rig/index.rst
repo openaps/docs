@@ -6,4 +6,5 @@ Build your rig
 
    
    OpenAPS-install
+   x12-users
    keeping-up-to-date
