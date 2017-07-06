@@ -25,6 +25,7 @@ echo -e "\n/etc/wpa_supplicant/wpa_supplicant.conf:\n"
 cat wpa_supplicant.conf
 echo -e "\nAttempting to bring up wlan0:\n"
 ifdown wlan0; ifup wlan0
+sleep 10
 echo -ne "\nWifi SSID: "; iwgetid -r
 sleep 5
 # TODO check for options to fix the certificate activation error message for https
