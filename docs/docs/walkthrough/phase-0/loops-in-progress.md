@@ -181,3 +181,4 @@ List of people who are working on closed loops:
 - Ben Fowler (Huntsville, AL)
 - Giuseppe Acito (Roma, Italy)
 - Mark M (Chicago, IL)
+- Chris Reilly (Detroit, MI)
