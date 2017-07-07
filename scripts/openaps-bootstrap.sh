@@ -1,5 +1,6 @@
 #!/bin/bash
 (
+dmesg -D
 echo Scanning for wifi networks:
 ifup wlan0
 wpa_cli scan
