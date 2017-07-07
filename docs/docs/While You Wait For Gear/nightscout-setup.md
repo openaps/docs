@@ -28,7 +28,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup before the app will deploy.  You'll need confirm your Heroku account by clicking a link sent via email.
 
-![Heroku signup example](../phase-1/img/heroku_signup.jpg)
+![Heroku signup example](../Images/nightscout/heroku_signup.jpg)
 
 * Create an account at [GitHub](https://github.com)
 *****************
@@ -38,11 +38,11 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Click the `Fork` button in the upper right corner
 
-![Fork example](../phase-1/img/ns_fork.jpg)
+![Fork example](../Images/nightscout/ns_fork.jpg)
 
 * Scroll down until you see the purple `Deploy to Heroku` button.  Click that button.
 
-![Deploy to heroku button](../phase-1/img/deploy_heroku.jpg)
+![Deploy to heroku button](../Images/nightscout/deploy_heroku.jpg)
 
 * Give your app a name, this will be the prefix of your NS site’s URL. For example, `https://yourappname.herokuapp.com`
 
@@ -130,29 +130,29 @@ You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which 
 
 * Click the purple `Deploy` button at the bottom of screen.
 
-![Deploy](../phase-1/img/deploy_button.jpg)
+![Deploy](../Images/nightscout/deploy_button.jpg)
 
 * Wait a little bit while Heroku builds your NS app.  You’ll see some text scroll by in the Build App box, and then finally, you will have a message that the NS app was successfully deployed.  If the app fails to deploy, it may be that you have not added your credit card information to your account yet.  Go add that information in your account billing section, and then come back and press the deploy button again.  Don't worry, your account is still free unless you choose otherwise.  The credit card simply gives you added dyno hours on your free account (win-win).
 
-![Successful deploy](../phase-1/img/deploy_success.jpg)
+![Successful deploy](../Images/nightscout/deploy_success.jpg)
 
 * You can verify your site’s successful build by clicking `View` (you should see black site with a profile warning).  You will be redirected to a profile set-up page.  (If it doesn't redirect automatically, refresh your webpage).  
 
-![No profile](../phase-1/img/no_profile.jpg)
+![No profile](../Images/nightscout/no_profile.jpg)
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
 **Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into Nightscout profile. You will need to keep the Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering.
 
-![Profile for basals](../phase-1/img/profile.jpg)
+![Profile for basals](../Images/nightscout/profile.jpg)
 
 * Assuming your previous browser tab is still open for "Create a new App | Heroku", let's go back to that tab.  This time instead of choosing the `View` option, we are going to select the `Manage App` button. Then, select the `Settings` tab near the top of the screen on your Heroku app.
 
-![Heroku settings](../phase-1/img/settings_heroku.jpg)
+![Heroku settings](../Images/nightscout/settings_heroku.jpg)
 
 * Click on `Reveal Config  Vars`. Scroll down the bottom of the Config Vars lines until you find the last blank one.  You are going to add several additional lines of config vars for OpenAPS use; the DEVICESTATUS_ADVANCED is a required line, the others just make Nightscout more useful when using OpenAPS.
 
-![Add vars](../phase-1/img/add_vars.jpg)
+![Add vars](../Images/nightscout/add_vars.jpg)
 
 <table border="1">
 <thead>
@@ -225,7 +225,7 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 * Click on `Open App` in the top right corner of your Heroku site.
 
-![Open app](../phase-1/img/open_app.jpg)
+![Open app](../Images/nightscout/open_app.jpg)
 
 
 * Click on the settings (those three horizontal lines in upper right corner).  Now check that your basal render is selected to either default or icicle (personal preference for how the temp basals show as blue lines in NS site), check the boxes that you’d like display pills in the SHOW PLUGINS (usually all of them), and then press save. 
@@ -235,7 +235,7 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 Your NIGHTSCOUT site is now all set-up.  Congrats!
 
-![NS Settings](../phase-1/img/settings_ns.jpg)
+![NS Settings](../Images/nightscout/settings_ns.jpg)
 
 ### It's not working - I'm missing data in Nightscout? 
 
@@ -249,7 +249,7 @@ If you are using a "test pump" that has not received sufficient data in some tim
 
 **Note:** It's a good idea to to check your deployment connection in Heroku's dashboard after your deploy (typically this still needs to be manually connected after initial setup).  Go your `Deploy` tab in your Heroku dashboard, click on the GitHub service, and select your GitHub cgm-remote-monitor repository.  You can select the cgm-remote-monitor branch you'd like to deploy at the bottom of the screen.  Both master and dev branches work for OpenAPS.
 
-![Deploy branch](../phase-1/img/deploy_branch.jpg)
+![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 
 
 ### A Note about Nightscout's COB Pill
@@ -292,4 +292,4 @@ You probably somehow got a future-dated treatment. One possible reason is a cloc
 **To remove future treatments:**
 * Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). If the future treatments were caused by a time mismatch, you'll need to resolve that first, or the future dated treatments may simply be re-uploaded.
 
-![How to delete future-dated treaments](../../Images/Remove_future_treatments.png)
+![How to delete future-dated treaments](../Images/Remove_future_treatments.png)

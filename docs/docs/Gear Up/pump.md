@@ -1,58 +1,38 @@
 # Information about compatible insulin pumps
 
-!["Can I do OpenAPS with this pump?"](../Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
+!["Can I do OpenAPS with this pump?"](../Images/Can_I_close_the_loop_with_this_pump_May_20_2016.jpg "Can I do OpenAPS with this pump?")
+
+As you can see from the flowchart above, most of the commercial pumps currently available are not compatible with OpenAPS; only a small selection of older Medtronic pumps are compatible.  For those pumps which are not compatible, we suggest the advocacy option of calling the pump manufacturer and informing them of the need for availability of pumps for DIY closed looping systems.  Thus far, there has been not been a receptive pump company to these requests.  Omnipod, Animas, T-Slim, and newer Medtronic pumps are still not compatible.
 
 Currently, only the following Medtronic MiniMed models allow us to remotely set temporary basal rate commands, which is required to do OpenAPS:
 
-    512/712
-    515/715
-    522/722
+    512/712 (all firmware)
+    515/715 (all firmware)
+    522/722 (all firmware)
     523/723 (with firmware 2.4A or lower)
     554/754 (European Veo, with firmware 2.6A or lower; OR Canadian Veo with firmware 2.7A or lower)
 
 NOTE: For European/WorldWide users who have access to a `DANA*R` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R` pump. [See here for instructions and details related to AndroidAPS](https://github.com/MilosKozak/AndroidAPS).
 
-## How to check pump firmware (check for presence of PC Connect)
+## How to check pump firmware (check for absence of PC Connect)
 
-To check firmware, hit Esc on the home screen and scroll all the way to the bottom. You can also go into the Utilities menu and "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will not work for looping. If it’s absent, it should be able to receive temp basal commands.)
+The firmware version will briefly display after the initial count-up on a new battery insertion.  After the pump has been on for awhile, you can check firmware version by using the Esc button on the pump and scroll all the way to the bottom of the screen messages using the down arrow on pump. 
 
-If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
+A double-check for pump compatibility is to look for the ABSENCE of PC connect in the pump menu.  Press the ACT button, scroll down to the the "Utilities" menu, and within the "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will NOT work for looping. If it’s absent, the pump should be able to receive temp basal commands and be compatible.
 
-## Why do I need a certain pump firmware
+If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.  This repair is quite straight-forward and easy.
 
-Due to changes in the firmware, the openaps tools are only able to function in
-full on the above pump models. Security features were added after the firmware
-version 2.4 in the US that prevent making some remote adjustments via the CareLink USB
-stick. Each pump series is slightly different, and openaps functionality is
-still being ironed out for some of them. For 512/712 pumps, certain commands
-like Read Settings, BG Targets and certain Read Basal Profile are not available,
-and requires creating a static json for needed info missing to successfully run
-the loop ([see example here](http://bit.ly/1itCsRl)).
+## Why do I need a certain pump firmware?
 
-If you are not based in the US, some later model pumps and firmware may be compatible. Check for PC Connect presence to determine compatibility.
+Due to changes in the firmware, the openaps tools are only able to function in-full on the above pump models. Security features were added after firmware v2.4 in the US that prevent making some remote adjustments via the decoded communications OpenAPS uses. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a special files for the missing info to successfully run the loop ([Instructions for 512/712 users, click here](http://bit.ly/1itCsRl)).
+
+If you are not based in the US, some later model pumps and firmware may be compatible as listed above. Check for PC Connect absence to determine compatibility.
+
+One of the most frequently asked questions is "I have a 723 pump but it has version 2.5B software version.  Has anyone figured out a way to make newer model Medronic pumps compatible?  Like flash older version of software onto my 723 2.5B pump?"  The answer is "No.  The ability to downgrade software versions in the pumps does not exist.  It has been investigated and nobody has made any successful progress to that end."
 
 ## Tips for finding a compatible pump
 
-If you need to acquire an appropriate pump check CraigsList or other sites like
-Medwow or talk to friends in your local community to see if there are any old
-pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. [SearchTempest](http://www.searchtempest.com) is a great tool for searching Craigslist nationally all at once. In addition to searching for listings, consider posting an offer to Craigslist or ask around local community groups.
+If you need to acquire a compatible pump, check CraigsList or other sites like Medwow or talk to friends in your local community to see if there are any old pumps lying around in their closets gathering dust. [MedWow](http://www.medwow.com) is an eBay-like source for used pumps. [SearchTempest](http://www.searchtempest.com) is a great tool for searching Craigslist nationally all at once. In addition to searching for listings, consider posting an offer to Craigslist or ask around local community groups.
 
-Note: If you're buying a pump online, we recommend you ask the seller to confirm the
-firmware version of the pump. (You may also want to consider asking for a video
-of the pump with working functionality before purchasing.)
+If you're buying a pump online, we recommend you ask the seller to confirm the firmware version of the pump. (You may also want to consider asking for a video of the pump with working functionality before purchasing.)
 
-## Make sure you understand your pump basics
-
-If you are considering moving from Multiple Daily Injections (MDI) to an insulin pump - or changing brands/types of pumps - it is important that you have VERY detailed knowledge about the way a pump works. Insulin pumps use both basal and bolus settings for dosing and only use fast acting insulin. If you just purchased a compatible pump you are probably eager to start closing the loop. OpenAPS uses the settings and information that is manually set by the user (usually with help from their Healthcare Provider) into the pump to make dosing adjustments. First things first: make sure you understand how to safely use your pump in "manual mode" before proceeding.
-
-## Battery usage
-
-Repeated wireless communication with the pump drains the battery quite quickly.
-With a loop running every five minutes, a standard alkaline AAA—recommended by
-Medtronic—lasts somewhere between four to six days before the pump goes to a
-"Low Battery" state and stops allowing wireless transmission. Lithium batteries
-last significantly longer but do not give much warning when they are about to
-die, but alerts can be created in Nightscout to provide warning about the status of the
-battery. For further information on batteries, see
-[this study](https://gist.github.com/channemann/0a81661b78703fcb8da6) on AAA
-battery use in a looping pump.

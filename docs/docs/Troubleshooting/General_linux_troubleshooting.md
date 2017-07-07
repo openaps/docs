@@ -1,15 +1,16 @@
 # General linux and other guide/troubleshooting basic
 
-Some conventions used in this guide:
+Some conventions used in these docs:
 
-* Wherever you see text that is formatted `like this`, it is a code snippet. You should copy and paste instead of attempting to type this out; this will save you debugging time for finding your typos.
+* Wherever you see text that is formatted `like this`, it is a code snippet. You should copy and paste those code snippets instead of attempting to type these out; this will save you debugging time for finding your typos.
+* Double check that your copy-paste has copied correctly.  Sometimes a paste may drop a character or two and that will cause an error in the command that you are trying to execute.  Sometimes, depending on what step you are doing, you may not see the issue.  So, do make a point of double checking the paste before pressing return.
 * You will see a <tt>$</tt> at the beginning of many of the lines of code. This
   indicates that it is to be entered and executed at the terminal prompt. Do not type in the dollar sign <tt>$</tt>.
-* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `myopenaps` as your  `<myopenaps>`, you must use `myopenaps` every time you see `<myopenaps>`. Choose carefully when naming things. Do not include the `< >` brackets in your name.
+* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `myedison` as your  `<edisonhostname>`, you must use `myedison` every time you see `<edisonhostname>`. Do not include the `< >` brackets in your commands when you enter them.  So for the example above, if the code snipped says `ssh root@<edisonhostname>.local`, you would enter `ssh root@myedison.local`
 
 ### Before you get started
 
-Some familiarity with using the terminal will go a long way, but is not required for getting started.  Terminal (or PuTTY) is basically a portal into your rig, allowing us to use our computer's display and keyboard to communicate with the little [Edison or Pi] computer in your rig.  The active terminal line will show your current location, within the computer's file structure, where commands will be executed.  The line will end with a <tt>$</tt> and then have a prompt for you to enter your command.  
+Some familiarity with using the Terminal app (Mac computers) or Putty (Windows computers) will go a long way, but is not required for getting started.  Terminal (or PuTTY) is basically a portal into your rig, allowing us to use our computer's display and keyboard to communicate with the little [Edison or Pi] computer in your rig.  The active terminal line will show your current location, within the computer's file structure, where commands will be executed.  The line will end with a <tt>$</tt> and then have a prompt for you to enter your command.  
 
 There are many commands that are useful, but some of the commands you'll get comfortable with are: 
 
@@ -20,6 +21,12 @@ There are many commands that are useful, but some of the commands you'll get com
 * `cat` means "concatenation" - it will show you the contents of a file if you `cat <filename>`.  Very useful when trying to see what you have in preferences or other oref0 files.
 
 * `vi` and `nano` are both editing command prefixes.  Using those will bring you into files for the purposes of editing their contents.  It is like `cat` except you will be able to edit.
+  * Within `vi` editor, you will need to enter the letter `i` to begin INSERT mode (and a little INSERT word will be shown at the bottom of the screen once you do that).  While in INSERT mode, you will be able to make edits.  To exit INSERT mode, you will press `esc`.  To save your changes and quit, you need to exit INSERT mode and then type `:wq`.
+  * Within `nano` editor, you are automatically in editing mode.  You can make your edits and then to exit and save, you'll use `control-x`, `y` (to save the edits), and then `return` to save the edits to the same filename you started with.
+
+* Up and Down arrow keys can scroll you back/forward through the previous commands you've entered in the terminal session.  Very useful if you don't want to memorize some of the longer commands.
+
+* `Control-r` will let you search for previous commands.
 
 One other helpful thing to do before starting any software work is to log your terminal session. This will allow you to go back and see what you did at a later date. This will also be immensely helpful if you request help from other OpenAPS contributors as you will be able to provide an entire history of the commands you used. To enable this, just run `script <filename>` at the beginning of your session. It will inform you that `Script started, file is <filename>`. When you are done, simply `exit` and it will announce `Script done, file is <filename>`. At that point, you can review the file as necessary.
 
