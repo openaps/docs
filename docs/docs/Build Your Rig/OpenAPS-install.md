@@ -26,7 +26,9 @@ It will run for a while again, and then ask you for the following:
 
 * Pick your time zone. (i.e. in the US, you'd hit enter on US; and scroll and find your time zone, such as Eastern)
 
-It will then continue to run a while (~10+ minutes) before initiating the oref0-setup.sh script automatically, which will ask you for the following:
+It will then continue to run a while (~10+ minutes) before initiating the oref0-setup.sh script automatically, which will ask you for the items below.
+
+If anything fails during the installation, it may end early before it asks you these questions.  In that case, you can just paste the script into the command line again and try it again.  (Don't try to use the up arrow, it probably won't work.)
 
 **Be prepared to enter the following items:** 
 
