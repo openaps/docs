@@ -182,3 +182,4 @@ List of people who are working on closed loops:
 - Giuseppe Acito (Roma, Italy)
 - Mark M (Chicago, IL)
 - Chris Reilly (Detroit, MI)
+- Rod Snyder (Morgantown, WV, USA)
