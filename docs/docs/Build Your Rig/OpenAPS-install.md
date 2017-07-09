@@ -55,11 +55,11 @@ If this is your first build, after it reboots it will prompt you to log back in.
 
 Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
 
-## How to watch your logs - REQUIRED!
+## Watch your Pump-Loop Log - REQUIRED!
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
-It's easy: simply type the letter `l` (for logs). (*This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`*.)
+It's easy: simply type the letter `l` (short for "log", aka the very important pump-loop.log). (*This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`*.)
 
 If this is your first loop build, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
@@ -126,9 +126,9 @@ If after 20 minutes, you still have some errors showing, it may be time to head 
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
-This will work anytime, anywhere when you log into your rig and is a necessary step for troubleshooting in the future. Do not move forward without having done this step. 
+Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
 
-The pump-loop log is not the only log your rig generates.  There are also several other loop logs contained within your OpenAPS setup such as:
+Note: The pump-loop log is not the only log your rig generates.  There are also several other loop logs contained within your OpenAPS setup such as:
 
 * Autosens log: `tail -F /var/log/openaps/autosens-loop.log`
 
