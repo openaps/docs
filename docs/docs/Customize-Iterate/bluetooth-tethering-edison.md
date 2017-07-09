@@ -19,7 +19,7 @@ A few things to know about using your phone's hotspot feature:
 * If you choose **wifi hotspot**, you must manually turn it on; wait for the rig to connect; and when you get home, you must manually turn it off or your rig might not switch to your home wifi (depending on your settings in wpa_supplicant.conf). This option also consumes more battery on the phone.
 * If you choose to enable **BT tethering**, it takes more work to set it up, but it will automatically pick up when your rig loses wifi (i.e. walking out the door) without you even having to pull your phone out of your pocket; it automatically allows the rig to pick back up on wifi when it finds a known wifi network; and it consumes less battery on the phone compared to your wifi hotspot.
 
-![Bluetooth papertrail oref0 online switch](../../Images/BT_papertrail.PNG)
+![Bluetooth papertrail oref0 online switch](../Images/BT_papertrail.PNG)
 
 ### Phone selection for BT Tethering
 
@@ -77,7 +77,7 @@ root@edisonhost:~# bluetoothd --version
 `sudo /usr/local/bin/bluetoothd --experimental &`
 
 As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
-![Bluetooth sudo commands](../../Images/BT_sudos.png)
+![Bluetooth sudo commands](../Images/BT_sudos.png)
 * Wait at least 10 seconds, and then run:  
 `sudo hciconfig hci0 name $HOSTNAME`
 
@@ -100,7 +100,7 @@ agent on
 
 default-agent
 ```
-![Bluetooth pairing](../../Images/BT_pairing.png)
+![Bluetooth pairing](../Images/BT_pairing.png)
 
 For Android
 ********************************
