@@ -16,7 +16,7 @@ On the iPhone, download these two apps:
 * Termius – SSH Shell/Console/Terminal 
 * iNet
 
-![Example of apps](../../Images/Example_iphone_apps.png)
+![Example of apps](../Images/Example_iphone_apps.png)
 
 ## 2. Hotspot connect iPhone and rig
 
@@ -24,36 +24,36 @@ You should have already added your iPhone’s hotspot info to the wifi network l
 
 But, as a hint, you can find your iPhone hotspot information under Settings, Personal Hotspot. Your network name and password are listed there.  Use the `vi /etc/wpa_supplicant/wpa_supplicant.conf` command while logged on the rig from a computer.
 
-![Personal hotspot](../../Images/personal_hotspot.png)
+![Personal hotspot](../Images/personal_hotspot.png)
 
 We’ve made sure your iPhone is in the rig’s network list (technically called a “wpa supplicant list”).  Now get in a place where your rig is not on another network.  In other words, if you are at home…turn off your wifi for a bit by unplugging your router.  Or get in your car and drive a few blocks away.  We need the rig to connect to your iPhone hotspot.  
 
 You can tell your rig is connected to your iPhone when you see a blue bar above the screen.  It will tell you one “1 Connection”…and that is your rig!  Yes.
 
-![Successful hotspotting](../../Images/hotspot_running.png)
+![Successful hotspotting](../Images/hotspot_running.png)
  
 ## 3. Get an IP address for the rig
 
 * Open the iNet app
 
 * Click on the big “NETWORK SCANNER” 
-![Network scanner app](../../Images/network_scanner.png)
+![Network scanner app](../Images/network_scanner.png)
 
 * Click on the three little bars in the upper right, and then choose “Scan Settings” from the drop down list that will appear.
 
-![Scan settings](../../Images/scan_settings.png)
+![Scan settings](../Images/scan_settings.png)
 
 * Edit the Start IP and End IP scan settings to  172.20.10.1 and 172.20.10.20  (devices connected to your iPhone hotspot will be in that range).
 
 * Press the blue/black “Scan” button on the bottom right of the screen (it may be a little hidden because the display gets a little pushed down by the hotspot bar on the top of iPhone).
 
-![Edit start and end IP and pres scan](../../Images/edit_network_scanner.png)
+![Edit start and end IP and pres scan](../Images/edit_network_scanner.png)
 
 * The scan results should show a device labeled “edisonhost” (or whatever name you chose for the rig in the setup process.  If you don’t see it quickly, try rescanning.
 
 * Copy down  or screenshot the IP address listed under the device. (in this example, 172.20.10.10) 
 
-![Successful network scanner screen](../../Images/successful_network_scanner.png)
+![Successful network scanner screen](../Images/successful_network_scanner.png)
 
 We are all done with the iNet app. 
 
@@ -73,11 +73,11 @@ Password – Enter your rig’s root password (default is “edison” but you l
 
 Click “Save” in the upper right corner.
 
-![Terminus adding new hosts](../../Images/Terminus_add_new_host.png)
+![Termius adding new hosts](../Images/Terminus_add_new_host.png)
 
 Congrats…you should now see the host you just created.  If you click on that host, you’ll see a message that it is connecting and then…
 
-![Terminus with hosts showing](../../Images/Terminus_with_hosts.png)
+![Termius with hosts showing](../Images/Terminus_with_hosts.png)
 
 ## 5. Edit the list of wifi networks on the rig 
 
@@ -93,7 +93,7 @@ If you're ready to proceed, you’ll want to enter :
 
 and that will bring up your network list for the rig:
 
-![network list in the rig](../../Images/network_list_in_rig.png)
+![network list in the rig](../Images/network_list_in_rig.png)
 
 **HINT:**  Turn your iPhone sideways and the keyboard will show some useful options.  Like those arrow keys to navigate with.
 
@@ -101,7 +101,7 @@ and that will bring up your network list for the rig:
 
 * Type “i” to enter INSERT mode.
 
-![Insert mode to add new wifi](../../Images/add_new_wifi.png)
+![Insert mode to add new wifi](../Images/add_new_wifi.png)
 
 * Add your new wifi network 
 
