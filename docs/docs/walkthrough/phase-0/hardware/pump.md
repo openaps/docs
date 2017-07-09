@@ -18,6 +18,8 @@ To check firmware, hit Esc on the home screen and scroll all the way to the bott
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.
 
+NOTE: Models 530 and 551, and newer-firmware 523s and 554s (any pump with PC Connect) will communicate with an OpenAPS rig (so they could be used for getting data into Nightscout, for instance), but they will not accept temp basals, and cannot be used for looping.
+
 ## Why do I need a certain pump firmware
 
 Due to changes in the firmware, the openaps tools are only able to function in
