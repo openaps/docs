@@ -8,7 +8,7 @@ The nuts and bolts are tiny, and the spaces are a little tight.  It really helps
 
 It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
-![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
+![Edison/Explorer Board rig with red light on](../Images/Edison/Edison_Explorer_Board.png) 
 
 ![Edison/Explorer Board rig with labels](img/explorer.png) 
 
