@@ -1,6 +1,6 @@
 # 512 and 712 Pump users
 
-If you have one of the x12 model pumps, you can still successfully use OpenAPS.  You'll need to complete some extra setup steps before your loop will be successful, however. There are TWO major steps; (1) creating the files and (2) adjusting aliases.  x12 users will have to be aware that the files will need to be manually updated anytime the pump user wants to change basal rate schedules, ISFs, or other pump settings.  Additionally, x12 pumps will not be compatible with SMB features...sorry.  
+If you have one of the x12 model pumps, you can still successfully use OpenAPS.  You'll need to complete some extra setup steps before your loop will be successful, however. There are TWO major steps; (1) creating the files and (2) adjusting aliases.  x12 users will have to be aware that the files will need to be manually updated anytime the pump user wants to change basal rate schedules, ISFs, or other pump settings.  Additionally, SMB will not be enabled for x12 pumps unless/until someone with an x12 is willing to test it for safety and compatibility.
 
 ## Add pump files manually
 
