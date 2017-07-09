@@ -11,51 +11,51 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 ---OR----
 * In your internet browser, open a console window while viewing your Nightscout site.  Make sure you have "authenticated" your site by using your API secret in the Nightscout settings area (hint: if you see a little padlock in the upper left corner of the site, you haven't authenticated it).  Refresh the site and your hashed secret key will be shown as "apisecrethash: "xxxxxxxxxx...""  For Safari users on Mac, you can open the console window by selecting "Develop" from the Safari top menu, and then "Show Page Source" (if you do not see "Develop" in the top menu, activate it by going to Safari > Preferences... > Advanced, and checking the "Show Develop menu in menu bar" option).  If you're having problems seeing the apisecrethash, click the little grey triangle next to the "status isAuthenticated" line and the objects below it will display (see screenshot).  Your hashed API secret can be copied and pasted from that line, as shown below.  Save that somewhere easy to get to again, because you will be using it later.
 
-![IFTTT sign up](../../Images/hashed_API.png)
+![IFTTT sign up](../Images/hashed_API.png)
 
 * Get an [IFTTT account](https://ifttt.com/join) 
 
-![IFTTT sign up](../../Images/IFTTT_signup.png)
+![IFTTT sign up](../Images/IFTTT_signup.png)
 
 * Login to your IFTTT.com account and select the "New Applet" button.
 
-![IFTTT new applet](../../Images/IFTTT_newapplet.png)
+![IFTTT new applet](../Images/IFTTT_newapplet.png)
 
 * In the screen that appears, click on the blue "+this" part of the screen
 
-![IFTTT this](../../Images/IFTTT_this.png)
+![IFTTT this](../Images/IFTTT_this.png)
 
 * In the next screen, type "button" in the search field and then click on the red box labelled "ButtonWidget"
 
-![IFTTT button widget](../../Images/IFTTT_button.png)
+![IFTTT button widget](../Images/IFTTT_button.png)
 
 * Connect the buttonwidget by clicking on the large red "connect" button
 
-![IFTTT button connect](../../Images/IFTTT_connect1.png)
+![IFTTT button connect](../Images/IFTTT_connect1.png)
 
 * Click on the large red "button press" box 
 
-![IFTTT button press](../../Images/IFTTT_buttonpress.png)
+![IFTTT button press](../Images/IFTTT_buttonpress.png)
 
 * Click on the blue "+that" text
 
-![IFTTT then](../../Images/IFTTT_that.png)
+![IFTTT then](../Images/IFTTT_that.png)
 
 * Enter "maker" in the search field and click on the Maker Webhooks app
 
-![IFTTT maker](../../Images/IFTTT_maker.png)
+![IFTTT maker](../Images/IFTTT_maker.png)
 
 * Connect the Maker app
 
-![IFTTT maker connect](../../Images/IFTTT_connect2.png)
+![IFTTT maker connect](../Images/IFTTT_connect2.png)
 
 * Select the green "Make a Web Request" box
 
-![IFTTT web request](../../Images/IFTTT_webrequest.png)
+![IFTTT web request](../Images/IFTTT_webrequest.png)
 
 *  Now you will have a blank web request template to complete.  
 
-![IFTTT action fields](../../Images/IFTTT_actionfields.png)
+![IFTTT action fields](../Images/IFTTT_actionfields.png)
 
 The following info should be filled in:
 
@@ -105,30 +105,30 @@ CGM Sensor Start
 * reason: will show up on the NS website - enter what you want
 * targets: specify the range you want - enter what you want
 * duration: you can make them as long or as short as you want - enter what you want
-* secret: your hashed API secret key
+* secret: your hashed API secret key...NOT your regular API secret
 
 * Click the "Create Action" button on the bottom of the screen when you finish.
 
 
 * Now is your chance to change the title of your Applet now to something meaningful.  You can turn on notifications, too, using the slider shown.  If you turn on the notifications, you will get an alert on your phone and pebble watch when the button press has been successfully deployed.  Finish the IFTTT button by clicking on the Finish button that appears.  
 
-![IFTTT finish](../../Images/IFTTT_finish.png)
+![IFTTT finish](../Images/IFTTT_finish.png)
 
 * Repeat the setup for New Applets for as many automated actions as you would like to setup.
 
-![IFTTT applets](../../Images/IFTTT_applets.png)
+![IFTTT applets](../Images/IFTTT_applets.png)
 
 ## Enable IFTTT in your Nightscout site
 
 * Find your Maker Key by going to your IFTTT account, Services and then clicking on Maker, then Maker settings.
 
-![IFTTT services account](../../Images/IFTTT_services.png)
+![IFTTT services account](../Images/IFTTT_services.png)
 
-![IFTTT services2](../../Images/IFTTT_services2.png)
+![IFTTT services2](../Images/IFTTT_services2.png)
 
 * You will see your Maker Key as the last part of the URL; copy and paste that last part (the red underlined part as shown)
 
-![IFTTT markerkey](../../Images/IFTTT_makerkey.png)
+![IFTTT markerkey](../Images/IFTTT_makerkey.png)
 
 * Login to your Nightscout site host (azure or heroku) and (1) add your Maker Key to the MAKER_KEY line and (2) add "maker" to your ENABLE line.
 
@@ -142,11 +142,11 @@ CGM Sensor Start
 
 * You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
 
-![IFTTT homescreen](../../Images/IFTTT_homescreen.png)
+![IFTTT homescreen](../Images/IFTTT_homescreen.png)
 
 * For iPhone users, if you downswipe from the top of your iPhone screen, you will have the Today view or Notifications showing.  They are separate pages; Today view is on the left, Notifications is on the right.  You can left/right swipe to go between them.  Go into the Today view and scroll to the bottom, click "edit". This should show a list of existing widgets, followed by a list of "more widgets" with green + signs.  Click on the IFTTT's green circle and the widget will be moved to the top, active widgets area.  You can hold your finger on the three left lines of the IFTTT widget row to drag it to the top of your widget panel, if you prefer to have it as the top-most widget. 
 
-![IFTTT Today View](../../Images/IFTTT_today.png)
+![IFTTT Today View](../Images/IFTTT_today.png)
 
 If you end up with more than four IFTTT applets, they will appear in reverse-order of when they were created...which may not be the same as you'd prefer them to appear on your widget bar.  If you'd like to reorder them:
 
@@ -157,7 +157,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
   * click on the pencil icon in upper right of screen
   * click and hold the three lines that appear on the right side of the widget that you want to move.  Drag the widget to the order in the list that you'd like it to appear in your widget quickscreen.
 
-![IFTTT Today View](../../Images/IFTTT_reorder.png)
+![IFTTT Today View](../Images/IFTTT_reorder.png)
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
@@ -175,7 +175,7 @@ Note: ThisButton does not work on Pebble Round watches.  You can search for IFTT
 ## Alexa integration
 * Since you have IFTTT/Maker requests working, you can get it to work with anything that supports IFTTT, including Alexa. You will need to add "alexa" to your ENABLE line in your Nightscout host settings (azure) or config vars (heroku).  And then repeat the steps above, but instead of using "ButtonWidget" service we started with earlier (the "+if" part of the setup)...you will use the "AmazonAlexa" service.
 
-  ![Maker Request](../../Images/alexa_maker.png)
+  ![Maker Request](../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
   
 ## Google Calendar integration
