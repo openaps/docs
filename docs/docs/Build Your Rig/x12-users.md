@@ -1,6 +1,6 @@
 # 512 and 712 Pump users
 
-If you have one of the x12 model pumps, you'll need to complete some extra setup steps before your loop will be successful. Note there are TWO major steps, of creating the files and then adjusting aliases.
+If you have one of the x12 model pumps, you can still successfully use OpenAPS.  You'll need to complete some extra setup steps before your loop will be successful, however. There are TWO major steps; (1) creating the files and (2) adjusting aliases.  x12 users will have to be aware that the files will need to be manually updated anytime the pump user wants to change basal rate schedules, ISFs, or other pump settings.  Additionally, SMB will not be enabled for x12 pumps unless/until someone with an x12 is willing to test it for safety and compatibility.
 
 ## Add pump files manually
 
@@ -178,6 +178,6 @@ The last steps are to edit the standard openaps aliases so they don't call for n
   openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
 ```
 
-## Adjust files
+## Updating your pump settings
 
 If you need to make changes to the settings contained in your pump, specifically those covered by the three files you've created (basal rates, bg-targets, max temp basal rate, or insulin duration), then you will need to edit the files and update their contents in the settings directory.  For example, if you change your basal schedule or rates in the pump...simply editing them in the pump manually will not be enough to let OpenAPS know the basal profile has been altered.  You'll need to login to the rig, access the files and update the information manually in the files.  You can make the adjustments to the file(s) you created in the raw-pump subdirectory by using `cd ~/myopenaps/raw-pump`, then the same nano command(s), and then using the same file copy command to push the edited files into the settings directory.

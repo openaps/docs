@@ -33,7 +33,7 @@ Most home routers can be accessed by going to the URL `http://192.168.1.1` on yo
 
 By having access to your home router, you can easily see if you rig is listed as a connected device.  You can also bring up the MAC address and IP address of the rig, which may be helpful in other areas of the rig setup that are discussed later.  
 
-![Home Router](../../Images/access_ip.png) 
+![Home Router](../Images/access_ip.png) 
 
 ### School wifi networks
 
