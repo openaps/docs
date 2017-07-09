@@ -2,7 +2,7 @@
 
 If this is your first loop build, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
-![First loop common messages](/Images/build-your-rig/first-loop.png)
+![First loop common messages](../Images/build-your-rig/first-loop.png)
 
 When your loop very first starts, if you are quick enough to get into the logs before the first BG is read, you will likely see: 
 ```
@@ -59,7 +59,7 @@ Advanced meal assist requires at least 36 BG readings before it can begin to cal
 
 Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with supermicrobolus pump-loop" (or simply pump-loop if you don't have SMBs enabled) and ending with "Completed supermicrobolus pump-loop"
 
-![Successful pump-loop](../../Images/build-your-rig/loop-success.png)
+![Successful pump-loop](../Images/build-your-rig/loop-success.png)
 
 If after 20 minutes, you still have some errors showing, it may be time to head over to the Troubleshooting docs to figure out where your problem is.
 
