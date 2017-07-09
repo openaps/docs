@@ -147,3 +147,4 @@ You're looping? Congrats! However, you're not done yet. There's still more to le
 Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
 
 (Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see the [next page on troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) you should work through before asking for help.)
+ 
