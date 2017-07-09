@@ -16,7 +16,7 @@ If you want to remotely view the rig's logs/loops, you can use Papertrail servic
 
 Go to http://papertrailapp.com and setup a new account.  Choose to setup a new system.  Notice the header at the top of the new system setup that says the path and port that your logs will go to.  You’ll need that information later.
 
-![Papertrail hosting information](../../Images/papertrail_host.png)
+![Papertrail hosting information](../Images/papertrail_host.png)
 
 ### System logging 
 
@@ -34,7 +34,7 @@ Login to your rig. If you need help with that, please see the [Accessing Your Ri
 
 `sudo cp ./remote_syslog /usr/local/bin`
 
-![Papertrail aggregating](../../Images/aggregating_logs.png)
+![Papertrail aggregating](../Images/aggregating_logs.png)
 
 * Create the file that will store all the logs you'd like to aggregate:
 
@@ -103,7 +103,7 @@ type ESC and ":wq" to save changes and exit.
 
 and then go to your papertrailapp website to see the log
 
-![papertrail log example](../../Images/papertrail.png)
+![papertrail log example](../Images/papertrail.png)
 
 ### Optimize Papertrail use
 
@@ -113,11 +113,11 @@ To make the most of your Papertrail logs, setting up some of your account settin
 
 Adding filters to your incoming Papertrail logs will help minimize unuseful data (and help keep you below your data caps) and streamline your review of your relevant OpenAPS logs.  You can go to your Papertrail account's `Settings` and then choose the `Log Destinations`. Click on `Log Filters` to go to the screen where you can add specific filters.
 
-![papertrail log destinations](../../Images/log_destinations.png)
+![papertrail log destinations](../Images/log_destinations.png)
 
 Click on the `Add Log Filter` button and add three filters for `CRON`, `libmraa`, and `sudo`.  Save the changes and within 60 seconds, your logs will be filtered.  The CRON, libmraa, and sudo logs usually provide very little help for troubleshooting OpenAPS problems.  You can always undo these filters, if you want to see what those provide in the future.
 
-![papertrail log filters](../../Images/log_filters.png)
+![papertrail log filters](../Images/log_filters.png)
 
 #### Saved Filters
 
@@ -131,11 +131,11 @@ Unfortunately, Papertrail does not currently have an app for use on mobile devic
 
 If you are running multiple rigs, you can also setup these filters to include the hostname of a particular rig, if you want to filter just for that rig.  For example, this screenshot below would be setting and saving up a filter for a particular rig with the hostname of `edison1` and only for its pump-loop.log.  
 
-![papertrail log filters](../../Images/save_filter.png)
+![papertrail log filters](../Images/save_filter.png)
 
 Once you get your desired filters saved, it is an easy process to make them more accessible on your mobile device by using the `add to homescreen` button.  For example, below are the quick links to the saved filters for an OpenAPS user with three rigs...
 
-![papertrail homescreen buttons](../../Images/papertrail_home_buttons.png)
+![papertrail homescreen buttons](../Images/papertrail_home_buttons.png)
 
 #### Troubleshooting using Papertrail
 
@@ -151,11 +151,11 @@ First, let's start with messages that **ARE NOT ERRORS**
 
 * Many messages that say there are failures, are not really failures for your rig.  For example, there are a lot of scary looking messages when your rig is changing networks from wifi to/from BT...an unfiltered papertrail will show every message like this:
 
-![papertrail homescreen buttons](../../Images/error-messages.png)
+![papertrail homescreen buttons](../Images/error-messages.png)
 
 But, really, most of those messages are the normal course of the rig telling you what's going on.  Like "Hey, I seem to have disconnected from the wifi...I'm going to look for BT now.  Hold on.  I need to organize myself.  Bringing up my stuff I need to find BT.  Ok, found a BT device.  Well, I can connect to it, but some of the features I don't need...like an audio BT connection."  But, the rig doesn't speak English...it speaks code.  So, if you don't speak code...sometimes a filer for `network` might help you filter for the English bits of info a little better.  Here's what that same period of time looked like with a `network` filter applied.  It's a little more clear that my rig was changing from a BT tether to a wifi connection when you filter the results.
 
-![papertrail homescreen buttons](../../Images/network-filter.png)
+![papertrail homescreen buttons](../Images/network-filter.png)
 
 Therefore when you start to troubleshoot, **USE YOUR FILTERS** to narrow down the logs that you are looking at.  Here are some specific errors/issues you may find.
 
@@ -163,11 +163,11 @@ Therefore when you start to troubleshoot, **USE YOUR FILTERS** to narrow down th
 
 Use `pump-loop` search filter to start with.  What messages are you seeing?  Poor pump comms are one of the most frequent causes of loops stopping.  If you see `916, 0, -99` tuning results, then you know that your rig is not getting a useable communication with your pump.  Try moving your pump and rig closer together.  Check if your pump battery is good.  
 
-![papertrail poor pump tune](../../Images/poor_tuning.png)
+![papertrail poor pump tune](../Images/poor_tuning.png)
  
  Ideally you should be seeing pump tuning somewhat like the filter for `mmtune` below shows...this is a kid at school, carrying the rig in a purse/backpack.  Some periods of time she leaves her rig behind (like PE class) and other shorter times where there's poor pump comms.  But, generally speaking seeing mmtune results in the 70s and 80s will sustain good looping.
  
-![papertrail mm tune](../../Images/mmtune.png)
+![papertrail mm tune](../Images/mmtune.png)
 
 **GIT LOCK**
 
@@ -175,25 +175,25 @@ There are files that get written to in a directory called `/root/myopenaps/.git`
 
 If you find a .git lock error is causing a long period of time where your loop is failing, you can remove the file, as the error suggests by using `rm -rf /root/myopenaps/.git/filename`  or you can delete the whole `.git` directory (it will get rebuilt by the loop automatically) with `rm -rf /root/myopenaps/.git`
 
-![papertrail git lock](../../Images/git-lock.png)
+![papertrail git lock](../Images/git-lock.png)
 
 **FLAKEY WIFI**
 
 Having flaky router or wifi issues?  Some routers or ISPs (I still haven't completely determined the cause) will not work nice with the Avahi-daemon.  What the means for you...spotty time staying connected to your wifi.  Does your rig not loop consistently?  Sometimes are you getting kicked out of ssh sessions with your rig?  Look for the message shown in the screenshot below:
 
-![papertrail avahi error](../../Images/avahi.png)
+![papertrail avahi error](../Images/avahi.png)
 
 Or alternatively, if you see this message when you login to your rig:
 
-![papertrail avahi at login](../../Images/avahi2.png)
+![papertrail avahi at login](../Images/avahi2.png)
 
 The solution to this is to login to your rig and use this command `systemctl disable avahi-daemon` as shown below
 
-![papertrail avahi disable](../../Images/avahi-fix.png)
+![papertrail avahi disable](../Images/avahi-fix.png)
 
 AND also make this edit using `vi /etc/default/avahi-daemon`  Change the number on the last line from `1` to `0` so that it reads `AVAHI_DAEMON_DETECT_LOCAL=0` as shown in the screenshot below. (remember `i` to enter INSERT mode for editing, and `esc` and `:wq` to save and exit the editor)
 
-![papertrail avahi disable](../../Images/avahi-fix2.png)
+![papertrail avahi disable](../Images/avahi-fix2.png)
 
 `reboot` your rig after the change to enable the fix.
 
@@ -201,6 +201,6 @@ AND also make this edit using `vi /etc/default/avahi-daemon`  Change the number 
 
 If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#could-not-get-subg-rfspy-state-or-version-have-you-got-the-right-port-device-and-radio-type) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
 
-![papertrail subg error message](../../Images/subg_rfspy.png)
+![papertrail subg error message](../Images/subg_rfspy.png)
 
-![papertrail subg lights](../../Images/subg_rfspy2.jpg)
+![papertrail subg lights](../Images/subg_rfspy2.jpg)
