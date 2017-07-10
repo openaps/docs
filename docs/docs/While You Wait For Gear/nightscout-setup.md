@@ -123,7 +123,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 **The remaining variables can be left at their default values.**</br></br>
 
 *****************
-**Note:** for BRIDGE_MAX_COUNT: This value sets the number of BG values to pull from Share per update.  Each Dexcom BG value represent 5 minutes.  Nightscount defaults to BRIDGE_MAX_COUNT=1.  If you lose connectivity with your Dexcom transmitter, your Share app will automatically backfill data points when you regain connectivity.  Nightscount does not do this and you will have gaps in the data for when you were out of range.  More information here https://github.com/nightscout/cgm-remote-monitor#bridge-share2nightscout-bridge  
+**Note:** for BRIDGE_MAX_COUNT: This value sets the number of BG values to pull from Share per update.  Each Dexcom BG value represent 5 minutes.  Nightscout defaults to BRIDGE_MAX_COUNT=1.  If you lose connectivity with your Dexcom transmitter, your Share app will automatically backfill data points when you regain connectivity.  Nightscount does not do this and you will have gaps in the data for when you were out of range.  More information here https://github.com/nightscout/cgm-remote-monitor#bridge-share2nightscout-bridge  
 
 You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which will backfill BRIDGE_MAX_COUNT values for you.  This change increases your data usage and may affect your Nightscout billing tier.   Setting BRIDGE_MAX_COUNT to 7 will update the previous 35 minutes of data and will keep OpenAPS up to date on your current BG trends.  If you frequently have larger data gaps and you use autotune, you may consider increasing this number more to backfill data more aggressively.
 *****************
