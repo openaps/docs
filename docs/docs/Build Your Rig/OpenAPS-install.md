@@ -129,7 +129,9 @@ Finally, you should eventually see colorful indications of successful looping, w
 
 ![Successful pump-loop](../Images/build-your-rig/loop-success.png)
 
-If after 20 minutes, you still have some errors showing, it may be time to head over to the Troubleshooting docs to figure out where your problem is.
+Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range.
+
+If after 20 minutes, you still have some errors showing instead of the above successful looping information, it may be time to head over to the Troubleshooting docs to figure out where your problem is.
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
