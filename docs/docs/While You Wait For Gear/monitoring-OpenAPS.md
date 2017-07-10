@@ -22,6 +22,12 @@ There are two general groups of ways to monitor your rigs:
 
 ********************************
 
+## You'll probably come back to this page later to setup different monitoring options
+
+At this point, if you're not yet set up on OpenAPS, you won't quite be ready to set up all of the below options for accessing your rig - because your rig is not built yet! But, just know that there are different "online" and "offline" ways to **monitor** your rig, so you'll want to think about your preferences for both situations, and know that the instructions on the rest of this page are here when you're more familiar and are ready to set up some or all of them.
+
+********************************
+
 ### Papertrail remote monitoring of OpenAPS logs (RECOMMENDED) 
 
 If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We HIGHLY recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
