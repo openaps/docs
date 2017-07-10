@@ -30,6 +30,11 @@ It will then continue to run a while (~10+ minutes) before initiating the oref0-
 
 If anything fails during the installation, it may end early before it asks you these questions.  In that case, you can just paste the script into the command line again and try it again.  (Don't try to use the up arrow, it probably won't work.)
 
+#### Be prepared to enter the following information into "oref0-setup":
+
+NOTE: screenshot below is for the dev branch build (as of July 9).  The script will currently install master, so yours may appear differently until dev branch is merged.  Screenshot is uploaded now simply in preparation for the merge. (Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!)
+![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
+
 **Be prepared to enter the following items:** 
 
 * directory name for your openaps - we recommend the default `myopenaps` 
@@ -44,10 +49,8 @@ If anything fails during the installation, it may end early before it asks you t
 * whether you want things like Autosensitivity and/or Autotune
 * whether you want any oref1-related advanced features - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot
+  * Note, you'll still need to do some other steps after this section to finish enabling BT tethering
 * After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
-
-NOTE: screenshot below is for the dev branch build.  Your master installation may appear differently until dev branch is merged.  Screenshot is uploaded now simply in preparation for the merge.
-![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
 
 #### Log in again, and change your password
 
