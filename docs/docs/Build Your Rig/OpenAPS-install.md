@@ -64,7 +64,9 @@ THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! T
 
 It's easy: simply type the letter `l` (short for "log", aka the very important pump-loop.log). (*This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`*.)
 
-If this is your first loop build, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
+#### What you'll see while waiting for your first loop (common non-error messages)
+
+If this is your first rig, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
 ![First loop common messages](../Images/build-your-rig/first-loop.png)
 
@@ -109,7 +111,7 @@ This synchronization may fail a few times before it actually succeeds...be patie
 
 How about these daunting messages:
 ```
-Optional feature meal assist disabled: not enough glucose data to caluclate carb absorption; found: 4
+Optional feature meal assist disabled: not enough glucose data to calculate carb absorption; found: 4
 
 and
 
@@ -121,13 +123,17 @@ and
 ```
 Advanced meal assist requires at least 36 BG readings before it can begin to calculate its necessary data. So after about three hours of looping these messages will clear out.  You can watch the count-up of "found" BG readings and know when you are getting close.  
 
+#### What you'll see when you are looping successfully ~20+ minutes later!
+
 Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with supermicrobolus pump-loop" (or simply pump-loop if you don't have SMBs enabled) and ending with "Completed supermicrobolus pump-loop"
 
 ![Successful pump-loop](../Images/build-your-rig/loop-success.png)
 
-If after 20 minutes, you still have some errors showing, it may be time to head over to the Troubleshooting (TBD...which link(s) to add here) docs to figure out where your problem is.
+If after 20 minutes, you still have some errors showing, it may be time to head over to the Troubleshooting docs to figure out where your problem is.
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
+
+#### Why you should learn about these logs now
 
 Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
 
