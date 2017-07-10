@@ -1,28 +1,42 @@
 # Understanding all the ways to monitor your rigs
 
+There are two general groups of ways to monitor your rigs:
+
+* Online, meaning it requires the rig to have internet connectivity (via a wifi or hotspot/tethered connection)
+* Offline, meaning the rig does not have any internet connectivity
+
+## The main ways of monitoring your rig ONLINE include:
+
 * Papertrail
-* Accessing via SSH
-* NS
-* Pebble
-* Pushover
+* Accessing via SSH (either using an app on your phone, or your computer)
+* Nightscout
+* Pebble watch (your watchface of choice)
 
+********************************
 
+## The main ways of monitoring your rig offline include:
 
-## Papertrail remote monitoring of OpenAPS logs (RECOMMENDED) 
+* Pancreabble (offline connection to your Pebble watch)
+* For Android users: "Hot Button"
+* For any phone type: Creating a web page that can be accessed on the phone via the rig's IP address
+
+********************************
+
+### Papertrail remote monitoring of OpenAPS logs (RECOMMENDED) 
 
 If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We HIGHLY recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
 
-### Get an account at Papertrail
+#### Get an account at Papertrail
 
 Go to http://papertrailapp.com and setup a new account.  Choose to setup a new system.  Notice the header at the top of the new system setup that says the path and port that your logs will go to.  You’ll need that information later.
 
 ![Papertrail hosting information](../Images/papertrail_host.png)
 
-### System logging 
+#### System logging 
 
 Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/accessing-your-rig.html) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
 
-### Aggregating logs
+#### Aggregating logs
 
 * Copy and paste each of these four command lines, one at a time.  The screenshot below shows the successful results of each command.  The first command will run for a short time and end with similar information to the green box.  The remaining three commands will not display anything specific as a result of the command.
 
@@ -64,7 +78,7 @@ type ESC and ":wq" to save changes and exit.
 
 Now you should be able to see your new logs in your papertrail, but we need to make it so this runs automatically when the rig is restarted.
 
-### Install auto restart at reboot
+#### Install auto restart at reboot
 
 * Create a new file that will restart the papertrail logging at reboot
 
@@ -105,11 +119,11 @@ and then go to your papertrailapp website to see the log
 
 ![papertrail log example](../Images/papertrail.png)
 
-### Optimize Papertrail use
+#### Optimize Papertrail use
 
 To make the most of your Papertrail logs, setting up some of your account settings and filters will help streamline your troubleshooting
 
-#### Account Filters
+##### Account Filters
 
 Adding filters to your incoming Papertrail logs will help minimize unuseful data (and help keep you below your data caps) and streamline your review of your relevant OpenAPS logs.  You can go to your Papertrail account's `Settings` and then choose the `Log Destinations`. Click on `Log Filters` to go to the screen where you can add specific filters.
 
@@ -119,7 +133,7 @@ Click on the `Add Log Filter` button and add three filters for `CRON`, `libmraa`
 
 ![papertrail log filters](../Images/log_filters.png)
 
-#### Saved Filters
+##### Saved Filters
 
 Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved filters, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful filters to save to find those issues fastest are:
 
@@ -204,3 +218,201 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 ![papertrail subg error message](../Images/subg_rfspy.png)
 
 ![papertrail subg lights](../Images/subg_rfspy2.jpg)
+
+********************************
+
+### Pancreabble - offline connection to Pebble watch
+
+
+_(TO DO Note - Pancreabble instructions for OpenAPS need to be re-worked to reflect the oref0-setup script way of making it work. Below is notes about Pancreabble setup prior to oref0-setup.sh being in existence.)_
+
+[Pancreabble] is a way to monitor your loop _locally_, by pairing a Pebble smartwatch directly with the Raspberry Pi or Intel Edison.
+
+In other words, whereas the default setup looks like this:
+
+```
+Raspberry Pi/Intel Edison -> network -> Nightscout server -> network -> smartphone
+                                                                     |
+                                                                     -> laptop
+                                                                     |
+                                                                     -> Pebble watch
+```
+
+And by default, your Pebble is paired thus:
+
+```
+               smartphone -> Bluetooth -> Pebble watch
+```
+
+With Pancreabble, the setup looks like this:
+
+```
+Raspberry Pi/Intel Edison -> Bluetooth -> Pebble watch
+```
+
+Using a Pebble watch can be especially helpful during the "open loop" phase: you can send the loop's recommendations directly to your wrist, making it easy to evaluate the decisions it would make in different contexts during the day (before/after eating, when active, etc.).
+
+See [Pancreabble] for initial setup instructions.
+
+[Pancreabble]: https://github.com/mddub/pancreabble
+
+Once you've done the first stages above, you'll need to do generate a status file that can be passed over to the Pebble Urchin watch face. Fortunately, the core of this is available in oref0.
+
+Go to `~src/oref0/bin` and look for `peb-urchin-status.sh`. This gives you the basic framework to generate output files that can be used with Pancreabble. To use it, you'll need to install jq using:
+
+`apt-get install jq`
+
+If you get errors, you may need to run `apt-get update` ahead of attempting to install jq.
+
+Once jq is installed, the shell script runs and produces the `urchin-status.json` file which is needed to update the status on the pebble. It can be incorporated into an alias that regularly updates the pebble. You can modify it to produce messages that you want to see there.
+
+When installing the oref0-setup you will need to replace all instances of AA:BB:CC:DD:EE:FF with the Pebble MAC address. This can be found in Settings/System/Information/BT Address.  NOTE: Make sure the MAC address is in ALL CAPS.
+
+Once you've installed, you will need to pair the watch to your Edison.
+
+#### Bluetooth setup for Pancreabble
+
+* Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
+
+`sudo killall bluetoothd`
+
+* Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
+
+`sudo /usr/local/bin/bluetoothd --experimental &`
+
+* Wait at least 10 seconds, and then run:
+
+`sudo hciconfig hci0 name $HOSTNAME`
+
+* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
+
+* Now launch the Bluetooth control program: `bluetoothctl`
+
+* And run: `power off`
+
+* then `power on`
+
+* and each of the following:
+
+```
+discoverable on
+
+scan on
+
+agent on
+
+default-agent
+```
+
+#### On Your Pebble
+
+Settings/BLUETOOTH to make sure Pebble is in pairing mode
+
+from terminal 
+
+`trust AA:BB:CC:DD:EE:FF`
+`pair AA:BB:CC:DD:EE:FF`
+
+you might need to do this several times before it pairs
+
+you will see on the edison
+
+`Request confirmation
+[agent] Confirm passkey 123456 (yes/no): yes`
+
+* (WARNING: You must type in **yes** not just **y** to pair)
+
+Once paired, type quit to exit.
+
+
+Currently the `peb-urchin-status.sh` has 1 notification and 3 different options for urchin messages.
+in you APS directory there is a file called 'pancreoptions.json' 
+```
+"urchin_loop_on": true,  <--- to turn on or off urchin watchface update
+"urchin_loop_status": false, <--- Gives a message on urchin watchface that it's running
+"urchin_iob": true,   <--- Gives a message on urchin watchface of current IOB
+"urchin_temp_rate": false, <--- Gives a message on urchin watchface of current temp basal
+"notify_temp_basal": false <--- Notificaiton of temp basal when one shows up in enact/suggested.json
+```
+note only one of the messages for the urchin watchface can be true at once
+
+the `peb-urchin-status.sh` gets called from the crontab and will run automatically.
+By default the urchin_loop_on, and urchin_iob is set to true. You must manually change notify_temp_basal to true to start getting temp basal notifications.  you can edit this file using `nano pancreoptions.json` from your APS directory.
+
+********************************
+
+### Hot Button - for Android users
+
+#### Purpose
+[Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especialy useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
+
+#### App Setup 
+To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.
+
+#### Basic commands
+To the Command part of the button setup you can write any command which you would run in the ssh session. For example to show the automatic sensitivity ratio, you can set:
+`cat /root/myopenaps/settings/autosens.json`
+
+After button click the command is executed and the results are displayed in the black text area bellow the buttons. 
+
+#### Temporary targets
+It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
+
+To setup activity mode run:
+`./set_temp_target.sh "Activity Mode" 130`
+
+To setup eating soon mode run:
+`./set_temp_target.sh "Eating Soon" 80`
+
+The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
+To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove `openaps ns-temptargets` from ns-loop. 
+
+#### SSH Login Speedup
+To speed up the command execution you can add to the `/etc/ssh/sshd_config` the following line:
+`UseDNS no`
+
+********************************
+
+### Offline web page from rig - for any phone user
+
+**TODO** - implement this as a proper oref0 script that can be installed by oref0-setup
+
+This allows you to extract data from the various files that OpenAPS creates and access the locally from the phone that is connected to the rig, giving a full information set.
+
+A. First, you need to set up the script that will do this for you. An example is shown below:
+
+```
+rm ~/myopenaps/enact/index.html
+touch ~/myopenaps/enact/index.html
+
+(cat ~/myopenaps/enact/smb-enacted.json | jq -r .timestamp | awk '{print substr($0,12,5)}') >> ~/myopenaps/enact/index.html
+
+(cat ~/myopenaps/enact/smb-enacted.json | jq -r .reason) >> ~/myopenaps/enact/index.html
+(echo -n 'TBR: ' && cat ~/myopenaps/enact/smb-enacted.json | jq .rate) >> ~/myopenaps/enact/index.html                                  
+(echo -n 'IOB: ' && cat ~/myopenaps/enact/smb-enacted.json | jq .IOB) >> ~/myopenaps/enact/index.html
+(echo -n 'Edison Battery: ' && cat ~/myopenaps/monitor/edison-battery.json | jq -r .battery | tr '\n' ' ' && echo '%') >> ~/myopenaps/enact/index.html
+(echo -n 'Insulin Remaining: ' && cat ~/myopenaps/monitor/reservoir.json) >> ~/myopenaps/enact/index.html
+```
+You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
+
+It can be set up where you choose, either in your openaps directory or at root.
+
+B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron:
+
+```
+@reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337
+```
+The final thing to do is to make sure the script runs regularly to collect the data and publish it. This requires an additional cron line:
+
+```
+*/5 * * * * (bash /root/http.sh) 2>&1 | tee -a /var/log/openaps/http.log
+```
+In this case the script is running from the /root directory and I am publishing to the ~/myopenaps/enact directory.
+
+C. Accessing via your phone
+
+**IPHONE USERS:** To access this from an iphone browser, enter something like the following: http://172.20.10.x:1337/index.html and you should receive an unformatted html page with the data in it. If you want to improve the output for a browser, the script can be modified to generate html tags that will allow formatting and could provide colouring if various predicted numbers were looking too low.
+
+**ANDROID USERS:** On Android, you can download http-widget (https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en_GB) and add a widget to your home screen that will display this data.
+
+**SAMSUNG GEAR S3 WATCH USERS:** If you use a Samsung Gear S3 watch, you can use the above http-widget with Wearable Widgets (http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.
