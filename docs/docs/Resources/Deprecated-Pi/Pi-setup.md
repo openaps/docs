@@ -1,6 +1,6 @@
 # Setting Up Your Raspberry Pi
 
-# WARNING - THE RASPBERRY PI IS A DEPRECATED (NOT-RECOMMENDED) SETUP OPTION. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. (July 2017)
+## WARNING - THE RASPBERRY PI IS A DEPRECATED (NOT-RECOMMENDED) SETUP OPTION. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. (July 2017)
 
 **Note 1:** This page talks about setting up the Raspberry Pi with a Carelink USB stick. If you chose the TI stick for your first setup, you'll need to utilize directions in the [mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for flashing your TI stick, then return here to continue on with the OpenAPS setup process.
 
