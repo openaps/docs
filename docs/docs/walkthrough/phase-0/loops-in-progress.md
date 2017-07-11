@@ -183,3 +183,4 @@ List of people who are working on closed loops:
 - Mark M (Chicago, IL)
 - Chris Reilly (Detroit, MI)
 - Rod Snyder (Morgantown, WV, USA)
+- John Murray (Pinellas Park, FL, USA)
