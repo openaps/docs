@@ -30,7 +30,7 @@ The version number above may have been incremented from what is shown here, and 
 
 If you do not see the screen above, or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 
-(Interested in the development repositories? [See this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))
+(If you need to run the dev versions of decocare or the openaps toolkit, [see this shell script.](https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-src.sh))  This does **not** install oref0 dev: see below if that's what you're looking for.
 
 ### (If you did the above, skip this and go on to Step 1) Manual Installation
 
