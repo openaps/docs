@@ -4,6 +4,6 @@ To address some of the challenges of daily life with diabetes, and because #WeAr
 
 In light of the success of #DIYPS closed loop and other simple APS systems built by individuals, Dana and Scott decided to further apply the #WeAreNotWaiting ethos to APS research, believing safe and effective APS technology can be made available more quickly and to more people, rather than just waiting for current APS efforts to complete clinical trials and be FDA-approved and commercialized through traditional processes.
 
-As a result, \#OpenAPS is an open reference design for, and will be a reference implementation of, a self-built closed loop APS system that uses the CGM sensors’ estimate of blood glucose (BG) to automatically adjust basal insulin levels, in order to keep BG levels inside a safe range overnight and between meals.
+As a result, \#OpenAPS is an open reference design for, and a reference implementation of, a self-built closed loop APS system that uses the CGM sensors’ estimate of blood glucose (BG) to automatically adjust basal insulin levels, in order to keep BG levels inside a safe range overnight and between meals.
 
 Over the years, there have been hundreds of individuals worldwide who have self-built their own OpenAPS systems, and dozens of people who have contributed to the further development, helping make OpenAPS what it is today!
