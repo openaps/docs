@@ -135,7 +135,7 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
-#### Why you should learn about these logs now
+#### Why you should learn about these logs now - and other handy shortcuts
 
 Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
 
@@ -148,6 +148,26 @@ Note: The pump-loop log is not the only log your rig generates.  There are also 
 * Network log: `tail -F /var/log/openaps/network.log`
 
 * Autotune log: `tail -F /var/log/openaps/autotune.log` (remember Autotune only runs at midnight, so there's not much action in that log)
+
+These logs and other files are things you may frequently access. There are shortcuts built in to help you more easily access key files on the go. The `l` you type for logs is an example of one of these shortcuts - it's actually a shortcut for the full command `tail -F /var/log/openaps/pump-loop.log`. Here are some other shortcuts:
+
+```
+ l => tail -F /var/log/openaps/pump-loop.log
+ autosens-loop => tail -n 100 -F /var/log/openaps/autosens-loop.log
+ autotune => tail -n 100 -F /var/log/openaps/autotune.log
+ ns-loop => tail -n 100 -F /var/log/openaps/ns-loop.log
+ pump-loop => tail -n 100 -F /var/log/openaps/pump-loop.log
+ cat-pref => cd ~/myopenaps && cat preferences.json
+ edit-wifi => vi /etc/wpa_supplicant/wpa_supplicant.conf
+ cat-wifi => cat /etc/wpa_supplicant/wpa_supplicant.conf
+ edit-pref => cd ~/myopenaps && vi preferences.json
+ log-wifi => tail -n 100 -F /var/log/openaps/network.log
+ git-branch => cd ~/src/oref0 && git branch
+ cat-autotune => cd ~/myopenaps/autotune && cat autotune_recommendations.log
+ edit-runagain => cd ~/myopenaps && nano oref0-runagain.sh
+ cat-runagain => cd ~/myopenaps && cat oref0-runagain.sh
+```
+To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
 (Normal docs:) Please see [Phase 1 Papertrail](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/papertrail.html) for an easy way to track all your logs in one easy setup.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig.  Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 
