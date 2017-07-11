@@ -71,7 +71,7 @@ __Note:__ If you're using the 915MHz Explorer board, you'll need to log in as ro
 * email address for github commits
 * serial number of your pump
 * whether or not you are using an Explorer board
-* if you're not using an Explorer board or a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
+* if you're not using an Explorer board or a Carelink stick, you'll need to enter the mmeowlink port for TI stick:
     * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink#troubleshooting-mmtune-or-finding-your-correct-port) for directions on finding your port (something like `/dev/ttACM1`).
     * Note: if you're using a Carelink, you will NOT be using mmeowlink
     * Note: if you're using an Explorer board, you will be using mmeowlink but this will be setup automatically
