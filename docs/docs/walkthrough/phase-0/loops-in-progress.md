@@ -184,3 +184,4 @@ List of people who are working on closed loops:
 - Chris Reilly (Detroit, MI)
 - Rod Snyder (Morgantown, WV, USA)
 - John Murray (Pinellas Park, FL, USA)
+- Shirley Steinmacher (son, Salt Lake City, UT, USA)
