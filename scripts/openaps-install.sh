@@ -23,6 +23,9 @@ adduser edison dialout
 sed -i "s/daily/hourly/g" /etc/logrotate.conf
 sed -i "s/#compress/compress/g" /etc/logrotate.conf
 
+# TODO: remove this after Debian's IPv6 mirrors are stable again
+echo 'Acquire::ForceIPv4 "true";' | sudo tee /etc/apt/apt.conf.d/99force-ipv4
+
 # TODO: change back to dev after merging nodejs-6 to dev, then to master after docs release
 curl -s https://raw.githubusercontent.com/openaps/docs/nodejs-6/scripts/quick-packages.sh | bash -
 mkdir -p ~/src; cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout master && git pull)
