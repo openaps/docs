@@ -81,6 +81,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :glob:
    :caption: Troubleshooting
    
+   Troubleshooting oref0-setup <docs/Troubleshooting/oref0-setup-troubleshooting>
    General linux troubleshooting <docs/Troubleshooting/General_linux_troubleshooting>
    Pump-rig troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
    CGM-rig troubleshooting <docs/Troubleshooting/CGM-rig-communications-troubleshooting>
