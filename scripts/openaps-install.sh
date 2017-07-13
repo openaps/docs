@@ -24,6 +24,7 @@ sed -i "s/daily/hourly/g" /etc/logrotate.conf
 sed -i "s/#compress/compress/g" /etc/logrotate.conf
 
 # TODO: remove this after Debian's IPv6 mirrors are stable again
+mkdir -p /etc/apt/apt.conf.d/
 echo 'Acquire::ForceIPv4 "true";' | sudo tee /etc/apt/apt.conf.d/99force-ipv4
 
 # TODO: change back to dev after merging nodejs-6 to dev, then to master after docs release
