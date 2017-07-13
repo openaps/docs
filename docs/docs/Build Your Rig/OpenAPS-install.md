@@ -1,9 +1,9 @@
 # Installing OpenAPS on your rig with an already-flashed-Edison
 
 ### Prep Steps
-PC users: [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
+* **PC users:** [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
 
-Mac users: [follow these instructions to open Terminal and plug in your rig](mac-prep.md). Then, follow the rest of the instructions below.
+* **Mac users:** [follow these instructions to open Terminal and plug in your rig](mac-prep.md). Then, follow the rest of the instructions below.
 
 ### Log in to your rig
 
@@ -169,13 +169,10 @@ These logs and other files are things you may frequently access. There are short
 ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-(Normal docs:) Please see [Phase 1 Papertrail](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/papertrail.html) for an easy way to track all your logs in one easy setup.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig.  Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+If you haven't already done so, please see the [Papertrail] docs (http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) for an easy way to track all your logs.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 
-## You're not done yet - switch back to the main/normal docs for more customizations
+## You're not done yet - keep reading for other customizations you may want
 
-You're looping? Congrats! However, you're not done yet. There's still more to learn - make sure you read the next few sections for information to make sure you know how to read your logs and [answer the question of "why is it doing what it is doing?"](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/Understand-determine-basal.html); make sure [you're in the right mode](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#going-beyond-low-glucose-suspend-mode) (do you only want it to limit insulin when dropping low? do you want it to increase insulin when your BG is high?), plus [customize all the other settings](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#understanding-your-preferences-json). 
+You're looping? Congrats! However, you're not done yet. There's still more you can do - don't forget to [check your preferences](http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html); [add more wifi to your rig if needed](http://openaps.readthedocs.io/en/dev/docs/Customize-Iterate/on-the-go-wifi-adding.html); [set up IFTTT for your phone or watch](http://openaps.readthedocs.io/en/dev/docs/Customize-Iterate/ifttt-integration.html); [finish Bluetooth tethering your phone](http://openaps.readthedocs.io/en/dev/docs/Customize-Iterate/bluetooth-tethering-edison.html), etc. Make sure also you've got a good understanding of which logs you can and should check, and where to find them on the go.
 
 Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
-
-(Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see the [next page on troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html) you should work through before asking for help.)
- 
