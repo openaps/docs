@@ -10,7 +10,7 @@ sudo pip install -U openaps && \
 sudo pip install -U openaps-contrib && \
 sudo openaps-install-udev-rules && \
 sudo activate-global-python-argcomplete && \
-sudo npm install -g json oref0 && \
+sudo npm install -g json oref0 2>&1 | cat && \
 echo openaps installed && \
 openaps --version
 
