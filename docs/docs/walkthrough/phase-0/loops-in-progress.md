@@ -185,3 +185,4 @@ List of people who are working on closed loops:
 - Rod Snyder (Morgantown, WV, USA)
 - John Murray (Pinellas Park, FL, USA)
 - Shirley Steinmacher (son, Salt Lake City, UT, USA)
+- Michael Spradling (Raleigh, NC)
