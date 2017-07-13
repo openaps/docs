@@ -15,8 +15,9 @@ passwd -S edison | grep 20[01][0-6] && passwd -e edison -i 3
 dpkg-reconfigure tzdata
 
 #dpkg -P nodejs nodejs-dev
-apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
-apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+# TODO: remove the `-o Acquire::ForceIPv4=true` once Debian's mirrors work reliably over IPv6
+apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=true -y dist-upgrade && apt-get -o Acquire::ForceIPv4=true -y autoremove
+apt-get -o Acquire::ForceIPv4=true install -y sudo strace tcpdump screen acpid vim python-pip locate
 adduser edison sudo
 adduser edison dialout
 
