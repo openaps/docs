@@ -186,3 +186,4 @@ List of people who are working on closed loops:
 - John Murray (Pinellas Park, FL, USA)
 - Shirley Steinmacher (son, Salt Lake City, UT, USA)
 - Michael Spradling (Raleigh, NC)
+- Tore Bjørndalen (Norway, Oppegård)
