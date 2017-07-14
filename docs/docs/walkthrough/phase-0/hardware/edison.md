@@ -43,7 +43,7 @@ If you're unsure whether you need to cut your Explorer Board's antenna, you prob
 
 ![Image of Antenna](antenna0.jpg)
 
-You can also add an external antenna to the explorer board such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com.
+Optional: You can also add an external antenna to the explorer board such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com. (Note: specific range improvement length has not been confirmed.)
 
 ![Image of Antenna](antenna1.jpg)
 
