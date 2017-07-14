@@ -2,7 +2,6 @@
 
 NOTE OF CAUTION:
 * oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
-* As of July 1, oref1-related features are still being tested in the "dev" branch. 
 
 ## Only run oref1 with the following caveats in mind: 
 
@@ -39,11 +38,9 @@ UAM will be triggered if the preference is toggled on and there is carb activity
 
 ## How to turn on SMB/UAM
 
-* As of July 1, 2017, SMB/UAM and other oref1 features are in the dev branch of OpenAPS. You should be comfortable updating your rig to the dev branch.  After these features are merged into the master branch, the setup script will allow you to enable SMB/UAM but you will still need to meet the criteria described above, minimum basal rates and at least one autotune run, in order for SMBs to enact.
+* As of July 13, 2017, SMB/UAM are in the master branch of oref0 (oref0 0.5.0). They are under the advanced features menu, and require you to read these docs carefully from top to bottom on this page in order to enable it during the setup script. Afterward, you also need to turn on the relevant settings in preferences.json. You may want to experiment with turning only one of them on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
-* To test SMB and UAM, you'll need to change to dev branch and run oref0-setup with a special edit. You'll need to manually add/edit the setup script line to include "microbolus" in the enable flag.  After the setup script runs, you'll also need to toggle to "true" the appropriate enableSMB settings in preferences.json. I would enable the preferences one at a time, in your preferred order, and then closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
-
-There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html) for more details on all the settings, but the short version is:
+There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
 
 ```
  * enableSMB_with_bolus means SMB will be enabled DIA hours after a manual bolus
@@ -59,7 +56,7 @@ There are multiple preference toggles for SMB/UAM. Check out the [preferences pa
 
 1. Make sure you read the above, especially the "only enable oref1 if..." section. SMB will behave differently than oref0 would. Watch carefully, and use your common sense and do what's right for you & your diabetes. 
 2. Common errors include:
-* Not including the enable flag and just changing preferences. You should see "Starting supermicrobolus pump-loop at..." in pump-loop.log if you have successfully enabled everything.
+* Not changing the preferences to be "true" for the relevant settings after you've enabled the oref1 features. You should see "Starting supermicrobolus pump-loop at..." in pump-loop.log if you have successfully enabled everything.
 * Not running autotune. Remember, you don't have to enable it to run as part of your loop at night, but you should run it manually, review the results, and otherwise be VERY confident in your underlying pump settings (basals, ISF, carb ratio) before using oref1.
 * Pump clock being >1 minute off from rig's time. This means 60 seconds. Not 61 seconds; 68 seconds; 90 seconds. Needs to be less than 60 seconds apart. `"Checking pump clock: "2017-05-16T15:46:32-04:00" is within 1m of current time: Tue May 16 15:47:40 EDT 2017` is an example of a >60 second gap that needs fixing before it will work properly. We added a script to automatically attempt to fix the pump time in case of a >60 second difference, but you may occasionally see this type of error in the logs until the script is able to properly adjust the pump time.
 
