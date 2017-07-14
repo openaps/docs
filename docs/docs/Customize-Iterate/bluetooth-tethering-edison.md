@@ -157,7 +157,7 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 
 * If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
 
-* Make sure your phone's hotspot is enabled (but don't let anything connect via wifi).
+* Make sure your phone's hotspot is enabled, but don't let anything connect via wifi (you have to switch on the personal hotspot toggle, but then immediately back out of the personal hotspot screen before anything connects to your hotspot via wifi).
 
 * Now, try to establish a Bluetooth Network connection with your phone:
 

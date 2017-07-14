@@ -50,6 +50,8 @@ Let’s start by downloading the updated operating system (it’s called Jubilin
 
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
 
+Note: Before starting to flash an Edison using a Mac, if you are using a Macbook with a USB-C Hub you may encounter some issues with the flashing process, including the wireless LAN setup not functioning correctly, so if you have an option to use a PC or Laptop with directly connected USB cables, it may be better to do so.
+
 ![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
 Once you plug in the cables, you should see your Edison board in your Finder as a connected “device” (similar to what you would see if you plug in a USB thumb drive).  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295) (it’s not hard to do, takes 2 minutes.)
