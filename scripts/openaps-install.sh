@@ -16,7 +16,7 @@ dpkg-reconfigure tzdata
 
 # TODO: remove this after Debian's IPv6 mirrors are stable again
 mkdir -p /etc/apt/apt.conf.d/
-echo 'Acquire::ForceIPv4 "true";' | sudo tee /etc/apt/apt.conf.d/99force-ipv4
+echo 'Acquire::ForceIPv4 "true";' | tee /etc/apt/apt.conf.d/99force-ipv4
 
 #dpkg -P nodejs nodejs-dev
 apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
