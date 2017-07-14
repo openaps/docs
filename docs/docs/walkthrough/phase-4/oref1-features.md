@@ -9,7 +9,7 @@ NOTE OF CAUTION:
 * Remember that you are choosing to test a still-in-development future. Do so at your own risk & with due diligence to keep yourself safe. The number one rule (and the first pass phrase for enabling oref1 features) is "s@fety".
 * You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail.
 * **We are requiring that you also have run autotune prior to enabling SMB.** Why? Because if you have wonky ISF settings, for example, you may be more likely to go low or high with SMB. It will help a lot to have run autotune and be aware if the algorithm is recommending changes to ISF, basal, and/or carb ratio. You are not required to run autotune automatically/nightly as part of your loop with SMB; but you should at least run it manually and get an idea for how confident you are in your settings being right or not; and keep that in mind when evaluating SMB outcomes for yourself.
-* You should have basals of > 0.5 U/hr. (SMB is *not* advisable for those with very small basals; since .1U is the smallest increment that can be bolused by SMB.  We are also adding a basal check to diable SMB when basals are < 0.3 U/hr.)
+* You should have basals of > 0.5 U/hr. (SMB is *not* advisable for those with very small basals; since .1U is the smallest increment that can be bolused by SMB.  We are also adding a basal check to disable SMB when basals are < 0.3 U/hr.)
 * Read the following:
   * A. The updated reference design ([https://openaps.org/reference-design/](https://openaps.org/reference-design/)) that explains the differences between oref0 and oref1
   * B. The following two posts for background on oref1:
