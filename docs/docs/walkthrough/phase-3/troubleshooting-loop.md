@@ -14,7 +14,7 @@ Don't try to do everything the first week: think long term. You should start set
 
 Target BG target is set on your pump. Navigate to Bolus -> Bolus Wizard Setup -> Edit Settings -> BG Target
 
-Try to remember to set your Nightscout profile to match your pump as you make changes, to also limit confusion. Update target BG, basal rates, ISF and carb ratios to stay the same as on your pump. Data from the pump not Nightscout is used to drive the closed loop; having Nightscout display different targets and incorrect settings may be confusing. 
+Try to remember to set your Nightscout profile to match your pump as you make changes, to also limit confusion. Update target BG, basal rates, ISF and carb ratios to stay the same as on your pump. Data from the pump not Nightscout is used to drive the closed loop; having Nightscout display different targets and incorrect settings may be confusing. When setting your Target BG range (low and high targets) in Nightscout Profile Editor understand these values are what Nigthscout will use to create reports. 
 
 ## What should pump settings be?
 
