@@ -22,7 +22,7 @@ with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
 your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about the latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features/0-9-features).
 
-## Nightscout Setup
+## Nightscout Setup with Heroku
 
 * If you plan to use Nightscout with OpenAPS, we recommend using Heroku, as OpenAPS can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.  Currently, the only added benefit to choosing the $7/mo Heroku plan vs the free Heroku plan is a section showing site use metrics for performance (such as response time).  This has limited benefit to the average OpenAPS user.  **In short, Heroku is the free and OpenAPS-friendly option for NS hosting.**
 
@@ -60,6 +60,10 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 <tr>
 <th>API_SECRET</th>
 <td>Create your own API_SECRET…this is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` symbol.</td>
+</tr>
+<tr>
+<th>AUTH_DEFAULT_ROLES</th>
+<td>When `readable`, anyone can view Nightscout without a token. Setting it to `denied` will require authentication. Setting it to `denied` requires oref 0.5.0-dev.</td>
 </tr>
 <tr>
 <th>DISPLAY_UNITS</th>
@@ -237,9 +241,97 @@ Your NIGHTSCOUT site is now all set-up.  Congrats!
 
 ![NS Settings](../Images/nightscout/settings_ns.jpg)
 
-### It's not working - I'm missing data in Nightscout? 
+## Nightscout Migrations
 
-If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
+### Switching from API_SECRET to token based authentication for your rig
+
+You can secure your Nightscout and CGM data with [token based authentication](http://www.nightscout.info/wiki/welcome/website-features/0-9-features/authentication-roles).
+This requires Nightscout 0.9 (Grilled Cheese) and oref0 0.5.0 or later.
+
+This has the following advantages:
+- You can deny public access to your Nightscout. 
+- Each rig uses its own security token to authenticate to Nightscout.
+- With the old `API_SECRET` authentication all the rigs had all the privileges to your Nightscout (similar to root or Administrator users).
+- The `API_SECRET` method for authentication rigs/devices is deprecated in Nightscout, and token based authentication is the preferred way.
+- In case you lose a rig or it gets stolen you can deny access to Nightscout for that one rig. Otherwise you need to change your API_SECRET and reconfigure all the other rigs.
+
+You can migrate each rig independently from `API_SECRET` authentication to token based authentication.
+If you want to secure your Nightscout and CGM data, then all rigs need to have oref0 version 0.5.0+ and all be configured with token based authentication.
+
+Here are the steps you need to follow:
+
+1. Visit https://mynightscout.herokuapp.com/admin
+    - Add a new Role
+
+    Name: `oref0rig`
+
+    Permissions:  Add the following 6 permissions. Note that the default window is to small to fit them all.
+    ```
+    api:devicestatus:create, 
+    api:devicestatus:read, 
+    api:entries:create, 
+    api:entries:read, 
+    api:treatments:create, 
+    api:treatments:read
+    ```
+
+    ![AddRole](../phase-1/img/role-oref0rig.png)
+
+2. Add a new Subject
+
+    Name: the name of your rig (same as the hostname of your rig). 
+    Note: Nightscout will shorten the name to 10 characters in your accesstoken, e.g. `myedisonhostname` becomes `myedisonho-0dccda4ae591e763`
+
+    Roles: `oref0rig`
+
+    ![AddSubject](../phase-1/img/subject-oref0rig.png)
+
+    Press Save button.
+
+    In the Subject - People, Device etc. view you'll see the accesstoken for your rig, e.g. `myrigname-27c914cabc506fa3`
+
+3. You need your rig to use the token based authentication token. This can be done in three different ways:
+
+    - Using the `oref0-setup.sh` interactive setup. Enter the accesstoken (subjectname and hash of 16 characters, e.g. `myrigname-27c914cabc506fa3`)
+        Example of the interactive setup:
+        ```
+        Are you using Nightscout? If not, press enter.
+        If so, what is your Nightscout host? (i.e. https://mynightscout.herokuapp.com)? https://mynightscout.herokuapp.com
+        Ok, https://mynightscout.herokuapp.com it is.
+
+        Starting with oref 0.5.0 you can use token based authentication to Nightscout. This makes it possible to deny anonymous access to your Nightscout instance. It's more secure than using your API_SECRET. Do you want to use token based authentication y/[N]? y
+        What Nightscout access token (i.e. subjectname-hashof16characters) do you want to use for this rig? myrigname-27c914cabc506fa3
+        ```
+
+    - Using the `oref0-setup` or `oref0-runagain.sh` command line.
+        Use `--api-secret=token=myrigname-27c914cabc506fa3`. Don't forget to start with `token=`.
+        During install it will connect to the Nightscout and check if the permissions are ok. If OK you'll see this in your log:
+        ```
+        2017-06-10 19:46:14,758 INFO Nightscout host: https://mynightscout.herokuapp.com
+        2017-06-10 19:46:14,816 INFO Starting new HTTPS connection (1): mynightscout.herokuapp.com
+        2017-06-10 19:46:15,911 INFO Succesfully got Nightscout authorization token
+        2017-06-10 19:46:15,925 INFO All permissions in Nightscout are ok
+        ```
+        If it's not ok it will exit the setup script and tell you which permissions are missing.
+
+    - Change the token in `ns.ini`. It's the third argument of the the `args=` line, e.g.
+        ```
+        [device "ns"]
+        fields = oper
+        cmd = nightscout
+        args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
+        ```
+
+4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout.
+
+5. When all the rigs are 0.5.0 and are all using token based authentication, you can change the environment variables of your Nightscout:
+- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied` if you wish to block read-only access to your Nightscout instance. If you don't mind your CGM data being accessible to anyone with your Nightscout URL, you can just leave `AUTH_DEFAULT_ROLES` as `readable`.
+
+Important:
+- Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the internet
+- The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-27c914cabc506fa3`. When token based authentication is used the API_SECRET on the rig will always start with `token=` instead of a hash.
+- You must always secure your Nightscout site with secure http (https), so don't use http://mynightscout.herokuapp.com but always use https://mynightscout.herokuapp.com 
+- Keep your API_SECRET as a root/Adminsitrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
 
 ### Switching from Azure to Heroku
 
@@ -251,6 +343,11 @@ If you are using a "test pump" that has not received sufficient data in some tim
 
 ![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 
+## Nightscout Troubleshooting and FAQ's 
+
+### It's not working - I'm missing data in Nightscout? 
+
+If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-1/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
 
 ### A Note about Nightscout's COB Pill
 
