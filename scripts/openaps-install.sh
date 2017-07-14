@@ -14,6 +14,10 @@ passwd -S edison | grep 20[01][0-6] && passwd -e edison -i 3
 # set timezone
 dpkg-reconfigure tzdata
 
+# TODO: remove this after Debian's IPv6 mirrors are stable again
+mkdir -p /etc/apt/apt.conf.d/
+echo 'Acquire::ForceIPv4 "true";' | sudo tee /etc/apt/apt.conf.d/99force-ipv4
+
 #dpkg -P nodejs nodejs-dev
 apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
 apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
@@ -22,10 +26,6 @@ adduser edison dialout
 
 sed -i "s/daily/hourly/g" /etc/logrotate.conf
 sed -i "s/#compress/compress/g" /etc/logrotate.conf
-
-# TODO: remove this after Debian's IPv6 mirrors are stable again
-mkdir -p /etc/apt/apt.conf.d/
-echo 'Acquire::ForceIPv4 "true";' | sudo tee /etc/apt/apt.conf.d/99force-ipv4
 
 # TODO: change back to dev after merging nodejs-6 to dev, then to master after docs release
 curl -s https://raw.githubusercontent.com/openaps/docs/nodejs-6/scripts/quick-packages.sh | bash -
