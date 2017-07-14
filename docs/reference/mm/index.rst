@@ -1,9 +1,0 @@
-
-mm
-==
-.. toctree::
-   :glob:
-   :titlesonly:
-
-   *
-
