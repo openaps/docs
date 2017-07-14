@@ -169,7 +169,7 @@ These logs and other files are things you may frequently access. There are short
 ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-If you haven't already done so, please see the [Papertrail] docs (http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) for an easy way to track all your logs.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+If you haven't already done so, please see the [Papertrail](http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) docs for an easy way to track all your logs.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 
 ## You're not done yet - keep reading for other customizations you may want
 
