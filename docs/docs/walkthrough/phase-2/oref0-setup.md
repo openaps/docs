@@ -57,7 +57,7 @@ Pull/clone the latest oref0 master by running:
 
 If you have been looping for awhile, are setting up an additional rig, are comfortable using the advanced features from the master branch, and want to test out the latest features of the oref0 dev branch (which may still be highly experimental) you can use:
 
-`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)`
+`mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)` (note if this is run then unless you re-flash you cannot return to non experimental, non developmental versions)
 
 `cd ~/src/oref0 && npm run global-install` (note this is only necessary for the dev branch, NOT for master)
 
