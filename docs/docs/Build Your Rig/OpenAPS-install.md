@@ -34,7 +34,7 @@ It will run for a while again, and then ask you for the following:
 
 * Pick your time zone. (i.e. in the US, you'd hit enter on US; and scroll and find your time zone, such as Pacific New if you're in California)
 
-It will then continue to run a while (~10+ minutes) before asking you to press `enter` to run oref0-setup. After pressing `enter` you'll be prompted for information.
+It will then continue to run a while (~10+ minutes) before asking you to press `enter` to run oref0-setup.
 
 #### Be prepared to enter the following information into "oref0-setup":
 
