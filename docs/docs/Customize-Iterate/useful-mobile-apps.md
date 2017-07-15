@@ -4,49 +4,38 @@ Beyond just services, such as IFTTT and Papertrail, there are times where your m
 
 ## IP address of rig
 
-Obtain IP address of rig and check connection status
+In order to connect to your rig wirelessly, sometimes you'll need it's IP address.  There's several places you can get your rig's IP address if you aren't currently logged in, including:
 
-### iNet (iPhone)
+* Papertrail through doing a search for `network` and reading the rig's private IP address
+* Logging into your home router, if rig is on your home network
+* using a mobile app on your phone to scan the network for the rig
 
-iNet will scan the network that the phone is using for other connected devices and their IP addresses on that same network.  So, if you run the scan while your phone is on a wifi network, the scan will be for the wifi netowrk and range will likely be `192.168.1.1` to `192.168.1.254`.  If you have your rig connected via mobile hotspot, then the scan will be for devices in the mobile hotspot range of `172.10.20.1` to `172.10.20.20`. (IP address ranges depend on the type of network being scanned.)
+### iNet or NetAnalyzer (iPhone)
 
-* Open the iNet app
+There are many scanning apps for iPhone.  iNet or NetAnalyzer (lite version...don't need to pay for this to work) will scan the network that the phone is using for other connected devices and their IP addresses on that same network.  So, if you run the scan while your phone is on a wifi network, the scan will be for the wifi netowrk and range will likely be `192.168.1.1` to `192.168.1.254`.  If you have your rig connected via mobile hotspot, then the scan will be for devices in the mobile hotspot range of `172.10.20.1` to `172.10.20.20`. (IP address ranges depend on the type of network being scanned.)  Some people have had more success with the NetAnalyzer app over the iNet app, depending on their router settings.
 
-* Click on the big “NETWORK SCANNER” 
+* Open the iNet app and click on the big `NETWORK SCANNER`.  If using NetAnalyzer app, click on the `scan` button in top right corner of app. (screenshots are for iNet)
+
 ![Network scanner app](../Images/network_scanner.png)
 
-* Click on the three little bars in the upper right, and then choose “Scan Settings” from the drop down list that will appear.
+* The app will begin scanning the network that the phone is currently connected to.  In this example, a home wifi network.  Scan the results for your rig's name.  If you don't see the name, try using the other app.  If you still don't see your rig's name, it's possible that the rig is not actually connected to the network being scanned.  Check the other options (such as papertrail or your home router) to verify whether the rig is actually online with the same network you are scanning.
 
-![Scan settings](../Images/scan_settings.png)
+![Network scanner app](../Images/wifi-scan.jpg)
 
-* Edit the Start IP and End IP scan settings to  172.20.10.1 and 172.20.10.20  (devices connected to your iPhone hotspot will be in that range).
+Now you have your rig's IP address...a valuable piece of information.
 
-* Press the blue/black “Scan” button on the bottom right of the screen (it may be a little hidden because the display gets a little pushed down by the hotspot bar on the top of iPhone).
+If the rig is connected to your iPhone's hotspot, the scan will be performed for the mobile hotspot range.  You can always re-do a scan by clicking on the little circle arrow in the bottom left of the iNet screen, or the `scan` button on the top right of NetAnalyzer app.
 
-![Edit start and end IP and pres scan](../Images/edit_network_scanner.png)
-
-* The scan results should show a device labeled “edisonhost” (or whatever name you chose for the rig in the setup process.  If you don’t see it quickly, try rescanning.
-
-* Copy down  or screenshot the IP address listed under the device. (in this example, 172.20.10.10) 
-
-![Successful network scanner screen](../Images/successful_network_scanner.png)
-
-Now you have your rig's IP address while it's connected to your mobile hotspot
-
-
-### NetAnalyzer (iPhone)
 
 ## Logging into Rig
 
 There are many apps that will allow you to use an ssh command to login to your rig wirelessly.  These apps make it super convenient to login to your rig while on the go running errands, laying in bed on a Saturday morning, or other situations where you may not want to get to a computer to login to the rig.
 
 **************
-**In order to use these apps, your rig and phone must be on the same internet connection**  So if your rig is on your home wifi network, your phone must also be logged on to your home wifi network.  If your rig is on your mobile hotspot, these apps will still work too...just need to set them up for the various connections.  If they are not on the same network, you will get a login error.   
+**In order to use these apps, your rig and phone must be on the same internet connection**  So if your rig is on your home wifi network, your phone must also be logged on to your home wifi network.  If they are not on the same network, you will get a login error.   
 *************
 
-
-
-## 4. Set up a connection to the rig on the iPhone
+### Termius app
 
 Now we are moving over to the Termius app.  When you first open the app, it will prompt you to add a new host.  Go ahead and click the button to add a new host.  You are going to fill out the following lines:
 ```
@@ -67,37 +56,13 @@ Congrats…you should now see the host you just created.  If you click on that h
 
 ![Termius with hosts showing](../Images/Terminus_with_hosts.png)
 
-## 5. Edit the list of wifi networks on the rig 
+ Edit the list of wifi networks on the rig 
 
 You’re IN!  Congrats!  
 
-**Warning** The instructions below describe how to edit your rig's network settings, which determine whether your rig can connect to your hotspot.  Just in case you might mess up the config and "step on your own air hose", be sure you have a backup method of connecting to your rig (perhaps using Bluetooth, or your laptop and a USB console connection) or a backup rig available.  Be careful when editing wpa_supplicant.conf to copy the syntax exactly, to avoid having it refuse to load the config at all due to a misplaced quote or curly brace or something.
+**HINT:** In portrait orientation, the middle part of the upper keyboard row can be moved/slid left or right using a fingertip drag.  The arrow navigation keys may need to be dragged to see them all in that row.
 
-If you are out and about, don't have a backup method of connecting, and this is your only rig, you might want to consider waiting until you get home to change your wpa_supplicant config.
-
-If you're ready to proceed, you’ll want to enter :
-
-`vi /etc/wpa_supplicant/wpa_supplicant.conf`
-
-and that will bring up your network list for the rig:
-
-![network list in the rig](../Images/network_list_in_rig.png)
-
-**HINT:**  Turn your iPhone sideways and the keyboard will show some useful options.  Like those arrow keys to navigate with.
-
-**HINT 2:**  you can also use this host portal to run any other commands (not just adding wifi networks).  This host will work anytime your iPhone and rig are hotspotted together.
-
-* Type “i” to enter INSERT mode.
-
-![Insert mode to add new wifi](../Images/add_new_wifi.png)
-
-* Add your new wifi network 
-
-* Press the “esc” key and then type “:wq” to save and quit
-(or “:q!” if you panic and don’t want to save the changes)
-
-CONGRATS! You just set up a convenient on-the-go editing tool!
-
+**HINT:**  Turn your iPhone sideways and the keyboard will be more prominently shown.
 
 ## Nightscout Apps
 
