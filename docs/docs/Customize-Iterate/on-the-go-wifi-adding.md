@@ -1,4 +1,18 @@
-# How to add a new wifi network while out and about
+# How to add new wifi network(s)
+
+Adding a wifi network is pretty easy once your initial loop has been setup.  Simply enter `edit-wifi` (which is a shortcut command for `nano /etc/wpa_supplicant/wpa_supplicant.conf` and add networks using the template:
+
+```
+network={
+    ssid="my network"
+    psk="my wifi password"
+}
+```
+Save the edits to the file using `control-x`, `y`, and `enter`.
+
+Helpful tip:  Add a couple "blank" networks to the file, so that if you ever need to add new wifi networks while on-the-road, the process will be much faster and easier.  You'll only need to edit the network name and password then...instead of needing to type in the whole string of the template. 
+
+## using apps to add wifi
 
 Since OpenAPS rig needs internet connection, most of the times we would prefer to have the rig on a wifi connection.  Using our iPhones as hotspots can rack up data use and burn iPhone battery pretty quick.  So, let’s say your kid is going to a sleepover at a friend’s house and you’d like to put her rig on the friend’s wifi network.  Unless you bring your laptop with you…you might be stumped how to do that?  Here’s a walkthrough for how to get that done…the setup is a bit long at first, but you can use the resulting connection to do many other things with your rig on-the-go.
 
