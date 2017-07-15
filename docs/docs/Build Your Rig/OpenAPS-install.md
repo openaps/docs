@@ -15,7 +15,7 @@ If you're not already, make sure you're logged into your rig via root. You shoul
 
 Go to [this webpage](https://raw.githubusercontent.com/openaps/docs/master/scripts/openaps-bootstrap.sh) in a separate tab/window.
 
-Copy all of those lines; go back to Terminal/PuTTY and paste into the command line. Then, hit `enter`.
+Copy all of those lines; go back to Terminal/PuTTY and paste into the command line. Then, hit `enter`.  The screenshot below is an example of what the pasted text will look like (highlighted in blue for clarity).
 
 *************
 Note: **This setup script will require you to have an available working internet connection to be successful.**  If anything fails during the installation, the setup may end early before you get to the setup script questions.  In that case, you can just paste the script above into the command line again and try again.  (Don't try to use the up arrow, it probably won't work.)  If you get repeated failures, bring your questions and error messages into Gitter or FB for help with troubleshooting.
