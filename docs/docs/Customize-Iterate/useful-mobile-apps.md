@@ -14,9 +14,9 @@ In order to connect to your rig wirelessly, sometimes you'll need it's IP addres
 
 There are many scanning apps for iPhone.  iNet or NetAnalyzer (lite version...don't need to pay for this to work) will scan the network that the phone is using for other connected devices and their IP addresses on that same network.  So, if you run the scan while your phone is on a wifi network, the scan will be for the wifi netowrk and range will likely be `192.168.1.1` to `192.168.1.254`.  If you have your rig connected via mobile hotspot, then the scan will be for devices in the mobile hotspot range of `172.10.20.1` to `172.10.20.20`. (IP address ranges depend on the type of network being scanned.)  Some people have had more success with the NetAnalyzer app over the iNet app, depending on their router settings.
 
-* Open the iNet app and click on the big `NETWORK SCANNER`.  If using NetAnalyzer app, click on the `scan` button in top right corner of app. (screenshots are for iNet)
+* Open the iNet app and click on the big `NETWORK SCANNER`.  If using NetAnalyzer app, click on the `LAN` button on bottom bar and then `scan` button in top right corner of app.
 
-![Network scanner app](../Images/network_scanner.png)
+![Network scanner app](../Images/network_scanner.jpg)
 
 * The app will begin scanning the network that the phone is currently connected to.  In this example, a home wifi network.  Scan the results for your rig's name.  If you don't see the name, try using the other app.  If you still don't see your rig's name, it's possible that the rig is not actually connected to the network being scanned.  Check the other options (such as papertrail or your home router) to verify whether the rig is actually online with the same network you are scanning.
 
