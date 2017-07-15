@@ -1,5 +1,7 @@
 # Installing OpenAPS on your rig with an already-flashed-Edison
 
+*This page assumes you have a pre-flashed Edison. Don't have a pre-flashed Edison? Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), then come back here before installing wifi and other steps, which is easier to do following this page's flow.* 
+
 ### Prep Steps
 * **PC users:** [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
 
@@ -11,7 +13,7 @@ If you're not already, make sure you're logged into your rig via root. You shoul
 
 ### Copy and paste to run the wifi and oref0-setup scripts
 
-Go to [this webpage](https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-bootstrap.sh) in a separate tab/window.
+Go to [this webpage](https://raw.githubusercontent.com/openaps/docs/master/scripts/openaps-bootstrap.sh) in a separate tab/window.
 
 Copy all of those lines; go back to Terminal/PuTTY and paste into the command line. Then, hit enter.
 
@@ -169,12 +171,12 @@ These logs and other files are things you may frequently access. There are short
 ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-If you haven't already done so, please see the [Papertrail](http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) docs for an easy way to track all your logs.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+If you haven't already done so, please see the [Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) docs for an easy way to track all your logs.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 
 ## You're not done yet - keep reading for other customizations you may want
 
-You're looping? Congrats! However, you're not done yet. There's still more you can do - don't forget to [check your preferences](http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html); [add more wifi to your rig if needed](http://openaps.readthedocs.io/en/dev/docs/Customize-Iterate/on-the-go-wifi-adding.html); [set up IFTTT for your phone or watch](http://openaps.readthedocs.io/en/dev/docs/Customize-Iterate/ifttt-integration.html); [finish Bluetooth tethering your phone](http://openaps.readthedocs.io/en/dev/docs/Customize-Iterate/bluetooth-tethering-edison.html), etc. Make sure also you've got a good understanding of which logs you can and should check, and where to find them on the go.
+You're looping? Congrats! However, you're not done yet. There's still more you can do - don't forget to [check your preferences](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html); [add more wifi to your rig if needed](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/on-the-go-wifi-adding.html); [set up IFTTT for your phone or watch](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html); [finish Bluetooth tethering your phone](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html), etc. Make sure also you've got a good understanding of which logs you can and should check, and where to find them on the go.
 
 Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
 
-(Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see [the page on troubleshooting oref0-setup tips](http://openaps.readthedocs.io/en/dev/docs/Troubleshooting/oref0-setup-troubleshooting.html) you should work through before asking for help.)
+(Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see [the page on troubleshooting oref0-setup tips](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html) you should work through before asking for help.)
