@@ -23,18 +23,15 @@ Note: **This setup script will require you to have an available working internet
 
 ![Example of wifi bootstrap script finding wifi options](../Images/Edison/setup-paste.png)
 
-The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.
-
-It will run for a while again, and then ask you for the following: 
-* Type in your wifi name and hit enter; and type your wifi password and hit enter.  Pay careful attention to capital letters, spacing, and special characters.
+The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.  It will run for a while again, and then ask you to type in your wifi name and press `enter`; and type your wifi password and press `enter`.  Pay careful attention to capital letters, spacing, and special characters.
 
 ![Example of wifi bootstrap script finding wifi options](../Images/Edison/openaps-bootstrap-wifi-setup.png)
 
 * Change your hostname (a.k.a, your rig's name). **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@whatyounamedit.local`**
 
-* Pick your time zone. (i.e. in the US, you'd hit enter on US; and scroll and find your time zone, such as Pacific New if you're in California)
+* Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
 
-It will then continue to run a while (~10+ minutes) before asking you to press `enter` to run oref0-setup.
+The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
 
 #### Be prepared to enter the following information into "oref0-setup":
 
@@ -51,9 +48,8 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 * directory name for your openaps - we recommend the default `myopenaps` (see note above)
 * serial number of your pump
 * whether or not you are using an Explorer board
-   * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick or Explorer board (built in TI stick):
-    * see [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
-   * (if you're using a Carelink, you will NOT be using mmeowlink)
+   * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
+    * if you're using a Carelink, you will NOT be using mmeowlink
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.  G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
 * whether you want Autosensitivity and/or Autotune enabled
@@ -62,7 +58,7 @@ The screenshot below shows an example of the questions you'll be prompted to rep
   * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
 * After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
 
-#### Log in again, and change your password
+#### Login again, and change your password
 
 If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (probably `edison`). It will ask you a second time for the current password (probably `edison`). However, now it will prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your edison if you forget your password.
 
@@ -141,11 +137,11 @@ Finally, you should eventually see colorful indications of successful looping, w
 
 Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range.
 
-If after 20 minutes, you still have some errors showing instead of the above successful looping information, it may be time to head over to the Troubleshooting docs to figure out where your problem is.
+If after 20 minutes, you still have some errors showing instead of the above successful looping information, it may be time to head over to the [Troubleshooting oref0-setup tips page](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html) for ideas on your error messages and how to resolve them.  IF you aren't able to resolve your errors, please make sure that you have captured the error messages before heading over to Gitter or Facebook to get help.  Troubleshooting is far more successful when you come prepared with the error messages.
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
-#### Why you should learn about these logs now - and other handy shortcuts
+#### Rig Logs and Shortcut commands
 
 Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
 
@@ -179,12 +175,22 @@ These logs and other files are things you may frequently access. There are short
 ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-If you haven't already done so, please see the [Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) docs for an easy way to track all your logs.  Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+## Finish your OpenAPS setup
 
-## You're not done yet - keep reading for other customizations you may want
+You're looping? Congrats! However, you're not done quite done yet. 
 
-You're looping? Congrats! However, you're not done yet. There's still more you can do - don't forget to [check your preferences](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html); [add more wifi to your rig if needed](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/on-the-go-wifi-adding.html); [set up IFTTT for your phone or watch](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html); [finish Bluetooth tethering your phone](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html), etc. Make sure also you've got a good understanding of which logs you can and should check, and where to find them on the go.
+****************
+**Shortly after you confirm your loop is running, you should [set your preferences](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html).  Don't forget, your preferences are reset to defaults after each run of a setup script, so please remember to check preferences after confirming a loop is successfully run/rerun.**
+*******************
+
+As your time permits, there's still more useful and cool things you can do to make looping more efficient and automated.
+
+* [Add more wifi networks to your rig](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/on-the-go-wifi-adding.html) so that when you are away from home, the rig has access to trusted wifi networks
+* [Setup Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended) Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+* [Setup IFTTT for your phone or watch](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html) to allow you to use Nightscout's temp targets, carb entries, and similar for single button interactions with your rig
+* [Finish Bluetooth tethering your phone](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) so that when you are away from trusted wifi networks, your rig can automatically access your phone's mobile hotspot for continued online looping. 
+* [Learn about offline looping](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html) for times when your rig is not able to access internet (no wifi, no hotspot).
 
 Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
 
-(Not looping yet? No worries - remember it may take 15-20 minutes for the first loop to run; and see [the page on troubleshooting oref0-setup tips](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html) you should work through before asking for help.)
+
