@@ -2,6 +2,7 @@
 
 NOTE OF CAUTION:
 * oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
+* You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail, before you enable oref1-related features.
 
 ## Only run oref1 with the following caveats in mind: 
 
@@ -40,7 +41,7 @@ UAM will be triggered if the preference is toggled on and there is carb activity
 
 * As of July 13, 2017, SMB/UAM are in the master branch of oref0 (oref0 0.5.0). They are under the advanced features menu, and require you to read these docs carefully from top to bottom on this page in order to enable it during the setup script. Afterward, you also need to turn on the relevant settings in preferences.json. You may want to experiment with turning only one of them on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
-There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/dev/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
+There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
 
 ```
  * enableSMB_with_bolus means SMB will be enabled DIA hours after a manual bolus
