@@ -2,6 +2,268 @@
 
 ## WARNING - THE RASPBERRY PI IS A DEPRECATED (NOT-RECOMMENDED) SETUP OPTION. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. (July 2017)
 
+There are multiple options when it comes to Raspberry Pi. Most of the instructions are older and many updates have happened since these were written. However I am leaving those for now for people with older Pi's or older setups that they wish to maintain. As time progresses most of these can/will phase out as people update systems. I am going to focus on setting up the Pi3 and the Pi zero w from start to finish using the TI CC1111 radio stick. Your operating system used to setup does not matter. You will use pixal and putty. Pixal is on the Pi and putty or any other terminal emulator can be downloaded to any system. The same setup will work for both. And the SD cards can be interchanged between both. For this setup goto ### New Path below this paragraph.
+
+Setting Up Your Raspberry Pi using Windows
+
+Before I start. I have a couple of recommendations. Many of you want to get by as "low cost" as possible. I understand that. However; from what I have read; the Hybrid artificial pancreases are slated to cost around $6000.00 in the upcoming years once proven and allowed by all insurances. IF you met your deductible and if you have the standard 20% (IF you have really good insurance) that will be $1200.00 you will pay. So the recommendations are small in comparison but will make life much easier. This is a device to control your or child’s insulin pump.
+
+I recommend the The following:
+
+A 4 port usb hub (if using Pizero w) made for pi. I paid $8.00
+
+Cana kit. Roughly $34.00 It has all converter cables. And it has the Pi certified SD card with NOOBS installed in its’ own partition. This allows you to format card later if need be and NOOBS will still be on the card to quickly reload OS. Power supply. And the SD/USB converter (if buying a Pi 3)
+
+TI CC1111 Radio stick.  Extremely strong radio signal to the pump.
+USB Hub allows you to plug in keyboard and mouse at the same time when working with setup. 14.99 for a really good setup. 
+https://www.amazon.com/gp/product/B01LXGABXY/ref=oh_aui_detailpage_o05_s00?ie=UTF8&psc=1
+
+I use the following battery. $17.99 for the pi zero w. It gives me 15 hours with more to spare. I have experienced 0 voltage drops and it has all of the safety features. It DOES NOT have pass through charging. But I charge it while I sleep and I plug my pi into electrical outlet.
+https://www.amazon.com/gp/product/B00P7N0320/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
+
+I purchased a spare monitor for $8.00 at Goodwill
+
+I found someone getting a new pc and they were throwing out mouse and keyboard. Yes I asked for them.
+So for roughly $150.00 you have a nice Hybrid artificial pancreas. Of this you would have to buy the pi and the TI stick which together is $110.00 if you went the cheaper route.
+
+### Setup your TI cc1111 radio stick
+Follow this link to grab the correct firmware
+	https://github.com/oskarpearson/mmeowlink/wiki/TI-USB-stick
+
+For the Pi with the TI choose:
+	usb_ep0_TI_DONGLE_US_STDLOC.hex  Save the .hex file for use in the next step.
+
+Download the flash programmer tool from Texas Instruments using this link
+http://www.ti.com/tool/flash-programmer
+	Note: choose the Flash Programmer tool not the Flash Programmer-2
+
+Use this link for installation instructions using Windows.
+	https://github.com/oskarpearson/mmeowlink/wiki/Instructions-for-Flashing-TI-stick-or-SRF-ERF-using-Windows-utilities
+		Note: When flashing use the hex file you saved earlier as your firmware. Not the one provided or suggested by Texas Instruments in their instruction sheet.
+
+Install Raspian (Jessie) on your Pi 
+Note: Many reports online state there are issues with crashing sd cards. While many believe all sd cards are alike that is no longer true. Many cards are made to work with specific pieces of technology. Amazon.com sells Pi certified sd cards with NOOBS preinstalled. They do cost more however I have no issues with mine and I have been testing many things including unplugging the power to the Pi without shutting it down first (Idon’t recommend doing this as a norm but in a failure situation you should be safe based on my test results).  Pi says this is a promised way of killing an sd card. I have yet to have a failure. The added cost seems to be well worth it. I will proceed with the understanding I am following the recommended use of Pi certified sd cards preloaded with NOOBS. I will not put a link because it would change daily.
+			Using Pixal:  
+Make sure Pi is powered down and unplugged.
+Insert SD card into SD card slot
+Using an HDMI cable attach monitor to Pi using the HDMI port on the Pi
+Plug a spare USB keyboard into the PI using the USB slots on the Pi 
+	NOTE With Pi Zero W use USB hub)
+Plug the TI radio stick into the top center USB slot of Pi 3
+	Note if using a Pi Zero W wait until ready to install openaps to plug into Pi
+Plug the micro power cable into the Pi
+Plug the other end into outlet
+The Pi should start up with this screen.
+	Put an x in the box
+	Set correct keyboard and country. (See figure 2)
+	Select Install at the top left
+	You will get a warning that all data will be erased. If this is a new card do not worry
+		NOTE Depending on your internet speed this can take 10 – 30 minutes
+
+Once you have the Pixal screen do the following
+	In the top left corner choose MENU/Raspberry Pi Configuration
+	Choose system tab
+		Change Hostname and password (default password is raspberry)to what you want. Needs to be at least 8 characters for SSH to work
+	Choose interface tab
+		Select SSH
+	Do not make any changes under Performance Tab
+	Select Localisation Tab (yes that is the correct spelling on a Pi)
+		Select each sub tab and fill in the proper settings
+		If you are in the U.S. choose U.S. and International for the keyboard.
+	Select OK and when asked to reboot select ok
+	In the top menu bar on the right side select your wifi from the dropdown list
+	
+### Update the repository and upgrade the installed packages:
+	From the bar at the top of the screen choose the terminal icon
+		NOTE: we will work in root. 
+	To enter root copy and paste the following then press enter
+	sudo -i
+	Copy and paste the following then press enter
+		NOTE: This will unpackage nodejs and try to remove the legacy version. IF the legacy version does not exist ignore the error messages pertaining to that..
+		dpkg -P nodejs nodejs-dev
+	Copy and paste each line of code 1 at a time and press enter after each. These are done as 3 separate commands do to the size of pi zero w processor
+		apt-get update
+	
+		apt-get dist-upgrade  (get some coffee, take a nap, take a vacation)
+	
+		apt-get autoremove
+	
+	Copy and paste code then press enter.
+		apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+		
+	Copy and paste code then press enter.
+		dpkg-reconfigure tzdata
+
+	NOTE: it will default to America. Arrow down and select USA if you are in the US. Then arrow to the right and highlight ok. Then choose time zone and arrow to OK.
+
+	Copy and paste code then press enter.
+		nano /etc/logrotate.conf
+			NOTE: I HAVE NOTICED LINUX CAN BE VERY FUSSY AT TIMES. if IT GIVES AND ERROR copy and paste each line 1 at a time and press enter after each.
+				cd /etc/
+				nano logrotate.conf
+
+		Arrow down and change the log rotation to daily from weekly
+		Enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+		Exit and save
+		
+	 Select this line of code and paste into terminal window to update pi firmware and press enter.  
+		rpi-update
+	Reboot to apply the changes:
+		reboot
+
+	You may have the following message the next time you start pixal
+ 		Press ‘OK’
+		At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
+	
+		From terminal window type sudo ifconfig
+			Write down ip address. You will need this to SSH into Pi.
+			NOTE: From this point forward we will use SSH to comunicate with Pi.
+			
+Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip address from above. Use the password you set during setup	
+
+### Disable Network Power Management 
+	The latest few updates of software have Power Save On as a default. This will shut down your wlan0 port even if you add a script to test and restart every 5 minutes. To disable do the following:
+	Copy and paste the following line and press enter
+		sudo -i
+	Copy and paste into ssh terminal: 
+		nano /etc/network/interfaces
+	Arrow down to the end of:  iface wlan0 inet manual
+		Press enter to create a blank line
+		Copy and paste the following line into that new space: : 
+			wireless-power off 
+	***NOTE*** IT IS CRITICAL it goes just below ‘iface wlan0 inet manual’ If you put it above this line your Pi Wifi will not work!
+		Exit and save nano screen
+	Reboot pi reboot 
+	
+	SSH into pi
+	Copy and paste iwconfig 
+	You should now see Power Management:off
+ 
+### Setup network
+	Copy and paste the following then press enter
+		sudo -i
+	Copy and paste the following
+		nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+	Match the following. You can copy and paste what you need and simply edit
+	
+	
+	ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+        ssid="YourNetworkName"
+        psk="YouPassword"
+        key_mgmt=WPA-PSK
+        priority=1
+        id_str="wifi"
+}
+
+network={
+        ssid="YourHotspotName"
+        psk="YourHotspotPassword"
+        key_mgmt=WPA-PSK
+        priority=2
+        id_str="hotspot"
+}
+
+
+		Note: I set up a wifi and a wifi hotspot (phone) 
+		Note: Where I use “ “ they are to be included
+
+ 		Exit and save
+		
+Copy and paste the following
+		nano /etc/network/interfaces
+	Match the following. 
+	
+	
+
+
+ # interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+    wireless-power off
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+allow-hotplug wlan1
+iface wlan1 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+iface wifi inet dhcp
+iface hotspot inet dhcp
+
+	Exit and save
+	
+	Note: Where I called to the wifi and a hotspot (phone) at the bottom
+	Note: I do not use “ “
+	Note: inet is left manual
+	Note: change every line in your original where you see it different here. This is important.
+	
+	Copy and paste the following 
+		reboot
+	Press enter
+
+### Wif and Hotspot auto restart
+	Log in as pi using ssh
+	Copy and paste the following then press enter
+		sudo -i
+	Copy and paste the following then press enter
+		cd /usr/local/bin
+			NOTE: if it fails type each line 1 at a time pressing enter after each
+			cd /usr/
+			cd local
+			cd bin
+			
+2.	Copy and paste the following then press enter
+		nano wifi_reboot.sh
+	This will create the file
+	Copy and paste the following into the file (copy and paste all at once)
+
+#!/bin/bash
+# The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
+#SERVER=8.8.8.8
+# Only send two pings, sending output to /dev/null
+sudo ping -c2 8.8.8.8 > /dev/null
+# If the return code from ping ($?) is not 0 (meaning there was an error)
+if [ $? != 0 ]
+then
+    # Restart the wireless interface
+    /sbin/ifdown 'wlan0'
+    sleep 3
+    /sbin/ifup --force 'wlan0'
+fi
+
+
+	exit and save
+	Copy and paste followed by enter
+		chmod +x /usr/local/bin/wifi_reboot.sh
+		
+	Copy and paste the following then press enter to make it auto run the script from chron:
+		nano /etc/crontab
+			NOTE: if it fails copy and paste each line 1 at a time followed by enter
+			cd /etc/
+			nano crontab
+
+	After the last line copy and paste this (this will check every 3 minutes)
+		*/3 *   * * *   root    /usr/local/bin/wifi_reboot.sh
+  Exit and save
+ reboot
+
+
 **Note 1:** This page talks about setting up the Raspberry Pi with a Carelink USB stick. If you chose the TI stick for your first setup, you'll need to utilize directions in the [mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for flashing your TI stick, then return here to continue on with the OpenAPS setup process.
 
 **Note 2:** Setting  up a Raspberry Pi is not specific to OpenAPS. Therefore, it's very easy to Google and find other setup guides and tutorials to help with this process. This is also a good way to get comfortable with using Google if you're unfamiliar with some of the command line tools. Trust us - even if you're an experienced programmer, you'll be doing this throughout the setup process.
