@@ -41,7 +41,7 @@ As you can see, there are several types of adjustments that have occured during 
 "autosens_max": 1.2, <----multiplier for adjustments during insulin resistance
 "autosens_min": 0.7, <----multiplier for adjustments during insulin sensitivity
 ```
-We do not recommend widening these multipliers; but an easy way to turn "off" autosens after you've enabled it is so adjust the safety multipliers to 1. However, note that this will also disable autotune adjustments if you are running autotune. 
+We do not recommend widening these multipliers; but an easy way to turn "off" autosens after you've enabled it is to adjust the safety multipliers to 1. However, note that this will also disable autotune adjustments if you are running autotune. 
 
 ### Autosens vs Autotune
 
