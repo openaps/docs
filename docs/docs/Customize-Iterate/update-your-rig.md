@@ -10,7 +10,7 @@ However, if it's a brand-new feature that's being tested or is recently added to
 
 1. `cd ~/src/oref0 && git checkout master && git pull && sudo npm install -g oref0`
 
-#### Optional: To get on "dev" branch to test even more recently added new stuff
+##### **Optional: To get on "dev" branch to test even more recently added new stuff**
 
 Or, if the feature you want hasn't been released yet, and you want to test the latest untested development version of `oref0`, run:
 
@@ -19,4 +19,4 @@ Or, if the feature you want hasn't been released yet, and you want to test the l
 
 ## Step 2: Re-run oref0-setup
 
-Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. 
+Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup) for a guide of what the setup script will be prompting you to enter.
