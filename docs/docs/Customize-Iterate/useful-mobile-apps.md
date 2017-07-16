@@ -79,6 +79,8 @@ Click `Save` in the upper right corner.  You should now see the host you just cr
 #### SimpleSSH Commands
 One of the best features of SimpleSSH can be found on the Commands page (swipe right on the SimpleSSH home screen to see the Commands page).  You can add scripted commands to this page to give you single-button-press access to common rig interactions...like setting up shortcuts.  There are pre-scripted commands that come with the app...you can see those by pressing the `+` in the upper right corner and then selecting `New Script Library Command`.  You can click on the circled down-arrow to the right of the command name to save it to your commands page.
 
+![SimpleSSH commands page](../Images/command-add.png)
+
 Some useful/fun commands from the Script Library that I've added to my Commands Page:
 
 **Hardware Information**
