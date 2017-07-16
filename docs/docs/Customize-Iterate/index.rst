@@ -14,6 +14,6 @@ Customize-Iterate
    offline-looping-and-monitoring
    on-the-go-wifi-adding
    useful-mobile-apps
-   usability-considerations
+   Usability-considerations
    update-your-rig
    oref0-runagain
