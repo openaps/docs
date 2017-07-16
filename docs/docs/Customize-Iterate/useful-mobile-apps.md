@@ -35,40 +35,99 @@ There are many apps that will allow you to use an ssh command to login to your r
 **In order to use these apps, your rig and phone must be on the same internet connection**  So if your rig is on your home wifi network, your phone must also be logged on to your home wifi network.  If they are not on the same network, you will get a login error.   
 *************
 
-### Termius app
+I've tried a few apps, both paid and free, and these have been my favorite two iPhone apps; Termius and SimpleSSH.  Each has its pros/cons, and therefore I pick which app based on what I'd like to do in the rig.
 
-Now we are moving over to the Termius app.  When you first open the app, it will prompt you to add a new host.  Go ahead and click the button to add a new host.  You are going to fill out the following lines:
-```
-Alias – pick a name that let’s you know this is the rig when it’s hotspotted with your iPhone
+Termius app has a FAR BETTER file editing ability...as in don't even bother trying to edit files (like preferences.json or adding wifi networks) in SimpleSSH.  However, if you want to navigate files on your rig or issue commands that you've preprogrammed, SimpleSSH is better.  So, if you're doing an activity which involves editing files...definitely stick with Termius app.
 
-Username – click to the left of the little blue man and type “root”
+### Termius app (iPhone)
 
-Hostname – Enter the IP address we just got from the iNet app
+When you first open the Termius app, it will prompt you to add a new host.  Go ahead and click the `+` button to add a `new host`.  Turn the toggle on for `Use SSH` and then fill out the following information:
 
-Password – Enter your rig’s root password (default is “edison” but you likely changed it during setup)
-```
+* Alias – use an alias name that let’s you know which rig and which connection point this host is for, for example `YourRigName on home wifi`
 
-Click “Save” in the upper right corner.
+* Hostname – Enter either `YourRigName.local` or the IP address of the rig
 
-![Termius adding new hosts](../Images/Terminus_add_new_host.png)
+* Username – click to the left of the little blue man and type `root`
 
-Congrats…you should now see the host you just created.  If you click on that host, you’ll see a message that it is connecting and then…
+* Password – Enter your rig’s root password (default is “edison” but you should have changed it during setup)
 
-![Termius with hosts showing](../Images/Terminus_with_hosts.png)
+Click `Save` in the upper right corner.  You should now see the host you just created.  If you click on that host, you’ll see a message that it is connecting (first time connections will ask if you want to save the rig to known hosts, cick `continue` and then you'll be connected to a terminal app screen.  You can now issue commands and edit files just like you can using Putty or Terminal app on your computer.
 
- Edit the list of wifi networks on the rig 
+![Termius with hosts showing](../Images/termius.jpg)
 
-You’re IN!  Congrats!  
 
-**HINT:** In portrait orientation, the middle part of the upper keyboard row can be moved/slid left or right using a fingertip drag.  The arrow navigation keys may need to be dragged to see them all in that row.
+**HINT:** In portrait orientation, the middle part of the upper keyboard row can be moved/slid left or right using a fingertip drag.  The arrow navigation keys may need to be dragged to see them all in that row.  Unlock your phone's orientation, turn your iPhone sideways and the keyboard will be more prominently shown.
 
-**HINT:**  Turn your iPhone sideways and the keyboard will be more prominently shown.
+To end a terminal session, just type `logout`
+
+### SimpleSSH
+
+SimpleSSH has a few more bells and whistles than Termius app.  Namely, you can navigate the folders and files using a touch screen (similar to windows explorer or Mac finder) and you can setup scripts to be run with touch of button (to save yourself typing).  However, SimpleSSH has terrible file editing (`vi` editor will crash and `nano` editor is pretty much unusable).
+
+SimpleSSH is divided into three pages; Commands, Hosts, and Settings & Info.  You can access the different pages by swiping left/right in the app.  To start using the app, you'll need to add your rig as a "host" by clicking on the `+` in the upper right corner of the Hosts page, and then filling out:
+
+ * Name - use a name that let’s you know which rig and which connection point this host is for, for example `YourRigName on home wifi`
+
+ * Host/IP address - Enter either `YourRigName.local` or the IP address of the rig.  Leave the `:22` part unchanged
+
+ * Username - enter `root`
+
+ * Authentication - choose `password` type of authentication and enter your rig's root password.
+
+Click `Save` in the upper right corner.  You should now see the host you just created.  Underneath the host, there are two icons; one with a little `>_` terminal prompt and the other is a folder with magnifying glass.  The first icon is for logging into your rig and using the terminal app (much like the Termius app access provides).  The magnifying glass folder is for navigating your rig's directories and files.  If you click on one of those folders, you’ll see a message that it is connecting (first time connections will ask if you want to save the rig to known hosts, cick `continue` and then you'll be connected.  If you chose the terminal prompt, you'll be sent to the terminal screen.  If you selected the magnifying glass, you'll be dropped in the rig's folders/files.
+
+#### SimpleSSH Commands
+One of the best features of SimpleSSH can be found on the Commands page (swipe right on the SimpleSSH home screen to see the Commands page).  You can add scripted commands to this page to give you single-button-press access to common rig interactions...like setting up shortcuts.  There are pre-scripted commands that come with the app...you can see those by pressing the `+` in the upper right corner and then selecting `New Script Library Command`.  You can click on the circled down-arrow to the right of the command name to save it to your commands page.
+
+Some useful/fun commands from the Script Library that I've added to my Commands Page:
+
+**Hardware Information**
+* **Show Disk Status** will run `df -h` which shows available memory on your rig.  If you ever have memory errors, this would be a helpful tool to see where your memory has been going.
+* **Show Current Version** will run the equivalent of `uname -a` and tell your which jubilinux version your rig is running.
+* **Show USB Devices** will run `lsusb` and can help confirm your dexcom receiver is being properly recognized when plugged in.
+* **Show External IP address** will run `ifconfig` and show your rig's wifi (wlan0) IP address or hotspot (bnep0) IP address.
+
+**System Restart/Shutdown**
+* **Shutdown** will turn off your rig
+* **Reboot** will reboot your rig
+
+But, what I've found particularly useful is making some of my own custom commands.  From your Commands page, press the `+` in the upper right corner and then choose `New Command` and fill out the following:
+
+ * Name - Pick a name that is useful for your command
+ 
+ * Hosts - I recommend leaving this one blank, and instead you'll be prompted which rig (aka host) you'd like to run the command on when you use it.
+ 
+ * Command Script - this is where you'll enter the exact script you'd want to execute (examples below)
+ 
+ * Show Results after execution - toggle this switch `on`
+
+These are some of my favorite Commands:
+
+**Show current preferences** - Sometimes I just want to double check what my preferences.json file has saved to it.  Setting up this command gives me a print out of my preferences.json file with just a single button press.  For this command, simply enter `cat-pref` in the command script body.
+
+**Show known wifi networks** - If I'm headed to a friend's house or traveling, I may want to double check if I have their wifi network already saved to my rig.  This gives me a simple list of the wifi networks I have saved in the rig already, and helps me know if I want to add a new one before I travel.  For this command, simply enter `cat-wifi` in the command script body.  (note: if I actually want to add a wifi network, I would switch to Termius app or login on my computer to add a wifi network...SimpleSSH just isn't a robust editor)
+
+**git lock fix** - Probably the most common error in a rig is the `.git lock` error that happens on occassion and by deleting the .git directory, you can get back to looping quickly.  For this command, enter `rm -rf /root/myopenaps/.git` in the command script body.
+
+**mmtune** - If you want to check how well your pump tune strength is you can use this command script to test it `cd ~/myopenaps && sudo service cron stop && killall -g oref0-pump-loop && openaps mmtune && sudo service cron start`
+
+**Edison temperature** - If you are ever concerned that your rig may be overheating, you can use this command to read if your edison cores are reaching critical temperatures.  For this command, enter `sensors` in the command script body.
+
+#### SimpleSSH file navigation
+
+Perhaps a more slightly advanced-user (or curious-user) feature of SimpleSSH is the ability to use the file/directory navigator.  The navigator (accessed using the magnifying glass icon in Hosts page) will allow you to peruse the various directories and files used by your rig and openaps.  If you wanted to see your oref0 code, it is stored in the `root/src/oref0` folder.  Or if you wanted to see your loop directory, you could navigate to your `root/myopenaps` folder.  This can be particularly useful if you are getting troubleshooting help and someone asks "What does your pumphistory.json show?"...you could easily navigate to that file and copy the contents of it.  (Note: For further reading about the file structure of your loop and rig, see [here](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/General_linux_troubleshooting.html#before-you-get-started)
 
 ## Nightscout Apps
 
+There are a few useful apps for viewing and maintaining your Nightscout site.
+
 ### Nightscout app (iPhone)
 
-### Glimpse Webpages (iWatch)
+This one is pretty self-explanatory.  You can access your Nightscout site by either using the Nightscout app, or by using your NS URL in a mobile browser.
+
+### Glimpse Webpages (Apple Watch)
+
+If you use an Apple watch and want to view your Nightscout site on the watch, give Glimpse Web Pages app a try.
 
 ### LePhant for Heroku (iPhone)
 
