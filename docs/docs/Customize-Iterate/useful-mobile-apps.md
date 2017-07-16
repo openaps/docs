@@ -113,7 +113,11 @@ These are some of my favorite Commands:
 
 **Edison temperature** - If you are ever concerned that your rig may be overheating, you can use this command to read if your edison cores are reaching critical temperatures.  For this command, enter `sensors` in the command script body.
 
-![Network scanner app](../Images/custom-commands.png)
+![Command Script Body text](../Images/custom-commands.png)
+
+If you want to run a particular command, just click on the command & confirm which host (rig) you'd like to run the command on.  Assuming the rig is on the same network (wifi or BT tethered) as the phone, then the results will be displayed.  Below is a few screenshots of some of the custom command outputs:
+
+![Custom command execution examples](../Images/command-results.png)
 
 #### SimpleSSH file navigation
 
