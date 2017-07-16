@@ -190,6 +190,7 @@ As your time permits, there's still more useful and cool things you can do to ma
 * [Setup IFTTT for your phone or watch](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html) to allow you to use Nightscout's temp targets, carb entries, and similar for single button interactions with your rig
 * [Finish Bluetooth tethering your phone](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) so that when you are away from trusted wifi networks, your rig can automatically access your phone's mobile hotspot for continued online looping. 
 * [Learn about offline looping](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html) for times when your rig is not able to access internet (no wifi, no hotspot).
+* [Additional access to your rig via other types of mobile apps.](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/useful-mobile-apps.html) Grab some of these other apps, based on your preference, for accessing your rig in different ways. 
 
 Remember, the performance of your DIY closed loop is up to you. Make sure you at least look at the rest of the documentation for help with troubleshooting, ideas about advanced features you can implement in the future when you're comfortable with baseline looping, and more. Plus, the docs are updated frequently, so it's worth bookmarking and checking back periodically to see what features and preference options have been added. 
 
