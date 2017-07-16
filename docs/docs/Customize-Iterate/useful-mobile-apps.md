@@ -123,7 +123,9 @@ If you want to run a particular command, just click on the command & confirm whi
 
 #### SimpleSSH file navigation
 
-Perhaps a more slightly advanced-user (or curious-user) feature of SimpleSSH is the ability to use the file/directory navigator.  The navigator (accessed using the magnifying glass icon in Hosts page) will allow you to peruse the various directories and files used by your rig and openaps.  If you wanted to see your oref0 code, it is stored in the `root/src/oref0` folder.  Or if you wanted to see your loop directory, you could navigate to your `root/myopenaps` folder.  This can be particularly useful if you are getting troubleshooting help and someone asks "What does your pumphistory.json show?"...you could easily navigate to that file and copy the contents of it.  (Note: For further reading about the file structure of your loop and rig, see [here](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/General_linux_troubleshooting.html#before-you-get-started)
+Perhaps a more slightly advanced-user (or curious-user) feature of SimpleSSH is the ability to use the file/directory navigator.  The navigator (accessed using the magnifying glass icon in Hosts page) will allow you to peruse the various directories and files used by your rig and openaps.  If you wanted to see your oref0 code, it is stored in the `root/src/oref0` folder.  Or if you wanted to see your loop directory, you could navigate to your `root/myopenaps` folder.  This can be particularly useful if you are getting troubleshooting help and someone asks "What does your pumphistory.json show?"...you could easily navigate to that file and copy the contents of it.  (Note: For further reading about the file structure of your loop and rig, see [here](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/General_linux_troubleshooting.html#before-you-get-started)  For example, here's the navigation chain to find your pumphistory.json:
+
+![SimpleSSH navigation example](../Images/navigation.png)
 
 ## Nightscout Apps
 
