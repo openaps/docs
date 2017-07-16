@@ -19,4 +19,4 @@ Or, if the feature you want hasn't been released yet, and you want to test the l
 
 ## Step 2: Re-run oref0-setup
 
-Now that you've updated your `oref0` version, you can [re-run the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/oref0-setup.html#re-running-the-setup-script) to use it. 
+Now that you've updated your `oref0` version, you can [re-run the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref0-runagain.html) to use it. 
