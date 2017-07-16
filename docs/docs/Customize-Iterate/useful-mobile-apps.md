@@ -113,6 +113,8 @@ These are some of my favorite Commands:
 
 **Edison temperature** - If you are ever concerned that your rig may be overheating, you can use this command to read if your edison cores are reaching critical temperatures.  For this command, enter `sensors` in the command script body.
 
+![Network scanner app](../Images/custom-commands.png)
+
 #### SimpleSSH file navigation
 
 Perhaps a more slightly advanced-user (or curious-user) feature of SimpleSSH is the ability to use the file/directory navigator.  The navigator (accessed using the magnifying glass icon in Hosts page) will allow you to peruse the various directories and files used by your rig and openaps.  If you wanted to see your oref0 code, it is stored in the `root/src/oref0` folder.  Or if you wanted to see your loop directory, you could navigate to your `root/myopenaps` folder.  This can be particularly useful if you are getting troubleshooting help and someone asks "What does your pumphistory.json show?"...you could easily navigate to that file and copy the contents of it.  (Note: For further reading about the file structure of your loop and rig, see [here](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/General_linux_troubleshooting.html#before-you-get-started)
