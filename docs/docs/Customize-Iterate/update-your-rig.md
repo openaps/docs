@@ -10,7 +10,7 @@ However, if it's a brand-new feature that's being tested or is recently added to
 
 1. `cd ~/src/oref0 && git checkout master && git pull && sudo npm install -g oref0`
 
-If you get a message that you need to commit or stash, use command "git stash"
+*(If you get a message that you need to commit or stash, use command `git stash`*)
 
 ##### **Optional: To get on "dev" branch to test even more recently added new stuff**
 
