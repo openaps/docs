@@ -72,6 +72,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    oref1: SMB and UAM <docs/Customize-Iterate/oref1>
    Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
    Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
+   Useful mobile apps </docs/Customize-Iterate/useful-mobile-apps>
    Tips & tricks <docs/Customize-Iterate/usability-considerations>
    Update your rig in the future <docs/Customize-Iterate/update-your-rig>
    How to run oref0-setup.sh again <docs/Customize-Iterate/oref0-runagain>

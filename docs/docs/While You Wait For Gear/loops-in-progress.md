@@ -2,7 +2,7 @@
 
 To get you comfortable with submitting a "PR" (stands for pull request), test it out by submitting a PR to this page, adding your name to the list of people who have loops in progress. 
 
-New to Github, and PRs? [Check out how to submit your first PR](http://openaps.readthedocs.io/en/dev/docs/Resources/my-first-pr.html).
+New to Github, and PRs? [Check out how to submit your first PR](http://openaps.readthedocs.io/en/latest/docs/Resources/my-first-pr.html).
 
 List of people who are working on closed loops:
 

@@ -188,3 +188,4 @@ List of people who are working on closed loops:
 - Michael Spradling (Raleigh, NC)
 - Tore Bjørndalen (Norway, Oppegård)
 - John Young (King of Prussia, PA) 
+- Kathleen Gagnier (Orlando, FL)
