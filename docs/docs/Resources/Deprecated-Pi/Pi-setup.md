@@ -28,15 +28,15 @@ So for roughly $150.00 you have a nice Hybrid artificial pancreas. Of this you w
 Follow this link to grab the correct firmware
 	https://github.com/oskarpearson/mmeowlink/wiki/TI-USB-stick
 
-For the Pi with the TI choose:
-	usb_ep0_TI_DONGLE_US_STDLOC.hex  Save the .hex file for use in the next step.
+For the Pi with the TI choose:  
+	usb_ep0_TI_DONGLE_US_STDLOC.hex  Save the .hex file for use in the next step.  
 
-Download the flash programmer tool from Texas Instruments using this link
-http://www.ti.com/tool/flash-programmer
-	Note: choose the Flash Programmer tool not the Flash Programmer-2
+Download the flash programmer tool from Texas Instruments using this link  
+	http://www.ti.com/tool/flash-programmer  
+	Note: choose the Flash Programmer tool not the Flash Programmer-2  
 
-Use this link for installation instructions using Windows.
-	https://github.com/oskarpearson/mmeowlink/wiki/Instructions-for-Flashing-TI-stick-or-SRF-ERF-using-Windows-utilities
+Use this link for installation instructions using Windows.  
+	https://github.com/oskarpearson/mmeowlink/wiki/Instructions-for-Flashing-TI-stick-or-SRF-ERF-using-Windows-utilities  
 		Note: When flashing use the hex file you saved earlier as your firmware. Not the one provided or suggested by Texas Instruments in their instruction sheet.
 
 Install Raspian (Jessie) on your Pi 
@@ -153,80 +153,80 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 	You should now see Power Management:off
  
 ### Setup network
-	Copy and paste the following then press enter
-		`sudo -i
-	Copy and paste the following
-		`nano /etc/wpa_supplicant/wpa_supplicant.conf
+	Copy and paste the following then press enter  
+		`sudo -i  
+	Copy and paste the following  
+		`nano /etc/wpa_supplicant/wpa_supplicant.conf  
 
-	Match the following. You can copy and paste what you need and simply edit
+	Match the following. You can copy and paste what you need and simply edit  
 	
 	
-	`ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-`update_config=1
-`country=US
+	`ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+	`update_config=1  
+	`country=US  
 
-`network={
-        `ssid="YourNetworkName"
-        `psk="YouPassword"
-        `key_mgmt=WPA-PSK
-        `priority=1
-        `id_str="wifi"
-`}
+`network={  
+        `ssid="YourNetworkName"  
+        `psk="YouPassword"  
+        `key_mgmt=WPA-PSK  
+        `priority=1  
+        `id_str="wifi"  
+`}  
 
-`network={
-        `ssid="YourHotspotName"
-        `psk="YourHotspotPassword"
-        `key_mgmt=WPA-PSK
-       ` priority=2
-        `id_str="hotspot"
-`}`
+`network={  
+        `ssid="YourHotspotName"  
+        `psk="YourHotspotPassword"  
+        `key_mgmt=WPA-PSK  
+       ` priority=2  
+        `id_str="hotspot"  
+`}  
 
 
-		Note: I set up a wifi and a wifi hotspot (phone) 
-		Note: Where I use “ “ they are to be included
+		Note: I set up a wifi and a wifi hotspot (phone)   
+		Note: Where I use “ “ they are to be included  
 
- 		Exit and save
+ 		Exit and save  
 		
-Copy and paste the following
-		`nano /etc/network/interfaces
+Copy and paste the following  
+		`nano /etc/network/interfaces  
 		
-	Match the following. 
+	Match the following.   
 
 
-`# interfaces(5) file used by ifup(8) and ifdown(8)
-`# Please note that this file is written to be used with dhcpcd
-`# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+`# interfaces(5) file used by ifup(8) and ifdown(8)  
+`# Please note that this file is written to be used with dhcpcd  
+`# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'  
 
-`# Include files from /etc/network/interfaces.d:
-`source-directory /etc/network/interfaces.d
+`# Include files from /etc/network/interfaces.d:  
+`source-directory /etc/network/interfaces.d  
 
-`auto lo
-`iface lo inet loopback
+`auto lo  
+`iface lo inet loopback  
 
-`iface eth0 inet manual
+`iface eth0 inet manual  
 
-`allow-hotplug wlan0
-`iface wlan0 inet manual
-    `wireless-power off
-    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+`allow-hotplug wlan0  
+`iface wlan0 inet manual  
+    `wireless-power off  
+    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
 
-`allow-hotplug wlan1
-`iface wlan1 inet manual
-    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+`allow-hotplug wlan1  
+`iface wlan1 inet manual  
+    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
 
-`iface wifi inet dhcp
-`iface hotspot inet dhcp
+`iface wifi inet dhcp  
+`iface hotspot inet dhcp  
 
-	Exit and save
+	Exit and save  
 	
-	Note: Where I called to the wifi and a hotspot (phone) at the bottom
-	Note: I do not use “ “
-	Note: inet is left manual
-	Note: change every line in your original where you see it different here. This is important.
+	Note: Where I called to the wifi and a hotspot (phone) at the bottom  
+	Note: I do not use “ “  
+	Note: inet is left manual  
+	Note: change every line in your original where you see it different here. This is important.  
 	
-	Copy and paste the following 
-		`reboot
-	Press enter
+	Copy and paste the following  
+		`reboot  
+	Press enter  
 	
 ### Configure USB tethering on newer androids [optional]
 You may have noticed that your rig may not usb tether with your newer android phone such as the Galaxy S7. That is because it appears there is a change to the NDIS driver interface. This should correct your issue:
@@ -380,32 +380,29 @@ Add the following line
 
 ### Fan Speed Control based on temperature (pi3)
 I’m old school. I guess that makes me a little different. However for those of you out there that are like me, and don’t like to cook your electronics this option works great. If for no other reason than they smell when they fry plus you don’t want your DIY to shut off when it gets to hot. It will check the fan temp once every 3 minutes and make adjustment to the speed based on that temp.
-For instructional drawing to wire NPM Transister (S8050) goto:
-	https://hackernoon.com/how-to-control-a-fan-to-cool-the-cpu-of-your-raspberrypi-3313b6e7f92c
-Since we are controlling the percentage of speed use GPIO 2 instead of GPIO 18
-If you are unsure of pin layout goto
-	http://blog.mcmelectronics.com/post/Raspberry-Pi-3-GPIO-Pin-Layout#.WSsVmWjyu01
-The code below came from
-	https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=133251
+For instructional drawing to wire NPM Transister (S8050) goto:  
+	https://hackernoon.com/how-to-control-a-fan-to-cool-the-cpu-of-your-raspberrypi-3313b6e7f92c  
+Since we are controlling the percentage of speed use GPIO 2 instead of GPIO 18  
+If you are unsure of pin layout goto  
+	http://blog.mcmelectronics.com/post/Raspberry-Pi-3-GPIO-Pin-Layout#.WSsVmWjyu01  
+The code below came from  
+	https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=133251  
 
-I have added instructions here to make it easier for you to copy paste
-	Make sure GPIO library is installed
-	Log in as pi using ssh
-	Copy ande paste these 3 lines 1 at a time and press enter after each
-		`sudo apt-get update
+I have added instructions here to make it easier for you to copy paste  
+	Make sure GPIO library is installed  
+	Log in as pi using ssh  
+	Copy ande paste these 3 lines 1 at a time and press enter after each  
+		`sudo apt-get update  
+		`sudo apt-get -y install python-rpi.gpio  
+		`sudo apt-get -y install python3-rpi.gpio  
 
-		`sudo apt-get -y install python-rpi.gpio
-
-		`sudo apt-get -y install python3-rpi.gpio
-
-
-	Copy and paste 
+	Copy and paste
 		`sudo -i
 
-	Copy and paste the following 
+	Copy and paste the following
 		`cd /usr/local/bin
 
-	Copy and paste the following 
+	Copy and paste the following
 		`nano fan_speed.py
 	
 	This will create the file
@@ -427,22 +424,21 @@ I have added instructions here to make it easier for you to copy paste
 			`p=GPIO.PWM(2,100)
 
 		`while True:
-
    			`CPU_temp = getCPUtemp()
     			`if CPU_temp > 70.0:
-         			`p.start(100)
+         		`p.start(100)
     			`elif CPU_temp > 60.0:
-         			`p.start(60)
-   			` elif CPU_temp > 50.0:
-        			`p.start(40)
+         		`p.start(60)
+   			`elif CPU_temp > 50.0:
+        		`p.start(40)
    			`elif CPU_temp > 45.0:
-         			`p.start(30)
-   			elif CPU_temp > 40.0:
-        			`p.start(20)
-    			elif CPU_temp > 35.0:
-         			`p.start(15)
-    			elif CPU_temp > 30.0:
-         			`p.start(10)
+         		`p.start(30)
+   			`elif CPU_temp > 40.0:
+        		`p.start(20)
+    			`elif CPU_temp > 35.0:
+         		`p.start(15)
+    			`elif CPU_temp > 30.0:
+         		`p.start(10)
    		else:
          		`p.stop()
     		`time.sleep(180)
@@ -460,11 +456,9 @@ I have added instructions here to make it easier for you to copy paste
 	After the last line copy and paste each of the lines below one at a time (this will check every 3 minutes)
 
 		`@reboot /usr/bin/python
-
-		`@reboot /usr/local/bin/fan_speed.py 
+		`@reboot /usr/local/bin/fan_speed.py
 	
 	Exit and save
-
 		`sudo reboot
 
 ### Configure Bluetooth Low Energy tethering [optional]
