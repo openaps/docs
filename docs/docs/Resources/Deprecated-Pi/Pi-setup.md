@@ -10,8 +10,6 @@ Before I start. I have a couple of recommendations. Many of you want to get by a
 
 I recommend the The following:
 
-A 4 port usb hub (if using Pizero w) made for pi. I paid $8.00
-
 Cana kit. Roughly $34.00 It has all converter cables. And it has the Pi certified SD card with NOOBS installed in its’ own partition. This allows you to format card later if need be and NOOBS will still be on the card to quickly reload OS. Power supply. And the SD/USB converter (if buying a Pi 3)
 
 TI CC1111 Radio stick.  Extremely strong radio signal to the pump.
@@ -43,23 +41,35 @@ Use this link for installation instructions using Windows.
 
 Install Raspian (Jessie) on your Pi 
 Note: Many reports online state there are issues with crashing sd cards. While many believe all sd cards are alike that is no longer true. Many cards are made to work with specific pieces of technology. Amazon.com sells Pi certified sd cards with NOOBS preinstalled. They do cost more however I have no issues with mine and I have been testing many things including unplugging the power to the Pi without shutting it down first (Idon’t recommend doing this as a norm but in a failure situation you should be safe based on my test results).  Pi says this is a promised way of killing an sd card. I have yet to have a failure. The added cost seems to be well worth it. I will proceed with the understanding I am following the recommended use of Pi certified sd cards preloaded with NOOBS. I will not put a link because it would change daily.
-			Using Pixal:  
+
+### Using Pixal: 
+			
 Make sure Pi is powered down and unplugged.
+
 Insert SD card into SD card slot
+
 Using an HDMI cable attach monitor to Pi using the HDMI port on the Pi
+
 Plug a spare USB keyboard into the PI using the USB slots on the Pi 
 	NOTE With Pi Zero W use USB hub)
 Plug the TI radio stick into the top center USB slot of Pi 3
 	Note if using a Pi Zero W wait until ready to install openaps to plug into Pi
 Plug the micro power cable into the Pi
-Plug the other end into outlet
-The Pi should start up with this screen.
-	Put an x in the box
-	Set correct keyboard and country. (See figure 2)
-	Select Install at the top left
-	You will get a warning that all data will be erased. If this is a new card do not worry
-		NOTE Depending on your internet speed this can take 10 – 30 minutes
 
+Plug the other end into outlet
+
+The Pi should start up with this screen.
+
+	Put an x in the box
+	
+	Set correct keyboard and country. (See figure 2)
+	
+	Select Install at the top left
+	
+	You will get a warning that all data will be erased. If this is a new card do not worry
+	
+		NOTE Depending on your internet speed this can take 10 – 30 minutes
+		
 Once you have the Pixal screen do the following
 	In the top left corner choose MENU/Raspberry Pi Configuration
 	Choose system tab
@@ -77,45 +87,46 @@ Once you have the Pixal screen do the following
 	From the bar at the top of the screen choose the terminal icon
 		NOTE: we will work in root. 
 	To enter root copy and paste the following then press enter
-	sudo -i
+	`sudo -i
 	Copy and paste the following then press enter
 		NOTE: This will unpackage nodejs and try to remove the legacy version. IF the legacy version does not exist ignore the error messages pertaining to that..
-		dpkg -P nodejs nodejs-dev
+		`dpkg -P nodejs nodejs-dev
 	Copy and paste each line of code 1 at a time and press enter after each. These are done as 3 separate commands do to the size of pi zero w processor
-		apt-get update
+		`apt-get update
 	
-		apt-get dist-upgrade  (get some coffee, take a nap, take a vacation)
+		`apt-get dist-upgrade  (get some coffee, take a nap, take a vacation)
 	
-		apt-get autoremove
+		`apt-get autoremove
 	
 	Copy and paste code then press enter.
-		apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+		`apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
 		
 	Copy and paste code then press enter.
-		dpkg-reconfigure tzdata
+		`dpkg-reconfigure tzdata
 
 	NOTE: it will default to America. Arrow down and select USA if you are in the US. Then arrow to the right and highlight ok. Then choose time zone and arrow to OK.
 
 	Copy and paste code then press enter.
-		nano /etc/logrotate.conf
-			NOTE: I HAVE NOTICED LINUX CAN BE VERY FUSSY AT TIMES. if IT GIVES AND ERROR copy and paste each line 1 at a time and press enter after each.
-				cd /etc/
-				nano logrotate.conf
+		`nano /etc/logrotate.conf
+	NOTE: I HAVE NOTICED LINUX CAN BE VERY FUSSY AT TIMES. if IT GIVES AND ERROR copy and paste each line 1 at a time and press enter after each.
+		`cd /etc/
+		`nano logrotate.conf
 
 		Arrow down and change the log rotation to daily from weekly
 		Enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 		Exit and save
 		
 	 Select this line of code and paste into terminal window to update pi firmware and press enter.  
-		rpi-update
+		`rpi-update
 	Reboot to apply the changes:
-		reboot
+		`reboot
 
 	You may have the following message the next time you start pixal
  		Press ‘OK’
 		At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
 	
-		From terminal window type sudo ifconfig
+		From terminal window type 
+		`sudo ifconfig
 			Write down ip address. You will need this to SSH into Pi.
 			NOTE: From this point forward we will use SSH to comunicate with Pi.
 			
@@ -124,49 +135,51 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 ### Disable Network Power Management 
 	The latest few updates of software have Power Save On as a default. This will shut down your wlan0 port even if you add a script to test and restart every 5 minutes. To disable do the following:
 	Copy and paste the following line and press enter
-		sudo -i
+		`sudo -i
 	Copy and paste into ssh terminal: 
-		nano /etc/network/interfaces
+		`nano /etc/network/interfaces
 	Arrow down to the end of:  iface wlan0 inet manual
 		Press enter to create a blank line
 		Copy and paste the following line into that new space: : 
-			wireless-power off 
+			`wireless-power off 
 	***NOTE*** IT IS CRITICAL it goes just below ‘iface wlan0 inet manual’ If you put it above this line your Pi Wifi will not work!
 		Exit and save nano screen
-	Reboot pi reboot 
+	Reboot pi 
+		`reboot 
 	
 	SSH into pi
-	Copy and paste iwconfig 
+	Copy and paste 
+		`iwconfig 
 	You should now see Power Management:off
  
 ### Setup network
 	Copy and paste the following then press enter
-		sudo -i
+		`sudo -i
 	Copy and paste the following
-		nano /etc/wpa_supplicant/wpa_supplicant.conf
+		`nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 	Match the following. You can copy and paste what you need and simply edit
 	
 	
-	ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=US
+	`ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+`update_config=1
+`country=US
 
-network={
-        ssid="YourNetworkName"
-        psk="YouPassword"
-        key_mgmt=WPA-PSK
-        priority=1
-        id_str="wifi"
-}
+`network={
+        `ssid="YourNetworkName"
+        `psk="YouPassword"
+        `key_mgmt=WPA-PSK
+        `priority=1
+        `id_str="wifi"
+`}
 
-network={
-        ssid="YourHotspotName"
-        psk="YourHotspotPassword"
-        key_mgmt=WPA-PSK
-        priority=2
-        id_str="hotspot"
-}
+`network={
+        `ssid="YourHotspotName"
+        `psk="YourHotspotPassword"
+        `key_mgmt=WPA-PSK
+       ` priority=2
+        `id_str="hotspot"
+`}`
 
 
 		Note: I set up a wifi and a wifi hotspot (phone) 
@@ -175,36 +188,34 @@ network={
  		Exit and save
 		
 Copy and paste the following
-		nano /etc/network/interfaces
+		`nano /etc/network/interfaces
+		
 	Match the following. 
-	
-	
 
 
- # interfaces(5) file used by ifup(8) and ifdown(8)
+`# interfaces(5) file used by ifup(8) and ifdown(8)
+`# Please note that this file is written to be used with dhcpcd
+`# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
 
-# Please note that this file is written to be used with dhcpcd
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+`# Include files from /etc/network/interfaces.d:
+`source-directory /etc/network/interfaces.d
 
-# Include files from /etc/network/interfaces.d:
-source-directory /etc/network/interfaces.d
+`auto lo
+`iface lo inet loopback
 
-auto lo
-iface lo inet loopback
+`iface eth0 inet manual
 
-iface eth0 inet manual
+`allow-hotplug wlan0
+`iface wlan0 inet manual
+    `wireless-power off
+    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 
-allow-hotplug wlan0
-iface wlan0 inet manual
-    wireless-power off
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+`allow-hotplug wlan1
+`iface wlan1 inet manual
+    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 
-allow-hotplug wlan1
-iface wlan1 inet manual
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-
-iface wifi inet dhcp
-iface hotspot inet dhcp
+`iface wifi inet dhcp
+`iface hotspot inet dhcp
 
 	Exit and save
 	
@@ -214,55 +225,353 @@ iface hotspot inet dhcp
 	Note: change every line in your original where you see it different here. This is important.
 	
 	Copy and paste the following 
-		reboot
+		`reboot
 	Press enter
+	
+### Configure USB tethering on newer androids [optional]
+You may have noticed that your rig may not usb tether with your newer android phone such as the Galaxy S7. That is because it appears there is a change to the NDIS driver interface. This should correct your issue:
+		`ssh into rig
+		`sudo -i
+	
+	Copy and paste 
+		`nano /etc/network/interfaces
+		
+	 Press enter
+	 
+	Copy all lines at once and paste
+		`allow-hotplug eth1
+		`iface eth1 inet dhcp
+		`pre-up ifconfig eth1 hw ether 02:aa:bb:cc:12:02
+ 
+ 			(NOTE replace with your phones wifi mac address)
+		`reboot
+		
+	For the first time reboot phone
+	Plug in cable to phone and rig
+	Start usb tether on phone
 
 ### Wif and Hotspot auto restart
 	Log in as pi using ssh
 	Copy and paste the following then press enter
-		sudo -i
+		`sudo -i
+		
 	Copy and paste the following then press enter
-		cd /usr/local/bin
-			NOTE: if it fails type each line 1 at a time pressing enter after each
-			cd /usr/
-			cd local
-			cd bin
+		`cd /usr/local/bin
+		
+			NOTE: if it fails type each line one at a time pressing enter after each
+			`cd /usr/
+			`cd local
+			`cd bin
 			
-2.	Copy and paste the following then press enter
-		nano wifi_reboot.sh
+	Copy and paste the following then press enter
+		`nano wifi_reboot.sh
+		
 	This will create the file
 	Copy and paste the following into the file (copy and paste all at once)
 
-#!/bin/bash
-# The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
-#SERVER=8.8.8.8
-# Only send two pings, sending output to /dev/null
-sudo ping -c2 8.8.8.8 > /dev/null
-# If the return code from ping ($?) is not 0 (meaning there was an error)
-if [ $? != 0 ]
-then
-    # Restart the wireless interface
-    /sbin/ifdown 'wlan0'
-    sleep 3
-    /sbin/ifup --force 'wlan0'
-fi
+`#!/bin/bash
+	`# The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
+	`#SERVER=8.8.8.8
+	`# Only send two pings, sending output to /dev/null
+		`sudo ping -c2 8.8.8.8 > /dev/null
+	`# If the return code from ping ($?) is not 0 (meaning there was an error)
+		`if [ $? != 0 ]
+		`then
+   	 `# Restart the wireless interface
+    		`/sbin/ifdown 'wlan0'
+    		`sleep 3
+   		 `/sbin/ifup --force 'wlan0'
+	`fi
 
 
 	exit and save
+	
 	Copy and paste followed by enter
-		chmod +x /usr/local/bin/wifi_reboot.sh
+		`chmod +x /usr/local/bin/wifi_reboot.sh
 		
 	Copy and paste the following then press enter to make it auto run the script from chron:
-		nano /etc/crontab
+		`nano /etc/crontab
 			NOTE: if it fails copy and paste each line 1 at a time followed by enter
-			cd /etc/
-			nano crontab
+			`cd /etc/
+			`nano crontab
 
 	After the last line copy and paste this (this will check every 3 minutes)
-		*/3 *   * * *   root    /usr/local/bin/wifi_reboot.sh
+		`*/3 *   * * *   root    /usr/local/bin/wifi_reboot.sh
+		
   Exit and save
- reboot
+ 		`reboot
+		
+### Turn off GUI interface
+	Copy and paste the following
+		`sudo raspi-config
+	
+	Select boot options
+	Select B2 console Auto Login Text Console
+	Select OK
+	Finish
+	Yes reboot
+	
+## Phase 2: oref0-setup.sh
+We’ve created an oref0-setup.sh script that can help set up a complete working loop configuration from scratch in just a few minutes. This is in pursuit of our community goal to simplify the technical aspects of setting up a DIY closed loop - while still emphasizing that this is a DIY project that you have personal responsibility for. We also want to encourage you to spend more time and energy exploring whether the algorithm you choose to use is doing what you want it to do and that it aligns with how you might manually choose to take action.
+Please make sure to complete ALL steps on this page. **If you skip parts of step 0 and step 1, you will run into issues on step 2. **
 
+### Step 0: Dependencies
+You first need to install the base openaps toolkit and its dependencies.
+From this point forward you are ready to follow the latest and most up to date Read-The-Docs using the link below should start you with the install of dependencies and oref0
+NOTE: if you put the TI stick in the top center USB port of Pi3 or the only port on zero w use the following address:
+### /dev/ttyACM0
+
+NOTE: the last character is the number 0 NOT the letter o
+Do all in 
+	`sudo -I 
+	
+make sure to type exit when finished to leave root
+
+NOTE: It can 20 minutes to start working correctly. You may see missing files and folders as some are not yet built. It should build them as each step has time to gather needed data.
+Use this link to install
+
+http://openaps.readthedocs.io/en/2017-07-13/docs/walkthrough/phase-2/oref0-setup.html
+
+
+## Optional Installs
+
+### Enable watchdog
+	`sudo -i
+
+SSH into pi
+	Copy and paste the following
+		`apt-get install watchdog
+		
+	Copy and paste the following
+		`modprobe bcm2708_wdog
+		
+		If this command does not work, it appears to be ok to skip it. Newest version gives FATAL error simply because it is not there
+	Copy and paste the following
+		`bash -c 'echo " bcm2835_wdt " >> /etc/modules' 
+
+	Edit the config file by opening up nano text editor
+		`nano /etc/watchdog.conf
+		
+Find the following lines and Uncomment: (remove the # from the following lines, scroll down as needed to find them):
+			max-load-1             	 = 24
+			watchdog-device       	 = /dev/watchdog
+
+	Save and exit
+	Next, add watchdog to startup applications:
+	Copy and paste the following: 
+		`update-rc.d watchdog defaults 
+
+Finally, start watchdog by copying and pasting the following:
+		`service watchdog start
+
+Note: The init system which handles processes going forward in most Linux systems is systemd. Rc.d may be depreciated in the future, so it may be best to use systemd here. Unfortunately, the watchdog package in Raspbian Jessie(as of 12/10/2016) does not properly handle the systemd unit file. 
+To fix it, copy and paste the following: (one single line of code: not 2 separate)
+
+	`echo "WantedBy=multi-user.target" | sudo tee - append /lib/systemd/system/watchdog.service > /dev/null
+	 
+To auto start watchdog with each boot copy/paste then enter the following
+	`cd /boot/
+	`nano config.txt
+	
+Add the following line
+	`dtparam=watchdog=on
+
+	Exit and Save
+
+### Fan Speed Control based on temperature (pi3)
+I’m old school. I guess that makes me a little different. However for those of you out there that are like me, and don’t like to cook your electronics this option works great. If for no other reason than they smell when they fry plus you don’t want your DIY to shut off when it gets to hot. It will check the fan temp once every 3 minutes and make adjustment to the speed based on that temp.
+For instructional drawing to wire NPM Transister (S8050) goto:
+	https://hackernoon.com/how-to-control-a-fan-to-cool-the-cpu-of-your-raspberrypi-3313b6e7f92c
+Since we are controlling the percentage of speed use GPIO 2 instead of GPIO 18
+If you are unsure of pin layout goto
+	http://blog.mcmelectronics.com/post/Raspberry-Pi-3-GPIO-Pin-Layout#.WSsVmWjyu01
+The code below came from
+	https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=133251
+
+I have added instructions here to make it easier for you to copy paste
+	Make sure GPIO library is installed
+	Log in as pi using ssh
+	Copy ande paste these 3 lines 1 at a time and press enter after each
+		`sudo apt-get update
+
+		`sudo apt-get -y install python-rpi.gpio
+
+		`sudo apt-get -y install python3-rpi.gpio
+
+
+	Copy and paste 
+		`sudo -i
+
+	Copy and paste the following 
+		`cd /usr/local/bin
+
+	Copy and paste the following 
+		`nano fan_speed.py
+	
+	This will create the file
+	Copy and paste the following into the file (copy and paste all at once)
+		`#!/usr/bin/python
+		`import RPi.GPIO as GPIO
+		`import time
+		`import os
+
+		`# Return CPU temperature as float
+		`def getCPUtemp():
+    			`cTemp = os.popen('vcgencmd measure_temp').readline()
+    			`return float(cTemp.replace("temp=","").replace("'C\n",""))
+
+		`# For GPIO numbering, Choose BCMGPIO.setmode(GPIO.BCM)
+			`GPIO.setmode(GPIO.BCM)
+			`GPIO.setup(2,GPIO.OUT)
+			`GPIO.setwarnings(False)
+			`p=GPIO.PWM(2,100)
+
+		`while True:
+
+   			`CPU_temp = getCPUtemp()
+    			`if CPU_temp > 70.0:
+         			`p.start(100)
+    			`elif CPU_temp > 60.0:
+         			`p.start(60)
+   			` elif CPU_temp > 50.0:
+        			`p.start(40)
+   			`elif CPU_temp > 45.0:
+         			`p.start(30)
+   			elif CPU_temp > 40.0:
+        			`p.start(20)
+    			elif CPU_temp > 35.0:
+         			`p.start(15)
+    			elif CPU_temp > 30.0:
+         			`p.start(10)
+   		else:
+         		`p.stop()
+    		`time.sleep(180)
+
+`GPIO.cleanup()
+
+	exit and save
+	Copy and paste
+		`exit
+		
+	You are now back as pi
+	Copy and paste the following to make it auto run the script from chron:
+		'sudo crontab -e
+
+	After the last line copy and paste each of the lines below one at a time (this will check every 3 minutes)
+
+		`@reboot /usr/bin/python
+
+		`@reboot /usr/local/bin/fan_speed.py 
+	
+	Exit and save
+
+		`sudo reboot
+
+### Configure Bluetooth Low Energy tethering [optional]
+Only works if your phone and provider allow Bluetooth tether
+The Raspberry Pi can be tethered to a smartphone and share the phone’s internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. The Raspberry Pi 3 has an inbuilt Bluetooth Low Energy (BLE) chip, while a BLE USB dongle can be used with the other Pi models.
+
+The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot and it allows the Raspberry Pi to use whatever data connection is available on the phone at any given time - e.g. 3G/4G or WiFi. Some have also found that power consumption on the Raspberry Pi is lower when using BLE tethering compared to using a WiFi connection, although this may vary depending on BLE USB dongle, WiFi dongle, etc.
+
+First, we clone a repository which contains scripts which are used later in the setup -
+		`cd /home/pi
+
+		`git clone https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect.git
+
+We then copy the required scripts into a ‘bin’ directory -
+		`mkdir -p /home/pi/bin
+
+		`cp /home/pi/RaspberryPi_BTPAN_AutoConnect/bt-pan /home/pi/bin
+
+		`cp /home/pi/RaspberryPi_BTPAN_AutoConnect/check-and-connect-bt-pan.sh /home/pi/bin
+
+To configure a connection from the command line -
+		`bluetoothctl
+
+Enter the following commands to bring up the adapter and make it discoverable -
+		`power on
+
+		`discoverable on
+
+		`agent on
+
+		`default-agent
+
+The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter ‘yes’. Then click ‘pair’ on the phone. Instead, the phone may ask you to enter a PIN. If so, enter ‘0000’ and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter ‘yes’.
+Execute the paired-devices command to list the paired devices -
+		`paired-devices
+
+Device AA:BB:CC:DD:EE:FF Nexus 6P
+Your paired phone should be listed (in this example, a Google Nexus 6P). Copy the bluetooth address listed for it; we will need to provide this later.
+Now trust the mobile device (notice that bluetoothctl features auto-complete, so you can type the first few characters of the device’s bluetooth address (which we copied previously) and hit to complete the address.
+NOTE: Whenever you see ‘AA:BB:CC:DD:EE:FF’ or ‘AA_BB_CC_DD_EE_FF’ in this guide, replace it with the actual address of your mobile Bluetooth device, in the proper format (colons or underscores).
+		`trust AA:BB:CC:DD:EE:FF
+		
+	Quit bluetoothctl with 
+		`quit
+
+Now, we create a service so that a connection is established at startup. Execute the following commands to create a net-bnep-client.service file and open it for editing in Nano -
+		`cd /etc/systemd/system
+		`nano net-bnep-client.service
+
+In the editor, populate the file with the text below, replacing AA:BB:CC:DD:EE:FF with the address noted earlier -
+	`[Unit]
+	`After=bluetooth.service
+	`PartOf=bluetooth.service
+
+	`[Service]
+	`ExecStart=/home/pi/bin/bt-pan client AA:BB:CC:DD:EE:FF
+
+	`[Install]
+	`WantedBy=bluetooth.target
+
+Exit and save
+
+Enable the service -
+	`systemctl enable net-bnep-client.service
+
+Open your crontab for editing -
+	`crontab -e
+	
+Add an entry to check the connection every minute and reconnect if necessary -
+	`* * * * * /home/pi/bin/check-and-connect-bt-pan.sh
+
+Exit and save
+
+	`shutdown -r now
+or
+	`systemctl reboot
+
+
+### App to check core temp (optional)
+	`ssh into pi 
+	
+	`sudo -i
+	
+copy and paste
+	`nano my-pi-temp.sh
+	
+copy and paste all at once
+ 	`#!/bin/bash
+	`# Script: my-pi-temp.sh
+	`# Purpose: Display the ARM CPU and GPU  temperature of Raspberry Pi 2/3 
+	`# Author: Vivek Gite <www.cyberciti.biz> under GPL v2.x+
+	`# -------------------------------------------------------
+	`cpu=$(</sys/class/thermal/thermal_zone0/temp)
+	`echo "$(date) @ $(hostname)"
+	`echo "-------------------------------------------"
+	`echo "GPU => $(/opt/vc/bin/vcgencmd measure_temp)"
+	`echo "CPU => $((cpu/1000))'C" 
+
+copy and paste
+	`chmod +x my-pi-temp.sh 
+
+Run it as follows:
+	`./my-pi-temp.sh
+	
+
+
+# Older instructions for original setups
 
 **Note 1:** This page talks about setting up the Raspberry Pi with a Carelink USB stick. If you chose the TI stick for your first setup, you'll need to utilize directions in the [mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for flashing your TI stick, then return here to continue on with the OpenAPS setup process.
 
