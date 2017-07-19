@@ -2,18 +2,21 @@
 
 ## WARNING - THE RASPBERRY PI IS A DEPRECATED (NOT-RECOMMENDED) SETUP OPTION. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. (July 2017)
 
-There are multiple options when it comes to Raspberry Pi. Most of the instructions are older and many updates have happened since these were written. However I am leaving those for now for people with older Pi's or older setups that they wish to maintain. As time progresses most of these can/will phase out as people update systems. I am going to focus on setting up the Pi3 and the Pi zero w from start to finish using the TI CC1111 radio stick. Your operating system used to setup does not matter. You will use pixal and putty. Pixal is on the Pi and putty or any other terminal emulator can be downloaded to any system. The same setup will work for both. And the SD cards can be interchanged between both. For this setup goto ### New Path below this paragraph.
+There are multiple options when it comes to Raspberry Pi. Most of the instructions are older and many updates have happened since these were written. However I am leaving those for now for people with older Pi's or older setups that they wish to maintain. As time progresses most of these can/will phase out as people update systems. I am going to focus on setting up the Pi3 and the Pi zero w from start to finish using the TI CC1111 radio stick. Your operating system used to setup does not matter. You will use pixal and putty. Pixal is on the Pi and putty or any other terminal emulator can be downloaded to any system. The same setup will work for both. And the SD cards can be interchanged between both. For this setup goto New Path below this paragraph.
 
-Setting Up Your Raspberry Pi using Windows
+## New Path
+
+### Setting Up Your Raspberry Pi using Windows
 
 Before I start. I have a couple of recommendations. Many of you want to get by as "low cost" as possible. I understand that. However; from what I have read; the Hybrid artificial pancreases are slated to cost around $6000.00 in the upcoming years once proven and allowed by all insurances. IF you met your deductible and if you have the standard 20% (IF you have really good insurance) that will be $1200.00 you will pay. So the recommendations are small in comparison but will make life much easier. This is a device to control your or child’s insulin pump.
 
-I recommend the The following:
+### I recommend the The following:
 
 Cana kit. Roughly $34.00 It has all converter cables. And it has the Pi certified SD card with NOOBS installed in its’ own partition. This allows you to format card later if need be and NOOBS will still be on the card to quickly reload OS. Power supply. And the SD/USB converter (if buying a Pi 3)
 
 TI CC1111 Radio stick.  Extremely strong radio signal to the pump.
-USB Hub allows you to plug in keyboard and mouse at the same time when working with setup. 14.99 for a really good setup. 
+
+A USB Hub designed for the Pi Zero allows you to plug in keyboard and mouse at the same time when working with setup. I paid 14.99 for a really good one. 
 https://www.amazon.com/gp/product/B01LXGABXY/ref=oh_aui_detailpage_o05_s00?ie=UTF8&psc=1
 
 I use the following battery. $17.99 for the pi zero w. It gives me 15 hours with more to spare. I have experienced 0 voltage drops and it has all of the safety features. It DOES NOT have pass through charging. But I charge it while I sleep and I plug my pi into electrical outlet.
@@ -32,15 +35,20 @@ For the Pi with the TI choose:
 	usb_ep0_TI_DONGLE_US_STDLOC.hex  Save the .hex file for use in the next step.  
 
 Download the flash programmer tool from Texas Instruments using this link  
+	
 	http://www.ti.com/tool/flash-programmer  
+	
 	Note: choose the Flash Programmer tool not the Flash Programmer-2  
 
 Use this link for installation instructions using Windows.  
-	https://github.com/oskarpearson/mmeowlink/wiki/Instructions-for-Flashing-TI-stick-or-SRF-ERF-using-Windows-utilities  
-		Note: When flashing use the hex file you saved earlier as your firmware. Not the one provided or suggested by Texas Instruments in their instruction sheet.
+		https://github.com/oskarpearson/mmeowlink/wiki/Instructions-for-Flashing-TI-stick-or-SRF-ERF-using-Windows-utilities  
+		
+		Note: When flashing use the hex file you saved earlier as your firmware. Not the one provided or suggested by Texas 
+	Instruments in their instruction sheet.
 
-Install Raspian (Jessie) on your Pi 
-Note: Many reports online state there are issues with crashing sd cards. While many believe all sd cards are alike that is no longer true. Many cards are made to work with specific pieces of technology. Amazon.com sells Pi certified sd cards with NOOBS preinstalled. They do cost more however I have no issues with mine and I have been testing many things including unplugging the power to the Pi without shutting it down first (Idon’t recommend doing this as a norm but in a failure situation you should be safe based on my test results).  Pi says this is a promised way of killing an sd card. I have yet to have a failure. The added cost seems to be well worth it. I will proceed with the understanding I am following the recommended use of Pi certified sd cards preloaded with NOOBS. I will not put a link because it would change daily.
+### Install Raspian (Jessie) on your Pi 
+
+Note: Many reports online state there are issues with crashing sd cards. While many believe all sd cards are alike that is no longer true. Many cards are made to work with specific pieces of technology. Amazon.com sells Pi certified sd cards with NOOBS preinstalled. They do cost more however I have no issues with mine and I have been testing many things including unplugging the power to the Pi without shutting it down first (I don’t recommend doing this as a norm but in a failure situation you should be safe based on my test results).  Pi says this is a promised way of killing an sd card. I have yet to have a failure. The added cost seems to be well worth it. I will proceed with the understanding I am following the recommended use of Pi certified sd cards preloaded with NOOBS. I will not put a link because it would change daily.
 
 ### Using Pixal: 
 			
@@ -50,10 +58,14 @@ Insert SD card into SD card slot
 
 Using an HDMI cable attach monitor to Pi using the HDMI port on the Pi
 
-Plug a spare USB keyboard into the PI using the USB slots on the Pi 
+Plug a spare USB keyboard into the PI using the USB slots on the Pi
+
 	NOTE With Pi Zero W use USB hub)
+	
 Plug the TI radio stick into the top center USB slot of Pi 3
+	
 	Note if using a Pi Zero W wait until ready to install openaps to plug into Pi
+
 Plug the micro power cable into the Pi
 
 Plug the other end into outlet
@@ -167,40 +179,57 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 	`update_config=1  
 	`country=US  
 
-`network={
-`        ssid="WifiName"
-`        psk="WifiPassword"
-`        key_mgmt=WPA-PSK
-`        priority=1
-`        id_str="wifi"
-`}
+network={
+	
+	ssid="WifiName"
+	
+	psk="WifiPassword"
+	
+	key_mgmt=WPA-PSK
+	
+	priority=1
+	
+	id_str="wifi"
+
+}
 
 network={
-        ssid="HotspotName"
-        psk="HotspotPassword"
-        key_mgmt=WPA-PSK
-        priority=2
-        id_str="hotspot"
+
+	ssid="HotspotName"
+        
+	psk="HotspotPassword"
+        
+	key_mgmt=WPA-PSK
+        
+	priority=2
+        
+	id_str="hotspot"
+
 }
 
 
 
-		Note: I set up a wifi and a wifi hotspot (phone)   
-		Note: Where I use “ “ they are to be included  
+#### Note: I set up a wifi and a wifi hotspot (phone)   
+#### Note: Where I use “ “ they are to be included  
 
- 		Exit and save  
+ ### Exit and save  
 		
+### Setup Network Interface
+
 Copy and paste the following  
-		`nano /etc/network/interfaces  
+		nano /etc/network/interfaces  
 		
-	Match the following.   
+#### Match the following.   
 
 
 `# interfaces(5) file used by ifup(8) and ifdown(8)  
+
 `# Please note that this file is written to be used with dhcpcd  
+
 `# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'  
 
-`# Include files from /etc/network/interfaces.d:  
+`# Include files from /etc/network/interfaces.d:
+
 `source-directory /etc/network/interfaces.d  
 
 `auto lo  
@@ -209,18 +238,24 @@ Copy and paste the following
 `iface eth0 inet manual  
 
 `allow-hotplug wlan0  
+
 `iface wlan0 inet manual  
-    `wireless-power off  
-    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
+   
+   `wireless-power off  
+   
+   `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
 
 `allow-hotplug wlan1  
+
 `iface wlan1 inet manual  
-    `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
+   
+   `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
 
 `iface wifi inet dhcp  
+
 `iface hotspot inet dhcp  
 
-	Exit and save  
+####     Exit and save  
 	
 	Note: Where I called to the wifi and a hotspot (phone) at the bottom  
 	Note: I do not use “ “  
@@ -280,15 +315,13 @@ sudo ping -c2 8.8.8.8 > /dev/null <br/>
 #If the return code from ping ($?) is not 0 (meaning there was an error) <br/>
 if [ $? != 0 ] <br/>
 then <br/>
-   # Restart the wireless interface <br/>
+#Restart the wireless interface <br/>
     /sbin/ifdown 'wlan0' <br/>
     sleep 3 <br/>
     /sbin/ifup --force 'wlan0' <br/>
 fi <br/>
 
-
-
-	exit and save
+#### exit and save
 	
 	Copy and paste followed by enter
 		`chmod +x /usr/local/bin/wifi_reboot.sh
