@@ -41,15 +41,15 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT then](../Images/IFTTT_that.png)
 
-* Enter "maker" in the search field and click on the Maker Webhooks app
+* Enter "webhooks" in the search field and click on the Webhooks app
 
 ![IFTTT maker](../Images/IFTTT_maker.png)
 
-* Connect the Maker app
+* Connect the Webhooks app
 
 ![IFTTT maker connect](../Images/IFTTT_connect2.png)
 
-* Select the green "Make a Web Request" box
+* Select the blue "Make a Web Request" box
 
 ![IFTTT web request](../Images/IFTTT_webrequest.png)
 
