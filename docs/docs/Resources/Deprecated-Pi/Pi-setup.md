@@ -52,33 +52,41 @@ Note: Many reports online state there are issues with crashing sd cards. While m
 
 ### Using Pixal: 
 			
-Make sure Pi is powered down and unplugged.
+1. Make sure Pi is powered down and unplugged.
 
-Insert SD card into SD card slot
+2. Insert SD card into SD card slot
 
-Using an HDMI cable attach monitor to Pi using the HDMI port on the Pi
+3. Using an HDMI cable attach monitor to Pi using the HDMI port on the Pi
 
-Plug a spare USB keyboard into the PI using the USB slots on the Pi
+4. Plug a spare USB keyboard into the PI using the USB slots on the Pi
 
-	NOTE With Pi Zero W use USB hub)
+		NOTE With Pi Zero W use USB hub)
 	
-Plug the TI radio stick into the top center USB slot of Pi 3
+5. Plug the TI radio stick into the top center USB slot of Pi 3
 	
-	Note if using a Pi Zero W wait until ready to install openaps to plug into Pi
+		Note if using a Pi Zero W wait until ready to install openaps to plug into Pi
 
-Plug the micro power cable into the Pi
+6. Plug the micro power cable into the Pi
 
-Plug the other end into outlet
+7. Plug the other end into outlet
 
 The Pi should start up with this screen.
 
 ![Noobs Statup Screen](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/Noobs1.JPG)
 	
-	Put an x in the box
+			Put an x in the box
+		
+![Noobs KeyBoard](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/2NoobsKeyboard.JPG)		
+		
+		
 	
-	Set correct keyboard and country. (See figure 2)
+			Set correct keyboard and country. 
 	
-	Select Install at the top left
+![Noobs Raspian_Selection](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/Noobs1.JPG)	
+		
+			Select Install at the top left
+			
+![Noobs Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/3NoobsWarning.JPG)	
 	
 	You will get a warning that all data will be erased. If this is a new card do not worry
 	
