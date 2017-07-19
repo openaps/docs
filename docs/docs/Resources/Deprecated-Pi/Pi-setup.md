@@ -101,46 +101,46 @@ Once you have the Pixal screen do the following
 	From the bar at the top of the screen choose the terminal icon
 		NOTE: we will work in root. 
 	To enter root copy and paste the following then press enter
-	`sudo -i
+		sudo -i
 	Copy and paste the following then press enter
 		NOTE: This will unpackage nodejs and try to remove the legacy version. IF the legacy version does not exist ignore the error messages pertaining to that..
-		`dpkg -P nodejs nodejs-dev
+		dpkg -P nodejs nodejs-dev
 	Copy and paste each line of code 1 at a time and press enter after each. These are done as 3 separate commands do to the size of pi zero w processor
-		`apt-get update
+		apt-get update
 	
-		`apt-get dist-upgrade  (get some coffee, take a nap, take a vacation)
+		apt-get dist-upgrade  (get some coffee, take a nap, take a vacation)
 	
-		`apt-get autoremove
+		apt-get autoremove
 	
 	Copy and paste code then press enter.
-		`apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
+		apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
 		
 	Copy and paste code then press enter.
-		`dpkg-reconfigure tzdata
+		dpkg-reconfigure tzdata
 
 	NOTE: it will default to America. Arrow down and select USA if you are in the US. Then arrow to the right and highlight ok. Then choose time zone and arrow to OK.
 
 	Copy and paste code then press enter.
-		`nano /etc/logrotate.conf
+		nano /etc/logrotate.conf
 	NOTE: I HAVE NOTICED LINUX CAN BE VERY FUSSY AT TIMES. if IT GIVES AND ERROR copy and paste each line 1 at a time and press enter after each.
-		`cd /etc/
-		`nano logrotate.conf
+		cd /etc/
+		nano logrotate.conf
 
 		Arrow down and change the log rotation to daily from weekly
 		Enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 		Exit and save
 		
 	 Select this line of code and paste into terminal window to update pi firmware and press enter.  
-		`rpi-update
+		rpi-update
 	Reboot to apply the changes:
-		`reboot
+		reboot
 
 	You may have the following message the next time you start pixal
  		Press ‘OK’
 		At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
 	
 		From terminal window type 
-		`sudo ifconfig
+		sudo ifconfig
 			Write down ip address. You will need this to SSH into Pi.
 			NOTE: From this point forward we will use SSH to comunicate with Pi.
 			
@@ -149,9 +149,9 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 ### Disable Network Power Management 
 	The latest few updates of software have Power Save On as a default. This will shut down your wlan0 port even if you add a script to test and restart every 5 minutes. To disable do the following:
 	Copy and paste the following line and press enter
-		`sudo -i
+		sudo -i
 	Copy and paste into ssh terminal: 
-		`nano /etc/network/interfaces
+		nano /etc/network/interfaces
 	Arrow down to the end of:  iface wlan0 inet manual
 		Press enter to create a blank line
 		Copy and paste the following line into that new space: : 
@@ -159,25 +159,25 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 	***NOTE*** IT IS CRITICAL it goes just below ‘iface wlan0 inet manual’ If you put it above this line your Pi Wifi will not work!
 		Exit and save nano screen
 	Reboot pi 
-		`reboot 
+		reboot 
 	
 	SSH into pi
 	Copy and paste 
-		`iwconfig 
+		iwconfig 
 	You should now see Power Management:off
  
 ### Setup network wpa_supplicant
 	Copy and paste the following then press enter  
-		`sudo -i  
+		sudo -i  
 	Copy and paste the following  
-		`nano /etc/wpa_supplicant/wpa_supplicant.conf  
+		nano /etc/wpa_supplicant/wpa_supplicant.conf  
 
 	Match the following. You can copy and paste what you need and simply edit  
 	
 	
-	`ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
-	`update_config=1  
-	`country=US  
+	ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+	update_config=1  
+	country=US  
 
 network={
 	
