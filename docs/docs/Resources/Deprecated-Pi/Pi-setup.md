@@ -72,7 +72,7 @@ Plug the other end into outlet
 
 The Pi should start up with this screen.
 
-![Noobs Statup Screen](docs/docs/docs/Images/Noobs1.JPG)
+![Noobs Statup Screen](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/Noobs1.JPG)
 	
 	Put an x in the box
 	
