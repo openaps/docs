@@ -93,58 +93,77 @@ The Pi should start up with this screen.
 		NOTE Depending on your internet speed this can take 10 – 30 minutes
 		
 Once you have the Pixal screen do the following
-	In the top left corner choose MENU/Raspberry Pi Configuration
-	Choose system tab
-		Change Hostname and password (default password is raspberry)to what you want. Needs to be at least 8 characters for SSH to work
-	Choose interface tab
-		Select SSH
-	Do not make any changes under Performance Tab
-	Select Localisation Tab (yes that is the correct spelling on a Pi)
-		Select each sub tab and fill in the proper settings
-		If you are in the U.S. choose U.S. and International for the keyboard.
-	Select OK and when asked to reboot select ok
-	In the top menu bar on the right side select your wifi from the dropdown list
+	1. In the top left corner choose MENU/Raspberry Pi Configuration
+	2. Choose system tab
+		A. Change Hostname and password (default password is raspberry)to what you want. 
+			NOTE: It needs to be at least 8 characters for SSH to work
+	3. Choose interface tab
+		A. Select SSH
+	4. Do not make any changes under Performance Tab
+	5. Select Localisation Tab (yes that is the correct spelling on a Pi)
+		A. Select each sub tab and fill in the proper settings
+		B. If you are in the U.S. choose U.S. and International for the keyboard.
+	6. Select OK and when asked to reboot select ok
+	7. In the top menu bar on the right side select your wifi from the dropdown list
 	
 ### Update the repository and upgrade the installed packages:
-	From the bar at the top of the screen choose the terminal icon
+
+	1. From the bar at the top of the screen choose the terminal icon
 		NOTE: we will work in root. 
-	To enter root copy and paste the following then press enter
+	2. To enter root copy and paste the following then press enter
 		sudo -i
-	Copy and paste the following then press enter
+	3. Copy and paste the following then press enter
 		NOTE: This will unpackage nodejs and try to remove the legacy version. IF the legacy version does not exist ignore the error messages pertaining to that..
+		
 		dpkg -P nodejs nodejs-dev
-	Copy and paste each line of code 1 at a time and press enter after each. These are done as 3 separate commands do to the size of pi zero w processor
+		
+	4. Copy and paste each line of code 1 at a time and press enter after each. These are done as 3 separate commands do to the size of pi zero w processor
+	
 		apt-get update
 	
 		apt-get dist-upgrade  (get some coffee, take a nap, take a vacation)
 	
 		apt-get autoremove
 	
-	Copy and paste code then press enter.
+	5. Copy and paste code then press enter.
+	
 		apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
 		
-	Copy and paste code then press enter.
+	6. Copy and paste code then press enter.
 		dpkg-reconfigure tzdata
 
-	NOTE: it will default to America. Arrow down and select USA if you are in the US. Then arrow to the right and highlight ok. Then choose time zone and arrow to OK.
+		NOTE: it will default to America. Arrow down and select USA if you are in the US. Then arrow to the right and highlight ok. Then choose time zone and arrow to OK.
 
-	Copy and paste code then press enter.
+	7. Copy and paste code then press enter.
+	
 		nano /etc/logrotate.conf
-	NOTE: I HAVE NOTICED LINUX CAN BE VERY FUSSY AT TIMES. if IT GIVES AND ERROR copy and paste each line 1 at a time and press enter after each.
+		
+		NOTE: I HAVE NOTICED LINUX CAN BE VERY FUSSY AT TIMES. if IT GIVES AND ERROR copy and paste each line 1 at a time and press enter after each.
+		
 		cd /etc/
+		
 		nano logrotate.conf
 
-		Arrow down and change the log rotation to daily from weekly
-		Enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
-		Exit and save
+		A. Arrow down and change the log rotation to daily from weekly
 		
-	 Select this line of code and paste into terminal window to update pi firmware and press enter.  
+		B. Enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
+		C. Exit and save
+		
+### Update Firmware
+	 
+	1. Select this line of code and paste into terminal window to update pi firmware and press enter.
+	
 		rpi-update
-	Reboot to apply the changes:
+		
+	2. Reboot to apply the changes:
+	
 		reboot
 
-	You may have the following message the next time you start pixal
- 		Press ‘OK’
+	3. You may have the following message the next time you start pixal
+ 		
+		![Settings_Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/WPAConfig.JPG)
+		
+		Press ‘OK’
 		At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
 	
 		From terminal window type 
