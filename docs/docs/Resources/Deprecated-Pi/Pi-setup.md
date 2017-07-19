@@ -161,7 +161,7 @@ Once you have the Pixal screen do the following
 
 	3. You may have the following message the next time you start pixal
  		
-![Settings_Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/WPAConfig.JPG)
+![Settings_Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/UpdateWarning.JPG)
 		
 		Press ‘OK’
 		
