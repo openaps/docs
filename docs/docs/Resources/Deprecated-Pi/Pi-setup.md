@@ -166,7 +166,7 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 		`iwconfig 
 	You should now see Power Management:off
  
-### Setup network
+### Setup network wpa_supplicant
 	Copy and paste the following then press enter  
 		`sudo -i  
 	Copy and paste the following  
@@ -222,38 +222,38 @@ Copy and paste the following
 #### Match the following.   
 
 
-`# interfaces(5) file used by ifup(8) and ifdown(8)  
+#interfaces(5) file used by ifup(8) and ifdown(8)  
 
-`# Please note that this file is written to be used with dhcpcd  
+#Please note that this file is written to be used with dhcpcd  
 
-`# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'  
+#For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'  
 
-`# Include files from /etc/network/interfaces.d:
+#Include files from /etc/network/interfaces.d:
 
-`source-directory /etc/network/interfaces.d  
+source-directory /etc/network/interfaces.d  
 
-`auto lo  
-`iface lo inet loopback  
+auto lo  
+iface lo inet loopback  
 
-`iface eth0 inet manual  
+iface eth0 inet manual  
 
-`allow-hotplug wlan0  
+allow-hotplug wlan0  
 
-`iface wlan0 inet manual  
+iface wlan0 inet manual  
    
-   `wireless-power off  
+   wireless-power off  
    
-   `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
+   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
 
-`allow-hotplug wlan1  
+allow-hotplug wlan1  
 
-`iface wlan1 inet manual  
+iface wlan1 inet manual  
    
-   `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
+   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf  
 
-`iface wifi inet dhcp  
+iface wifi inet dhcp  
 
-`iface hotspot inet dhcp  
+iface hotspot inet dhcp  
 
 ####     Exit and save  
 	
@@ -263,26 +263,26 @@ Copy and paste the following
 	Note: change every line in your original where you see it different here. This is important.  
 	
 	Copy and paste the following  
-		`reboot  
+		reboot  
 	Press enter  
 	
 ### Configure USB tethering on newer androids [optional]
 You may have noticed that your rig may not usb tether with your newer android phone such as the Galaxy S7. That is because it appears there is a change to the NDIS driver interface. This should correct your issue:
-		`ssh into rig
-		`sudo -i
+		ssh into rig
+		sudo -i
 	
 	Copy and paste 
-		`nano /etc/network/interfaces
+		nano /etc/network/interfaces
 		
 	 Press enter
 	 
 	Copy all lines at once and paste
-		`allow-hotplug eth1
-		`iface eth1 inet dhcp
-		`pre-up ifconfig eth1 hw ether 02:aa:bb:cc:12:02
+		allow-hotplug eth1
+		iface eth1 inet dhcp
+		pre-up ifconfig eth1 hw ether 02:aa:bb:cc:12:02
  
  			(NOTE replace with your phones wifi mac address)
-		`reboot
+		reboot
 		
 	For the first time reboot phone
 	Plug in cable to phone and rig
@@ -291,61 +291,85 @@ You may have noticed that your rig may not usb tether with your newer android ph
 ### Wif and Hotspot auto restart
 	Log in as pi using ssh
 	Copy and paste the following then press enter
-		`sudo -i
+		sudo -i
 		
 	Copy and paste the following then press enter
-		`cd /usr/local/bin
+		cd /usr/local/bin
 		
 			NOTE: if it fails type each line one at a time pressing enter after each
-			`cd /usr/
-			`cd local
-			`cd bin
+			cd /usr/
+			cd local
+			cd bin
 			
 	Copy and paste the following then press enter
-		`nano wifi_reboot.sh
+		nano wifi_reboot.sh
 		
 	This will create the file
 	Copy and paste the following into the file (copy and paste all at once)
 
-#!/bin/bash <br/>
-#The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server) <br/>
-#SERVER=8.8.8.8 <br/>
-#Only send two pings, sending output to /dev/null <br/>
-sudo ping -c2 8.8.8.8 > /dev/null <br/>
-#If the return code from ping ($?) is not 0 (meaning there was an error) <br/>
-if [ $? != 0 ] <br/>
-then <br/>
-#Restart the wireless interface <br/>
-    /sbin/ifdown 'wlan0' <br/>
-    sleep 3 <br/>
-    /sbin/ifup --force 'wlan0' <br/>
-fi <br/>
+#!/bin/bash
+
+#The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
+
+#SERVER=8.8.8.8
+
+#Only send two pings, sending output to /dev/null
+
+sudo ping -c2 8.8.8.8 > /dev/null
+
+#If the return code from ping ($?) is not 0 (meaning there was an error)
+
+if [ $? != 0 ]
+
+then
+
+#Restart the wireless interface
+
+	/sbin/ifdown 'wlan0'
+    
+    	sleep 3
+    
+    	/sbin/ifup --force 'wlan0'
+
+fi
 
 #### exit and save
 	
 	Copy and paste followed by enter
-		`chmod +x /usr/local/bin/wifi_reboot.sh
+		
+		chmod +x /usr/local/bin/wifi_reboot.sh
 		
 	Copy and paste the following then press enter to make it auto run the script from chron:
-		`nano /etc/crontab
+		
+		nano /etc/crontab
+			
 			NOTE: if it fails copy and paste each line 1 at a time followed by enter
-			`cd /etc/
-			`nano crontab
+			
+			cd /etc/
+			
+			nano crontab
 
 	After the last line copy and paste this (this will check every 3 minutes)
-		`*/3 *   * * *   root    /usr/local/bin/wifi_reboot.sh
+		
+		*/3 *   * * *   root    /usr/local/bin/wifi_reboot.sh
 		
   Exit and save
- 		`reboot
+ 		reboot
 		
 ### Turn off GUI interface
+	
 	Copy and paste the following
-		`sudo raspi-config
+		
+		sudo raspi-config
 	
 	Select boot options
+	
 	Select B2 console Auto Login Text Console
+	
 	Select OK
+	
 	Finish
+	
 	Yes reboot
 	
 ## Phase 2: oref0-setup.sh
@@ -360,7 +384,7 @@ NOTE: if you put the TI stick in the top center USB port of Pi3 or the only port
 
 NOTE: the last character is the number 0 NOT the letter o
 Do all in 
-	`sudo -I 
+	sudo -I 
 	
 make sure to type exit when finished to leave root
 
@@ -373,45 +397,60 @@ http://openaps.readthedocs.io/en/2017-07-13/docs/walkthrough/phase-2/oref0-setup
 ## Optional Installs
 
 ### Enable watchdog
-	`sudo -i
+	sudo -i
 
 SSH into pi
+	
 	Copy and paste the following
-		`apt-get install watchdog
+		
+		apt-get install watchdog
 		
 	Copy and paste the following
-		`modprobe bcm2708_wdog
+		
+		modprobe bcm2708_wdog
 		
 		If this command does not work, it appears to be ok to skip it. Newest version gives FATAL error simply because it is not there
+	
 	Copy and paste the following
-		`bash -c 'echo " bcm2835_wdt " >> /etc/modules' 
+		
+		bash -c 'echo " bcm2835_wdt " >> /etc/modules' 
 
 	Edit the config file by opening up nano text editor
-		`nano /etc/watchdog.conf
+		
+		nano /etc/watchdog.conf
 		
 Find the following lines and Uncomment: (remove the # from the following lines, scroll down as needed to find them):
+			
 			max-load-1             	 = 24
+			
 			watchdog-device       	 = /dev/watchdog
 
-	Save and exit
+#### Save and exit
+	
 	Next, add watchdog to startup applications:
+	
 	Copy and paste the following: 
-		`update-rc.d watchdog defaults 
+		
+		update-rc.d watchdog defaults 
 
 Finally, start watchdog by copying and pasting the following:
-		`service watchdog start
+		
+		service watchdog start
 
 Note: The init system which handles processes going forward in most Linux systems is systemd. Rc.d may be depreciated in the future, so it may be best to use systemd here. Unfortunately, the watchdog package in Raspbian Jessie(as of 12/10/2016) does not properly handle the systemd unit file. 
 To fix it, copy and paste the following: (one single line of code: not 2 separate)
 
-	`echo "WantedBy=multi-user.target" | sudo tee - append /lib/systemd/system/watchdog.service > /dev/null
+	echo "WantedBy=multi-user.target" | sudo tee - append /lib/systemd/system/watchdog.service > /dev/null
 	 
 To auto start watchdog with each boot copy/paste then enter the following
-	`cd /boot/
-	`nano config.txt
+	
+	cd /boot/
+	
+	nano config.txt
 	
 Add the following line
-	`dtparam=watchdog=on
+	
+	dtparam=watchdog=on
 
 	Exit and Save
 
@@ -426,74 +465,99 @@ The code below came from
 	https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=133251  
 
 I have added instructions here to make it easier for you to copy paste  
-	Make sure GPIO library is installed  
+	
+	
+### Make sure GPIO library is installed  
+	
 	Log in as pi using ssh  
+	
 	Copy ande paste these 3 lines 1 at a time and press enter after each  
-		`sudo apt-get update  
-		`sudo apt-get -y install python-rpi.gpio  
-		`sudo apt-get -y install python3-rpi.gpio  
+		
+		sudo apt-get update  
+		
+		sudo apt-get -y install python-rpi.gpio  
+		
+		sudo apt-get -y install python3-rpi.gpio  
 
 	Copy and paste
-		`sudo -i
+		
+		sudo -i
 
 	Copy and paste the following
-		`cd /usr/local/bin
+		
+		cd /usr/local/bin
 
 	Copy and paste the following
-		`nano fan_speed.py
+		
+		nano fan_speed.py
 	
 	This will create the file
+	
 	Copy and paste the following into the file (copy and paste all at once)
-		`#!/usr/bin/python
-		`import RPi.GPIO as GPIO
-		`import time
-		`import os
+		
+		#!/usr/bin/python
+		
+		import RPi.GPIO as GPIO
+		
+		import time
+		
+		import os
 
-		`# Return CPU temperature as float
-		`def getCPUtemp():
-    			`cTemp = os.popen('vcgencmd measure_temp').readline()
-    			`return float(cTemp.replace("temp=","").replace("'C\n",""))
+		#Return CPU temperature as float
+		
+		def getCPUtemp():
+    			
+			cTemp = os.popen('vcgencmd measure_temp').readline()
+    			
+			return float(cTemp.replace("temp=","").replace("'C\n",""))
 
-		`# For GPIO numbering, Choose BCMGPIO.setmode(GPIO.BCM)
-			`GPIO.setmode(GPIO.BCM)
-			`GPIO.setup(2,GPIO.OUT)
-			`GPIO.setwarnings(False)
-			`p=GPIO.PWM(2,100)
+		#For GPIO numbering, Choose BCMGPIO.setmode(GPIO.BCM)
+			
+			GPIO.setmode(GPIO.BCM)
+			
+			GPIO.setup(2,GPIO.OUT)
+			
+			GPIO.setwarnings(False)
+			
+			p=GPIO.PWM(2,100)
 
-		`while True:
-   			`CPU_temp = getCPUtemp()
-    			`if CPU_temp > 70.0:
-         		`p.start(100)
-    			`elif CPU_temp > 60.0:
-         		`p.start(60)
-   			`elif CPU_temp > 50.0:
-        		`p.start(40)
-   			`elif CPU_temp > 45.0:
-         		`p.start(30)
-   			`elif CPU_temp > 40.0:
-        		`p.start(20)
-    			`elif CPU_temp > 35.0:
-         		`p.start(15)
-    			`elif CPU_temp > 30.0:
-         		`p.start(10)
+		while True:
+   			
+			CPU_temp = getCPUtemp()
+    			
+			if CPU_temp > 70.0:
+				p.start(100)
+			elif CPU_temp > 60.0:
+				p.start(60)
+			elif CPU_temp > 50.0:
+				p.start(40)
+			elif CPU_temp > 45.0:
+				p.start(30)
+			elif CPU_temp > 40.0:
+				p.start(20)
+			elif CPU_temp > 35.0:
+				p.start(15)
+			elif CPU_temp > 30.0:
+				p.start(10)
    		else:
-         		`p.stop()
-    		`time.sleep(180)
+				p.stop()
+		time.sleep(180)
 
-`GPIO.cleanup()
+GPIO.cleanup()
 
-	exit and save
+####     exit and save
+	
 	Copy and paste
-		`exit
+		exit
 		
 	You are now back as pi
 	Copy and paste the following to make it auto run the script from chron:
-		'sudo crontab -e
+		sudo crontab -e
 
 	After the last line copy and paste each of the lines below one at a time (this will check every 3 minutes)
 
-		`@reboot /usr/bin/python
-		`@reboot /usr/local/bin/fan_speed.py
+		@reboot /usr/bin/python
+		@reboot /usr/local/bin/fan_speed.py
 	
 	Exit and save
 		`sudo reboot
@@ -505,32 +569,32 @@ The Raspberry Pi can be tethered to a smartphone and share the phone’s interne
 The main advantages of using BLE tethering are that it consumes less power on the phone device than running a portable WiFi hotspot and it allows the Raspberry Pi to use whatever data connection is available on the phone at any given time - e.g. 3G/4G or WiFi. Some have also found that power consumption on the Raspberry Pi is lower when using BLE tethering compared to using a WiFi connection, although this may vary depending on BLE USB dongle, WiFi dongle, etc.
 
 First, we clone a repository which contains scripts which are used later in the setup -
-		`cd /home/pi
+		cd /home/pi
 
-		`git clone https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect.git
+		git clone https://github.com/WayneKeenan/RaspberryPi_BTPAN_AutoConnect.git
 
 We then copy the required scripts into a ‘bin’ directory -
-		`mkdir -p /home/pi/bin
+		mkdir -p /home/pi/bin
 
-		`cp /home/pi/RaspberryPi_BTPAN_AutoConnect/bt-pan /home/pi/bin
+		cp /home/pi/RaspberryPi_BTPAN_AutoConnect/bt-pan /home/pi/bin
 
-		`cp /home/pi/RaspberryPi_BTPAN_AutoConnect/check-and-connect-bt-pan.sh /home/pi/bin
+		cp /home/pi/RaspberryPi_BTPAN_AutoConnect/check-and-connect-bt-pan.sh /home/pi/bin
 
 To configure a connection from the command line -
-		`bluetoothctl
+		bluetoothctl
 
 Enter the following commands to bring up the adapter and make it discoverable -
-		`power on
+		power on
 
-		`discoverable on
+		discoverable on
 
-		`agent on
+		agent on
 
-		`default-agent
+		default-agent
 
 The adapter is now discoverable for three minutes. Search for bluetooth devices on your phone and initiate pairing. The process varies depending on the phone and the dongle in use. The phone may provide a random PIN and bluetoothctl may ask you to confirm it. Enter ‘yes’. Then click ‘pair’ on the phone. Instead, the phone may ask you to enter a PIN. If so, enter ‘0000’ and when bluetoothctl asks for a PIN, enter the same code again. Either way, bluetoothctl should inform you that pairing was successful. It will then ask you to authorize the connection - enter ‘yes’.
 Execute the paired-devices command to list the paired devices -
-		`paired-devices
+		paired-devices
 
 Device AA:BB:CC:DD:EE:FF Nexus 6P
 Your paired phone should be listed (in this example, a Google Nexus 6P). Copy the bluetooth address listed for it; we will need to provide this later.
@@ -542,63 +606,63 @@ NOTE: Whenever you see ‘AA:BB:CC:DD:EE:FF’ or ‘AA_BB_CC_DD_EE_FF’ in thi
 		`quit
 
 Now, we create a service so that a connection is established at startup. Execute the following commands to create a net-bnep-client.service file and open it for editing in Nano -
-		`cd /etc/systemd/system
-		`nano net-bnep-client.service
+		cd /etc/systemd/system
+		nano net-bnep-client.service
 
 In the editor, populate the file with the text below, replacing AA:BB:CC:DD:EE:FF with the address noted earlier -
-	`[Unit]
-	`After=bluetooth.service
-	`PartOf=bluetooth.service
+	[Unit]
+	After=bluetooth.service
+	PartOf=bluetooth.service
 
-	`[Service]
-	`ExecStart=/home/pi/bin/bt-pan client AA:BB:CC:DD:EE:FF
+	[Service]
+	ExecStart=/home/pi/bin/bt-pan client AA:BB:CC:DD:EE:FF
 
-	`[Install]
-	`WantedBy=bluetooth.target
+	[Install]
+	WantedBy=bluetooth.target
 
 Exit and save
 
 Enable the service -
-	`systemctl enable net-bnep-client.service
+	systemctl enable net-bnep-client.service
 
 Open your crontab for editing -
-	`crontab -e
+	crontab -e
 	
 Add an entry to check the connection every minute and reconnect if necessary -
-	`* * * * * /home/pi/bin/check-and-connect-bt-pan.sh
+	* * * * * /home/pi/bin/check-and-connect-bt-pan.sh
 
 Exit and save
 
-	`shutdown -r now
+	shutdown -r now
 or
-	`systemctl reboot
+	systemctl reboot
 
 
 ### App to check core temp (optional)
-	`ssh into pi 
+	ssh into pi 
 	
-	`sudo -i
+	sudo -i
 	
 copy and paste
-	`nano my-pi-temp.sh
+	nano my-pi-temp.sh
 	
 copy and paste all at once
- 	`#!/bin/bash
-	`# Script: my-pi-temp.sh
-	`# Purpose: Display the ARM CPU and GPU  temperature of Raspberry Pi 2/3 
-	`# Author: Vivek Gite <www.cyberciti.biz> under GPL v2.x+
-	`# -------------------------------------------------------
-	`cpu=$(</sys/class/thermal/thermal_zone0/temp)
-	`echo "$(date) @ $(hostname)"
-	`echo "-------------------------------------------"
-	`echo "GPU => $(/opt/vc/bin/vcgencmd measure_temp)"
-	`echo "CPU => $((cpu/1000))'C" 
+ 	#!/bin/bash
+	#Script: my-pi-temp.sh
+	#Purpose: Display the ARM CPU and GPU  temperature of Raspberry Pi 2/3 
+	#Author: Vivek Gite <www.cyberciti.biz> under GPL v2.x+
+	# -------------------------------------------------------
+	cpu=$(</sys/class/thermal/thermal_zone0/temp)
+	echo "$(date) @ $(hostname)"
+	echo "-------------------------------------------"
+	echo "GPU => $(/opt/vc/bin/vcgencmd measure_temp)"
+	echo "CPU => $((cpu/1000))'C" 
 
 copy and paste
-	`chmod +x my-pi-temp.sh 
+	chmod +x my-pi-temp.sh 
 
 Run it as follows:
-	`./my-pi-temp.sh
+	./my-pi-temp.sh
 	
 
 
