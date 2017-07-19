@@ -165,21 +165,22 @@ Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip
 	`update_config=1  
 	`country=US  
 
-`network={  
-        `ssid="YourNetworkName"  
-        `psk="YouPassword"  
-        `key_mgmt=WPA-PSK  
-        `priority=1  
-        `id_str="wifi"  
-`}  
+`network={
+`        ssid="WifiName"
+`        psk="WifiPassword"
+`        key_mgmt=WPA-PSK
+`        priority=1
+`        id_str="wifi"
+`}
 
-`network={  
-        `ssid="YourHotspotName"  
-        `psk="YourHotspotPassword"  
-        `key_mgmt=WPA-PSK  
-       ` priority=2  
-        `id_str="hotspot"  
-`}  
+network={
+        ssid="HotspotName"
+        psk="HotspotPassword"
+        key_mgmt=WPA-PSK
+        priority=2
+        id_str="hotspot"
+}
+
 
 
 		Note: I set up a wifi and a wifi hotspot (phone)   
@@ -269,19 +270,20 @@ You may have noticed that your rig may not usb tether with your newer android ph
 	This will create the file
 	Copy and paste the following into the file (copy and paste all at once)
 
-`#!/bin/bash
-	`# The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
-	`#SERVER=8.8.8.8
-	`# Only send two pings, sending output to /dev/null
-		`sudo ping -c2 8.8.8.8 > /dev/null
-	`# If the return code from ping ($?) is not 0 (meaning there was an error)
-		`if [ $? != 0 ]
-		`then
-   	 `# Restart the wireless interface
-    		`/sbin/ifdown 'wlan0'
-    		`sleep 3
-   		 `/sbin/ifup --force 'wlan0'
-	`fi
+#!/bin/bash <br/>
+#The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server) <br/>
+#SERVER=8.8.8.8 <br/>
+#Only send two pings, sending output to /dev/null <br/>
+sudo ping -c2 8.8.8.8 > /dev/null <br/>
+#If the return code from ping ($?) is not 0 (meaning there was an error) <br/>
+if [ $? != 0 ] <br/>
+then <br/>
+   # Restart the wireless interface <br/>
+    /sbin/ifdown 'wlan0' <br/>
+    sleep 3 <br/>
+    /sbin/ifup --force 'wlan0' <br/>
+fi <br/>
+
 
 
 	exit and save
