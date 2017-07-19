@@ -161,11 +161,15 @@ Once you have the Pixal screen do the following
 
 	3. You may have the following message the next time you start pixal
  		
-		![Settings_Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/WPAConfig.JPG)
+![Settings_Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/WPAConfig.JPG)
 		
 		Press ‘OK’
-		At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
+		
+		
+	4. At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
 	
+### Find I.P. address
+		
 		From terminal window type 
 		sudo ifconfig
 			Write down ip address. You will need this to SSH into Pi.
