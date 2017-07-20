@@ -99,7 +99,7 @@ List of people who are working on closed loops:
 - James Henley (Friendswood, TX)
 - Amy Andrews (Boston, MA)
 - Ann Delano (Seattle, WA)
-- Marcus Whitley (Greenbrier, AR)
+C- Marcus Whitley (Greenbrier, AR)
 - Trevor Wood (Santaquin, UT)
 - Anne Svejda (Virginia Beach, VA)
 - Melody Andrews-Caron (Ontario, Canada)
@@ -160,3 +160,4 @@ List of people who are working on closed loops:
 - Jeremy B. for CM (New York, NY)
 - Molly Duerr (Minneapolis, MN)
 - Kim Goldmacher (Philadelphia, PA)
+- Craig Brenner (Seattle, WA)
