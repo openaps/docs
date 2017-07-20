@@ -12,7 +12,7 @@ In order to connect to your rig wirelessly, sometimes you'll need it's IP addres
 
 ### iNet or NetAnalyzer (iPhone)
 
-There are many scanning apps for iPhone.  iNet or NetAnalyzer (lite version...don't need to pay for this to work) will scan the network that the phone is using for other connected devices and their IP addresses on that same network.  So, if you run the scan while your phone is on a wifi network, the scan will be for the wifi netowrk and range will likely be `192.168.1.1` to `192.168.1.254`.  If you have your rig connected via mobile hotspot, then the scan will be for devices in the mobile hotspot range of `172.10.20.1` to `172.10.20.20`. (IP address ranges depend on the type of network being scanned.)  Some people have had more success with the NetAnalyzer app over the iNet app, depending on their router settings.
+There are many scanning apps for iPhone.  iNet or NetAnalyzer (lite version...don't need to pay for this to work) will scan the network that the phone is using for other connected devices and their IP addresses on that same network.  So, if you run the scan while your phone is on a wifi network, the scan will be for the wifi network and range will likely be `192.168.1.1` to `192.168.1.254`.  If you have your rig connected via mobile hotspot, then the scan will be for devices in the mobile hotspot range of `172.10.20.1` to `172.10.20.20`. (IP address ranges depend on the type of network being scanned.)  Some people have had more success with the NetAnalyzer app over the iNet app, depending on their router settings.
 
 * Open the iNet app and click on the big `NETWORK SCANNER`.  If using NetAnalyzer app, click on the `LAN` button on bottom bar and then `scan` button in top right corner of app.
 
@@ -109,7 +109,7 @@ These are some of my favorite Commands:
 
 **Show known wifi networks** - If I'm headed to a friend's house or traveling, I may want to double check if I have their wifi network already saved to my rig.  This gives me a simple list of the wifi networks I have saved in the rig already, and helps me know if I want to add a new one before I travel.  For this command, simply enter `cat-wifi` in the command script body.  (note: if I actually want to add a wifi network, I would switch to Termius app or login on my computer to add a wifi network...SimpleSSH just isn't a robust editor)
 
-**git lock fix** - Probably the most common error in a rig is the `.git lock` error that happens on occassion and by deleting the .git directory, you can get back to looping quickly.  For this command, enter `rm -rf /root/myopenaps/.git` in the command script body.
+**git lock fix** - Probably the most common error in a rig is the `.git lock` error that happens on occasion and by deleting the .git directory, you can get back to looping quickly.  For this command, enter `rm -rf /root/myopenaps/.git` in the command script body.
 
 **mmtune** - If you want to check how well your pump tune strength is you can use this command script to test it `cd ~/myopenaps && sudo service cron stop && killall -g oref0-pump-loop && openaps mmtune && sudo service cron start`
 

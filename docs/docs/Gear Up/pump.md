@@ -18,7 +18,7 @@ NOTE: For European/WorldWide users who have access to a `DANA*R` insulin pump, y
 
 The firmware version will briefly display after the initial count-up on a new battery insertion.  After the pump has been on for awhile, you can check firmware version by using the Esc button on the pump and scroll all the way to the bottom of the screen messages using the down arrow on pump. 
 
-A double-check for pump compatibility is to look for the ABSENCE of PC connect in the pump menu.  Press the ACT button, scroll down to the the "Utilities" menu, and within the "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will NOT work for looping. If it’s absent, the pump should be able to receive temp basal commands and be compatible.
+A double-check for pump compatibility is to look for the ABSENCE of PC connect in the pump menu.  Press the ACT button, scroll down to the "Utilities" menu, and within the "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will NOT work for looping. If it’s absent, the pump should be able to receive temp basal commands and be compatible.
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.  This repair is quite straight-forward and easy.
 

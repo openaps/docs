@@ -67,7 +67,7 @@ Content Type: application/json
 
 Body:  The content of the body will depend on the action that you would like this particular button press to perform.  You can only do ONE of the actions per button.  Some sample content:
 
-### Example IFTTT trigger conent
+### Example IFTTT trigger content
 
 Eating soon
 ```
@@ -140,7 +140,7 @@ CGM Sensor Start
 
 * Download the IFTTT app on your phone and log in.
 
-* You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
+* You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
 
 ![IFTTT homescreen](../Images/IFTTT_homescreen.png)
 

@@ -126,7 +126,7 @@ One of the most convenient ways to do quick edits on your rig’s settings may b
 
 * Download “Termius SSH Shell/Console/Terminal” from iPhone app store
 
-* Set up a new “host” in the app with the following information.  Remeber, you will need to setup a new "host" for every rig and every wifi connection that you will use to connect.  For example, I have three rigs that I regularly connect to on my home wifi network; edison1 (the rig my daughter regularly wears), edison2 (the rig we keep in her bedroom), and edison3 (the rig we keep in the living room).  Since my daughter's mobile rig (edison1) can sometimes need to be accessed while we are on the road, I also have a host setup for when her rig is connected to my phone's hotspot.
+* Set up a new “host” in the app with the following information.  Remember, you will need to setup a new "host" for every rig and every wifi connection that you will use to connect.  For example, I have three rigs that I regularly connect to on my home wifi network; edison1 (the rig my daughter regularly wears), edison2 (the rig we keep in her bedroom), and edison3 (the rig we keep in the living room).  Since my daughter's mobile rig (edison1) can sometimes need to be accessed while we are on the road, I also have a host setup for when her rig is connected to my phone's hotspot.
 
 ```
 Alias:     enter a name that will remind you which rig and what network (such as rig name @ home wifi, iphone hotspot, or mifi device since each connection will have a unique IP address)
@@ -275,7 +275,7 @@ Unfortunately, Papertrail does not currently have an app for use on mobile devic
 
 * `pump-loop.log` to see just your pump loop...similar to using the `l` command when logged into your rig.  
 
-* `network` will show just your oref0-online results and whether/which wifi network your rig is connected to.  If you see results of `192.168.1.XX`, then your rig is likely connected to a wifi network.  If you see results of `172.20.10.XX` then your rig is likely connected to your phone's personal hotspot.  If you see `error, cycling network` results, you should check out troublehsooting steps.
+* `network` will show just your oref0-online results and whether/which wifi network your rig is connected to.  If you see results of `192.168.1.XX`, then your rig is likely connected to a wifi network.  If you see results of `172.20.10.XX` then your rig is likely connected to your phone's personal hotspot.  If you see `error, cycling network` results, you should check out troubleshooting steps.
 
 * `pump-loop.log adjust` will show your basal and ISF adjustments being made by autosens, if enabled.
 
@@ -289,7 +289,7 @@ Once you get your desired filters saved, it is an easy process to make them more
 
 #### Troubleshooting using Papertrail
 
-Papertrail can be very valuable to quickly troubleshoot a rig, becuase it is quite easy to see all the loops that log information about your rig's actions.  BUT, the way that the information comes into Papertrail is based on the time the action took place.  So, you'll be seeing information stream by that may or may not help you troubleshoot WHICH area your issues are.
+Papertrail can be very valuable to quickly troubleshoot a rig, because it is quite easy to see all the loops that log information about your rig's actions.  BUT, the way that the information comes into Papertrail is based on the time the action took place.  So, you'll be seeing information stream by that may or may not help you troubleshoot WHICH area your issues are.
 
 First, let's start with messages that **ARE NOT ERRORS**
 
@@ -311,7 +311,7 @@ Therefore when you start to troubleshoot, **USE YOUR FILTERS** to narrow down th
 
 **PUMP TUNING**
 
-Use `pump-loop` search filter to start with.  What messages are you seeing?  Poor pump comms are one of the most frequent causes of loops stopping.  If you see `916, 0, -99` tuning results, then you know that your rig is not getting a useable communication with your pump.  Try moving your pump and rig closer together.  Check if your pump battery is good.  
+Use `pump-loop` search filter to start with.  What messages are you seeing?  Poor pump comms are one of the most frequent causes of loops stopping.  If you see `916, 0, -99` tuning results, then you know that your rig is not getting a usable communication with your pump.  Try moving your pump and rig closer together.  Check if your pump battery is good.  
 
 ![papertrail poor pump tune](../Images/poor_tuning.png)
  
@@ -321,7 +321,7 @@ Use `pump-loop` search filter to start with.  What messages are you seeing?  Poo
 
 **GIT LOCK**
 
-There are files that get written to in a directory called `/root/myopenaps/.git`  Sometimes a process crashes and causes a file in that directory to get locked and the writing can't continue.  Your loop may fail as a result.  This can be a short term issue, and it could resolve on it's own...other times it may require you to delete the file that is causing the problem.  For example, below is a short-term error.  The message says there is a problem in the `/root/myopenaps/.git` and I may need to remove that file to get things going again.  However, you can also see that a few minutes later, the problem resolved on its own.
+There are files that get written to in a directory called `/root/myopenaps/.git`  Sometimes a process crashes and causes a file in that directory to get locked and the writing can't continue.  Your loop may fail as a result.  This can be a short term issue, and it could resolve on its own...other times it may require you to delete the file that is causing the problem.  For example, below is a short-term error.  The message says there is a problem in the `/root/myopenaps/.git` and I may need to remove that file to get things going again.  However, you can also see that a few minutes later, the problem resolved on its own.
 
 If you find a .git lock error is causing a long period of time where your loop is failing, you can remove the file, as the error suggests by using `rm -rf /root/myopenaps/.git/filename`  or you can delete the whole `.git` directory (it will get rebuilt by the loop automatically) with `rm -rf /root/myopenaps/.git`
 
@@ -468,7 +468,7 @@ in you APS directory there is a file called 'pancreoptions.json'
 "urchin_loop_status": false, <--- Gives a message on urchin watchface that it's running
 "urchin_iob": true,   <--- Gives a message on urchin watchface of current IOB
 "urchin_temp_rate": false, <--- Gives a message on urchin watchface of current temp basal
-"notify_temp_basal": false <--- Notificaiton of temp basal when one shows up in enact/suggested.json
+"notify_temp_basal": false <--- Notification of temp basal when one shows up in enact/suggested.json
 ```
 note only one of the messages for the urchin watchface can be true at once
 
@@ -480,7 +480,7 @@ By default the urchin_loop_on, and urchin_iob is set to true. You must manually 
 ### Hot Button - for Android users
 
 #### Purpose
-[Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especialy useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
+[Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especially useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
 
 #### App Setup 
 To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.

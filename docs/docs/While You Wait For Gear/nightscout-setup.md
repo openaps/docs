@@ -314,7 +314,7 @@ Here are the steps you need to follow:
         ```
         If it's not ok it will exit the setup script and tell you which permissions are missing.
 
-    - Change the token in `ns.ini`. It's the third argument of the the `args=` line, e.g.
+    - Change the token in `ns.ini`. It's the third argument of the `args=` line, e.g.
         ```
         [device "ns"]
         fields = oper
@@ -331,7 +331,7 @@ Important:
 - Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the internet
 - The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-27c914cabc506fa3`. When token based authentication is used the API_SECRET on the rig will always start with `token=` instead of a hash.
 - You must always secure your Nightscout site with secure http (https), so don't use http://mynightscout.herokuapp.com but always use https://mynightscout.herokuapp.com 
-- Keep your API_SECRET as a root/Adminsitrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
+- Keep your API_SECRET as a root/Administrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
 
 ### Switching from Azure to Heroku
 
@@ -339,7 +339,7 @@ Important:
 
 * If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
 
-**Note:** It's a good idea to to check your deployment connection in Heroku's dashboard after your deploy (typically this still needs to be manually connected after initial setup).  Go your `Deploy` tab in your Heroku dashboard, click on the GitHub service, and select your GitHub cgm-remote-monitor repository.  You can select the cgm-remote-monitor branch you'd like to deploy at the bottom of the screen.  Both master and dev branches work for OpenAPS.
+**Note:** It's a good idea to check your deployment connection in Heroku's dashboard after your deploy (typically this still needs to be manually connected after initial setup).  Go your `Deploy` tab in your Heroku dashboard, click on the GitHub service, and select your GitHub cgm-remote-monitor repository.  You can select the cgm-remote-monitor branch you'd like to deploy at the bottom of the screen.  Both master and dev branches work for OpenAPS.
 
 ![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 

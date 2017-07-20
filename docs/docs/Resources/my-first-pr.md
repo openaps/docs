@@ -47,7 +47,7 @@ If you are planning to make a lot of edits, including adding images to help illu
  
  4. Commit these to your branch
  
- 5. Now, you can look for the URL/relative path of each file (example, you can see [this individual image has it's own URL and path](https://github.com/openaps/docs/blob/master/docs/docs/Images/Example_batch_images_upload.png) and use that to refer to when adding images into a page in the documentation.
+ 5. Now, you can look for the URL/relative path of each file (example, you can see [this individual image has its own URL and path](https://github.com/openaps/docs/blob/master/docs/docs/Images/Example_batch_images_upload.png) and use that to refer to when adding images into a page in the documentation.
  
  6. To see examples of how to add the images, you can look at the "raw" code of a page to see an example from a page that already has the images embedded successfully. The main thing is to have a plain text description, followed by a link with a relative path to the image, like this: `![Example of uploading images in batches](../Images/Example_batch_images_upload.png)`
  
