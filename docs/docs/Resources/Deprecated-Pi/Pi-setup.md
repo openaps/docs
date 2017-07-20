@@ -93,6 +93,9 @@ The Pi should start up with this screen.
 		NOTE Depending on your internet speed this can take 10 – 30 minutes
 		
 Once you have the Pixal screen do the following
+
+![Noobs Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/Configuration.jpg)
+
 	1. In the top left corner choose MENU/Raspberry Pi Configuration
 	2. Choose system tab
 		A. Change Hostname and password (default password is raspberry)to what you want. 
