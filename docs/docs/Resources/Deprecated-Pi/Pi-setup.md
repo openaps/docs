@@ -109,10 +109,15 @@ Once you have the Pixal screen do the following
 ### Update the repository and upgrade the installed packages:
 
 	1. From the bar at the top of the screen choose the terminal icon
-		NOTE: we will work in root. 
+	
+		NOTE: we will work in root.
+		
 	2. To enter root copy and paste the following then press enter
+		
 		sudo -i
+	
 	3. Copy and paste the following then press enter
+		
 		NOTE: This will unpackage nodejs and try to remove the legacy version. IF the legacy version does not exist ignore the error messages pertaining to that..
 		
 		dpkg -P nodejs nodejs-dev
@@ -170,6 +175,8 @@ Once you have the Pixal screen do the following
 	
 ### Find I.P. address
 		
+![Noobs Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/InkedTerminal_LI.jpg)
+		
 		From terminal window type 
 		sudo ifconfig
 			Write down ip address. You will need this to SSH into Pi.
@@ -177,25 +184,47 @@ Once you have the Pixal screen do the following
 			
 Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip address from above. Use the password you set during setup	
 
-### Disable Network Power Management 
-	The latest few updates of software have Power Save On as a default. This will shut down your wlan0 port even if you add a script to test and restart every 5 minutes. To disable do the following:
-	Copy and paste the following line and press enter
+### Disable Network Power Managemen
+
+The latest few updates of software have Power Save On as a default. This will shut down your wlan0 port even if you add a script to test and restart every 5 minutes. To disable do the following:
+	
+	1. Copy and paste the following line and press enter
+		
 		sudo -i
-	Copy and paste into ssh terminal: 
+	
+	2. Copy and paste into ssh terminal: 
+		
 		nano /etc/network/interfaces
-	Arrow down to the end of:  iface wlan0 inet manual
-		Press enter to create a blank line
-		Copy and paste the following line into that new space: : 
-			`wireless-power off 
-	***NOTE*** IT IS CRITICAL it goes just below ‘iface wlan0 inet manual’ If you put it above this line your Pi Wifi will not work!
-		Exit and save nano screen
-	Reboot pi 
+	
+	3. Arrow down to the end of:  iface wlan0 inet manual
+		
+		A. Press enter to create a blank line
+		
+		B. Copy and paste the following line into that new space: : 
+			
+			wireless-power off 
+	
+### ***NOTE*** IT IS CRITICAL it goes just below ‘iface wlan0 inet manual’ If you put it above this line your Pi Wifi will not work!
+		
+![Noobs Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/InkedPowerSave_LI.jpg)
+	
+		4. Exit and save nano screen
+	
+	5. Reboot pi 
+		
 		reboot 
 	
-	SSH into pi
-	Copy and paste 
+Once system restarts do the following to verify it worked
+
+	1. SSH into pi
+	
+	2. Copy and paste 
+		
 		iwconfig 
-	You should now see Power Management:off
+	
+	
+	
+	3. You should now see Power Management:off
  
 ### Setup network wpa_supplicant
 	Copy and paste the following then press enter  
