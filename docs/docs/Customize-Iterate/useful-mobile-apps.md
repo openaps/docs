@@ -85,7 +85,7 @@ Some useful/fun commands from the Script Library that I've added to my Commands 
 
 **Hardware Information**
 * **Show Disk Status** will run `df -h` which shows available memory on your rig.  If you ever have memory errors, this would be a helpful tool to see where your memory has been going.
-* **Show Current Version** will run the equivalent of `uname -a` and tell your which jubilinux version your rig is running.
+* **Show Current Version** will run the equivalent of `uname -a` and show which version of the Linux kernel your rig is running.
 * **Show USB Devices** will run `lsusb` and can help confirm your dexcom receiver is being properly recognized when plugged in.
 * **Show External IP address** will run `ifconfig` and show your rig's wifi (wlan0) IP address or hotspot (bnep0) IP address.
 
