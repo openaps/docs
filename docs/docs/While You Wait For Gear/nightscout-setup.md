@@ -83,19 +83,19 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>BG_HIGH</th>
-<td>Enter the numeric value of BG you’d like as an urgent high alarm.</td>
+<td>Enter the numeric value of BG you’d like as an urgent high alarm. (Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).  </td>
 </tr>
 <tr>
 <th>BG_TARGET_TOP</th>
-<td>Enter the numeric value of the top of your target BG.</td>
+<td>Enter the numeric value of the top of your target BG.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
 </tr>
 <tr>
 <th>BG_TARGET_BOTTOM</th>
-<td>Enter the numeric value of the bottom of your target BG.</td>
+<td>Enter the numeric value of the bottom of your target BG.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
 </tr>
 <tr>
 <th>BG_LOW</th>
-<td>Enter the numeric value of the BG you’d like as an urgent low alarm.</td>
+<td>Enter the numeric value of the BG you’d like as an urgent low alarm.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
 </tr>
 <tr>
 <th>PUSHOVER lines</th>
