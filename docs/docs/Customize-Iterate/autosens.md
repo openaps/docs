@@ -24,7 +24,7 @@ If you have papertrail setup (or are watching similarly through your rig itself)
 
 ![Autosens adjustments logged in papertrail](../Images/customize-iterate/autosens-adjust.png)
 
-As you can see, there are several types of adjustments that have occured during the day.  
+As you can see, there are several types of adjustments that have occurred during the day.  
 * In the morning, autosens was detecting some excess insulin sensitivity...so basals, targets, and ISF were adjusted down (by multiplier of 0.94).  
 * Later in the day (the blue boxed section), another adjustment was made to her BG targets because of a persistent high.  While not an adjustment by autosens itself, this is similar and can be set in preferences.json by setting the "adv_target_adjustments" to true.  Basically this preference will automatically lower BG targets (to as low as "eating soon" mode target of 80 mg/dl) for persistent high BGs.  
 * Later in the day, a couple brief periods of insulin sensitivity were short-lived.
