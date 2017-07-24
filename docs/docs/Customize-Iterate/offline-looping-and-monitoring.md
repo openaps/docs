@@ -25,7 +25,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
    * xDrip: [http://stephenblackwasalreadytaken.github.io/xDrip/](http://stephenblackwasalreadytaken.github.io/xDrip/)
    * xDrip+: [https://jamorham.github.io/#xdrip-plus](https://jamorham.github.io/#xdrip-plus) 
    
-2. For iPhone users, you can set up a modified Loop app to bring data in locally.  The directions for this configuration are provided in the section below for local, offline BGs using Loop app.  
+2. For iPhone users, it is possible to setup a modified Loop app to bring data in locally such as the one you will find here: https://github.com/thebookins/Loop. This solution requires a build of an iOS app on a Mac and the use of a free Dev licenses (which will give you an app to test, but will only stay deployed for 7 days) or a full Dev license ($99/year). The modified Loop app will "listen in" for Dexcom data on iPhone, upload it to a scaled down version of Nightscout on your rig where xDrip is running. This solution requires some Mac OS and iOS savvy, and exploration.
 
 3. **EASIEST:** For either Android or iPhone users, you can plug the CGM receiver directly into your rig via USB. This will pull BGs into the rig directly from the receiver and be used for looping.  If you are a G4 user, this will also bring RAW BG data into the rig during sensor restarts or ??? times.  The rig will loop using RAW BGs so long as the BG value is under 150 mg/dl.  A few notes about how to make the direct-receiver configuration work:
 
