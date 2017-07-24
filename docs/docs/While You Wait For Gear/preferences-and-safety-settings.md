@@ -6,7 +6,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) are i
 
 Your preferences are found in the directory `myopenaps/preferences.json`.  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 
-To check your edits when you're donehave done, use `cd ~/myopenaps && cat preferences.json`
+To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json`
 
 ## Commonly-adjusted preferences:
 
@@ -29,19 +29,19 @@ To check your edits when you're donehave done, use `cd ~/myopenaps && cat prefer
 
 #### max_iob: 
 
-Max-iob is not a basal rate.  Max-iob is the maximum amount of UNITS of basal (or SMB corrections) insulin that your loop is allowed to accumulate to treat higher-than-target BG. This setting is not dependent on the rate the temp basal is applied, however the greater a temp basal rate, the faster basal insulin is accumulated.  Therefore, some safety considerations are smart.
+Max_IOB (or maxIOB as often described) is not a basal rate.  Max_IOB is the maximum amount of UNITS of basal (or SMB corrections) insulin that your loop is allowed to accumulate to treat higher-than-target BG. This setting is not dependent on the rate the temp basal is applied, however the greater a temp basal rate, the faster basal insulin is accumulated.  Therefore, some safety considerations are smart.
 
 A good rule of thumb is for max-iob to be no more than 3 times your highest basal rate. Keep in mind you can start conservatively and change this number over time as you evaluate further how the system works for you. (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
 
-The setup script will prompt you for a max-iob setting.  Previous oref0 releases used a max-iob initial setting of 0 units.  This effectively made the initial loop build only capable of suspending to prevent lows...as it was not allowed to accumulate much corrective basal insulin.  The new release of oref0 will prompt you to enter a max-iob during setup.  This setting will be saved in the oref-runagain script and be used again if you need to rerun the script.  
+The setup script will prompt you for a max-iob setting.  Previous oref0 releases (0.4.3 or older) used a max-iob initial setting of 0 units.  This effectively made the initial loop build only capable of suspending to prevent lows...as it was not allowed to accumulate much corrective basal insulin.  oref0 0.5.0 or later will prompt you to enter a max-iob during setup.  This setting will be saved in the oref-runagain script and be used again if you need to rerun the script.  
 
-************
-Note: The next two variables `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate setting, as a safety setting for your loop. **The system will use whichever of these three values is the lowest, at any given time, as the ceiling for the temps it will set.** So, if your pump’s max basal is 1.0u, but 3x your highest daily basal or 4x your current basal would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your pump's max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
+#### the most commonly confused safety variables that are also the most important 
 
-You will be able to alerted if your loop is being restricted by the max basal setting by looking at the OpenAPS pill message  in Nightscout (or in pump-loop log) as "adj. req. rate: XX to maxSafeBasal: XX"  
+Note: The next two variables `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate setting (set on your pump), as a safety setting for your loop. **The system will use whichever of these three values is the lowest, at any given time, as the ceiling for the temp basal rates it will set.** So, if your pump’s max basal is 1.0u, but 3x your highest daily basal or 4x your current basal would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your pump's max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
+
+You can be able to alerted to being restricted by the max basal setting by looking at the OpenAPS pill message in Nightscout (or in pump-loop log), which will say  "adj. req. rate: XX to maxSafeBasal: XX"  
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
-***********
 
 #### max_daily_safety_multiplier: 
 
