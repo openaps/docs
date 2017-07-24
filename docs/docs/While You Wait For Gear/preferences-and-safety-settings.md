@@ -2,9 +2,13 @@
 
 All of the settings specific to OpenAPS (that can't be read from the pump) are in this file, so when running the setup scripts or building your loop, you will have the preferences.json file built for the system to read, in addition to your pump profile settings. Many of these are important safety settings, with reasonable default settings, so other than described below, you likely won’t need to adjust these. If you do decide to adjust a setting, the best practice is to adjust one setting at a time, and observe the impact for 3 days. Changing multiple variables at once is a recipe for a lot of headaches and a lot of painful troubleshooting.
 
-Note: the “max basal” rate is one safety setting that you set in your pump. It should not be confused with “max daily” or “max current” multipliers described below. The system will use whichever of these three values is the lowest as the ceiling for the temps it will set. So, if your pump’s max basal is 1.0u, but 3x your highest daily basal or 4x your current basal would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
+## Editing your preferences.json
 
-### Commonly-adjusted preferences:
+Your preferences are found in the directory `myopenaps/preferences.json`.  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
+
+To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json`
+
+## Commonly-adjusted preferences:
 
 ```
 {
@@ -25,11 +29,19 @@ Note: the “max basal” rate is one safety setting that you set in your pump. 
 
 #### max_iob: 
 
-This will default to “auto”, or automatically adjust to 1 hour’s worth of your current basal rate. After several days or weeks, depending on your comfort level, you may choose to adjust this number. (Remember in the future if you re-run the setup scripts, it will default back to auto so you will come in here to adjust the max iob, as it is an OpenAPS-specific setting).
+Max_IOB (or maxIOB as often described) is not a basal rate.  Max_IOB is the maximum amount of UNITS of basal (or SMB corrections) insulin that your loop is allowed to accumulate to treat higher-than-target BG. This setting is not dependent on the rate the temp basal is applied, however the greater a temp basal rate, the faster basal insulin is accumulated.  Therefore, some safety considerations are smart.
 
-Keep in mind this is one of the key safety features of OpenAPS. You do NOT want this to be a super large amount. The point of this setting is to ensure that the loop can not excessively high temp you beyond what you could correct for with carbs. 
+A good rule of thumb is for max-iob to be no more than 3 times your highest basal rate. Keep in mind you can start conservatively and change this number over time as you evaluate further how the system works for you. (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
 
-A good rule of thumb is for max iob to be no more than 3 times your highest basal rate. Keep in mind you can start conservatively and change this number over time as you evaluate further how the system works for you. (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
+The setup script will prompt you for a max-iob setting.  Previous oref0 releases (0.4.3 or older) used a max-iob initial setting of 0 units.  This effectively made the initial loop build only capable of suspending to prevent lows...as it was not allowed to accumulate much corrective basal insulin.  oref0 0.5.0 or later will prompt you to enter a max-iob during setup.  This setting will be saved in the oref-runagain script and be used again if you need to rerun the script.  
+
+#### the most commonly confused safety variables that are also the most important 
+
+Note: The next two variables `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate setting (set on your pump), as a safety setting for your loop. **The system will use whichever of these three values is the lowest, at any given time, as the ceiling for the temp basal rates it will set.** So, if your pump’s max basal is 1.0u, but 3x your highest daily basal or 4x your current basal would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your pump's max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
+
+You can be able to alerted to being restricted by the max basal setting by looking at the OpenAPS pill message in Nightscout (or in pump-loop log), which will say  "adj. req. rate: XX to maxSafeBasal: XX"  
+
+![max safe basal message](../Images/max-safe-basal.jpg) 
 
 #### max_daily_safety_multiplier: 
 
@@ -41,7 +53,7 @@ This is the other half of the key OpenAPS safety caps, and the other half of “
 
 #### autosens_max:
 
-This is a multiplier cap for autosens (and soon autotune) to set a 20% max limit on how high the autosens ratio can be, which in turn determines how high autosens can adjust basals, how low it can adjust ISF, and how low it can set the BG target.
+This is a multiplier cap for autosens (and autotune) to set a 20% max limit on how high the autosens ratio can be, which in turn determines how high autosens can adjust basals, how low it can adjust ISF, and how low it can set the BG target.
 
 #### autosens_min: 
 
@@ -123,24 +135,4 @@ This is the fraction of carbs we'll assume will absorb over 4h if we don't yet s
 
 The default of 0.5 for this value keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment, 0 is no adjustment from pump ISF.
 
-## Editing your preferences.json
 
-To change your max iob in your preferences.json file:
-
-First, you need to change directory:
-
-`cd myopenaps`
-
-Use the nano text editor to open your preferences.json file:
-
-`nano preferences.json`
-
-Then amend the "max_iob": 0 to the figure you want.
-
-To check that you have done this successfully run the following:
-
-`cat preferences.json`
-
-You should see the amended max IOB you have entered. Remember if you run the setup script in the future, it will default back to 0 max IOB, but you can always follow this same process to change it again.
-
-Similarly, if you'd like to add any of the other preferences back in and change the value, copy and paste the name intro your list of preferences.json file, following the format of the example at the top of this page.
