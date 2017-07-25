@@ -2,14 +2,14 @@
 
 ## Nightscout Introduction
 
-[Nightscout](http://nightscout.info) is an open source, DIY project that allows real-time access to a CGM data
-via personal website, smartwatch viewers, or apps and widgets available for
+[Nightscout](http://nightscout.info) (NS) is an open source, DIY project that allows real-time access to CGM data
+via a personal website, smartwatch viewers, or apps and widgets available for
 smartphones. Setting up a Nightscout web app is the recommended way to visualize your
 OpenAPS closed loop.
 
-Nightscout allows a user to upload CGM data from a variety of sources, to an
+Nightscout allows a user to upload CGM data from a variety of sources to an
 online database and cloud computing service. The information is then processed
-and displayed visually as a graph. There are plugins that allow greater
+and displayed visually as a graph. There are plugins that allow more
 information to be shown about OpenAPS, too. As the data is uploaded to an online
 website and then retrieved by OpenAPS, it allows OpenAPS a wider range of
 compatibility with various CGM solutions.
@@ -26,13 +26,13 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * If you plan to use Nightscout with OpenAPS, we recommend using Heroku, as OpenAPS can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.  Currently, the only added benefit to choosing the $7/mo Heroku plan vs the free Heroku plan is a section showing site use metrics for performance (such as response time).  This has limited benefit to the average OpenAPS user.  **In short, Heroku is the free and OpenAPS-friendly option for NS hosting.**
 
-* Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup before the app will deploy.  You'll need confirm your Heroku account by clicking a link sent via email.
+* Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup before the app will deploy.  You'll need to confirm your Heroku account by clicking a link sent via email.
 
 ![Heroku signup example](../Images/nightscout/heroku_signup.jpg)
 
 * Create an account at [GitHub](https://github.com)
 *****************
-**Note:** If you already have an existing GitHub account and NS site, you may just need to update your repository by doing a Compare in GitHub.  Use `https://github.com/yourgithubname/cgm-remote-monitor/compare/master...nightscout:master` and replace yourgithub name.  Click the big green `Create pull request` button. Another screen will appear, fill in a title and click button to `create the pull request`, and then you can `Merge pull request`, and finally `Confirm merge`.  That process updates your Nightscout repository in Github.  Once updated, you can skip the "click the Fork Button" step below and start following along with the purple `Deploy to Heroku` button step from your updated Nightscout cgm-remote-monitor repository.
+**Note:** If you already have an existing GitHub account and NS site, you may just need to update your repository by doing a Compare in GitHub.  Use `https://github.com/yourgithubname/cgm-remote-monitor/compare/master...nightscout:master` and replace "yourgithubname" with your GitHub name.  Click the big green `Create pull request` button. Another screen will appear, fill in a title and click button to `create the pull request`, and then you can `Merge pull request`, and finally `Confirm merge`.  That process updates your Nightscout repository in GitHub.  Once updated, you can skip the "click the Fork Button" step below and start following along with the purple `Deploy to Heroku` button step from your updated Nightscout cgm-remote-monitor repository.
 *****************
 * Go to the [Nightscout cgm-remote-monitor repository](https://github.com/nightscout/cgm-remote-monitor)
 
@@ -59,7 +59,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 <tbody>
 <tr>
 <th>API_SECRET</th>
-<td>Create your own API_SECRET…this is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` symbol.</td>
+<td>Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` symbol.</td>
 </tr>
 <tr>
 <th>AUTH_DEFAULT_ROLES</th>
@@ -127,7 +127,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 **The remaining variables can be left at their default values.**</br></br>
 
 *****************
-**Note:** for BRIDGE_MAX_COUNT: This value sets the number of BG values to pull from Share per update.  Each Dexcom BG value represent 5 minutes.  Nightscout defaults to BRIDGE_MAX_COUNT=1.  If you lose connectivity with your Dexcom transmitter, your Share app will automatically backfill data points when you regain connectivity.  Nightscount does not do this and you will have gaps in the data for when you were out of range.  More information here https://github.com/nightscout/cgm-remote-monitor#bridge-share2nightscout-bridge  
+**Note:** for BRIDGE_MAX_COUNT: This value sets the number of BG values to pull from Share per update.  Each Dexcom BG value represent 5 minutes.  Nightscout defaults to BRIDGE_MAX_COUNT=1.  If you lose connectivity with your Dexcom transmitter, your Share app will automatically backfill data points when you regain connectivity.  Nightscount does not do this and you will have gaps in the data for when you were out of range.  More information [here](https://github.com/nightscout/cgm-remote-monitor#bridge-share2nightscout-bridge).
 
 You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which will backfill BRIDGE_MAX_COUNT values for you.  This change increases your data usage and may affect your Nightscout billing tier.   Setting BRIDGE_MAX_COUNT to 7 will update the previous 35 minutes of data and will keep OpenAPS up to date on your current BG trends.  If you frequently have larger data gaps and you use autotune, you may consider increasing this number more to backfill data more aggressively.
 *****************
@@ -146,7 +146,7 @@ You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which 
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
-**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into Nightscout profile. You will need to keep the Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering.
+**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into your Nightscout profile. You will need to keep your Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering.
 
 ![Profile for basals](../Images/nightscout/profile.jpg)
 
@@ -260,12 +260,12 @@ If you want to secure your Nightscout and CGM data, then all rigs need to have o
 
 Here are the steps you need to follow:
 
-1. Visit https://mynightscout.herokuapp.com/admin
+1. Visit https://yourappname.herokuapp.com/admin. Replace "yourappname" with the name you chose for your app above, that is, the prefix of your NS site's URL.
     - Add a new Role
 
     Name: `oref0rig`
 
-    Permissions:  Add the following 6 permissions. Note that the default window is to small to fit them all.
+    Permissions:  Add the following 6 permissions. Note that the default window is too small to see them all after you paste them in.
     ```
     api:devicestatus:create, 
     api:devicestatus:read, 
@@ -279,8 +279,8 @@ Here are the steps you need to follow:
 
 2. Add a new Subject
 
-    Name: the name of your rig (same as the hostname of your rig). 
-    Note: Nightscout will shorten the name to 10 characters in your accesstoken, e.g. `myedisonhostname` becomes `myedisonho-0dccda4ae591e763`
+    Name: the name of your rig (same as the hostname of your rig). You will need to add a new Subject for each rig you run.
+    Note: Nightscout will shorten the name to 10 characters in your accesstoken, e.g., `myedisonhostname` becomes `myedisonho-0dccda4ae591e763`
 
     Roles: `oref0rig`
 
@@ -288,11 +288,11 @@ Here are the steps you need to follow:
 
     Press Save button.
 
-    In the Subject - People, Device etc. view you'll see the accesstoken for your rig, e.g. `myrigname-27c914cabc506fa3`
+    In the Subject - People, Device etc. view you'll see the access token for your rig, e.g., `myrigname-27c914cabc506fa3`
 
-3. You need your rig to use the token based authentication token. This can be done in three different ways:
+3. You need your rig to use the token based authentication. This can be done in three different ways:
 
-    - Using the `oref0-setup.sh` interactive setup. Enter the accesstoken (subjectname and hash of 16 characters, e.g. `myrigname-27c914cabc506fa3`)
+    - Using the `cd && ~/src/oref0/bin/oref0-setup.sh` interactive setup. Enter the access token (subjectname and hash of 16 characters, e.g., `myrigname-27c914cabc506fa3`)
         Example of the interactive setup:
         ```
         Are you using Nightscout? If not, press enter.
@@ -305,7 +305,7 @@ Here are the steps you need to follow:
 
     - Using the `oref0-setup` or `oref0-runagain.sh` command line.
         Use `--api-secret=token=myrigname-27c914cabc506fa3`. Don't forget to start with `token=`.
-        During install it will connect to the Nightscout and check if the permissions are ok. If OK you'll see this in your log:
+        During install it will connect to your Nightscout site and check if the permissions are ok. If OK you'll see this in your log:
         ```
         2017-06-10 19:46:14,758 INFO Nightscout host: https://mynightscout.herokuapp.com
         2017-06-10 19:46:14,816 INFO Starting new HTTPS connection (1): mynightscout.herokuapp.com
@@ -314,7 +314,7 @@ Here are the steps you need to follow:
         ```
         If it's not ok it will exit the setup script and tell you which permissions are missing.
 
-    - Change the token in `ns.ini`. It's the third argument of the `args=` line, e.g.
+    - Change the token in `ns.ini`. It's the third argument of the `args=` line:  [***NOTE to Dana Scott or ?***: this did not change the chrontab.txt file to the token= for me. It left the hashed API secret. I had to run the oref0-setup.sh again. That changed the crontab.txt file to the token= text.]
         ```
         [device "ns"]
         fields = oper
@@ -322,16 +322,16 @@ Here are the steps you need to follow:
         args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
         ```
 
-4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout.
+4. Test the rig by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout. [***NOTE to Dana Scott or ?***: this was not obvious to me. I did not see evidence of this even after I had run the oref0-setup.sh command.]
 
 5. When all the rigs are 0.5.0 and are all using token based authentication, you can change the environment variables of your Nightscout:
-- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied` if you wish to block read-only access to your Nightscout instance. If you don't mind your CGM data being accessible to anyone with your Nightscout URL, you can just leave `AUTH_DEFAULT_ROLES` as `readable`.
+- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied` if you wish to block read-only access to your Nightscout instance. If you don't mind your CGM data being accessible to anyone with your Nightscout URL, you can just leave `AUTH_DEFAULT_ROLES` as `readable`. [***NOTE to Dana Scott or ?***: this variable AUTH_DEFAULT_ROLES was not in config variables for me. I had to add it. Not sure if I'm a one-off.]
 
 Important:
-- Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the internet
+- Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the Internet
 - The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-27c914cabc506fa3`. When token based authentication is used the API_SECRET on the rig will always start with `token=` instead of a hash.
-- You must always secure your Nightscout site with secure http (https), so don't use http://mynightscout.herokuapp.com but always use https://mynightscout.herokuapp.com 
-- Keep your API_SECRET as a root/Administrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
+- You must always secure your Nightscout site with secure http (https).  Don't use http://mynightscout.herokuapp.com but rather always use https://mynightscout.herokuapp.com.
+- Keep your API_SECRET as a root/Administrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.  [***NOTE to Dana Scott or ?***: this is very unclear to me. I don't know what to do with this information.]
 
 ### Switching from Azure to Heroku
 
@@ -343,11 +343,11 @@ Important:
 
 ![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 
-## Nightscout Troubleshooting and FAQ's 
+## Nightscout Troubleshooting and FAQ 
 
 ### It's not working - I'm missing data in Nightscout? 
 
-If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected, (and OpenAPS plugin is enabled and saved), the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
+If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected (and OpenAPS plugin is enabled and saved) the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
 
 ### A Note about Nightscout's COB Pill
 
