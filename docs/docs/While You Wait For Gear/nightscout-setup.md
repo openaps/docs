@@ -275,7 +275,7 @@ Here are the steps you need to follow:
     api:treatments:read
     ```
 
-    ![AddRole](../phase-1/img/role-oref0rig.png)
+    ![AddRole](../Images/nightscout/role-oref0rig.png)
 
 2. Add a new Subject
 
@@ -284,7 +284,7 @@ Here are the steps you need to follow:
 
     Roles: `oref0rig`
 
-    ![AddSubject](../phase-1/img/subject-oref0rig.png)
+    ![AddSubject](../Images/nightscout/subject-oref0rig.png)
 
     Press Save button.
 
