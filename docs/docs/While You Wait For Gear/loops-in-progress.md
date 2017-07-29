@@ -195,3 +195,4 @@ List of people who are working on closed loops:
 - Nadine Pedersen (Vancouver, Canada)
 - Beno Schechter (Coral Gables, FL)
 - Rami Laakso (Nummela, Finland)
+- Steve Lund (PEI, Canada)
