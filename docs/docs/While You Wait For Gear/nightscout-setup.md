@@ -314,7 +314,7 @@ Here are the steps you need to follow:
         ```
         If it's not ok it will exit the setup script and tell you which permissions are missing.
 
-    - Change the token in `ns.ini`. It's the third argument of the `args=` line:  [***NOTE to Dana Scott or ?***: this did not change the chrontab.txt file to the token= for me. It left the hashed API secret. I had to run the oref0-setup.sh again. That changed the crontab.txt file to the token= text.]
+    - Change the token in `ns.ini`. It's the third argument of the `args=` line: 
         ```
         [device "ns"]
         fields = oper
@@ -322,16 +322,16 @@ Here are the steps you need to follow:
         args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
         ```
 
-4. Test the rig by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout. [***NOTE to Dana Scott or ?***: this was not obvious to me. I did not see evidence of this even after I had run the oref0-setup.sh command.]
+4. Test the rig by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You should see the update from myrigname in the OpenAPS pill in Nightscout. 
 
 5. When all the rigs are 0.5.0 and are all using token based authentication, you can change the environment variables of your Nightscout:
-- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied` if you wish to block read-only access to your Nightscout instance. If you don't mind your CGM data being accessible to anyone with your Nightscout URL, you can just leave `AUTH_DEFAULT_ROLES` as `readable`. [***NOTE to Dana Scott or ?***: this variable AUTH_DEFAULT_ROLES was not in config variables for me. I had to add it. Not sure if I'm a one-off.]
+- `AUTH_DEFAULT_ROLES` from `readable devicestatus-upload` to `denied` if you wish to block read-only access to your Nightscout instance. If you don't mind your CGM data being accessible to anyone with your Nightscout URL, you can just leave `AUTH_DEFAULT_ROLES` absent, which will default it to the value of `readable`.
 
-Important:
+Other notes:
 - Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the Internet
 - The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-27c914cabc506fa3`. When token based authentication is used the API_SECRET on the rig will always start with `token=` instead of a hash.
 - You must always secure your Nightscout site with secure http (https).  Don't use http://mynightscout.herokuapp.com but rather always use https://mynightscout.herokuapp.com.
-- Keep your API_SECRET as a root/Administrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.  [***NOTE to Dana Scott or ?***: this is very unclear to me. I don't know what to do with this information.]
+- Once you have token auth enabled, you can stop entering your API_SECRET in your browser when authenticating, and keep your API_SECRET as a root/Administrator password that you only use for configuring Nightscout.  Instead, you can set up a user (as in steps 1 and 2 above) with the appropriate role.  If you wish to be able to enter treatments into NS, you'll need to create an account with `careportal` access and authenticate with that in Nightscout.  If you set AUTH_DEFAULT_ROLES to `denied` in step 5, you'll also need a user with `readable` permissions for any browsers that should have read-only access.
 
 ### Switching from Azure to Heroku
 
