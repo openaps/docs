@@ -275,8 +275,7 @@ Here are the steps you need to follow:
     api:treatments:read
     ```
 
-    ![AddRole](../phase-1/img/role-oref0rig.png)
-
+    ![AddRole](../Images/nightscout/role-oref0rig.png)
 2. Add a new Subject
 
     Name: the name of your rig (same as the hostname of your rig). You will need to add a new Subject for each rig you run.
@@ -284,8 +283,8 @@ Here are the steps you need to follow:
 
     Roles: `oref0rig`
 
-    ![AddSubject](../phase-1/img/subject-oref0rig.png)
-
+    ![AddSubject](../Images/nightscout/subject-oref0rig.png)
+    
     Press Save button.
 
     In the Subject - People, Device etc. view you'll see the access token for your rig, e.g., `myrigname-27c914cabc506fa3`
