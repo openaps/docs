@@ -59,6 +59,12 @@ As with all new and advanced features, this is a friendly reminder that this is 
 
 If you are not running autotune as part of a closed loop, you can still run it as a "one-off". We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone can run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
+If you wish to run autotune in a "one-off" manner, log in to your rig (ssh root@... or sudo screen /dev/tty.usbserial-* 11520) then enter `oref0-autotune --dir=~/myopenaps --ns-host=https://<yourURL>.herokuapp.com --start-date=YYYY-MM_DD`
+
+If this is the first time you have run Autotune, selecting a start date that is in the recent past will yield the quickest results. Start by selecting 1 or 2 days ago to see how Autotune functions. 
+
+
+
 **Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall, though. [Read this page for more details on what you should/not pay attention to with missing data.](./understanding-autotune.md)
 
 **Note**: this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
