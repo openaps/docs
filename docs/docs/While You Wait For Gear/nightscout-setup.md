@@ -276,6 +276,7 @@ Here are the steps you need to follow:
     ```
 
     ![AddRole](../Images/nightscout/role-oref0rig.png)
+
 2. Add a new Subject
 
     Name: the name of your rig (same as the hostname of your rig). You will need to add a new Subject for each rig you run.
@@ -284,7 +285,7 @@ Here are the steps you need to follow:
     Roles: `oref0rig`
 
     ![AddSubject](../Images/nightscout/subject-oref0rig.png)
-    
+
     Press Save button.
 
     In the Subject - People, Device etc. view you'll see the access token for your rig, e.g., `myrigname-27c914cabc506fa3`
@@ -320,6 +321,7 @@ Here are the steps you need to follow:
         cmd = nightscout
         args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
         ```
+      You must also change your `API_SECRET` in your crontab, e.g. `API_SECRET=token=myrigname-27c914cabc506fa3`. Use `crontab -e` to edit your crontab.
 
 4. Test the rig by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You should see the update from myrigname in the OpenAPS pill in Nightscout. 
 

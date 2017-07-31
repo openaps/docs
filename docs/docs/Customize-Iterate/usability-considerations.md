@@ -2,6 +2,9 @@
 
 Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some ideas or tips to consider:
 
+## **How do I enter carbs and boluses so OpenAPS can use them?**
+<br>Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs cans be either entered on the pump (for example, using Bolus Wizard) or into Nightscout (carb entries in Nightscout can either be made directly using the Care Portal) or via IFTTT or XDrip.</br>
+
 ## **What do you do with the loop in airport security when you travel**
 <br>The loop is off the shelf hardware - it's no different than your phone or other small gadgets, so leave it in your carry-on bag when going through security. (Dana note: I have traveled [well](https://twitter.com/danamlewis/status/811682733445496833) over 100 times with my loop, and in some cases with 3-4 Pis and batteries and related accessories, and have never had issues going through security because of my loop.)
 
