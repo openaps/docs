@@ -6,7 +6,7 @@
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/pump.html#information-about-compatible-insulin-pumps).)
+3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
 
 ## High Level Recommended Rig parts list
 
@@ -70,7 +70,7 @@ When you first launch Terminal, you will probably see something rather plain lik
 
 If you’re like me, you don’t “speak linux” (or python or java or…) nor do you really know what linux is.  So, you’ll be comforted to know that most of this setup is copy and paste commands into Terminal.  You won’t need to suddenly learn linux…just will need to follow directions and be willing  learn some basics.
 
-**IMPORTANT NOTE**: STEPS 1-10 will be updated periodically, and also will likely be out of date.  Since this is just a cheat sheet for Mac users, it may not have all the troubleshooting tips or updated info that the main OpenAPS docs have.  If you get stuck and this guide’s set of instructions do not work at the moment, the place to look is the [OpenAPS Walkthrough Phase 0, Setting up your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html) for the full information on this part of the OpenAPS setup.
+**IMPORTANT NOTE**: STEPS 1-10 will be updated periodically, and also will likely be out of date.  Since this is just a cheat sheet for Mac users, it may not have all the troubleshooting tips or updated info that the main OpenAPS docs have.  If you get stuck and this guide’s set of instructions do not work at the moment, the place to look is the [OpenAPS Walkthrough Phase 0, Setting up your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) for the full information on this part of the OpenAPS setup.
 
 The next steps will be done in the Terminal app.  If you see red colored text/code lines in a box, that’s what you want to copy and paste into Terminal, and then press enter.  Don’t try typing it…you’ll likely miss a space or add a typo.  So, let’s start…
 

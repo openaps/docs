@@ -17,7 +17,7 @@ This refers to the Dexcom receiver hardware. Note that your Dexcom should be nea
 
 ### Pulling CGM data from the cloud
 
-Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. You can find more documentation about pulling CGM data from a Nightscout site [here](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/nightscout-setup.html).
+Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. You can find more documentation about pulling CGM data from a Nightscout site [here](https://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/nightscout-setup.html).
   
 * If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS.
 * If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.

@@ -31,7 +31,7 @@ This documentation is organized into a series of phases that progressively build
 ----------
 **You may be looking for:**
 
-* [Live help with your implementation](http://openaps.readthedocs.io/en/latest/docs/introduction/communication-support-channels.html) (Hint: [Check out this Gitter channel](https://gitter.im/nightscout/intend-to-bolus))
+* [Live help with your implementation](http://openaps.readthedocs.io/en/latest/docs/Understanding OpenAPS-Overview/communication-support-channels.html) (Hint: [Check out this Gitter channel](https://gitter.im/nightscout/intend-to-bolus))
 
 *  [OpenAPS Reference Design](https://openaps.org/reference-design/)
 
