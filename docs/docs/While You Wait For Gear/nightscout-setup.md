@@ -83,19 +83,19 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>BG_HIGH</th>
-<td>Enter the numeric value of BG you’d like as an urgent high alarm.</td>
+<td>Enter the numeric value of BG you’d like as an urgent high alarm. (Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).  </td>
 </tr>
 <tr>
 <th>BG_TARGET_TOP</th>
-<td>Enter the numeric value of the top of your target BG.</td>
+<td>Enter the numeric value of the top of your target BG.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
 </tr>
 <tr>
 <th>BG_TARGET_BOTTOM</th>
-<td>Enter the numeric value of the bottom of your target BG.</td>
+<td>Enter the numeric value of the bottom of your target BG.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
 </tr>
 <tr>
 <th>BG_LOW</th>
-<td>Enter the numeric value of the BG you’d like as an urgent low alarm.</td>
+<td>Enter the numeric value of the BG you’d like as an urgent low alarm.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
 </tr>
 <tr>
 <th>PUSHOVER lines</th>
@@ -275,7 +275,7 @@ Here are the steps you need to follow:
     api:treatments:read
     ```
 
-    ![AddRole](../phase-1/img/role-oref0rig.png)
+    ![AddRole](../Images/nightscout/role-oref0rig.png)
 
 2. Add a new Subject
 
@@ -284,7 +284,7 @@ Here are the steps you need to follow:
 
     Roles: `oref0rig`
 
-    ![AddSubject](../phase-1/img/subject-oref0rig.png)
+    ![AddSubject](../Images/nightscout/subject-oref0rig.png)
 
     Press Save button.
 
@@ -314,13 +314,14 @@ Here are the steps you need to follow:
         ```
         If it's not ok it will exit the setup script and tell you which permissions are missing.
 
-    - Change the token in `ns.ini`. It's the third argument of the the `args=` line, e.g.
+    - Change the token in `ns.ini`. It's the third argument of the `args=` line, e.g.
         ```
         [device "ns"]
         fields = oper
         cmd = nightscout
         args = ns https://mynightscout.herokuapp.com token=myrigname-27c914cabc506fa3
         ```
+      You must also change your `API_SECRET` in your crontab, e.g. `API_SECRET=token=myrigname-27c914cabc506fa3`. Use `crontab -e` to edit your crontab.
 
 4. Test the rig, e.g. by running `openaps upload` or `openaps upload-ns-status` or just running the pump loop. You'll see the update from myrigname in the OpenAPS pill in Nightscout.
 
@@ -331,7 +332,7 @@ Important:
 - Just like keeping your pump serial number and API_SECRET for yourself, you should not post your authentication token `myrigname-27c914cabc506fa3` on the internet
 - The authentication is also stored in your `crontab`, as `API_SECRET=token=myrigname-27c914cabc506fa3`. When token based authentication is used the API_SECRET on the rig will always start with `token=` instead of a hash.
 - You must always secure your Nightscout site with secure http (https), so don't use http://mynightscout.herokuapp.com but always use https://mynightscout.herokuapp.com 
-- Keep your API_SECRET as a root/Adminsitrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
+- Keep your API_SECRET as a root/Administrator password and only use it for configuring Nightscout. For just reading use a token with the `readable` role, and if you want to use the Careportal add the `careportal` role for that user.
 
 ### Switching from Azure to Heroku
 
@@ -339,7 +340,7 @@ Important:
 
 * If you’d like to seamlessly keep all your old Azure NS data showing in your new Heroku NS site, you’ll need to copy and paste your old `MONGODB` string from your Azure site. Find it in either Application Settings or Connection strings in your Azure control panel and then go to Heroku’s `MONGODB_URI` line. Replace the content with your copied string from Azure. Double check that your Azure collection used the “entries” name…if it doesn’t, then you will need to update that variable in Heroku to match as well.
 
-**Note:** It's a good idea to to check your deployment connection in Heroku's dashboard after your deploy (typically this still needs to be manually connected after initial setup).  Go your `Deploy` tab in your Heroku dashboard, click on the GitHub service, and select your GitHub cgm-remote-monitor repository.  You can select the cgm-remote-monitor branch you'd like to deploy at the bottom of the screen.  Both master and dev branches work for OpenAPS.
+**Note:** It's a good idea to check your deployment connection in Heroku's dashboard after your deploy (typically this still needs to be manually connected after initial setup).  Go your `Deploy` tab in your Heroku dashboard, click on the GitHub service, and select your GitHub cgm-remote-monitor repository.  You can select the cgm-remote-monitor branch you'd like to deploy at the bottom of the screen.  Both master and dev branches work for OpenAPS.
 
 ![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 

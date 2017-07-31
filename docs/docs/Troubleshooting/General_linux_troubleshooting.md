@@ -6,7 +6,7 @@ Some conventions used in these docs:
 * Double check that your copy-paste has copied correctly.  Sometimes a paste may drop a character or two and that will cause an error in the command that you are trying to execute.  Sometimes, depending on what step you are doing, you may not see the issue.  So, do make a point of double checking the paste before pressing return.
 * You will see a <tt>$</tt> at the beginning of many of the lines of code. This
   indicates that it is to be entered and executed at the terminal prompt. Do not type in the dollar sign <tt>$</tt>.
-* Wherever there are `<bracketed_components>` in the the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `myedison` as your  `<edisonhostname>`, you must use `myedison` every time you see `<edisonhostname>`. Do not include the `< >` brackets in your commands when you enter them.  So for the example above, if the code snipped says `ssh root@<edisonhostname>.local`, you would enter `ssh root@myedison.local`
+* Wherever there are `<bracketed_components>` in the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `myedison` as your  `<edisonhostname>`, you must use `myedison` every time you see `<edisonhostname>`. Do not include the `< >` brackets in your commands when you enter them.  So for the example above, if the code snipped says `ssh root@<edisonhostname>.local`, you would enter `ssh root@myedison.local`
 
 ### Before you get started
 

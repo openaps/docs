@@ -74,7 +74,7 @@ If necessary, you can erase (format) your SD card using https://www.sdcard.org/d
 * Next, connect your RPi2 to a monitor or T.V. using the included HDMI cable.
 * Finally connect your RPi2 using the power adapter.
 * You should see the GUI appear on screen.
-* As of 12/11/2016 the Raspberry Pi Foundation is disabling SSH by default in Raspbian as a security precaution. To enable SSH from within the GUI, open up the terminal window and type `sudo raspi-config`.  On the configuartion menu that opens, scroll down and choose `Interfacing Options` and then navigate to `ssh`, press `Enter` and select `Enable` ssh server.
+* As of 12/11/2016 the Raspberry Pi Foundation is disabling SSH by default in Raspbian as a security precaution. To enable SSH from within the GUI, open up the terminal window and type `sudo raspi-config`.  On the configuration menu that opens, scroll down and choose `Interfacing Options` and then navigate to `ssh`, press `Enter` and select `Enable` ssh server.
 * Configure WiFi per the instruction pamphlet included with your CanaKit. For those not using the CanaKit, click the computer monitors next to the volume control in the upper-right side and there will be a drop-down menu of available WiFi networks.  You should see your home network.  If you have trouble connecting to the RPi2 via WiFi, check your router settings. The router may need to be switched from WEP to WPA2.
 * Once you have installed Raspbian, connected to WiFI, and enabled SSH you can disconnect the mouse, keyboard and HDMI cable.
 

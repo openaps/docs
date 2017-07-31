@@ -34,7 +34,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - On the Advanced tab click the Change... button to change the page size.
  - In the Virtual Memory window uncheck "Automatically manage paging file size for all drives," click "Custom size," and set the initial size to at least 4096 MB. If you have already attempted this process at least once continue to increase this number by 1024 MB. Set the maximum size to 2048 MB higher than the initial size you used.
  - Click the Set button, then click OK until all windows are closed.
- - Reboot and attempt the flash proccess.
+ - Reboot and attempt the flash process.
 
 
 ### If you're using a Mac to flash - prerequisites:
@@ -49,7 +49,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 ### Jubilinux
 [Jubilinux](http://www.jubilinux.org/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps that are required when starting from ubilinux.
 
-  - Download the latest [jubilinux.zip](http://www.jubilinux.org/dist/)
+  - Download version 0.1.1 of [jubilinux.zip](http://www.jubilinux.org/dist/)
   - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
   - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
   
@@ -62,7 +62,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ## Connecting cables and starting console
 
-  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
+  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labeled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
 ### If you’re using a Raspberry Pi for console:
@@ -387,7 +387,7 @@ Once that looks correct, save the file and `reboot` your rig for the changes to 
 
 Type this at the prompt:   `dmesg -D`
 
-#### Permanant solution:
+#### Permanent solution:
 
 `vi /etc/rc.local`
 press i for insert mode

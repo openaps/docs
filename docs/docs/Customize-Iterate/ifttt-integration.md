@@ -41,15 +41,15 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT then](../Images/IFTTT_that.png)
 
-* Enter "maker" in the search field and click on the Maker Webhooks app
+* Enter "webhooks" in the search field and click on the Webhooks app
 
 ![IFTTT maker](../Images/IFTTT_maker.png)
 
-* Connect the Maker app
+* Connect the Webhooks app
 
 ![IFTTT maker connect](../Images/IFTTT_connect2.png)
 
-* Select the green "Make a Web Request" box
+* Select the blue "Make a Web Request" box
 
 ![IFTTT web request](../Images/IFTTT_webrequest.png)
 
@@ -67,7 +67,7 @@ Content Type: application/json
 
 Body:  The content of the body will depend on the action that you would like this particular button press to perform.  You can only do ONE of the actions per button.  Some sample content:
 
-### Example IFTTT trigger conent
+### Example IFTTT trigger content
 
 Eating soon
 ```
@@ -140,7 +140,7 @@ CGM Sensor Start
 
 * Download the IFTTT app on your phone and log in.
 
-* You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
+* You can add homescreen quick buttons.  Click on your IFTTT app and login, click on My Applets in the bottom right corner, and then click on the applet that you'd like to work with.  From the middle of the applet, click on the Widget Settings, and then click on the Add button for the Homescreen Icon.
 
 ![IFTTT homescreen](../Images/IFTTT_homescreen.png)
 
