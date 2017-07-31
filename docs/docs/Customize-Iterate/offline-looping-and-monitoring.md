@@ -143,7 +143,7 @@ http://<nightscout_api_secret>@<rig_ip_address1>:5000/api/v1/ http://<nightscout
   e.g. -
   `@reboot         python /home/root/.xDripAPS/xDripAPS.py`
 
-6. Cofigure the xDrip Android app -
+6. Configure the xDrip Android app -
   `xDrip > Settings > REST API Upload > Set Enabled and enter Base URL: http://[API_SECRET]@[Pi/Edison_IP_address]:5000/api/v1/`
  
   (Note: Enter your plain-text API_SECRET in the Android app, not the hashed version of it).
