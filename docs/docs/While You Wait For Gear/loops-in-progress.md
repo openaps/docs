@@ -196,3 +196,4 @@ List of people who are working on closed loops:
 - Beno Schechter (Coral Gables, FL)
 - Rami Laakso (Nummela, Finland)
 - Steve Lund (PEI, Canada)
+- Paul Andrel (Phoenixville, PA)
