@@ -1,35 +1,35 @@
-Page Redirect: /reference/index.html -> /docs/Resources/index.html
-Page Redirect: /docs/walkthrough/phase-4/data-commons-data-donation.html -> /docs/Give Back-Pay It Forward/data-commons-data-donation.html
-Page Redirect: /docs/walkthrough/phase-4/oref1-features.html -> /docs/Customize-Iterate/oref1.html
-Page Redirect: /docs/walkthrough/phase-4/understanding-autotune.html -> /docs/Customize-Iterate/understanding-autotune.html
-Page Redirect: /docs/walkthrough/phase-4/ifttt-integration.html -> /docs/Customize-Iterate/ifttt-integration.html
-Page Redirect: /docs/walkthrough/phase-4/bluetooth-tethering-edison.html -> /docs/Customize-Iterate/bluetooth-tethering-edison.html
-Page Redirect: /docs/walkthrough/phase-4/advanced-features.html -> /docs/Customize-Iterate/autosens.html
-Page Redirect: /docs/walkthrough/phase-4/keeping-up-to-date.html -> /docs/Build Your Rig/keeping-up-to-date.html
-Page Redirect: /docs/walkthrough/phase-3/beyond-low-glucose-suspend.html -> /docs/While You Wait For Gear/preferences-and-safety-settings.html
-Page Redirect: /docs/walkthrough/phase-3/Understand-determine-basal.html -> /docs/While You Wait For Gear/Understand-determine-basal.html
-Page Redirect: /docs/walkthrough/phase-2/update-your-rig.html -> /docs/Customize-Iterate/update-your-rig.html
-Page Redirect: /docs/walkthrough/phase-2/update-your-rig.html -> /docs/Customize-Iterate/update-your-rig.html
-Page Redirect: /docs/walkthrough/phase-2/on-the-go-wifi-adding.html -> /docs/Customize-Iterate/on-the-go-wifi-adding.html
-Page Redirect: /docs/walkthrough/phase-2/accessing-your-rig.html -> /docs/While You Wait For Gear/monitoring-OpenAPS.html#accessing-your-rig-via-ssh
-Page Redirect: /docs/walkthrough/phase-2/troubleshoot-oref0-setup.html -> /docs/Troubleshooting/oref0-setup-troubleshooting.html
-Page Redirect: /docs/walkthrough/phase-2/oref0-setup.html -> /docs/Build Your Rig/OpenAPS-install.html
-Page Redirect: /docs/walkthrough/phase-1/papertrail.html -> /docs/While You Wait For Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended
-Page Redirect: /docs/walkthrough/phase-1/offline-looping-and-monitoring.html -> /docs/While You Wait For Gear/monitoring-OpenAPS.html
-Page Redirect: /docs/walkthrough/phase-1/nightscout-setup.html -> /docs/While You Wait For Gear/nightscout-setup.html
-Page Redirect: /docs/walkthrough/phase-0/loops-in-progress.html -> /docs/While You Wait For Gear/loops-in-progress.html
-Page Redirect: /docs/walkthrough/phase-0/understanding-your-Explorer-Board-rig.html -> /docs/While You Wait For Gear/understanding-your-Explorer-Board-rig.html
-Page Redirect: /docs/walkthrough/phase-0/hardware/edison.html -> /docs/Gear Up/edison.html
-Page Redirect: /docs/walkthrough/phase-0/wifi.html -> /docs/While You Wait For Gear/understanding-wifi-options.html
-Page Redirect: /docs/walkthrough/phase-0/baseline-data.html -> /docs/While You Wait For Gear/collect-data-and-prepare.html
-Page Redirect: /docs/walkthrough/phase-0/setup.html -> /docs/Understanding OpenAPS-Overview/overview-of-build-process.html
-Page Redirect: /docs/introduction/communication-support-channels.html -> /docs/Understanding OpenAPS-Overview/communication-support-channels.html
-Page Redirect: /docs/introduction/contribute.html -> /docs/Give Back-Pay It Forward/contribute.html
-Page Redirect: /docs/introduction/understand-this-guide.html -> /docs/Understanding OpenAPS-Overview/overview-of-build-process.html
-Page Redirect: /docs/walkthrough/phase-0/hardware/CGM.html -> /docs/Gear Up/CGM.html
-Page Redirect: /docs/walkthrough/phase-0/hardware/pump.html -> /docs/Gear Up/pump.html
-Page Redirect: /docs/walkthrough/phase-0/hardware/hardware.html -> /docs/Gear Up/hardware.html
-Page Redirect: /docs/walkthrough/phase-0/windows-edison.html -> /docs/Resources/Edison-Flashing/PC-flash.html
-Page Redirect: /docs/walkthrough/phase-0/edison-explorer-board-Mac.html -> /docs/Resources/Edison-Flashing/mac-flash.html
-Page Redirect: /docs/walkthrough/phase-0/setup-edison.html -> /docs/Resources/Edison-Flashing/all-computers-flash.html
-Page Redirect: /docs/walkthrough/phase-4/autotune.html -> /docs/Customize-Iterate/autotune.html
+Page Redirect: "/reference/index.html" -> "/docs/Resources/index.html"
+Page Redirect: "/docs/walkthrough/phase-4/data-commons-data-donation.html" -> "/docs/Give Back-Pay It Forward/data-commons-data-donation.html"
+Page Redirect: "/docs/walkthrough/phase-4/oref1-features.html" -> "/docs/Customize-Iterate/oref1.html"
+Page Redirect: "/docs/walkthrough/phase-4/understanding-autotune.html" -> "/docs/Customize-Iterate/understanding-autotune.html"
+Page Redirect: "/docs/walkthrough/phase-4/ifttt-integration.html" -> "/docs/Customize-Iterate/ifttt-integration.html"
+Page Redirect: "/docs/walkthrough/phase-4/bluetooth-tethering-edison.html" -> "/docs/Customize-Iterate/bluetooth-tethering-edison.html"
+Page Redirect: "/docs/walkthrough/phase-4/advanced-features.html" -> "/docs/Customize-Iterate/autosens.html"
+Page Redirect: "/docs/walkthrough/phase-4/keeping-up-to-date.html" -> "/docs/Build Your Rig/keeping-up-to-date.html"
+Page Redirect: "/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html" -> "/docs/While You Wait For Gear/preferences-and-safety-settings.html"
+Page Redirect: "/docs/walkthrough/phase-3/Understand-determine-basal.html" -> "/docs/While You Wait For Gear/Understand-determine-basal.html"
+Page Redirect: "/docs/walkthrough/phase-2/update-your-rig.html" -> "/docs/Customize-Iterate/update-your-rig.html"
+Page Redirect: "/docs/walkthrough/phase-2/update-your-rig.html" -> "/docs/Customize-Iterate/update-your-rig.html"
+Page Redirect: "/docs/walkthrough/phase-2/on-the-go-wifi-adding.html" -> "/docs/Customize-Iterate/on-the-go-wifi-adding.html"
+Page Redirect: "/docs/walkthrough/phase-2/accessing-your-rig.html" -> "/docs/While You Wait For Gear/monitoring-OpenAPS.html#accessing-your-rig-via-ssh"
+Page Redirect: "/docs/walkthrough/phase-2/troubleshoot-oref0-setup.html" -> "/docs/Troubleshooting/oref0-setup-troubleshooting.html"
+Page Redirect: "/docs/walkthrough/phase-2/oref0-setup.html" -> "/docs/Build Your Rig/OpenAPS-install.html"
+Page Redirect: "/docs/walkthrough/phase-1/papertrail.html" -> "/docs/While You Wait For Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended"
+Page Redirect: "/docs/walkthrough/phase-1/offline-looping-and-monitoring.html" -> "/docs/While You Wait For Gear/monitoring-OpenAPS.html"
+Page Redirect: "/docs/walkthrough/phase-1/nightscout-setup.html" -> "/docs/While You Wait For Gear/nightscout-setup.html"
+Page Redirect: "/docs/walkthrough/phase-0/loops-in-progress.html" -> "/docs/While You Wait For Gear/loops-in-progress.html"
+Page Redirect: "/docs/walkthrough/phase-0/understanding-your-Explorer-Board-rig.html" -> "/docs/While You Wait For Gear/understanding-your-Explorer-Board-rig.html"
+Page Redirect: "/docs/walkthrough/phase-0/hardware/edison.html" -> "/docs/Gear Up/edison.html"
+Page Redirect: "/docs/walkthrough/phase-0/wifi.html" -> "/docs/While You Wait For Gear/understanding-wifi-options.html"
+Page Redirect: "/docs/walkthrough/phase-0/baseline-data.html" -> "/docs/While You Wait For Gear/collect-data-and-prepare.html"
+Page Redirect: "/docs/walkthrough/phase-0/setup.html" -> "/docs/Understanding OpenAPS-Overview/overview-of-build-process.html"
+Page Redirect: "/docs/introduction/communication-support-channels.html" -> "/docs/Understanding OpenAPS-Overview/communication-support-channels.html"
+Page Redirect: "/docs/introduction/contribute.html" -> "/docs/Give Back-Pay It Forward/contribute.html"
+Page Redirect: "/docs/introduction/understand-this-guide.html" -> "/docs/Understanding OpenAPS-Overview/overview-of-build-process.html"
+Page Redirect: "/docs/walkthrough/phase-0/hardware/CGM.html" -> "/docs/Gear Up/CGM.html"
+Page Redirect: "/docs/walkthrough/phase-0/hardware/pump.html" -> "/docs/Gear Up/pump.html"
+Page Redirect: "/docs/walkthrough/phase-0/hardware/hardware.html" -> "/docs/Gear Up/hardware.html"
+Page Redirect: "/docs/walkthrough/phase-0/windows-edison.html" -> "/docs/Resources/Edison-Flashing/PC-flash.html"
+Page Redirect: "/docs/walkthrough/phase-0/edison-explorer-board-Mac.html" -> "/docs/Resources/Edison-Flashing/mac-flash.html"
+Page Redirect: "/docs/walkthrough/phase-0/setup-edison.html" -> "/docs/Resources/Edison-Flashing/all-computers-flash.html"
+Page Redirect: "/docs/walkthrough/phase-4/autotune.html" -> "/docs/Customize-Iterate/autotune.html"
