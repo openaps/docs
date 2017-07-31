@@ -67,7 +67,7 @@ You may need to connect your Dexcom Receiver to your Explorer Board for offline 
 
 ## Nuts and Bolts
 
-You will likely want to screw your Edison onto the Explorer Board to stabilize the rig. You can order a kit, or use (2) M2 screws and (2) M2 nuts and (4)  M3 nuts (M3 or a bit larger to used as spacers). Here's an example of a harware pack with screws and nuts that will work: [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187) But you will need to get some larger nuts for spacers.
+You will likely want to screw your Edison onto the Explorer Board to stabilize the rig. There are two methods to do this.  The simplest is to order a kit like the [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187), which provides standoffs, screws, and nuts specifically designed for the Edison. Alternatively, you can use (2) M2 screws and (2) M2 nuts and (4)  M3 nuts (M3 or a bit larger to used as spacers).  In this configuration, the screws should be just long enough to fit through the spacer nuts and screw into the M2 nuts on the other side.
 
 ## Cases
 
