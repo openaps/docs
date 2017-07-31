@@ -18,6 +18,8 @@ Here's what each symbol above means:
 
  "=" : BGI is doing what we expect
 
+The symbols are in reverse order beginning with the most recent deviation on the left and ending with the deviations 24 hours ago on the right.
+
 ### Autosens adjustments
 
 If you have papertrail setup (or are watching similarly through your rig itself), you can get an idea of how often, how much, and what autosens is adjusting.  For example, here's a screen capture using "adjust" as the search filter for one of my rigs.
@@ -33,7 +35,8 @@ As you can see, there are several types of adjustments that have occurred during
 ### Notes about autosensitivity:
 
 * "Autosens" works by reviewing the last 24 hours of data (so it's a rolling calculation with a moving window of 24 hours) and assessing deviations to determine if you are more sensitive or resistant than expected. If a pattern of such deviations is detected, it will calculate the adjustment that would've been required to bring deviations back to normal.
-* Autosens does NOT take into account meal/carb deviations; it only is able to assess the impact of insulin, and thus will adjust ISF, basals, and targets to help compensate for changes in sensitivity.
+* Autosens does NOT take into account meal/carb deviations; it only is able to assess the impact of insulin, and thus will adjust ISF, basals, and targets to help compensate for changes in sensitivity. 
+* Since the autosens logic is much simpler than the autotune logic, periods that are correctly attributed to unannounced meals by autotune may still be used for autosens ISF adjustments. Extended periods of unannounced meals with positive deviations may lead  to false detection of insulin resistance. Under these circumstances, the resulting (wrong) autosens adjustments can lead to hypoglycemia.
 * Most users will notice the changed ISF numbers in their OpenAPS pill, along with changed targets. Note that a temp target will override the autosens-adjusted target. If you do not want autosens to adjust targets, that can be turned off by editing preferences.json (shortcut command `edit-pref`) and setting the "autosens_adjust_targets" to false.
 * The reason for autosens automatically adjusting targets is because the other adjustments it makes can't be fully applied without creating a feedback loop, so automatically adjusting the target it thinks it's shooting for lets autosens get BG closer to your actual target most of the time. When autosens needs to adjust basal and ISF, it can very straightforwardly use that for adjusting the temp basal it's about to set, by assuming a higher or low neutral temp basal to start from, and by calculating a bigger or smaller expected impact of current IOB.  What it can't do is calculate IOB in a way that reflects the adjusted basals and ISF, because doing so would change the autosens result, which would require recalculating IOB again, which would further change the result, in an unpredictable feedback loop. So instead, we simply acknowledge that the IOB calculation doesn't reflect sensitivity or resistance, and instead adjust the target to compensate. 
 * Autosens is limited by the safety multipliers in preferences.json. The defaults are:
