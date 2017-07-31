@@ -49,7 +49,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 ### Jubilinux
 [Jubilinux](http://www.jubilinux.org/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps that are required when starting from ubilinux.
 
-  - Download version 0.1.1 or earlier of [jubilinux.zip](http://www.jubilinux.org/dist/)
+  - Download version 0.1.1 of [jubilinux.zip](http://www.jubilinux.org/dist/)
   - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
   - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
   
