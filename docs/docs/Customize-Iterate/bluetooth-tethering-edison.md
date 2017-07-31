@@ -188,7 +188,7 @@ bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
 
 * About a minute after wifi comes back on (terminal session restores), your Edison should automatically disconnect the Bluetooth connection.
 
-Finally, it's time to take a walk.  About a minute after walking out of range of your home wifi, you should see that a device is connected to your phone via Bluetooth. Shortly after that you should see things update on Nightscout.  About a minute afer you come home, it should reconnect to wifi and automatically disconnect Bluetooth.
+Finally, it's time to take a walk.  About a minute after walking out of range of your home wifi, you should see that a device is connected to your phone via Bluetooth. Shortly after that you should see things update on Nightscout.  About a minute after you come home, it should reconnect to wifi and automatically disconnect Bluetooth.
 
 ### Additional App requirement on Android to enable automatic BT Tethering reconnects
 

@@ -7,7 +7,7 @@ Your Explorer Board has 2 micro USB connectors, they both provide power. On the 
 
 You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
 
-The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi).  If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/windows-edison.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html). 
+The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi).  If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html). 
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - On the Advanced tab click the Change... button to change the page size.
  - In the Virtual Memory window uncheck "Automatically manage paging file size for all drives," click "Custom size," and set the initial size to at least 4096 MB. If you have already attempted this process at least once continue to increase this number by 1024 MB. Set the maximum size to 2048 MB higher than the initial size you used.
  - Click the Set button, then click OK until all windows are closed.
- - Reboot and attempt the flash proccess.
+ - Reboot and attempt the flash process.
 
 
 ### If you're using a Mac to flash - prerequisites:
@@ -62,7 +62,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ## Connecting cables and starting console
 
-  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
+  - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labeled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
 ### If you’re using a Raspberry Pi for console:
@@ -244,7 +244,7 @@ and add to the end of the file:
  edison ALL=(ALL) NOPASSWD: ALL   
 ```    
 
-You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/loops-in-progress.html)
+You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/loops-in-progress.html)
 
 
 ## Troubleshooting
@@ -387,7 +387,7 @@ Once that looks correct, save the file and `reboot` your rig for the changes to 
 
 Type this at the prompt:   `dmesg -D`
 
-#### Permanant solution:
+#### Permanent solution:
 
 `vi /etc/rc.local`
 press i for insert mode

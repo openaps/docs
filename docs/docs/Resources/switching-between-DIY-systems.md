@@ -54,17 +54,17 @@ If you’re coming to try OpenAPS from a Loop system, there’s going to be some
 
 ### High Level Recommended Rig parts list
 
-See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html#high-level-recommended-rig-parts-list )
+See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html#high-level-recommended-rig-parts-list )
 
 ### Getting started on OpenAPS - the setup links
 
 #### Building your Rig: 
-* [Start here for the Mac version]( http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html ) (with pictures!)
-* ([Reference this page](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html ) if you’re using any other type of computer to build.)
+* [Start here for the Mac version]( http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html ) (with pictures!)
+* ([Reference this page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html ) if you’re using any other type of computer to build.)
 
 #### Flashing your rig:
-* [For Mac](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/edison-explorer-board-Mac.html#preparing-flashing-the-edison) (with pictures!)
-* ([For other computers.](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/setup-edison.html))
+* [For Mac](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html#preparing-flashing-the-edison) (with pictures!)
+* ([For other computers.](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html))
 
 #### Nightscout
 * We highly recommend Nightscout. Go to [nightscout.info](http://nightscout.info) if you have not yet setup
@@ -81,39 +81,39 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 
 ### Targets and algorithm differences
 
-* Loop pulled targets from the app. OpenAPS pulls targets from the pump. Here’s [more detail on the data OpenAPS pulls and how it outputs data for you to understand the algorithm in action](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/Understand-determine-basal.html).
-* Loop has temporary targets available by using the workout mode in the Loop app.  OpenAPS can have [multiple temp targets](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#eating-soon-and-activity-mode-temporary-targets) (i.e. Eating Soon and Workout, etc., and can be set via the Nightscout Care Portal if the rig is online, and via [IFTTT/Alexa/pebble/scheduled in advance/location based triggers](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/ifttt-integration.html).
+* Loop pulled targets from the app. OpenAPS pulls targets from the pump. Here’s [more detail on the data OpenAPS pulls and how it outputs data for you to understand the algorithm in action](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/Understand-determine-basal.html).
+* Loop has temporary targets available by using the workout mode in the Loop app.  OpenAPS can have [multiple temp targets](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html#eating-soon-and-activity-mode-temporary-targets) (i.e. Eating Soon and Workout, etc., and can be set via the Nightscout Care Portal if the rig is online, and via [IFTTT/Alexa/pebble/scheduled in advance/location based triggers](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).
 * OpenAPS has no bolus momentum or safety guard that prevent boluses; but has other key safety settings (see below)
 
 ### “MaxIOB” and other safety settings
 
 #### MaxIOB
 * This is the max cap of how much "extra basal IOB" you want to allow the loop to add, above and beyond any regular basal and bolus IOB. In other words, the amount of high temp basal IOB your loop will be allowed to carry.  It is not the same as a max basal rate.  The default setting is 0, but if you’re coming from Loop, you’re probably ok starting with something other than 0 for maxIOB.  If you've been running successfully on Loop, you can probably put in something like half your max basal, or 1-2x your regularly scheduled basal.  So if your normal basal is 0.5U/hr, and your max basal that you let Loop give is 2U/hr, starting with a max IOB of 1U would allow OpenAPS to give the max basal for about 45 minutes before backing off once basal IOB hits 1U.
-* After you get comfortable with how OpenAPS operates, you can easily [(here's how)](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#editing-your-preferences-json) update this number later. 
+* After you get comfortable with how OpenAPS operates, you can easily [(here's how)](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/preferences-and-safety-settings.html#editing-your-preferences-json) update this number later. 
 
 #### Other safety settings
-* In addition to maxIOB, there are other basal-related safety caps built into OpenAPS to help protect you. These are to prevent people from getting into dangerous territory by setting excessively high max temp basals before understanding how the algorithm works. There are default values provided when the OpenAPS loop is first built; most people will never need to adjust these and are instead more likely to need to adjust other settings if they feel like they are “running into” or restricted by these safety caps. If you do want to adjust these default values, they are located in the same preferenes file as linked in the max-iob discussion above.  **NOTE:** OpenAPS's loop will use the LOWEST of the following three values to cap your temp basal rate, to make sure you don’t get a disproportionate amount of insulin.
+* In addition to maxIOB, there are other basal-related safety caps built into OpenAPS to help protect you. These are to prevent people from getting into dangerous territory by setting excessively high max temp basals before understanding how the algorithm works. There are default values provided when the OpenAPS loop is first built; most people will never need to adjust these and are instead more likely to need to adjust other settings if they feel like they are “running into” or restricted by these safety caps. If you do want to adjust these default values, they are located in the same preferences file as linked in the max-iob discussion above.  **NOTE:** OpenAPS's loop will use the LOWEST of the following three values to cap your temp basal rate, to make sure you don’t get a disproportionate amount of insulin.
  * **“Max Basal”** refers to the max basal set on the pump. (If you change this, it will be read in the next time your rig pulls pump settings.) 
  * **“Max Daily Safety Multiplier”** limits the temp basal set by OpenAPS loop to be a multiplier of your HIGHEST regularly-scheduled basal rate in the pump. The default setting for this multiplier is 3x...meaning no more than three times your maximum programmed basal rate for the day.  If someone tells you your basal is capped by the “3x max daily; 4x current” for safety caps, this is what they'd be referring to.
  * **“Max Current Basal Safety Multiplier”:** limits the temp basal set by OpenAPS loop to be a multiplier of your CURRENT regularly-scheduled basal rate in the pump.  The default setting for this multiplier is 4x...meaning no more than four times your current programmed basal rate.  
-* Read about [all of the other optional safety settings here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#understanding-your-preferences-json).
+* Read about [all of the other optional safety settings here](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/preferences-and-safety-settings.html#understanding-your-preferences-json).
 
 ### Parents in particular may want to review the optional settings
 
 * Parents should [read this blog post by Katie DiSimone for a parent's perspective about various pros/cons](http://seemycgm.com/2017/02/01/loop-vs-openaps/) for parents and kids evaluating DIY closed loop systems.
-* **Override the high target with the low** ([see this explanation](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#override-high-target-with-low) for enabling this feature)
+* **Override the high target with the low** ([see this explanation](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/preferences-and-safety-settings.html#override-high-target-with-low) for enabling this feature)
  * This makes it easier for secondary caregivers (like school nurses) to do conservative boluses at lunch/snack time, and allow the closed loop to pick up from there. The secondary caregiver can use the bolus wizard, which will correct down to the high end of the target; and setting this value in preferences to “true” allows the closed loop to target the low end of the target. Based on anecdotal reports from those using it, this feature sounds like it’s prevented a lot of (unintentional, diabetes is hard) overreacting by secondary caregivers when the closed loop can more easily deal with BG fluctuations.
-* **Carb ratio adjustment ratio** ([see this explanation](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#carbratio-adjustmentratio) for enabling this feature)
+* **Carb ratio adjustment ratio** ([see this explanation](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/preferences-and-safety-settings.html#carbratio-adjustmentratio) for enabling this feature)
  * If parents would prefer for secondary caregivers to bolus with a more conservative carb ratio, this can be set so the closed loop ultimately uses the correct carb amount for any needed additional calculations.
 
 ### Connectivity
 
 * Loop works offline automatically; but may often need tuning and fixing if you go out of range and come back in range.
 * OpenAPS needs some tricks to maximize connectivity (see below), but tends to resume working correctly once you come back into range without having to do anything special.
- * [Bluetooth tethering](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/bluetooth-tethering-edison.html) is one good option; as soon as you walk out of wifi range, it can automatically bluetooth tether to your phone to get connectivity
+ * [Bluetooth tethering](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) is one good option; as soon as you walk out of wifi range, it can automatically bluetooth tether to your phone to get connectivity
  * Mifi is one good option, if you travel and are without wifi networks, as it will provide a network without draining your iPhone battery.  Mifi systems typically use your cell phone data plan and needs cell data coverage (3g or 4g LTE).
- * You can add ([here's how](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/accessing-your-rig.html)) your school or work or as many locations as you have as “known” wifi networks so your rig will automatically connect to the wifi in these places.  You may want to contact the school before attempting to connect to their wifi network to see if you need any special accomodations in a 504 plan or IT department involvement to allow the rig to connect.
-* OpenAPS will also default to always setting a temp basal (this can be turned off; [see description here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/beyond-low-glucose-suspend.html#skip-neutral-temps)), which means it’ll be easier to look down at the pump and see if a temp basal is active to know that the loop has been working recently.
+ * You can add ([here's how](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/monitoring-OpenAPS.html#accessing-your-rig-via-ssh)) your school or work or as many locations as you have as “known” wifi networks so your rig will automatically connect to the wifi in these places.  You may want to contact the school before attempting to connect to their wifi network to see if you need any special accommodations in a 504 plan or IT department involvement to allow the rig to connect.
+* OpenAPS will also default to always setting a temp basal (this can be turned off; [see description here](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/preferences-and-safety-settings.html#skip-neutral-temps)), which means it’ll be easier to look down at the pump and see if a temp basal is active to know that the loop has been working recently.
 * The existing SkyLoop watchface for Pebble watches works seamlessly with OpenAPS looping.  No changes are needed if you plan to try OpenAPS or Loop.
 
 ### Carbs
@@ -143,7 +143,7 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 ## Running multiple kinds of DIY systems
 
 * You can run different DIY systems (like Loop and OpenAPS) side-by-side, if you want to compare algorithms and how they behave.
-* For those who like Loop's capabilities for bolusing from the phone, but don't want the requirement to enter carb absorption rates by meal, you can set Loop to "open loop" mode and use it for bolusing, and otherwise allow OpenAPS to be the primary closed loop to take advantage of the [Advanced Meal Assist (AMA)](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#advanced-meal-assist-or-ama) algorithm, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/advanced-features.html#auto-sensitivity-mode) to automatically adjust ISF, etc. However, see the following safety warnings below.
+* For those who like Loop's capabilities for bolusing from the phone, but don't want the requirement to enter carb absorption rates by meal, you can set Loop to "open loop" mode and use it for bolusing, and otherwise allow OpenAPS to be the primary closed loop to take advantage of the [Advanced Meal Assist (AMA)](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html#advanced-meal-assist-or-ama) algorithm, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html#auto-sensitivity-mode) to automatically adjust ISF, etc. However, see the following safety warnings below.
  * **SAFETY WARNING:** If you choose to keep a Loop rig running alongside OpenAPS, you MUST turn off Loop's ability to write to Nightscout. If you neglect to do this, Nightscout will display double entries of carbs and/or boluses and greatly confuse you in the future. To enter carbs, you can enter directly through Nightscout Care Portal; [use the variety of IFTTT configurations to enter carbs to Nightscout via your Pebble watch, Alexa, Siri, etc.](../walkthrough/phase-4/ifttt-integration.md); or enter using the pump's bolus wizard. Even if you're just using the Loop app in open loop mode, and enter carbs or bolus from the pump bolus wizard for use in OpenAPS, you need to turn off Loop's ability to write to Nightscout.  If you don't, Loop will read the boluses and carbs entered via the pump, upload them to Nightscout, and the duplicate entries will result in suboptimal post-meal decisions. You can either turn off Loop's ability to write to Nightscout, or simply close the app, but reopening the app for even a few minutes may still cause it to double enter to Nightscout if uploads are not disabled. If you do not plan to actively use Loop and DO want to bolus from the pump (via bolus wizard or easy bolus button) with OpenAPS, you should either disable Loop's Nightscout uploads, or plan to close the Loop app and not run them side-by-side. 
  * **Caution**: You may want to disable the Nightscout COB pill, especially if you are using multiple DIY closed loop systems, as it will likely cause confusion. You should look to the (DIY closed loop system you are using)'s pill for information about COB. This means looking in the OpenAPS or Loop pill for information about COB. 
 
@@ -155,6 +155,6 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 Click [here](http://openaps.readthedocs.org/en/latest/) to go to a high-level view of the OpenAPS docs
 
 #### Where to get help with OpenAPS setup and maintenance: 
-* See [this page](http://openaps.readthedocs.io/en/latest/docs/introduction/communication-support-channels.html) for various places for OpenAPS support; [the intend-to-bolus Gitter channel](https://gitter.im/nightscout/intend-to-bolus) is the best place for real-time troubleshooting assistance!
+* See [this page](http://openaps.readthedocs.io/en/latest/docs/Understanding OpenAPS-Overview/communication-support-channels.html) for various places for OpenAPS support; [the intend-to-bolus Gitter channel](https://gitter.im/nightscout/intend-to-bolus) is the best place for real-time troubleshooting assistance!
   * Don't hesitate to ask any question, any time. If it gets missed because there's a lot of activity, feel free to ask again!
 * You’ll probably also want to make sure and join [the openaps-dev Google Group](https://groups.google.com/forum/#!forum/openaps-dev), where new features and tools are most commonly announced and shared via email, so you’ll know when there are new things available to try.

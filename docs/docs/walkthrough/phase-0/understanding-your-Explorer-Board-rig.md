@@ -41,7 +41,7 @@ Watch this video for an example: https://www.facebook.com/groups/TheLoopedGroup/
 
 Lipo batteries are great for a lot of things…but taking damage is not one of them.  Please treat lipo batteries with care.  Keep them protected from puncture.  The explorer board has some “pointy” parts on the underside, so providing some protection from the board’s squish is a good idea.  A small piece of protection (such as a business card or non-conductive thin foam sheet) will help protect the battery from the board above it.  
 
-Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The lipo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/hardware/edison.html#cases) for both hard and soft case ideas).  
+Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The lipo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](http://openaps.readthedocs.io/en/latest/docs/Gear Up/edison.html#cases) for both hard and soft case ideas).  
 
 There are several places to get lipo batteries, with lots of different dimensions and capacities.  A 2000 mAh lipo will get you about 12-14 hours of use, assuming you have the standard setup (which is what you get following these docs) running. 
 
