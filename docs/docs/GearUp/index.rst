@@ -1,4 +1,4 @@
-Gear Up
+GearUp
 ----------------------
 
 .. toctree::

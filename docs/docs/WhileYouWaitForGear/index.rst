@@ -1,4 +1,4 @@
-While You Wait For Gear
+WhileYouWaitForGear
 ----------------------
 
 .. toctree::
