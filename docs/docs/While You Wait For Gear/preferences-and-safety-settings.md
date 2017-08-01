@@ -73,7 +73,7 @@ Many people occasionally forget to resume / unsuspend their pump after reconnect
 
 ### Advanced oref1 preferences:
 
-These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-4/oref1-features.html) before doing so.
+These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
 #### enableSMB_with_bolus
 
