@@ -244,7 +244,7 @@ and add to the end of the file:
  edison ALL=(ALL) NOPASSWD: ALL   
 ```    
 
-You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/loops-in-progress.html)
+You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/WhileYouWaitForGear/loops-in-progress.html)
 
 
 ## Troubleshooting

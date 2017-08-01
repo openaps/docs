@@ -6,7 +6,7 @@
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
+3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/GearUp/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/GearUp/pump.html#information-about-compatible-insulin-pumps).)
 
 ## High Level Recommended Rig parts list
 
