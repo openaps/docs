@@ -21,42 +21,42 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :glob:
    :caption: Understanding OpenAPS (Overview)
 
-   How OpenAPS works <docs/Understanding OpenAPS-Overview/how-openaps-works-overview>
-   How this guide works/overview of steps <docs/Understanding OpenAPS-Overview/overview-of-build-process>
-   Where to go for help <docs/Understanding OpenAPS-Overview/communication-support-channels>
+   How OpenAPS works <docs/UnderstandingOpenAPS-Overview/how-openaps-works-overview>
+   How this guide works/overview of steps <docs/UnderstandingOpenAPS-Overview/overview-of-build-process>
+   Where to go for help <docs/UnderstandingOpenAPS-Overview/communication-support-channels>
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Gear Up
+   :caption: GearUp
 
-   docs/Gear Up/hardware
-   Compatible Pumps <docs/Gear Up/pump>
-   Compatible CGMs <docs/Gear Up/CGM>
-   Get your rig parts <docs/Gear Up/edison> 
+   docs/GearUp/hardware
+   Compatible Pumps <docs/GearUp/pump>
+   Compatible CGMs <docs/GearUp/CGM>
+   Get your rig parts <docs/GearUp/edison> 
    
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: While You Wait For Gear
+   :caption: WhileYouWaitForGear
    
-   Collect your data & prepare <docs/While You Wait For Gear/collect-data-and-prepare>
-   Make Your First PR <docs/While You Wait For Gear/loops-in-progress>
-   Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
-   Understand your Explorer Board rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
-   Understand determine-basal (OpenAPS math) <docs/While You Wait For Gear/Understand-determine-basal>
-   Monitoring OpenAPS <docs/While You Wait For Gear/monitoring-OpenAPS>
-   Preferences and Safety Settings <docs/While You Wait For Gear/preferences-and-safety-settings>
-   Understanding your wifi options <docs/While You Wait For Gear/understanding-wifi-options>
+   Collect your data & prepare <docs/WhileYouWaitForGear/collect-data-and-prepare>
+   Make Your First PR <docs/WhileYouWaitForGear/loops-in-progress>
+   Setting up Nightscout  <docs/WhileYouWaitForGear/nightscout-setup>
+   Understand your Explorer Board rig <docs/WhileYouWaitForGear/understanding-your-Explorer-Board-rig>
+   Understand determine-basal (OpenAPS math) <docs/WhileYouWaitForGear/Understand-determine-basal>
+   Monitoring OpenAPS <docs/WhileYouWaitForGear/monitoring-OpenAPS>
+   Preferences and Safety Settings <docs/WhileYouWaitForGear/preferences-and-safety-settings>
+   Understanding your wifi options <docs/WhileYouWaitForGear/understanding-wifi-options>
    
 .. toctree::
    :maxdepth: 1
    :glob:
-   :caption: Build Your Rig
+   :caption: BuildYourRig
     
-   Installing OpenAPS <docs/Build Your Rig/OpenAPS-install>
-   512/712 pump users <docs/Build Your Rig/x12-users>
-   Tell us you’re looping <docs/Build Your Rig/keeping-up-to-date>
+   Installing OpenAPS <docs/BuildYourRig/OpenAPS-install>
+   512/712 pump users <docs/BuildYourRig/x12-users>
+   Tell us you’re looping <docs/BuildYourRig/keeping-up-to-date>
 
 
 .. toctree::
@@ -91,10 +91,10 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Give Back-Pay It Forward
+   :caption: GiveBack-PayItForward
 
-   Donate your data <docs/Give Back-Pay It Forward/data-commons-data-donation>
-   Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
+   Donate your data <docs/GiveBack-PayItForward/data-commons-data-donation>
+   Help others - pay it forward <docs/GiveBack-PayItForward/contribute>
 
 .. toctree::
    :maxdepth: 2

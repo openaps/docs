@@ -2,7 +2,7 @@
 
 ## WARNING: THIS SETUP IS CURRENTLY DEPRECATED AND NOT RECOMMENDED (July 2017)
 
-(**Note:** _If you're defaulting to Raspberry Pi because that's what you've seen pictures or heard stories of - you should also check out the Edison-based setup instructions for details on a smaller, more mobile friendly option. A Pi/TI stick rig is a good "at home" rig, but most people want the smallest, which is an Edision/Explorer Board rig [(pictured here)](https://twitter.com/danamlewis/status/776248916077522944?ref_src=twsrc%5Etfw) that they can slip in their pocket. The [next page](http://openaps.readthedocs.io/en/latest/docs/Gear Up/edison.html) has the Edison required hardware._ The Edison/Explorer Board setup is the main community-supported setup moving forward after March 2017.)
+(**Note:** _If you're defaulting to Raspberry Pi because that's what you've seen pictures or heard stories of - you should also check out the Edison-based setup instructions for details on a smaller, more mobile friendly option. A Pi/TI stick rig is a good "at home" rig, but most people want the smallest, which is an Edision/Explorer Board rig [(pictured here)](https://twitter.com/danamlewis/status/776248916077522944?ref_src=twsrc%5Etfw) that they can slip in their pocket. The [next page](http://openaps.readthedocs.io/en/latest/docs/GearUp/edison.html) has the Edison required hardware._ The Edison/Explorer Board setup is the main community-supported setup moving forward after March 2017.)
 
 The Raspberry Pi (RPi) is a credit-card sized single-board computer. The RPi
 primarily uses Linux kernel based operating systems, which must be installed by
