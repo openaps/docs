@@ -80,6 +80,10 @@ An alternative approach to disk troubleshooting is to simply run the following c
 
 Then, based on which folders are using the most space cd to those folders and run the above du command again until you find the folder that is using up the disk space.
 
+It is common that log files are the cause for disk space issues. If you determine that log file(s) are the problem, use a command like `less` to view the last entries in the logfile to attempt to figure out what is causing the logfile to fill up. To temporarily free up space, you can force the logfiles to rotate immediately by running the following command:
+
+`logrotate -f /etc/logrotate.conf`
+
 ## Environment variables
 
 If you are getting your BG from Nightscout or you want to upload loop status/results to Nightscout, among other things you'll need to set 2 environment variables: `NIGHTSCOUT_HOST` and `API_SECRET`. If you do not set and export these variables you will receive errors while running `openaps report invoke monitor/ns-glucose.json` and while executing `ns-upload.sh` script which is most probably part of your `upload-recent-treatments` alias.Make sure your `API_SECRET` is in hashed format. Please see [this page](https://github.com/openaps/oref0#ns-upload-entries) for details. Additionally, your `NIGHTSCOUT_HOST` should be in a format like `http://yourname.herokuapp.com` (without trailing slash). For the complete visualization guide use [this page](https://github.com/openaps/docs/blob/master/docs/Automate-system/vizualization.md) from the OpenAPS documentation.
