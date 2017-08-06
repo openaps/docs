@@ -197,3 +197,4 @@ List of people who are working on closed loops:
 - Rami Laakso (Nummela, Finland)
 - Steve Lund (PEI, Canada)
 - Paul Andrel (Phoenixville, PA)
+- Allan Evans (Ottawa, Canada)
