@@ -198,3 +198,4 @@ List of people who are working on closed loops:
 - Steve Lund (PEI, Canada)
 - Paul Andrel (Phoenixville, PA)
 - Allan Evans (Ottawa, Canada)
+- Simon Lewinson (NE Victoria, Australia)
