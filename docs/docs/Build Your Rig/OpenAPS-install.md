@@ -141,6 +141,16 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
+#### **Temp basals > 6.3?**
+
+If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  To fix this error you need to update decocare.  This is easy.  Type control-C to exit the pump-loop log.  Then copy the following 3 lines to the terminal window.
+
+```
+cd ~/src && git clone git://github.com/openaps/decocare.git
+cd decocare
+python setup.py install
+```
+
 #### Rig Logs and Shortcut commands
 
 Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
