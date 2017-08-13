@@ -1,6 +1,14 @@
 # Troubleshooting Nightscout issues
 
-The rig and Nightscout are good friends. Information is usually two-way so long as the rig has access to the internet (aka, online use).  When rigs go "offline", NS will go stale until internet is again available.
+The major categories of Nightscout troubleshooting include:
+
+**Connectivity**. The rig and Nightscout are good friends. Information is usually two-way so long as the rig has access to the internet (aka, online use).  When rigs go "offline", NS will go stale until internet is again available. If you're having issues with NS and it's a brand new setup, you'll want to double check [per the below](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/Rig-NS-communications-troubleshooting.html#setting-up-your-ns-hosting-site) that URL, API secret, etc. are correct.
+
+**Future data**. Sometimes entries will get time stamped incorrectly, or the device time zones are off. [See below](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/Rig-NS-communications-troubleshooting.html#nightscout-admin-tools) for how to resolve.
+
+**Mlab size is too big and you need to clean it**. [See below](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/Rig-NS-communications-troubleshooting.html#mlab-maintenance) for how to check the size of, and compact if needed, your mlab database, which can influence what displays in Nightscout.
+
+**Note about jubilinux versions**. Some people experienced issues with jubilinux 0.2.0. There is a fix in the oref0 dev branch, so if none of the above steps resolve an "unknown" pill in Nightscout, try oref0 dev. (As of August 6, 2017). After you install dev, make sure to reboot your rig, after which the changes should resolve the problem in Nightscout. 
 
 ## Setting up your NS hosting site
 
