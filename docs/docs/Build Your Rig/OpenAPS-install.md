@@ -141,7 +141,7 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
-**Temp basals > 6.3?**
+#### **Temp basals > 6.3?**
 
 If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  To fix this error you need to update decocare.  This is easy.  Type control-C to exit the pump-loop log.  Then copy the following 3 lines to the terminal window.
 
