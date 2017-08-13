@@ -38,6 +38,7 @@ A few things to know about using your phone's hotspot feature:
 <TR><TH>iPhone<TD>Yes<TD>Users have experienced various levels of success with the iPhone bluetooth tethering and when the rig switches  between wifi and BT<TD>Not Applicable. Experimental version of Loop to do something similar doesn't yet have feedback.
 <TR><TH>Acer Phone<TD>No<TD>Many data drops on the bluetooth connection for rig. Recommended to avoid.<TD>xDrip compatibility is poor - numerous drops throughout the day.
 <TR><TH>Samsumg Galaxy S7 Edge (G935F) Android 7.0<TD>Yes<TD>Excellent BT tether using apps 'Bt AutoTether' and 'BT Tether'<TD>xDrip+ with G5 > 95% capture.
+<TR><TH>Samsung Galaxy A3 (2016) Android 6<TD>Yes<TD>Excellent BT tether using app 'Blue Car Tethering'<TD>xDrip+ with G4, reliable capture using xDrip+ and using normal tether when running with Dexcom in G4-upload mode
 </TABLE>
 
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
