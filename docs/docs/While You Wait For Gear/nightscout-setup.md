@@ -360,7 +360,7 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 
 * **Note also**: Nightscout's Bolus Wizard Preview (BWP) pill also decays carbs *statically*. 
 
-* **To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
+* **To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**  [We should list all of the NS pills that use static COB calculations. I don't know what they are. I went through my NS site and attempted to identify them, but I'm not certain I got them all. If someone knows them, we should list them here.]
 
 ### How to display basal changes ("render basal")
 
@@ -368,7 +368,7 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 
 ### How to display OpenAPS purple prediction/forecast lines
 
-* Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.
+* Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.  [Do we mean added this variable in your ENABLE setting in Heroku, with "openaps"? If so, we should say that.]
 
 ### Understanding the OpenAPS pill
 
@@ -377,7 +377,7 @@ minutes: Enacted, Looping, Waiting, and Warning:
 
 * Waiting is when OpenAPS is uploading, but hasn't seen the pump in a while
 * Warning is when there hasn't been a status upload in the last 15 minutes
-* Enacted means OpenAPS has recently enacted the pump
+* Enacted means OpenAPS has recently enacted the pump  [What does it mean to "enact" the pump?]
 * Looping means OpenAPS is running but has not enacted the pump
 * Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
 
