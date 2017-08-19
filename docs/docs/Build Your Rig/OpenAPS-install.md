@@ -178,9 +178,9 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
-#### **Temp basals > 6.3?**
+#### **Temp basals > 6.3 or ISF > 255?**
 
-If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  To fix this error you need to update decocare.  This is easy.  Type control-C to exit the pump-loop log.  Then copy the following 3 lines to the terminal window.
+If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  If your pump ISF setting is > 255 the ISF shown in the log and in the OpenAPS pill in Nightscout will be 255 less than the actual pump setting (257 will show as 1).  To fix either problem you need to update decocare.  This is easy.  Type control-C to exit the pump-loop log.  Then copy the following 3 lines to the terminal window.
 
 ```
 cd ~/src && git clone git://github.com/openaps/decocare.git
