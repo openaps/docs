@@ -182,7 +182,7 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  
 
-If your pump ISF setting is > 255 the ISF shown in the log and in the OpenAPS pill in Nightscout will be 255 less than the actual pump setting (257 will show as 1).  
+If your pump ISF setting is > 255 the ISF shown in the log and in the OpenAPS pill in Nightscout will be 256 less than the actual pump setting (257 will show as 1).  
 
 If your pump carb ratio is > 25 you will see a message about "carb ratio out of bounds" in the log.
 
