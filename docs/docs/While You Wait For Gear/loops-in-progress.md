@@ -200,3 +200,4 @@ List of people who are working on closed loops:
 - Allan Evans (Ottawa, Canada)
 - Simon Lewinson (NE Victoria, Australia)
 - Angie Kabat (Fairbanks, AK)
+- Jacob H (Waterford, MI)
