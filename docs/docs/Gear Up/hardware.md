@@ -15,7 +15,7 @@ To start, here is a high-level guide for understanding if your pump is compatibl
 
 !["Can I do OpenAPS with this pump?"](../Images/Can_I_close_the_loop_with_this_pump_July_13_2017.jpg)
 
-As you can see from the flowchart above, most of the commercial pumps currently available are not compatible with OpenAPS; only a small selection of older Medtronic pumps are compatible.  For those pumps which are not compatible, we suggest the advocacy option of calling the pump manufacturer and informing them of the need for availability of pumps for DIY closed looping systems.  Thus far, there has been not been a receptive pump company to these requests.  OmniPod, Animas, t:slim, and newer Medtronic pumps are still not compatible.  
+As you can see from the flowchart above, most of the commercial pumps currently available are not compatible with OpenAPS; only a small selection of older Medtronic pumps are compatible.  For those pumps which are not compatible, we suggest the advocacy option of calling the pump manufacturer and informing them of the need for availability of pumps for DIY closed looping systems.  Thus far, there has not been a receptive pump company to these requests.  OmniPod, Animas, t:slim, and newer Medtronic pumps are still not compatible.  
 
 If you're interested in working on decoding communication for one of these non-compatible pumps (OmniPod, Animas, etc.), [click here](http://bit.ly/1nTtccH) to join the collaboration group focusing on alternative pump communication.
 

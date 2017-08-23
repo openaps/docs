@@ -201,3 +201,5 @@ List of people who are working on closed loops:
 - Simon Lewinson (NE Victoria, Australia)
 - Angie Kabat (Fairbanks, AK)
 - Jacob H (Waterford, MI)
+- Jim Van Hook (St. Louis, MO)
+- Pedro C (Porto, Portugal)
