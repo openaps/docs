@@ -29,7 +29,7 @@ For the Path 2 Headless install, you will need:
 Note: If you ordered the recommended CanaKit, your SD card will already come imaged.  However, if you don't already know whether it's Raspbian 8 Jessie or newer ([see below](#verify-your-raspian-version)), just treat it as a blank SD card and download and install the latest versian of Raspbian (currently version 8.0, codename Jessie).
 
 ### Download Raspbian
-Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest).
+Raspbian is the recommended operating system for OpenAPS. Download the latest version (Jessie September 2015 or newer) of Raspbian [here](http://downloads.raspberrypi.org/raspbian_latest). NOTE: due to some package modifications, the installation of openaps and dependecies will fail on Raspbian Stretch, so look for the latest Raspbian Jessie version in the archive: (http://downloads.raspberrypi.org/raspbian/images/).
 Make sure to extract the disk .img from the ZIP file. Note that the large size of the Raspbian Jessie image means its .zip file uses a different format internally, and the built-in unzipping tools in some versions of Windows and MacOS cannot handle it. The file can be successfully unzipped with [7-Zip] (http://www.7-zip.org/) on Windows and [The Unarchiver] (https://itunes.apple.com/us/app/the-unarchiver/id425424353?mt=12) on Mac (both are free).
 
 ### Write Raspbian to the Micro SD Card
@@ -155,7 +155,7 @@ Note: If connecting to the RPi2 fails at this point, the easiest alternative is 
 
 ## Configure the Raspberry Pi
 
-### Verify your Raspian Version
+### Verify your Raspbian Version
 * In order to do this, you must have done Path 1 or Path 2 above so that you have an environment to interact with
 * Go to the shell / Terminal prompt.  If running the GUI, look at the Menu in the upper left and click the icon three to the right of it (looks like a computer)
 * Type `lsb_release -a`
