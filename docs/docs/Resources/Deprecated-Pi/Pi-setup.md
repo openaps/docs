@@ -2,37 +2,22 @@
 
 ## WARNING - THE RASPBERRY PI IS A DEPRECATED (NOT-RECOMMENDED) SETUP OPTION. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. (July 2017)
 
-There are multiple options when it comes to Raspberry Pi. Most of the instructions are older and many updates have happened since these were written. Some are still the same. However I am leaving the older instructions for now for people with older Pi's or older setups that they wish to maintain. As time progresses most of these can/will phase out as people update systems. I am going to focus on setting up the Pi3 and the Pi zero w from start to finish using the TI CC1111 radio stick. Your operating system used to setup does not matter. You will use pixal and putty. Pixal is on the Pi and putty or any other terminal emulator can be downloaded to any system. The same setup will work for both. And the SD cards can be interchanged between both. For this setup goto New Path below this paragraph.
+Note: There are two setup flows described on this page. The one toward the bottom of the page is the older setup instructions. The one at the top of the page is an attempt by someone to make the Pi instructions work. There may be issues with BOTH setups, so please do make PRs to this page and/or discuss on Gitter about which setup flow works. 
 
-## New Path
+## Newer Path
 
-### Setting Up Your Raspberry Pi using Windows
+This is for Pi3 and the Pi zero W using the TI CC1111 radio stick
 
-Before I start. I have a couple of recommendations. Many of you want to get by as "low cost" as possible. I understand that. However; from what I have read; the Hybrid artificial pancreases are slated to cost around $6000.00 in the upcoming years once proven and allowed by all insurances. IF you met your deductible and if you have the standard 20% (IF you have really good insurance) that will be $1200.00 you will pay. So the recommendations are small in comparison but will make life much easier. This is a device to control your or child’s insulin pump.
+### Newer Path: Setting Up Your Raspberry Pi using Windows
 
-### I recommend the The following:
-
-Cana kit. Roughly $34.00 It has all converter cables. And it has the Pi certified SD card with NOOBS installed in its’ own partition. This allows you to format card later if need be and NOOBS will still be on the card to quickly reload OS. Power supply. And the SD/USB converter (if buying a Pi 3)
-
-TI CC1111 Radio stick.  Extremely strong radio signal to the pump.
-
-A USB Hub designed for the Pi Zero allows you to plug in keyboard and mouse at the same time when working with setup. I paid 14.99 for a really good one. 
-https://www.amazon.com/gp/product/B01LXGABXY/ref=oh_aui_detailpage_o05_s00?ie=UTF8&psc=1
-
-I use the following battery. $17.99 for the pi zero w. It gives me 15 hours with more to spare. I have experienced 0 voltage drops and it has all of the safety features. It DOES NOT have pass through charging. But I charge it while I sleep and I plug my pi into electrical outlet.
-https://www.amazon.com/gp/product/B00P7N0320/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
-
-I purchased a spare monitor for $8.00 at Goodwill
-
-I found someone getting a new pc and they were throwing out mouse and keyboard. Yes I asked for them.
-So for roughly $150.00 you have a nice Hybrid artificial pancreas. Of this you would have to buy the pi and the TI stick which together is $110.00 if you went the cheaper route.
-
-### Setup your TI cc1111 radio stick
+#### Newer Path: Setup your TI cc1111 radio stick
 Follow this link to grab the correct firmware
 	https://github.com/oskarpearson/mmeowlink/wiki/TI-USB-stick
 
 For the Pi with the TI choose:  
-	usb_ep0_TI_DONGLE_US_STDLOC.hex  Save the .hex file for use in the next step.  
+	usb_ep0_TI_DONGLE_US_STDLOC.hex  
+	
+Save the .hex file for use in the next step.  
 
 Download the flash programmer tool from Texas Instruments using this link  
 	
@@ -46,11 +31,9 @@ Use this link for installation instructions using Windows.
 		Note: When flashing use the hex file you saved earlier as your firmware. Not the one provided or suggested by Texas 
 	Instruments in their instruction sheet.
 
-### Install Raspian (Jessie) on your Pi 
+### Newer Path: Install Raspian (Jessie) on your Pi 
 
-Note: Many reports online state there are issues with crashing sd cards. While many believe all sd cards are alike that is no longer true. Many cards are made to work with specific pieces of technology. Amazon.com sells Pi certified sd cards with NOOBS preinstalled. They do cost more however I have no issues with mine and I have been testing many things including unplugging the power to the Pi without shutting it down first (I don’t recommend doing this as a norm but in a failure situation you should be safe based on my test results).  Pi says this is a promised way of killing an sd card. I have yet to have a failure. The added cost seems to be well worth it. I will proceed with the understanding I am following the recommended use of Pi certified sd cards preloaded with NOOBS. I will not put a link because it would change daily.
-
-### Using Pixal: 
+#### Using Pixal: 
 			
 1. Make sure Pi is powered down and unplugged.
 
@@ -109,7 +92,7 @@ Once you have the Pixal screen do the following
 	6. Select OK and when asked to reboot select ok
 	7. In the top menu bar on the right side select your wifi from the dropdown list
 	
-### Update the repository and upgrade the installed packages:
+### Newer Path: Update the repository and upgrade the installed packages:
 
 	1. From the bar at the top of the screen choose the terminal icon
 	
@@ -157,7 +140,7 @@ Once you have the Pixal screen do the following
 		B. Enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
 		C. Exit and save
 		
-### Update Firmware
+### Newer Path: Update Firmware
 	 
 	1. Select this line of code and paste into terminal window to update pi firmware and press enter.
 	
@@ -176,7 +159,7 @@ Once you have the Pixal screen do the following
 		
 	4. At the top left of screen select menu/ Preferences/Raspberry Pi Configuration and check all settings. Fix if needed.
 	
-### Find I.P. address
+### Newer Path: Find I.P. address
 		
 ![Noobs Warning](https://github.com/jcorbett80/docs/blob/master/docs/docs/Images/InkedTerminal_LI.jpg)
 		
@@ -187,7 +170,7 @@ Once you have the Pixal screen do the following
 			
 Using Putty (if using Windows)or a similar emulator SSH into the Pi using the ip address from above. Use the password you set during setup	
 
-### Disable Network Power Managemen
+### Newer Path: Disable Network Power Managemen
 
 The latest few updates of software have Power Save On as a default. This will shut down your wlan0 port even if you add a script to test and restart every 5 minutes. To disable do the following:
 	
@@ -229,7 +212,7 @@ Once system restarts do the following to verify it worked
 	
 	3. You should now see Power Management:off
  
-### Setup network wpa_supplicant
+### Newer Path: Setup network wpa_supplicant
 	
 	1. Copy and paste the following then press enter  
 		
@@ -284,15 +267,15 @@ network={
 
 #### Exit and save  
 		
-### Setup Network Interface
+### Newer Path Setup Network Interface
 
 	1. Copy and paste the following  
 		
 		nano /etc/network/interfaces  
 		
-#### Match the following.   
+#### Newer Path:  Match the following.   
 
-
+```
 #interfaces(5) file used by ifup(8) and ifdown(8)  
 
 #Please note that this file is written to be used with dhcpcd  
@@ -325,13 +308,14 @@ iface wlan1 inet manual
 iface wifi inet dhcp  
 
 iface hotspot inet dhcp  
+```
 
-####     Exit and save  
+Then, Exit and save  
 	
-#### 		Note: Where I called to the wifi and a hotspot (phone) at the bottom  
-#### 		Note: I do not use “ “  
-#### 		Note: inet is left manual  
-#### 		Note: change every line in your original where you see it different here. This is important.  
+* Note: Where I called to the wifi and a hotspot (phone) at the bottom  
+* Note: I do not use “ “  
+* Note: inet is left manual  
+* Note: change every line in your original where you see it different here. This is important.  
 	
 	2. Copy and paste the following  
 		
@@ -339,7 +323,7 @@ iface hotspot inet dhcp
 	
 	3. Press enter  
 	
-### Configure USB tethering on newer androids [optional]
+### Newer Path: Configure USB tethering on newer androids [optional]
 
 You may have noticed that your rig may not usb tether with your newer android phone such as the Galaxy S7. That is because it appears there is a change to the NDIS driver interface. This should correct your issue:
 	
@@ -371,7 +355,7 @@ You may have noticed that your rig may not usb tether with your newer android ph
 	
 	7. Start usb tether on phone
 
-### Wif and Hotspot auto restart
+### Newer Path: Wifi and Hotspot auto restart
 	
 	1. Log in as pi using ssh
 	
@@ -397,8 +381,7 @@ You may have noticed that your rig may not usb tether with your newer android ph
 #### This will create the file
 	
 	1. Copy and paste the following into the file (copy and paste all at once)
-
-	
+```	
 	#!/bin/bash
 
 	#The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
@@ -424,8 +407,9 @@ You may have noticed that your rig may not usb tether with your newer android ph
     	/sbin/ifup --force 'wlan0'
 
 fi
+```
 
-#### exit and save
+Make sure to exit and save
 	
 	2. Copy and paste followed by enter
 		
@@ -449,7 +433,7 @@ fi
  		
 		reboot
 		
-### Turn off GUI interface
+### Newer Path: Turn off GUI interface
 	
 	1. Copy and paste the following
 		
@@ -465,31 +449,16 @@ fi
 	
 	4. Yes reboot
 	
-## Phase 2: oref0-setup.sh
-We’ve created an oref0-setup.sh script that can help set up a complete working loop configuration from scratch in just a few minutes. This is in pursuit of our community goal to simplify the technical aspects of setting up a DIY closed loop - while still emphasizing that this is a DIY project that you have personal responsibility for. We also want to encourage you to spend more time and energy exploring whether the algorithm you choose to use is doing what you want it to do and that it aligns with how you might manually choose to take action.
-Please make sure to complete ALL steps on this page. **If you skip parts of step 0 and step 1, you will run into issues on step 2. **
+### Newer Path - install openaps dependencies and install oref0
 
-### Step 0: Dependencies
-You first need to install the base openaps toolkit and its dependencies.
-From this point forward you are ready to follow the latest and most up to date Read-The-Docs using the link below should start you with the install of dependencies and oref0
-NOTE: if you put the TI stick in the top center USB port of Pi3 or the only port on zero w use the following address:
-### /dev/ttyACM0
-
-NOTE: the last character is the number 0 NOT the letter o
-Do all in 
-	sudo -I 
-	
-make sure to type exit when finished to leave root
-
-NOTE: It can 20 minutes to start working correctly. You may see missing files and folders as some are not yet built. It should build them as each step has time to gather needed data.
-Use this link to install
+Follow the main docs for installing openaps, oref0, and getting your loop running. 
 
 http://openaps.readthedocs.io/en/2017-07-13/docs/walkthrough/phase-2/oref0-setup.html
 
 
-## Optional Installs
+### Newer Path - Optional Installs
 
-### Enable watchdog
+#### Enable watchdog
 	
 	sudo -i
 
@@ -525,7 +494,7 @@ http://openaps.readthedocs.io/en/2017-07-13/docs/walkthrough/phase-2/oref0-setup
 			
 			watchdog-device       	 = /dev/watchdog
 
-#### Save and exit
+		Save and exit
 	
 	7. Finally, start watchdog by copying and pasting the following:
 		
@@ -544,26 +513,9 @@ http://openaps.readthedocs.io/en/2017-07-13/docs/walkthrough/phase-2/oref0-setup
 
 	10 Exit and Save
 
-### Fan Speed Control based on temperature (pi3)
-I’m old school. I guess that makes me a little different. However for those of you out there that are like me, and don’t like to cook your electronics this option works great. If for no other reason than they smell when they fry plus you don’t want your DIY to shut off when it gets to hot. It will check the fan temp once every 3 minutes and make adjustment to the speed based on that temp.
-For instructional drawing to wire NPM Transister (S8050) goto: 
 
-	https://hackernoon.com/how-to-control-a-fan-to-cool-the-cpu-of-your-raspberrypi-3313b6e7f92c  
-
-Since we are controlling the percentage of speed use GPIO 2 instead of GPIO 18  
-
-If you are unsure of pin layout goto  
 	
-	http://blog.mcmelectronics.com/post/Raspberry-Pi-3-GPIO-Pin-Layout#.WSsVmWjyu01  
-
-The code below came from  
-	
-	https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=133251  
-
-I have added instructions here to make it easier for you to copy paste  
-	
-	
-### Make sure GPIO library is installed  
+#### newer Path -  Make sure GPIO library is installed  
 	
 	1. Log in as pi using ssh  
 	
@@ -639,9 +591,9 @@ This will create the file
 				p.stop()
 		time.sleep(180)
 
-GPIO.cleanup()
+		GPIO.cleanup()
 
-####     exit and save
+( exit and save)
 	
 	7. Copy and paste
 		
@@ -664,7 +616,7 @@ You are now back as pi
 		
 		sudo reboot
 
-### Configure Bluetooth Low Energy tethering [optional]
+#### Newer Path -  Configure Bluetooth Low Energy tethering [optional]
 Only works if your phone and provider allow Bluetooth tether
 The Raspberry Pi can be tethered to a smartphone and share the phone’s internet connection. Bluetooth tethering needs to be enabled and configured on the phone device and your carrier/plan must allow tethering. The Raspberry Pi 3 has an inbuilt Bluetooth Low Energy (BLE) chip, while a BLE USB dongle can be used with the other Pi models.
 
@@ -759,7 +711,7 @@ or
 		systemctl reboot
 
 
-### App to check core temp (optional)
+#### Newer Path - App to check core temp (optional)
 	
 	1. ssh into pi 
 	
@@ -801,7 +753,7 @@ or
 	
 
 
-# Older instructions for original setups
+# Older instructions for original Pi-based setups
 
 **Note 1:** This page talks about setting up the Raspberry Pi with a Carelink USB stick. If you chose the TI stick for your first setup, you'll need to utilize directions in the [mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for flashing your TI stick, then return here to continue on with the OpenAPS setup process.
 
