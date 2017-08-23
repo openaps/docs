@@ -29,11 +29,13 @@ To check your edits when you're done, use `cd ~/myopenaps && cat preferences.jso
 
 #### max_iob: 
 
-Max_IOB (or maxIOB as often described) is not a basal rate.  Max_IOB is the maximum amount of UNITS of basal (or SMB corrections) insulin that your loop is allowed to accumulate to treat higher-than-target BG. This setting is not dependent on the rate the temp basal is applied, however the greater a temp basal rate, the faster basal insulin is accumulated.  Therefore, some safety considerations are smart.
+`max_iob` is an important safety setting for your OpenAPS set up. `max_iob` is the maximum amount of basal (or SMB correction) insulin that your loop is allowed to accumulate to treat higher-than-target BG.  Unlike the other two OpenAPS safety settings (`max_daily_safety_multiplier` and `current_basal_safety_multiplier`), `max_iob` is set as a fixed number of units of insulin. 
 
-A good rule of thumb is for max-iob to be no more than 3 times your highest basal rate. Keep in mind you can start conservatively and change this number over time as you evaluate further how the system works for you. (This means it should be approximate to your other settings; not an absolute amount that you set without thinking about it.)
+Although `max_iob` is set as a fixed number of units of insulin, you should consider your current basal rate settings when setting this safety parameter. A good rule of thumb is for `max_iob` to be no more than 3 times your highest basal rate. You can start conservatively and change this setting over time as you evaluate how the OpenAPS system works for you. 
 
-The setup script will prompt you for a max-iob setting.  Previous oref0 releases (0.4.3 or older) used a max-iob initial setting of 0 units.  This effectively made the initial loop build only capable of suspending to prevent lows...as it was not allowed to accumulate much corrective basal insulin.  oref0 0.5.0 or later will prompt you to enter a max-iob during setup.  This setting will be saved in the oref-runagain script and be used again if you need to rerun the script.  
+When you run the OpenAPS setup script, it will prompt you to set your `max_iob`.  In previous oref0 releases (0.4.3 or older), the set up script automatically set `max_iob` to 0 units.  This effectively made your initial OpenAPS installation only capable of setting temp basal rates in response to BG levels that were below your target BG levels. (And if your BG level is sufficiently below your target BG level, OpenAPS will set a 30 min. temporary basal rate of 0u/hr., which is often referred to as a "low glucose suspend".)  Again, you can start conservatively and change this setting over time as you evaluate how the OpenAPS system works for you.
+
+The setting you choose during the setup script will be saved in the oref-runagain script and can be used again if you need to rerun the script.
 
 #### the most commonly confused safety variables that are also the most important 
 
