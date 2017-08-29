@@ -226,7 +226,7 @@ These logs and other files are things you may frequently access. There are short
  edit-runagain => cd ~/myopenaps && nano oref0-runagain.sh
  cat-runagain => cd ~/myopenaps && cat oref0-runagain.sh
 ```
-To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
+To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter. Pay careful attention to the directory names in the above examples - especially "openaps" vs "myopenaps". "myopenaps" refers to the name you assigned your rig during initial oref0 installation. Instances of "myopenaps" in the above examples must be edited to reflect your rig's actual name (https://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup).
 
 ## Finish your OpenAPS setup
 
