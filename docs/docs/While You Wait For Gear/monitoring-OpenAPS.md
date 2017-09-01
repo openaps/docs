@@ -445,13 +445,23 @@ By default the urchin_loop_on, and urchin_iob is set to true. You must manually 
 [Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especially useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
 
 #### App Setup 
-To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.
+To set up a button you need to long click. Then go to Server Settings. For Server's IP, add the IP address that your rig has when connected to your phone. Under Server's Port, add the port number 22. Under Authenication Settings, you need to add your rig's username, password, and the root password. Be sure that the password for the private key file is blank unless you are setting up a key authentication (which is not necessary). Go back to the previous button setup screen and click "Set as default!". This will save all your server settings so that you can easily load them onto each new button you make. 
 
 #### Basic commands
-To the Command part of the button setup you can write any command which you would run in the ssh session. For example to show the automatic sensitivity ratio, you can set:
-`cat /root/myopenaps/settings/autosens.json`
+For the Command part of the button setup you can write any command which you would run in the ssh session. (If you are running a command that would need to be run with root privileges, be sure to check the box "Execute as root!") Here are some suggested commands:
 
-After button click the command is executed and the results are displayed in the black text area bellow the buttons. 
+To show Automatic Sensitivity ratio, you can set:
+`cat /root/myopenaps/settings/autosens.json`
+To show the last enacted loop, you can set:
+`cat /root/myopenaps/enact/enacted.json`
+To show your rig's network name, you can set:
+`iwgetid -r`
+To show your rig's battery status, you can set:
+`cat /root/myopenaps/monitor/edison-battery.json`
+To show your pump's battery status, you can set:
+`cat /root/myopenaps/monitor/battery.json`
+
+After setting up the button, simply click it to execute the command. The results are displayed in the black text area below the buttons. You can change the font size of the text in the box, and you can add more buttons under the main Hot Button menu.  
 
 #### Temporary targets
 It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
