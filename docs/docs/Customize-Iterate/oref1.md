@@ -45,7 +45,7 @@ UAM will be triggered if the preference is toggled on and there is carb activity
 There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
 
 ```
- * enableSMB_with_bolus means SMB will be enabled DIA hours after a manual bolus
+ * enableSMB_with_bolus means SMB will be enabled for the DIA (in hours) after a manual bolus
  * enableSMB_with_COB means SMB will be enabled when you've entered carbs
  * enableSMB_with_temptarget means SMB will be enabled with eating soon or lower temp targets. 
  For example, if your target is usually 100mg/dL, a temp target of 99 (or 80, the typical eating soon target) will enable SMB. 
