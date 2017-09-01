@@ -203,3 +203,4 @@ List of people who are working on closed loops:
 - Jacob H (Waterford, MI)
 - Jim Van Hook (St. Louis, MO)
 - Pedro C (Porto, Portugal)
+- Roger Sanftner (San Antonio, TX)
