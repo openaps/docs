@@ -470,6 +470,56 @@ To speed up the command execution you can add to the `/etc/ssh/sshd_config` the 
 `UseDNS no`
 
 ********************************
+### HTTP Widget Offline Monitoring (Android Only)
+Android "HTTP widget" allows you to show text inside the widget, perfect for OpenAPS monitoring without using Nightscout (in case no internet access is available).
+
+A. Install "HTTP widget" on your Android phone:
+
+https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en
+
+B. Install jq:
+
+`sudo apt-get install jq`
+
+C. Add a cron line to your crontab to start the Simple HTTP Server:
+
+First `crontab -e` and then at the bottom of the page, then add
+
+`@reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337`.
+
+Then ctrl-X and select y to keep changes, and then Enter to keep the same file name.
+
+D. Add a line to your openaps alias in your openaps.ini:
+
+First `cd myopenaps` and then `nano openaps.ini`.
+
+Scroll down until you see the "Alias" list. Then copy and paste the following text into a new line directly under the other alias entires. 
+
+`http-widget = ! bash -c "( jq .timestamp ~/myopenaps/enact/enacted.json | awk '{print substr($0,13,5)}' | tr '\n' ' ' && echo \"(last enact)\" && jq -r .reason ~/myopenaps/enact/enacted.json && echo -n 'TBR: ' && jq .rate ~/myopenaps/enact/enacted.json && echo -n 'IOB: ' && jq .IOB ~/myopenaps/enact/enacted.json && echo -n 'Autosens: ' && jq .ratio ~/myopenaps/settings/autosens.json && echo -n 'Edison: ' && (~/src/EdisonVoltage/voltage short) | awk '{print $2,$1}' && echo -n 'Pump: ' && cat ~/myopenaps/monitor/reservoir.json && echo -n 'U ' && jq .voltage ~/myopenaps/monitor/battery.json | tr '\n' 'v' && echo \" \")> ~/myopenaps/enact/index.html"`
+
+E. Modify the openaps pump-loop cron line (openaps http-widget needs to be run each minute):
+
+Enter `crontab -e` again.
+
+Then find the pump-loop cron line (looks similar to `* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log`) 
+
+And then add this to the end of it `&& openaps http-widget > /dev/null 2>&1 `.
+
+When you're finished it should look something like this:
+
+`* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log && openaps http-widget > /dev/null 2>&1 ` 
+
+Ctrl-X and select y to save changes.
+
+F. Add Widget:
+
+On your Android phone, add an HTTP widget as you would normally add widgets. Then set up the http with your rig IP address using port 1337. 
+
+NOTE: BE SURE your phone and rig are on the same network, i.e. BT tethered or wifi hotspot. This widget will also work when your rig is online with a wifi connection, as long as your phone and rig are on the same network.
+
+G. Add Widget to Sony Smart Watch 3 or other Android Wear:
+
+Using the Wearable Widgets app, you can see the HTTP Widget on your watch. 
 
 ### Offline web page from rig - for any phone user
 
