@@ -161,6 +161,7 @@ Below is correct definition
 ### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
 
 Basic steps using an Intel Edison with Explorer Board, checking with `openaps mmtune` to see if it is resolved yet:
+  * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
   * Double check that your port in pump.ini is correct
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
