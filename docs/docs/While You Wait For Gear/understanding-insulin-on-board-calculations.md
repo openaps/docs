@@ -1,6 +1,6 @@
 # Understanding Insulin on Board (IOB) Calculations
 
-The amount of Insulin on Board (IOB) at any given moment is a key input into the `determine-basal` logic. This information gets passed into [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js) as part of the `iob.json` file.
+The amount of Insulin on Board (IOB) at any given moment is a key input into the `determine-basal` logic, which is where all the calculations for setting temporary basal rates or small microboluses (SMBs) takes place. This amount of insulin on board gets passed into [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js) as part of the `iob.json` file. That information is then used to project forward blood glucose (BG) trends, which the `determine-basal` logic then responds to in order to correct course. This piece of the OpenAPS documentation provides an explanation of the assumptions used about how insulin is absorbed and how those assumptions translate into the insulin on board calculations used to project BG trends.
 
 ## First, some definitions:
 * **dia:** Duration of Insulin Activity. This is the user specified time (in hours) that insulin lasts in their body after a bolus. This value comes from the user's pump settings. (Not sure whether Medtronic places any limits when setting this value. Testing here assumes integers between 2 and 8 hours.)
@@ -77,6 +77,6 @@ Similar to how the `activity` "curves" (triangles) and cumulative `actvity` curv
 
 ![activity_dia_3](../Images/OpenAPS_iob_curves_by_dia_2_8.png)
 
-Just like the `activity` calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `iob`. Instead, it calculates a variable called `iobContrib`, which can be thought of as having two components: `iob` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining*.  
+Note: Similar to calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't  calculate a variable called `iob`. Instead, the program calculates a variable called `iobContrib`, which has two components: `treatment.insulin` and  `iob`.  Again, the units for `treatment.insulin` is *units of insulin*. The units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining*.  
 
 Finally, two sources to benchmark the `iob` curves against can be found [here](http://journals.sagepub.com/doi/pdf/10.1177/193229680900300319) and [here](https://www.hindawi.com/journals/cmmm/2015/281589/).
