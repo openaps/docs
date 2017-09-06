@@ -17,11 +17,11 @@ The amount of Insulin on Board (IOB) at any given moment is a key input into the
      
 ## Insulin Activity
 
- The code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `activity`. Instead, it calculates a variable called `activityContrib`, which can be thought of as having two components: `activity` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `activity` is *percent per minute*. Therefore, the units for `activityContrib` is *units of insulin per minute*.  
+ The code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't  calculate a variable called `activity`. Instead, it calculates a variable called `activityContrib`, which has two components: `treatment.insulin` and `actvity`.  The units for `treatment.insulin` is *units of insulin*. The units for `activity` is *percent per minute*. Therefore, the units for `activityContrib` is *units of insulin per minute*.  
 
-There are three key assumptions about how insulin activity works in the body:
+There are three key assumptions the OpenAPS algorithm makes about how insulin activity works in the body:
 
-* **Assumption #1:** Insulin activity (the variable `activity`) increases linearly (in a straight line) until the `peak` and then decreases linearly (but at a slightly slower rate) until the `end`. 
+* **Assumption #1:** Insulin activity increases linearly (in a straight line) until the `peak` and then decreases linearly (but at a slightly slower rate) until the `end`. 
 
 * **Assumption #2:** All insulin will be used up.
 
@@ -77,6 +77,6 @@ Similar to how the `activity` "curves" (triangles) and cumulative `actvity` curv
 
 ![activity_dia_3](../Images/OpenAPS_iob_curves_by_dia_2_8.png)
 
-Just like the `activity` calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `iob`. Instead, it calculates a variable called `iobContrib`, which can be thought of as having two components: `iob` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining *.  
+Just like the `activity` calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `iob`. Instead, it calculates a variable called `iobContrib`, which can be thought of as having two components: `iob` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining*.  
 
 Finally, two sources to benchmark the `iob` curves against can be found [here](http://journals.sagepub.com/doi/pdf/10.1177/193229680900300319) and [here](https://www.hindawi.com/journals/cmmm/2015/281589/).
