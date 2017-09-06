@@ -39,7 +39,7 @@ Given a `dia` setting of 3 hours, insulin activity peaks at 75 minutes, and betw
 ![activity_dia_3](../Images/OpenAPS_activity_dia_3.png)
 
 
-Adding up all the insulin used each minute between 0 and `end`, will sum to 100 percent of the insulin being used.
+Adding up all the insulin used *each minute* between 0 and `end`, will sum to 100 percent of the insulin being used. 
 
 ![activity_dia_3_area](../Images/OpenAPS_activity_dia_3_area.png)
 
