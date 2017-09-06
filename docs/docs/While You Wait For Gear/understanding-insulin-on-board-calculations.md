@@ -1,0 +1,79 @@
+# Understanding Insulin on Board (IOB) Calculations
+
+The amount of Insulin on Board (IOB) at any given moment is a key input into the `determine-basal` logic. This information gets passed into [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js) as part of the `iob.json` file.
+
+## First, some definitions:
+* **dia:** Duration of Insulin Activity. This is the user specified time (in hours) that insulin lasts in their body after a bolus. This value comes from the user's pump settings. (Not sure whether Medtronic places any limits when setting this value. Testing here assumes integers between 2 and 8 hours.)
+
+
+* **end:** Duration (in minutes) that insulin is active. `end` = `dia` * 60.
+
+
+* **peak:** Duration (in minutes) until insulin action reaches it's peak activity level.
+
+
+* **activity:** This is percent of insulin treatment that was active in the previous minute." 
+
+     
+## Insulin Activity
+
+ The code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `activity`. Instead, it calculates a variable called `activityContrib`, which can be thought of as having two components: `activity` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `activity` is *percent per minute*. Therefore, the units for `activityContrib` is *units of insulin per minute*.  
+
+There are three key assumptions about how insulin activity works in the body:
+
+* **Assumption #1:** Insulin activity (the variable `activity`) increases linearly (in a straight line) until the `peak` and then decreases linearly (but at a slightly slower rate) until the `end`. 
+
+* **Assumption #2:** All insulin will be used up.
+
+* **Assumption #3:** When insulin activity peaks (and how much insulin is used each minute) depends on a user's setting for how long it takes for all their insulin to be used up. That setting is their duration of insulin activity (`dia`) and generally ranges between 2 and 8 hours. The OpenAPS logic starts off with a default value of 3 hours for `dia`, which translates into 180 minutes for `end`, and assumes that insulin activity peaks at 75 minutes. (This is generally in line with findings that rapid acting insluins (Humalog, Novolog, and Apidra, for example) peak between 60 and 90 minutes after an insulin bolus.) That assumption, however, is generalizable to other user `dia` settings. That is, `peak` can be expressed as a function of `dia` by multiplying by the ratio (75 / 180):
+    
+    `peak` = f(`dia`) = (`dia` \* 60 \* (75 / 180))
+    
+    So, for example, for a `dia` of 4 hours, `peak` will be at 100 minutes:
+    
+    100 = (4 \* 60 \* (75 / 180))
+
+
+Given a `dia` setting of 3 hours, insulin activity peaks at 75 minutes, and between the 74th and 75th minutes, approximately 1.11 percent of the insulin gets used up.
+
+![activity_dia_3](../Images/OpenAPS_activity_dia_3.png)
+
+
+Adding up all the insulin used each minute between 0 and `end`, will sum to 100 percent of the insulin being used.
+
+![activity_dia_3_area](../Images/OpenAPS_activity_dia_3_area.png)
+
+The area under the "curve" can be calculated by taking the definite integral for the `activity` function, but in this simple case the formula for the area of a triangle is much simpler:  
+ 	Area of a triangle = 1/2 * width * height 
+ 			    = 1/2 * 180 * 1.11 
+ 			    = 99.9 (close enough to 100 -- the actual value for `activity` is 1.1111111, which gets even closer to 100)
+
+
+For shorter `dia` settings, the `peak` occurs sooner and at a higher rate. For longer `dia` settings, the `peak` occurs later and at a lower rate.
+
+![activity_dia_2_8](../Images/OpenAPS_activity_by_dia_2_8.png)
+
+
+## Cumulative Insulin Activity
+
+Given these `activity` profiles, we can plot cumulative `activity` curves, which are S-shaped and range from 0 to 100 percent.  (Note: This step isn't taken in the actual  [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js) program, but  plotting this out is a useful way to visualize/understand the insulin on board curves.)
+
+![activity_dia_3](../Images/OpenAPS_cum_activity_dia_3.png)
+
+Just like the insulin activity curves shift depending on the setting for `dia`, the cumulative activity curves do as well.
+
+![activity_dia_3](../Images/OpenAPS_activity_by_dia_2_8.png)
+
+## Insulin on Board
+
+Insulin on board `iob`, is the inverse of the cumulative activity curves. Instead of ranging from 0 to 100 percent, they range from 100 to 0 percent. With `dia` set at 3 hours, about 70 percent of insulin is still available an hour after an insulin dosage, and about 17 percent is still available two hours afterwards.
+
+![activity_dia_3](../Images/OpenAPS_iob_curve_dia_3.png)
+
+Similar to how the `activity` "curves" (triangles) and cumulative `actvity` curves vary by `dia` settings, the `iob` curves also vary by `dia` setting.
+
+![activity_dia_3](../Images/OpenAPS_iob_curves_dia_2_8.png)
+
+Just like the `activity` calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `iob`. Instead, it calculates a variable called `iobContrib`, which can be thought of as having two components: `iob` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining *.  
+
+Finally, two sources to benchmark the `iob` curves against can be found [here](http://journals.sagepub.com/doi/pdf/10.1177/193229680900300319) and [here](https://www.hindawi.com/journals/cmmm/2015/281589/).
