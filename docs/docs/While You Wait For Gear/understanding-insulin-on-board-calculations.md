@@ -49,7 +49,7 @@ The area under the "curve" can be calculated by taking the definite integral for
 
  			    = 1/2 * 180 * 1.11 
 
- 			    = 99.9 (close enough to 100 -- the actual value for `activity` is 1.1111111, which gets even closer to 100)
+ 			    = 99.9 (close enough to 100 -- the actual value for activity is 1.1111111, which gets even closer to 100)
 
 
 For shorter `dia` settings, the `peak` occurs sooner and at a higher rate. For longer `dia` settings, the `peak` occurs later and at a lower rate.
