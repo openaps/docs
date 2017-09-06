@@ -44,8 +44,11 @@ Adding up all the insulin used each minute between 0 and `end`, will sum to 100 
 ![activity_dia_3_area](../Images/OpenAPS_activity_dia_3_area.png)
 
 The area under the "curve" can be calculated by taking the definite integral for the `activity` function, but in this simple case the formula for the area of a triangle is much simpler:  
+
  	Area of a triangle = 1/2 * width * height 
+
  			    = 1/2 * 180 * 1.11 
+
  			    = 99.9 (close enough to 100 -- the actual value for `activity` is 1.1111111, which gets even closer to 100)
 
 
@@ -60,19 +63,19 @@ Given these `activity` profiles, we can plot cumulative `activity` curves, which
 
 ![activity_dia_3](../Images/OpenAPS_cum_activity_dia_3.png)
 
-Just like the insulin activity curves shift depending on the setting for `dia`, the cumulative activity curves do as well.
+Just like how the insulin activity curves shift depending on the setting for `dia`, the cumulative activity curves do as well.
 
-![activity_dia_3](../Images/OpenAPS_activity_by_dia_2_8.png)
+![activity_dia_3](../Images/OpenAPS_cum_activity_by_dia_2_8.png)
 
 ## Insulin on Board
 
-Insulin on board `iob`, is the inverse of the cumulative activity curves. Instead of ranging from 0 to 100 percent, they range from 100 to 0 percent. With `dia` set at 3 hours, about 70 percent of insulin is still available an hour after an insulin dosage, and about 17 percent is still available two hours afterwards.
+Insulin on board (`iob`), is the inverse of the cumulative activity curves. Instead of ranging from 0 to 100 percent, they range from 100 to 0 percent. With `dia` set at 3 hours, about 70 percent of insulin is still available an hour after an insulin dosage, and about 17 percent is still available two hours afterwards.
 
 ![activity_dia_3](../Images/OpenAPS_iob_curve_dia_3.png)
 
 Similar to how the `activity` "curves" (triangles) and cumulative `actvity` curves vary by `dia` settings, the `iob` curves also vary by `dia` setting.
 
-![activity_dia_3](../Images/OpenAPS_iob_curves_dia_2_8.png)
+![activity_dia_3](../Images/OpenAPS_iob_curves_by_dia_2_8.png)
 
 Just like the `activity` calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't actually calculate a variable called `iob`. Instead, it calculates a variable called `iobContrib`, which can be thought of as having two components: `iob` and `treatment.insulin`.  The units for `treatment.insulin` is *units of insulin* and  the units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining *.  
 
