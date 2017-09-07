@@ -3,7 +3,7 @@
 The amount of Insulin on Board (IOB) at any given moment is a key input into the `determine-basal` logic, which is where all the calculations for setting temporary basal rates or small microboluses (SMBs) takes place. This amount of insulin on board gets passed into [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js) as part of the `iob.json` file. That information is then used to project forward blood glucose (BG) trends, which the `determine-basal` logic then responds to in order to correct course. This piece of the OpenAPS documentation provides an explanation of the assumptions used about how insulin is absorbed and how those assumptions translate into the insulin on board calculations used to project BG trends.
 
 ## First, some definitions:
-* **dia:** Duration of Insulin Activity. This is the user specified time (in hours) that insulin lasts in their body after a bolus. This value comes from the user's pump settings. (Not sure whether Medtronic places any limits when setting this value. Testing here assumes integers between 2 and 8 hours.)
+* **dia:** Duration of Insulin Activity. This is the user specified time (in hours) that insulin lasts in their body after a bolus. This value comes from the user's pump settings. 
 
 
 * **end:** Duration (in minutes) that insulin is active. `end` = `dia` * 60.
@@ -25,7 +25,7 @@ There are three key assumptions the OpenAPS algorithm makes about how insulin ac
 
 * **Assumption #2:** All insulin will be used up.
 
-* **Assumption #3:** When insulin activity peaks (and how much insulin is used each minute) depends on a user's setting for how long it takes for all their insulin to be used up. That setting is their duration of insulin activity (`dia`) and generally ranges between 2 and 8 hours. The OpenAPS logic starts off with a default value of 3 hours for `dia`, which translates into 180 minutes for `end`, and assumes that insulin activity peaks at 75 minutes. (This is generally in line with findings that rapid acting insluins (Humalog, Novolog, and Apidra, for example) peak between 60 and 90 minutes after an insulin bolus.) That assumption, however, is generalizable to other user `dia` settings. That is, `peak` can be expressed as a function of `dia` by multiplying by the ratio (75 / 180):
+* **Assumption #3:** When insulin activity peaks (and how much insulin is used each minute) depends on a user's setting for how long it takes for all their insulin to be used up. That setting is their duration of insulin activity (`dia`) and generally ranges between 2 and 8 hours. The OpenAPS logic starts off with a default value of 3 hours for `dia`, which translates into 180 minutes for `end`, and assumes that insulin activity peaks at 75 minutes. (This is generally in line with findings that rapid acting insluins (Humalog, Novolog, and Apidra, for example) peak between 60 and 90 minutes after an insulin bolus.) This assumption, however, is generalizable to other user `dia` settings. That is, `peak` can be expressed as a function of `dia` by multiplying by the ratio (75 / 180):
     
     `peak` = f(`dia`) = (`dia` \* 60 \* (75 / 180))
     
@@ -33,7 +33,11 @@ There are three key assumptions the OpenAPS algorithm makes about how insulin ac
     
     100 = (4 \* 60 \* (75 / 180))
 
+----
+**NOTE:** The insulin action assumptions described here are set to change with the release of [oref0, version 0.6.0](https://github.com/openaps/oref0/tree/0.6.0-dev). The new assumptions will use exponential functions for the insulin action curves and will allow some user flexibility to use pre-set parameters for different classes of fast-acting insulins (Humalog, Novolog, and Apidra vs. Fiasp, for example). For a discussion of the alternate specifications of insulin action curves, see [oref0 Issue #544](https://github.com/openaps/oref0/issues/544). When oref0, version 0.6.0 is released and the current assumptions are no longer recommended, this documentation will be updated.
+----
 
+## What The Insulin Activity Assumptions Look Like
 Given a `dia` setting of 3 hours, insulin activity peaks at 75 minutes, and between the 74th and 75th minutes, approximately 1.11 percent of the insulin gets used up.
 
 ![activity_dia_3](../Images/OpenAPS_activity_dia_3.png)
