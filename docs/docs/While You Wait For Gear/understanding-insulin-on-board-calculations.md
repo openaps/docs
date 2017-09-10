@@ -17,7 +17,7 @@ The amount of Insulin on Board (IOB) at any given moment is a key input into the
      
 ## Insulin Activity
 
- The code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't  calculate a variable called `activity`. Instead, it calculates a variable called `activityContrib`, which has two components: `treatment.insulin` and `actvity`.  The units for `treatment.insulin` is *units of insulin*. The units for `activity` is *percent per minute*. Therefore, the units for `activityContrib` is *units of insulin per minute*.  
+The code in [oref0/lib/iob/calculate.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) calculates a variable called `activityContrib`, which has two components: `treatment.insulin` and `actvity`.  The units for `treatment.insulin` is *units of insulin*. The code in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) then summarizes the contributions of each individual insulin dose to calculate a summary variable called `activity`. The units for `activity` are *units of insulin per minute*.  
 
 There are three key assumptions the OpenAPS algorithm makes about how insulin activity works in the body:
 
