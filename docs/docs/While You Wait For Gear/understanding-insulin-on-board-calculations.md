@@ -80,6 +80,6 @@ Similar to how the `activity` "curves" (triangles) and cumulative `actvity` curv
 
 ![activity_dia_3](../Images/OpenAPS_iob_curves_by_dia_2_8.png)
 
-Note: Similar to calculations above, the code in [oref0/lib/iob/calculation.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) doesn't  calculate a variable called `iob`. Instead, the program calculates a variable called `iobContrib`, which has two components: `treatment.insulin` and  `iob`.  Again, the units for `treatment.insulin` is *units of insulin*. The units for `iob` is *percent remaining*. Therefore, the units for `iobContrib` is *units of insulin remaining*.  
+Note: Similar to calculations above, the code in [oref0/lib/iob/calculate.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) calculates a variable called `iobContrib`, which has two components: `treatment.insulin` and  `iob`, and is summarized to a total `iob` by [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js).  Again, the units for `treatment.insulin` and `iobContrib` are *units of insulin remaining*.  
 
 Finally, two sources to benchmark the `iob` curves against can be found [here](http://journals.sagepub.com/doi/pdf/10.1177/193229680900300319) and [here](https://www.hindawi.com/journals/cmmm/2015/281589/).
