@@ -22,3 +22,7 @@ Or, if the feature you want hasn't been released yet, and you want to test the l
 ## Step 2: Re-run oref0-setup
 
 Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup) for a guide of what the setup script will be prompting you to enter.
+
+## Step 3: (Optional) Don't forget to turn on SMB and UAM
+
+1. Reminder! If you have completed the setup and previously used Advanced oref1 preferences (SMB and UAM), don't forget to turn on the relevant settings in preferences.json. http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences
