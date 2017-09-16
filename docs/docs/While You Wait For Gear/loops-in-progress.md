@@ -204,3 +204,4 @@ List of people who are working on closed loops:
 - Jim Van Hook (St. Louis, MO)
 - Pedro C (Porto, Portugal)
 - Roger Sanftner (San Antonio, TX)
+- Gabriela Ezquerro (Mexico City, MEX)
