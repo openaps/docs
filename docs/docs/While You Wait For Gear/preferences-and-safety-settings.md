@@ -46,7 +46,7 @@ This is an important OpenAPS safety limit. The default setting (which is unlikel
 This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump. 
 
 ----
->### Important Note:
+>### Important Note About Safety Multipliers:
 >
 >`max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump), as a safety limits.   
 >
@@ -69,13 +69,13 @@ This is another important OpenAPS safety limit. The default setting (which is al
 >In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
 >In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
 >
->If  the  basal rate setting recommended by OpenAPS (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)) exceeds either:
+>If  the temporary basal rate setting recommended by OpenAPS (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)) exceeds either:
 >
->* the user's max basal rate setting (which is set in the user's pump), 
->* `max_daily_safety_multiplier` \* the maximum basal rate (as specified by the basal rates programmed in the user's pump), or
->* `current_basal_safety_multiplier` \* the user's current basal rate (as specified by the basal rate programmed in the user's pump), then 
+>* the user's max basal rate setting (which is set in the user's pump), or
+>* `max_daily_safety_multiplier` \* the highest programmed basal rate (as specified by the basal rates in the user's pump), or
+>* `current_basal_safety_multiplier` \* the user's current basal rate (as specified by the current basal rate programmed in the user's pump), then 
 >
->then the following message will be reported to the *pump-loop.log*:  
+> the following message will be reported to the *pump-loop.log*:  
 >
  >       adj. req. rate: X.X to maxSafeBasal: Y.Y
 >
