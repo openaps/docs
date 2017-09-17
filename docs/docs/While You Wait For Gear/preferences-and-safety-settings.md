@@ -47,7 +47,7 @@ If  the  basal rate setting recommended by OpenAPS (as determined in [`oref0/lib
 
 then the following message will be reported to the *pump-loop.log*:  
 
-"adj. req. rate: X.X to maxSafeBasal: Y.Y"
+        adj. req. rate: X.X to maxSafeBasal: Y.Y
 
 You can also view this message in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
 
