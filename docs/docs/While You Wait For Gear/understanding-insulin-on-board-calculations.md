@@ -46,7 +46,7 @@ Adding up all the insulin used *each minute* between 0 and `end`, will sum to 10
 
 ![activity_dia_3_area](../Images/OpenAPS_activity_dia_3_area.png)
 
-The area under the "curve" can be calculated by taking the definite integral for the `activity` function, but in this simple case the formula for the area of a triangle is much simpler:  
+The area under the "curve" can be calculated by taking the [definite integral](https://en.wikipedia.org/wiki/Integral) for the `activity` function, but in this simple case the formula for the area of a triangle is much simpler:  
 
  	Area of a triangle = 1/2 * width * height 
 
