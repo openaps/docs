@@ -8,7 +8,7 @@ Your preferences are found in the directory `myopenaps/preferences.json`.  To ed
 
 To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json`
 
-## Commonly-adjusted preferences:
+## Available preferences to set:
 
 ```
 {
@@ -41,7 +41,11 @@ The setting you choose during the setup script will be saved in the oref-runagai
 
 Note: The next two variables `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate setting (set on your pump), as a safety setting for your loop. **The system will use whichever of these three values is the lowest, at any given time, as the ceiling for the temp basal rates it will set.** So, if your pump’s max basal is 1.0u, but 3x your highest daily basal or 4x your current basal would be higher, the system will not set any temps higher than 1.0u, even if it thinks you need more insulin. On the flip side, if your 4x current multiplier says you can have max 1.6u/hr and your pump's max basal is 2u/hr; the maximum set temp at that time will be 1.6u/hr.
 
-You can be able to alerted to being restricted by the max basal setting by looking at the OpenAPS pill message in Nightscout (or in pump-loop log), which will say  "adj. req. rate: XX to maxSafeBasal: XX"  
+If  the recommended basal rate setting (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)), the *pump-loop.log* will report:  
+
+"adj. req. rate: X.X to maxSafeBasal: Y.Y"
+
+This is also reported in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
 
