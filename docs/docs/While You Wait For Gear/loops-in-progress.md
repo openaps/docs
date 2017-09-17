@@ -206,3 +206,4 @@ List of people who are working on closed loops:
 - Roger Sanftner (San Antonio, TX)
 - Gabriela Ezquerro (Mexico City, MEX)
 - Jessica Carey (CA)
+- Lynne Beard (Kincardineshire, Scotland)
