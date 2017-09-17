@@ -53,6 +53,19 @@ You can also view this message in the Nightscout OpenAPS pill (which pops up a d
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
 
+
+#### A few examples:
+
+|                                                                                      | Example 1  | Example 2 | Example 3 | Example 4 |
+|---------------------------------------------------|---------------|--------------|--------------|--------------|
+| user's max basal setting                                   | 2 .o                 | 2.0                 | 2                   | 2                     |
+|`max_daily_safety_multiplier`                       | 3.0                  | 3.0                 | 3                   | 3                     |
+|`current_basal_safety_multiplier`                | 4 .0                 | 4.0                 | 4                   | 4                     |
+| user's current basal rate                                   | 1.0 | | | |
+|user's maximum programmed basal rate  |  1.5 | | | |
+|OpenAPS recommended basal rate             | 3.0 | | | |
+|Actual basal rate allowed                                 | 2.0 | | | |
+
 #### max_daily_safety_multiplier: 
 
 This is a key OpenAPS safety cap. What this does is limit your basals to be 3x (in this example, which is the default and works for most people) your biggest basal rate. You likely will not need to change this, but you should be aware that’s what is discussed about “3x max daily; 4x current” for safety caps.
