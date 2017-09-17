@@ -58,13 +58,13 @@ You can also view this message in the Nightscout OpenAPS pill (which pops up a d
 
 |                                                                                      | Example 1  | Example 2 | Example 3 | Example 4 |
 |---------------------------------------------------|---------------|--------------|--------------|--------------|
-| user's max basal setting                                   | 2 .o                 | 2.0                 | 2                   | 2                     |
-|`max_daily_safety_multiplier`                       | 3.0                  | 3.0                 | 3                   | 3                     |
-|`current_basal_safety_multiplier`                | 4 .0                 | 4.0                 | 4                   | 4                     |
-| user's current basal rate                                   | 1.0 | | | |
-|user's maximum programmed basal rate  |  1.5 | | | |
-|OpenAPS recommended basal rate             | 3.0 | | | |
-|Actual basal rate allowed                                 | 2.0 | | | |
+| user's max basal setting                                   | 2 .0                 | 2.0                 | 3.0                | 1.5                |
+|`max_daily_safety_multiplier`                       | 3                     | 3                     | 3                    | 3                    |
+|`current_basal_safety_multiplier`                | 4                     | 4                     | 4                    | 4                    |
+| user's current basal rate                                   | 1.0                 |  0.5                 |                       |                       |
+|user's maximum programmed basal rate   | 1.5                 |  1.0                |                       |                       |
+|OpenAPS recommended basal rate             | 3.0                 |  3.5                  |                       |                       |
+|Actual basal rate allowed                                 | 2.0                 |   2.0                 |                       |                       |
 
 #### max_daily_safety_multiplier: 
 
