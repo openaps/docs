@@ -66,10 +66,10 @@ You can also view this message in the Nightscout OpenAPS pill (which pops up a d
 |OpenAPS recommended temp basal rate                | 3.0                  | 1.8                | 2.4                 | 2.6                |
 |Actual temp basal rate allowed                                    | 2.0                  | 1.6                | 2.4                 | 2.4                 |
 
-In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.
-In **Example 2**, 4x the user's current basal rate is the constraining limit on the OpenAPS recommended temp basal rate.
-In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.
-In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.
+In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.  
+In **Example 2**, 4x the user's current basal rate is the constraining limit on the OpenAPS recommended temp basal rate.  
+In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
+In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
 
 #### max_daily_safety_multiplier: 
 
