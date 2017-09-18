@@ -1,6 +1,6 @@
 # Understanding your preferences and safety settings
 
-All of the settings specific to OpenAPS (that can't be read from the pump) are in this file, so when running the setup scripts or building your loop, you will have the preferences.json file built for the system to read, in addition to your pump profile settings. Many of these are important safety settings, with reasonable default settings, so other than described below, you likely won’t need to adjust these. If you do decide to adjust a setting, the best practice is to adjust one setting at a time, and observe the impact for 3 days. Changing multiple variables at once is a recipe for a lot of headaches and a lot of painful troubleshooting.
+All of the settings specific to OpenAPS (that can't be read from the pump) are in this file, so when running the setup scripts or building your loop, you will have the `preferences.json` file built for the system to read, in addition to your pump profile settings. Many of these are important safety settings, with reasonable default settings, so other than described below, you likely won’t need to adjust these. If you do decide to adjust a setting, the best practice is to adjust one setting at a time, and observe the impact for 3 days. Changing multiple variables at once is a recipe for a lot of headaches and a lot of painful troubleshooting.
 
 ## Editing your preferences.json
 
