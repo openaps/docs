@@ -207,3 +207,4 @@ List of people who are working on closed loops:
 - Gabriela Ezquerro (Mexico City, MEX)
 - Jessica Carey (CA)
 - Lynne Beard (Kincardineshire, Scotland)
+- Carlin Pressnall (Seattle, WA)
