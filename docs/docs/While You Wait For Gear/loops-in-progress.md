@@ -208,3 +208,4 @@ List of people who are working on closed loops:
 - Jessica Carey (CA)
 - Lynne Beard (Kincardineshire, Scotland)
 - Carlin Pressnall (Seattle, WA)
+- James Brown (Derby, UK)
