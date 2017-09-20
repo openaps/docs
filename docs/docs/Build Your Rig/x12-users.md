@@ -170,13 +170,6 @@ The last steps are to edit the standard openaps aliases so they don't call for n
   openaps alias remove get-settings
   openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
   ```
-  
-* The x12 models also do not have the ability to report bolusing so the "gather" alias also has to be adjusted. Copy and paste each of these three lines individually:
-```
-  cd ~/myopenaps && killall -g openaps
-  openaps alias remove gather
-  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
-```
 
 ## Updating your pump settings
 
