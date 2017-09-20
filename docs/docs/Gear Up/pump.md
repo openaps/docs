@@ -24,7 +24,7 @@ If you have one of the above mentioned pumps, but it has buttons that do not wor
 
 ## Why do I need a certain pump firmware?
 
-Due to changes in the firmware, the openaps tools are only able to function in-full on the above pump models. Security features were added after firmware v2.4 in the US that prevent making some remote adjustments via the decoded communications OpenAPS uses. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a special files for the missing info to successfully run the loop ([Instructions for 512/712 users, click here](http://bit.ly/1itCsRl)).
+Due to changes in the firmware, the openaps tools are only able to function in-full on the above pump models. Security features were added after firmware v2.4 in the US that prevent making some remote adjustments via the decoded communications OpenAPS uses. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a special files for the missing info to successfully run the loop ([Instructions for 512/712 users, click here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html)). Note that 512/712 users are not going to be able to use an advanced feature (SMB), but will be able to do basic looping.
 
 If you are not based in the US, some later model pumps and firmware may be compatible as listed above. Check for PC Connect absence to determine compatibility.
 
