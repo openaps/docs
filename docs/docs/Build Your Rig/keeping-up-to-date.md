@@ -9,3 +9,5 @@ One important final step, in addition to continuing to keep an eye on your syste
 ## After you have looped for three consecutive nights:
 
 So that we can notify you if necessary, [please fill out this form if you have been looping for 3+ days](http://bit.ly/nowlooping). Your information will not be shared in any way. You can indicate your preferred privacy levels in the form. As an alternative, if you do not want to input info, please email dana@openaps.org. Again, this is so you can be notified in the case of a major bug find/fix that needs to be deployed.
+
+**Note**: you only ever need to fill this form out once. If you're building multiple rigs, or switching between DIY systems, no need to fill this out multiple times. We're just counting - and wanting to connect with in terms of safety announcements - humans. :) 
