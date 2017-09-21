@@ -4,7 +4,7 @@ If you have one of the x12 model pumps, you can still successfully use OpenAPS f
 
 ## Add pump files manually
 
-Certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available for x12 pumps.  Therefore, you will create new files (called static json files) for the missing information.  Specifically, you'll be creating three files called settings.json, bg-targets-raw.json, and selected-basal-profile.json.  To do this:
+Certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available for x12 pumps.  Therefore, you will create new files (called static json files) for the missing information.  Specifically, you'll be creating three files called settings.json, bg_targets_raw.json, and selected_basal_profile.json.  To do this:
   
 * Create a new subdirectory to your myopenaps directory.  We are going to name the subdirectory `raw-pump`.  After we create the new sub-directory, we will be changing into that newly created directory.  The following command will do all those things at once: `cd ~/myopenaps && mkdir raw-pump && cd raw-pump`  You can confirm the successful completion of this step by looking at your terminal prompt and it should show `root:~/myopenaps/raw-pump#`
 
@@ -12,17 +12,17 @@ Certain commands like Read Settings, BG Targets and certain Read Basal Profile a
 
  * To finish and save the new file, press `Ctl-X`, and when it asks if you want to save `Y` for yes, and `return` to keep the settings.json name.
  
- * Repeat the steps above for also creating the following files (sample files for these are below, as well): bg-targets-raw.json and selected-basal-profile.json.
+ * Repeat the steps above for also creating the following files (sample files for these are below, as well): bg_targets_raw.json and selected_basal_profile.json.
  
 Once complete, type `ls` and you should see the following files:
 
 ```
- settings.json     bg-targets-raw.json     selected-basal-profile.json
+ settings.json     bg_targets_raw.json     selected_basal_profile.json
 ```
 
 * Finish our work with these files by copying them into the settings directory:
 
-`cd ~/myopenaps && cp ./raw-pump/bg-targets-raw.json ./settings/ && cp ./raw-pump/selected-basal-profile.json ./settings/ && cp ./raw-pump/settings.json ./settings/`
+`cd ~/myopenaps && cp ./raw-pump/bg_targets_raw.json ./settings/ && cp ./raw-pump/selected_basal_profile.json ./settings/ && cp ./raw-pump/settings.json ./settings/`
 
 
 ### Sample file for settings.json
