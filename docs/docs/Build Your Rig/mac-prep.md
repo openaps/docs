@@ -26,7 +26,7 @@ When you first launch Terminal, you will probably see something rather plain lik
 
 First, copy and paste: `sudo screen /dev/tty.usbserial-* 115200`, then hit enter.
 
-You’ll most likely be asked for your **computer password**.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed. 
+You’ll most likely be asked for your **computer password**.  Enter it, but don't expect to see the characters logging as you type.  Terminal app doesn't show keystrokes for password entries.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Use login: “root” and the password will likely be "edison".  No quotes on either. If you purchased a preflashed board from Hamshield...a slip of paper is included that will confirm the password to use. Unflashed edisons do not have a password initially. 
 
 If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", close that terminal window.  Then unplug the usb cables from your computer (not from the Edison...leave those ones as is) and swap the USB ports they were plugged in.  Open a new terminal window, use the `sudo screen /dev/tty.usbserial-* 115200` command again.  Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
 
