@@ -180,8 +180,8 @@ If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.s
 2. At the command promot, type `cd /etc/` and hit enter
 2. Type `sudo nano environment` and hit enter
 3. You are now editing the `environment` file.  Add a new line to the file that says:  `API_SECRET=yourAPIsecret` (Note - replace "yourAPIsecret" with your own)
-4. Hit cntl O and enter to save the changes to the file
-5. Hit cntl X and enter to exit the file and go back to the command prompt
+4. Hit CTRL-O and enter to save the changes to the file
+5. Hit CTRL-X and enter to exit the file and go back to the command prompt
 6. At the command prompt, type `export API_SECRET=yourAPIsecret`  (Note - replace "yourAPIsecret" with your own)
 
 To test this fix, type `echo $API_SECRET` and hit enter.  If this returns the API Secret that you set in the `environment` file, then it should work for you to run autotune.
