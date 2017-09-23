@@ -177,7 +177,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.sh` try this:
 
 1. Log into your VM
-2. At the command promot, type `cd \etc` and hit enter
+2. At the command promot, type `cd /etc/` and hit enter
 2. Type `sudo nano environment` and hit enter
 3. You are now editing the `environment` file.  Add a new line to the file that says:  `API_SECRET=yourAPIsecret` (Note - replace "yourAPIsecret" with your own)
 4. Hit cntl O and enter to save the changes to the file
