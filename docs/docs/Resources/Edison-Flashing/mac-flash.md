@@ -46,7 +46,7 @@ Building the software into your rig is comprised of three steps:
 
 The Edison comes with an operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
-Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download version 0.1.1 of [jubilinux.zip](http://www.jubilinux.org/dist/)
+Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download version 0.2.0 of [jubilinux.zip](http://www.jubilinux.org/dist/)
 
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
 
