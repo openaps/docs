@@ -209,3 +209,4 @@ List of people who are working on closed loops:
 - Lynne Beard (Kincardineshire, Scotland)
 - Carlin Pressnall (Seattle, WA)
 - James Brown (Derby, UK)
+- Allison Marx (Atlanta, GA)
