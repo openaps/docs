@@ -22,7 +22,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Windows PC - prerequisites:
 
-- Install the [Intel Edison drivers for Windows]( https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
+- Install the [Intel Edison drivers for Windows](https://downloadcenter.intel.com/download/26993/Intel-Edison-Configuration-Tool?product=84572). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
 
 ******
 
