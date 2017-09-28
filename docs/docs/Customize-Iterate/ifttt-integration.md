@@ -29,9 +29,6 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT button widget](../Images/IFTTT_button.png)
 
-* Connect the buttonwidget by clicking on the large red "connect" button
-
-![IFTTT button connect](../Images/IFTTT_connect1.png)
 
 * Click on the large red "button press" box 
 
@@ -45,9 +42,6 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT maker](../Images/IFTTT_maker.png)
 
-* Connect the Webhooks app
-
-![IFTTT maker connect](../Images/IFTTT_connect2.png)
 
 * Select the blue "Make a Web Request" box
 
