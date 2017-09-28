@@ -210,4 +210,4 @@ List of people who are working on closed loops:
 - Carlin Pressnall (Seattle, WA)
 - James Brown (Derby, UK)
 - Allison Marx (Atlanta, GA)
-- David AShby (Provo, UT, USA) 715 Edison / Explorer Board
+- David Ashby (Provo, UT, USA) 715 Edison / Explorer Board
