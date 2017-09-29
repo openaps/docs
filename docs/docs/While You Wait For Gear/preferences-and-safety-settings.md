@@ -1,6 +1,8 @@
 # Understanding your preferences and safety settings
 
-All of the settings specific to OpenAPS (that can't be read from the pump) are in this file, so when running the setup scripts or building your loop, you will have the `preferences.json` file built for the system to read, in addition to your pump profile settings. Many of these are important safety settings, with reasonable default settings, so other than described below, you likely won’t need to adjust these. If you do decide to adjust a setting, the best practice is to adjust one setting at a time, and observe the impact for 3 days. Changing multiple variables at once is a recipe for a lot of headaches and a lot of painful troubleshooting.
+All of the settings specific to OpenAPS (that can't be read from the pump) will live in this file, so when running the setup scripts or building your loop, you will have the `preferences.json` file built for the system to read, in addition to your pump profile settings. Many of these are important safety settings, with reasonable default settings, so other than described below, you likely won’t need to adjust these. If you do decide to adjust a setting, the best practice is to adjust one setting at a time, and observe the impact for 3 days. Changing multiple variables at once is a recipe for a lot of headaches and a lot of painful troubleshooting. 
+
+(*Note that there are some preferences that show up by default; these are the most commonly adjusted. There are additional preferences available to set that are not used by everyone, and are described below - any of these can also be added to the preferences.json*)
 
 ## Editing your preferences.json
 
@@ -8,7 +10,7 @@ Your preferences are found in the directory `myopenaps/preferences.json`.  To ed
 
 To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json`
 
-## Available preferences to set:
+## Commonly-adjusted preferences:
 
 ```
 {
