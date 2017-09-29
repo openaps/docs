@@ -32,18 +32,18 @@ If the rig is connected to your iPhone's hotspot, the scan will be performed for
 There are many apps that will allow you to use an ssh command to login to your rig wirelessly.  These apps make it super convenient to login to your rig while on the go running errands, laying in bed on a Saturday morning, or other situations where you may not want to get to a computer to login to the rig.
 
 **************
-**In order to use these apps, your rig and phone must be on the same internet connection**  So if your rig is on your home wifi network, your phone must also be logged on to your home wifi network.  If they are not on the same network, you will get a login error.   
+**In order to use these apps, your rig and phone must be on the same internet connection or paired and connected over BT PAN**  So if your rig is on your home wifi network, your phone must also be logged on to your home wifi network.  The SSH connection also works when your rig and phone are properly paired and connected over a BT PAN. If they are not on the same network, you will get a login error.   
 *************
 
 I've tried a few apps, both paid and free, and these have been my favorite two iPhone apps; Termius and SimpleSSH.  Each has its pros/cons, and therefore I pick which app based on what I'd like to do in the rig.
 
 Termius app has a FAR BETTER file editing ability...as in don't even bother trying to edit files (like preferences.json or adding wifi networks) in SimpleSSH.  However, if you want to navigate files on your rig or issue commands that you've preprogrammed, SimpleSSH is better.  So, if you're doing an activity which involves editing files...definitely stick with Termius app.
 
-### Termius app (iPhone)
+### Termius app (iPhone AND Android)
 
 When you first open the Termius app, it will prompt you to add a new host.  Go ahead and click the `+` button to add a `new host`.  Turn the toggle on for `Use SSH` and then fill out the following information:
 
-* Alias – use an alias name that let’s you know which rig and which connection point this host is for, for example `YourRigName on home wifi`
+* Alias – use an alias name that let’s you know which rig and which connection point this host is for, for example `YourRigName on home wifi` or "YourRigName on phone BT"
 
 * Hostname – Enter either `YourRigName.local` or the IP address of the rig
 

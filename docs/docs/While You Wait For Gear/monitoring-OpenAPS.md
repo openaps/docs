@@ -445,13 +445,23 @@ By default the urchin_loop_on, and urchin_iob is set to true. You must manually 
 [Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especially useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
 
 #### App Setup 
-To setup the button you need to long click. Setup the Server Settings and set them as default. For every other button you can load them.
+To set up a button you need to long click. Then go to Server Settings. For Server's IP, add the IP address that your rig has when connected to your phone. Under Server's Port, add the port number 22. Under Authenication Settings, you need to add your rig's username, password, and the root password. Be sure that the password for the private key file is blank unless you are setting up a key authentication (which is not necessary). Go back to the previous button setup screen and click "Set as default!". This will save all your server settings so that you can easily load them onto each new button you make. 
 
 #### Basic commands
-To the Command part of the button setup you can write any command which you would run in the ssh session. For example to show the automatic sensitivity ratio, you can set:
-`cat /root/myopenaps/settings/autosens.json`
+For the Command part of the button setup you can write any command which you would run in the ssh session. (If you are running a command that would need to be run with root privileges, be sure to check the box "Execute as root!") Here are some suggested commands:
 
-After button click the command is executed and the results are displayed in the black text area bellow the buttons. 
+To show Automatic Sensitivity ratio, you can set:
+`cat /root/myopenaps/settings/autosens.json`
+To show the last enacted loop, you can set:
+`cat /root/myopenaps/enact/enacted.json`
+To show your rig's network name, you can set:
+`iwgetid -r`
+To show your rig's battery status, you can set:
+`cat /root/myopenaps/monitor/edison-battery.json`
+To show your pump's battery status, you can set:
+`cat /root/myopenaps/monitor/battery.json`
+
+After setting up the button, simply click it to execute the command. The results are displayed in the black text area below the buttons. You can change the font size of the text in the box, and you can add more buttons under the main Hot Button menu.  
 
 #### Temporary targets
 It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
@@ -470,6 +480,56 @@ To speed up the command execution you can add to the `/etc/ssh/sshd_config` the 
 `UseDNS no`
 
 ********************************
+### HTTP Widget Offline Monitoring (Android Only)
+Android "HTTP widget" allows you to show text inside the widget, perfect for OpenAPS monitoring without using Nightscout (in case no internet access is available).
+
+A. Install "HTTP widget" on your Android phone:
+
+https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en
+
+B. Install jq:
+
+`sudo apt-get install jq`
+
+C. Add a cron line to your crontab to start the Simple HTTP Server:
+
+First `crontab -e` and then at the bottom of the page, then add
+
+`@reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337`.
+
+Then ctrl-X and select y to keep changes, and then Enter to keep the same file name.
+
+D. Add a line to your openaps alias in your openaps.ini:
+
+First `cd myopenaps` and then `nano openaps.ini`.
+
+Scroll down until you see the "Alias" list. Then copy and paste the following text into a new line directly under the other alias entires. 
+
+`http-widget = ! bash -c "( jq .timestamp ~/myopenaps/enact/enacted.json | awk '{print substr($0,13,5)}' | tr '\n' ' ' && echo \"(last enact)\" && jq -r .reason ~/myopenaps/enact/enacted.json && echo -n 'TBR: ' && jq .rate ~/myopenaps/enact/enacted.json && echo -n 'IOB: ' && jq .IOB ~/myopenaps/enact/enacted.json && echo -n 'Autosens: ' && jq .ratio ~/myopenaps/settings/autosens.json && echo -n 'Edison: ' && (~/src/EdisonVoltage/voltage short) | awk '{print $2,$1}' && echo -n 'Pump: ' && cat ~/myopenaps/monitor/reservoir.json && echo -n 'U ' && jq .voltage ~/myopenaps/monitor/battery.json | tr '\n' 'v' && echo \" \")> ~/myopenaps/enact/index.html"`
+
+E. Modify the openaps pump-loop cron line (openaps http-widget needs to be run each minute):
+
+Enter `crontab -e` again.
+
+Then find the pump-loop cron line (looks similar to `* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log`) 
+
+And then add this to the end of it `&& openaps http-widget > /dev/null 2>&1 `.
+
+When you're finished it should look something like this:
+
+`* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log && openaps http-widget > /dev/null 2>&1 ` 
+
+Ctrl-X and select y to save changes.
+
+F. Add Widget:
+
+On your Android phone, add an HTTP widget as you would normally add widgets. Then set up the http with your rig IP address using port 1337. 
+
+NOTE: BE SURE your phone and rig are on the same network, i.e. BT tethered or wifi hotspot. This widget will also work when your rig is online with a wifi connection, as long as your phone and rig are on the same network.
+
+G. Add Widget to Sony Smart Watch 3 or other Android Wear:
+
+Using the Wearable Widgets app, you can see the HTTP Widget on your watch. 
 
 ### Offline web page from rig - for any phone user
 
@@ -509,8 +569,8 @@ In this case the script is running from the /root directory and I am publishing 
 
 C. Accessing via your phone
 
-**IPHONE USERS:** To access this from an iphone browser, enter something like the following: http://172.20.10.x:1337/index.html and you should receive an unformatted html page with the data in it. If you want to improve the output for a browser, the script can be modified to generate html tags that will allow formatting and could provide colouring if various predicted numbers were looking too low.
+**IPHONE USERS:** To access this from an iphone browser, enter something like the following: http://172.20.10.x:1337/index.html and you should receive an unformatted html page with the data in it. The value you need will be the ip address you see when you first set up bluetooth on your rig, and can be found using `ifconfig bnep0` when your rig is connected to your phone via bluetooth.  If you want to improve the output for a browser, the script can be modified to generate html tags that will allow formatting and could provide colouring if various predicted numbers were looking too low.
 
-**ANDROID USERS:** On Android, you can download http-widget (https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en_GB) and add a widget to your home screen that will display this data.
+**ANDROID USERS:** On Android, you can download http-widget (https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en_GB) and add a widget to your home screen that will display this data. You will need the IP address that your rig uses. If you are using xdrip as your glucose data source, it is the same as the value you use there.
 
 **SAMSUNG GEAR S3 WATCH USERS:** If you use a Samsung Gear S3 watch, you can use the above http-widget with Wearable Widgets (http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.

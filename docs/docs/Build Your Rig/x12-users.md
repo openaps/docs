@@ -1,10 +1,10 @@
 # 512 and 712 Pump users
 
-If you have one of the x12 model pumps, you can still successfully use OpenAPS.  You'll need to complete some extra setup steps before your loop will be successful, however. There are TWO major steps; (1) creating the files and (2) adjusting aliases.  x12 users will have to be aware that the files will need to be manually updated anytime the pump user wants to change basal rate schedules, ISFs, or other pump settings.  Additionally, SMB will not be enabled for x12 pumps unless/until someone with an x12 is willing to test it for safety and compatibility.
+If you have one of the x12 model pumps, you can still successfully use OpenAPS for basic looping (but not some advanced featuers like SMB).  You'll need to complete some extra setup steps before your loop will be successful, however. There are TWO major steps; (1) creating the files and (2) adjusting aliases.  x12 users will have to be aware that the files will need to be manually updated anytime the pump user wants to change basal rate schedules, ISFs, or other pump settings.  
 
 ## Add pump files manually
 
-Certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available for x12 pumps.  Therefore, you will create new files (called static json files) for the missing information.  Specifically, you'll be creating three files called settings.json, bg-targets-raw.json, and selected-basal-profile.json.  To do this:
+Certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available for x12 pumps.  Therefore, you will create new files (called static json files) for the missing information.  Specifically, you'll be creating three files called settings.json, bg_targets_raw.json, and basal_profile.json.  To do this:
   
 * Create a new subdirectory to your myopenaps directory.  We are going to name the subdirectory `raw-pump`.  After we create the new sub-directory, we will be changing into that newly created directory.  The following command will do all those things at once: `cd ~/myopenaps && mkdir raw-pump && cd raw-pump`  You can confirm the successful completion of this step by looking at your terminal prompt and it should show `root:~/myopenaps/raw-pump#`
 
@@ -12,17 +12,17 @@ Certain commands like Read Settings, BG Targets and certain Read Basal Profile a
 
  * To finish and save the new file, press `Ctl-X`, and when it asks if you want to save `Y` for yes, and `return` to keep the settings.json name.
  
- * Repeat the steps above for also creating the following files (sample files for these are below, as well): bg-targets-raw.json and selected-basal-profile.json.
+ * Repeat the steps above for also creating the following files (sample files for these are below, as well): bg_targets_raw.json and basal_profile.json.
  
 Once complete, type `ls` and you should see the following files:
 
 ```
- settings.json     bg-targets-raw.json     selected-basal-profile.json
+ settings.json     bg_targets_raw.json     basal_profile.json
 ```
 
 * Finish our work with these files by copying them into the settings directory:
 
-`cd ~/myopenaps && cp ./raw-pump/bg-targets-raw.json ./settings/ && cp ./raw-pump/selected-basal-profile.json ./settings/ && cp ./raw-pump/settings.json ./settings/`
+`cd ~/myopenaps && cp ./raw-pump/bg_targets_raw.json ./settings/ && cp ./raw-pump/basal_profile.json ./settings/ && cp ./raw-pump/settings.json ./settings/`
 
 
 ### Sample file for settings.json
@@ -170,13 +170,6 @@ The last steps are to edit the standard openaps aliases so they don't call for n
   openaps alias remove get-settings
   openaps alias add get-settings "report invoke settings/model.json settings/bg_targets.json settings/insulin_sensitivities_raw.json settings/insulin_sensitivities.json settings/carb_ratios.json settings/profile.json"
   ```
-  
-* The x12 models also do not have the ability to report bolusing so the "gather" alias also has to be adjusted. Copy and paste each of these three lines individually:
-```
-  cd ~/myopenaps && killall -g openaps
-  openaps alias remove gather
-  openaps alias add gather '! bash -c "(openaps monitor-pump || openaps monitor-pump) 2>/dev/null >/dev/null && echo refreshed    pumphistory || (echo unable to refresh pumphistory; exit 1) 2>/dev/null"'
-```
 
 ## Updating your pump settings
 
