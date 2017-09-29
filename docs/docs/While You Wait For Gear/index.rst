@@ -10,6 +10,7 @@ While You Wait For Gear
    nightscout-setup
    understanding-your-Explorer-Board-rig
    Understand-determine-basal
+   understanding-insulin-on-board-calculations
    monitoring-OpenAPS
    preferences-and-safety-settings
    understanding-wifi-options
