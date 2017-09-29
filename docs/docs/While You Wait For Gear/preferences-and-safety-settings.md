@@ -47,6 +47,7 @@ This is an important OpenAPS safety limit. The default setting (which is unlikel
 
 This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump. 
 
+
 ### Important Note About Safety Multipliers:
 
 `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump), as a safety limits.   
@@ -77,6 +78,7 @@ You can also view this message in the Nightscout OpenAPS pill (which pops up a d
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
 ---
+
 
 #### autosens_max:
 
