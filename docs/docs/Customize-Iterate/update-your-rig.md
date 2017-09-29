@@ -22,3 +22,9 @@ Or, if the feature you want hasn't been released yet, and you want to test the l
 ## Step 2: Re-run oref0-setup
 
 Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup) for a guide of what the setup script will be prompting you to enter.
+
+## Step 3: Remember to set your preferences!
+
+Reminder! You'll need to re-set your preferences in `preferences.json`. See [the preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html) to see what preferences might have changed or become available since your last update. 
+
+ To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
