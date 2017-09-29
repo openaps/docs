@@ -49,7 +49,17 @@ Let's face it.  There are some days when you just don't want to be attached to a
 
 
 ## **What if I want to turn off the loop for a while?**
-<br> One easy way to "turn off" the loop for a period of time so to use temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  What is great about this is that it is easy to do and allows you to schedule the time when you want the loop turned off (going swimming, showering, exercising, etc).  You do not have to power down your device or mess with cron commands. You can also choose to leave it at home if you are going out and do not want to be looping during that time. It will start looping again when you get back into range and it can successfully read your pump and CGM data again.<br>
+
+If you're near the rig or pumper:
+* Power down the rig
+* Turn the basal type to % on the pump, which blocks temps from being set
+* Log in and stop cron
+
+If you're not near the rig or pumper:
+* If on same wifi as rig, you can log in and stop cron
+* Or change the API secret of NS temporarily, which means OpenAPS can't pull BGs in and loop anymore (so after last temp basal previously set expires, defaults to normal basal rates). 
+* *(This one needs testing and validation, the low target may get ignored, or set as 80 as that's the lowest target you can usually set in OpenAPS)*: use very wide temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  
+* You can also choose to leave it at home if you are going out and do not want to be looping during that time. It will start looping again when you get back into range and it can successfully read your pump and CGM data again.
 
 
 ## **How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:**

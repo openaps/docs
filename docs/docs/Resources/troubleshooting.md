@@ -66,7 +66,9 @@ OpenAPS uses git as the logging mechanism, so it commits report changes on each 
 
 You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-reset-git`, which will first run `oref0-fix-git-corruption` to try to fix the repository, and in case when repository is definitely broken it copies the .git history to a temporary location (`tmp`) and initializes a new git repo.
 
-It is recommended to run `oref0-reset-git` in cron so that if the repository gets corrupted it can quickly reset itself. 
+We recommend runing `oref0-reset-git` in cron so that if the repository gets corrupted it can quickly reset itself. 
+
+Finally, if you're still having git issues, you should `rm -rf ~/myopenaps/.git` . If you do this, git will re-initialize from scratch.
 
 Warning: do not run any openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
 
@@ -161,6 +163,7 @@ Below is correct definition
 ### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
 
 Basic steps using an Intel Edison with Explorer Board, checking with `openaps mmtune` to see if it is resolved yet:
+  * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
   * Double check that your port in pump.ini is correct
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty

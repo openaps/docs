@@ -29,7 +29,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT button widget](../Images/IFTTT_button.png)
 
-* Connect the buttonwidget by clicking on the large red "connect" button
+* Connect the buttonwidget by clicking on the large red "connect" button. Note: Connect button only appears on the first applet in a new account.  Once it is connected it does not need to connect again.
 
 ![IFTTT button connect](../Images/IFTTT_connect1.png)
 
@@ -45,7 +45,7 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or
 
 ![IFTTT maker](../Images/IFTTT_maker.png)
 
-* Connect the Webhooks app
+* Connect the Webhooks app.   Note: This connect button also only appears on the first applet in a new account.  Once it is connected it does not need to connect again.
 
 ![IFTTT maker connect](../Images/IFTTT_connect2.png)
 
