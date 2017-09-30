@@ -114,23 +114,23 @@ A user can select one of three curve defaul settings:
 
 ## What Do The Exponential Curves Look Like?
 
-![exponential_activity_curve_dia_5_peak_75](../Images/exponential_activity_curve_dia_5_peak_75.png)
+![exponential_activity_curve_dia_5_peak_75](../Images/OpenAPS_exponential_activity_curve_dia_5_peak_75.png)
 
-![exponential_activity_curve_dia_5_peak_75_area](../Images/exponential_activity_curve_dia_5_peak_75_area.png)
+![exponential_activity_curve_dia_5_peak_75_area](../Images/OpenAPS_exponential_activity_curve_dia_5_peak_75_area.png)
 
-![exponential_activity_curves_dia_5_peak_60_75_90](../Images/exponential_activity_curves_dia_5_peak_60_75_90.png)
+![exponential_activity_curves_dia_5_peak_60_75_90](../Images/OpenAPS_exponential_activity_curves_dia_5_peak_60_75_90.png)
 
-![exponential_cum_activity_curves_dia_5_peak_60_75_90](../Images/exponential_cum_activity_curves_dia_5_peak_60_75_90.png)
+![exponential_cum_activity_curves_dia_5_peak_60_75_90](../Images/OpenAPS_exponential_cum_activity_curves_dia_5_peak_60_75_90.png)
 
-![exponential_iob_curves_dia_5_peak_60_75_90](../Images/exponential_iob_curves_dia_5_peak_60_75_90.png)
+![exponential_iob_curves_dia_5_peak_60_75_90](../Images/OpenAPS_exponential_iob_curves_dia_5_peak_60_75_90.png)
 
 ## How Do The Exponential Curves Compare To The Bilinear Curves?
 
-![activity_curves_bilinear_vs_exponential](../Images/activity_curves_bilinear_vs_exponential.png)
+![activity_curves_bilinear_vs_exponential](../Images/OpenAPS_activity_curves_bilinear_vs_exponential.png)
 
-![activity_curves_bilinear_vs_exponential_dia_5](../Images/activity_curves_bilinear_vs_exponential_dia_5.png)
+![activity_curves_bilinear_vs_exponential_dia_5](../Images/OpenAPS_activity_curves_bilinear_vs_exponential_dia_5.png)
 
-![iob_curves_bilinear_vs_exponential](../Images/iob_curves_bilinear_vs_exponential.png)
+![iob_curves_bilinear_vs_exponential](../Images/OpenAPS_iob_curves_bilinear_vs_exponential.png)
 
 ## Technical Details
 The source for the new functional forms for the exponential curves were calculated by [Dragan Macsimovic](https://github.com/dm61) and can be found as part of a discussion on the [LoopKit Github page](https://github.com/LoopKit/Loop/issues/388#issuecomment-317938473). There were many others contributing to this discussion, development, and testing of exponential curves for Loop and OpenAPS. The [full discussion](https://github.com/LoopKit/Loop/issues/388) is very technical, but useful if you want more information on the exponential curves.
