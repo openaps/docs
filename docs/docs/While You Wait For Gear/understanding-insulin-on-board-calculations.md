@@ -116,24 +116,30 @@ A user can select one of three curve defaul settings:
 Most commonly, *exponential* is associated with *exponential growth* -- as in, how quickly bacteria might grow in a petri dish, for example. A little less commonly, *exponential* is associated with *exponential decay* -- as in, what the radioactive half-life of a particular element might be.
 
 Examples of such *exponential growth* and *exponential decay* could look like this:
+
 ![example_exponential_growth_and_decay](../Images/example_exponential_growth_and_decay.png)
 (Though the mathematical formulas can be written such that how steep the growth or decay curves can vary quite a bit.)
 
 In the application of exponential curves in modeling how insulin is used in the human body, the trick is to write a mathematical formula that combines some delay in the activity, some rapid growth in the activity to the peak, and then a smooth transition down until all the insulin is used up. (See the **Technical Details**, below for links to the underlying math.)
 
 With `dia` set to 5 hours and the `peak` set to 75 minutes (the default settings for **rapid-acting** insulins), the exponential activity curves in the OpenAPS dev branch looks like this:
+
 ![exponential_activity_curve_dia_5_peak_75](../Images/OpenAPS_exponential_activity_curve_dia_5_peak_75.png)
 
 Just like how the bilinear curve in OpenAPS version 0.5.4, the `activity` curves in version 0.6 will start at zero and end at zero and the area under the curve will sum up to 100 percent of the insulin being used up. 
+
 ![exponential_activity_curve_dia_5_peak_75_area](../Images/OpenAPS_exponential_activity_curve_dia_5_peak_75_area.png)
 
 The shape of exponential `activity` curves can vary by either `dia` or by `peak`. Below is what the `activity` curves look like for three separate `peak` settings, but holding the `dia` setting fixed at 5 hours.
+
 ![exponential_activity_curves_dia_5_peak_60_75_90](../Images/OpenAPS_exponential_activity_curves_dia_5_peak_60_75_90.png)
 
 A useful way to visualize how the `activity` curves translate to the `iob` curves is to first show what the cumulative `activity` curves look like:
+
 ![exponential_cum_activity_curves_dia_5_peak_60_75_90](../Images/OpenAPS_exponential_cum_activity_curves_dia_5_peak_60_75_90.png)
 
 And then the `iob` curves are just the inverse of the cumulative `activity` curves:
+
 ![exponential_iob_curves_dia_5_peak_60_75_90](../Images/OpenAPS_exponential_iob_curves_dia_5_peak_60_75_90.png)
 
 ## How Do The Exponential Curves Compare To The Bilinear Curves?
@@ -144,14 +150,18 @@ Everyone is different, and their bodies may absorb insulin at different rates. F
 That said, the bilinear curve currently used in OpenAPS 0.5.4 is a relatively simple model of how insulin is absorbed. Although it's a simple model, in many cases it provides decent approximations. The proposed exponential curves are more complex and more closely aligned to how an individual's body might absorb their insulin. But users may or may not find significant differences in how their OpenAPS performs just by switching to the exponential curves.
 
 You can think of the exponential curve for the default **rapid-acting* insulin settings (`dia` = 5 hours, `peak` = 75 minutes) as being a combination of two bilinear curves. One where `dia` is set to 3 hours and the `peak` occurs at 75 minutes; and another one where the `dia` is set to 5 hours, but the `peak` occurs at 125 minutes. 
+
+
 ![activity_curves_bilinear_vs_exponential](../Images/OpenAPS_activity_curves_bilinear_vs_exponential.png)
 (The area under each of the three curves sums to 100 percent.)
 
 To make a more direct, apples-to-apples, comparison, setting the exponential curve with `dia` = 5 hours and `peak` = 125 minutes, the difference between the two curves is a little clearer: 
+
 ![activity_curves_bilinear_vs_exponential_dia_5](../Images/OpenAPS_activity_curves_bilinear_vs_exponential_dia_5.png)
 **NOTE:** As described above, OpenAPS will NOT allow you to set a `peak` value above 120 minutes. This graph is shown just to make a direct comparison between the two types of curves.
 
 Finally, going back to an exponential curve with `dia` set to 5 hours and `peak` set to 75 minutes, the comparison between how the `iob` curve looks relative to the `iob` curve using the bilinear `activity` curve with `dia` set to 5 hours is probably the most relevant:
+
 ![iob_curves_bilinear_vs_exponential](../Images/OpenAPS_iob_curves_bilinear_vs_exponential.png)
 
 The `iob` curve based on the exponential `activity` curve has insulin being used up significantly faster than the `iob` curve based on the bilinear `activity` curve. After one hour, for example, there is a 13 percent difference in how much insulin is remaining between the two curves, and after 2 hours there is a 17 percent difference between the two curves.
