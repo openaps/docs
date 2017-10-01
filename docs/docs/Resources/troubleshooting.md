@@ -91,7 +91,7 @@ It is common that log files are the cause for disk space issues. If you determin
 If you are getting your BG from Nightscout or you want to upload loop status/results to Nightscout, among other things you'll need to set 2 environment variables: `NIGHTSCOUT_HOST` and `API_SECRET`. If you do not set and export these variables you will receive errors while running `openaps report invoke monitor/ns-glucose.json` and while executing `ns-upload.sh` script which is most probably part of your `upload-recent-treatments` alias.Make sure your `API_SECRET` is in hashed format. Please see [this page](https://github.com/openaps/oref0#ns-upload-entries) for details. Additionally, your `NIGHTSCOUT_HOST` should be in a format like `http://yourname.herokuapp.com` (without trailing slash). For the complete visualization guide use [this page](https://github.com/openaps/docs/blob/master/docs/Automate-system/vizualization.md) from the OpenAPS documentation.
 
 ## Wifi and hotspot issues
-See [wifi troubleshooting page](wifi.md)
+See [wifi troubleshooting page](https://openaps.readthedocs.io/en/2017-05-21/docs/Resources/wifi.html)
 
 ## Common error messages
 
