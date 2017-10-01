@@ -149,7 +149,7 @@ Everyone is different, and their bodies may absorb insulin at different rates. F
 
 That said, the bilinear curve currently used in OpenAPS 0.5.4 is a relatively simple model of how insulin is absorbed. Although it's a simple model, in many cases it provides decent approximations. The proposed exponential curves are more complex and more closely aligned to how an individual's body might absorb their insulin. But users may or may not find significant differences in how their OpenAPS performs just by switching to the exponential curves.
 
-You can think of the exponential curve for the default **rapid-acting* insulin settings (`dia` = 5 hours, `peak` = 75 minutes) as being a combination of two bilinear curves. One where `dia` is set to 3 hours and the `peak` occurs at 75 minutes; and another one where the `dia` is set to 5 hours, but the `peak` occurs at 125 minutes. 
+You can think of the exponential curve for the default **rapid-acting** insulin settings (`dia` = 5 hours, `peak` = 75 minutes) as being a combination of two bilinear curves. One where `dia` is set to 3 hours and the `peak` occurs at 75 minutes; and another one where the `dia` is set to 5 hours, but the `peak` occurs at 125 minutes. 
 
 
 ![activity_curves_bilinear_vs_exponential](../Images/OpenAPS_activity_curves_bilinear_vs_exponential.png)
@@ -158,7 +158,7 @@ You can think of the exponential curve for the default **rapid-acting* insulin s
 To make a more direct, apples-to-apples, comparison, setting the exponential curve with `dia` = 5 hours and `peak` = 125 minutes, the difference between the two curves is a little clearer: 
 
 ![activity_curves_bilinear_vs_exponential_dia_5](../Images/OpenAPS_activity_curves_bilinear_vs_exponential_dia_5.png)
-**NOTE:** As described above, OpenAPS will NOT allow you to set a `peak` value above 120 minutes. This graph is shown just to make a direct comparison between the two types of curves.
+**NOTE: As described above, OpenAPS will NOT allow you to set a `peak` value above 120 minutes. This graph is shown just to make a direct comparison between the two types of curves.**
 
 Finally, going back to an exponential curve with `dia` set to 5 hours and `peak` set to 75 minutes, the comparison between how the `iob` curve looks relative to the `iob` curve using the bilinear `activity` curve with `dia` set to 5 hours is probably the most relevant:
 
