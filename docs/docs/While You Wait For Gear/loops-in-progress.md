@@ -212,3 +212,4 @@ List of people who are working on closed loops:
 - Allison Marx (Atlanta, GA)
 - David Ashby (Provo, UT, USA) 715 Edison / Explorer Board
 - Andrew Warrington (Alsace, France)
+- Kelsey Yearick (Crook, Colorado)
