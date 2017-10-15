@@ -182,7 +182,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.sh` try this:
+If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.sh` and autotune won't run, try this (note: as of oref 0.5.5, this error has been downgraded to a warning as this will only prevent autotune from running if you have "locked down" your NS to prevent anonymous read access):
 
 1. Log into your VM
 2. At the command promot, type `cd /etc/` and hit enter
