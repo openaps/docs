@@ -1,6 +1,6 @@
 # IFTTT Integration
 
-Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, or anything that supports If This, Then That (IFTTT)?  Check out the YouTube Video below to see some sample integrations (click on the watchface photo to start video):
+Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, Google Assistant, or anything that supports If This, Then That (IFTTT)?  Check out the YouTube Video below to see some sample integrations (click on the watchface photo to start video):
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
@@ -167,6 +167,9 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
    * Name: what shows up on your watch
    * Event: the name of the Maker event to fire.  It will have underscores in it like: `eating_soon`.
 * Enter all the different events you created here and submit them.
+  * These are seperate events from ones you may have already created for the "Button" app
+  * You will need to create new IFTTT recipes with THIS as the Webhooks "Receive a web request" trigger.
+  * THAT will be identical to the THAT which you have probably already set up for "Button"
 * Fire up the ThisButton app on your Pebble and try setting a new temp target.
 * You can also add the ThisButton app as a short cut on your Pebble. If you don’t have shortcuts already, press and hold either the up, down, or middle button and follow the prompts. If you have both shortcuts programmed and want to change one, go to menu > settings> quick launch and follow prompts.
 
@@ -178,6 +181,27 @@ Note: ThisButton does not work on Pebble Round watches.  You can search for IFTT
   ![Maker Request](../Images/alexa_maker.png)
   * Alexa requests do not need underscores, FYI.
   
+## Google Assistant integration
+* If you don't have Alexa, you can still use voice with Google Assistant to enter carbs, set or cancel temp targets, log site changes, etc.
+* From the 'THIS' of the New Applet screen, select Google Assistant. Like the other services, you will have to allow it access.
+* To use Google Assistant to enter meal carbs or rescue carbs:
+  * Select "Say a phrase with a number"
+  * Under "What do you want to say?" type out what you'll say when you want to enter carbs and use "#" where you will say the carb amount. For example, "enter # carbs". If you are going to make a distinction between meal and rescue carbs make sure to do that here. If you think you might occasionally use a different phrase, such as "I'm going to eat # carbs" enter it under "What's another way to say it?" This is optional.
+  * Your Google Assistant will say something in response confirming the recipe has run. Put what you'd like it to say under "What do you want the Assistant to say in response?" Example: "entered # carbs"
+  * Click "Create Trigger"
+* Your THAT will be ALMOST identical to recipes created for the Button. Instead of the exact number of carbs you want to enter, under the Body field, click "Add Ingredient" then "NumberField". 
+* Then click Create Action and Finish
+* Here are some of the examples from above formatted for use with Google Assistant:
+
+Enter Meal Carbs with Google Assistant (or Low treatment without high target to help recovery) EX: Triggered by "Enter # Carbs"
+```
+{"enteredBy": "GoogleAssistant", "carbs": {{NumberField}}, "secret": "your_hashed_api_goes_here!!!"}
+```
+Custom Low Treatment with a 60 min high target to help recovery. EX: Triggered by "Enter # rescue carbs"
+```
+{"enteredBy": "GoogleAssistant", "eventType": "Temporary Target", "reason": "low treatment", "carbs": {{NumberField}, "targetTop": 120, "targetBottom": 120, "duration": 60, "secret": "your_hashed_api_goes_here!!!"}
+```
+  
 ## Google Calendar integration
 
 * Using the Google Calendar Applet with IFTTT is useful to trigger temp targets that may occur on a recurring schedule, although you can also schedule a one-time event in advance as well.  If you already have IFTTT/Maker requests working it's easy to add.  Follow the directions for Setup for Phones above, but rather than choosing "Button Widget" type "Google Calendar" in the search field and then click on the box labeled "Google Calendar".  
