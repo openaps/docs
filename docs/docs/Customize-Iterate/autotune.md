@@ -1,6 +1,6 @@
 # Autotune
 
-Autotune is a feature/tool that may be improved with more advanced methods of numerical analysis. Want to pay it forward and help improve autotune?  See some issues: [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and a pull request [#313](https://github.com/openaps/oref0/pull/313) for background. You can see [the need for software proficient volunteers to help tackle here](https://github.com/openaps/oref0/projects/1). 
+Autotune is a feature/tool that may be improved with more advanced methods of numerical analysis. Want to pay it forward and help improve autotune?  See some issues: [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and a pull request [#313](https://github.com/openaps/oref0/pull/313) for background. You can see [some projects for software proficient volunteers to help tackle here](https://github.com/openaps/oref0/projects/1). 
 
 Those who are not running autotune in a closed-loop setting should use the "Phase C" instructions below.
 
