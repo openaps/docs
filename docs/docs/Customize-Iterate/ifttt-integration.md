@@ -126,7 +126,7 @@ CGM Sensor Start
 
 ![IFTTT services2](../Images/IFTTT_services2.png)
 
-* You will see your Maker Key as the last part of the URL; copy and paste that last part (the red underlined part as shown)
+* You will see your Maker Key as the last part of the URL; copy and paste that last part (the red circled part as shown)
 
 ![IFTTT markerkey](../Images/IFTTT_makerkey.png)
 
