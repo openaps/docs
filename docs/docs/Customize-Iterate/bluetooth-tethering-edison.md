@@ -43,9 +43,8 @@ A few things to know about using your phone's hotspot feature:
 
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
+This section is completed by the install method found here http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#copy-and-paste-to-run-the-wifi-and-oref0-setup-scripts . If you selected the option of installing Bluetooth at a later time during installation you may skip to Bluetooth Setup, the next section. 
 ### Install dependencies 
-
-This section is completed by the install method found here http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#copy-and-paste-to-run-the-wifi-and-oref0-setup-scripts . If you selected the option of installing Bluetooth at a later time during installation you may skip to the next section. 
 You will need to get the MAC address from your phone or whatever device you are using.
 * On Android, go to Settings/About Phone/ Status; you will find your Bluetooth address looking like AA:BB:CC:DD:EE:FF 
 * On iPhone, go to Settings/General/About; it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF
