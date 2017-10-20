@@ -217,3 +217,4 @@ List of people who are working on closed loops:
 - Gerard Dwan (Boston, MA)
 - Jon Groelz (Captain Cook, HI)
 - Christos Alonistiotis (Athens, Greece)
+- Chris Lodermeier (MN)
