@@ -173,6 +173,7 @@ Basic steps using an Intel Edison with Explorer Board, checking with `openaps mm
   * Remove and re-add your pump device
 
 If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
+  * Stop the reboot loop: `killall -g oref0-pump-loop && sudo service cron stop && shutdown -c`
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
   * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
   * Flash the radio chip:
