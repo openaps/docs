@@ -8,7 +8,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
 
 Your preferences are found in the directory `myopenaps/preferences.json`.  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 
-To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json` When editing prefrences, it's advised to do so in terminal (not a word processor) in order to ensure ascii characters are used within your preferences file. 
+To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json` When editing preferences, it's advised to do so in terminal (not a word processor) in order to ensure ascii characters are used within your preferences file. 
 
 ## Commonly-adjusted preferences:
 
