@@ -218,3 +218,4 @@ List of people who are working on closed loops:
 - Jon Groelz (Captain Cook, HI)
 - Christos Alonistiotis (Athens, Greece)
 - Chris Lodermeier (MN)
+- Tom Beesley (Brighton, UK)
