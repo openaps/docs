@@ -220,7 +220,7 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 ## Install packages, ssh keys, and other settings
 
-From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
+From a new terminal or PuTTY window, `ssh root@myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
 Log in as root (with the password you just set above), and run:
 
