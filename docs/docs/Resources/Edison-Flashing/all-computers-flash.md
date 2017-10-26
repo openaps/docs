@@ -204,7 +204,7 @@ Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `reboot` to apply the wifi changes and (hopefully) get online
 
-After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi.
+After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi. It should print out your network name.
 
 Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.
 
