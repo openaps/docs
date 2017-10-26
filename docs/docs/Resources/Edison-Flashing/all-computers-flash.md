@@ -7,7 +7,7 @@ Your Explorer Board has 2 micro USB connectors, they both provide power. On the 
 
 You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
 
-The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi).  If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html). 
+The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi). Linux users in general should be able to follow the steps for the Raspberry Pi. If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html).
 
 ## Prerequisites
 
