@@ -68,7 +68,7 @@ You may see an error that references a loose object, or a corrupted git reposito
 
 We recommend runing `oref0-reset-git` in cron so that if the repository gets corrupted it can quickly reset itself. 
 
-Finally, if you're still having git issues, you should `rm -rf ~/myopenaps/.git` . If you do this, git will re-initialize from scratch.
+Finally, if you're still having git issues, you should `cd ~/myopenaps; rm -rf .git ; git init` . If you do this, git will re-initialize from scratch.
 
 Warning: do not run any openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
 
