@@ -219,3 +219,4 @@ List of people who are working on closed loops:
 - Christos Alonistiotis (Athens, Greece)
 - Chris Lodermeier (MN)
 - Tom Beesley (Brighton, UK)
+- Robert Sandvik (Stavanger, Norway)
