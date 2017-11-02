@@ -2,7 +2,7 @@
 
 ## Basics of communications
 
-If your looping is to be successful, you will need good communications between the pump and rig.  They communicate with each other using radio frequency (rf).  If you have an North American (NA) pump, the rf band used is 916 mHz.  If you have a European (WW) pump, the rf band is 858 mHz.  As part of the setup script, you will be telling the rig which type of pump you have so that it can properly use the right rf band to communicate with the pump.  When the rig wants to talk with the pump, it will start by "tuning the rf"...basically it will try several frequencies around the 916 mHz frequency and choose the exact frequency that has the strongest response.  The tuning process for the pump is called "mmtune".
+If your looping is to be successful, you will need good communications between the pump and rig.  They communicate with each other using radio frequency (rf).  If you have an North American or Canadian/Australian pump (Pump Model REF contains NA or CA), the rf band used is 916 mHz.  If you have a European (WW) pump, the rf band is 858 mHz.  As part of the setup script, you will be telling the rig which type of pump you have so that it can properly use the right rf band to communicate with the pump.  When the rig wants to talk with the pump, it will start by "tuning the rf"...basically it will try several frequencies around the 916 mHz frequency and choose the exact frequency that has the strongest response.  The tuning process for the pump is called "mmtune".
 
 For example, here's the results of a pump tune:
 ```
