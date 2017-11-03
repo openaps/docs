@@ -220,3 +220,4 @@ List of people who are working on closed loops:
 - Chris Lodermeier (MN)
 - Tom Beesley (Brighton, UK)
 - Robert Sandvik (Stavanger, Norway)
+- Eugene Girard (Kitchener, Canada)
