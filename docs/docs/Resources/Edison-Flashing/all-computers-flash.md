@@ -7,7 +7,7 @@ Your Explorer Board has 2 micro USB connectors, they both provide power. On the 
 
 You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
 
-The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi).  If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html). 
+The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi). Linux users in general should be able to follow the steps for the Raspberry Pi. If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html).
 
 ## Prerequisites
 
@@ -204,7 +204,7 @@ Press Esc and then type ':wq' and press Enter to write the file and quit
 
 `reboot` to apply the wifi changes and (hopefully) get online
 
-After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi.
+After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi. It should print out your network name.
 
 Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.
 
@@ -220,7 +220,7 @@ If you need more details on setting up wpa_supplicant.conf, see one of these gui
 
 ## Install packages, ssh keys, and other settings
 
-From a new terminal or PuTTY window, `ssh myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
+From a new terminal or PuTTY window, `ssh root@myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
 
 Log in as root (with the password you just set above), and run:
 
@@ -239,7 +239,7 @@ Edit (with `nano` or `vi`) /etc/logrotate.conf and change the log rotation to `d
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
-If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison (directions you can adapt are here: [http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html#mac-and-linux)).  For Windows/Putty users, you can use these instructions: [https://www.howtoforge.com/ssh_key_based_logins_putty](https://www.howtoforge.com/ssh_key_based_logins_putty).
+If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison ([directions you can adapt are here](http://openaps.readthedocs.io/en/latest/docs/Resources/Deprecated-Pi/Pi-setup.html#mac-and-linux)).  For Windows/Putty users, you can use these instructions: [https://www.howtoforge.com/ssh_key_based_logins_putty](https://www.howtoforge.com/ssh_key_based_logins_putty).
 
 If you're *not* using the Explorer board, are running as the `edison` users, and want to be able to run sudo without typing a password, run:
 ```
