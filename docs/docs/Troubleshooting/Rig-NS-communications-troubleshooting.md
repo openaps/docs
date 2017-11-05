@@ -76,6 +76,8 @@ Return to your home screen and you will be able to verify the `Size on Disk` has
 
 ![mLab compact verify](../Images/mlab_compact3.png) 
 
+**Note about inability to compact data**.  Several people have reported that they get a timeout error when following the above compacting instructions and the size on disk is not reduced.  If you run into this issue, you can send an email to mLab support at support@mlab.com and they will compact the database for you.
+
 ### Cleanout data
 
  **NOTE:**  Before you cleanout your data, please check out the option to upload (or "donate") your data anonymously to the [OpenAPS Data Commons](http://openaps.readthedocs.io/en/latest/docs/Give%20Back-Pay%20It%20Forward/data-commons-data-donation.html) project.  The OpenAPS Data Commons was created to enable a simple way to share data sets from the community, both with traditional researchers who will create traditional research studies, and with groups or individuals from the community who want to review data as part of their own research projects. So before you delete or cleanout any data from your mLab, consider doing an upload to OpenAPS Data Commons first.
