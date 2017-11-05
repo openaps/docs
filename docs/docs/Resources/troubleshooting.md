@@ -60,6 +60,16 @@ Sometimes the Carelink will get into an unresponsive state that it will not reco
 
 Once you're setting up your loop, you may want to detect these errors and recover the Carelink programmatically. This can be done by running oref0-reset-usb (`oref0-reset-usb.sh`) to reset the USB connection. For example, you could create a cron job that would run `openaps use <my_pump_name> model`, or tail the 100 most recent lines in pump-loop.log, and grep the output looking for the errors noted above. If grep finds the errors, the cron job would run oref0-reset-usb. Just note that during USB reset you will lose the connection to all of your USB peripherals. This includes your Wi-Fi connection if your rig uses a USB Wi-Fi dongle.
 
+## Dealing with npm run global-install errors
+
+If you get an error while running an npm global-install, you may be able to clear it by running the following commands:
+
+`rm -rf /usr/lib/node_modules/.staging/ && rm -rf ~/src/oref0 && cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout master && git pull)`
+
+then run `cd ~/src/oref0 && git checkout master && git pull` or if you are running dev then `cd ~/src/oref0 && git checkout dev && git pull`
+
+then run `cd ~/src/oref0 && npm run global-install` and then re-run oref0-setup.
+
 ## Dealing with a corrupted git repository
 
 OpenAPS uses git as the logging mechanism, so it commits report changes on each report invoke. Sometimes, due to "unexpected" power-offs (battery dying, unplugging, etc.),the git repository gets broken. When it happens you will receive exceptions when running any report from openaps. As git logging is a safety/security measure, there is no way of disabling these commits.
