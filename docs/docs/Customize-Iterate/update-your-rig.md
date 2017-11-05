@@ -25,7 +25,7 @@ Or, if the feature you want hasn't been released yet, and you want to test the l
 In case you want to test even more advanced stuff you've read about on gitter channels ([intend-to-bolus](https://gitter.im/nightscout/intend-to-bolus) / [openaps/oref0](https://gitter.im/openaps/oref0) / [openaps/autotune](https://gitter.im/openaps/autotune)) or on [official pull request list](https://github.com/openaps/oref0/pulls) you should follow the link, read description and in case you've decided to try it out, do:
 
 1. Checkout the header of pull request. It will contain author name, the branch to be merged to (dev or master) and the feature branch name that you want to test.
-2. run 'cd ~/src/oref0 && git fetch && git checkout <feature-branch-name> && git pull && npm run global-install'
+2. run `cd ~/src/oref0 && git fetch && git checkout <feature-branch-name> && git pull && npm run global-install`
   * don't forget to replace `<feature-branch-name>` with the actual name of the feature branch you want to test
 
 ## Step 2: Re-run oref0-setup
