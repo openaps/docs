@@ -97,6 +97,10 @@ CGM Sensor Start
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Sensor Start", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
+Carbs (change carb amount to match your required carb count. Make a button for each carb count required: 5-10-15-etc.)
+```
+{"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 10, "secret": "your_hashed_api_goes_here!!!"}
+```
 
 ### Understanding the JSON in the Body:
 
