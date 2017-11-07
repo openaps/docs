@@ -231,9 +231,9 @@ Click on the `Add Log Filter` button and add three filters for `CRON`, `libmraa`
 
 ![papertrail log filters](../Images/log_filters.png)
 
-##### Saved Filters
+##### Saved Searches
 
-Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved filters, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful filters to save to find those issues fastest are:
+Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved searches, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful searches to save in order to find those issues fastest are:
 
 * `pump-loop.log` to see just your pump loop...similar to using the `l` command when logged into your rig.  
 
@@ -241,11 +241,11 @@ Unfortunately, Papertrail does not currently have an app for use on mobile devic
 
 * `pump-loop.log adjust` will show your basal and ISF adjustments being made by autosens, if enabled.
 
-If you are running multiple rigs, you can also setup these filters to include the hostname of a particular rig, if you want to filter just for that rig.  For example, this screenshot below would be setting and saving up a filter for a particular rig with the hostname of `edison1` and only for its pump-loop.log.  
+If you are running multiple rigs, you can also setup these searches to include the hostname of a particular rig, if you want to see results just for that rig.  For example, this screenshot below would be saving  a search for a particular rig with the hostname of `edison1` and only for its pump-loop.log.  
 
 ![papertrail log filters](../Images/save_filter.png)
 
-Once you get your desired filters saved, it is an easy process to make them more accessible on your mobile device by using the `add to homescreen` button.  For example, below are the quick links to the saved filters for an OpenAPS user with three rigs...
+Once you get your desired searches saved, it is an easy process to make them more accessible on your mobile device by using its browser's `add to homescreen` button.  For example, below are the quick links to the saved searches for an OpenAPS user with three rigs...
 
 ![papertrail homescreen buttons](../Images/papertrail_home_buttons.png)
 
