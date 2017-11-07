@@ -3,23 +3,26 @@
 Note: The Edison/Explorer Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
 
 * Explorer Block
-* Edison (which you can now order pre-flashed with jubilinux)
+* Edison
 * Nuts and Bolts to attach the Edison to the Explorer Block
 * At least one Lithium battery
 * 2 USB cables
+
+## Explorer Block
+
+The recommended board to use is the [Explorer Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. 
 
 ## Edison 
 
 [Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
-* Option A (**RECOMMENDED - this will save you several hours**): [Buy an Edison that is already flashed with jublinux - see here](https://enhanced-radio-devices.myshopify.com/products/intel-edison-w-jubilinux). You can order it from the same manufacturer that makes the Explorer Boards (see below). Once you get your pre-flashed Edison, you can [install and setup OpenAPS[(http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html) and get looping much more quickly.
-  * If it is "out of stock", you can sign up to get notifications for when they're back in stock. Even if they're out of stock at the moment, we recommend waiting a few days to get a pre-flashed Edison.  If you get impatient and try to buy an Edison elsewhere and flash it yourself, you'll probably end up frustrated with the process, and may end up wasting more time asking someone to walk you through the process on Gitter than it would've taken to just wait for the next batch of pre-flashed Edisons.
+* Option A (likely no longer available)): [Buy an Edison that is already flashed with jublinux - see here](https://enhanced-radio-devices.myshopify.com/products/intel-edison-w-jubilinux). You can order it from the same manufacturer that makes the Explorer Boards (see below). Once you get your pre-flashed Edison, you can [install and setup OpenAPS[(http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html) and get looping much more quickly.
 
-* Option B (**NOT RECOMMENDED** unless you've previously flashed jubilinux and are comfortable doing so again): Get it out of the box from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider - and follow the instructions to flash it. Be aware that there are four versions: 1-EDI2.LPON, 2-EDI2.SPON, 3-EDI2.LPOF, and 4-EDI2.SPOF. Option 1 claims lower power consumption, and if so would be better for a portable rig.  Option 2 is the more common version, with theoretically higher consumption because of the additional power dedicated to wifi. If you purchase a development kit, this is the version you will get. Versions 3 and 4 require an external antenna.  To date no one has done any side-by-side testing of power consumption between the LPON and SPON Edison versions, so it is unclear how much difference (if any) the model number would make to power consumption in real-world conditions with an OpenAPS rig. So, get whichever one is cheapest or you decide you want.
+* Option B (**Probably what you'll have to do as the stock of Edisons is dwindling**): Get it out of the box from [Amazon](http://www.amazon.com/gp/product/B00PTVSVI8?dpID=51yqQB46DIL&dpSrc=sims&preST=_SL500_SR135%2C135_&refRID=6AE996400627CC0KPY52&ref_=pd_rhf_se_s_cp_2), Adafruit, Sparkfun or your nearest provider - and follow the instructions to flash it. Be aware that there are four versions: 1-EDI2.LPON, 2-EDI2.SPON, 3-EDI2.LPOF, and 4-EDI2.SPOF. (Versions 3 and 4 require an external antenna - try to avoid those).  
 
-The different model numbers or variants of the Intel Edison Compute Module do not appear to be documented on Intel's website or at many of the online retailers. However, the different variants can be seen in the product listings at [Mouser](http://www.mouser.com/Embedded-Solutions/Computing/_/N-aez39?Keyword=intel+edison) and [Arrow](https://www.arrow.com/en/products/search?q=intel%20edison&filters=Manufacturer_name:Intel;).
+You may need to hunt for an Edison as supplies of them are dwindling - if you get it as part of a "kit" (i.e. breakoutboard + Edison), keep in mind _you'll still need to get the Explorer Board from Hamshield_.
 
-It appears as though the main differences pertain to onboard vs. external antenna and low power vs. high power wireless radio options. The low power radio variant is classified by Intel as "Wearable". According to some discussion on the Intel message boards (see [here](https://communities.intel.com/thread/81519) and [here](https://communities.intel.com/message/251806#251806)) the "Wearable" variant limits the wireless radio power to "keep the thermal properties at a lower level". Some users have noted that their Edison modules get very hot at times. Although the discussions referenced above suggest that using the low power "Wearable" variant may help avoid heat issues, the different Edison models have not been tested side-by-side in an OpenAPS configuration to determine whether or not any one model would use lower power, generate less heat, or have better wireless performance compared to the other models.
+**Note:** If you are doing Option B (an Edison from wherever you can find it) - you are getting an UNFLASHED Edison. Not a big deal - flashing is just a few more steps - but remember you'll need to start with the flashing instructions. Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), but stop before installing wifi and other steps and instead jump over to the "[Install OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html)" page from there. 
 
 ## Lithium-ion polymer (LiPo) battery or other battery supply
 
@@ -32,10 +35,6 @@ The following link is to a LiPo battery that is currently most commonly being us
 Alternative, but common, higher capacity batteries include the Adafruit Lithium Ion Polymer Battery - 3.7v 2500mAh (PRODUCT ID: 328) and the Adafruit Lithium Ion Cylindrical Battery - 3.7v 2200mAh (PRODUCT ID: 1781). They can be viewed here: [POWER / LIION & LIPOLY / BATTERIES](https://www.adafruit.com/category/574) and comparables can be easily located with an Internet search.
 
 For people in the UK, you may find you have to shop around to find the correct battery, as shipping restrictions appears to have reduced the supply somewhat. [Pimoroni](https://shop.pimoroni.com/products/lipo-battery-pack) appear to stock the same Adafruit 2000mAh battery as mentioned above. Another source looks to be [Cool Components](https://www.coolcomponents.co.uk/en/lithium-polymer-battery-2000mah.html), but you may find shipping costs expensive. CAUTION: [RS Online](https://uk.rs-online.com/mobile/p/lithium-rechargeable-battery-packs/1251266/) sell a similar battery, but unfortunately it comes with the wrong JST connector (it comes with a 2.5mm JST XHP-2, and you need a 2mm JST PH). It is possible, however, to buy the [right connectors](https://www.technobotsonline.com/jst-ph-2mm-2-way-housing-excludes-female-pins.html) and fit them yourself (numerous 'how to' videos on YouTube).
-
-## Explorer Block or another base board 
-
-You can use just about any base board, including the Intel base board or the Sparkfun base board, both of which are commonly sold with the Edison as a kit. However, the recommended board to use is the [Explorer Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. Use the link above to find/purchase an Explorer Block.
 
 ### Explorer Block antenna tuning (optional)
 
