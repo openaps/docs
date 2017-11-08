@@ -222,3 +222,4 @@ List of people who are working on closed loops:
 - Robert Sandvik (Stavanger, Norway)
 - Eugene Girard (Kitchener, Canada)
 - Luke Jenkins for Kyler (Vancouver, WA)
+- Brandon Hunnicutt (Denver, Colorado)
