@@ -92,13 +92,15 @@ Full definition of suggested.json:
 
 OpenAPS can high-temp more quickly after a meal bolus if it knows about carbs (which you can enter from either the bolus wizard, or if your rig is online, via Nightscout and/or IFTTT (Alexa, Siri, Pebble). 
 
-With AMA, once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have 3 purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
+With AMA, once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have multiple purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
 
-* (Usually) Top line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption 
+* (Usually) Top line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption  - aka "aCOB" (see notes below about removing it in 0.6.0 and later)
 
 * (Usually) Middle line == based on current carb absorption (if current carb absorption is > 10 mg/dL/5m, this will end up being the top line)
 
 * Bottom line == based on insulin only
+
+The purple lines in Nightscout have changed beginning in oref0 0.6.0 and beyond. We are removing aCOB (unused by everyone) and subbing in a "zero temp"-predBG line (ZTpredBG, etc.) showing how long it will take BG to level off at/above target if deviations suddenly cease and we run a zero temp until then. It then uses the lowest of those ZTPredBGs to ensure that we're dosing safely with UAM: if UAM predicts BG to stay high (based on deviations), but we wouldn't be able to prevent a low if those deviations suddenly stopped, we'll adjust the UAM-based insulinReq to be somewhat less aggressive. Conversely, if UAM shows BG ending up below target in 4h, but the ZTPredBGs show that we can safely zero temp and level out well above target, it will allow oref0 to be slightly more aggressive and bring BG down faster, safe in the knowledge it can zero temp if needed. NOTE: you will require an update to NS to view the new line. 
 
 ## Using temporary targets for “Eating Soon” mode and “Activity” modes
 
