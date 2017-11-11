@@ -7,7 +7,7 @@ NOTE OF CAUTION:
 
 ## Only run oref1 with the following caveats in mind: 
 
-* Remember that you are choosing to test a still-in-development feature. Do so at your own risk & with due diligence to keep yourself safe. The number one rule (and the first pass phrase for enabling oref1 features) is "s@fety".
+* Remember that you are choosing to test a still-in-development feature. Do so at your own risk & with due diligence to keep yourself safe. 
 * You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail.
 * **We are requiring that you also have run autotune prior to enabling SMB.** Why? Because if you have wonky ISF settings, for example, you may be more likely to go low or high with SMB. It will help a lot to have run autotune and be aware if the algorithm is recommending changes to ISF, basal, and/or carb ratio. You are not required to run autotune automatically/nightly as part of your loop with SMB; but you should at least run it manually and get an idea for how confident you are in your settings being right or not; and keep that in mind when evaluating SMB outcomes for yourself.
 * You should have basals of > 0.5 U/hr. (SMB is *not* advisable for those with very small basals; since 0.1U is the smallest increment that can be bolused by SMB.  We also added a basal check to disable SMB when basals are < 0.3 U/hr.  If your "regular" basal in the pump is 0.3 U/hr and autosens or autotune has adjusted your basal rate to below 0.3 U/hr, SMBs will be disabled as well.)
@@ -40,7 +40,7 @@ UAM will be triggered if the preference is toggled on and there is carb activity
 
 ## How to turn on SMB/UAM
 
-* As of July 13, 2017, SMB/UAM are in the master branch of oref0 (oref0 0.5.0). They are under the advanced features menu, and require you to read these docs carefully from top to bottom on this page in order to enable it during the setup script. Afterward, you also need to turn on the relevant settings in preferences.json. You may want to experiment with turning only one of them on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
+* As of July 13, 2017, SMB/UAM are in the master branch of oref0 (oref0 0.5.0 and later). In oref0 0.6.0 and later, you will enable SMBs by adding the related preferences to your preferences.json. You may want to experiment with turning only one of them on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
 There are multiple preference toggles for SMB/UAM. Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
 
@@ -52,7 +52,7 @@ There are multiple preference toggles for SMB/UAM. Check out the [preferences pa
  Conversely, a higher temp target (101 if your target is 100) will disable SMB. 
 ```
 
-* To test UAM, you'll need to toggle to "true" the enableUAM in preferences.json. UAM can be enabled without SMB, but it won't be very effective without enableSMB_with_bolus. You'll probably also want to make sure your nightscout is updated to the latest version to make sure that you can take advantage of UAM prediction lines. To test UAM, you'll first want to be familiar with SMB's "normal" behavior (related, the second safety phrase you need to know is "gate"), and then test, with a small meal, giving an up-front bolus (of more than 30m worth of basal, so it can be distinguished from an SMB) and not entering carbs. You'll probably also want to do an "eating soon mode" temporary target or bolus beforehand. You can then observe, by watching the NS purple line predictions and the pump-loop.log, whether your OpenAPS rig is SMB'ing appropriately when it starts to see UAM carb impact.
+* To test UAM, you'll need to toggle to "true" the enableUAM in preferences.json. UAM can be enabled without SMB, but it won't be very effective without enableSMB_with_bolus. You'll probably also want to make sure your nightscout is updated to the latest version to make sure that you can take advantage of UAM prediction lines. To test UAM, you'll first want to be familiar with SMB's "normal" behavior, and then test, with a small meal, giving an up-front bolus (of more than 30m worth of basal, so it can be distinguished from an SMB) and not entering carbs. You'll probably also want to do an "eating soon mode" temporary target or bolus beforehand. You can then observe, by watching the NS purple line predictions and the pump-loop.log, whether your OpenAPS rig is SMB'ing appropriately when it starts to see UAM carb impact.
 
 ## Troubleshooting
 
