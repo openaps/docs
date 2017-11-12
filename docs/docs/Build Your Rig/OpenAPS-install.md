@@ -38,7 +38,7 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 
 #### Login again, and change your password
 
-If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (probably `edison`). It will ask you a second time for the current password (probably `edison`). However, now it will prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your edison if you forget your password.
+If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (`edison` for new Edison rigs). If you're using an Edison and haven't set a password yet, it will ask you a second time for the current password (probably `edison`) and then prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your Edison if you forget your password.
 
 Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
 
