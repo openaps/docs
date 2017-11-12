@@ -1,109 +1,63 @@
-# Installing OpenAPS on your rig with a jubilinux-flashed Edison
+# Setting up a Raspberry Pi
 
-If you are using a Raspberry Pi instead of an Intel Edison, switch over to the [Raspberry Pi instructions](pi-install.md).
+### Download Raspbian and write it to your microSD card ###
 
-*This page assumes you have a pre-flashed (with jubilinux) Edison. Don't have a pre-flashed Edison? Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), then come back here before installing wifi and other steps, which is easier to do following this page's flow.* 
+Following the instructions at https://www.raspberrypi.org/documentation/installation/installing-images/README.md, download Raspbian Lite (you do *not* want Raspbian Desktop) and write it to an microSD card using Etcher.
 
-*This page also assumes you're setting up a brand-new rig and need the full setup including wifi. Make sure to check out the ["how to update your rig in the future"](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/update-your-rig.html) page if you have already had a rig up and running!* 
+### Place your wifi and ssh configs on the new microSD card ###
 
-### Prep Steps
-* **PC users:** [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
+Once Etcher has finished writing the image to the microSD card, remove the microSD card from your computer and plug it right back in, so the boot partition shows up in Finder / Explorer.
 
-* **Mac users:** [follow these instructions to open Terminal and plug in your rig](mac-prep.md). Then, follow the rest of the instructions below.
-
-### Log in to your rig
-
-If you're not already, make sure you're logged into your rig via root. You should see root@jubilinux on the command prompt.
-
-### Copy and paste to run the wifi and oref0-setup scripts
-
-Copy this text (all of it in the box): 
+Create a file named wpa_supplicant.conf on the boot drive, with your wifi network(s) configured.  It should look something like:
 
 ```
-#!/bin/bash
-(
-dmesg -D
-echo Scanning for wifi networks:
-ifup wlan0
-wpa_cli scan
-echo -e "\nStrongest networks found:"
-wpa_cli scan_res | sort -grk 3 | head | awk -F '\t' '{print $NF}' | uniq
-set -e
-echo -e /"\nWARNING: this script will back up and remove all of your current wifi configs."
-read -p "Press Ctrl-C to cancel, or press Enter to continue:" -r
-echo -e "\nNOTE: Spaces in your network name or password are ok. Do not add quotes."
-read -p "Enter your network name: " -r
-SSID=$REPLY
-read -p "Enter your network password: " -r
-PSK=$REPLY
-cd /etc/network
-cp interfaces interfaces.$(date +%s).bak
-echo -e "auto lo\niface lo inet loopback\n\nauto usb0\niface usb0 inet static\n  address 10.11.12.13\n  netmask 255.255.255.0\n\nauto wlan0\niface wlan0 inet dhcp\n  wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf" > interfaces
-echo -e "\n/etc/network/interfaces:\n"
-cat interfaces
-cd /etc/wpa_supplicant/
-cp wpa_supplicant.conf wpa_supplicant.conf.$(date +%s).bak
-echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\nnetwork={\n  ssid=\"$SSID\"\n  psk=\"$PSK\"\n}" > wpa_supplicant.conf
-echo -e "\n/etc/wpa_supplicant/wpa_supplicant.conf:\n"
-cat wpa_supplicant.conf
-echo -e "\nAttempting to bring up wlan0:\n"
-ifdown wlan0; ifup wlan0
-sleep 10
-echo -ne "\nWifi SSID: "; iwgetid -r
-sleep 5
-curl https://raw.githubusercontent.com/openaps/oref0/master/bin/openaps-install.sh > /tmp/openaps-install.sh
-bash /tmp/openaps-install.sh
-)
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+  ssid="MyWirelessNetwork"
+  psk="MyWirelessPassword"
+}
 ```
 
-Copy all of those lines; go back to Terminal/PuTTY and paste into the command line (Paste in PuTTY is just a right mouse click). Then, hit `enter`.  The screenshot below is an example of what the pasted text will look like (highlighted in blue for clarity). *(If you have trouble copying from the box, [click here](https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-bootstrap.sh) and ctrl-a or command-a to copy the text from there.)*
+Also create an empty file named `ssh` (with no file extention) to enable SSH login to the Pi.
 
-*************
-Note: **This setup script will require you to have an available working internet connection to be successful.**  If anything fails during the installation, the setup may end early before you get to the setup script questions.  In that case, you can just paste the script above into the command line again and try again.  (Don't try to use the up arrow, it probably won't work.)  If you get repeated failures, bring your questions and error messages into Gitter or FB for help with troubleshooting.
-*************
+### Boot up your Pi and connect to it ###
 
-![Example of wifi bootstrap script finding wifi options](../Images/Edison/setup-paste.png)
+Eject the microSD card from your computer, insert it into your Pi, and plug in power to the Pi to turn it on.  Give it a couple minutes to boot up.  Once the green LED stops blinking as much, you can try to log in.
 
-The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.  It will run for a while again, and then ask you to type in your wifi name and press `enter`; and type your wifi password and press `enter`.  Pay careful attention to capital letters, spacing, and special characters.
+On Mac, open Terminal and `ssh pi@raspberrypi.local`
+On Windows, use PuTTY to connect as the `pi` user to hostname `raspberrypi.local`
 
-![Example of wifi bootstrap script finding wifi options](../Images/Edison/openaps-bootstrap-wifi-setup.png)
+### Run openaps-install.sh ###
 
-* Change your hostname (a.k.a, your rig's name). **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@whatyounamedit.local`**
+Once you're logged in, run the following command to start the OpenAPS install process:
 
-* Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
+`curl -s https://raw.githubusercontent.com/openaps/oref0/pi-install/bin/openaps-install.sh > /tmp/openaps-install.s && sudo bash /tmp/openaps-install.sh`
 
-The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
-
-#### Be prepared to enter the following information into "oref0-setup":
-
-The screenshot below shows an example of the questions you'll be prompted to reply to during the oref0-setup (a.k.a. setup script).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
-********************
-**IMPORTANT NOTE: One of the first setup questions is "What would you like to call your loop directory?"  PLEASE name your openaps directory with the default name of `myopenaps`.  There are many troubleshooting tips in these docs that assume you have used the default name.  If you don't use `myopenaps` as a new user, chances are nearly 100% that you will forget this warning and try to use the troubleshooting tips without replacing the directory name with your directory name.  Frustrations will ensue.  So PLEASE use the default name of `myopenaps`.  If you want personalization, name your rig something cool...not the `myopenaps` directory.**
-********************
-
-![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
+You'll be prompted to set a password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to start over from the top of this page if you forget your password.
 
 **Be prepared to enter the following items:** 
 
+* your timezone *
 * email address for github commits
-* directory name for your openaps - we recommend the default `myopenaps` (see note above)
 * serial number of your pump
-* whether or not you are using an Explorer board
-   * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
+* whether or not you are using an Explorer Board / HAT
+   * if not an Explorer Board / HAT, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
     * if you're using a Carelink, you will NOT be using mmeowlink
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.  G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
 * whether you want Autosensitivity and/or Autotune enabled
-* whether you want any oref1-related advanced features (SMB/UAM) - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
+* whether you want advanced features (SMB) - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
   * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
 * After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
 
 #### Login again, and change your password
 
-If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (probably `edison`). It will ask you a second time for the current password (probably `edison`). However, now it will prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your edison if you forget your password.
+After rebooting, `ssh` back in using Terminal or PuTTY, but this time as the `root` user:
 
-Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
+On Mac, open Terminal and `ssh root@raspberrypi.local`
+On Windows, use PuTTY to connect as the `root` user to hostname `raspberrypi.local`
 
 ## Watch your Pump-Loop Log - REQUIRED!
 
