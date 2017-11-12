@@ -3,6 +3,7 @@
 ### Get your rig online and install dependencies
 
 If you are using an Intel Edison, start with the [Intel Edison instructions](edison-install.md).
+
 If you are using a Raspberry Pi, start with the [Raspberry Pi instructions](pi-install.md).
 
 ### Run oref0-setup

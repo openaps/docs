@@ -1,4 +1,4 @@
-# Setting up a Raspberry Pi
+# Setting up a Raspberry Pi rig
 
 ### Download Raspbian and write it to your microSD card ###
 
@@ -26,6 +26,7 @@ Also create an empty file named `ssh` (with no file extention) to enable SSH log
 Eject the microSD card from your computer, insert it into your Pi, and plug in power to the Pi to turn it on.  Give it a couple minutes to boot up.  Once the green LED stops blinking as much, you can try to log in.
 
 On Mac, open Terminal and `ssh pi@raspberrypi.local`
+
 On Windows, use PuTTY to connect as the `pi` user to hostname `raspberrypi.local`
 
 ### Run openaps-install.sh ###
