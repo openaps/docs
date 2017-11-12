@@ -14,6 +14,10 @@ Once you've completed the instructions above, return to this page for details on
 
 The screenshot below shows an example of the questions you'll be prompted to reply to during the oref0-setup (a.k.a. setup script).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
 
+********************
+**IMPORTANT NOTE: One of the first setup questions is "What would you like to call your loop directory?"  PLEASE name your openaps directory with the default name of `myopenaps`.  There are many troubleshooting tips in these docs that assume you have used the default name.  If you don't use `myopenaps` as a new user, chances are nearly 100% that you will forget this warning and try to use the troubleshooting tips without replacing the directory name with your directory name.  Frustrations will ensue.  So PLEASE use the default name of `myopenaps`.  If you want personalization, name your rig something cool...not the `myopenaps` directory.**
+********************
+
 ![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
 
 **Be prepared to enter the following items:** 
