@@ -2,6 +2,8 @@
 
 *This page assumes you have a pre-flashed (with jubilinux) Edison. Don't have a pre-flashed Edison? Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), then come back here before installing wifi and other steps, which is easier to do following this page's flow.* 
 
+*This page also assumes you're setting up a brand-new rig and need the full setup including wifi. Make sure to check out the ["how to update your rig in the future"](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/update-your-rig.html) page if you have already had a rig up and running!* 
+
 ### Prep Steps
 * **PC users:** [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
 
@@ -47,12 +49,12 @@ ifdown wlan0; ifup wlan0
 sleep 10
 echo -ne "\nWifi SSID: "; iwgetid -r
 sleep 5
-# TODO check for options to fix the certificate activation error message for https
-cd /tmp/; wget --no-check-certificate https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-install.sh; bash ./openaps-install.sh
+curl https://raw.githubusercontent.com/openaps/oref0/master/bin/openaps-install.sh > /tmp/openaps-install.sh
+bash /tmp/openaps-install.sh
 )
 ```
 
-Copy all of those lines; go back to Terminal/PuTTY and paste into the command line. Then, hit `enter`.  The screenshot below is an example of what the pasted text will look like (highlighted in blue for clarity). *(If you have trouble copying from the box, [click here](https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-bootstrap.sh) and ctrl-a or command-a to copy the text from there.)*
+Copy all of those lines; go back to Terminal/PuTTY and paste into the command line (Paste in PuTTY is just a right mouse click). Then, hit `enter`.  The screenshot below is an example of what the pasted text will look like (highlighted in blue for clarity). *(If you have trouble copying from the box, [click here](https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-bootstrap.sh) and ctrl-a or command-a to copy the text from there.)*
 
 *************
 Note: **This setup script will require you to have an available working internet connection to be successful.**  If anything fails during the installation, the setup may end early before you get to the setup script questions.  In that case, you can just paste the script above into the command line again and try again.  (Don't try to use the up arrow, it probably won't work.)  If you get repeated failures, bring your questions and error messages into Gitter or FB for help with troubleshooting.

@@ -51,7 +51,15 @@ You can also test running autotune every night as part of a closed loop. This me
 
 You can choose to set up autotune as part of the oref0-setup script, and have it run nightly and adjust a new autotune profile.  It is important to realize that when autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately (e.g., steroid medication started), you may have to temporarily suspend autotune to allow loop to use your pump's adjusted basal program.  
 
-If you set up multiple rigs and would like to start the autotune results on the additional rig(s) to match an earlier rig, you will need to copy these files to the new rig(s): <your_openaps_dir>/autotune/profile.json, <your_openaps_dir>/autotune/profile.pump.json, and <your_openaps_dir>/settings/autotune.json. If your new rig hasn't been looping you may also want to copy <your_openaps_dir>/settings/pumpprofile.json to get the latest pump settings from a looping rig. (You can use a command like scp to copy files between rigs, e.g,. "scp root@192.168.1.109:/root/myopenaps/autotune/profile.json profile.json.fromRigSteve".)
+### How to copy over autotune files from another rig:
+
+If you have multiple rigs and would like to sync up autotune results, or move an existing autotune over to a brand new rig, you'll want to copy files over.
+
+From the NEW rig: 
+`scp -r root@my-edison-original.local:~/myopenaps/autotune/ ~/myopenaps/autotune` (where "my-edison-original" is substituted for your rig name that you want to copy files from)
+
+* You'll be asked for your my-edison-original rig's password (where you are copying FROM).
+* This will copy everything in the autotune directory over.
 
 As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as needed to check tuning.
 
@@ -95,7 +103,7 @@ Mac install commands:
  * 4.) Install JQ from Homebrew: `brew install jq` 
  
 **Step 2: Install oref0**
-* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
@@ -174,7 +182,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 
 (First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
 
-If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.sh` try this:
+If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.sh` and autotune won't run, try this (note: as of oref 0.5.5, this error has been downgraded to a warning as this will only prevent autotune from running if you have "locked down" your NS to prevent anonymous read access):
 
 1. Log into your VM
 2. At the command promot, type `cd /etc/` and hit enter
@@ -192,6 +200,20 @@ Other things to check:
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
 * Check your profile.json and make sure it really matches the example - chances are there's a stray character in there.
+     - "start" time stamps must have the format "HH:MM:SS". "HH:MM" (e.g. "00:00" instead of "00:00:00") gives erroneous calculations such as "-Infinity" or "Nan" for the ISF and CR avlues. This results in the ISF & Carb ratio values being unchanged.
+       Example output (console):
+        ```oldCR: 9 fullNewCR: NaN newCR: NaN
+        p50deviation: -0.76 p50BGI 0 p50ratios: -Infinity Old ISF: 44 fullNewISF: -Infinity adjustedISF: 44 newISF: 44
+        ```
+        
+        Telltale sign is the input and output values for ISF and carb ratio remain unchanged:
+        ```Parameter      | Pump     | Autotune 
+           -------------------------------------
+           ISF [mg/dL/U]  | 44.000   | 44.000   
+           Carb Ratio[g/U]| 9.000    | 9.000    
+           Basals [U/hr]  | -        |       
+           ```
+     
 * Also check your pumpprofile.json and autotune.json - if it worked once or twice but then stopped working, it may have a bad file copy. If needed, follow Steps 3-E and 3-F again to re-copy a good profile.json to pumpprofile.json and autotune.json again.
 * If VM is already set up, and you are returning to your VM for another session of autotune, double-check that your VM timezone matches your pump: `sudo dpkg-reconfigure tzdata` 
 * Invalid calculations may be due to the locale settings of your VM (correct settings are `en_US.utf-8` or another locale that uses `.` as the decimal separator). An easy way to overcome such a problem is to add `env LANG=en_US.UTF-8` in front of your command for running autotune, it should look like this: `env LANG=en_US.UTF-8 oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`

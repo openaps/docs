@@ -32,6 +32,7 @@ A few things to know about using your phone's hotspot feature:
 <TR><TH>Google Pixel with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
 <TR><TH>Sony Xperia Z5 Compact with Android 7<TD>Yes<TD>Works with tethering for network access. It regularly disconnects from the rig (which doesn't seem to affect data flow) and roughly every 24-36 hours this results in complete loss of connectivity and requires a full reboot of the rig and the phone. Doesn't work well with phone swapping between Wifi and mobile - causes BT dropouts that require a reboot of the rig.<TD>No issues running xDrip/xDripAPS alongside the tethered connection. Achieves 90%+ packet collection from Dexcom G5. 
 <TR><TH>Xiaomi Redmi 4 with MIUI 8 (Android 6)<TD>No<TD>Tethering can be set up, but it drops regularly requiring rig reboots. When phone switches between Wifi and cellular signal requires rig to be rebooted.<TD>Significant packet drops and data becomes almost unusable.
+<TR><TH>Xiaomi Redmi Note 4(X) -Snapdragon SoC version!!!<TD>Yes<TD>Tethering works in same time with Blukon(Nightrider) and SW3 connected. Also, read Notes for MIUI below*<TD>Excellent coverage.
 <TR><TH>Xiaomi Redmi 3 with MIUI 6 (Android 5)<TD>Yes<TD>No issues seen when tethered to cellular network. Doesn't allow tethering to wifi.<TD>Works fine with Dexcom G5 - 90% collection rate.
 <TR><TH>Samsung Galaxy S6 (Android 7)<TD>Yes<TD>Tethering to rig and cellular works okay. No data on swapping between cellular and wifi connections.<TD>Use with Dexcom G5 and rig not effective. Significant packet loss.
 <TR><TH>Samsung Galaxy Junior<TD>Yes<TD>Phone tethering switching between wifi and mobile not elegant and causes some issues<TD>Difficulties found when using xDrip with the OpenAPS tethering. Packet loss occurs.
@@ -41,10 +42,20 @@ A few things to know about using your phone's hotspot feature:
 <TR><TH>Samsung Galaxy A3 (2016) Android 6<TD>Yes<TD>Excellent BT tether using app 'Blue Car Tethering'<TD>xDrip+ with G4, reliable capture using xDrip+ and using normal tether when running with Dexcom in G4-upload mode
 </TABLE>
 
+**********************************************************************************************
+*Notes for MIUI users. MIUI kills processes in background to save battery. To get best results:
+* get Xiaomi with SD (Snapdragon) SoC. It works better than it's MTK counterpart
+* install BTAutoTether
+* Settings-->Permissions-->Autostart (Turn it on for BTAutoTether)
+* Settings-->Permissions-->Other persmissions (Find BTAutoTether and make sure that all permissions are ticked for this app)
+* Hit Recents button (left button in bottom row of your phone) and find BTAutoTether, swipe it down and you'll see Lock and Info icon. Press Lock icon
+**********************************************************************************************
+
+
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
+This section is completed by the install method found here http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#copy-and-paste-to-run-the-wifi-and-oref0-setup-scripts . If you selected the option of installing Bluetooth at a later time during installation you may skip to Bluetooth Setup, the next section. 
 ### Install dependencies 
-
 You will need to get the MAC address from your phone or whatever device you are using.
 * On Android, go to Settings/About Phone/ Status; you will find your Bluetooth address looking like AA:BB:CC:DD:EE:FF 
 * On iPhone, go to Settings/General/About; it will be under Bluetooth and will look like AA:BB:CC:DD:EE:FF

@@ -49,7 +49,7 @@ Make sure to check through the following list before asking on Gitter if your se
   
 You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
   
- * Start by killing anything that's currently running. ` killall -g openaps`
+ * Start by killing anything that's currently running. ` killall -g oref0-pump-loop`
  * Look and see what's running in your cron. `crontab -l`
  * If you want to do more than one command of debugging, it's best to disable your cronjobs, use `/etc/init.d/cron stop`. Don't forget to start the cronjobs afterwards or reboot your rig to make sure the cronjobs will be running.
  * Run whichever alias is failing to see what commands it is running. I.e. if the pump loop is failing, it's `openaps pump-loop`, which you can run to show what's inside it by `openaps alias show pump-loop`. 
