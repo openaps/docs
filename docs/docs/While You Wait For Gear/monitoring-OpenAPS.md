@@ -18,6 +18,7 @@ There are two general groups of ways to monitor your rigs:
 
 * [Pancreabble](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#pancreabble-offline-connection-to-pebble-watch) (offline connection to your Pebble watch)
 * For Android users: "[Hot Button](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#hot-button-for-android-users)"
+* Accessing via SSH over Bluetooth
 * For any phone type: [Creating a web page that can be accessed on the phone via the rig's IP address](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#offline-web-page-from-rig-for-any-phone-user)
 
 ********************************
@@ -28,7 +29,7 @@ At this point, if you're not yet set up on OpenAPS, you won't quite be ready to 
 
 ********************************
 
-## Accessing your rig via SSH
+## Accessing your online rig via SSH
 
 See below for different ways to access your rig:
 * [If your computer and rig are on the same wifi network](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#if-your-computer-and-rig-are-on-the-same-wifi-network)
@@ -319,6 +320,8 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 
 ********************************
 
+## Accessing your offline rig
+
 ### Pancreabble - offline connection to Pebble watch
 
 
@@ -530,6 +533,19 @@ NOTE: BE SURE your phone and rig are on the same network, i.e. BT tethered or wi
 G. Add Widget to Sony Smart Watch 3 or other Android Wear:
 
 Using the Wearable Widgets app, you can see the HTTP Widget on your watch. 
+
+### Accessing your offline rig via SSH over Bluetooth
+
+Your phone and rig must be BT paired and connected over BT PAN. See https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html for BT PAN configuration. When you first open Termius on your mobile device (JuiceSSH and SimpleSSH are also good choices) it will prompt you to add a new host. Click the + button to add a new host. Turn the toggle on for Use SSH and then fill out the following information:
+
+    Alias – use an alias name that let’s you know which rig and which connection point this host is for, for example YourRigName on device BT
+    Hostname – Enter the IP address of the rig as assigned by your BT PAN
+    Username – click to the left of the little blue man and type root
+    Password – Enter your rig’s root password (default is “edison” but you should have changed it during setup)
+
+Click Save in the upper right corner. You should now see the host you just created. If you click on that host, you’ll see a message that it is connecting (first time connections will ask if you want to save the rig to known hosts, cick continue and then you’ll be connected to a terminal app screen. You can now issue commands and edit files just like you can over an SSH connection from your computer.
+
+********************************
 
 ### Offline web page from rig - for any phone user
 
