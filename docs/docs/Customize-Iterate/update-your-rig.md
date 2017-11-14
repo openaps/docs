@@ -10,14 +10,14 @@ However, if it's a brand-new feature that's being tested or is recently added to
 
 *(If you get a message that you need to commit or stash, use command `git stash`*)
 
-### Alternative Step 1 (Dev): To get on "dev" branch to test even more recently added new stuff
+### Alternative Step 1a (Dev): To get on "dev" branch to test even more recently added new stuff
 
 Or, if the feature you want hasn't been released yet, and you want to test the latest untested development version of `oref0`, run:
 
 1. `cd ~/src/oref0 && git checkout dev && git pull`
 2. `npm run global-install`
 
-### Alternative Step 1 (Test a feature branch): Not recommended for initial setup
+### Alternative Step 1b (Test a feature branch): Not recommended for initial setup
 
 In case you want to test even more advanced stuff you've read about on gitter channels ([intend-to-bolus](https://gitter.im/nightscout/intend-to-bolus) / [openaps/oref0](https://gitter.im/openaps/oref0) / [openaps/autotune](https://gitter.im/openaps/autotune)) or on [official pull request list](https://github.com/openaps/oref0/pulls) you should follow the link, read description and in case you've decided to try it out, do:
 
