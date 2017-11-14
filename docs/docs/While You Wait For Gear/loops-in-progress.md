@@ -223,3 +223,4 @@ List of people who are working on closed loops:
 - Eugene Girard (Kitchener, Canada)
 - Luke Jenkins for Kyler (Vancouver, WA)
 - Brandon Hunnicutt (Denver, Colorado)
+- Kate Groves (Oxford, UK)
