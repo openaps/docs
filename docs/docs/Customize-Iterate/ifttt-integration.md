@@ -193,7 +193,7 @@ Note: ThisButton does not work on Pebble Round watches.  You can search for IFTT
   * Under "What do you want to say?" type out what you'll say when you want to enter carbs and use "#" where you will say the carb amount. For example, "enter # carbs". If you are going to make a distinction between meal and rescue carbs make sure to do that here. If you think you might occasionally use a different phrase, such as "I'm going to eat # carbs" enter it under "What's another way to say it?" This is optional.
   * Your Google Assistant will say something in response confirming the recipe has run. Put what you'd like it to say under "What do you want the Assistant to say in response?" Example: "entered # carbs"
   * Click "Create Trigger"
-* Your THAT will be ALMOST identical to recipes created for the Button. Instead of the exact number of carbs you want to enter, under the Body field, click "Add Ingredient" then "NumberField". 
+* From the 'THAT' of the New Applet screen, choose the action service called Webhooks. Select "Make a web request." Your THAT will be ALMOST identical to Webhooks recipes created for the Button (as explained above). Instead of the exact number of carbs you want to enter, under the Body field, click "Add Ingredient" then "NumberField". 
 * Then click Create Action and Finish
 * Here are some of the examples from above formatted for use with Google Assistant:
 
