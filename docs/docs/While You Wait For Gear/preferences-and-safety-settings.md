@@ -232,6 +232,8 @@ The default of 0.5 for this value keeps autotune ISF closer to pump ISF via a we
 
 Defaults to false. If true, enables an offline-only local wifi hotspot if no Internet available. (Do not set to true without testing and understanding how this will impact your connectivity.)
 
+Default hotspot network name is the rig name; default password is "#OpenAPS" (no quotations). 
+
 #### wide_bg_target_range
 
 Defaults to false, which means by default only the low end of the pump's BG target range is used as OpenAPS target. This is a safety feature to prevent too-wide targets and less-optimal outcomes. Therefore the higher end of the target range is used only for avoiding bolus wizard overcorrections. Use `wide_bg_target_range: true` to force neutral temps over a wider range of eventualBGs. 
