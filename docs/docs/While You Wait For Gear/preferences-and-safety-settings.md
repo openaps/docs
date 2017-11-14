@@ -25,7 +25,8 @@ To check your edits when you're done, use `cd ~/myopenaps && cat preferences.jso
         "enableSMB_with_bolus": false,
         "enableSMB_with_COB": false,
         "enableSMB_with_temptarget": false,
-        "enableUAM": false
+        "enableUAM": false,
+        "curve": "rapid-acting"
 }
 ```
 
@@ -92,15 +93,28 @@ The other side of the autosens safety limits, putting a cap on how low autosens 
 
 This feature, enabled by default, resets the autosens ratio to neutral when you rewind your pump, on the assumption that this corresponds to a probable site change.  Autosens will begin learning sensitivity anew from the time of the rewind, which may take up to 6 hours.  If you usually rewind your pump independently of site changes, you may want to consider disabling this feature.
 
-#### adv_target_adjustments:
-
-This feature, enabled by default, lowers oref0's target BG automatically when current BG and eventualBG are high.  This helps prevent and mitigate high BG, but automatically switches to low-temping to ensure that BG comes down smoothly toward your actual target.  If you find this behavior too aggressive, you can disable this feature.  If you do so, please let us know so we can better understand what settings work best for everyone. 
-
 #### unsuspend_if_no_temp:
 
 Many people occasionally forget to resume / unsuspend their pump after reconnecting it.  If you're one of them, and you are willing to reliably set a zero temp basal whenever suspending and disconnecting your pump, this feature has your back.  If enabled, it will automatically resume / unsuspend the pump if you forget to do so before your zero temp expires.  As long as the zero temp is still running, it will leave the pump suspended.
 
-### Advanced oref1 preferences:
+#### carbsReqThreshold
+
+grams of carbsReq to trigger a pushover. Defaults to 1 (for 1 gram of carbohydrate). Can be increased if you only want to get Pushover for carbsReq at X threshold.
+
+#### curve: "rapid-acting" 
+
+Rapid-acting is the default in 0.6.0 and beyond. You can change this to "ultra-rapid" for Fiasp, or "bilinear" for using the old curve. Most people prefer the rapid-acting curve.
+
+#### useCustomPeakTime
+
+Defaults to false. Setting to true allows changing insulinPeakTime
+
+#### insulinPeakTime
+
+Defaults to 75 for rapid acting (Humalog, Novolog). This is the number of minutes after a bolus activity peaks. 
+Defaults to 55m for Fiasp if `useCustomPeakTime: false`
+
+### oref1-related preferences:
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
@@ -120,6 +134,52 @@ This enables supermicrobolus (SMB) with eating soon / low temp targets. With thi
 
 This enables detection of unannounced meal (UAM) carb absorption.
 
+#### enableSMB_always
+
+Defaults to false. When true, always enable supermicrobolus (unless disabled by high temptarget).
+
+#### enableSMB_after_carbs
+
+Defaults to false. When true, enables supermicrobolus for 6h after carbs, even with 0 COB.
+
+#### allowSMB_with_high_temptarget
+
+Defaults to false. When true, allows supermicrobolus (if otherwise enabled) even with high temp targets.
+
+#### maxSMBBasalMinutes
+
+Defaults to start at 30. This is the maximum minutes of basal that can be delivered as a single SMB with uncovered COB. This gives the ability to make SMB more aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. It is not recommended to set this value higher than 90 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
+
+### Exercise-mode related preferences:
+
+#### exercise_mode
+
+Defaults to false. When true, > 105 mg/dL high temp target adjusts sensitivityRatio for exercise_mode. 
+
+**This majorly changes the behavior of high temp targets from before.** 
+
+synonmym for high_temptarget_raises_sensitivity
+
+#### high_temptarget_raises_sensitivity
+
+Defaults to false. When set to true, raises sensitivity for temp targets set to  >= 111.  synonym for exercise_mode
+
+#### low_temptarget_lowers_sensitivity 
+
+Defaults to false. When set to true, can lower sensitivity for temptargets <= 99. 
+
+#### sensitivity_raises_target
+
+When true, raises BG target when autosens detects sensitivity
+
+#### resistance_lowers_target: 
+
+Defaults to falss. When true, will lower BG target when autosens detects resistance
+
+#### half_basal_exercise_target
+
+Set to a number, e.g. 160, which means when temp target is 160 mg/dL *and* exercise_mode=true, run 50% basal at this level (120 = 75%; 140 = 60%). This can be adjusted, to give you more control over your exercise modes. 
+
 ### Other preferences:
 
 Generally, you won't need to adjust any of the preferences below.  But if you do wish to change the default behavior, you can add these into your preferences.json to do so (or use oref0-get-profile --updatePreferences to get the full list of all preferences added to your preferences.json).
@@ -127,6 +187,10 @@ Generally, you won't need to adjust any of the preferences below.  But if you do
 #### autosens_adjust_targets: 
 
 This is used to allow autosens to adjust BG targets, in addition to ISF and basals.
+
+#### adv_target_adjustments:
+
+This feature, previously enabled by default but defaulting to false in oref0 0.6.0 and beyond, lowers oref0's target BG automatically when current BG and eventualBG are high.  This helps prevent and mitigate high BG, but automatically switches to low-temping to ensure that BG comes down smoothly toward your actual target.  If you find this behavior too aggressive, you can disable this feature.  If you do so, please let us know so we can better understand what settings work best for everyone. 
 
 #### override_high_target_with_low: 
 
@@ -164,4 +228,16 @@ This is the fraction of carbs we'll assume will absorb over 4h if we don't yet s
 
 The default of 0.5 for this value keeps autotune ISF closer to pump ISF via a weighted average of fullNewISF and pumpISF.  1.0 allows full adjustment, 0 is no adjustment from pump ISF.
 
+#### offline_hotspot
 
+Defaults to false. If true, enables an offline-only local wifi hotspot if no Internet available. (Do not set to true without testing and understanding how this will impact your connectivity.)
+
+#### wide_bg_target_range
+
+Defaults to false, which means by default only the low end of the pump's BG target range is used as OpenAPS target. This is a safety feature to prevent too-wide targets and less-optimal outcomes. Therefore the higher end of the target range is used only for avoiding bolus wizard overcorrections. Use `wide_bg_target_range: true` to force neutral temps over a wider range of eventualBGs. 
+
+#### A52_risk_enable (A52 risk mitigation)
+
+Defaults to false. Using the pump bolus wizard to enter carbs will prevent SMBs from being enabled for COB as long as those carbs are active. Using the pump bolus wizard will prevent SMBs from being enabled for up to 6 hours by the "after carbs" or "always" preferences. If anyone wants to get around that, they can add A52_risk_enable (with the capital A) to preferences and set it to "true" to acknowledge and intentionally use that approach, which we know leads to increased A52 errors.
+
+(the recommended method for using SMBs is to enter carbs via NS and easy bolus any desired up-front insulin (generally less than the full amount that would be recommended by the bolus wizard) and then let SMB fill in the rest as it is safe to do so. For situations where the bolus wizard is preferred, such as for carb entry by inexperienced caregivers, or for offline use, we feel that it is safer for OpenAPS to disable SMBs and fall back to AMA until the next meal. In addition to reducing the risk of A52 errors, disabling SMBs when the bolus wizard is in use leads to more predictable AMA behavior (instead of SMB zero-temping) for untrained caregivers in an environment that is usually more prone to walk-away pump communication issues.)
