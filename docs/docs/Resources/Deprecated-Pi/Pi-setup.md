@@ -1,6 +1,6 @@
 # Setting Up Your Raspberry Pi
 
-## WARNING - THE RASPBERRY PI IS A DEPRECATED (NOT-RECOMMENDED) SETUP OPTION. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. (July 2017)
+## WARNING - THESE DOCUMENTS ARE DEPRECATED (NOT RECOMMENDED) AND UNMAINTAINED. We suggest you look to the top of the docs for information on the currently recommended hardware setup instead. As of November 2017 there are new and simplified Raspberry Pi setup instructions linked from there. The instructions below should only be used for troubleshooting purposes if the new instructions aren't working.
 
 Note: There are two setup flows described on this page. The [one toward the bottom of the page is the older setup instructions](http://openaps.readthedocs.io/en/latest/docs/Resources/Deprecated-Pi/Pi-setup.html#older-instructions-for-original-pi-based-setups) that worked back in the day. The [one at the top of the page (all prefaced with "newer path")](http://openaps.readthedocs.io/en/latest/docs/Resources/Deprecated-Pi/Pi-setup.html#newer-path) is an attempt by someone to make the Pi instructions work for Pi3 and Pi0W. There may be issues with BOTH setups, so please do make PRs to this page and/or discuss on Gitter about which setup flow works. 
 
