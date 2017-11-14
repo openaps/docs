@@ -10,7 +10,7 @@ However, if it's a brand-new feature that's being tested or is recently added to
 
 *(If you get a message that you need to commit or stash, use command `git stash`*)
 
-## Alternative Step 1 (Dev): To get on "dev" branch to test even more recently added new stuff
+### Alternative Step 1 (Dev): To get on "dev" branch to test even more recently added new stuff
 
 Or, if the feature you want hasn't been released yet, and you want to test the latest untested development version of `oref0`, run:
 
