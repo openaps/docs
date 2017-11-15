@@ -61,10 +61,18 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>Eventual BG</b> - BG after DIA hours (or maybe a bit sooner if most of your insulin was awhile ago), considering the current IOB and COB.
 
+<b>Exponential Curves</b> - Most insulin types reach their peak performance and decay along a curve. OpenAPS can calculate active insulin along a rapid-acting, ultra-rapid, or custom curve, or a bi-linear non-curve. 
+
+  * <b>Custom curve</b>: Users may set a custom insulin peak time in their preference file, with legal values from 35 to 120. The value defines the minutes from bolus to peak.
+
+  * <b>Bi-linear</b>: This is a non-curve insulin activity model that OpenAPS users can set in their preferences file to use an older insulin activity model.
+
+  * <b>Rapid-acting</b>: This curve reaches activity peak at 75 minutes, and is recommended for use with Apidra, Humalog, Novolog, and Novorapid insulin.
+
+  * <b>Ultra-rapid</b>: This curve reaches activity peak at 55 minutes, and is recommended for use with FIASP insulin.
+
 <b>Exp. Delta</b> - expected BG delta right now, considering all OpenAPS inputs (IOB, COB, etc).
 
+<b>Insulin Peak Time</b>: refers to the amount of time in minutes that your insulin reaches maximum effect as set in your preferences files under "curve."
+
 <b>predBGs</b> - predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
-
-<b>snoozeBG</b> - predicted value of blood glucose adjusted for bolussnooze IOB. SnoozeBG will never exceed EventualBG.
-
-
