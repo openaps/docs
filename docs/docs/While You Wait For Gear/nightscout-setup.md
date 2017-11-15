@@ -59,7 +59,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 <tbody>
 <tr>
 <th>API_SECRET</th>
-<td>Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` symbol.</td>
+<td>Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` or `&` symbols.</td>
 </tr>
 <tr>
 <th>AUTH_DEFAULT_ROLES</th>
