@@ -40,7 +40,6 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
-    'nbsphinx',
     # 'alabaster',
 ]
 
