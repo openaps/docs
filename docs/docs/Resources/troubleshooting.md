@@ -222,6 +222,13 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 ```
   * Reboot, and try `openaps mmtune` to make sure it works
 
+For the Pi Explorer Board HAT, use pins 16,18,7 instead:
+
+```
+./ccprog -p 16,18,7 erase
+./ccprog -p 16,18,7 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+```
+
 
 ### CareLink RF timeout errors
 
