@@ -33,7 +33,7 @@ On Windows, use PuTTY to connect as the `pi` user to hostname `raspberrypi.local
 
 Once you're logged in, run the following command to start the OpenAPS install process:
 
-`curl -s https://raw.githubusercontent.com/openaps/oref0/pi-install/bin/openaps-install.sh > /tmp/openaps-install.sh && sudo bash /tmp/openaps-install.sh`
+`curl -s https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-install.sh > /tmp/openaps-install.sh && sudo bash /tmp/openaps-install.sh`
 
 You'll be prompted to set a password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to start over from the top of this page if you forget your password.
 
