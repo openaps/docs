@@ -224,3 +224,4 @@ List of people who are working on closed loops:
 - Luke Jenkins for Kyler (Vancouver, WA)
 - Brandon Hunnicutt (Denver, Colorado)
 - Kate Groves (Oxford, UK)
+- Tom Wells (Guildford, UK)
