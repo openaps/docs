@@ -80,6 +80,10 @@ root@edisonhost:~# bluetoothd --version
 
 ### Bluetooth setup
 
+* Stop cron to make sure oref0-online doesn't interfere:
+
+`sudo service cron stop`
+
 * Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
 
 `sudo killall bluetoothd`
@@ -93,7 +97,7 @@ As shown in the "success" section below, you should see a single line returned w
 * Wait at least 10 seconds, and then run:  
 `sudo hciconfig hci0 name $HOSTNAME`
 
-* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `sudo killall bluetoothd` and wait longer between steps.
+* If you get a `Can't change local name on hci0: Network is down (100)` error, run `bluetoothctl`, then `power off` and `power on`, then `exit` and try `sudo hciconfig hci0 name $HOSTNAME` again.
 
 * Now launch the Bluetooth control program: `bluetoothctl`
 
@@ -157,18 +161,6 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 
 ### Testing to make sure it works after you successfully did the above
 
-* Before testing your connection, first restart the Bluetooth daemon again:
-
-  `sudo killall bluetoothd`
-
-* Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
-
-  `sudo /usr/local/bin/bluetoothd --experimental &`
-
-* Wait at least 10 seconds, and then run: `sudo hciconfig hci0 name $HOSTNAME`
-
-* If you get a `Can't change local name on hci0: Network is down (100)` error, start over with `killall` and wait longer between steps.
-
 * Make sure your phone's hotspot is enabled, but don't let anything connect via wifi (you have to switch on the personal hotspot toggle, but then immediately back out of the personal hotspot screen before anything connects to your hotspot via wifi).
 
 * Now, try to establish a Bluetooth Network connection with your phone:
@@ -191,6 +183,10 @@ bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
 * To disconnect the connection, you can run:
 
   `sudo bt-pan client -d AA:BB:CC:DD:EE:FF`
+  
+* Now, re-enable the cron service so oref0-online runs automatically every minute:
+
+  ` sudo service cron start`
 
 * Next, to test that Bluetooth starts up automatically, you can shut down your wifi for 2-3 minutes by running:
 
