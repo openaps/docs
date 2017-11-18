@@ -225,3 +225,4 @@ List of people who are working on closed loops:
 - Brandon Hunnicutt (Denver, Colorado)
 - Kate Groves (Oxford, UK)
 - Tom Wells (Guildford, UK)
+- Kyle Masterman (Perth, Western Australia)
