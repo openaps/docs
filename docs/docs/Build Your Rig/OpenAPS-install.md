@@ -144,7 +144,7 @@ Or how about the fact that autotune hasn't run yet, but you enabled it during se
 ```
 Old settings refresh Could not parse autotune_data
 ```
-Autotune only runs at 4:00am every morning. So, until autotune has run, you must wait for that error message to clear out. You can still loop while that message is showing. Additionally, you'll have to wait until autotune runs before SMBs can be enacted. (SMBs won't enact unless an Autotune directory exists.)
+Autotune only runs at 4:05am every morning. So if autotune has not yet run, you must wait for that error message to clear out, or run it manually. You can still loop while that message is showing. Additionally, you'll have to wait until autotune runs before SMBs can be enacted. (SMBs won't enact unless an Autotune directory exists.)
 
 And then you may have an issue about the time on your pump not matching your rig's time:
 ```
