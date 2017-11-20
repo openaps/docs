@@ -15,7 +15,7 @@ If you didn't buy your Edison with jubilinux preinstalled, it comes with an oper
 
 ### **1-1 Prepare Windows Computer**
 
-- Install the [Intel Edison drivers for Windows](https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. After it is done downloading, click on the downloaded file and it will execute installation.
+- Install the [Intel Edison drivers for Windows](https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. After it is done downloading, click on the downloaded file and it will execute installation. (this link no longer contains the 'Windows standalone driver', see the note below)
 
 ******
 
