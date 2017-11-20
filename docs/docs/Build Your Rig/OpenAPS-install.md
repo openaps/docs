@@ -208,26 +208,37 @@ Note: The pump-loop log is not the only log your rig generates.  There are also 
 
 * Network log: `tail -F /var/log/openaps/network.log`
 
-* Autotune log: `tail -F /var/log/openaps/autotune.log` (remember Autotune only runs at midnight, so there's not much action in that log)
+* Autotune log: `tail -F /var/log/openaps/autotune.log` (remember Autotune only runs at midnight (or at 4AM starting from 0.6.0-rc1), so there's not much action in that log)
 
-These logs and other files are things you may frequently access. There are shortcuts built in to help you more easily access key files on the go. The `l` you type for logs is an example of one of these shortcuts - it's actually a shortcut for the full command `tail -F /var/log/openaps/pump-loop.log`. Here are some other shortcuts:
+These logs and other files are things you may frequently access. There are shortcuts built in to help you more easily access key files on the go. The `l` you type for logs is an example of one of these shortcuts - it's actually a shortcut for the full command `tail -F /var/log/openaps/pump-loop.log`. Here are other shortcuts:
 
 ```
+ --View live logs--
  l => tail -F /var/log/openaps/pump-loop.log
- autosens-loop => tail -n 100 -F /var/log/openaps/autosens-loop.log
- autotune => tail -n 100 -F /var/log/openaps/autotune.log
- ns-loop => tail -n 100 -F /var/log/openaps/ns-loop.log
- pump-loop => tail -n 100 -F /var/log/openaps/pump-loop.log
+ autosens-looplog => tail -n 100 -F /var/log/openaps/autosens-loop.log
+ autotunelog => tail -n 100 -F /var/log/openaps/autotune.log
+ ns-looplog => tail -n 100 -F /var/log/openaps/ns-loop.log
+ pump-looplog => tail -n 100 -F /var/log/openaps/pump-loop.log
+ networklog => tail -n 100 -F /var/log/openaps/network.log
+ xdrip-looplog => tail -n 100 -F /var/log/openaps/xdrip-loop.log
+ cgm-looplog => tail -n 100 -F /var/log/openaps/cgm-loop.log
+ urchin-looplog => tail -n 100 -F /var/log/openaps/urchin-loop.log
+ * to quit watching, press Ctrl+C
+ 
+ --View settings/logs/info--
  cat-pref => cd ~/myopenaps && cat preferences.json
- edit-wifi => vi /etc/wpa_supplicant/wpa_supplicant.conf
  cat-wifi => cat /etc/wpa_supplicant/wpa_supplicant.conf
- edit-pref => cd ~/myopenaps && vi preferences.json
- log-wifi => tail -n 100 -F /var/log/openaps/network.log
- git-branch => cd ~/src/oref0 && git branch
  cat-autotune => cd ~/myopenaps/autotune && cat autotune_recommendations.log
- edit-runagain => cd ~/myopenaps && nano oref0-runagain.sh
  cat-runagain => cd ~/myopenaps && cat oref0-runagain.sh
-```
+ git-branch => cd ~/src/oref0 && git branch
+ edison-battery => cd ~/myopenaps/monitor && cat edison-battery.json
+ cat-reservoir => cd ~/myopenaps/monitor && cat reservoir.json
+ 
+ --Edit settings--
+ edit-wifi => vi /etc/wpa_supplicant/wpa_supplicant.conf
+ edit-pref => cd ~/myopenaps && vi preferences.json
+ edit-runagain => cd ~/myopenaps && nano oref0-runagain.sh
+ ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
 ## Finish your OpenAPS setup
