@@ -136,7 +136,7 @@ Well, hey that's actually a good message.  It's saying "I don't hear any interru
 
 As the pump loop continues:
 ```
-Refreshed jq: settings/pumphistory-25h-zoned.json: No such file or directory
+Refreshed jq: settings/pumphistory-24h-zoned.json: No such file or directory
 ```
 That message will clear out once the pump history has successfully been read.
 
