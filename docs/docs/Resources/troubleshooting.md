@@ -48,21 +48,9 @@ More comprehensive command line references can be found [here](http://www.comput
 
 `sudo service cron status` (Display info on cron service. Also use `stop` and `start`)
 
-[add something for decocare raw logging]
-
-## Dealing with the CareLink USB Stick
-
-The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model`.
-
-If you can't get a response, it may be a range issue. The range of the CareLink radio is not particularly good, and orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for more information.
-
-Sometimes the Carelink will get into an unresponsive state that it will not recover from without help. You can tell this has happened if the pump is within range of the Carelink and you see a repeating series of "Attempting to use a port that is not open" or "ACK is 0 bytes" errors in pump-loop.log. When this happens the Carelink can be recovered by rebooting or physically unplugging and replugging the CareLink stick.
-
-Once you're setting up your loop, you may want to detect these errors and recover the Carelink programmatically. This can be done by running oref0-reset-usb (`oref0-reset-usb.sh`) to reset the USB connection. For example, you could create a cron job that would run `openaps use <my_pump_name> model`, or tail the 100 most recent lines in pump-loop.log, and grep the output looking for the errors noted above. If grep finds the errors, the cron job would run oref0-reset-usb. Just note that during USB reset you will lose the connection to all of your USB peripherals. This includes your Wi-Fi connection if your rig uses a USB Wi-Fi dongle.
-
 ## Dealing with npm run global-install errors
 
-If you get an error while running an npm global-install, you may be able to clear it by running the following commands:
+If you get an error while running an `npm global-install`, you may be able to clear it by running the following commands:
 
 `rm -rf /usr/lib/node_modules/.staging/ && rm -rf ~/src/oref0 && cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout master && git pull)`
 
@@ -70,17 +58,15 @@ then run `cd ~/src/oref0 && git checkout master && git pull` or if you are runni
 
 then run `cd ~/src/oref0 && npm run global-install` and then re-run oref0-setup.
 
-## Dealing with a corrupted git repository
+## Dealing with a corrupted git repository (pre-oref0 0.6.0)
 
-OpenAPS uses git as the logging mechanism, so it commits report changes on each report invoke. Sometimes, due to "unexpected" power-offs (battery dying, unplugging, etc.),the git repository gets broken. When it happens you will receive exceptions when running any report from openaps. As git logging is a safety/security measure, there is no way of disabling these commits.
+In oref0 versions prior to oref0 0.6.0, OpenAPS used git as the logging mechanism, so it commits report changes on each report invoke. Sometimes, due to "unexpected" power-offs (battery dying, unplugging, etc.),the git repository gets broken. You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-reset-git`, which will first run `oref0-fix-git-corruption` to try to fix the repository, and in case when repository is definitely broken it copies the .git history to a temporary location (`tmp`) and initializes a new git repo. In some versions of oref0 (up to 0.5.5), `oref0-reset-git` is in cron so that if the repository gets corrupted it can quickly reset itself. 
 
-You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-reset-git`, which will first run `oref0-fix-git-corruption` to try to fix the repository, and in case when repository is definitely broken it copies the .git history to a temporary location (`tmp`) and initializes a new git repo.
-
-We recommend runing `oref0-reset-git` in cron so that if the repository gets corrupted it can quickly reset itself. 
-
-Finally, if you're still having git issues, you should `cd ~/myopenaps; rm -rf .git ; git init` . If you do this, git will re-initialize from scratch.  This only applies to 0.5.x (or earlier) or upgrades to dev from master and does not apply to a fresh 0.6.x install.
+If you're still having git issues, you should `cd ~/myopenaps; rm -rf .git ; git init` . If you do this, git will re-initialize from scratch.  This only applies to 0.5.x (or earlier) or upgrades to dev from master and does not apply to a fresh 0.6.x install.
 
 Warning: do not run any openaps commands with sudo in front of it `sudo openaps`. If you do, your .git permissions will get messed up. Sudo should only be used when a command needs root permissions, and openaps does not need that. Such permission problems can be corrected by running `sudo chown -R pi.pi .git` in the openaps directory.  If you are using an Intel Edison, run `sudo chown -R edison.users .git`.
+
+oref0 0.6.x and beyond will not use git and will not have git-related errors to deal with.
 
 ## Debugging Disk Space Issues
 
@@ -149,7 +135,7 @@ chmod u+x myscript.sh
 
 ### ValueError: need more than 0 values to unpack
 
-A JSON file did not contain entries.
+A JSON file did not contain entries. It usually will self-resolve with the next successful pump history read.
 
 ### Unable to upload to http//my-nightscout-website.com
 
@@ -159,7 +145,7 @@ OpenAPS has failed to upload to the configured nightscout website. If you're usi
 
 ### [No JSON object could be decoded](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=openaps+%27No+JSON+object+could+be+decoded%27)
 
-[to be written]
+Usually means the file does not exist. It usually will self-resolve with the next successful pump history read. If it recurs, you will need to [drill down](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html#running-commands-manually-to-see-what-s-not-working-from-an-oref0-setup-sh-setup-process) to find the area where it is not successfully reading. 
 
 ### json: error: input is not JSON
 ```
@@ -173,7 +159,7 @@ json: error: input is not JSON: Unexpected '<' at line 1, column 1:
 
 example: `TypeError: Cannot read property 'rate' of undefined`
 
-[to be written]
+Usually is related to a typo if you have manually been editing files. Otherwise, should self-resolve.
 
 ### Could not parse carbratio_date when invoking profile report
 
@@ -200,15 +186,14 @@ Below is correct definition
 
 ### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
 
-Basic steps using an Intel Edison with Explorer Board, checking with `openaps mmtune` to see if it is resolved yet:
+Basic steps using an Intel Edison with Explorer Board, checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet:
   * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
   * Double check that your port in pump.ini is correct
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
   * Reboot your rig
-  * Run `oref0-runagain`
+  * Run oref0-runagain
   * Fully power down and start up your rig
-  * Remove and re-add your pump device
 
 If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
   * Stop the reboot loop: `sudo service cron stop && killall -g oref0-pump-loop && shutdown -c`
@@ -220,52 +205,17 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 ./ccprog -p 19,7,36 erase
 ./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
-  * Reboot, and try `openaps mmtune` to make sure it works
+  * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
 
 
-### CareLink RF timeout errors
+## Dealing with the CareLink USB Stick
 
-Some of these errors represent temporary RF communication errors between the CareLink USB Stick and the pump.
+**Note:** Generally, the Carelink stick is no longer supported. We *highly* recommend moving forward with a different radio stick. See [the hardware currently recommended in the docs](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/hardware.html), or ask on Gitter. 
 
-* Stick transmit / LinkStatus:error:True / BAD AILING
+The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model` (after you do a `killall -g oref0-pump-loop`).
 
-  * [to be written]
+If you can't get a response, it may be a range issue. The range of the CareLink radio is not particularly good, and orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for more information.
 
-```
-Stick transmit[TransmitPacket:ReadPumpModel:size[64]:data:''] reader[ReadRadio:size:0] download_i[3] status[<LinkStatus:0x03:status:size=??LinkStatus:error:True:reason:[]:size(0)>] poll_size[0] poll_i[False] command[<LinkStatus:0x03:status:size=??LinkStatus:error:True:reason:[]:size(0)>]:download(attempts[3],expect[0],results[0]:data[0]):BAD AILING
-```
+Sometimes the Carelink will get into an unresponsive state that it will not recover from without help. You can tell this has happened if the pump is within range of the Carelink and you see a repeating series of "Attempting to use a port that is not open" or "ACK is 0 bytes" errors in pump-loop.log. When this happens the Carelink can be recovered by rebooting or physically unplugging and replugging the CareLink stick.
 
-* size (0) is less than 64 and not 15, which may cause an error.
-
-  * [to be written]
-
-* this seems like a problem
-
-  * [to be written]
-
-* bad zero CRC?
-
-  * [to be written]
-
-### mmeowlink RF timeout errors
-
-* mmeowlink.exceptions.InvalidPacketReceived: Error decoding FourBySix packet
-
-  * [to be written]
-
-* Timed out or other comms error - Received an error response Timeout - retrying: 1 of 3
-
-  * [to be written]
-
-* Invalid Packet Received - '' - retrying: 1 of 3
-
-  * [to be written]
-
-* Invalid Packet Received - 'Error decoding FourBySix packet' - retrying: 1 of 3
-
-  * [to be written]
-
-* Response not received - retrying at <built-in function time>
-
-  * [to be written]
-
+Once you're setting up your loop, you may want to detect these errors and recover the Carelink programmatically. This can be done by running oref0-reset-usb (`oref0-reset-usb.sh`) to reset the USB connection. For example, you could create a cron job that would run `openaps use <my_pump_name> model`, or tail the 100 most recent lines in pump-loop.log, and grep the output looking for the errors noted above. If grep finds the errors, the cron job would run oref0-reset-usb. Just note that during USB reset you will lose the connection to all of your USB peripherals. This includes your Wi-Fi connection if your rig uses a USB Wi-Fi dongle.
