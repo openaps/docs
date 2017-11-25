@@ -46,7 +46,7 @@ notes are added with `#` on the lines you want to adjust or pay attention to in 
     "percent": 100,
     "type": "Units/hour"
   }, 
-  "insulin_action_curve": 6, #adjust to your selected duration of insulin action in whole hour increments
+  "insulin_action_curve": 6 #adjust to your selected duration of insulin action in whole hour increments
 }
 ```
 
