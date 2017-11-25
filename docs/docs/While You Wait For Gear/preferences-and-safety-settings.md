@@ -174,7 +174,7 @@ When true, raises BG target when autosens detects sensitivity
 
 #### resistance_lowers_target: 
 
-Defaults to falss. When true, will lower BG target when autosens detects resistance
+Defaults to false. When true, will lower BG target when autosens detects resistance
 
 #### half_basal_exercise_target
 
@@ -190,7 +190,7 @@ This is used to allow autosens to adjust BG targets, in addition to ISF and basa
 
 #### adv_target_adjustments:
 
-This feature, previously enabled by default but defaulting to false in oref0 0.6.0 and beyond, lowers oref0's target BG automatically when current BG and eventualBG are high.  This helps prevent and mitigate high BG, but automatically switches to low-temping to ensure that BG comes down smoothly toward your actual target.  If you find this behavior too aggressive, you can disable this feature.  If you do so, please let us know so we can better understand what settings work best for everyone. 
+This feature was previously enabled by default but will now default to false (will NOT be enabled automatically) in oref0 0.6.0 and beyond. (There is no need for this with 0.6.0). This feature lowers oref0's target BG automatically when current BG and eventualBG are high.  This helps prevent and mitigate high BG, but automatically switches to low-temping to ensure that BG comes down smoothly toward your actual target.  If you find this behavior too aggressive, you can disable this feature.  If you do so, please let us know so we can better understand what settings work best for everyone. 
 
 #### override_high_target_with_low: 
 
