@@ -21,14 +21,19 @@
 
 <b>COB</b> - Carbs-on-board 
 
+<b>COBpredBG</b> - a variable that uses carbs and insulin together in predicting the BG curve. It is represented by a purple prediction line in NS. The default behaviour has changed for carb absorption in oref0 0.6.0 and beyond, with the adoption of a /\ shaped bilenear carb absorption model. This line in your NS display will show an S-curve shape immediately after entering carbs that starts out flat (in line with current BG trends) and then rises sharply after about an hour before flattening out. A typical meal absorption time of about 3 hours is assumed which is then extended overtime so that Oref0 gradually relies more on actual observed carb absorption as carbs are absorbed. When the carbs are first entered, remainingCATime is set to 3 hours. When 50% of carbs have absorbed, the remainder (that aren't seen to be absorbing already) are predicted to take another 4.5h. And as COB approaches zero, remainingCATime will approach 6 hours.
+
 <b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates that are covered by one unit of insulin. Example: 1 u of insulin for 10 carbs.
 
 <b>DIA</b> - duration of insulin action, or how long the insulin is active in your body (Ranges 3-6 hours typically).
 
 <b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.  While what's displayed in your NS IOB pill may match what IOB is in your current loop, it's probably a good practice to not rely on this pill alone for determining IOB.
 
+<b>IOBpredBG</b> - also a variable reported in your Openaps Pill in Nightscout - this is a predicted BG curve that is based on insulin only. It is represented by the purple prediction lines
 <b>ISF</b> - insulin sensitivity factor - the expected decrease in BG as a result of one unit of insulin. 
 Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
+
+<b>MINpredBG</b> - this variable is the lowest predicted value that Openaps has made for your future BG.
 
 <b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates (see Basal IOB above) plus bolus activity. 
 
@@ -45,6 +50,8 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 <b>oref0</b> - "reference design implementation version 0" of the OpenAPS reference design. Aka, the key algorithm behind OpenAPS.
 
 <b>Treatments IOB</b> - amount of insulin on board delivered via boluses. Reported by some pumps as 'active insulin'.
+
+<b>UAMpredBG's</b> - this variable represents the impact of 'floating carbs' and insulin together in predicting the BG curve, giving a prediction line for the new feature Unannounced Meals (or carbs).
 
 ## OpenAPS-specific terminology 
 
