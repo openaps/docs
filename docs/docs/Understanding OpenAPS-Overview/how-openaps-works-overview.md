@@ -1,11 +1,5 @@
 # How A DIY Open Source Closed Loop “Artificial Pancreas” Works
 
-<div class="alert alert-info">
-
-**Note:** This is a note!
-
-</div>
-
 How do you make decisions about your diabetes? You gather data, crunch the numbers, and take action. 
 
 A DIY loop is no different. It gathers data from:
