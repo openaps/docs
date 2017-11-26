@@ -113,7 +113,7 @@ Mac install commands:
  * 4.) Install JQ from Homebrew: `brew install jq` 
  
 **Step 2: Install oref0**
-* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.6.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
