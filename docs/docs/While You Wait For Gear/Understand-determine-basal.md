@@ -1,3 +1,69 @@
+# Diabetes Math
+
+Before diving into the inner workings of the OpenAPS algorithms, lets review how carbohydrates and insulin affect blood glucose.  If you're already a pro, consider skipping down to [Understanding the determine-basal logic](#understanding-the-determine-basal-logic).
+
+The basic, familiar rules are that carbs make blood glucose (BG) increase, and insulin makes it decrease.  There are a number of other things that affect it (exercise, sleep, fat, illness, stress, glucagon etc.) but they are not part of the OpenAPS calculations.  Exercise can be indirectly handled in OpenAPS by setting a higher BG target temporarily [(see below)](#using-temporary-targets-for-eating-soon-mode-and-activity-modes).
+
+In this simplified view, you are starting at 120.  You eat enough carbs to raise BG by 200.  This happens when the carbs are digested, converted to glucose and released into the bloodstream, increasing the glucose concentration.
+
+![Carbs Eaten - Simplified](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/simplified-carbs-to-BG.PNG "carb effect")
+
+![Carbs Eaten - Simplified](../Images/simplified-carbs-to-BG.PNG "carb effect")
+
+Here, you also start at 120 and then take some insulin to lower BG by 100.  Insulin allows cells to absorb the glucose, removing it from the bloodstream and lowering the glucose concentration.  The amount your BG drops from taking 1 unit of insulin is your insulin sensitivity factor (ISF).
+
+![Insulin - Simplified](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/simplified-insulin-to-BG.PNG "insulin effect")
+
+![Insulin - Simplified](../Images/simplified-insulin-to-BG.PNG "insulin effect")
+
+It's important to remember that carbs and insulin both affect BG, but neither one affects the other.  In other words, eating carbs doesn't change your ISF.  Taking more insulin doesn't change the carb digestion process.  If you do both at the same time, you have to add the independent effects of carbs and insulin to see where BG will come out.
+
+![Carbs plus Insulin - Simplified](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/simplified-carbs-plus-insulin.PNG "combined effect")
+
+![Carbs plus Insulin - Simplified](../Images/simplified-carbs-plus-insulin.PNG "combined effect")
+
+## The Plot Thickens
+
+Unfortunately this gets more complicated because both carb digestion and insulin work over time, not immediately.  Carbs will generally have a quicker effect compared to insulin.
+
+In this chart you eat carbs and your BG starts to rise.  There is a flat part at the beginning.  This is the time between when you eat and when BG starts to rise, called "dead time" in process control theory.  BG rises more quickly at the beginning and then tapers off as it approaches its eventual value.
+
+![Carbs over time](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/carbs-only.PNG "BG rise from carbs")
+
+![Carbs over time](../Images/carbs-only.PNG "BG rise from carbs")
+
+Insulin also has a dead time, but it is typically longer than for carbs.
+
+![Insulin over time](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/insulin-only.PNG "BG decline from insulin")
+
+![Insulin over time](../Images/insulin-only.PNG "BG decline from insulin")
+
+Assuming that the carbs are eaten at the same time as the insulin is taken, the carbs will start to have their effect on BG before the insulin starts working.  Even if the amount of insulin taken is perfect to eventually get your BG back to the starting point, it is very likely to rise first if the insulin is taken at the same time as the carbs eaten.  The best way to fix this is by taking the insulin a bit before the meal.
+
+![carbs and insulin](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/carbs-with-insulin.PNG "Superposition")
+
+![carbs and insulin](../Images/carbs-with-insulin.PNG "Superposition")
+
+However, you have to be careful not to delay the meal too much or you'll get a dip in BG before the carbs kick in.
+
+![Delayed meal](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/late-meal.PNG "Insulin too early")
+
+![Delayed meal](../Images/late-meal.PNG "Insulin too early")
+
+People commonly overreact to the short term BG rise by taking more insulin.  They get concerned when their CGM shows the BG high and rising, while OpenAPS is setting the basal rate to 0.  Intuitively, your reaction would be to take insulin to try to fix this.  However, OpenAPS is anticipating what will happen later on and adjusting accordingly.  If you take a larger dose or a second dose of insulin, it won't prevent the high after the meal, but it can lead to low BG once the insulin starts taking effect.
+
+![Extra insulin](https://github.com/Ebgineer/docs/blob/master/docs/docs/Images/extra-insulin.PNG "Too much insulin")
+
+![Extra insulin](../Images/extra-insulin.PNG "Too much insulin")
+
+## Prediction and Reaction
+
+OpenAPS uses a predictive model.  It estimates what BG will do in the future and changes the rate of insulin infusion to bring BG closer to the target.  The real BG will never exactly match the calculation, and due to some of the unmeasured factors mentioned above, it can be off by a lot.
+
+Each loop in the cycle, OpenAPS compares what it predicted would happen to BG to what actually happened.  In control systems terminology this is an estimate of the unmeasured disturbance.  By subtracting out the predicted behavior, adjustments can be made for the observed remainder.  This is reactive in the sense that the action can't be taken until after the BG has already changed.  Given the dead time and time needed for insulin to fully act, reactive adjustments are going to take quite some time to have an effect.  The more OpenAPS can accurately predict the changes in BG, the better the control will be.  That's why its important to give it the best information available such as good carb counts, well-calibrated CGM readings and good estimates for duration of insulin activity.  We want fewer lows, shorter highs, and more time in our optimal range.
+
+Predictive models like OpenAPS generally perform better than PID (proportional-integral-derivative control) because plain PID is purely reactive.  A good PID implementation will make up for this somewhat by using a feedforward input that modifies the behavior of the controller in response to known factors like carbs.  PID also has advantages that include a small number of tuning parameters and having been extensively studied and implemented in the process control industry for over 50 years.  However, setting PID tuning parameters is non-intuitive and is best done through controlled experiments called step tests.  In contrast, OpenAPS algorithms operate using concepts familiar to diabetics who have practice managing their BG.
+
 # Understanding the determine-basal logic
 
 The core, lowest level logic behind any oref0 implementation of OpenAPS can be found in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js). That code pulls together the required inputs (namely, recent CGM readings, current pump settings, including insulin on board and carbohydrates consumed, and your profile settings) and performs the calculations to make the recommended changes in temp basal rates that OpenAPS could/will enact. 
