@@ -86,7 +86,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
  **Step 1b: Run via a Windows-based virtual machine**
  * An easy way to start is the [VirtualBox](https://www.virtualbox.org/wiki/Downloads) as VM and Ubuntu as Linux OS. Step-by-step setup instructions can be found here: https://www.youtube.com/watch?v=ncA85gRAJxk. One thing to watch is to ensure you use the 32 bit version of Ubuntu Desktop (at http://releases.ubuntu.com/17.04/ubuntu-17.04-desktop-i386.iso) as the default 64 bit version won't work via VirtualBox on the default setup.
  * Make sure your VM is using the same timezone as your pump.  You can change timezone using `sudo dpkg-reconfigure tzdata`
- * If your VM is outside the US, particularly in a country that uses `,` as a decimal separator, make sure your system locale is set to `en_US.utf8` or another locale that uses `.` as the decimal separator. You can check this by typing `LOCALE`.
+ * If your VM is outside the US, particularly in a country that uses `,` as a decimal separator, make sure your system locale is set to `en_US.utf8` or another locale that uses `.` as the decimal separator. If you think this may be incorrect, you can check it by typing `locale`.
  * Now do this: `curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. This will take a minute or so. If the install was successful, the last line will say something like: `Successfully installed openaps-contrib-0.0.15`  (although the version number may have been incremented). If you do not see this or see error messages, try running it multiple times. It will not hurt to run this multiple times.
 
 **Step 1c: Prep your Mac**
