@@ -163,6 +163,37 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 ![IFTTT Today View](../Images/IFTTT_reorder.png)
 
+## Workflow to custom enter carbs and temp targets from Today widget on iPhone
+
+1) Get the Workflow app on your phone. 
+2) You'll have to pick a sample workflow to get started. (Don't worry, you can delete it in a minute. Just pick one and tap through  to allow you to progress through the entry screen). 
+3) Click "add widget" to add the widget to your phone. Then swipe down from the top of your phone (and possibly swipe left) to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets. Find "Workflow" and hit the green plus. It will append to the bottom of your widgets; you can drag it up to be toward the top or wherever you want it placed. Hit "Done". And go back to the Workflow app. 
+4) From your phone, click on one of the below links to download one of the community's two recommended workflows.
+
+* a) The **carbs workflow**, to enter carbs from a numerical keypad: https://workflow.is/workflows/0864a4e96a9b4b9ba111299b952e2433 
+* b) The **temp target workflow**, to enter bottom and top target and duration of a temp target from a numerical keypad: https://workflow.is/workflows/74d84f25a14d48bcbce77d397e633680
+
+5) When it opens, click "get workflow" and then "open" to open it back in Workflow. 
+6) Sign in to "Workflow Sync" to connect with IFTTT. (Sign in and/or create a Workflow account as directed.)
+7) You'll then see the workflow of the app. You'll want to look for the "create Applet" button; say yes to open IFTTT; then "Connect" Workflow in your IFTTT. It will show you the Workflow page. Scroll down to where it says "Try making your own Workflow Applet from scratch". Click the "new applet" button. 
+8) Build the recipe. Tap "this" and select or search Workflow, and tap it and "a workflow is run". Select "Carbs" or "WorkflowTempTarget" from the drop down, depending on the recipe. Hit Next. Then tap "that" and search for "Webhooks" and select Webhooks. Tap "make a web request". Make the web request similar to all the above directions with yourURL/api/v1/treatments.json; method is POST; content type is application/json. 
+
+* **Body for carbs**:
+```
+{"enteredBy": "Workflow", "carbs": {{ExtraIngredient1}}, "secret": "your_hashed_api_goes_here!!!"} 
+```
+
+* **Body for temp targets**:
+```
+{"enteredBy": "Workflow", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient1}}, "targetBottom": {{ExtraIngredient2}}, "duration": {{ExtraIngredient3}}, "secret": "your_hashed_api_goes_here!!!"}
+```
+
+*Troubleshooting*: make sure to copy and paste into IFTTT, vs using your phone to type. Phone typing will enter 'curly quotes' rather than 'straight quotes'. Curly quotes will break the IFTTT applet and is usually causing any setup errors. 
+
+9) Hit Finish. Then, go test your applet! 
+
+**WARNING/REMINDER:** if you have SMB’s turned on, do NOT try with large carb amounts. Only test with 1 carb entries! Ditto for temp targets - test a 99 or 101 or something conservative to not trigger SMB's. 
+
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
 * Load the ThisButton app from the Pebble Store.
