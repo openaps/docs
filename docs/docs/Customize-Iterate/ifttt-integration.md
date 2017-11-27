@@ -212,7 +212,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 {"enteredBy": "Workflow", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient1}}, "targetBottom": {{ExtraIngredient2}}, "duration": {{ExtraIngredient3}}, "secret": "your_hashed_api_goes_here!!!"}
 ```
 
-10) Click `Next` in the upper right corner.  You can edit the title of the applet and then click `Finish`.  You can test your applet by going back to your iPhone's Today widgets and clicking on the workflow button you just created.  You can confirm successful run by looking at your Nightscout site for the carb entry/temp target bar. 
+10) Click `Next` in the upper right corner.  You can edit the title of the applet and then click `Finish`.  You can test your applet by going back to your iPhone's Today widgets and clicking on the workflow button you just created. You can also test inside Workflow app by pressing the play button at the top of the workflow.  You can confirm successful run by looking at your Nightscout site for the carb entry/temp target bar, or by looking at the activity log of the applet in IFTTT. 
 
 **WARNING/REMINDER:** If you have SMBs turned on, do NOT try with large carb amounts. Only test with 1 carb entries! Ditto for temp targets - test a 99 or 101 mg/dl target or something conservative to not trigger SMBs.  You can delete the test entries via the Reports tab in your Nightscout site, choosing the Treatments tab, and finding the recent entry.
 
