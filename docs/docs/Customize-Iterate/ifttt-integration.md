@@ -171,6 +171,8 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 3) Click `add widget` to add the widget to your phone. Then swipe down from the top of your phone (and possibly swipe left) to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
 
+![IFTTT Workflow widget](../Images/add_widget_workflow.png)
+
 4) From your iPhone's browser app (e.g., Safari), open this page and click on one of the below links to download one of the community's two recommended workflows.
 
 * a) [**carbs entry using numeric keyboard**](https://workflow.is/workflows/0864a4e96a9b4b9ba111299b952e2433) 
