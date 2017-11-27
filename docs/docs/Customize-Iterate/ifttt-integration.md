@@ -169,7 +169,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 2) Swipe through the introduction pages, and then you'll be forced to pick a sample workflow to get started. (Don't worry, you can delete it at the end of setting up the OpenAPS-related workflows. Just pick one of the samples for now and tap through to allow you to progress through the entry screen.  The `Directions Home` one is pretty easy to get through fast.  In a few minutes when you are done setting up your OpenAPS-related workflows, simply go back to the `My Workflows` main view in the app, click on the `edit` button in upper left corner, tap on the sample workflow app that you want to delete, and then click the trashcan icon in the upper right corner.)
 
-3) Click `add widget` to add the widget to your phone. Then swipe down from the top of your phone (and possibly swipe left) to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
+3) Click `add widget` to add the widget to your phone and follow the directions to force touch the Workflow app.  After you click the `Add Widget` button that pops up, click the home button on the iPhone.  Swipe left to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
 
 ![IFTTT Workflow widget](../Images/add_widget_workflow.png)
 
