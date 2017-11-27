@@ -184,7 +184,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 ![IFTTT Workflow Sync](../Images/workflow_sync.png)
 
-7) You'll then see the workflow of the app. You'll want to look for the `Create Applet` button; click `Connect` in the Workflow upper right corner; click the green `Authorize` button; and then say yes to `open in IFTTT`; then "Connect" Workflow in your IFTTT. It will show you the Workflow page.  
+7) You'll then see the workflow of the app. You'll want to look for the `Create Applet` button; click `Connect` in the Workflow upper right corner; click the green `Authorize` button; and then say yes to `open in IFTTT`. It will show you the Workflow page.  
 
 ![IFTTT Workflow create applet](../Images/create_applet_workflow.png)
 
