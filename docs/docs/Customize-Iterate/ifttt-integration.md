@@ -167,7 +167,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 1) Install the Workflow app on your phone from the App Store. 
 
-2) Swipe through the introduction pages, and then you'll be forced to pick a sample workflow to get started. (Don't worry, you can delete it in a minute. Just pick one and tap through to allow you to progress through the entry screen.  The `Directions Home` one is pretty easy to get through fast.)
+2) Swipe through the introduction pages, and then you'll be forced to pick a sample workflow to get started. (Don't worry, you can delete it in a minute. Just pick one and tap through to allow you to progress through the entry screen.  The `Directions Home` one is pretty easy to get through fast.  To delete the sample workflow later, simply go to the `My Workflows` main view in the app, click on the `edit` button in upper left corner, tap on the sample workflow app that you want to delete, and then click the trashcan icon in the upper right corner.)
 
 3) Click `add widget` to add the widget to your phone. Then swipe down from the top of your phone (and possibly swipe left) to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
 
@@ -213,6 +213,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 10) Click `Next` in the upper right corner.  You can edit the title of the applet and then click `Finish`.  You can test your applet by going back to your iPhone's Today widgets and clicking on the workflow button you just created.  You can confirm successful run by looking at your Nightscout site for the carb entry/temp target bar. 
 
 **WARNING/REMINDER:** If you have SMBs turned on, do NOT try with large carb amounts. Only test with 1 carb entries! Ditto for temp targets - test a 99 or 101 mg/dl target or something conservative to not trigger SMBs.  You can delete the test entries via the Reports tab in your Nightscout site, choosing the Treatments tab, and finding the recent entry.
+
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
 
