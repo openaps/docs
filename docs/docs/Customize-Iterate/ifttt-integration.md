@@ -171,13 +171,13 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 3) Click `add widget` to add the widget to your phone and follow the directions to force touch the Workflow app.  After you click the `Add Widget` button that pops up, click the home button on the iPhone.  Swipe left to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
 
-![IFTTT Workflow widget](../Images/add_widget_workflow.png)
+    ![IFTTT Workflow widget](../Images/add_widget_workflow.png)
 
 4) Open the Workflow app on your iPhone. From your iPhone's browser app (e.g., Safari), open this page and click on one of the below links to download one of the community's three recommended workflows.
 
-* a) [**carbs entry using numeric keyboard**](https://workflow.is/workflows/f1c78b79155e47ee999a0f2f4116e88d) 
-* b) [**temp target range using numeric keyboard**](https://workflow.is/workflows/8d91839287694a158367c26f8630d6ad)
-* c) [**temp single target using numeric keyboard**](https://workflow.is/workflows/b8bb211fc44846278fe5ff8be3a0b4d0)
+    * [**carbs entry using numeric keyboard**](https://workflow.is/workflows/f1c78b79155e47ee999a0f2f4116e88d) 
+    * [**temp target range using numeric keyboard**](https://workflow.is/workflows/8d91839287694a158367c26f8630d6ad)
+    * [**temp single target using numeric keyboard**](https://workflow.is/workflows/b8bb211fc44846278fe5ff8be3a0b4d0)
 
 5) The workflow will open in the Workflow app. Click `Get Workflow` and then `Open`.
 
@@ -185,40 +185,40 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 7) You'll then see the workflow in the app. Click on the `Create Applet` button.
   
-![Workflow IFTTT 01](../Images/WorkflowIFTTTdg01.png)
+    ![Workflow IFTTT 01](../Images/WorkflowIFTTTdg01.png)
 
 8) Click `Open` to open the IFTTT app. In the IFTTT app click `Connect` in the upper right corner; click the green `Authorize` button; and then click `Open` to `Open in "IFTTT"?`.
 
-![Workflow IFTTT 02](../Images/WorkflowIFTTTdg02.png)
+    ![Workflow IFTTT 02](../Images/WorkflowIFTTTdg02.png)
 
-*Side Note*: Steps 9-10 recommend some copy/paste of the body text to make life easier. If you use your iPhone to type in the body text in Step 10, the iPhone will enter 'curly quotes' rather than 'straight quotes'. Curly quotes will break the IFTTT applet and is usually the main cause of setup errors. If you find that copy/paste of the body text is too difficult on the little iPhone screen, you can alternatively start Step 9 by logging into your IFTTT account on a computer and starting a new applet creation there. The actions are very similar to creating the applet on your iPhone, just the copy/paste part might be easier.
+    *Side Note*: Steps 9-10 recommend some copy/paste of the body text to make life easier. If you use your iPhone to type in the body text in Step 10, the iPhone will enter 'curly quotes' rather than 'straight quotes'. Curly quotes will break the IFTTT applet and is usually the main cause of setup errors. If you find that copy/paste of the body text is too difficult on the little iPhone screen, you can alternatively start Step 9 by logging into your IFTTT account on a computer and starting a new applet creation there. The actions are very similar to creating the applet on your iPhone, just the copy/paste part might be easier.
 
 9) Scroll down a bit to where it says `Try making your own Workflow Applet from scratch`. Click the `New Applet` button. On the recipe builder, click the blue `+this` and select or search `Workflow`, then select `A workflow is run`. Select `EatCarbs`, `BottomTopDuration` or `tempTarget` from the drop down for the trigger to use. Click the `Next` button in upper right.
 
-![Workflow IFTTT 03](../Images/WorkflowIFTTTdg03.png)
+    ![Workflow IFTTT 03](../Images/WorkflowIFTTTdg03.png)
 
 10) Click the `+that` button and search for `Webhooks`. Select Webhooks and then click `Make a web request`. Fill in the web request similar to all the above directions with:
 
-* URL: `https://yoursite.herokuapp.com/api/v1/treatments.json` (change the "yoursite" part to your NS info)
+     * URL: `https://yoursite.herokuapp.com/api/v1/treatments.json` (change the "yoursite" part to your NS info)
 
-* Method: `POST`
+     * Method: `POST`
 
-* Content Type: `application/json`
+     * Content Type: `application/json`
 
-* **Body (for EatCarbs)**:
-```
-{"enteredBy": "IFTTT-button", "reason": "eat", "carbs": {{ExtraIngredient1}}, "secret": "your_hashed_api_goes_here!!!"} 
-```
+     * **Body (for EatCarbs)**:
+     ```
+     {"enteredBy": "IFTTT-button", "reason": "eat", "carbs": {{ExtraIngredient1}}, "secret": "your_hashed_api_goes_here!!!"} 
+     ```
 
-* **Body (for temp target range)**:
-```
-{"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient2}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient3}}, "secret": "your_hashed_api_goes_here!!!"}
-```
+     * **Body (for temp target range)**:
+     ```
+     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient2}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient3}}, "secret": "your_hashed_api_goes_here!!!"}
+     ```
 
-* **Body (for single temp target range)**:
-```
-{"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient1}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient2}}, "secret": "your_hashed_api_goes_here!!!"}
-```
+     * **Body (for single temp target range)**:
+     ```
+     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient1}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient2}}, "secret": "your_hashed_api_goes_here!!!"}
+     ```
 
 11) Click `Next` in the upper right corner. You can edit the title of the applet and then click `Finish`. You can test your applet by going back to your iPhone's Today widgets and clicking on the Workflow button you just created. You can also test inside the Workflow app by pressing the play button at the top of the workflow. You can confirm a successful run by looking at your Nightscout site for the carb entry/temp target bar, or by looking at the activity log of the applet in IFTTT. 
 
