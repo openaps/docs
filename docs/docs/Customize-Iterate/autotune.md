@@ -44,6 +44,8 @@ How to run it as a one-off:
 
 If you have issues running it, questions about reviewing the data, or want to provide input for direction of the feature, please comment on [this issue in Github](https://github.com/openaps/oref0/issues/261).
 
+NB: If you choose to run Autotune using this method, be aware that OpenAPS will use Autotune recommendations going forward. To avoid this, archive the Autotune directory by renaming it using the command `~/myopenaps/autotune ~/myopenaps/newname`. Also be aware that Autotune is required to enable SMB.
+
 
 #### Phase B: Running Autotune in OpenAPS closed loop system
 
