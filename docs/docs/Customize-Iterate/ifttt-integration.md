@@ -93,13 +93,21 @@ Pump Site Change
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Site Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
-CGM Sensor Start
+CGM Sensor Change (new sensor)
+```
+{"enteredBy": "IFTTT-button", "eventType": "Sensor Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
+```
+CGM Sensor Start (restart current sensor)
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Sensor Start", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
 Carbs (change carb amount to match your required carb count. Make a button for each carb count required: 5-10-15-etc.)
 ```
 {"enteredBy": "IFTTT-button", "reason": "low treatment", "carbs": 10, "secret": "your_hashed_api_goes_here!!!"}
+```
+Reservoir Change
+```
+{"enteredBy": "IFTTT-button", "eventType": "Insulin Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
 
 ### Understanding the JSON in the Body:
