@@ -5,7 +5,7 @@
 [Nightscout](http://nightscout.info) (NS) is an open source, DIY project that allows real-time access to CGM data
 via a personal website, smartwatch viewers, or apps and widgets available for
 smartphones. Setting up a Nightscout web app is the recommended way to visualize your
-OpenAPS closed loop.
+OpenAPS closed loop, and if you want to use (e)SMB or UAM (two advanced features of OpenAPS) it is the only way of generating the required autotune directory.
 
 Nightscout allows a user to upload CGM data from a variety of sources to an
 online database and cloud computing service. The information is then processed
@@ -20,7 +20,7 @@ OpenAPS closed loop.**
 Even if you don't choose to share your Nightscout site
 with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
-your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about the latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features/0-9-features).
+your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features)
 
 ## Nightscout Setup with Heroku
 
