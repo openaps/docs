@@ -16,7 +16,7 @@ NOTE: For European/WorldWide users who have access to a `DANA*R` insulin pump, y
 
 ## How to check 523/723 & 554/754 pump firmware (check for absence of PC Connect)
 
-Note: his does not apply to the 512/712, 515/715 nor 523/723 pumps as their menues do not have a "Connect Devices" sub-menu within "Utilities". Any functioning x12, x15 or x22 pump will work, there is no need to check the firmware.
+Note: his does not apply to the 512/712, 515/715 nor 522/722 pumps as their menues do not have a "Connect Devices" sub-menu within "Utilities". Any functioning x12, x15 or x22 pump will work, there is no need to check the firmware.
 
 The firmware version will briefly display after the initial count-up on a new battery insertion.  After the pump has been on for awhile, you can check firmware version by using the Esc button on the pump and scroll all the way to the bottom of the screen messages using the down arrow on pump. 
 
