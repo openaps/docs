@@ -226,3 +226,4 @@ List of people who are working on closed loops:
 - Kate Groves (Oxford, UK)
 - Tom Wells (Guildford, UK)
 - Kyle Masterman (Perth, Western Australia)
+- Enda Farrell (Berlin, Germany)
