@@ -2,10 +2,7 @@
 
 ## Nightscout Introduction
 
-[Nightscout](http://nightscout.info) (NS) is an open source, DIY project that allows real-time access to CGM data
-via a personal website, smartwatch viewers, or apps and widgets available for
-smartphones. Setting up a Nightscout web app is the recommended way to visualize your
-OpenAPS closed loop, and if you want to use (e)SMB or UAM (two advanced features of OpenAPS) it is the only way of generating the required autotune directory.
+[Nightscout](http://nightscout.info) (NS) is an open source, DIY project that allows real-time access to CGM data via a personal website, smartwatch viewers, or apps and widgets available for smartphones. Setting up a Nightscout web app is the recommended way to visualize your OpenAPS closed loop.  It is required in order to run autotune (highly recommended), which in turn is required if you want to use (e)SMB (an advanced feature of OpenAPS).
 
 Nightscout allows a user to upload CGM data from a variety of sources to an
 online database and cloud computing service. The information is then processed
