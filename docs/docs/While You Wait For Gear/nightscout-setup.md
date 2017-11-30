@@ -40,6 +40,8 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 ![Fork example](../Images/nightscout/ns_fork.jpg)
 
+* Where it says `Branch: master` (to the far-left of the green "Clone or download" button), click on it and choose `dev`. This button should then say `Branch: dev`.
+
 * Scroll down until you see the purple `Deploy to Heroku` button.  Click that button.
 
 ![Deploy to heroku button](../Images/nightscout/deploy_heroku.jpg)
