@@ -16,17 +16,28 @@ NOTE: For European/WorldWide users who have access to a `DANA*R` insulin pump, y
 
 ## How to check pump firmware (check for absence of PC Connect)
 
-The firmware version will briefly display after the initial count-up on a new battery insertion.  After the pump has been on for awhile, you can check firmware version by using the Esc button on the pump and scroll all the way to the bottom of the screen messages using the down arrow on pump. 
+The firmware version will briefly display after the initial count-up on a new battery insertion.  After the pump has been on for a while, you can check the firmware version by using the Esc button on the pump and scroll all the way to the bottom of the screen messages using the down arrow on pump. 
 
-A double-check for pump compatibility is to look for the ABSENCE of PC connect in the pump menu.  Press the ACT button, scroll down to the "Utilities" menu, and within the "Connect Devices" menu and look for a PC Connect option. If that is present, the pump will NOT work for looping. If it’s absent, the pump should be able to receive temp basal commands and be compatible.
+A double-check for pump compatibility is to look for the ABSENCE of PC connect in the pump menu.  Press the ACT button, scroll down to the "Utilities" menu.
+* If there is a "Connect Devices" menu look for a "PC Connect" option. 
+  * This is the case for the 523/723 and 554/754 models.
+  * If "PC Connect" is present, then the pump will NOT work for looping. 
+  * If "PC Connect" is absent, then the pump should be able to receive temp basal commands and be compatible.
+ * If there is no "Connect Devices" menu, then the pump should be able to receive temp basal commands and be compatible.
+   * This is the case for the 512/712, the 515/715 and 522/722 models. 
+   * For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and require creating special files for the missing info to successfully run the loop ([Instructions for 512/712 users, click here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html)). 512/712 users are not going to be able to use an advanced feature - (e)SMB - but will be able to do basic looping.
+
+Note that not _all_ possible sellers of pumps will accuratly describe the model number: if they are willing to sell a pump they may not have interest in setting it up for looping, and the distinctions about model numbers and firmware version may not be important to them. It will be for you though! Therefore, it's prudent to verify the model by seeing pctures and/or videos of the pump in action. 
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.  This repair is quite straight-forward and easy.
 
 ## Why do I need a certain pump firmware?
 
-Due to changes in the firmware, the openaps tools are only able to function in-full on the above pump models. Security features were added after firmware v2.4 in the US that prevent making some remote adjustments via the decoded communications OpenAPS uses. For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and requires creating a special files for the missing info to successfully run the loop ([Instructions for 512/712 users, click here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html)). Note that 512/712 users are not going to be able to use an advanced feature (SMB), but will be able to do basic looping.
+Due to changes in the firmware, the openaps tools are only able to function in-full on the above pump models. Security features were added after firmware v2.4 in the US that prevent making some remote adjustments via the decoded communications OpenAPS uses. 
 
 If you are not based in the US, some later model pumps and firmware may be compatible as listed above. Check for PC Connect absence to determine compatibility.
+
+## Can I downgrade my pump firmware?
 
 One of the most frequently asked questions is "I have a 723 pump but it has version 2.5B software version.  Has anyone figured out a way to make newer model Medronic pumps compatible?  Like flash older version of software onto my 723 2.5B pump?"  The answer is "No.  The ability to downgrade software versions in the pumps does not exist.  It has been investigated and nobody has made any successful progress to that end."
 
