@@ -37,7 +37,7 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 If you have an OpenAPS rig and want to test autoune manually, you can do so manually on the command line. There has been some additional work to make it easier to export to Excel for review.
 
 How to run it as a one-off:
-* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.6.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 * Install jq: `sudo apt-get install jq`
 * Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
@@ -113,7 +113,7 @@ Mac install commands:
  * 4.) Install JQ from Homebrew: `brew install jq` 
  
 **Step 2: Install oref0**
-* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.6.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
