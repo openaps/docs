@@ -40,6 +40,7 @@ A few things to know about using your phone's hotspot feature:
 <TR><TH>Acer Phone<TD>No<TD>Many data drops on the bluetooth connection for rig. Recommended to avoid.<TD>xDrip compatibility is poor - numerous drops throughout the day.
 <TR><TH>Samsumg Galaxy S7 Edge (G935F) Android 7.0<TD>Yes<TD>Excellent BT tether using apps 'Bt AutoTether' and 'BT Tether'<TD>xDrip+ with G5 > 95% capture.
 <TR><TH>Samsung Galaxy A3 (2016) Android 6<TD>Yes<TD>Excellent BT tether using app 'Blue Car Tethering'<TD>xDrip+ with G4, reliable capture using xDrip+ and using normal tether when running with Dexcom in G4-upload mode
+<TR><TH>Samsung Galaxy A5 (2017) Android 7.0<TD>Yes<TD>Excellent BT tether, intermitent disconnecting when the area is flooded with other bluetooth devices. Use 'BT AutoTether' app along side to maintain connection<TD>xDrip+ with G5, works really well with G5 transmitter directly, no compatibility issues and 95%+ consistent capture rate.
 </TABLE>
 
 **********************************************************************************************
