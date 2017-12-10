@@ -32,6 +32,8 @@ Single SMB amounts are limited by several factors.  The largest a single SMB bol
 * 1/3 of the Insulin Required amount, or
 * the remaining portion of your maxIOB setting in preferences
 
+It's important to note that maxIOB will limit SMBs from being issued if your IOB (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing SMBs.
+
 (History of SMB development: https://github.com/openaps/oref0/issues/262)
 
 ## Understanding UAM 
