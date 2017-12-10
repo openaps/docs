@@ -47,3 +47,7 @@ If you need to acquire a compatible pump, check CraigsList, ask around local or 
 
 If you're buying a pump online, we recommend you ask the seller to confirm the firmware version of the pump. (You may also want to consider asking for a video of the pump with working functionality before purchasing.)
 
+## Word of warning: Pump repairs rendering pumps useless
+
+If you need to send your pump away to Medtronic for repair, be aware that during the repair process the firmware may get upgraded rendering your pump useless for looping. Good idea to speak to a Medtronic rep or get advice from the community before sending it away.
+
