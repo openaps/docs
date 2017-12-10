@@ -75,18 +75,29 @@ You will likely want to screw your Edison onto the Explorer Block to stabilize t
 There are a few 3D-printed cases that are being designed, so check back here for more links in the future. A few options that we know will work with an Explorer Block/Edison rig and a standard 2000 mAh battery (as well as some 2500 mAh options):
 
 ### Hard cases 
-* [RadioShack Project Enclosure (3x2x1 inch)](https://www.radioshack.com/products/radioshack-project-enclosure-3x2x1?utm_medium=cpc&utm_source=googlepla&variant=20332262405&gclid=Cj0KEQiA-MPCBRCZ0q23tPGm6_8BEiQAgw_bAkpDZCXfIgbEw8bq76VHtV5mLwR2kHKfJrsGsF3uqqgaAtxP8P8HAQ) 
-* [Ken Stack's 3D design for a case with the battery next to the board](https://github.com/Perceptus/explorer_board_case) 
+Unless otherwise stated, it's not clear if all of these accommodate the newer (late 2017) Explorer Block v1.3 size which seems to be about 1mm wider and a little taller - some older case designs will work - but you milage may vary.
+
+#### buy such a case
+* [RadioShack Project Enclosure (3x2x1 inch)](https://www.radioshack.com/products/radioshack-project-enclosure-3x2x1?utm_medium=cpc&utm_source=googlepla&variant=20332262405&gclid=Cj0KEQiA-MPCBRCZ0q23tPGm6_8BEiQAgw_bAkpDZCXfIgbEw8bq76VHtV5mLwR2kHKfJrsGsF3uqqgaAtxP8P8HAQ)
+* [Small clear plastic case perfect for larger Sparkfun 2000 mAh battery: #8483](http://www.ebay.com/itm/272062812611)
+* [Small Plastic Clear Case for 2500 mAh battery](http://www.ebay.com/itm/272062812611) - Since a Tic-Tac box is too small for the 2500 mAh battery.
+* [Robert Silvers and Eric Burt's cases for Explorer, inc rev 1.3, and different sized batteries](https://www.shapeways.com/shops/robertsilvers)
+
+#### 3D printer files
+* [Ken Stack's 3D design for a case with the battery next to the board](https://github.com/Perceptus/explorer_board_case)
 * [Rob Kresha's design with the battery compartment stacked on-top of the board compartment](http://www.thingiverse.com/thing:2020161)
 * [Gustavo's 3D design](https://github.com/Perceptus/explorer_board_case_2)
-* [Sulka Haro's 3D design](https://www.tinkercad.com/things/4a6VffpcuNt)
-* [tazitoo's 3D design: CAD](https://www.tinkercad.com/things/aRYGnHXt7Ta-explorer-case/editv2) ([or STL for 3D printing](http://www.thingiverse.com/thing:2106917))
+* [tazitoo's 3D design STL for 3D printing](http://www.thingiverse.com/thing:2106917)
 * [danimaniac's Protective Cases & Accessories](https://github.com/danimaniac/OpenAPS-Explorer-Board-Edison-vented-case)
 * [Luis's ventilated acrylic simple design](https://drive.google.com/drive/folders/0BxeFg9yJZ_FZdWJEcG5KMXdUMjg?usp=sharing)
-* [Small clear plastic case perfect for larger Sparkfun 2000 mAh battery: #8483](http://www.ebay.com/itm/272062812611)
 * [Robert Silvers and Eric Burt's case for Explorer and 2500 mAh battery](http://www.thingiverse.com/thing:2282398)
 * [Robert Silvers' case for Explorer and 2000 or 2500 mAh battery](http://www.thingiverse.com/thing:2291125)
-* [Small Plastic Clear Case for 2500 mAh battery](http://www.ebay.com/itm/272062812611) - Since a Tic-Tac box is too small for the 2500 mAh battery.
+
+
+#### 3D printer files where you _might_ be able to order one too
+* [Sulka Haro's 3D design](https://www.tinkercad.com/things/4a6VffpcuNt)
+* [tazitoo's 3D design: CAD](https://www.tinkercad.com/things/aRYGnHXt7Ta-explorer-case/editv2)
+
 
 ### Soft Cases 
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=120) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). The OpenAPS-sized case can be made any any pattern/fabric she uses elsewhere on the site.
