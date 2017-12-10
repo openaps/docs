@@ -22,6 +22,8 @@ NOTE OF CAUTION:
 
 ## Understanding SMB
 
+<strong>SMB:</strong> Super Micro Bolus
+
 SMB, like all things in OpenAPS, is designed with safety in mind. (Did you skip reading the updated reference design? Go read that first!) SMB is designed to give you reasonably SAFE amounts of bolus needed upfront and use reduced temporary basal rates to safely balance out the peak insulin timing. You are likely to see many long low or zero temps (upwards of 120 minutes long) with SMB turned on, while oref1 is administering SMBs or waiting until it's safe to do so. 
 
 Single SMB amounts are limited by several factors.  The largest a single SMB bolus can be is the SMALLEST value of:
@@ -33,6 +35,8 @@ Single SMB amounts are limited by several factors.  The largest a single SMB bol
 (History of SMB development: https://github.com/openaps/oref0/issues/262)
 
 ## Understanding UAM 
+
+<strong>UAM:</strong> Un-announced meal
 
 UAM will be triggered if the preference is toggled on and there is carb activity detected based on positive deviations. 
 
