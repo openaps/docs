@@ -53,6 +53,9 @@ The Looped Group has grown considerably in the last 6 months and has many users 
 
 ![FB group header](../Images/looped.jpg)
 
+A looping facebook group is also available for Austrlian users, [Aussie, Aussie, Aussie, Loop, Loop, Loop](https://www.facebook.com/groups/1558147697576040/) is very similar to the Looped Group however it only contains people from Australia which is useful for procurement of parts, advice and catch ups.
+Similar to Looped, you will need to request membership for the group and respond to a message from the group administrators prior to joining.
+
 ### Issues on GitHub
 One of the above channels is the best place for real-time or near-time troubleshooting. However, you may occasionally stumble across a new bug or edge case that we want to work on resolving. If you're asked to "create an issue", that usually means going to [the oref0 repository on Github and logging an issue there](https://github.com/openaps/oref0/issues). (You may also be asked to create issues for the openaps toolkit or decocare, etc. but usually it's oref0 related.) 
 
