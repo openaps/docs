@@ -1,7 +1,3 @@
-# Pay it forward to those less fortunate
-
-If you've been helped by the generosity of others, please [pay it forward by helping those less fortunate than any of us.](https://diyps.org/2017/05/24/different-ways-to-make-a-difference/)  There are children dying of T1D who could live healthy lives into adulthood with only a very small contribution from each of us.  If you haven't already, please visit https://lifeforachildusa.org/ (or https://lifeforachild.org/) and sign up to make a regular monthly donation to Life for a Child.  If you can afford to donate $1/day, that is enough to save the life of one child.  And if you can't afford that, please set up whatever monthly donation you feel you can afford right now.  If you're already donating, please consider increasing your donation.  With some small adjustments to our lifestyle, all of us can afford to give at least 10% of our income, and/or 10% of our time, to help the least fortunate.  If you don't feel like you can afford that all at once, feel free to start smaller.  But also think about what you would be willing to do, if you had to, in order to get insulin for your own child with T1.  Every child with T1 deserves to live, and I hope you'll do your part to make that happen.
-
 # Ways to Contribute to OpenAPS
 
 OpenAPS doesn't require you to be a formally trained engineer/developer/anything to get started or use these tools. The main requirement is interest and willingness to safely DIY new technology that may help improve your life as well as others.
@@ -18,3 +14,9 @@ If you're not sure where to get started, here are some ways to get involved:
 * Consider calling your device manufacturer and ask about communication protocols in order to understand how your device operates.
 
 If you would like to work on the core openaps code, take a look at the openaps [contributing guidelines](https://github.com/openaps/openaps/blob/master/CONTRIBUTING.md) before getting started. Thank you for your contributions!
+
+# Pay it forward to those less fortunate
+
+One of the common questions we also get is how to donate money to further #OpenAPS. As this is an open source project, there is no financial organization behind OpenAPS that makes sense to donate to. Instead, we recommend considering the following:
+
+If you've been helped by the generosity of others, please [pay it forward by helping those less fortunate than any of us.](https://diyps.org/2017/05/24/different-ways-to-make-a-difference/)  There are children dying of T1D who could live healthy lives into adulthood with only a very small contribution from each of us.  If you haven't already, please visit https://lifeforachildusa.org/ (or https://lifeforachild.org/) and sign up to make a regular monthly donation to Life for a Child.  If you can afford to donate $1/day, that is enough to save the life of one child.  And if you can't afford that, please set up whatever monthly donation you feel you can afford right now.  If you're already donating, please consider increasing your donation.  With some small adjustments to our lifestyle, all of us can afford to give at least 10% of our income, and/or 10% of our time, to help the least fortunate.  If you don't feel like you can afford that all at once, feel free to start smaller.  But also think about what you would be willing to do, if you had to, in order to get insulin for your own child with T1.  Every child with T1 deserves to live.
