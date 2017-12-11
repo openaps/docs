@@ -275,6 +275,7 @@ Rebooting
 U-boot & Kernel System Flash Success...
 ```
 in something closer to 10 seconds than 10 minutes, then you likely didn't set up swap properly.  To verify, `cat flash.log` and look for `dfu-util: Cannot allocate memory of size 1610612736 bytes` near the end.
+Alternatively, [this newer version of DFU Util](https://sourceforge.net/projects/dfu-util/files/latest/download) (DFU Util v0.9) seems to work better on computers with lots of RAM.
 
 c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and no longer supported. As Homebrew does not drop privileges on installation you would be giving all build scripts full access to your system.` it means that you have a recent copy of homebrew (that's good) which doesn't allow sudo to even do a `brew list`. 
 
