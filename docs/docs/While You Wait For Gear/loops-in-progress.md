@@ -229,3 +229,4 @@ List of people who are working on closed loops:
 - Virginia Saunders (Ontario, Canada)
 - Enda Farrell (Berlin, Germany)
 - Carl Robertson (Rochester, NY, USA)
+- Ben Ortega (Minneapolis, MN)
