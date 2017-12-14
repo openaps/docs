@@ -27,7 +27,7 @@ Eject the microSD card from your computer, insert it into your Pi, and plug in p
 
 On Mac, open Terminal and `ssh pi@raspberrypi.local`
 
-On Windows, use PuTTY to connect as the `pi` user to hostname `raspberrypi.local`
+On Windows, use PuTTY for an ssh connection. Username on all new Pi's is `pi`. The username used by everyone after this step is `root` because you have to be the super user, the user with full priviledges. To connect as `pi` use the same hostname for all new Pi's, `raspberrypi.local`. This could also be input into PuTTY as pi@raspberrypi.local. The password for logging in as `pi` is `raspberry`.
 
 ### Run openaps-install.sh ###
 
