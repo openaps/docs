@@ -12,6 +12,13 @@ Save the edits to the file using `control-x`, `y`, and `enter`.
 
 Helpful tip:  Add a couple "blank" networks to the file (see screenshot below), so that if you ever need to add new wifi networks while on-the-road, the process will be much faster and easier.  You'll only need to edit the network name and password then...instead of needing to type in the whole string of the template. 
 
+if you entered the network information but your device doesn't want to connect, you can try the following:
+```wpa_passphrase <YOUR_WIFI_SSID> <YOUR_WIFI_PASSWORD>```
+this creates a network block with a hashed password.
+see https://learn.sparkfun.com/tutorials/loading-debian-ubilinux-on-the-edison
+(https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/ubilinux_wpa_passphrase.png)
+On a recent new installation, this was required in order to connect.
+
 ![Edit wifi file](../Images/sample-wifi-file.png)
 
 Some wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
