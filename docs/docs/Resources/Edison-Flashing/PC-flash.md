@@ -204,6 +204,12 @@ recent routers (ASUS AC66) demand a config block like this:
            group=CCMP TKIP
            proto=RSN WPA2 WPA
 }```
+Ctrl-X to save. Press Y to confirm save, Enter to confirm the filename.
+
+test your changes by entering
+```ifdown wlan0``` to bring the wifi down, then
+```wpa_supplicant -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf``` to load your wifi configuration, then
+```ifup wlan0``` to finally get an IP lease from your router.
 
 If you want to add open networks to your list, then add:
 
