@@ -5,20 +5,42 @@ Wouldn't it be great if the system knew when you were running sensitive or resis
 
 When you watch your autosens log (shortcut command is `autosens-looplog`) and sensitivity changes is going to be detected, you might see something like this:
 ******************
--+>>>>>>>>>>>>+++->->+++>++>>+>>>>>>>>++-+>>>>>>>-+++-+--+>>>>>>>>>>>>>>>>>>>>>>>>>++-++++++--++>>>++>>++-++->++-+++++++>+>>>>>>>>>>>>>>>>>++-+-+-+--++-+--+++>>>>>>++---++----+---++-+++++>>>++------>>>++---->>+++++--+++-++++++++--+--+------++++++++++>>>>++--+->>>>>>>>>>++++-+-+---++++ 34% of non-meal deviations negative (target 45%-50%)\
-Excess insulin resistance detected: ISF adjusted from 100 to 73.52941176470588
+Calculating sensitivity using 8h of non-exluded data
+Setting lastSiteChange to Tue Dec 19 2017 09:42:24 GMT-0600 (CST) using timestamp 2017-12-19T09:42:24-06:00
+u(xxxxxxxxxxxx11hxxxxxxxxxxxx12h=43g(xxxxxxxxxxxx13hxxxxxxxxxxxx14h=xxx45gxxxxxxxxx15hxxxxxxxxxxx16h=xxxxxxxx17hxxxxxx0gx)u(xxxxx18h=x35g(xx46gxxxxxxxxx19hxxxxxxx38gxxxxx20h=xxxxxxxxxxxx21hxxxxxx-x-x-x-x-x-x-22h=x-x-x-x-x-xxxxxxx23hxx0gx
+Using most recent 18 deviations since Tue Dec 19 2017 09:42:24 GMT-0600 (CST)
+Adding 15 more zero deviations
+36% of non-meal deviations negative (>50% = sensitivity)
+Sensitivity normal.
+ISF adjusted from 120 to 120
+Calculating sensitivity using all non-exluded data (up to 24h)
+Setting lastSiteChange to Tue Dec 19 2017 09:42:24 GMT-0600 (CST) using timestamp 2017-12-19T09:42:24-06:00
+u(xxxxxxxxxxxx11hxxxxxxxxxxxx12h=43g(xxxxxxxxxxxx13hxxxxxxxxxxxx14h=xxx45gxxxxxxxxx15hxxxxxxxxxxx16h=xxxxxxxx17hxxxxxx0gx)u(xxxxx18h=x35g(xx46gxxxxxxxxx19hxxxxxxx38gxxxxx20h=xxxxxxxxxxxx21hxxxxxx-x-x-x-x-x-x-22h=x-x-x-x-x-xxxxxxx23hxx0gx
+Using most recent 18 deviations since Tue Dec 19 2017 09:42:24 GMT-0600 (CST)
+Adding 15 more zero deviations
+36% of non-meal deviations negative (>50% = sensitivity)
+Sensitivity normal.
+ISF adjusted from 120 to 120
+Using 24h autosens ratio of 1 (ISF 120)
+Autosens refreshed: {"ratio":1}
 ******************
 Here's what each symbol above means:
 
- ">" : deviation from BGI was high enough that we assume carbs were being absorbed, and disregard it for autosens purposes
+ "x"  : deviation from BGI was high enough that we assume carbs were being absorbed, and disregard it for autosens purposes.  It could also have been exluded becuase of an unexplained high deviation (site failure, etc).
 
- "+" : deviation was above what was expected
+ "+"  : deviation was above what was expected
 
- "-" : deviation was below what was expected
+ "-"  : deviation was below what was expected
 
- "=" : BGI is doing what we expect
-
-The symbols are in reverse order beginning with the most recent deviation on the left and ending with the deviations 24 hours ago on the right.
+ "="  : BGI is doing what we expect
+ 
+ "4h" : time stamp to mark hour of day - i.e. 4h = 4am, 22h = 10pm, etc.
+ 
+ "8g" : COB is displayed at any time a new carbs are recorded. Initial carb entry will show as full carbohydrate count followed by "(" with subsequent COB notes (4g) as calculated net COB at any time when additional carbs are entered.
+ 
+ "u"  : UAM check is based on total IOB as compared to normal basal rates. If IOB is > 2 hours of basal, UAM will be triggered and will remain until deviaations turn negative again (with IOB < 2h basal)
+ 
+The symbols are in chronological order, moving from oldest to newest.  As there are typically CGM readings every 5 minutes, there are usually 12 comparisons each hour
 
 ### Autosens adjustments
 
@@ -34,7 +56,7 @@ As you can see, there are several types of adjustments that have occurred during
 
 ### Notes about autosensitivity:
 
-* "Autosens" works by reviewing the last 24 hours of data (so it's a rolling calculation with a moving window of 24 hours) and assessing deviations to determine if you are more sensitive or resistant than expected. If a pattern of such deviations is detected, it will calculate the adjustment that would've been required to bring deviations back to normal.
+* "Autosens" works by reviewing the both the last 8 hours and last 24 hours of data (so it's a rolling calculation with a moving window of 24 hours) and assessing deviations to determine if you are more sensitive or resistant than expected. If a pattern of such deviations is detected, it will calculate the adjustment that would've been required to bring deviations back to normal.  It will then use the more conservative between the rolling 8 hour calculation or the 24 hour calculation.
 * Autosens does NOT take into account meal/carb deviations; it only is able to assess the impact of insulin, and thus will adjust ISF, basals, and targets to help compensate for changes in sensitivity. 
 * Most users will notice the changed ISF numbers in their OpenAPS pill, along with autosens-adjusted targets.
 * Note that a Nightscout care portal or IFTTT temp target (for activity/exercise as an example) will override the autosens-adjusted target but IT WILL NOT override an advance target adjustment to high bring BG down. This is because in 0.5.x, the temp target is honored, but the advanced target adjustment is applied after the temp target. So, if current BG is high, the advanced target adjustment will be applied starting from the activity temp target, so if BG is high enough it will still reduce the active target to 80 mg/dL / 4,4 mmol/L. Consequently, be cautious of activity periods that follow a high BG; your IOB could be quite significant and cause you to go low quite fast as you start moving. If you do not want OpenAPS to apply advanced target adjustment that can be turned off by editing preferences.json (shortcut command edit-pref) and setting the “adv_target_adjustments” to false. Finally, if you do not want autosens to adjusted target that can be turned off by editing preferences.json (shortcut command edit-pref) and setting the “autosens_adjust_targets” to false.  In oref0 0.6.0, adv_target_adjustments is set to false by default, as its functionality has been replaced by instead using the (safer) zero-temp BG predictions to decide when it's safe to dose additional insulin when high.  The 0.6.0 exercise_mode feature also helps improve OpenAPS' response to high temp targets.
