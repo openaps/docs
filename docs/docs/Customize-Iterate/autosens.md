@@ -26,7 +26,7 @@ Autosens refreshed: {"ratio":1}
 ******************
 Here's what each symbol above means:
 
- "x"  : deviation from BGI was high enough that we assume carbs were being absorbed, and disregard it for autosens purposes.  It could also have been exluded becuase of an unexplained high deviation (site failure, etc).
+ "x"  : deviation is excluded.  All deviations are excluded when there is COB through the time that COB drops to zero (carbs are fully absorbed) and deviations go negative once again.  This is appropriate to eliminate the impact of rising BG due to carb absorption from sensitivity calcualations and not falsely attribute to insulin resistance.  Deviations may also be exluded becuase of an unexplained high deviation (site failure, etc).
 
  "+"  : deviation was above what was expected
 
