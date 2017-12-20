@@ -26,19 +26,19 @@ Autosens refreshed: {"ratio":1}
 ******************
 Here's what each symbol above means:
 
- "x"  : deviation is excluded.  All deviations are excluded when there is COB through the time that COB drops to zero (carbs are fully absorbed) and deviations go negative once again.  This is appropriate to eliminate the impact of rising BG due to carb absorption from sensitivity calcualations and not falsely attribute to insulin resistance.  Deviations may also be exluded becuase of an unexplained high deviation (site failure, etc).
+ "x"  : deviation is excluded.  All deviations are excluded when there is COB through the time that COB drops to zero (carbs are fully absorbed) and deviations go negative once again.  This is appropriate to eliminate the impact of rising BG due to carb absorption from sensitivity calcualations and not falsely attribute it to insulin resistance.  Deviations may also be excluded becuase of an unexplained high deviation (site failure, etc).
 
  "+"  : deviation was above what was expected
 
- "-"  : deviation was below what was expected
+ "-"  : deviation was below what was expected.   In addition, if a high temp target is running (i.e. activity mode), a negative deviation is added every 5 minutes, to nudge sensitivityRatio downward to reflect the sensitivity likely to result from activity.
 
- "="  : BGI is doing what we expect
+ "="  : BGI is doing what we expect.  Neutral deviations are also added every 2h to help decay sensitivityRatio back toward 1 if all data is excluded. 
  
  "4h" : time stamp to mark hour of day - i.e. 4h = 4am, 22h = 10pm, etc.
  
  "8g" : COB is displayed at any time a new carbs are recorded. Initial carb entry will show as full carbohydrate count followed by "(" with subsequent COB notes (4g) as calculated net COB at any time when additional carbs are entered.
  
- "u"  : UAM check is based on total IOB as compared to normal basal rates. If IOB is > 2 hours of basal, UAM will be triggered and will remain until deviaations turn negative again (with IOB < 2h basal)
+ "u"  : UAM check is based on total IOB as compared to normal basal rates. If IOB is > 2 hours of basal, UAM will be triggered and will remain until deviations turn negative again (with IOB < 2h basal).
  
 The symbols are in chronological order, moving from oldest to newest.  As there are typically CGM readings every 5 minutes, there are usually 12 comparisons each hour
 
