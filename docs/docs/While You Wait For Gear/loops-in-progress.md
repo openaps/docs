@@ -230,3 +230,4 @@ List of people who are working on closed loops:
 - Enda Farrell (Berlin, Germany)
 - Carl Robertson (Rochester, NY, USA)
 - Ben Ortega (Minneapolis, MN)
+- Reza Bolouri (Melbourne, Australia)
