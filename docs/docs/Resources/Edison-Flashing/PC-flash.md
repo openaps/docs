@@ -184,15 +184,16 @@ network={
 }
 ```
 
-most recent installations require a wpa passphrase instead of a wpa pre shared key.
+you can also use a wpa passphrase instead of a wpa pre shared key.
 from a root prompt, type
 ```wpa_passphrase ssid password```
 replace <ssid> and <password> with your ssid's name and it's password. 
-*note* If your ssid contains any funny characters, you'll have to replace <ssid> with the ssid name converted to a hex string. google is your friend. Alternatively, use a more friendy SSID name.
 this will spit out a wpa_supplicant network block. select all of it by dragging over the entire 'network={xxxxxx} blob with your mouse.
 
 then, ```nano /etc/wpa_supplicant/wpa_supplicant.conf```
 and rightclick at the end of the file. this will paste the block you just generated. *make sure you remove any previous attempts of configuring your ssid; a maximum of one network block with your ssid name in it should exist*
+
+*note* If your ssid contains any funny characters, you'll have to replace <ssid> with the ssid name converted to a hex string. google is your friend. Alternatively, use a more friendy SSID name.
 
 recent routers (ASUS AC66) demand a config block like this: 
 ```network={
