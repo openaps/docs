@@ -17,7 +17,8 @@ For more background, see [the OpenAPS.org Data Commons page](https://openaps.org
  * Make sure to verify your profile (see Open Humans email confirmation).
 * **B**. (Optional, but recommended  method for getting your data into OpenHumans). Use the Nightscout Data Transfer app to upload your data into 
  * **1**. Go to the [Nightscout Data Transfer App webpage](https://www.openhumans.org/activity/nightscout-data-transfer/)
- * **2**. Scroll down to the bottom of the page and click "Connect Nightscout Data Transfer". (Log in to your OH account first if you haven't already). 
+ * **2a**. NEW USERS: Scroll down to the bottom of the page and click "Connect Nightscout Data Transfer". (Log in to your OH account first if you haven't already).
+ * **2b**. REPEAT USERS: Go here: https://dataxfer-ns-oh.herokuapp.com/ . (Log in to your OH account first if you haven't already). 
  * **3**. It will take you to a page and ask for your Nightscout URL. Note the app DOES NOT store your URL but will just use it to fetch the data from Nightscout. Select the date range you want it to fetch data from. Tip: Start with two days or so of data to test that it works; you can then re-upload with a longer time frame of data. 
  * Warning: if you want to upload ALL of your data (yay!), then don't put a start date. However, this will take a while, so don't expect it to be done in minutes, but may take upward of half an hour to an hour depending on how much Nightscout data you have - this is normal.
  * It will say "queued" on the page. You can refresh, and it should soon say "initiated". It may take several minutes to pull even a few days worth of data, so keep refreshing the page or come back later. Once done, it should show you a list of files that it has pulled, and provide download buttons if you want to download a local copy or open it to check that it correctly pulled data. Your screen should look like this:
