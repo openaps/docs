@@ -184,6 +184,34 @@ network={
 }
 ```
 
+you can also use a wpa passphrase instead of a wpa pre shared key.
+from a root prompt, type
+```wpa_passphrase ssid password```
+replace <ssid> and <password> with your ssid's name and it's password. 
+this will spit out a wpa_supplicant network block. select all of it by dragging over the entire 'network={xxxxxx} blob with your mouse.
+
+then, ```nano /etc/wpa_supplicant/wpa_supplicant.conf```
+and rightclick at the end of the file. this will paste the block you just generated. *make sure you remove any previous attempts of configuring your ssid; a maximum of one network block with your ssid name in it should exist*
+
+*note* If your ssid contains any funny characters, you'll have to replace <ssid> with the ssid name converted to a hex string. google is your friend. Alternatively, use a more friendy SSID name.
+
+recent routers (ASUS AC66) demand a config block like this: 
+```network={
+           ssid="ssid"
+           #psk="wifi password"
+           psk=<wpa_passphrase generated passphrase>
+           key_mgmt=WPA-PSK
+           pairwise=CCMP TKIP
+           group=CCMP TKIP
+           proto=RSN WPA2 WPA
+}```
+Ctrl-X to save. Press Y to confirm save, Enter to confirm the filename.
+
+test your changes by entering
+```ifdown wlan0``` to bring the wifi down, then
+```wpa_supplicant -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf``` to load your wifi configuration, then
+```ifup wlan0``` to finally get an IP lease from your router.
+
 If you want to add open networks to your list, then add:
 
 ```
