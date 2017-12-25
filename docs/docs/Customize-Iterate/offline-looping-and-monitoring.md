@@ -41,6 +41,26 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 * If you are using this configuration for G4 receivers and (1) are online and (2) want to see RAW BGs in NS, then you must remember to add `rawbg` to your ENABLE line in your Heroku/Azure settings.  You will also have to go to your Nightscout site's settings and select "always" from the Show RAW BG options.  You will also have to select `g4-raw` (if on master branch) or `g4-upload` (if on dev branch) as the CGM type in the loop setup script.
 
+### Entering carbs and setting temporary targets while offline
+While offline you will not be able to enter carbs and set temporary targets using Nightscout. You have two options to enter carbs while offline. You can use the Medtronic pump's Bolus Wizard. When using the Bolus Wizard be careful to avoid an A52 error if you have enabled SMB. The second option is to use the Medtronic pump's Capture Event feature. To turn on the Capture Event feature, do these steps:
+
+1. Go to the CAPTURE EVENT ON/OFF screen: Main > Utilities > Capture Option
+2. Select On, then press ACT.
+You will now have a Capture Event option in the MAIN MENU.
+
+To enter carbohydrate information:
+
+1. Determine the total units of carbohydrates in the meal or snack that you plan to eat.
+2. Go to the ENTER FOOD screen: Main > Capture Event > Meal marker
+3. The ENTER FOOD screen flashes with dashes or with the number of carbohydrate grams you entered last time.
+4. Enter the carbohydrate grams, then press ACT. A message asks if you want to save the information that is displayed on the screen. The Yes option is selected.
+5. Make sure the number shown on the screen is correct. If the information is correct, press ACT. The information you entered is saved to the system and can now be used in reports. If the information is not correct, select No, then press ACT. The CAPTURE EVENT menu shows. Repeat the steps above to enter the correct information.
+
+You cannot set a temporary target in the Medtronic pump. If you want to change your target while offline you will need to do that using the Bolus Wizard Setup option. IMPORTANT: If you change your target while offline, and you want it to be temporary you MUST remember to set it back to its original setting when you are done. To change your target on your Medtronic pump do the following:
+
+1. Make sure the EDIT SETTINGS screen is open: Main > Bolus > Bolus Setup > Bolus Wizard Setup > Edit Settings
+2. Select BG Target, then press ACT, and change your target.
+
 ********************************
 
 ### xDripAPS for offline BGs and looping for Android users
