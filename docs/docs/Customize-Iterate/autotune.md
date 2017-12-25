@@ -1,12 +1,8 @@
 # Autotune
 
-Autotune is a feature/tool created in late December 2016 and is currently being tested within the community.  You can also see issue [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313) for background reading. Want to pay it forward and help improve autotune? You can see [the identified issues that are known to need volunteers to help tackle here](https://github.com/openaps/oref0/projects/1). Those who are not running autotune in a closed-loop setting should use the "Phase C" instructions below.
+Autotune is a DIY tool to help calculate potential adjustments to ISF, carb ratio, and basal rates. For development history, see [#261](https://github.com/openaps/oref0/issues/261) and [#99](https://github.com/openaps/oref0/issues/99) and pull request [#313](https://github.com/openaps/oref0/pull/313).
 
-## The difference between autotune and autosens:
-
-Autosensitivity/resistance mode (aka “autosens”) is an advanced feature you can enable that looks at 24 hours of data and makes adjustments to ISF and targets based on the resulting sensitivity calculations. If you have a dying pump site, or have been sick and are resistant, your ISF is likely to be calculated down by autosens and then used in OpenAPS calculations accordingly. The opposite for being more sensitive is true as well. [(Here’s a blog post describing autosensitivity during sick days.)](https://diyps.org/2016/12/01/sick-days-with-a-diy-closed-loop-openaps/)
-
-Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb ratio over the course of weeks.  Because it makes changes more slowly than autosens, autotune ends up drawing on a larger pool of data, and is therefore able to differentiate whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Whereas we don’t recommend changing basals or ISF based on the output of autosens (because it’s only looking at 24h of data, and can't tell apart the effects of basals vs. the effect of ISF), autotune is intended to be used to help guide basal, ISF, *and* carb ratio changes because it’s tracking trends over a large period of time. See below for how it can be used as a manual one-off calculation or in a closed loop setting, along with notes about the safety caps designed to go with it.
+Those who are not running autotune in a closed-loop setting should use the "Phase C" instructions below.
 
 ## How Autotune works
 
@@ -32,6 +28,10 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 
 ### Different ways to utilize Autotune
 
+Phase A - run autotune as a one-off on an OpenAPS rig (aka, manually)
+Phase B - run autotune nightly in an OpenAPS rig (recommended)
+Phase C - run autotune as a "one-off" on a computer of your choice. 
+
 #### Phase A: Running Autotune manually in OpenAPS 
 
 If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line: 
@@ -51,8 +51,6 @@ If you didn't enable autotune when you set up OpenAPS, you can [re-run the oref0
 
 **Important** When autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately (e.g., steroid medication started), you may have to temporarily suspend autotune in order to allow OpenAPS to use your pump's adjusted basal program.  
 
-As with all new and advanced features, this is a friendly reminder that this is DIY, not approved anywhere by anyone, and bears watching to see what it does with your numbers and to decide whether you want to keep running this feature over time, vs. running it as a one-off as-needed to adjust tuning.
-
 ##### How to copy over autotune files from another rig:
 
 If you have multiple rigs and would like to sync up autotune results, or move an existing autotune over to a brand new rig, you'll want to copy files over.
@@ -62,6 +60,13 @@ Log into the NEW rig and run the following command:
 
 * You'll be asked for your my-edison-original rig's password (where you are copying FROM).
 * This will copy everything in the autotune directory over.
+
+## The difference between autotune and autosens:
+
+Autosensitivity/resistance mode (aka “autosens”) is an advanced feature in OpenAPS that you can enable that looks at 24 hours of data and makes adjustments to ISF and targets based on the resulting sensitivity calculations. If you have a dying pump site, or have been sick and are resistant, your ISF is likely to be calculated down by autosens and then used in OpenAPS calculations accordingly. The opposite for being more sensitive is true as well. [(Here’s a blog post describing autosensitivity during sick days.)](https://diyps.org/2016/12/01/sick-days-with-a-diy-closed-loop-openaps/)
+
+Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb ratio over the course of weeks.  Because it makes changes more slowly than autosens, autotune ends up drawing on a larger pool of data, and is therefore able to differentiate whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Whereas we don’t recommend changing basals or ISF based on the output of autosens (because it’s only looking at 24h of data, and can't tell apart the effects of basals vs. the effect of ISF), autotune is intended to be used to help guide basal, ISF, *and* carb ratio changes because it’s tracking trends over a large period of time. See below for how it can be used as a manual one-off calculation or in a closed loop setting, along with notes about the safety caps designed to go with it.
+
 
 #### Phase C: Running Autotune for suggested adjustments without an OpenAPS rig
 
@@ -190,7 +195,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 
 #### Why Isn't It Working At All?
 
-(First - breathe, and have patience! Remember this is a brand new tool that's in EARLY testing phases. Thanks for being an early tester...but don't panic if it doesn't work on your first try.) Here are some things to check: 
+(First - breathe, and have patience!) Here are some things to check: 
 
 If you get the error `ERROR: API_SECRET is not set when calling oref0-autotune.sh` and autotune won't run, try this (note: as of oref 0.5.5, this error has been downgraded to a warning as this will only prevent autotune from running if you have "locked down" your NS to prevent anonymous read access):
 
