@@ -41,8 +41,8 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 * If you are using this configuration for G4 receivers and (1) are online and (2) want to see RAW BGs in NS, then you must remember to add `rawbg` to your ENABLE line in your Heroku/Azure settings.  You will also have to go to your Nightscout site's settings and select "always" from the Show RAW BG options.  You will also have to select `g4-raw` (if on master branch) or `g4-upload` (if on dev branch) as the CGM type in the loop setup script.
 
-### Entering carbs and setting temporary targets while offline
-While offline you will not be able to enter carbs and set temporary targets using Nightscout. You have two options to enter carbs while offline. You can use the Medtronic pump's Bolus Wizard. When using the Bolus Wizard be careful to avoid an A52 error if you have enabled SMB. The second option is to use the Medtronic pump's Capture Event feature. To turn on the Capture Event feature, do these steps:
+### Entering carbs while offline
+While offline you will not be able to enter carbs and set temporary targets using Nightscout. You have two options to enter carbs while offline. You can use the Medtronic pump's Bolus Wizard. When using the Bolus Wizard, be careful to avoid an A52 error if you have enabled SMB. By default, use of the Bolus Wizard disables SMB for 6 hours. The second option, which as far as we know avoids the A52 risk, is to use the Medtronic pump's Capture Event feature. To turn on the Capture Event feature, do these steps:
 
 1. Go to the CAPTURE EVENT ON/OFF screen: Main > Utilities > Capture Option
 2. Select On, then press ACT.
@@ -56,10 +56,17 @@ To enter carbohydrate information:
 4. Enter the carbohydrate grams, then press ACT. A message asks if you want to save the information that is displayed on the screen. The Yes option is selected.
 5. Make sure the number shown on the screen is correct. If the information is correct, press ACT. The information you entered is saved to the system and can now be used in reports. If the information is not correct, select No, then press ACT. The CAPTURE EVENT menu shows. Repeat the steps above to enter the correct information.
 
-You cannot set a temporary target in the Medtronic pump. If you want to change your target while offline you will need to do that using the Bolus Wizard Setup option. IMPORTANT: If you change your target while offline, and you want it to be temporary you MUST remember to set it back to its original setting when you are done. To change your target on your Medtronic pump do the following:
+### Setting temporary targets offline
+You cannot set a temporary target in the Medtronic pump. If you want to change your normal target while offline, you will need to do that using the Bolus Wizard Setup option. IMPORTANT: If you change your target while offline, you'll need to remember to set it back to its original setting when you are done.
+
+Note that changing the pump target does not have the same effect as setting a temporary target in Nightscout.  In particular, setting the pump target higher or lower than normal will not trigger exercise or resistance modes as temporary targets do if you have the appropriate preferences enabled.
+
+To change your target on your Medtronic pump do the following:
 
 1. Make sure the EDIT SETTINGS screen is open: Main > Bolus > Bolus Setup > Bolus Wizard Setup > Edit Settings
 2. Select BG Target, then press ACT, and change your target.
+
+If you wish to set a true temporary target while offline, you can do so by ssh'ing into the rig and running `oref0-set-local-temptarget <target> <duration> [starttime]`.  So for example, to set a 110 local temp target for 60 minutes, you can run `oref0-set-local-temptarget 110 60`.  In the future, we plan to expose this local temp target functionality using the offline web page interface, but for now it only works via `ssh`.
 
 ********************************
 
