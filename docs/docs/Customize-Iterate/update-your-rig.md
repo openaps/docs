@@ -4,6 +4,8 @@ You've probably heard about all kinds of cool new features that you want to try.
 
 However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which version of oref0 you are currently running, `npm list -g oref0` and if you want to check which branch `cd ~/src/oref0` and then `git branch`. 
 
+If you want to view the commit records between the version you are running and the new version and you are on the `dev` branch, `cd ~/src/oref0` and then `git log origin/dev..`. To view the file differences, use `git diff origin/dev..`. If you are on the `master` branch, replace `dev` with `master` in the commands.
+
 ## Step 1 (Master): Install the new version
 
 1. `cd ~/src/oref0 && git checkout master && git pull && sudo npm install -g oref0`
