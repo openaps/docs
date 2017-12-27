@@ -194,7 +194,9 @@ This feature was previously enabled by default but will now default to false (wi
 
 #### override_high_target_with_low: 
 
-Defaults to false, but can be turned on if you have a situation where you want someone (a school caregiver, for example) to use the bolus wizard for meal boluses. If set to “True”, then the bolus wizard will calculate boluses with the high end of the BG target, but OpenAPS will target the low end of that range. So if you  have a target range of 100-120; and set this to true; bolus wizard will adjust to 120 and the loop will target 100. If you have this on, you probably also want a wide range target, rather than a narrow (i.e. 100-100) target.
+Defaults to false, but can be turned on if you have a situation where you want someone (a school caregiver, for example) to use the bolus wizard for meal boluses. If set to “True”, then the bolus wizard will calculate boluses with the high end of the BG target, but OpenAPS will target the low end of that range. So if you  have a target range of 100-120; and set this to true; bolus wizard will adjust to 120 and the loop will target 100. If you have this on, you probably also want a wide target range with a high end such as 250, rather than a narrow (i.e. 100-100) target.
+
+**SAFETY WARNING:** If the pump has a high end target lower than the current BG input into the Bolus Wizard, the Bolus Wizard will add  insulin to cover the carbs and bring BG to the high end of the target range. The rig will likely have already dosed insulin to bring you to your target, and the Bolus Wizard would dose you again putting too much insulin onboard. If you need to use the Boluz Wizard as described above, ensure the high end of the pump BG target range is a high number such as 250 mg/dL.
 
 #### skip_neutral_temps: 
 
