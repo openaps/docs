@@ -92,6 +92,8 @@ Full definition of suggested.json:
 
 OpenAPS can high-temp more quickly after a meal bolus if it knows about carbs (which you can enter from either the bolus wizard, or if your rig is online, via Nightscout and/or IFTTT (Alexa, Siri, Pebble). 
 
+**SAFETY WARNING:** If you enter your carbs using the pump Bolus Wizard, do not enter your current glucose level. If you are higher than your target, the rig may have already dosed insulin to bring you to your target. The pump bolus wizard will not take the additional insulin into account and will effectively dose you twice to reach target! Press next at the bolus wizard when prompted for glucose level without entering the BG. If you are using a Medtronic CGM integrated with the pump, ensure the glucose level is clear before proceeding to enter the carbs.
+
 With AMA, once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have multiple purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
 
 * (Usually) Top line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption  - aka "aCOB" (see notes below about removing it in 0.6.0 and later)
