@@ -192,12 +192,6 @@ This is used to allow autosens to adjust BG targets, in addition to ISF and basa
 
 This feature was previously enabled by default but will now default to false (will NOT be enabled automatically) in oref0 0.6.0 and beyond. (There is no need for this with 0.6.0). This feature lowers oref0's target BG automatically when current BG and eventualBG are high.  This helps prevent and mitigate high BG, but automatically switches to low-temping to ensure that BG comes down smoothly toward your actual target.  If you find this behavior too aggressive, you can disable this feature.  If you do so, please let us know so we can better understand what settings work best for everyone. 
 
-#### override_high_target_with_low: 
-
-Defaults to false, but can be turned on if you have a situation where you want someone (a school caregiver, for example) to use the bolus wizard for meal boluses. If set to “True”, then the bolus wizard will calculate boluses with the high end of the BG target, but OpenAPS will target the low end of that range. So if you  have a target range of 100-120; and set this to true; bolus wizard will adjust to 120 and the loop will target 100. If you have this on, you probably also want a wide target range with a high end such as 250, rather than a narrow (i.e. 100-100) target.
-
-**SAFETY WARNING:** If the pump has a high end target lower than the current BG input into the Bolus Wizard, the Bolus Wizard will add  insulin to cover the carbs and bring BG to the high end of the target range. The rig will likely have already dosed insulin to bring you to your target, and the Bolus Wizard would dose you again putting too much insulin onboard. If you need to use the Boluz Wizard as described above, ensure the high end of the pump BG target range is a high number such as 250 mg/dL.
-
 #### skip_neutral_temps: 
 
 Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
@@ -239,6 +233,8 @@ Default hotspot network name is the rig name; default password is "#OpenAPS" (no
 #### wide_bg_target_range
 
 Defaults to false, which means by default only the low end of the pump's BG target range is used as OpenAPS target. This is a safety feature to prevent too-wide targets and less-optimal outcomes. Therefore the higher end of the target range is used only for avoiding bolus wizard overcorrections. Use `wide_bg_target_range: true` to force neutral temps over a wider range of eventualBGs. 
+
+**SAFETY WARNING:** If the pump has a target range high end set lower than the BG input into the Bolus Wizard, the Bolus Wizard will add insulin to cover the carbs as well as bring BG down to the high end. I.e. if your high end is 110 and you enter a 160 BG and 45g of carbs in the Bolus Wizard, the Bolus Wizard will dose 1U to bring BG to 110 and 3U for carbs (assuming 50 (mg/dL)/U and 15g/U factors). The rig will likely have already dosed insulin to bring your BG to your low target, and you are potentially "double dosing". In these scenarios, you will have too much insulin onboard and can experience a severe low. If you use the Boluz Wizard, ensure the high end of the BG target range is a high number such as 250 mg/dL.
 
 #### A52_risk_enable (A52 risk mitigation)
 
