@@ -180,6 +180,32 @@ Defaults to false. When true, will lower BG target when autosens detects resista
 
 Set to a number, e.g. 160, which means when temp target is 160 mg/dL *and* exercise_mode=true, run 50% basal at this level (120 = 75%; 140 = 60%). This can be adjusted, to give you more control over your exercise modes. 
 
+### Pushover related preferences
+
+#### pushover_snooze:
+
+Defaults to `15`. This sets the minimum time between SMB Pushover alerts.
+
+#### pushover_only:
+
+Defaults to `carb`. This sets the type of SMB alerts desired. Options are both, insulin, or carb. Setting pushover_only to insulin prevents SMB from sending carb required alerts when SMB thinks additional carbs are required to bring eventual BG up. Setting pushover_only to carb prevents SMB from sending insulin required alerts when SMB is hitting maxBolus (see warning in Pushover setup section). Setting pushover_only to both allows SMB to send both insulin required and carb required alerts.
+
+#### pushover_sound:
+
+Defaults to `none`. This sets the alert sound played on the user device. Valid options are available at https://pushover.net/api.
+
+#### pushover_priority:
+
+Defaults to `0`. This sets the Pushover priority. Valid options are -2, -1, 0, 1, and 2. `-2` generates no notification/alert. `-1`  always sends a quiet notification. `0` triggers sound, vibration, and an alert according to the user's device settings. `1` displays a  high-priority alert and bypasses the user's quiet hours. `2` requires confirmation from the user.
+
+#### pushover_retry:
+
+Defaults to `60`. When a priority 2 alert is sent, the alert will sound every pushover_retry seconds until the user acknowledges the alert.
+
+#### pushover_expire:
+
+Defaults to `600`. When a priority 2 alert is sent, the alert will sound every pushover_retry seconds until the user acknowledges the alert or pushover_expire seconds passes. After pushover_expire seconds, the alert will be cancelled.
+
 ### Other preferences:
 
 Generally, you won't need to adjust any of the preferences below.  But if you do wish to change the default behavior, you can add these into your preferences.json to do so (or use oref0-get-profile --updatePreferences to get the full list of all preferences added to your preferences.json).
