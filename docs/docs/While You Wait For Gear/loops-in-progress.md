@@ -231,3 +231,5 @@ List of people who are working on closed loops:
 - Carl Robertson (Rochester, NY, USA)
 - Ben Ortega (Minneapolis, MN)
 - Reza Bolouri (Melbourne, Australia)
+- Todd Radel (Doylestown, PA)
+
