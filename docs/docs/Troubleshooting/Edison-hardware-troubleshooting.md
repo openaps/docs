@@ -26,7 +26,7 @@ Steps:
    
 ![edisonmicrousb_microusb_pinout.png (thanks thice.nl)](../Images/edisonmicrousb_microusb_pinout.png)
 
-![edisonmicrousb_microusb_cablecolors.png (thanks tomsguide.com)](../Images/edisonmicrousb_microusb_pinout.png)
+![edisonmicrousb_microusb_cablecolors.png (thanks tomsguide.com)](../Images/edisonmicrousb_microusb_cablecolors.png)
 
 ![edisonmicrousb_edisonview.png](../Images/edisonmicrousb_edisonview.png)
 
@@ -36,17 +36,19 @@ Steps:
 
 6. Use a digital multimeter to check that the wires don't short.
 
-7. Screw back the Edison on the Edison block and test the connection (log into Edison with SSH, check to see if `lsusb` recognizes the Dexcom Reveier and see if it's still looping)
+7. Screw back the Edison on the Edison block and test the connection (log into Edison with SSH, check to see if `lsusb` recognizes the Dexcom Receiver and see if it's still looping)
 
 8. Remove the Edison before glueing 
 
-9. Use a tie wrap in the Edison Block hole to make sure the cable won't move and bend it a bit towards the side to which the cable is connected to the Eidson Block.
+9. Use a tie wrap in the Edison Block hole to make sure the cable won't move and bend it a bit towards the side to which the cable is connected to the Edison Block.
+
+10. Use a glue gun to make sure the wires are stuck to the Explorer block and don't move.
 
 ![edisonmicrousb_edisonglued.png](../Images/edisonmicrousb_edisonglued.png)
 
-10. Put it in a case. I don't have a new 3D case yet, so I use a TickTac freshmints box (with some extra holes for cooling) for now. The result:
+11. Put it in a case. I don't have a new 3D case yet, so I use a TickTac freshmints box (with some extra holes for cooling) for now. The result:
 
-![edisonmicrousb_mintbox.png](edisonmicrousb_mintbox.png)
+![edisonmicrousb_mintbox.png](../Images/edisonmicrousb_mintbox.png)
 
-11. Use [this GitHub issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/22) to report your findings. I hope you succeeded.
+12. Use [this GitHub issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/22) to report your findings. I hope you succeeded.
     You can ask [Enhanced Radio Devices Support](https://enhanced-radio-devices.myshopify.com/pages/shipping-and-faqs) or tag PieterGit on the Gitter Intend to Bolus channel for help.
