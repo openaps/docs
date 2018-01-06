@@ -571,7 +571,7 @@ You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know
 
 It can be set up where you choose, either in your openaps directory or at root.
 
-B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron:
+B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](http://openaps.readthedocs.io/en/latest/docs/Resources/index.html) section for help on editing crontabs):
 
 ```
 @reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337
