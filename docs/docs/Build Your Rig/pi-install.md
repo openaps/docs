@@ -2,7 +2,7 @@
 
 ### Download Raspbian and write it to your microSD card ###
 
-Following the instructions at https://www.raspberrypi.org/documentation/installation/installing-images/README.md, download Raspbian Lite (you do *not* want Raspbian Desktop) and write it to an microSD card using Etcher.
+Following the instructions at https://www.raspberrypi.org/documentation/installation/installing-images/README.md, download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
 
 ### Place your wifi and ssh configs on the new microSD card ###
 
@@ -31,9 +31,12 @@ On Windows, use PuTTY to connect as the `pi` user to hostname `raspberrypi.local
 
 ### Run openaps-install.sh ###
 
-Once you're logged in, run the following command to start the OpenAPS install process:
+Once you're logged in, run the following commands to start the OpenAPS install process:
 
-`curl -s https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-install.sh > /tmp/openaps-install.sh && sudo bash /tmp/openaps-install.sh`
+```
+sudo bash
+curl -s https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-install.sh > /tmp/openaps-install.sh && bash /tmp/openaps-install.sh
+```
 
 You'll be prompted to set a password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to start over from the top of this page if you forget your password.
 
