@@ -2,7 +2,7 @@
 
 ### Download Raspbian and write it to your microSD card ###
 
-Following the instructions at https://www.raspberrypi.org/documentation/installation/installing-images/README.md, download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
+Following the (install instructions)[https://www.raspberrypi.org/documentation/installation/installing-images/README.md], download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
 
 ### Place your wifi and ssh configs on the new microSD card ###
 
