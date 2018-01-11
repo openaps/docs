@@ -42,11 +42,11 @@ The setting you choose during the setup script will be saved in the oref0-runaga
 
 #### max_daily_safety_multiplier: 
 
-This is an important OpenAPS safety limit. The default setting (which is unlikely to need adjusting) is 3. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 3x the highest hourly basal rate programmed in a user's pump. 
+This is an important OpenAPS safety limit. The default setting (which is unlikely to need adjusting) is 3. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 3x the highest hourly basal rate programmed in a user's pump, or, if enabled, determined by autotune. 
 
 #### current_basal_safety_multiplier: 
 
-This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump. 
+This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump, or, if enabled, determined by autotune. 
 
 
 ### Important Note About Safety Multipliers:
