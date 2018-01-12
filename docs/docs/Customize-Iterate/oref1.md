@@ -64,7 +64,7 @@ There are multiple preference toggles for SMB/UAM. Check out the [preferences pa
 
 1. Make sure you read the above, especially the "only enable oref1 if..." section. SMB will behave differently than oref0 would. Watch carefully, and use your common sense and do what's right for you & your diabetes. 
 2. Common errors include:
-* Not changing the preferences to be "true" for the relevant settings after you've enabled the oref1 features. You should see "Starting supermicrobolus pump-loop at..." in pump-loop.log if you have successfully enabled everything.
+* Not changing the preferences to be "true" for the relevant settings after you've enabled the oref1 features. 
 * Not running autotune. Remember, you don't have to enable it to run as part of your loop at night, but you should run it manually, review the results, and otherwise be VERY confident in your underlying pump settings (basals, ISF, carb ratio) before using oref1.
 * Pump clock being >1 minute off from rig's time. This means 60 seconds. Not 61 seconds; 68 seconds; 90 seconds. Needs to be less than 60 seconds apart. `"Checking pump clock: "2017-05-16T15:46:32-04:00" is within 1m of current time: Tue May 16 15:47:40 EDT 2017` is an example of a >60 second gap that needs fixing before it will work properly. We added a script to automatically attempt to fix the pump time in case of a >60 second difference, but you may occasionally see this type of error in the logs until the script is able to properly adjust the pump time.
 
