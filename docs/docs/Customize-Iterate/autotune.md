@@ -187,10 +187,11 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 * F. Create a third file from the command line by running: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
-* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
+* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net [--start-date=YYYY-MM-DD] [--categorize-uam-as-basal=true|(false)]`
 * ^ Sub in your Nightscout URL. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).
+* When starting out with autotune, you may find your basals settings are far enough below your real basal rates for the algorithm to classify periods when basals are too low as unannounced meals. In this case, if you are certain you have entered all carb intake events, you can force the algorithm to classify unannounced meal periods as basal periods using the --categorize-uam-as-basal=true option. **\*\*SAFETY WARNING\*\*** If you use this option and treat lows due to basals that are too high without entering the low treatment carbs, an amplifying cycle will begin with autotune raising basals, treated lows get categorizes as basals being too low, basals are raised causing lows, etc.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
 #### Why Isn't It Working At All?
