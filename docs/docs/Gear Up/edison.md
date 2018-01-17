@@ -24,7 +24,7 @@ You may need to hunt for an Edison as supplies of them are dwindling - if you ge
 
 **Note:** If you are doing Option B (an Edison from wherever you can find it) - you are getting an UNFLASHED Edison. Not a big deal - flashing it with jubilinux is just a few more steps (~15 minutes) - but remember you'll need to start with the flashing instructions. Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), but stop before installing wifi and other steps and instead jump over to the "[Install OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html)" page from there. 
 
-## Lithium-ion polymer (LiPo) battery or other battery supply
+## Lithium-ion polymer (LiPo) batteries
 
 Use a LiPo battery because the Explorer boards have battery charger circuitry on board for these batteries. The example setup uses a [2000mah LiPo battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html). This battery lasts approximately 16+ hours, though you could get more or less time. This battery uses a 2mm 2 pin JST connector to match the Explorer boards' power plugs. It's best to buy from a reputable supplier, because if the internal two cells are mismatched the Explorer board cannot charge them seperately and they are prone to catching fire. Make sure that it *includes a protection circuit* to protect over-discharge. **NEVER** connect the battery to an Explorer board the wrong way round. There is no manufacturing standard so never assume correct polarity. The connector JP1 on the Explorer Block has two terminals. The left side is positive, the right side is negative. The side with the JP1 label is the positive side. Typically a battery's red wire is the positive wire.  Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
 
@@ -38,24 +38,6 @@ For people in the UK, you may find you have to shop around to find the correct b
 
 For people in Australia you can find 2000mAh, 2200mAh and 2500mAh batteries from [Little bird electronics](https://www.littlebirdelectronics.com.au/batteries/), prices are very competitive and shipping is quick. These are the same Adafruit batteries that can be obtained from the US above.
 
-### Explorer Block antenna tuning (optional)
-
-The antenna on the Explorer Block is a strip of copper underneath the green outer coating. The antenna is labeled A1. It will have its maximum power at 868 MHz. The antenna has a line across it at one point with a label that says "915". The antenna defaults to the 868 MHz range, which is what WW pumps use. If you have a US pump, mmtune will run and tune to something near 916MHz. Even with the 868 MHz antenna, you should get half a dozen feet or more of range on average.  If you (optionally) want to boost the range of your antenna by a couple more feet, then you cut through the outer coating and the copper on that line with an X-ACTO knife. A single clean cut is sufficient, but if the cut doesn't look clean you could make two cuts and then dig out the circumscribed piece and then reseal the copper with nail polish. With that cut, the antenna will have maximum power near 915 MHz.
-
-If you're unsure whether you need to cut your Explorer Block's antenna, you probably don't.  And if you decide you need slightly more range after using the Edison+Explorer rig for a few weeks, you can always come back later and do so then.
-
-![Image of Antenna](../Images/antenna0.jpg)
-
-Optional: You can also add an external antenna to the Explorer boards such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com. (Note: specific range improvement length has not been confirmed.)
-
-![Image of Antenna](../Images/antenna1.jpg)
-
-## Radio stick (only if not using Explorer board)
-
-We recommend an Explorer board with a built-in radio (see above), because if you get an Explorer board, you don't need an additional radio stick or CC-Debugger. 
-
-If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these. Then, come back to Phase 1 of the docs once you complete that.
-
 ## USB Cables
 
 You will need two micro USB cables - with a micro connector on one end and a standard (Type A) connector on the other. Most cables will work fine, but some prefer to select lengths. You may already have one for charging a Dexcom receiver, or an Android phone, lying around at home. If you don't, here's an example of one that will work: [Monoprice Premium USB to Micro USB Charge, Sync Cable - 3ft](http://www.monoprice.com/Product?c_id=103&cp_id=10303&cs_id=1030307&p_id=9763&seq=1&format=2).
@@ -64,7 +46,27 @@ Warning: bad cables cause a lot of headaches during the Edison flashing process,
 
 ## Micro USB to Micro USB OTG Cable
 
-You may need to connect your Dexcom Receiver to your Explorer Block for offline looping.  For this you will need to use a micro USB to micro USB OTG cable (or an OTG adapter). Here is an example of a cable that will work: [BestGameSetups Micro USB to Micro USB OTG (On-The-Go) 12" (30cm) Data Cable](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW).
+You may need to connect your Dexcom Receiver to your Explorer Block for offline looping. For this you will need to use a micro USB to micro USB OTG cable (or an OTG adapter). Here is an example of a cable that will work: [BestGameSetups Micro USB to Micro USB OTG (On-The-Go) 12" (30cm) Data Cable](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW). On E-bay they can be found as [30 cm Right Angle Micro USB B to Host OTG Cable](https://www.ebay.com/sch/30%20cm%20Right%20Angle%20Micro%20USB%20B%20to%20Host%20OTG%20Cable). At least 10" (25cm) is recommended.
+
+Note that:
+- if you connect your Dexcom Receiver by USB, you will also need to use use a 5V USB battery power supply to your UART port.
+- the Explorer board micro USB ports are quite fragile, so make sure they won't cause tention on the explorer board. If your micro usb port is broken, see [Troubleshooting Edison Hardware page](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/Edison-hardware-troubleshooting.html).
+
+## USB Battery Power Supply
+
+A large-capacity power supply that is greater than 6500 mAh (milliAmp-hours) is
+recommended for 16h+ use with a Dexcom Receiver attached to your Explorer board.
+Make sure that the battery has at least one 2.1 Amp USB output. 
+A battery with a form-factor that minimizes size is recommended,
+to allow the patient to be as ambulatory as possible. When you have a full
+OpenAPS implemented and working, you will want to have multiple batteries to
+rotate and recharge. A battery that can deliver power while it charges (often called pass through charging) is ideal
+as you will be able to charge it on-the-fly without shutting down and restarting your rig.
+
+Examples are:
+- [Zendure A2 Portable Charger, 6700 mAh, 2.1A Max (Zendure.com)](https://zendure.com/collections/a-series-portable-chargers)
+- [Zendure A3 Portable Charger 10000mAh, 2.1A Max (Amazon.com)](http://www.amazon.com/Zendure-2nd-Portable-Charger-10000mAh/dp/B014RBEAQC/ref=sr_1_1)
+- [TeckNet portal chargers >= 10000 mAh, > 2.1A Max (Amazon.co.uk)](https://www.amazon.co.uk/s/s/ref=sr_nr_p_89_0?srs=1644314031&fst=as%3Aoff&rh=n%3A560798%2Cn%3A%21560800%2Cn%3A1340509031%2Cn%3A560826%2Cn%3A340327031%2Cn%3A5520530031%2Cp_89%3ATeckNet&bbn=5520530031&ie=UTF8&qid=1514929760&rnid=1632651031)
 
 ## Nuts and Bolts
 
@@ -92,6 +94,26 @@ There are a few 3D-printed cases that are being designed, so check back here for
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=120) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). The OpenAPS-sized case can be made any any pattern/fabric she uses elsewhere on the site.
 * [JD Burrows SD card case](https://www.officeworks.com.au/shop/officeworks/p/j-burrows-sd-and-usb-case-blue-jbsdcasbu) - this is a hard / soft case which fits the rig with a 2500mAh battery perfectly, can also fit a spare AAA pump battery (Australia)
 
-## Other Options
+### Heat shrinking tubing
 
-* [Heat Shrink Tubing](https://www.amazon.com/gp/product/B009IILEVY)  
+Instead of using a hard or soft case you can also use [Heat Shrink Tubing](https://www.amazon.com/gp/product/B009IILEVY).
+
+### Advanced hardware options
+
+## Explorer Block antenna tuning (optional)
+
+The antenna on the Explorer Block is a strip of copper underneath the green outer coating. The antenna is labeled A1. It will have its maximum power at 868 MHz. The antenna has a line across it at one point with a label that says "915". The antenna defaults to the 868 MHz range, which is what WW pumps use. If you have a US pump, mmtune will run and tune to something near 916MHz. Even with the 868 MHz antenna, you should get half a dozen feet or more of range on average.  If you (optionally) want to boost the range of your antenna by a couple more feet, then you cut through the outer coating and the copper on that line with an X-ACTO knife. A single clean cut is sufficient, but if the cut doesn't look clean you could make two cuts and then dig out the circumscribed piece and then reseal the copper with nail polish. With that cut, the antenna will have maximum power near 915 MHz.
+
+If you're unsure whether you need to cut your Explorer Block's antenna, you probably don't.  And if you decide you need slightly more range after using the Edison+Explorer rig for a few weeks, you can always come back later and do so then.
+
+![Image of Antenna](../Images/antenna0.jpg)
+
+Optional: You can also add an external antenna to the Explorer boards such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com. (Note: specific range improvement length has not been confirmed.)
+
+![Image of Antenna](../Images/antenna1.jpg)
+
+## Radio stick (only if not using Explorer board)
+
+We recommend an Explorer board with a built-in radio (see above), because if you get an Explorer board, you don't need an additional radio stick or CC-Debugger. 
+
+If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these. Then, come back to Phase 1 of the docs once you complete that.
