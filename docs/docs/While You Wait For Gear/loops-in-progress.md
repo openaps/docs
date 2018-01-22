@@ -233,3 +233,4 @@ List of people who are working on closed loops:
 - Reza Bolouri (Melbourne, Australia)
 - Todd Radel (Doylestown, PA)
 - Steve Mann (Bronx, NY)
+- Eben Demong (San Ramon, CA)
