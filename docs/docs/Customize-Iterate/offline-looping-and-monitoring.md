@@ -100,7 +100,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
   </table>
    
    * Lookout and xdrip-js-logger are documented separately:
-     * Lookout: https://github.com/thebookins/Lookout/blob/master/README.md
+     * Lookout: https://github.com/tynbendad/Lookout/blob/patch-1/README.md
      * xdrip-js-logger: https://github.com/efidoman/xdrip-js-logger/blob/dev/README.md
 
 ********************************
