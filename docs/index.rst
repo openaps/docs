@@ -45,7 +45,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
    
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :glob:
    :caption: Read Before You Build   
    Understand your Explorer Board rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
