@@ -45,7 +45,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
    
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :glob:
    :caption: Read Before You Build   
    Understand your Explorer Board rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
@@ -58,7 +58,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: **Build Your Rig**
+   :caption: Build Your Rig
     
    Installing OpenAPS <docs/Build Your Rig/OpenAPS-install>
    512/712 pump users <docs/Build Your Rig/x12-users>
