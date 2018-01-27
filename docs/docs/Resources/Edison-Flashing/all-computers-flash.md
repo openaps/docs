@@ -211,7 +211,9 @@ After rebooting, log back in and type `iwgetid -r` to make sure you successfully
 Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.
 
 Leave the serial window open in case you can't get in via SSH and need to fix your wifi config.
- 
+
+Please note that the Intel Edison can be hard to find these days. What few remaining stores that still sell the Edison may carry the EDI2.LPOF version of the Edison; note that there's also an EDI2.SPON model. The SPON has an on-board WIFI antenna. This board connects to Wifi like you'd expect from an IOT device. However, the LPOF model does NOT have an antenna. It has about a foot of range (!) unless you attach an external antenna (which is highly recommended). Installation will work fine, as long as your Edison can sit right next to your WiFi access point. 
+
 If you need more details on setting up wpa_supplicant.conf, see one of these guides:
 
 * [http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/](http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/)
