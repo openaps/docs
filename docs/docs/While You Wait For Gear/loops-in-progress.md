@@ -232,4 +232,4 @@ List of people who are working on closed loops:
 - Ben Ortega (Minneapolis, MN)
 - Reza Bolouri (Melbourne, Australia)
 - Todd Radel (Doylestown, PA)
-
+- Steve Mann (Bronx, NY)
