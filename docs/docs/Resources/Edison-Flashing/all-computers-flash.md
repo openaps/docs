@@ -48,7 +48,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
   -  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
   -  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
-  - Read the [Mac instructions for flashing](mac-flash.html) too, but note that they are now a little older than this.
+  - Read the [Mac instructions for flashing](https://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) too, but note that they are now a little older than this.
 
 
 ## Downloading image
