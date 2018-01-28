@@ -154,8 +154,8 @@ OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter
 ##### Setting up your OpenAPS rig
 Install OpenAPS as per the documentation. While running the oref0-setup script you will be prompted to specify a CGM source. Enter "xdrip" (without the quotes). The setup script takes care of the rest! Follow the remainder of the setup script as normal.
 
-##### Connect your Android phone and your OpenAPS rig
-For the xDrip+ app on your Android phone to be able to send CGM data to xDripAPS on your OpenAPS rig, they both need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity.
+##### Connecting your Android phone and your OpenAPS rig
+In order to allow xDrip+ app on your Android phone to send CGM data directly to xDripAPS on your OpenAPS rig, both need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity.
 
 There are two approaches for establishing a "personal" network between your phone and your OpenAPS rig. The first is to run a WiFi hotspot on your phone and connect your OpenAPS rig to the WiFi network your phone exposes. This is the easiest option, but there are two drawbacks - it drains your phone battery quickly, and most phones cannot connect to a normal WiFi network while the WiFi hotspot is enabled (they can connect to the internet via 3G/4G when coverage is available).
 
