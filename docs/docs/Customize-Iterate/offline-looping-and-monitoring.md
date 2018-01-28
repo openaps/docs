@@ -1,6 +1,6 @@
 # Offline looping - aka, running OpenAPS without internet connectivity
 
-There are a number of ways to have an "offline" OpenAPS rig, and numerous ways to monitor offline (see the monitoring section for information about monitoring offline).  Offline refers to situations where your rig moves into an area where it does not have internet access (i.e., the rig does not have a known wifi network available and the cell phone used with the rig does not have cell coverage/hotspot available).  By setting up one of these offline solutions, your rig can still loop while in an offline area.  Depending on the setup, the opportunities to visualize or monitor the loop actions (e.g., check what temp basal is actually being set) may vary until you can get back into an online area.
+There are a number of ways to have an "offline" OpenAPS rig, and numerous ways to monitor offline (see the monitoring section for information about monitoring offline).  Offline refers to situations where your rig moves into an area where it does not have internet access (i.e., the rig does not have a known WiFi network available and the cell phone used with the rig does not have cell coverage/hotspot available).  By setting up one of these offline solutions, your rig can still loop while in an offline area.  Depending on the setup, the opportunities to visualize or monitor the loop actions (e.g., check what temp basal is actually being set) may vary until you can get back into an online area.
 
 ## Offline looping
 
@@ -161,7 +161,7 @@ There are two approaches for establishing a "personal" network between your phon
 
 The other option is to enable Bluetooth PAN tethering on your phone and have your OpenAPS rig connect to it. Battery drain is minimal and the phone can still connect to a normal WiFi network for internet access when available as well as to 3G/4G networks when WiFi is not available. (Some users have their OpenAPS rig permanently tethered to their Android phone. The drawback is that connecting to the rig via SSH in this configuration is only possible by using an SSH app on the phone or by connecting it to a computer using a USB cable)
 
-Instructions on both Wifi and Bluetooth tethering can be found in the main OpenAPS documentation.
+Instructions on both WiFi and Bluetooth tethering can be found in the main OpenAPS documentation.
 
 ##### Configuring the xDrip+ Android app
 First, determine your OpenAPS rig's IP address within your "personal" network. If you can open a terminal session to your rig via serial, then `ifconfig wlan0` (when using the WiFi hostpost option) or `ifconfig bnep0` (when using bluetooth tethering) will display your IP address. Alternatively, you can use an Android app - there are lots of "Network IP Scanner" apps in the Play store. The Hurricane Electric Network Tools app works with both the WiFi hotspot and BT tethering options.
@@ -191,7 +191,7 @@ Be careful when entering the addresses - xDripAPS uses the http protocol, Nights
 
 #### Known limitations
 * xDripAPS does not process anything other than CGM data. If you use the XDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
-* Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or Wifi as long as there are carbs on board.
+* Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or WiFi as long as there are carbs on board.
 
 #### Manual installation steps
 
