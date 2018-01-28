@@ -21,9 +21,9 @@ from inside your openAPS directory, before your loop will start updating correct
 ### Dexcom CGM users
 Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  The options to choose from are:
 
-1. For android users, you can use xDrip or xDrip+.  NOTE: All active development is being done on xDrip+. The details for setting up this configuration are described in the section below for xDrip offline.
-   * xDrip: [http://stephenblackwasalreadytaken.github.io/xDrip/](http://stephenblackwasalreadytaken.github.io/xDrip/)
-   * xDrip+: [https://jamorham.github.io/#xdrip-plus](https://jamorham.github.io/#xdrip-plus) 
+1. Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the section below. The naming can be confusing. XDrip+ - maintained by jamoham - is the app being actively developed. While Google may lead you to several older versions of the XDrip/XDrip+ Android app, you can always get the latest version here:
+   * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
+   * There is no direct iOS version of XDrip+. iOSxdripreader is a different app with a different set of features.
    
 2. For iPhone users, it is possible to setup a modified Loop app to bring data in locally such as the one you will find here: https://github.com/thebookins/Loop. This solution requires a build of an iOS app on a Mac and the use of a free Dev licenses (which will give you an app to test, but will only stay deployed for 7 days) or a full Dev license ($99/year). The modified Loop app will "listen in" for Dexcom data on iPhone, upload it to a scaled down version of Nightscout on your rig where xDrip is running. This solution requires some Mac OS and iOS savvy, and exploration.
 
