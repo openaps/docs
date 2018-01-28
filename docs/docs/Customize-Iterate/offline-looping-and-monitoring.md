@@ -132,7 +132,7 @@ If you wish to set a true temporary target while offline, you can do so by ssh'i
 
 ********************************
 
-### xDripAPS for offline BGs and looping for Android users
+### xDripAPS - offline looping for users of the xDrip+ Android app
 
 Do you use OpenAPS and the xDrip+ Android app? By deafult, the xDrip+ Android app uploads CGM data to an online Nightscout instance, OpenAPS then downloads this data for use in your online loop. 
 
