@@ -147,7 +147,7 @@ With xDripAPS, data flow is as follows:
 2. xDrip+ Android app (https://github.com/NightscoutFoundation/xDrip). In the app, the REST API Upload feature is normally used to upload CGM data to Nightscout.  We use this feature to upload CGM data to xDripAPS on your OpenAPS rig (further details below).
 3. Your OpenAPS rig - usually a Raspberry Pi or an Intel Edison.
 
-OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the XDrip+ Android app separated by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
+OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the XDrip+ Android app delimited by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
 
 #### Setup Steps (using oref0-setup.sh script)
 
@@ -155,7 +155,7 @@ OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter
 Install OpenAPS as per the documentation. While running the oref0-setup script you will be prompted to specify a CGM source. Enter "xdrip" (without the quotes). The setup script takes care of the rest! Follow the remainder of the setup script as normal.
 
 ##### Connect your Android phone and your OpenAPS rig
-For the xDrip/xDrip+ app on your Android phone to be able to send CGM data to xDripAPS on your OpenAPS rig, they both need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity.
+For the xDrip+ app on your Android phone to be able to send CGM data to xDripAPS on your OpenAPS rig, they both need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity.
 
 There are two approaches for establishing a "personal" network between your phone and your OpenAPS rig. The first is to run a WiFi hotspot on your phone and connect your OpenAPS rig to the WiFi network your phone exposes. This is the easiest option, but there are two drawbacks - it drains your phone battery quickly, and most phones cannot connect to a normal WiFi network while the WiFi hotspot is enabled (they can connect to the internet via 3G/4G when coverage is available).
 
@@ -166,7 +166,7 @@ Instructions on both Wifi and Bluetooth tethering can be found in the main OpenA
 ##### Configuring the xDrip+ Android app
 First, determine your OpenAPS rig's IP address within your "personal" network. If you can open a terminal session to your rig via serial, then `ifconfig wlan0` (when using the WiFi hostpost option) or `ifconfig bnep0` (when using bluetooth tethering) will display your IP address. Alternatively, you can use an Android app - there are lots of "Network IP Scanner" apps in the Play store. The Hurricane Electric Network Tools app works with both the WiFi hotspot and BT tethering options.
 
-Next, open xDrip+ and navigate to Settings > Cloud Upload > API Upload (REST). In the `Base URL` setting, configure the following URL
+Next, open xDrip+ and navigate to Settings > Cloud Upload > Nightscout Sync (REST-API) and enable it. In the `Base URL` setting, configure the following URL
 
 `http://<nightscout_api_secret>@<rig_ip_address>:5000/api/v1/`
 
@@ -177,21 +177,25 @@ A few notes to clarify:
 
 ![REST API Upload setting](https://github.com/colinlennon/xDripAPS/blob/master/xDrip_REST_API_cropped.png "REST API Upload setting")
 
-If using xDrip+ navigate to Settings > Cloud Upload > MongoDB and uncheck the "Skip LAN uploads" option. Do not turn on the "Enable Nightscout Mongo DB sync" option. Next, navigate to Settings > Cloud Upload > API Upload (REST) and uncheck the "Skip LAN uploads" option. NOTE: if you don't have these options, update to a recent version of the xDrip+ app. These options were added to a nightly build in December 2016.
+##### Entering multiple REST URLs
 
-##### Advanced Options
-
-* Use both API Upload (REST) and MongoDB
-    * You can use both the API Upload (REST) and the MongoDB upload options.  This has the advantage of immediately showing your BG values in Nightscout and allows OpenAPS to continue to get BG values if the link ever fails between your xDrip/xDrip+ uploader phone and your rig.  One disadvantage to this method is that you will have duplicate entries in your Mongo database.
-* Enter multiple REST URLs
-    * If you are needing to constantly switch between two or more "personal" networks, you would have to edit the `Base URL` each time with the new IP address. To simplify this process, multiple URLs can be added to the REST API Upload `Base URL` setting, and xDrip/xDrip+ will attempt to upload to each URL.  NOTE:  the URLs must be "space" deliminated.  For example:
+* If you need to constantly switch between two or more "personal" networks, you would have to edit the `Base URL` each time with the new IP address. To simplify this process, multiple URLs can be added to the REST API Upload `Base URL` setting, and xDrip+ will attempt to upload to each URL.  NOTE:  the URLs must be "space" delimited.  For example:
 ```
 http://<nightscout_api_secret>@<rig_ip_address1>:5000/api/v1/ http://<nightscout_api_secret>@<rig_ip_address2>:5000/api/v1/
 ```
+* OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. You can enter both your xDripAPS URL and your Nightscout URL, again separated by a space character. For example:
+```
+https://<nightscout_api_secret>@<yournnightscoutsite>.herokuapp.com/api/v1/ http://<nightscout_api_secret>@<rig_ip_address2>:5000/api/v1/
+```
+Be careful when entering the addresses - xDripAPS uses the http protocol, Nightscout uses the https protocol.
+
+#### Known limitations
+* xDripAPS does not process anything other than CGM data. If you use the XDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
+* Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or Wifi as long as there are carbs on board.
 
 #### Manual installation steps
 
-##### N.B. It is recommended that you use the oref0-setup script as described above, rather than installing manually.
+It is strongly recommended that you use the oref0-setup script as described above, rather than installing manually.
 
 1. Install SQLite3 -
 
