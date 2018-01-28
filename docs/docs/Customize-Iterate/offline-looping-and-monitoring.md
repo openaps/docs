@@ -134,23 +134,20 @@ If you wish to set a true temporary target while offline, you can do so by ssh'i
 
 ### xDripAPS for offline BGs and looping for Android users
 
-**Note as of 1/26/17:** The below documentation is WIP and needs additional testing.
+Do you use OpenAPS and the xDrip+ Android app? By deafult, the xDrip+ Android app uploads CGM data to an online Nightscout instance, OpenAPS then downloads this data for use in your online loop. 
 
-Do you use OpenAPS and the xDrip/xDrip+ Android App? Until now this required an internet connection to upload your xDrip/xDrip+ Android App CGM data to an online Nightscout instance (the OpenAPS community recommends utilizing Heroku). Then your data was downloaded to your OpenAPS rig for use in your online loop. The xDripAPS code resides on your OpenAPS rig and allows the direct transfer of xDrip/xDrip+ Android App CGM data to your OpenAPS rig without an internet connection. xDripAPS creates an offline OpenAPS rig which utilizes a "local" or "personal" network (WiFi hotspot or Bluetooth PAN tethering) for direct communication between the xDrip/xDrip+ Android device and the OpenAPS rig. Data which is 'missing' from Nightscout will be uploaded when the OpenAPS rig regains internet connectivity.
-
-The OpenAPS community recommends an Explorer Board / Intel Edison rig, but xDripAPS also works with a Raspberry Pi rig.
-
-Configuring an offline OpenAPS rig is quite easy because the OpenAPS setup script (oref0-setup.sh v0.4.0 and later) supports an automated installation of xDripAPS and dependencies. When running the OpenAPS setup script you simply specify "xdrip" (without the quotes) when promped to specify a CGM type (e.g. MDT, G4). Alternatively, manual installation instructions can be found at the bottom of this page.
+The xDripAPS code resides on your OpenAPS rig and allows the direct transfer of xDrip+ Android app CGM data to your OpenAPS rig via a "local" network (WiFi hotspot or Bluetooth PAN tethering) without an internet connection. This will make CGM data available to the OpenAPS rig without internet access.
 
 #### Overview of xDripAPS
-With xDripAPS, the flow of data is as follows -
+With xDripAPS, data flow is as follows:
 
-(1) CGM transmitter --> (2) xDrip/xDrip+ Android app --> (3) OpenAPS rig (e.g. Edison) --> (4) Nightscout
+(1) CGM transmitter --> (2) xDrip+ Android app --> (3) OpenAPS rig (e.g. Edison)
 
-1. Usually a Dexcom G5, or G4 plus xDrip wireless bridge.
-2. Either xDrip or xDrip+ can be used. In the app, the REST API Upload feature is normally used to upload CGM data to Nightscout. Instead, we use this feature to upload to xDripAPS on your OpenAPS rig (further details below).
+1. Usually a Dexcom G5 or G4 plus xDrip wireless bridge. Other sources might work as well, but have not been tested.
+2. xDrip+ Android app (https://github.com/NightscoutFoundation/xDrip). In the app, the REST API Upload feature is normally used to upload CGM data to Nightscout.  We use this feature to upload CGM data to xDripAPS on your OpenAPS rig (further details below).
 3. Your OpenAPS rig - usually a Raspberry Pi or an Intel Edison.
-4. The xDrip or xDrip+ app is now uploading your data to xDripAPS on your OpenAPS rig rather than to Nightscout. OpenAPS will now upload your CGM data to Nightscout as well as treatments, pump status, etc. So your Nightscout site will still be updated. Note that it will take a couple of minutes longer for CGM data to reach Nightscout, compared with when uploading directly from xDrip or xDrip+
+
+OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the XDrip+ Android app separated by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
 
 #### Setup Steps (using oref0-setup.sh script)
 
@@ -160,16 +157,16 @@ Install OpenAPS as per the documentation. While running the oref0-setup script y
 ##### Connect your Android phone and your OpenAPS rig
 For the xDrip/xDrip+ app on your Android phone to be able to send CGM data to xDripAPS on your OpenAPS rig, they both need to be connected to the same "personal" network. Note that an internet connection is not required - this solution allows you to loop without internet connectivity.
 
-There are two approaches for establishing a "personal" network between your phone and your OpenAPS rig. The first is to run a WiFi hotspot on your phone and connect your OpenAPS rig to the WiFi network your phone exposes. This is the easiest option, but there are two drawbacks - it drains your phone battery quickly, and some phones cannot connect to a normal WiFi network while the WiFi hotspot is enabled (it can connect to the internet via 3G/4G when coverage is available).
+There are two approaches for establishing a "personal" network between your phone and your OpenAPS rig. The first is to run a WiFi hotspot on your phone and connect your OpenAPS rig to the WiFi network your phone exposes. This is the easiest option, but there are two drawbacks - it drains your phone battery quickly, and most phones cannot connect to a normal WiFi network while the WiFi hotspot is enabled (they can connect to the internet via 3G/4G when coverage is available).
 
-The other option is to enable bluetooth PAN tethering on your phone and have your OpenAPS rig connect to it. This does not drain the phone's battery as quickly and means that the phone can still connect to a normal WiFi network for internet access when available (and to 3G/4G networks when WiFi is not available). I use this approach 24/7 - my OpenAPS rig is permanently tethered to my Nexus 6P phone. I can get a full day of phone usage without running out of battery, unless I make a lot of calls or have a lot of screen-on time.
+The other option is to enable Bluetooth PAN tethering on your phone and have your OpenAPS rig connect to it. Battery drain is minimal and the phone can still connect to a normal WiFi network for internet access when available as well as to 3G/4G networks when WiFi is not available. (Some users have their OpenAPS rig permanently tethered to their Android phone. The drawback is that connecting to the rig via SSH in this configuration is only possible by using an SSH app on the phone or by connecting it to a computer using a USB cable)
 
-Instructions on both approaches can be found in the main OpenAPS documentation.
+Instructions on both Wifi and Bluetooth tethering can be found in the main OpenAPS documentation.
 
-##### Configuring the xDrip/xDrip+ Android app
+##### Configuring the xDrip+ Android app
 First, determine your OpenAPS rig's IP address within your "personal" network. If you can open a terminal session to your rig via serial, then `ifconfig wlan0` (when using the WiFi hostpost option) or `ifconfig bnep0` (when using bluetooth tethering) will display your IP address. Alternatively, you can use an Android app - there are lots of "Network IP Scanner" apps in the Play store. The Hurricane Electric Network Tools app works with both the WiFi hotspot and BT tethering options.
 
-Next, open xDrip or xDrip+ and navigate to Settings > Cloud Upload > API Upload (REST). In the `Base URL` setting, configure the following URL
+Next, open xDrip+ and navigate to Settings > Cloud Upload > API Upload (REST). In the `Base URL` setting, configure the following URL
 
 `http://<nightscout_api_secret>@<rig_ip_address>:5000/api/v1/`
 
