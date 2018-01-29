@@ -101,6 +101,6 @@ Also: a hard case may make you less likely to look at your rig directly. You sho
 * [Robert Silvers' case for Explorer and 2000 or 2500 mAh battery](http://www.thingiverse.com/thing:2291125)
 * [Small Plastic Clear Case for 2500 mAh battery](http://www.ebay.com/itm/272062812611) - Since a Tic-Tac box is too small for the 2500 mAh battery.
 
-## Other Options
+### Other non-case protection options
 
 * [Heat Shrink Tubing](https://www.amazon.com/gp/product/B009IILEVY)  
