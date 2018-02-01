@@ -234,3 +234,4 @@ List of people who are working on closed loops:
 - Todd Radel (Doylestown, PA)
 - Steve Mann (Bronx, NY)
 - Eben Demong (San Ramon, CA)
+- Peetu Hongisto (Hollola, Finland)
