@@ -235,3 +235,4 @@ List of people who are working on closed loops:
 - Steve Mann (Bronx, NY)
 - Eben Demong (San Ramon, CA)
 - Peetu Hongisto (Hollola, Finland)
+- Jonathan Cole (St. Louis, MO, USA)
