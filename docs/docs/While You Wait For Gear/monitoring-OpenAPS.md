@@ -139,13 +139,15 @@ Login to your rig. If you need help with that, please see the [Accessing Your Ri
 
 * Copy and paste each of these four command lines, one at a time.  The screenshot below shows the successful results of each command.  The first command will run for a short time and end with similar information to the green box.  The remaining three commands will not display anything specific as a result of the command.
 
-For Intel Edison use:
+For Intel Edison rigs, use:
 
 `wget https://github.com/papertrail/remote_syslog2/releases/download/v0.19/remote_syslog_linux_i386.tar.gz`
 
-For Raspberry Pi Zero which is not a I386, but has an arm processor architecture, use:
+For Raspberry Pi rigs, use:
 
 `wget https://github.com/papertrail/remote_syslog2/releases/download/v0.18-beta1/remote_syslog_linux_arm.tar.gz`
+
+The, for either rig type, run:
 
 `tar xzf ./remote_syslog*.tar.gz`
 
