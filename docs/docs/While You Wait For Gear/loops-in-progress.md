@@ -237,3 +237,4 @@ List of people who are working on closed loops:
 - Peetu Hongisto (Hollola, Finland)
 - Jonathan Cole (St. Louis, MO, USA)
 - Laura Ferrara (Hood River, OR, USA)
+- Caleb Seekell (Charlestown, RI, USA)
