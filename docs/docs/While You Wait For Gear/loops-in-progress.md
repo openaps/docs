@@ -238,3 +238,4 @@ List of people who are working on closed loops:
 - Jonathan Cole (St. Louis, MO, USA)
 - Laura Ferrara (Hood River, OR, USA)
 - Caleb Seekell (Charlestown, RI, USA)
+- Dave Rich (Cambridge, ON, CANADA)
