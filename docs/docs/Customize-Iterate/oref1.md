@@ -36,7 +36,7 @@ It's important to note that maxIOB will limit SMBs from being issued if your IOB
 
 In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an SMB while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).
 
-(History of SMB development: https://github.com/openaps/oref0/issues/262)
+(History of SMB development: https://github.com/openaps/oref0/issues/262 )
 
 ## Understanding UAM 
 
@@ -44,7 +44,7 @@ In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal ca
 
 UAM will be triggered if the preference is toggled on and there is carb activity detected based on positive deviations. 
 
-(History of UAM development: https://github.com/openaps/oref0/issues/297)
+(History of UAM development: https://github.com/openaps/oref0/issues/297 )
 
 ## How to turn on SMB/UAM
 
