@@ -239,3 +239,4 @@ List of people who are working on closed loops:
 - Laura Ferrara (Hood River, OR, USA)
 - Caleb Seekell (Charlestown, RI, USA)
 - Dave Rich (Cambridge, ON, CANADA)
+- Tracey Berg-Fulton (Pittsburgh, PA)
