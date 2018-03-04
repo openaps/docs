@@ -240,3 +240,4 @@ List of people who are working on closed loops:
 - Caleb Seekell (Charlestown, RI, USA)
 - Dave Rich (Cambridge, ON, CANADA)
 - Tracey Berg-Fulton (Pittsburgh, PA)
+- Juan Mejías (Seville, Spain)
