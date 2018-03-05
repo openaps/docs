@@ -1,29 +1,32 @@
 # Bluetooth tethering on Edison (optional) 
 
-Your cell phone can act as a mobile "hotspot" to allow your rig to access the internet.  This is an important part of keeping your rig looping, if you don't have offline BG data setup, as you move around areas without known wifi networks.
+Your cell phone can act as a mobile "hotspot" to allow your rig to access the internet.  If you don't have offline BG data setup, setting up Bluetooth (BT) tethering to allow your rig to connect to the internet through your phone can keep your rig looping as you move around areas without known wifi networks.
 
 A few things to know about using your phone's hotspot feature:
 
-1. Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot feature is enabled and BT tethering is enabled.
+1. Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot internet connections and BT tethering are available.
 2. Hotspot, when activated, uses your cell phone's data.  Know what your cell phone plan data limits are and consider if you want to change/update based on your frequency of hotspot use.  You can get an estimate of cell data use by resetting your cell data use, at the beginning of the day, within your phone.
-3. A device (like your rig) can be connected to your phone's hotspot in one of three ways; wifi connection, BT tether, or USB plug:
+3. A device (like your rig) can be connected to your phone's hotspot in one of three ways:
 
- * **wifi connection**:  You need to set up your wpa_supplicant list to include your hotspot information; network name and password.  The wifi signal for the hotspot is not constantly broadcast by your phone, however.  So when you want to use the wifi connection to your hotspot (for example, you are leaving your home wifi network and traveling), you will need to manually toggle your hotspot on so that the phone will broadcast a wifi signal for the rig to connect to.  The other consideration is that since this is a wifi connection, the rig will not automatically disconnect when you come into one of your other known wifi networks.  You will have to remember to manually disconnect (toggle hotspot off), if you do not wish to continue using cell data when you are home.  Hotspot done by wifi connections also use more phone battery than a BT tether connection.
+      **BT tether**:  BT tethering (also known as BT PAN *Personal Area Network*) requires your phone and rig to be BT-paired before they can connect (that's what this section of the docs is specifically about).  The advantage of connecting to your hotspot via BT tether is that it will happen automatically.  You do not have to remember to toggle hotspot.  Simply leave your hotspot toggled on as usual, leave the house, and within a few minutes (or sooner) your rig will BT tether to the hotspot.  (Screenshot below shows what you'll see in your network logs as you move from known wifi network to BT tether.  Oref0-online will automatically find BT tether and connect.)  Your rig will then use your cell phone as its internet connection.  When your rig comes back into a known wifi network, it will automatically drop the BT tether and connect with the wifi network.
 
- * **BT tether**:  BT tethering (also known as BT PAN *Personal Area Network*) requires your phone and rig to be BT-paired before they can connect (that's what this section of the docs is specifically about).  The advantage of connecting to your hotspot via BT tether is that it will happen automatically.  You do not have to remember to toggle hotspot.  Simply leave your hotspot toggled on as usual, leave the house, and within a few minutes (or sooner) your rig will BT tether to the hotspot.  (Screenshot below shows what you'll see in your network logs as you move from known wifi network to BT tether.  Oref0-online will automatically find BT tether and connect.)  Your rig will then use your cell phone as its internet connection.  When your rig comes back into a known wifi network, it will automatically drop the BT tether and connect with the wifi network.
+      **Wifi connection**:  You need to set up your wpa_supplicant list to include your hotspot information; network name and password.  The wifi signal for the hotspot is not constantly broadcast by your phone, however.  So when you want to use the wifi connection to your hotspot (for example, you are leaving your home wifi network and traveling), you will need to manually toggle your hotspot on so that the phone will broadcast a wifi signal for the rig to connect to.  The other consideration is that since this is a wifi connection, the rig will not automatically disconnect when you come into one of your other known wifi networks.  You will have to remember to manually disconnect (toggle hotspot off), if you do not wish to continue using cell data when you are home.  Hotspot done by wifi connections also use more phone battery than a BT tether connection.
 
- * **USB plug**: You can plug devices into your cell phone to use hotspot.  However, the phone would pull battery power from your rig and would drain your battery fairly quickly.  This is not a recommended connection method for openaps use.
+      **USB plug**: You can plug devices into your cell phone to use hotspot.  However, the phone would pull battery power from your rig and would drain your battery fairly quickly.  This is not a recommended connection method for openaps use.
 
-### Pros and Cons (and usability) of Wifi Hotspot vs. BT Tethering Hotspot
+### Benefit of Using BT Tethering to Your Phone's Hotspot
 
-* If you choose **wifi hotspot**, you must manually turn it on; wait for the rig to connect; and when you get home, you must manually turn it off or your rig might not switch to your home wifi (depending on your settings in wpa_supplicant.conf). This option also consumes more battery on the phone.
-* If you choose to enable **BT tethering**, it takes more work to set it up, but it will automatically pick up when your rig loses wifi (i.e. walking out the door) without you even having to pull your phone out of your pocket; it automatically allows the rig to pick back up on wifi when it finds a known wifi network; and it consumes less battery on the phone compared to your wifi hotspot.
+* BT tethering automatically picks up when your rig loses wifi (i.e. walking out the door) without you even having to pull your phone out of your pocket
+* It also automatically allows the rig to pick back up on wifi when it finds a known wifi network
+* It consumes less battery on your phone compared to a wifi connection to your phone's hotspot
 
+Below is an image that shows how a rig automatically switches from a known wifi network to an internet connection through a BT tether to a phone:
 ![Bluetooth papertrail oref0 online switch](../Images/BT_papertrail.PNG)
 
+     
 ### Phone selection for BT Tethering
 
-* Certain phones don't work well using bluetooth tethering with OpenAPS. Various users have experimented, and the list below shows those that have been found to work okay, those that don't and those with variable effectiveness. If you have something that is not on the list, please feel free to add it.
+Certain phones don't work well using bluetooth tethering with OpenAPS. Various users have experimented, and the list below shows those that have been found to work okay, those that don't and those with variable effectiveness. If you have something that is not on the list, please feel free to add it.
 
 <TABLE border="1"
           summary="This table gives details about various cellphones used with BT Tethering with OpenAPS rigs">
