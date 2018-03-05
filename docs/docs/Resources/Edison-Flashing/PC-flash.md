@@ -1,6 +1,6 @@
 # Setting up Edison/Explorer Board on Windows/PC 
 
-(This is testing a separate workflow for Windows only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processes.)
+(This is testing a separate workflow for Windows only. Please refer to the [main Edison setup guide](./all-computers-flash.html) as well for troubleshooting & full instructions for other computer setup processes.)
 
 ### Hardware Assumptions for this page
 
