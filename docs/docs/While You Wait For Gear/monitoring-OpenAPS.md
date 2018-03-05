@@ -139,7 +139,15 @@ Login to your rig. If you need help with that, please see the [Accessing Your Ri
 
 * Copy and paste each of these four command lines, one at a time.  The screenshot below shows the successful results of each command.  The first command will run for a short time and end with similar information to the green box.  The remaining three commands will not display anything specific as a result of the command.
 
+For Intel Edison rigs, use:
+
 `wget https://github.com/papertrail/remote_syslog2/releases/download/v0.19/remote_syslog_linux_i386.tar.gz`
+
+For Raspberry Pi rigs, use:
+
+`wget https://github.com/papertrail/remote_syslog2/releases/download/v0.18-beta1/remote_syslog_linux_arm.tar.gz`
+
+The, for either rig type, run:
 
 `tar xzf ./remote_syslog*.tar.gz`
 
@@ -571,7 +579,7 @@ You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know
 
 It can be set up where you choose, either in your openaps directory or at root.
 
-B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron:
+B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](http://openaps.readthedocs.io/en/latest/docs/Resources/index.html) section for help on editing crontabs):
 
 ```
 @reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337

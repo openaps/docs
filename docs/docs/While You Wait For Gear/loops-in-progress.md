@@ -232,4 +232,12 @@ List of people who are working on closed loops:
 - Ben Ortega (Minneapolis, MN)
 - Reza Bolouri (Melbourne, Australia)
 - Todd Radel (Doylestown, PA)
-
+- Steve Mann (Bronx, NY)
+- Eben Demong (San Ramon, CA)
+- Peetu Hongisto (Hollola, Finland)
+- Jonathan Cole (St. Louis, MO, USA)
+- Laura Ferrara (Hood River, OR, USA)
+- Caleb Seekell (Charlestown, RI, USA)
+- Dave Rich (Cambridge, ON, CANADA)
+- Tracey Berg-Fulton (Pittsburgh, PA)
+- Juan Mejías (Seville, Spain)

@@ -4,6 +4,14 @@ You've probably heard about all kinds of cool new features that you want to try.
 
 However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which version of oref0 you are currently running, `npm list -g oref0` and if you want to check which branch `cd ~/src/oref0` and then `git branch`. 
 
+If you want to view the commit records between the version you are running and the new version, run:
+
+1. `cd ~/src/oref0`
+2. `git fetch` will update the local git repository. This does not change anything in your working directory
+3. `git status` will tell you which branch your working directory is on and how many commits your working directory is behind
+4. `git log origin/master` (replace `master` with the branch you are on) will print the commit descriptions. You only need to review the number of log messages corresponding to the number of commites your working directory is behind.
+5. `git diff origin/master..` (replace `master` with the branch you are on) will print the individual file differences between your working copy and the new version.
+
 ## Step 1 (Master): Install the new version
 
 1. `cd ~/src/oref0 && git checkout master && git pull && sudo npm install -g oref0`

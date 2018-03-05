@@ -32,9 +32,9 @@ To check your edits when you're done, use `cd ~/myopenaps && cat preferences.jso
 
 #### max_iob: 
 
-`max_iob` is an important safety setting for your OpenAPS set up. `max_iob` is the maximum amount of basal (or SMB correction) insulin that your loop is allowed to accumulate to treat higher-than-target BG.  Unlike the other two OpenAPS safety settings (`max_daily_safety_multiplier` and `current_basal_safety_multiplier`), `max_iob` is set as a fixed number of units of insulin. 
+`max_iob` is an important safety setting for your OpenAPS set up. Beginning with oref0 0.6.0 and beyond, `max_iob` is the maximum amount of insulin on board from all sources -- both basal (or SMB correction) and bolus insulin -- that your loop is allowed to accumulate to treat higher-than-target BG.  Unlike the other two OpenAPS safety settings (`max_daily_safety_multiplier` and `current_basal_safety_multiplier`), `max_iob` is set as a fixed number of units of insulin. Note that, in previous releases, `max_iob` reflected basal insulin on board only.
 
-Although `max_iob` is set as a fixed number of units of insulin, you should consider both your typical meal bolus size and your current basal rate settings when setting this safety parameter. A good rule of thumb to start out with is for `max_iob` to be no more than 3 times your highest basal rate, and lower than your typical meal bolus. You can start conservatively and change this setting over time as you evaluate how the OpenAPS system works for you. For people using the advanced features such as SMB (especially those using Fiasp and intending for SMB to replace meal boluses), you will likely need to increase your `max_iob`, as in oref0 0.6.0 and beyond, `max_iob` now reflects total net insulin on board from all sources.) 
+In determining your `max_iob` setting, you should consider both your typical meal bolus size and your current basal rate settings when setting this safety parameter. A good rule of thumb to start out with is for `max_iob` to be no more than 3 times your highest basal rate PLUS your typical meal bolus. You can start conservatively and change this setting over time as you evaluate how the OpenAPS system works for you. For people using the advanced features such as SMB (especially those using Fiasp and intending for SMB to replace meal boluses), you will likely need to increase your `max_iob`.
 
 When you run the OpenAPS setup script, it will prompt you to set your `max_iob`.  In previous oref0 releases (0.4.3 or older), the set up script automatically set `max_iob` to 0 units.  This effectively made your initial OpenAPS installation only capable of setting temp basal rates in response to BG levels that were below your target BG levels. (And if your BG level is sufficiently below your target BG level, OpenAPS will set a 30 min. temporary basal rate of 0u/hr., which is often referred to as a "low glucose suspend".)  Again, you can start conservatively and change this setting over time as you evaluate how the OpenAPS system works for you.
 
@@ -42,11 +42,11 @@ The setting you choose during the setup script will be saved in the oref0-runaga
 
 #### max_daily_safety_multiplier: 
 
-This is an important OpenAPS safety limit. The default setting (which is unlikely to need adjusting) is 3. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 3x the highest hourly basal rate programmed in a user's pump. 
+This is an important OpenAPS safety limit. The default setting (which is unlikely to need adjusting) is 3. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 3x the highest hourly basal rate programmed in a user's pump, or, if enabled, determined by autotune. 
 
 #### current_basal_safety_multiplier: 
 
-This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump. 
+This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump, or, if enabled, determined by autotune. 
 
 
 ### Important Note About Safety Multipliers:
@@ -192,10 +192,6 @@ This is used to allow autosens to adjust BG targets, in addition to ISF and basa
 
 This feature was previously enabled by default but will now default to false (will NOT be enabled automatically) in oref0 0.6.0 and beyond. (There is no need for this with 0.6.0). This feature lowers oref0's target BG automatically when current BG and eventualBG are high.  This helps prevent and mitigate high BG, but automatically switches to low-temping to ensure that BG comes down smoothly toward your actual target.  If you find this behavior too aggressive, you can disable this feature.  If you do so, please let us know so we can better understand what settings work best for everyone. 
 
-#### override_high_target_with_low: 
-
-Defaults to false, but can be turned on if you have a situation where you want someone (a school caregiver, for example) to use the bolus wizard for meal boluses. If set to “True”, then the bolus wizard will calculate boluses with the high end of the BG target, but OpenAPS will target the low end of that range. So if you  have a target range of 100-120; and set this to true; bolus wizard will adjust to 120 and the loop will target 100. If you have this on, you probably also want a wide range target, rather than a narrow (i.e. 100-100) target.
-
 #### skip_neutral_temps: 
 
 Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
@@ -237,6 +233,8 @@ Default hotspot network name is the rig name; default password is "#OpenAPS" (no
 #### wide_bg_target_range
 
 Defaults to false, which means by default only the low end of the pump's BG target range is used as OpenAPS target. This is a safety feature to prevent too-wide targets and less-optimal outcomes. Therefore the higher end of the target range is used only for avoiding bolus wizard overcorrections. Use `wide_bg_target_range: true` to force neutral temps over a wider range of eventualBGs. 
+
+**SAFETY WARNING:** If the pump has a target range high end set lower than the BG input into the Bolus Wizard, the Bolus Wizard will add insulin to cover the carbs as well as bring BG down to the high end. I.e. if your high end is 110 and you enter a 160 BG and 45g of carbs in the Bolus Wizard, the Bolus Wizard will dose 1U to bring BG to 110 and 3U for carbs (assuming 50 (mg/dL)/U and 15g/U factors). The rig will likely have already dosed insulin to bring your BG to your low target, and you are potentially "double dosing". In these scenarios, you will have too much insulin onboard and can experience a severe low. If you use the Boluz Wizard, ensure the high end of the BG target range is a high number such as 250 mg/dL.
 
 #### A52_risk_enable (A52 risk mitigation)
 

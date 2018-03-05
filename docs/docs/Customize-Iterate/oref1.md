@@ -34,7 +34,9 @@ Single SMB amounts are limited by several factors.  The largest a single SMB bol
 
 It's important to note that maxIOB will limit SMBs from being issued if your IOB (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing SMBs.
 
-(History of SMB development: https://github.com/openaps/oref0/issues/262)
+In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an SMB while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).
+
+(History of SMB development: https://github.com/openaps/oref0/issues/262 )
 
 ## Understanding UAM 
 
@@ -42,7 +44,7 @@ It's important to note that maxIOB will limit SMBs from being issued if your IOB
 
 UAM will be triggered if the preference is toggled on and there is carb activity detected based on positive deviations. 
 
-(History of UAM development: https://github.com/openaps/oref0/issues/297)
+(History of UAM development: https://github.com/openaps/oref0/issues/297 )
 
 ## How to turn on SMB/UAM
 
@@ -64,7 +66,7 @@ There are multiple preference toggles for SMB/UAM. Check out the [preferences pa
 
 1. Make sure you read the above, especially the "only enable oref1 if..." section. SMB will behave differently than oref0 would. Watch carefully, and use your common sense and do what's right for you & your diabetes. 
 2. Common errors include:
-* Not changing the preferences to be "true" for the relevant settings after you've enabled the oref1 features. You should see "Starting supermicrobolus pump-loop at..." in pump-loop.log if you have successfully enabled everything.
+* Not changing the preferences to be "true" for the relevant settings after you've enabled the oref1 features. 
 * Not running autotune. Remember, you don't have to enable it to run as part of your loop at night, but you should run it manually, review the results, and otherwise be VERY confident in your underlying pump settings (basals, ISF, carb ratio) before using oref1.
 * Pump clock being >1 minute off from rig's time. This means 60 seconds. Not 61 seconds; 68 seconds; 90 seconds. Needs to be less than 60 seconds apart. `"Checking pump clock: "2017-05-16T15:46:32-04:00" is within 1m of current time: Tue May 16 15:47:40 EDT 2017` is an example of a >60 second gap that needs fixing before it will work properly. We added a script to automatically attempt to fix the pump time in case of a >60 second difference, but you may occasionally see this type of error in the logs until the script is able to properly adjust the pump time.
 
