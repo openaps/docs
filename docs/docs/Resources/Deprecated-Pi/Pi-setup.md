@@ -543,55 +543,55 @@ This will create the file
 	
 	6. Copy and paste the following into the file (copy and paste all at once)
 		
-		#!/usr/bin/python
-		
-		import RPi.GPIO as GPIO
-		
-		import time
-		
-		import os
+	#!/usr/bin/python
 
-		#Return CPU temperature as float
-		
-		def getCPUtemp():
-    			
-			cTemp = os.popen('vcgencmd measure_temp').readline()
-    			
-			return float(cTemp.replace("temp=","").replace("'C\n",""))
+	import RPi.GPIO as GPIO
 
-		#For GPIO numbering, Choose BCMGPIO.setmode(GPIO.BCM)
-			
-			GPIO.setmode(GPIO.BCM)
-			
-			GPIO.setup(2,GPIO.OUT)
-			
-			GPIO.setwarnings(False)
-			
-			p=GPIO.PWM(2,100)
+	import time
 
-		while True:
-   			
-			CPU_temp = getCPUtemp()
-    			
-			if CPU_temp > 70.0:
-				p.start(100)
-			elif CPU_temp > 60.0:
-				p.start(60)
-			elif CPU_temp > 50.0:
-				p.start(40)
-			elif CPU_temp > 45.0:
-				p.start(30)
-			elif CPU_temp > 40.0:
-				p.start(20)
-			elif CPU_temp > 35.0:
-				p.start(15)
-			elif CPU_temp > 30.0:
-				p.start(10)
-   		else:
-				p.stop()
-		time.sleep(180)
+	import os
 
-		GPIO.cleanup()
+	#Return CPU temperature as float
+
+	def getCPUtemp():
+
+		cTemp = os.popen('vcgencmd measure_temp').readline()
+
+		return float(cTemp.replace("temp=","").replace("'C\n",""))
+
+	#For GPIO numbering, Choose BCMGPIO.setmode(GPIO.BCM)
+
+		GPIO.setmode(GPIO.BCM)
+
+		GPIO.setup(2,GPIO.OUT)
+
+		GPIO.setwarnings(False)
+
+		p=GPIO.PWM(2,100)
+
+	while True:
+
+		CPU_temp = getCPUtemp()
+
+		if CPU_temp > 70.0:
+			p.start(100)
+		elif CPU_temp > 60.0:
+			p.start(60)
+		elif CPU_temp > 50.0:
+			p.start(40)
+		elif CPU_temp > 45.0:
+			p.start(30)
+		elif CPU_temp > 40.0:
+			p.start(20)
+		elif CPU_temp > 35.0:
+			p.start(15)
+		elif CPU_temp > 30.0:
+			p.start(10)
+	else:
+			p.stop()
+	time.sleep(180)
+
+	GPIO.cleanup()
 
 ( exit and save)
 	
