@@ -13,7 +13,7 @@ Getting your rig with OpenAPS takes generally four steps:
 
 ### Jubilinux
 
-If you purchased a pre-flashed Edison,you can skip on down to the Wifi and dependencies below.
+If you purchased a pre-flashed Edison, you can skip on down to the Wifi and dependencies below.
 
 If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
