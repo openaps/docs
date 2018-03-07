@@ -1,18 +1,47 @@
 # Installing OpenAPS on your rig
 
-### Get your rig online and install dependencies
+Getting your rig with OpenAPS takes generally four steps:
+
+1. Jubilinux installation (called "flashing" the Edison)
+2. Getting first wifi network connection
+3. Installing "dependencies" (helper code that make all the OpenAPS code function)
+4. Installing your OpenAPS loop
+
+* The **first step** may already be done for you if you purchased a pre-flashed Edison board.  
+* The **second and third steps** are accomplished through what is called the "bootstrap" script.
+* The **fourth step** is accomplished through what is called the "setup script".
+
+### Jubilinux
+
+If you purchased a pre-flashed Edison,you can skip on down to the Wifi and dependencies below.
+
+If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
+
+### Wifi and Dependencies
+
+Steps 2-3 are covered in the page links below, dependent on which type of rig your are using.  
 
 If you are using an Intel Edison, start with the [Intel Edison instructions](edison-install.md).
 
 If you are using a Raspberry Pi, start with the [Raspberry Pi instructions](pi-install.md).
 
-### Run oref0-setup
+Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
 
-Once you've completed the instructions above, return to this page for details on running oref0-setup.
+### Run setup script
 
-#### Be prepared to enter the following information into "oref0-setup":
+* **If you answered "yes" to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By answering "Yes" to continuing on with setup script, the command was automatically started for you.
 
-The screenshot below shows an example of the questions you'll be prompted to reply to during the oref0-setup (a.k.a. setup script).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
+* **If you answered "no" to continuing on with the setup script at the end of the bootstrap script**, because you were short on time, this is where you'll pick back up.  At this point, you are expected to have your first wifi connection finished and your dependencies installed. (Do you remember copying and pasting a large window of code?  That was the bootstrap script. You're done with it.)  
+
+    Login to your rig and run the following command (aka "the setup script"):
+    
+    `cd && ~/src/oref0/bin/oref0-setup.sh`
+
+(Note: if this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, it is likely that you forgot to enter `edison` at the first prompt for changing the password.)
+
+#### Be prepared to enter the following information into the setup script:
+
+The screenshot below shows an example of the questions you'll be prompted to reply to during the setup script (oref0-setup).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
 
 ********************
 **IMPORTANT NOTE: Previous versions of setup script would prompt for myopenaps directory name.  This is outdated.  Screenshot below will be updated shortly.**
@@ -22,7 +51,6 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 
 **Be prepared to enter the following items:** 
 
-* email address for github commits
 * serial number of your pump
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
@@ -30,16 +58,10 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.  G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
 * whether you want Autosensitivity and/or Autotune enabled
-* whether you want any oref1-related advanced features (SMB/UAM) - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
+* whether you want any carbs-required Pushover notifications
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
   * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
 * After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
-
-#### Login again, and change your password
-
-If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (`edison` for new Edison rigs). If you're using an Edison and haven't set a password yet, it will ask you a second time for the current password (probably `edison`) and then prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your Edison if you forget your password.
-
-Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
 
 ## Watch your Pump-Loop Log - REQUIRED!
 
