@@ -11,13 +11,13 @@ Getting your rig with OpenAPS takes generally four steps:
 * The **second and third steps** are accomplished through what is called the "bootstrap" script.
 * The **fourth step** is accomplished through what is called the "setup script".
 
-### Jubilinux
+### Step 1: Jubilinux
 
 If you purchased a pre-flashed Edison, you can skip on down to the Wifi and dependencies below.
 
 If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
-### Wifi and Dependencies
+### Steps 2-3: Wifi and Dependencies
 
 Steps 2-3 are covered in the page links below, dependent on which type of rig your are using.  
 
@@ -27,7 +27,7 @@ If you are using a Raspberry Pi, start with the [Raspberry Pi instructions](pi-i
 
 Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
 
-### Run setup script
+### Step 4: Setup script
 
 * **If you pressed `enter` to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By pressing `enter` to continuing on with setup script, the command was automatically started for you.
 
