@@ -29,9 +29,9 @@ Going through steps 1-3 may take about 1-3 hours depending on your internet conn
 
 ### Run setup script
 
-* **If you answered "yes" to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By answering "Yes" to continuing on with setup script, the command was automatically started for you.
+* **If you pressed `enter` to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By pressing `enter` to continuing on with setup script, the command was automatically started for you.
 
-* **If you answered "no" to continuing on with the setup script at the end of the bootstrap script**, because you were short on time, this is where you'll pick back up.  At this point, you are expected to have your first wifi connection finished and your dependencies installed. (Do you remember copying and pasting a large window of code?  That was the bootstrap script. You're done with it.)  
+* **If you pressed `control-c` to end at the completion of the bootstrap script** and did not continue automatically with setup script, this is where you'll pick back up.  At this point, your rig should have your first wifi connection finished and your dependencies installed.  
 
     Login to your rig and run the following command (aka "the setup script"):
     
@@ -43,25 +43,26 @@ Going through steps 1-3 may take about 1-3 hours depending on your internet conn
 
 The screenshot below shows an example of the questions you'll be prompted to reply to during the setup script (oref0-setup).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
 
-********************
-**IMPORTANT NOTE: Previous versions of setup script would prompt for myopenaps directory name.  This is outdated.  Screenshot below will be updated shortly.**
-********************
-
-![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
-
 **Be prepared to enter the following items:** 
 
-* serial number of your pump
+* 6-digit serial number of your pump
+* whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
     * if you're using a Carelink, you will NOT be using mmeowlink
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.  G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
-* whether you want Autosensitivity and/or Autotune enabled
-* whether you want any carbs-required Pushover notifications
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
   * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
-* After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
+* Your desired max-iob
+* whether you want Autosensitivity and/or Autotune enabled
+* whether you want any carbs-required Pushover notifications (and if you do, you'll need your Pushover API token and User Key)
+
+![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
+
+At the end of the questions, the script will ask if you want to continue.  Review the information provided in the "to run again with these same options" area...check for any typos.  If everything looks correct, then press `y` to continue.  If you see a typo, press `n` and then type `cd && ~/src/oref0/bin/oref0-setup.sh` to start the setup questions over again.
+
+After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
 
 ## Watch your Pump-Loop Log - REQUIRED!
 
