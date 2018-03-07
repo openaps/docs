@@ -1,15 +1,19 @@
 # Installing OpenAPS on your rig
 
-Getting your rig with OpenAPS takes generally four steps:
+Getting your rig with OpenAPS takes generally six steps:
 
 1. Jubilinux installation (called "flashing" the Edison)
 2. Getting first wifi network connection
 3. Installing "dependencies" (helper code that make all the OpenAPS code function)
 4. Installing your OpenAPS loop
+5. Watching Pump-loop Log
+6. Finish your setup
 
 * The **first step** may already be done for you if you purchased a pre-flashed Edison board.  
 * The **second and third steps** are accomplished through what is called the "bootstrap" script.
 * The **fourth step** is accomplished through what is called the "setup script".
+* The **fifth step** is an important, required step.  If you ever need troubleshooting help, you'll need to be familiar with how to read and access your pump-loop logs.
+* The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like preferences, BT-tethering, IFTTT, etc.
 
 ### Step 1: Jubilinux
 
@@ -64,7 +68,7 @@ At the end of the questions, the script will ask if you want to continue.  Revie
 
 After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
 
-## Watch your Pump-Loop Log - REQUIRED!
+## Step 5: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
@@ -202,7 +206,7 @@ These logs and other files are things you may frequently access. There are short
  ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-## Finish your OpenAPS setup
+## Step 6: Finish your OpenAPS setup
 
 You're looping? Congrats! However, you're not done quite done yet. 
 
