@@ -214,7 +214,7 @@ This app has been used by numerous OpenAPS users, and found to work. It can be f
 
 If you are able to set up a tethering connection (and even obtain a local IP) but your rig is unable to access the internet through your device's mobile connection, the following steps may be helpful:
 
-1) See if your rig can access the internet when your phone is logged into a wifi network. If it can, the issue may be with your carrier.
+1) If you're using an Android phone, see if your rig can access the internet when your phone is logged into a wifi network. If it can, the issue may be with your carrier.
 
 2) Try setting up a tethering connection between your phone and another device (e.g., your laptop) to see if the laptop is able to share the phone's mobile connection. On at least one carrier (Ting), setting up a connection from a PC resulted in a prompt on the phone to activate sharing the phone's mobile connection via Bluetooth, which then resolved the issue.
 
