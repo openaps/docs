@@ -241,6 +241,7 @@ Now your Edison has a new hostname.  (note: screenshot below is a little differe
    
    If you are new to INSERT MODE, realize that INSERT MODE inserts characters at the highlighted cursor (it does not overwrite the character showing beneath the cursor).  And, the default is that the cursor will be at the top left of the screen to start, so you will need to use the arrow keys to move the cursor to the area where you want to start typing.  If you freak out that you’ve made a change that you don’t want to commit...you can simply press the ESC key and then type (no quotes) “:q!” to quit without saving any of your typing/changes.
 
+   If you experience any erratic behavior while using the screen editor, such as the cursor overwriting or deleting adjacent words when typing or even when using the cursor arrow keys, this may be due to incorrectly set Mac Terminal window settings. Try going to the "Shell" on the menu bar above and selecting "Show Inspector." Ensure the Columns setting is set to 80 and the Rows setting is set to 25.
 
 **A-3.** Make the changes so they match the areas highlighted in yellow, above:
 * uncomment (remove the #) from the auto wlan0 line
