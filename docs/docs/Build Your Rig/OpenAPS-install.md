@@ -1,47 +1,74 @@
 # Installing OpenAPS on your rig
 
-### Get your rig online and install dependencies
+Getting your rig with OpenAPS takes generally six steps:
 
-If you are using an Intel Edison, start with the [Intel Edison instructions](edison-install.md).
+1. Jubilinux installation (called "flashing" the Edison)
+2. Getting first wifi network connection
+3. Installing "dependencies" (helper code that make all the OpenAPS code function)
+4. Installing your OpenAPS loop
+5. Watching Pump-loop Log
+6. Finish your setup
 
-If you are using a Raspberry Pi, start with the [Raspberry Pi instructions](pi-install.md).
+* The **first step** may already be done for you if you purchased a pre-flashed Edison board.  
+* The **second and third steps** are accomplished through what is called the "bootstrap" script.
+* The **fourth step** is accomplished through what is called the "setup script".
+* The **fifth step** is an important, required step.  If you ever need troubleshooting help, you'll need to be familiar with how to read and access your pump-loop logs.
+* The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like preferences, BT-tethering, IFTTT, etc.
 
-### Run oref0-setup
+### Step 1: Jubilinux
 
-Once you've completed the instructions above, return to this page for details on running oref0-setup.
+If you purchased a pre-flashed Edison, you can skip on down to the Wifi and dependencies below.
 
-#### Be prepared to enter the following information into "oref0-setup":
+If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
-The screenshot below shows an example of the questions you'll be prompted to reply to during the oref0-setup (a.k.a. setup script).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
+### Steps 2-3: Wifi and Dependencies
 
-********************
-**IMPORTANT NOTE: Previous versions of setup script would prompt for myopenaps directory name.  This is outdated.  Screenshot below will be updated shortly.**
-********************
+Steps 2-3 are covered in the page links below, dependent on which type of rig your are using.  
 
-![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
+* If you are using an _**Intel Edison**_, start with the [Intel Edison instructions](edison-install.md).
+
+* If you are using a _**Raspberry Pi**_, start with the [Raspberry Pi instructions](pi-install.md).
+
+Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
+
+### Step 4: Setup script
+
+* **If you pressed `enter` to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By pressing `enter` to continuing on with setup script, the command was automatically started for you.
+
+* **If you pressed `control-c` to end at the completion of the bootstrap script** and did not continue automatically with setup script, this is where you'll pick back up.  At this point, your rig should have your first wifi connection finished and your dependencies installed.  
+
+    Login to your rig and run the following command (aka "the setup script"):
+    
+    `cd && ~/src/oref0/bin/oref0-setup.sh`
+
+(Note: if this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, it is likely that you forgot to enter `edison` at the first prompt for changing the password.)
+
+#### Be prepared to enter the following information into the setup script:
+
+The screenshot below shows an example of the questions you'll be prompted to reply to during the setup script (oref0-setup).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
 
 **Be prepared to enter the following items:** 
 
-* email address for github commits
-* serial number of your pump
+* 6-digit serial number of your pump
+* whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
     * if you're using a Carelink, you will NOT be using mmeowlink
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.  G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
-* whether you want Autosensitivity and/or Autotune enabled
-* whether you want any oref1-related advanced features (SMB/UAM) - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
   * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
-* After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
+* Your desired max-iob
+* whether you want Autosensitivity and/or Autotune enabled
+* whether you want any carbs-required Pushover notifications (and if you do, you'll need your Pushover API token and User Key)
 
-#### Login again, and change your password
+![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
 
-If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (`edison` for new Edison rigs). If you're using an Edison and haven't set a password yet, it will ask you a second time for the current password (probably `edison`) and then prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your Edison if you forget your password.
+At the end of the questions, the script will ask if you want to continue.  Review the information provided in the "to run again with these same options" area...check for any typos.  If everything looks correct, then press `y` to continue.  If you see a typo, press `n` and then type `cd && ~/src/oref0/bin/oref0-setup.sh` to start the setup questions over again.
 
-Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
+After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
 
-## Watch your Pump-Loop Log - REQUIRED!
+## Step 5: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
@@ -108,11 +135,11 @@ Advanced meal assist requires at least 36 BG readings before it can begin to cal
 
 #### What you'll see when you are looping successfully ~20+ minutes later!
 
-Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with supermicrobolus pump-loop" (or simply pump-loop if you don't have SMBs enabled) and ending with "Completed supermicrobolus pump-loop"
+Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with oref0-pump-loop" and ending with "Completed oref0-pump-loop"
 
 ![Successful pump-loop](../Images/build-your-rig/loop-success.png)
 
-Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range.
+Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range. ([For more details on how to interpret the OpenAPS math and information, see this page for understanding OpenAPS determine-basal](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html#summary-of-outputs).)
 
 If after 20 minutes, you still have some errors showing instead of the above successful looping information, it may be time to head over to the [Troubleshooting oref0-setup tips page](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html) for ideas on your error messages and how to resolve them.  IF you aren't able to resolve your errors, please make sure that you have captured the error messages before heading over to Gitter or Facebook to get help.  Troubleshooting is far more successful when you come prepared with the error messages.
 
@@ -179,7 +206,7 @@ These logs and other files are things you may frequently access. There are short
  ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-## Finish your OpenAPS setup
+## Step 6: Finish your OpenAPS setup
 
 You're looping? Congrats! However, you're not done quite done yet. 
 
