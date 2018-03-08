@@ -46,4 +46,4 @@ You'll be prompted to set a password.  You'll want to change it to something per
 
 The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
 
-Return to the [OpenAPS Install page](OpenAPS-install.md) to complete oref0-setup.
+Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-4-setup-script) to complete oref0-setup.
