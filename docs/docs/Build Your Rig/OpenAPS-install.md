@@ -25,9 +25,9 @@ If you need to flash your Edison, the directions are slightly different dependin
 
 Steps 2-3 are covered in the page links below, dependent on which type of rig your are using.  
 
-If you are using an Intel Edison, start with the [Intel Edison instructions](edison-install.md).
+* If you are using an _**Intel Edison**_, start with the [Intel Edison instructions](edison-install.md).
 
-If you are using a Raspberry Pi, start with the [Raspberry Pi instructions](pi-install.md).
+* If you are using a _**Raspberry Pi**_, start with the [Raspberry Pi instructions](pi-install.md).
 
 Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
 
@@ -135,11 +135,11 @@ Advanced meal assist requires at least 36 BG readings before it can begin to cal
 
 #### What you'll see when you are looping successfully ~20+ minutes later!
 
-Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with supermicrobolus pump-loop" (or simply pump-loop if you don't have SMBs enabled) and ending with "Completed supermicrobolus pump-loop"
+Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with oref0-pump-loop" and ending with "Completed oref0-pump-loop"
 
 ![Successful pump-loop](../Images/build-your-rig/loop-success.png)
 
-Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range.
+Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range. ([For more details on how to interpret the OpenAPS math and information, see this page for understanding OpenAPS determine-basal](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html#summary-of-outputs).)
 
 If after 20 minutes, you still have some errors showing instead of the above successful looping information, it may be time to head over to the [Troubleshooting oref0-setup tips page](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html) for ideas on your error messages and how to resolve them.  IF you aren't able to resolve your errors, please make sure that you have captured the error messages before heading over to Gitter or Facebook to get help.  Troubleshooting is far more successful when you come prepared with the error messages.
 
