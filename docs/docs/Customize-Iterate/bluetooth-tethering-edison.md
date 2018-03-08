@@ -210,4 +210,12 @@ On Android, the Bluetooth tether will shutdown if there is no tethering request 
 
 This app has been used by numerous OpenAPS users, and found to work. It can be found here: https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en Other Auto Tethering apps are available if you prefer something different.
 
+### Additional Troubleshooting Steps for Some Carriers
 
+If you are able to set up a tethering connection (and even obtain a local IP) but your rig is unable to access the internet through your device's mobile connection, the following steps may be helpful:
+
+1) See if your rig can access the internet when your phone is logged into a wifi network. If it can, the issue may be with your carrier.
+
+2) Try setting up a tethering connection between your phone and another device (e.g., your laptop) to see if the laptop is able to share the phone's mobile connection. On at least one carrier (Ting), setting up a connection from a PC resulted in a prompt on the phone to activate sharing the phone's mobile connection via Bluetooth, which then resolved the issue.
+
+3) If all else fails and you have isolated the problem to your mobile connection, consider contacting your mobile carrier's tech support for help as they may be able to do something on their end.
