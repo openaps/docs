@@ -242,3 +242,4 @@ List of people who are working on closed loops:
 - Tracey Berg-Fulton (Pittsburgh, PA)
 - Juan Mejías (Seville, Spain)
 - Mladen Cvijanovic (Buffalo, NY, USA)
+- Kendra Hunter (Rochester, NY)
