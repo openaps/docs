@@ -46,6 +46,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TR><TH>Samsung Galaxy A3 (2016) Android 6<TD>Yes<TD>Excellent BT tether using app 'Blue Car Tethering'<TD>xDrip+ with G4, reliable capture using xDrip+ and using normal tether when running with Dexcom in G4-upload mode
 <TR><TH>Elephone P9000 Android 7<TD>Yes<TD>Seems to work well, switching on/off BT tehethering as expected. Using 'Blue Car Tethering' with rig selected. Tested with phone screen off, works fine<TD></TABLE>
 <TR><TH>Samsung Galaxy A5 (2017) Android 7.0<TD>Yes<TD>Excellent BT tether, intermitent disconnecting when the area is flooded with other bluetooth devices. Use 'BT AutoTether' app along side to maintain connection<TD>xDrip+ with G5, works really well with G5 transmitter directly, no compatibility issues and 95%+ consistent capture rate.
+<TR><TH>Samsung Galaxy S8 Android 7.0<TD>Yes<TD>Excellent BT tether, no need for 3rd party app to keep BT teter alive, can be set in settings<TD>xDrip+ with Libre/RFDuino transmitter, 99%+ capture rate,
 </TABLE>
 
 **********************************************************************************************
