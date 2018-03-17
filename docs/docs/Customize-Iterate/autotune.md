@@ -116,7 +116,21 @@ Mac install commands:
  * 2.) Install Coreutils: `brew install coreutils`
  * 3.) Install Node for (NPM): `brew install node`
  * 4.) Install JQ from Homebrew: `brew install jq` 
- 
+
+ **Step 1d: Run on a Windows 10 computer using the Windows Subsystem for Linux (WSL)**
+ * You must be running Windows 10 on your computer to use this option. The Windows Subsystem for Linux (WSL) is a Windows 10 feature  that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
+ * Open PowerShell as Administrator. To open an elevated PowerShell prompt, in the taskbar search, type powershell. The result "Windows PowerShell" appears on the top. Right-click on "Windows PowerShell" and select Run as Administrator. The User Access Control (UAC) prompt will ask you for your consent.
+ * In PowerShell run `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
+ * This instruction is for Windows 10 build 16215 or later. To check your build of Windows 10 navigate to Settings > System > About. Look for the OS Build field. It will need to say 16215 or later for these next instructions to work. If you have a Windows 10 build earlier than 16215 follow these instructions to install Linux: https://docs.microsoft.com/en-us/windows/wsl/install-win10#for-anniversary-update-and-creators-update-install-using-lxrun. Only follow this link if your build of Windows 10 is earlier than 16215.
+ * Open the Microsoft Store and install Ubuntu using this link: https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6?rtc=1. On this Ubuntu page click on the blue button that says "Get the app". The Microsoft Store will open in a new window, showing the Ubuntu app. Click on the blue button that says "Get". Your computer will start to install the Ubuntu app ("Installing, this may take a few minutes..."). When done it will say, "Installation successful!".
+ * You will be asked to "create a default UNIX user account". Chose whatever name works for you. It doesn't need to match your Windows username. Enter the name at the prompt, "Enter new UNIX username:".
+ * You will be asked for a password: "Enter new UNIX password:". Your cursor will not move when you type the password you choose. You'll then be asked to "Retype new UNIX password:". Make sure you enter the password exactly as you just typed it. Again, your cursor will not move as you retype the password.
+ * You will now be at a Linux prompt (like the old DOS prompt). It will look something like this, in a green font: "username@DGdesktop: $ _".
+ * Make sure you (that is, WSL/Ubuntu) are using the same timezone as your pump.  You can change timezone using `sudo dpkg-reconfigure tzdata`. WSL/Ubuntu may respond to this command with "[sudo] password for username". If so enter your password from above. Follow the prompts to select your timezone. You likely will not be able to use your mouse to navigate on the timezone screens. Use your keyboard's arrow keys to navigate and the Enter key to select.
+ * If your WSL is outside the US, particularly in a country that uses `,` as a decimal separator, make sure your system locale is set to `en_US.utf8` or another locale that uses `.` as the decimal separator. If you think this may be incorrect, you can check it by typing `locale`.
+ * This step could take 10-15 minutes. Type: `sudo curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -`. If the install was successful, one of the last lines will say something like: `Successfully installed future-0.16.0 openaps-contrib-0.0.15 parsedatetime-2.4 recurrent-0.2.5` (although the version number may have been incremented).
+ * Install the Linux command "bc" by typing: `sudo apt-get install bc`.
+
 **Step 2: Install oref0**
 * Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
 
