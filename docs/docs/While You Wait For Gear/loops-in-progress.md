@@ -243,3 +243,4 @@ List of people who are working on closed loops:
 - Juan Mejías (Seville, Spain)
 - Mladen Cvijanovic (Buffalo, NY, USA)
 - Kendra Hunter (Rochester, NY)
+- Roxana Soetebeer (New Brunswick, Canada)
