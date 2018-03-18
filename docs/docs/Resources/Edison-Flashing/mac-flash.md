@@ -42,7 +42,7 @@ Building the software into your rig is comprised of three steps:
 2. Installing the “looping” code (aka setup script for oref0)
 3. Customizing your loop 
 
-### 1. Preparing/flashing the Edison
+### 1. Preparing/flashing the Edison/reflashing the Edison
 
 The Edison comes with an operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
@@ -89,6 +89,8 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 #### **1-2.  Install a bunch of other stuff (dfu-util, coreutils, gnu-getopt)**
 
 `brew install dfu-util coreutils gnu-getopt`
+
+* If you are reflashing an Edison, it might suggest upgrading coreutils, in which case, run `brew upgrade coreutils gnu-getopt`
 
 ![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
@@ -187,7 +189,7 @@ for a few minutes: that's fine.  You can also expect to see an ugly red:
 ```
 That is also fine, and you can ignore it too.
 
-Eventually, you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Step 1-4 and start the flash process over again).  
+Eventually, you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Steps 1-4 and start the flash process over again. Or if you are reflashing and your old rig name appears, then the reflashing did not work. Go back to Steps 1-4.)
 
 ![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
@@ -195,7 +197,7 @@ Use login `root` and password `edison` to login to your newly flashed Edison.  A
 
 ![Terminal Prompt for Jubilinux](../../Images/Edison/name.png)
 
-CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
+CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going. 
 
 #### **1-8. Wifi for Edison**
 
@@ -317,6 +319,11 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Ediso
 * Run `ping google.com` to make sure your rig is online.  If your rig shows up as online successfully, you can enter control-c to exit the ping.  A successful ping should look like the screen below.
 
 ![Ping success](../../Images/Edison/ping_success.png)
+
+* If you are reflashing an Edison, you might get a scary looking error about "WARNING: POSSIBLE DNS SPOOFING DECTECTED WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!" that is likely because you are attempting to login to a rig that has the same hostname as a previous rig that has been logged into on the computer. You can delete the history of known hosts for the rig by entering the commands `cd .ssh` and then `rm known_hosts`.  This will delete the log of known hosts on your computer.  There's no significant downside to removing the known_host log, except that you will need to answer yes to the key fingerprint additions again for the first time you login to old rigs again. 
+
+![Mac spoofing error](../../Images/access_mac3.png)
+
 
 If the rig isn't online, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.  Usually you will see `ping: unknown host google.com` if you are not connected to the internet, as shown below.
 
