@@ -322,7 +322,7 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Ediso
 
 * If you are reflashing an Edison, you might get a scary looking error about "WARNING: POSSIBLE DNS SPOOFING DECTECTED WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!" that is likely because you are attempting to login to a rig that has the same hostname as a previous rig that has been logged into on the computer. You can delete the history of known hosts for the rig by entering the commands `cd .ssh` and then `rm known_hosts`.  This will delete the log of known hosts on your computer.  There's no significant downside to removing the known_host log, except that you will need to answer yes to the key fingerprint additions again for the first time you login to old rigs again. 
 
-![Mac spoofing error](../../Images/access_mac3.png)
+![Mac spoofing error](../../Images/spoof-no-box.png)
 
 
 If the rig isn't online, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.  Usually you will see `ping: unknown host google.com` if you are not connected to the internet, as shown below.
