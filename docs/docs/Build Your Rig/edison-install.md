@@ -1,21 +1,20 @@
-# Setting up a jubilinux-flashed Edison rig
+# Jubilinux prerequisite
 
-*This page assumes you have a pre-flashed (with jubilinux) Edison. Don't have a pre-flashed Edison? Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), then come back here before installing wifi and other steps, which is easier to do following this page's flow.* 
+*This page assumes you have a Jubilinux already flashed on your Edison. If you don't, please follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), then come back here when the flashing is complete.  You do not have to take the steps so far as installing wifi, or dependencies manually anymore.  Thanks to the bootstrap script below, all of those steps AFTER FLASHING are now automated.  So, when you get to the end of flash step, come on back here for bootstrap.*  
 
-*This page also assumes you're setting up a brand-new rig and need the full setup including wifi. Make sure to check out the ["how to update your rig in the future"](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/update-your-rig.html) page if you have already had a rig up and running!* 
+### Prep Computer and Login to rig
 
-### Prep Steps
+Assuming you don't have your computer setup yet for OpenAPS, here's the instructions for getting the environment ready and logging in, depending on computer system:
+
 * **PC users:** [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
 
 * **Mac users:** [follow these instructions to open Terminal and plug in your rig](mac-prep.md). Then, follow the rest of the instructions below.
 
-### Log in to your rig
+### Bootstrap script
 
-If you're not already, make sure you're logged into your rig via root. You should see root@jubilinux on the command prompt.
+If you're not already, make sure you're logged into your rig via root. You should see `root@jubilinux` on the command prompt.
 
-### Copy and paste to run the wifi and oref0-setup scripts
-
-Copy this text (all of it in the box): 
+The box below is the Bootstrap script, and it will complete steps 2 and 3 for you.  You'll get your first wifi network connection and install dependencies.  Copy this text (all of it in the box): 
 
 ```
 #!/bin/bash
@@ -66,10 +65,12 @@ The script will do some initial installing, check the wifi, and ask you to hit e
 
 ![Example of wifi bootstrap script finding wifi options](../Images/Edison/openaps-bootstrap-wifi-setup.png)
 
-* Change your hostname (a.k.a, your rig's name). **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@whatyounamedit.local`**
+* Change your hostname (a.k.a, your rig's name). **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@what-you-named-it.local`**
 
 * Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
 
-The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
+Now that step 2 is done, the bootstrap script will then continue to run awhile longer (~20+ minutes)...this next part is installing the necessary dependencies (step 3) before you move onto the setup script (step 4).  You'll see an awful lot of lines going by as the process goes on.  Eventually, the successful bootstrap ends with this screen below:
 
-Return to the [OpenAPS Install page](OpenAPS-install.md) to complete oref0-setup.
+![End of Bootstrap script](../Images/Edison/bootstrap-end.png)
+
+At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#run-oref0-setup) for finishing step 4.

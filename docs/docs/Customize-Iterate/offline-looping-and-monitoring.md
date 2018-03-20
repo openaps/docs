@@ -42,20 +42,23 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
    * If you are using this configuration for G4 receivers and (1) are online and (2) want to see RAW BGs in NS, then you must remember to add `rawbg` to your ENABLE line in your Heroku/Azure settings.  You will also have to go to your Nightscout site's settings and select "always" from the Show RAW BG options.  You will also have to select `g4-raw` (if on master branch) or `g4-upload` (if on dev branch) as the CGM type in the loop setup script.
 
 4. On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmitter, similar to xdrip+ on the phone. It replaces the iPhone G5 mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a G5 receiver at the same time as xdrip-js. There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
+
+#### Lookout/Logger:
    
    * Lookout - this application runs on your rig and uses the xdrip-js library to read from the G5 transmitter directly. It uses the transmitter's built-in calibration algorithm, and you can enter BG calibrations either from the receiver or from a browser on your phone or computer, when connected to a web server that Lookout manages on your rig. The Lookout web pages also allow you to view CGM, pump, and OpenAPS status. Regardless of whether you use the receiver or Lookout to enter calibrations, they will be sent to the transmitter and both devices will report the same resulting BG values (though they may take a reading or two to 'catch up' after a calibration). Depending on your phone's hotspot capabilities, you may be able to access the Lookout web server even when cellular data is not available. Lookout will read G5 BG data and update OpenAPS locally (via xDripAPS), so your rig will continue to loop while offline, as well as send to Nightscout when your rig is online. Since Lookout uses the official transmitter calibration algorithm, it still requires sensor restarts every 7 days, with 2-hour warmups, and cannot be used with transmitters that have reached the Dexcom expiration (105-112 days from their first use).
    
    * xdrip-js-logger - this application is restarted regularly from your rig's crontab, and uses the xdrip-js library to read from the G5 transmitter directly. It uses only the raw filtered/unfiltered values from the G5 transmitter, instead of the official calibrated value, and so can be used with transmitters that are past their standard expiration (including those with replaced batteries). Calibrations for xdrip-js-logger are entered through nightscout, or through the pump (e.g., via the Contour Next Link meter that automatically loads to the pump). BG data is sent to both OpenAPS (via xDripAPS) locally, so your rig will continue to loop while offline, and Nightscout when online. You can use a receiver with xdrip-js-logger, but the BG values will not necessarily match between the two, and the calibrations on the receiver must be entered separately. There is currently no web browser for entering calibrations or interacting with xdrip-js-logger, so the only way to view its data is through a terminal, xDripAPS web server, or Nightscout. **NOTE: xdrip-js-logger currently uses a very basic calibration method, which is not expected to be desirable in every situation (it simply uses a fixed scale and variable offset to the unfiltered value read from the G5), so caution and serious oversite and testing should be exercised when using.**
+
    
-   **NOTE: Lookout, xdrip-js-logger, and xdrip-js library should be considered a WIP (Work In Progress), i.e., do not use if you cannot watch your BG and loop very carefully, and tolerate issues, failures, idiosynchrosies. Also please plan on contributing either through testing and feedback, updates, documentation, etc.**
+**NOTE: Lookout, Logger (xdrip-js-logger), and xdrip-js library should be considered a WIP (Work In Progress), i.e., do not use if you cannot watch your BG and loop very carefully, and tolerate issues, failures, idiosynchrosies. Also please plan on contributing either through testing and feedback, updates, documentation, etc.**
    
    A summary of their features:
    
   <table>
     <tr>
-      <th>feature</th>
+      <th>Feature</th>
       <th>Lookout</th> 
-      <th>xdrip-js-logger</th>
+      <th>Logger</th>
     </tr>
     <tr>
       <td>Still unfinished, i.e., a work-in-progress?</td>
@@ -63,9 +66,19 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Rig continues updating BG and looping while offline?</td>
+      <td>Rig continues updating BG and looping while offline using xdripAPS?</td>
       <td>Yes</td> 
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Offline (network) mode supports backfill to Nightscout?</td>
+      <td>?</td> 
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Offline (away from transmitter times) supports backfill?</td>
+      <td>No</td> 
+      <td>No</td>
     </tr>
     <tr>
       <td>Uses Dexcom official calibration?</td>
@@ -74,7 +87,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
     </tr>
     <tr>
       <td>Can use with expired/battery replaced transmitter?</td>
-      <td>No</td> 
+      <td>In Dev</td> 
       <td>Yes</td>
     </tr>
     <tr>
@@ -88,8 +101,8 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
       <td>No</td>
     </tr>
     <tr>
-      <td>Calibrate through Nightscout?</td>
-      <td>No</td> 
+      <td>Calibrate through Web/Nightscout?</td>
+      <td>Yes (local rig Web UI)</td> 
       <td>Yes</td>
     </tr>
     <tr>
@@ -97,10 +110,50 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
       <td>No</td> 
       <td>Yes</td>
     </tr>
-  </table>
+    <tr>
+      <td>Calibrate from command line?</td>
+      <td>No</td> 
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Linear Squared Regression Calibration</td>
+      <td>In Dev</td> 
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Single Point Linear Calibration</td>
+      <td>In Dev</td> 
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Calculate and send Noise with entries</td>
+      <td>In Dev</td> 
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Calculate glucose trending</td>
+      <td>Yes</td> 
+      <td>Yes</td>
+    </tr>
+      <tr>
+      <td>Start Stop Sensor</td>
+      <td>Yes via UI</td> 
+      <td>Yes via NS</td>
+    </tr>
+      <tr>
+      <td>Support mmol</td>
+      <td>Yes</td> 
+      <td>for Meter-Pump Calibration</td>
+    </tr>
+      <tr>
+      <td>View transmitter battery/resistance levels</td>
+      <td>No</td> 
+      <td>No</td>
+    </tr>
+</table>
    
    * Lookout and xdrip-js-logger are documented separately:
-     * Lookout: https://github.com/tynbendad/Lookout/blob/patch-1/README.md
+     * Lookout: https://github.com/thebookins/Lookout/blob/dev/README.md
      * xdrip-js-logger: https://github.com/efidoman/xdrip-js-logger/blob/dev/README.md
 
 ### Entering carbs while offline
