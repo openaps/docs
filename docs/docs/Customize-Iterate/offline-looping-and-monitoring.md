@@ -21,7 +21,7 @@ from inside your openAPS directory, before your loop will start updating correct
 ### Dexcom CGM users
 Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  The options to choose from are:
 
-1. For Android users, you can use xDrip or xDrip+.  NOTE: All active development is being done on xDrip+. We recommend that you use xDrip+ instead of xDrip. The details for setting up this configuration are described in the section below for xDripAPS.
+1. For Android users, you can use xDrip or xDrip+.  NOTE: All active development is being done on xDrip+. We recommend that you use xDrip+ instead of xDrip. The details for setting up offline looping with this configuration are described in the section below for xDripAPS.
    * xDrip: [http://stephenblackwasalreadytaken.github.io/xDrip/](http://stephenblackwasalreadytaken.github.io/xDrip/)
    * xDrip+: [https://jamorham.github.io/#xdrip-plus](https://jamorham.github.io/#xdrip-plus) 
    
@@ -219,7 +219,7 @@ The other option is to enable bluetooth PAN tethering on your phone and have you
 Instructions on both approaches can be found in the main OpenAPS documentation.
 
 ##### Configuring the xDrip/xDrip+ Android app
-First, determine your OpenAPS rig's IP address within your "personal" network. If you can open a terminal session to your rig via serial, then `ifconfig wlan0` (when using the WiFi hostpost option) or `ifconfig bnep0` (when using bluetooth tethering) will display your IP address. Alternatively, you can use an Android app - there are lots of "Network IP Scanner" apps in the Play store. The Hurricane Electric Network Tools app works with both the WiFi hotspot and BT tethering options. IMPORTANT: Your rig must be connected to your phone via either wifi hotspot or bluetooth tethering in order to obtain the correct IP address!
+First, determine your OpenAPS rig's IP address within your "personal" network. If you can open a terminal session to your rig via serial, then `ifconfig wlan0` (when using the WiFi hostpost option) or `ifconfig bnep0` (when using bluetooth tethering) will display your IP address. Alternatively, you can use an Android app - there are lots of "Network IP Scanner" apps in the Play store. The Hurricane Electric Network Tools app works with both the WiFi hotspot and BT tethering options. IMPORTANT: Your rig must be connected to your phone through either a wifi hotspot or bluetooth tethering in order to obtain the correct IP address!
 
 Next, open xDrip or xDrip+ and navigate to Settings > Cloud Upload > Nightscout Sync (REST-API). In the `Base URL` setting, configure the following URL
 
@@ -249,7 +249,12 @@ If you are using xDrip or xDrip+ in conjunction with xDripAPS, you have an addit
 
 To enter a treatment via xDrip or xDrip+:
 
-1. From the main screen, click the little "dropper" on the right hand side of the screen. 
+1. From the main screen, click the little "dropper" or "pen" on the right hand side of the screen. 
+2. On the bottom of the window that pops up are four small squares. Tap on the second square from the left. The icon looks like a crossed knife and spoon.
+3. After you enter the number of carbohydrates, click on the word "carbs" on the top of the window. 
+4. The screen will change, and list your entries along with a green "+" and a red "x".
+5. Click the green "+" to save your treatment. Otherwise, click the red "x" to cancel.
+
 #### Manual installation steps
 
 ##### N.B. It is recommended that you use the oref0-setup script as described above, rather than installing manually.
