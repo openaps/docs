@@ -21,7 +21,7 @@ from inside your openAPS directory, before your loop will start updating correct
 ### Dexcom CGM users
 Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  The options to choose from are:
 
-1. For Android users, you can use xDrip or xDrip+.  NOTE: All active development is being done on xDrip+. We recommend that you use xDrip+ instead of xDrip. The details for setting up offline looping with this configuration are described in the section below for xDripAPS.
+1. For Android users, you can use xDrip or xDrip+.  NOTE: All active development is being done on xDrip+ and we recommend that you use xDrip+ instead of xDrip for that reason. The details for setting up offline looping with this configuration are described in the section below for xDripAPS.
    * xDrip: [http://stephenblackwasalreadytaken.github.io/xDrip/](http://stephenblackwasalreadytaken.github.io/xDrip/)
    * xDrip+: [https://jamorham.github.io/#xdrip-plus](https://jamorham.github.io/#xdrip-plus) 
    
