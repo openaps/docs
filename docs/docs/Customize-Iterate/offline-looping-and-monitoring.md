@@ -251,7 +251,7 @@ To enter a treatment via xDrip or xDrip+:
 
 1. From the main screen, click the little "dropper" or "pen" on the right hand side of the screen. 
 2. On the bottom of the window that pops up are four small squares. Tap on the second square from the left. The icon looks like a crossed knife and spoon.
-3. After you enter the number of carbohydrates, click on the word "carbs" on the top of the window. 
+3. After you enter the number of carbohydrates, tap on the word "carbs" on the top of the window. 
 4. The screen will change, and list your entries along with a green "+" and a red "x".
 5. Click the green "+" to save your treatment. Otherwise, click the red "x" to cancel.
 
