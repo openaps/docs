@@ -70,6 +70,20 @@ At the end of the questions, the script will ask if you want to continue.  Revie
 
 After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
 
+**************************
+Please note:  Work is being done to have the setup script automate this change, but in the meantime, please make sure that at the end of the setup script, your log rotate file is set to `daily` as described below.  Most users will have the `compress` line properly edited already, but the log rotate file seems to be left at `weekly` for many users.  If you leave the setup at `weekly`, you will likely get a `device full` error in your pump logs within a week...so please check this before moving on!
+
+* Enter `vi /etc/logrotate.conf` then press “i” for INSERT mode, and make the following changes so that your file matches the one below for the highlighted areas:
+
+ * set the log rotation to `daily` from `weekly`
+ * remove the # from the “#compress” line (if it is present)
+
+* Press ESC and then type `:wq` to save and quit
+
+![Log rotation examples](../Images/Edison/log_rotation.png)
+**************************
+
+
 ## Step 5: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
