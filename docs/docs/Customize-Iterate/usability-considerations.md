@@ -66,6 +66,11 @@ If you're not near the rig or pumper:
 * *(This one needs testing and validation, the low target may get ignored, or set as 80 as that's the lowest target you can usually set in OpenAPS)*: use very wide temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  
 * You can also choose to leave it at home if you are going out and do not want to be looping during that time. It will start looping again when you get back into range and it can successfully read your pump and CGM data again.
 
+## How do I open loop?
+
+The easiest way to "open loop" is to set the basal type on your pump to be "%" instead of "u/hr". This means your pump cannot and willnot accept temporary basal rates commands issued by the rig. But, the rig will still be able to read from the pump and your CGM, and make the calculations of what it would otherwise do. 
+
+You can then watch the OpenAPS pill in Nightscout, or your logs (`l`) on the rig to see what OpenAPS would be doing.
 
 ## **How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:**
 <br> The use of Temporary Targets can provide additional fine tuning of insulin control on the go, or remotely for parents monitoring children when they are at school or away from home. As described elsewhere in this documentation, an Eating Soon-type (lower than normal) Temporary Target can be used in advance of a meal or activity. Lower Temporary Targets can also be used to force the OpenAPS system to be somewhat more aggressive in correcting a rising blood sugar. Similarly, a higher temporary target can soften a blood sugar drop and help avoid a low, or help limit stacking of insulin that is likely to peak during activity. Temp targets can be set a number of ways, from using IFTTT so you can set them easily from your watch or phone; or by entering them in Nightscout Care Portal.
