@@ -6,7 +6,7 @@
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
+3.  Using a looping-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
 
 ## High Level Recommended Rig parts list
 
@@ -197,7 +197,7 @@ Use login `root` and password `edison` to login to your newly flashed Edison.  A
 
 ![Terminal Prompt for Jubilinux](../../Images/Edison/name.png)
 
-CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going. 
+CONGRATULATIONS! You just flashed the edison! Wahoo! Now, [head back to the install instructions for the easy bootstrap script process of setting up wifi](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below has the manual instructions, but most people prefer the quick bootstrap script option).
 
 #### **1-8. Wifi for Edison**
 
@@ -366,8 +366,8 @@ If the rig isn't online, go back and check your /etc/network/interfaces and /etc
 
 ### 2. Installing the looping script (openaps-setup.sh)
 
-You'll now want to move on to the [Phase 1 instructions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/index.html) if you haven't already set up Nightscout; and if you've already done that, onward to [Phase 2 to install the closed loop](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/index.html)!
+You'll now want to move on to the [rest of the install instuctions](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html).
 
 ### 3. Personalising your closed loop
 
-See the [phase 3 documentation](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/index.html) for personalizing your closed loop.
+Remember to personalize your settings after you finish installing OpenAPS!
