@@ -110,6 +110,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
+Hooray! After you've flashed your Edison, [head back to the main install instructions for wifi, dependencies, and getting OpenAPS installed with the easy automated scripts]http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual install instructions0. 
 
 ## Initial Edison Setup
 
@@ -128,7 +129,7 @@ Run these commands to set secure passwords.  It will ask you to enter your new p
 
     passwd root
     passwd edison
-  
+
 ## Set up Wifi:
 
 `vi /etc/network/interfaces`
