@@ -1,6 +1,14 @@
-# Understanding your Edison/Explorer Board rig
+# Understanding your OpenAPS rig
 
-## Getting Physical: Build your rig/put the physical pieces together
+## Pi HAT rig
+
+After April 2018, there will be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be pre-ordered or ordered from the same place that makes the Explorer Board ([click here](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
+
+## Edison/Explorer Board rig
+
+The Edison/Explorer Board is one of the "rig" types you can use to close the loop with OpenAPS. 
+
+#### Getting Physical: Build your Edison/Explorer Board rig/put the physical pieces together
 
 The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
 
@@ -12,23 +20,23 @@ It's easiest to start with the Explorer board and put on 2 nuts and gold screws 
 
 ![Edison/Explorer Board rig with labels](img/explorer.png) 
 
-### Charging LiPo Battery
+#### Charging LiPo Battery
 
 You can use the little white block that comes with an iPhone (or similar charger) and a microB-USB cable.  The same cables you used to setup the rig and connect to the computer will work for charging, too.  Either one of the USB ports on the Explorer board will work for charging.  When charging is active, there is an extra red light on in the corner of the Explorer board.  When charging is complete, that corner red light will turn off.  It may come back on periodically as the battery "tops off".  You won’t do any damage leaving the rig plugged in for longer than the charge takes. 
 
 While the rig is plugged in for charging, the Nightscout battery pill will read approximately 65%.  This is because it is reading the charging voltage rather than the battery voltage.  Once you disconnect from the charger, the Nightscout battery pill will display the LiPo battery's voltage and percent again.
 
-### What the lights mean and where they are
+#### What the lights mean and where they are
 
 * The LED between the two ports is the power. If this light is on, your rig is on.
 * The LED in the corner is the charging indictator.
 * The two next to the microUSBs (one green on the latest boards) are for the cc1110 radio chip. By default they just blink once each when you mmtune or otherwise reset it.
 
-### Where is the power button?
+#### Where is the power button?
 
 The little black button on the end of the board near the JST connector is the power button. If you want to reboot your rig, the easiest way is to hold down the tiny power button for 10-15 seconds until the power light turns off.  Wait a couple seconds and then press and hold the power button again until the light turns back on.  Give the loop a couple minutes to get itself going again. Rebooting solves a majority of rig issues. 
 
-### Where is the radio?
+#### Where is the radio?
 
 The radio and antenna are down on the end of the Explorer board where you see a little white stick (opposite end of the board from where your battery connects at the JST connector). 
 
@@ -37,7 +45,7 @@ Some OpenAPS users have found that cutting a portion of the Explorer Board's hid
 
 Watch this [video](https://www.facebook.com/groups/TheLoopedGroup/permalink/1854229718127019/?hc_location=ufi) for an example.
 
-### LiPo Battery
+#### LiPo Battery
 
 LiPo batteries are great for a lot of things, but taking damage is not one of them.  Please treat LiPo batteries with care.  Keep them protected from puncture.  The Explorer board has some “pointy” parts on the underside, so providing some protection from the board’s squish is a good idea.  A small piece of protection (such as a business card or non-conductive thin foam sheet) will help protect the battery from the board above it.  
 
@@ -45,6 +53,6 @@ Since there is some warmth with an OpenAPS rig, it is also not recommended to pu
 
 There are several places to get LiPo batteries, with lots of different dimensions and capacities.  A 2000 mAh LiPo will get you about 12-14 hours of use, assuming you have the standard setup (which is what you get following these docs) running. 
 
-### What happens if you have multiple rigs?
+#### What happens if you have multiple rigs?
 
 If you have multiple OpenAPS rigs, they’re built to be polite to each other. Even if you had two or more rigs in same room, they won’t trip each other up. They “wait for silence” before issuing any commands to the pump. By having multiple rigs throughout a house, you can move from room-to-room without carrying rigs because the rigs will pass-off comms as you moves in and out of the rig’s range. Stationary rigs will not need LiPo batteries and can be plugged directly into a wall charger from the Explorer board.
