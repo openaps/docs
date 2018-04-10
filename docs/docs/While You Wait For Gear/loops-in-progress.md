@@ -244,4 +244,5 @@ List of people who are working on closed loops:
 - Mladen Cvijanovic (Buffalo, NY, USA)
 - Kendra Hunter (Rochester, NY)
 - Roxana Soetebeer (New Brunswick, Canada)
--Bulbul Ahmed (Charlottesvill, VA, USA)
+- Bulbul Ahmed (Charlottesvill, VA, USA)
+- Minna Hannula (Finland)
