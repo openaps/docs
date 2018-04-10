@@ -1,3 +1,11 @@
+# You have two main options for hardware
+
+For most of 2017, the preferred rig was an Edison + Explorer Board. This is still a highly recommmended rig, if you can find an Intel Edison board. See below for details on Edison setups. The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping begins end of April 2018). This documentation will be updated with more Pi details as they are decided.
+
+# Hardware information for Pi-based setups with the Explorer HAT
+
+After April 2018, there will be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be pre-ordered or ordered from the same place that makes the Explorer Board ([click here](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
+
 # Hardware information for Intel Edison-based setups
 
 Note: The Edison/Explorer Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
