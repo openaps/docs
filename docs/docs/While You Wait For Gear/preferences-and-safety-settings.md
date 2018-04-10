@@ -103,7 +103,7 @@ grams of carbsReq to trigger a pushover. Defaults to 1 (for 1 gram of carbohydra
 
 #### curve: "rapid-acting" 
 
-Rapid-acting is the default in 0.6.0 and beyond. You can change this to "ultra-rapid" for Fiasp ([see here for other tips on switching to Fiasp](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/usability-considerations.html#how-do-i-switch-between-insulin-types-or-switch-to-fiasp-what-should-i-change)), or "bilinear" for using the old curve. Most people prefer the rapid-acting curve over bilinear for Humalog/Novolog.
+Rapid-acting is the default in 0.6.0 and beyond. You can change this to "ultra-rapid" for Fiasp ([see here for other tips on switching to Fiasp](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/usability-considerations.html#how-do-i-switch-between-insulin-types-or-switch-to-fiasp-what-should-i-change)), or "bilinear" for using the old curve. Most people prefer the rapid-acting curve over bilinear for Humalog/Novolog. [Read more here to understand the differences in the activity curves](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/understanding-insulin-on-board-calculations.html#understanding-the-new-iob-curves-based-on-exponential-activity-curves).
 
 #### useCustomPeakTime
 
