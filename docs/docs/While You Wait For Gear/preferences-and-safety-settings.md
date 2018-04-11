@@ -48,15 +48,13 @@ This is an important OpenAPS safety limit. The default setting (which is unlikel
 
 This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump, or, if enabled, determined by autotune. 
 
-
 ### Important Note About Safety Multipliers:
 
 `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump), as a safety limits.   
 
 OpenAPS will use whichever of those three values is the lowest, at any given time, as the ceiling for the temp basal rate it will set.** 
 
----
- #### A few examples:
+#### A few examples:
 
 ![Example safety cap image - see raw file in the same folder of docs if needs editing](examples_safety_caps_in_play.png)
 
@@ -78,8 +76,6 @@ If  the temporary basal rate setting recommended by OpenAPS (as determined in [`
 You can also view this message in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
----
-
 
 #### autosens_max:
 
@@ -114,7 +110,7 @@ Defaults to false. Setting to true allows changing insulinPeakTime
 Defaults to 75 for rapid acting (Humalog, Novolog). This is the number of minutes after a bolus activity peaks. 
 Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
-### oref1-related preferences:
+## oref1-related preferences:
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
