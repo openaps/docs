@@ -1,12 +1,12 @@
-# You have two main options for hardware
+## You have two main options for hardware
 
 For most of 2017, the preferred rig was an Edison + Explorer Board. This is still a highly recommmended rig, if you can find an Intel Edison board. See below for details on Edison setups. The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping begins end of April 2018). This documentation will be updated with more Pi details as they are decided.
 
-# Hardware information for Pi-based setups with the Explorer HAT
+## Hardware information for Pi-based setups with the Explorer HAT
 
 After April 2018, there will be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be pre-ordered or ordered from the same place that makes the Explorer Board ([click here](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
 
-# Hardware information for Intel Edison-based setups
+## Hardware information for Intel Edison-based setups
 
 Note: The Edison/Explorer Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
 
@@ -16,11 +16,11 @@ Note: The Edison/Explorer Block combination is the rig setup recommended by the 
 * At least one Lithium battery
 * 2 USB cables
 
-## Explorer Block
+### Explorer Block
 
 The recommended board to use is the [Explorer Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. It's only available from Hamshield/Enhanced Radio Devices.
 
-## Edison 
+### Edison 
 
 [Intel Edison Compute Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
@@ -32,7 +32,7 @@ You may need to hunt for an Edison as supplies of them are dwindling - if you ge
 
 * Option 2 - (previously Option A, [Buy an Edison that is already flashed with jublinux - see here](https://enhanced-radio-devices.myshopify.com/products/intel-edison-w-jubilinux). If you get a pre-flashed Edison, you can start [installing and setup OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html). (You would not need to "flash" the Edison). 
 
-## Lithium-ion polymer (LiPo) battery or other battery supply
+### Lithium-ion polymer (LiPo) battery or other battery supply
 
 Use a LiPo battery because the Explorer boards have battery charger circuitry on board for these batteries. The example setup uses a [2000mah LiPo battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html). This battery lasts approximately 16+ hours, though you could get more or less time. This battery uses a 2mm 2 pin JST connector to match the Explorer boards' power plugs. It's best to buy from a reputable supplier, because if the internal two cells are mismatched the Explorer board cannot charge them seperately and they are prone to catching fire. Make sure that it *includes a protection circuit* to protect over-discharge. **NEVER** connect the battery to an Explorer board the wrong way round. There is no manufacturing standard so never assume correct polarity. The connector JP1 on the Explorer Block has two terminals. The left side is positive, the right side is negative. The side with the JP1 label is the positive side. Typically a battery's red wire is the positive wire.  Ideally you want a battery that has a 10k ohm thermistor for temperature protection by the Edison too.
 
@@ -50,7 +50,7 @@ For people in Australia you can find 2000mAh, 2200mAh and 2500mAh batteries from
 
 You should monitor the rig periodically - **especially the battery**, checking for swelling or damage. Immediately discontinue use of any battery that shows sign of swelling or damage.
 
-### Explorer Block antenna tuning (optional)
+#### Explorer Block antenna tuning (optional)
 
 The antenna on the Explorer Block is a strip of copper underneath the green outer coating. The antenna is labeled A1. It will have its maximum power at 868 MHz. The antenna has a line across it at one point with a label that says "915". The antenna defaults to the 868 MHz range, which is what WW pumps use. If you have a US pump, mmtune will run and tune to something near 916MHz. Even with the 868 MHz antenna, you should get half a dozen feet or more of range on average.  If you (optionally) want to boost the range of your antenna by a couple more feet, then you cut through the outer coating and the copper on that line with an X-ACTO knife. A single clean cut is sufficient, but if the cut doesn't look clean you could make two cuts and then dig out the circumscribed piece and then reseal the copper with nail polish. With that cut, the antenna will have maximum power near 915 MHz.
 
@@ -62,19 +62,19 @@ Optional: You can also add an external antenna to the Explorer boards such [as t
 
 ![Image of Antenna](../Images/antenna1.jpg)
 
-## Radio stick (only if not using Explorer board)
+### Radio stick (only if not using Explorer board)
 
 We recommend an Explorer board with a built-in radio (see above), because if you get an Explorer board, you don't need an additional radio stick or CC-Debugger. 
 
 If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these. Then, come back to Phase 1 of the docs once you complete that.
 
-## USB Cables
+### USB Cables
 
 You will need two micro USB cables - with a micro connector on one end and a standard (Type A) connector on the other. Most cables will work fine, but some prefer to select lengths. You may already have one for charging a Dexcom receiver, or an Android phone, lying around at home. If you don't, here's an example of one that will work: [Monoprice Premium USB to Micro USB Charge, Sync Cable - 3ft](http://www.monoprice.com/Product?c_id=103&cp_id=10303&cs_id=1030307&p_id=9763&seq=1&format=2).
 
 Warning: bad cables cause a lot of headaches during the Edison flashing process, so it may be worth verifying before you start if you have good cables that can transfer data.
 
-## Micro USB to Micro USB OTG Cable
+### Micro USB to Micro USB OTG Cable
 
 You may need to connect your Dexcom Receiver to your Explorer Block for offline looping.  For this you will need to use a micro USB to micro USB OTG cable (or an OTG adapter). Here is an example of a cable that will work: [BestGameSetups Micro USB to Micro USB OTG (On-The-Go) 12" (30cm) Data Cable](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW).
 
@@ -82,7 +82,7 @@ You may need to connect your Dexcom Receiver to your Explorer Block for offline 
 
 You will likely want to screw your Edison onto the Explorer Block to stabilize the rig. There are two methods to do this.  The simplest is to order a kit like the [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187), which provides standoffs, screws, and nuts specifically designed for the Edison. Alternatively, you can use (2) M2 screws and (2) M2 nuts and (4)  M3 nuts (M3 or a bit larger to used as spacers).  In this configuration, the screws should be just long enough to fit through the spacer nuts and screw into the M2 nuts on the other side. (Note: Sparkfun is no longer selling these screw kits. There were some available in April 2018 at [Mouser](https://www.mouser.com/productdetail/sparkfun/com-13187?qs=WyAARYrbSnZmROJb2S4FFw%3D%3D).
 
-## Cases
+### Cases
 
 There are a few 3D-printed cases that are being designed, so check back here for more links in the future. A few options that we know will work with an Explorer Block/Edison rig and a standard 2000 mAh battery (as well as some 2500 mAh options):
 
