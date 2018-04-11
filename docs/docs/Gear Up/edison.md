@@ -52,18 +52,6 @@ For people in Australia you can find 2000mAh, 2200mAh and 2500mAh batteries from
 
 You should monitor the rig periodically - **especially the battery**, checking for swelling or damage. Immediately discontinue use of any battery that shows sign of swelling or damage.
 
-#### Explorer Block antenna tuning (optional)
-
-The antenna on the Explorer Block is a strip of copper underneath the green outer coating. The antenna is labeled A1. It will have its maximum power at 868 MHz. The antenna has a line across it at one point with a label that says "915". The antenna defaults to the 868 MHz range, which is what WW pumps use. If you have a US pump, mmtune will run and tune to something near 916MHz. Even with the 868 MHz antenna, you should get half a dozen feet or more of range on average.  If you (optionally) want to boost the range of your antenna by a couple more feet, then you cut through the outer coating and the copper on that line with an X-ACTO knife. A single clean cut is sufficient, but if the cut doesn't look clean you could make two cuts and then dig out the circumscribed piece and then reseal the copper with nail polish. With that cut, the antenna will have maximum power near 915 MHz.
-
-If you're unsure whether you need to cut your Explorer Block's antenna, you probably don't.  And if you decide you need slightly more range after using the Edison+Explorer rig for a few weeks, you can always come back later and do so then.
-
-![Image of Antenna](../Images/antenna0.jpg)
-
-Optional: You can also add an external antenna to the Explorer boards such [as this](http://www.mouser.com/Search/ProductDetail.aspx?R=66089-0930virtualkey65480000virtualkey620-66089-0930) from mouser.com. (Note: specific range improvement length has not been confirmed.)
-
-![Image of Antenna](../Images/antenna1.jpg)
-
 ### Radio stick (only if not using Explorer board)
 
 We recommend an Explorer board with a built-in radio (see above), because if you get an Explorer board, you don't need an additional radio stick or CC-Debugger. 
