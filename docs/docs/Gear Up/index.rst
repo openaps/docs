@@ -8,4 +8,4 @@ Gear Up
    hardware
    pump
    CGM
-   edison
+   Get your rig parts <edison>
