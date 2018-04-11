@@ -150,7 +150,7 @@ Defaults to false. When true, allows supermicrobolus (if otherwise enabled) even
 
 Defaults to start at 30. This is the maximum minutes of basal that can be delivered as a single SMB with uncovered COB. This gives the ability to make SMB more aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. It is not recommended to set this value higher than 90 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
 
-### Exercise-mode related preferences:
+## Exercise-mode related preferences:
 
 #### exercise_mode
 
@@ -180,7 +180,7 @@ Defaults to false. When true, will lower BG target when autosens detects resista
 
 Set to a number, e.g. 160, which means when temp target is 160 mg/dL *and* exercise_mode=true, run 50% basal at this level (120 = 75%; 140 = 60%). This can be adjusted, to give you more control over your exercise modes. 
 
-### Other preferences:
+## Other preferences:
 
 Generally, you won't need to adjust any of the preferences below.  But if you do wish to change the default behavior, you can add these into your preferences.json to do so (or use oref0-get-profile --updatePreferences to get the full list of all preferences added to your preferences.json).
 
