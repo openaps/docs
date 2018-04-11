@@ -1,8 +1,9 @@
 # Get your rig hardware
 
-You have two main options for hardware
+You have two main options for hardware:
 
-For most of 2017, the preferred rig was an Edison + Explorer Board. This is still a highly recommmended rig, if you can find an Intel Edison board. [See below for details on Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups). The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping begins end of April 2018). This documentation will be updated with more Pi details as they are decided.
+* For most of 2017, the preferred rig was an Edison + Explorer Board. This is still a highly recommmended rig, if you can find an Intel Edison. [See below for details on Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
+* The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping begins end of April 2018). This documentation will be updated with more Pi details as they are decided.
 
 ## Hardware information for Pi-based setups with the Explorer HAT
 
@@ -10,25 +11,25 @@ After April 2018, there will be a Pi+HAT rig as an option for closing the loop w
 
 ## Hardware information for Intel Edison-based setups
 
-Note: The Edison/Explorer Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
+Note: The Edison/Explorer Board Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
 
-* [Explorer Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)
-* [Edison](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#edison)
-* [Nuts and Bolts to attach the Edison to the Explorer Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#nuts-and-bolts)
-* [At least one Lithium battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#lithium-ion-polymer-lipo-battery-or-other-battery-supply)
-* [2 USB cables](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#usb-cables)
+* Explorer Block
+* Edison
+* Nuts and Bolts to attach the Edison to the Explorer Board Block
+* At least one Lithium battery
+* 2 USB cables
 
-### Explorer Block
+### Explorer Board Block
 
-The recommended board to use is the [Explorer Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. It's only available from Hamshield/Enhanced Radio Devices. [This page](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/usability-considerations.html#how-do-i-improve-the-range-of-my-edison-explorer-board) has tips if you find you want to improve the range of your Explorer Board in the future. 
+The recommended board to use is the [Explorer Board Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. It's only available from Hamshield/Enhanced Radio Devices.
 
 ### Edison 
 
-There are 4 types of Edison's. All of them work, but Versions 3 and 4 require an extra antenna, so 1 and 2 are preferred (1-EDI2.LPON, 2-EDI2.SPON, 3-EDI2.LPOF, and 4-EDI2.SPOF). 
+There are 4 types of Edison's. All of them work, but Versions 3 and 4 require an extra antenna, so 1 and 2 are preferred (1-EDI2.LPON, 2-EDI2.SPON, 3-EDI2.LPOF, and 4-EDI2.SPOF).  If the seller does not specify the Edison model/version, you can see from the picture whether or not it has a white ceramic antenna in the corner.  If it does not, then it will require an external antenna, but that version is fairly rare.
 
 * Option 1 - Buy it from places like Ebay, Craiglist, or your nearest store  - and follow the instructions to flash it.  
 
-  * You may need to hunt for an Edison as supplies of them are dwindling - if you get it as part of a "kit" (i.e. breakoutboard + Edison), keep in mind _you'll still need to get the Explorer Board from Hamshield_.
+  * You may need to hunt for an Edison as supplies of them are dwindling - if you get it as part of a "kit" (i.e. breakoutboard + Edison), keep in mind _you'll still need to get the Explorer Board Block from Hamshield_.
 
   * **Note:** If you are doing Option 1 (an Edison from wherever you can find it) - you are getting an UNFLASHED Edison. Not a big deal - flashing it with jubilinux is just a few more steps (~15 minutes) - but remember you'll need to start with the flashing instructions. Follow the steps for flashing on (a) [all-computers page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) (with the most comprehensive [troubleshooting section](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)); b) the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html); or c) the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html)), but stop before installing wifi and other steps and instead jump over to the "[Install OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html)" page from there. 
 
@@ -36,7 +37,7 @@ There are 4 types of Edison's. All of them work, but Versions 3 and 4 require an
 
 ### Lithium-ion polymer (LiPo) battery or other battery supply
 
-The Explorer boards have battery charger circuitry on board, making it easy to use a LiPo battery. 
+The Explorer Boards have battery charger circuitry on board, making it easy to use a LiPo battery. 
 
 * The example setup uses a [2000mah LiPo battery](http://www.robotshop.com/en/37v-2000mah-5c-lipo-battery.html); also [Lithium Ion Battery - 3.7v 2000mAh](https://www.adafruit.com/products/2011) or [Adafruit Battery Packs Lithium Ion Battery 3.7v 2000mAh](https://www.amazon.com/Battery-Packs-Lithium-3-7v-2000mAh/dp/B0137ITW46) are similar options, although many people prefer a higher capacity battery to get a full day from the rig (such as [Adafruit Lithium Ion Polymer Battery - 3.7v 2500mAh (PRODUCT ID: 328) and the Adafruit Lithium Ion Cylindrical Battery - 3.7v 2200mAh (PRODUCT ID: 1781)](https://www.adafruit.com/category/574)). This battery uses a 2mm 2 pin JST connector to match the Explorer boards' power plugs. 
 * For people in the UK, you may find you have to shop around to find the correct battery, as shipping restrictions appears to have reduced the supply somewhat. [Pimoroni](https://shop.pimoroni.com/products/lipo-battery-pack) appear to stock the same Adafruit 2000mAh battery as mentioned above. Another source looks to be [Cool Components](https://www.coolcomponents.co.uk/en/lithium-polymer-battery-2000mah.html), but you may find shipping costs expensive. CAUTION: [RS Online](https://uk.rs-online.com/mobile/p/lithium-rechargeable-battery-packs/1251266/) sell a similar battery, but unfortunately it comes with the wrong JST connector (it comes with a 2.5mm JST XHP-2, and you need a 2mm JST PH). It is possible, however, to buy the [right connectors](https://www.technobotsonline.com/jst-ph-2mm-2-way-housing-excludes-female-pins.html) and fit them yourself (numerous 'how to' videos on YouTube).
@@ -52,7 +53,7 @@ You should monitor the rig periodically - **especially the LiPo battery**, check
 
 ### Radio stick (only if not using Explorer board)
 
-We recommend an Explorer board with a built-in radio ([see above](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)), because if you get an Explorer board, you don't need an additional radio stick or CC-Debugger. 
+We recommend an Explorer Board with a built-in radio ([see above](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
 
 If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these, and also note that it will be more work as the documentation is designed for the Edison/Explorer Board setup as the easiest path forward. 
 
