@@ -12,15 +12,15 @@ After April 2018, there will be a Pi+HAT rig as an option for closing the loop w
 
 Note: The Edison/Explorer Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
 
-* Explorer Block
-* Edison
-* Nuts and Bolts to attach the Edison to the Explorer Block
-* At least one Lithium battery
-* 2 USB cables
+* [Explorer Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)
+* [Edison](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#edison)
+* [Nuts and Bolts to attach the Edison to the Explorer Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#nuts-and-bolts)
+* [At least one Lithium battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#lithium-ion-polymer-lipo-battery-or-other-battery-supply)
+* [2 USB cables](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#usb-cables)
 
 ### Explorer Block
 
-The recommended board to use is the [Explorer Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. It's only available from Hamshield/Enhanced Radio Devices.
+The recommended board to use is the [Explorer Block](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order), which was co-designed by this community. It also has the benefits of a built-in radio. It's only available from Hamshield/Enhanced Radio Devices. [This page](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/usability-considerations.html#how-do-i-improve-the-range-of-my-edison-explorer-board) has tips if you find you want to improve the range of your Explorer Board in the future. 
 
 ### Edison 
 
