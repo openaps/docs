@@ -36,7 +36,7 @@ Phase C - run autotune as a "one-off" on a computer of your choice.
 
 If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line: 
 
-* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`. The process might take a couple of minutes. Don't worry if you get some warnings on the first few lines of the output (they'll start with `npm WARN`). This is expected behavior and they can be safely ignored. 
 * Install jq: `sudo apt-get install jq`
 * Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
