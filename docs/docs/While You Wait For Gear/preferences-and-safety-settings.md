@@ -48,15 +48,13 @@ This is an important OpenAPS safety limit. The default setting (which is unlikel
 
 This is another important OpenAPS safety limit. The default setting (which is also unlikely to need adjusting) is 4. This means that OpenAPS will never be allowed to set a temporary basal rate that is more than 4x the current hourly basal rate programmed in a user's pump, or, if enabled, determined by autotune. 
 
-
 ### Important Note About Safety Multipliers:
 
 `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump), as a safety limits.   
 
 OpenAPS will use whichever of those three values is the lowest, at any given time, as the ceiling for the temp basal rate it will set.** 
 
----
- #### A few examples:
+#### A few examples:
 
 ![Example safety cap image - see raw file in the same folder of docs if needs editing](examples_safety_caps_in_play.png)
 
@@ -78,8 +76,6 @@ If  the temporary basal rate setting recommended by OpenAPS (as determined in [`
 You can also view this message in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
----
-
 
 #### autosens_max:
 
@@ -103,7 +99,7 @@ grams of carbsReq to trigger a pushover. Defaults to 1 (for 1 gram of carbohydra
 
 #### curve: "rapid-acting" 
 
-Rapid-acting is the default in 0.6.0 and beyond. You can change this to "ultra-rapid" for Fiasp, or "bilinear" for using the old curve. Most people prefer the rapid-acting curve.
+Rapid-acting is the default in 0.6.0 and beyond. You can change this to "ultra-rapid" for Fiasp ([see here for other tips on switching to Fiasp](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/usability-considerations.html#how-do-i-switch-between-insulin-types-or-switch-to-fiasp-what-should-i-change)), or "bilinear" for using the old curve. Most people prefer the rapid-acting curve over bilinear for Humalog/Novolog. [Read more here to understand the differences in the activity curves](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/understanding-insulin-on-board-calculations.html#understanding-the-new-iob-curves-based-on-exponential-activity-curves).
 
 #### useCustomPeakTime
 
@@ -114,7 +110,7 @@ Defaults to false. Setting to true allows changing insulinPeakTime
 Defaults to 75 for rapid acting (Humalog, Novolog). This is the number of minutes after a bolus activity peaks. 
 Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
-### oref1-related preferences:
+## oref1-related preferences:
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
@@ -150,7 +146,7 @@ Defaults to false. When true, allows supermicrobolus (if otherwise enabled) even
 
 Defaults to start at 30. This is the maximum minutes of basal that can be delivered as a single SMB with uncovered COB. This gives the ability to make SMB more aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. It is not recommended to set this value higher than 90 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
 
-### Exercise-mode related preferences:
+## Exercise-mode related preferences:
 
 #### exercise_mode
 
@@ -180,7 +176,7 @@ Defaults to false. When true, will lower BG target when autosens detects resista
 
 Set to a number, e.g. 160, which means when temp target is 160 mg/dL *and* exercise_mode=true, run 50% basal at this level (120 = 75%; 140 = 60%). This can be adjusted, to give you more control over your exercise modes. 
 
-### Other preferences:
+## Other preferences:
 
 Generally, you won't need to adjust any of the preferences below.  But if you do wish to change the default behavior, you can add these into your preferences.json to do so (or use oref0-get-profile --updatePreferences to get the full list of all preferences added to your preferences.json).
 

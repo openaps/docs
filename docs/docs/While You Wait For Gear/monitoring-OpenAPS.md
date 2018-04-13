@@ -147,7 +147,7 @@ For Raspberry Pi rigs, use:
 
 `wget https://github.com/papertrail/remote_syslog2/releases/download/v0.18-beta1/remote_syslog_linux_arm.tar.gz`
 
-The, for either rig type, run:
+Then, for either rig type, run:
 
 `tar xzf ./remote_syslog*.tar.gz`
 

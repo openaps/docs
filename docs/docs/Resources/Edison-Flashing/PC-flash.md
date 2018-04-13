@@ -9,7 +9,7 @@
 
 ## Preparing/flashing the Edison
 
-We recommend [buying an Edison that is preinstalled with jubilinux](hardware/edison.md#edison).  If you did that, you can skip down to [section 1-4 Hostname for Edison](windows-edison.md#1-4-hostname-for-edison).
+We recommend [buying an Edison that is preinstalled with jubilinux](hardware/edison.md#edison).  If you did that, head back to the [main install instructions to begin installing Wifi and Dependencies](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies).
 
 If you didn't buy your Edison with jubilinux preinstalled, it comes with an operating system, called Yocto, that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  Both your Windows computer and the Edison board will need some work.
 
@@ -112,7 +112,7 @@ After several reboots (don’t panic), you should get a ubilinux login prompt (I
 
 ![Successful flash](../../Images/Edison/successful.png)
 
-CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going.
+CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going. [Head back to the main install instructions for the easiest route of installing wifi, dependencies, and installing OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual instructions, but the main install instructions have an easier path to automate the below.)
 
 ### **1-4 Hostname for Edison**
 
