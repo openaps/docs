@@ -18,7 +18,7 @@ There are two general groups of ways to monitor your rigs:
 
 * [Pancreabble](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#pancreabble-offline-connection-to-pebble-watch) (offline connection to your Pebble watch)
 * For Android users: "[Hot Button](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#hot-button-for-android-users)"
-* Accessing via [SSH over Bluetooth](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-over-bluetooth), or [by using a mobile router so your phone/rig can connect to the same network offline](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-SSH-when-your-phone-and-rig-are-connected-to-the-same-network)
+* Accessing via [SSH over Bluetooth](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-over-bluetooth), or [by using a mobile router so your phone/rig can connect to the same network offline](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-when-your-phone-and-rig-are-connected-to-the-same-network)
 * For any phone type: [Creating a web page that can be accessed on the phone via the rig's IP address](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#offline-web-page-from-rig-for-any-phone-user)
 
 ********************************
