@@ -1,6 +1,6 @@
 # Re-running the setup script
 
-In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features).
+In the future, you may want to run the setup script again (such as when you want to come back and turn on new, advanced features), or if someone asks you to "cat your runagain", which means to display this file so we can analyze the contents.
 
 **First**: `cd ~/myopenaps && cat oref0-runagain.sh` to see what options you have saved in there.
 
