@@ -31,6 +31,7 @@ Many of us have come from  Animas, OmniPods, Roche, or t:slim pumps in order to 
 
 **You should definitely test your basals, ISFs, carb ratios, and DIA all over again now that you've switched pumps and infusion sets. If those settings aren't correct, looping isn't a good idea.**
 
+
 #### Pump settings
 
 There are a couple areas in the pump that will need to be set specifically in order to allow OpenAPS to loop.  Since you are going to be looping soon, you might as well set them correctly in your pump now:
@@ -42,6 +43,10 @@ There are a couple areas in the pump that will need to be set specifically in or
 * Set the max basal rate to a reasonable value (typically no more than 3-4 times your regular basal).
 
 * Set basal profile, carb ratios, and ISF values.
+
+  * **Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have it set at 35 at one point in time, and 9 at another point in time, you are likely compensating for other settings be out of whack. You also may get unexpected results in looping. For safety, we recommend checking your settings with Autotune.
+
+* Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
 
 * ISFs over 250 mg/dl per unit will need a special step in loop setup once your setup script is finished (see [here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#temp-basals-6-3-isf-255-or-carb-ratio-25-with-a-x23-or-x54)), even though the pump currently will allow you to set them higher.  Just remember, you will need to run a couple extra commands when you setup your loop.
 
