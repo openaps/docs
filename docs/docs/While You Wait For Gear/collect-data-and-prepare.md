@@ -44,7 +44,7 @@ There are a couple areas in the pump that will need to be set specifically in or
 
 * Set basal profile, carb ratios, and ISF values.
 
-  * **Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have it set at 35 at one point in time, and 9 at another point in time, you are likely compensating for other settings be out of whack. You also may get unexpected results in looping. For safety, we recommend checking your settings with Autotune.
+  * **Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have carb ratios that vary significantly (such as more than 2x) between different times of day, you may get unexpected results in looping, such as COB reappearing when the CR schedule changes. For safety, we recommend checking your settings against Autotune, which currently uses a single CR for the entire day. If you are using a schedule with widely varying carb ratios or ISFs, that may be compensating for something other than an actual diurnal variation in carb ratio: perhaps different absorption speeds of different foods, or perhaps related to different macronutrient composition (instead of entering carb equivalents for fat/protein), differing basal insulin needs around mealtime, or something else.
 
 * Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
 
