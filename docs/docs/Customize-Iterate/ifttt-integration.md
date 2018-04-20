@@ -175,7 +175,7 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 Workflow is a helpful app that can be displayed on the Today widget to easily enter custom carb entries (rather than relying on pre-set amounts) and also custom temporary targets on the fly. 
 
-<img src="https://github.com/openaps/docs/blob/master/docs/docs/Images/Workflow_TodayWidget_carbs_targets.jpg" width="200" height="200"/>     <img src="https://github.com/openaps/docs/blob/master/docs/docs/Images/Workflow_carbs_example.PNG" width="200" height="300"/>     <img src="https://github.com/openaps/docs/blob/master/docs/docs/Images/Workflow_TempTarget.jpg" width="200" height="250"/> 
+![Workflow examples](../Images/Workflow_examples.png)
 
 1) Install the Workflow app on your phone from the App Store. 
 
