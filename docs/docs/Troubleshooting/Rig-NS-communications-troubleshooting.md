@@ -122,6 +122,7 @@ Using the mLab API, it is possible to remove old data while retaining recent dat
 
 6. Write your search query. Two examples are shown below. Make sure that you understand the structure of the data in your different collections, different collections have different date identifiers.
 
+**Search query for treatments added in 2017, and before March 20th 2018**
 ```json
 {
     "created_at": {
@@ -130,9 +131,9 @@ Using the mLab API, it is possible to remove old data while retaining recent dat
     }
 }
 ```
-.Search query for treatments added in 2017, and before March 20th 2018.
 
 
+**Search query for entries added before January 25th 2018**
 ```json
 {
     "date": {
@@ -140,7 +141,6 @@ Using the mLab API, it is possible to remove old data while retaining recent dat
     }
 }
 ```
-.Search query for entries added before January 25th 2018
 
 7. Test your search query by copy-pasting it in the mLab search interface.
 
