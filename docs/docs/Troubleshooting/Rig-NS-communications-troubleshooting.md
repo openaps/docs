@@ -80,9 +80,10 @@ Return to your home screen and you will be able to verify the `Size on Disk` has
 
  **NOTE:**  Before you cleanout your data, please check out the option to upload (or "donate") your data anonymously to the [OpenAPS Data Commons](http://openaps.readthedocs.io/en/latest/docs/Give%20Back-Pay%20It%20Forward/data-commons-data-donation.html) project.  The OpenAPS Data Commons was created to enable a simple way to share data sets from the community, both with traditional researchers who will create traditional research studies, and with groups or individuals from the community who want to review data as part of their own research projects. So before you delete or cleanout any data from your mLab, consider doing an upload to OpenAPS Data Commons first.
 
-If your mLab database issue is `size `, then you will need to cleanout some of the historical data collected by your NS site. There are two methods to cleanout space and delete data in your mLab database:
+If your mLab database issue is `size `, then you will need to cleanout some of the historical data collected by your NS site. There are three methods to cleanout space and delete data in your mLab database:
 
 * mLab direct access
+* mLab API
 * Nightscout admin tools
 
 #### mLab Direct Access
@@ -91,15 +92,31 @@ If your mLab database issue is `size `, then you will need to cleanout some of t
 
 * Click on a collection’s name to open it. 
 
-![mLab collection select](../Images/collection-name.png) 
+![mLab collection select](../Images/mlab_collection-name.png) 
 
 * Click on the button that says “Delete all documents in collection” and then confirm the deletion.
 
-![mLab collection select](../Images/delete-docs.png) 
+![mLab collection select](../Images/mlab_delete-docs.png) 
 
 *  You can confirm that your cleanout has resolved the problem, by checking that your database size is below 500 MB now.  Click on the `Home` link in top left.  Then review the size of the database as shown (note: Screenshots are from different databases...they are just to show how to navigate and what results you are looking for. Minor inconsistencies in continuity of the screenshots should be ignored).
 
 ![mLab collection select](../Images/mlab_size.jpg) 
+
+#### mLab API
+
+Using the mLab API, it is possible to remove old data while retaining recent data. This can useful when you use Nightscout reports. The API supports advanced queries to help you precisely select only the data you wish to remove.
+
+1. Login to your mLab database, as shown above, by clicking on the mLab logo in your Heroku dashboard.
+2. Click on your username in the top right
+
+![mLab user select](../Images/mlab_user.png)
+
+3. Copy your API key, and enable Data API access
+
+![mLab API settings](../Images/mlab_api.png)
+
+4. Return to the 
+
 
 #### Nightscout Admin Tools
 
