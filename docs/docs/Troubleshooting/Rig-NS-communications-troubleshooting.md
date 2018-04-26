@@ -111,12 +111,40 @@ Using the mLab API, it is possible to remove old data while retaining recent dat
 
 ![mLab user select](../Images/mlab_user.png)
 
-3. Copy your API key, and enable Data API access
+3. Note down your API key, and enable Data API access
 
 ![mLab API settings](../Images/mlab_api.png)
 
-4. Return to the 
+4. Return to the mLab dashboard by clicking on the logo in the top left.
+5. Note down the database name where your Nightscout data is stored.
 
+![mLab database name](../Images/mlab_database_name.png)
+
+6. Write your search query. Two examples are shown below. Make sure that you understand the structure of the data in your different collections, different collections have different date identifiers.
+
+```json
+{
+    "created_at": {
+        "$regex": "(2017.*)|(2018-0[1-2].*)|(2018-03-[0-1].*)",
+        "$options": "g"
+    }
+}
+```
+.Search query for treatments added in 2017, and before March 20th 2018.
+
+
+```json
+{
+    "date": {
+        "$lt": 1516838400000
+    }
+}
+```
+.Search query for entries added before January 25th 2018
+
+7. Convert your search query to URL encoding. A useful tool for this can be found [here](https://meyerweb.com/eric/tools/dencoder/)
+8. Construct the URL for your API call: `https://api.mlab.com/api/1/databases/{database\_name}/collections/{collection\_name}?q={query}&apiKey={API\_key}`  
+For example: `https://api.mlab.com/api/1/databases/heroku_rkc2c09g/collections/treatments?q=%7B"created_at"%3A%7B"%24regex"%3A"%282017.*%29%7C%282018-0%5B1-2%5D.*%29%7C%282018-03-%5B0-1%5D.*%29"%2C"%24options"%3A"g"%7D%7D&apiKey=hiddenhiddenhiddenhidden`
 
 #### Nightscout Admin Tools
 
