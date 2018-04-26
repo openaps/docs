@@ -142,9 +142,28 @@ Using the mLab API, it is possible to remove old data while retaining recent dat
 ```
 .Search query for entries added before January 25th 2018
 
-7. Convert your search query to URL encoding. A useful tool for this can be found [here](https://meyerweb.com/eric/tools/dencoder/)
-8. Construct the URL for your API call: `https://api.mlab.com/api/1/databases/{database\_name}/collections/{collection\_name}?q={query}&apiKey={API\_key}`  
+7. Test your search query by copy-pasting it in the mLab search interface.
+
+![mlab search button](../Images/mlab_search_button.png)
+
+![mlab search example](../Images/mlab_search_example.png)
+
+8. Convert your search query to URL encoding. A useful tool for this can be found [here](https://meyerweb.com/eric/tools/dencoder/)
+9. Construct the URL for your API call: `https://api.mlab.com/api/1/databases/{database_name}/collections/{collection_name}?q={query}&apiKey={API_key}`  
 For example: `https://api.mlab.com/api/1/databases/heroku_rkc2c09g/collections/treatments?q=%7B"created_at"%3A%7B"%24regex"%3A"%282017.*%29%7C%282018-0%5B1-2%5D.*%29%7C%282018-03-%5B0-1%5D.*%29"%2C"%24options"%3A"g"%7D%7D&apiKey=hiddenhiddenhiddenhidden`
+
+10. Using a tool such as cURL or Postman, perform a PUT request to the URL you constructed above. The body of the request should contain an empty array: `[]`
+
+![postman request](../Images/mlab_postman_example.png)
+
+11. The response of your request should have status code `200 OK`, with a body like:
+
+```json
+{
+    "n": 0,
+    "removed": 30201
+}
+```
 
 #### Nightscout Admin Tools
 
