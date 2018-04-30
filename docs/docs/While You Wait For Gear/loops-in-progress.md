@@ -248,3 +248,4 @@ List of people who are working on closed loops:
 - Minna Hannula (Finland)
 - Mark Orders (UK)
 - Alan Ryder (UK)
+- Robert Riemann (DE)
