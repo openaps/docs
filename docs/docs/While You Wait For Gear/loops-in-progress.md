@@ -249,3 +249,4 @@ List of people who are working on closed loops:
 - Mark Orders (UK)
 - Alan Ryder (UK)
 - Robert Riemann (DE)
+- Grant Carlson (Sunnyvale, CA, USA)
