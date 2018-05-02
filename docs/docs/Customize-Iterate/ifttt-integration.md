@@ -109,6 +109,10 @@ Reservoir Change
 ```
 {"enteredBy": "IFTTT-button", "eventType": "Insulin Change", "duration": 0, "secret": "your_hashed_api_goes_here!!!"}
 ```
+Correction Bolus outside rig such as with insulin pen OR Afrezza (Change notes and insulin to units taken)
+```
+{"enteredBy": "IFTTT-button", "eventType": "Correction Bolus", "notes": "Afrezza", "insulin": 3, "secret": "your_hashed_api_goes_here!!!"}
+```
 
 ### Understanding the JSON in the Body:
 
