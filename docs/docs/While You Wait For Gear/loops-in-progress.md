@@ -250,3 +250,4 @@ List of people who are working on closed loops:
 - Alan Ryder (UK)
 - Robert Riemann (DE)
 - Grant Carlson (Sunnyvale, CA, USA)
+- Zachary Christman (Philadelphia, PA, USA)
