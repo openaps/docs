@@ -141,6 +141,11 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
       <td>Yes via NS/cmd line</td>
     </tr>
       <tr>
+      <td>Reset Expired Transmitter</td>
+      <td>No</td> 
+      <td>Yes via cmd line</td>
+    </tr>
+      <tr>
       <td>Support mmol</td>
       <td>Yes</td> 
       <td>for Meter-Pump Calibration</td>
