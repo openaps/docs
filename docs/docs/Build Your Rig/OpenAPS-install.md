@@ -47,7 +47,9 @@ Going through steps 1-3 may take about 1-3 hours depending on your internet conn
 
 The screenshot below shows an example of the questions you'll be prompted to reply to during the setup script (oref0-setup).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
 
-**Be prepared to enter the following items:** 
+<details>
+    <summary><b>Be prepared to enter the following items (click here to expand list):</b></summary>
+<br>
 
 * 6-digit serial number of your pump
 * whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
@@ -64,6 +66,8 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 * whether you want Autosensitivity and/or Autotune enabled
 * whether you want any carbs-required Pushover notifications (and if you do, you'll need your Pushover API token and User Key)
 
+</details>
+
 ![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
 
 At the end of the questions, the script will ask if you want to continue.  Review the information provided in the "to run again with these same options" area...check for any typos.  If everything looks correct, then press `y` to continue.  If you see a typo, press `n` and then type `cd && ~/src/oref0/bin/oref0-setup.sh` to start the setup questions over again.
@@ -71,7 +75,14 @@ At the end of the questions, the script will ask if you want to continue.  Revie
 After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
 
 **************************
-Please note:  Work is being done to have the setup script automate this change, but in the meantime, please make sure that at the end of the setup script, your log rotate file is set to `daily` as described below.  Most users will have the `compress` line properly edited already, but the log rotate file seems to be left at `weekly` for many users.  If you leave the setup at `weekly`, you will likely get a `device full` error in your pump logs within a week...so please check this before moving on!
+
+### Log rotate fix
+
+<details>
+    <summary><b>Click here to expand notes about checking log rotate, which was fixed in 0.6.1:</b></summary>
+<br>
+    
+Make sure that at the end of the setup script, your log rotate file is set to `daily` as described below.  Most users will have the `compress` line properly edited already, but the log rotate file seems to be left at `weekly` for many users.  If you leave the setup at `weekly`, you will likely get a `device full` error in your pump logs within a week...so please check this before moving on!
 
 * Enter `vi /etc/logrotate.conf` then press “i” for INSERT mode, and make the following changes so that your file matches the one below for the highlighted areas:
 
@@ -81,6 +92,9 @@ Please note:  Work is being done to have the setup script automate this change, 
 * Press ESC and then type `:wq` to save and quit
 
 ![Log rotation examples](../Images/Edison/log_rotation.png)
+
+</details> 
+
 **************************
 
 
@@ -163,6 +177,10 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 #### Temp basals > 6.3, ISF > 255 or carb ratio > 25 with a x23 or x54?
 
+<details>
+    <summary><b>Expand here for notes:</b></summary>
+<br>
+
 * If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  
 
 * If your pump ISF setting is > 255 the ISF shown in the log and in the OpenAPS pill in Nightscout will be 256 less than the actual pump setting (257 will show as 1).  
@@ -177,9 +195,11 @@ cd decocare
 python setup.py install
 ```
 
-#### Rig Logs and Shortcut commands
+</details>
 
-Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
+#### Rig Logs and Shortcut commands - bookmark this section!
+
+Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?" or "what do the logs say?"
 
 Note: The pump-loop log is not the only log your rig generates.  There are also several other loop logs contained within your OpenAPS setup such as:
 
