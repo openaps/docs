@@ -8,6 +8,7 @@ Resources
 
    my-first-pr
    technical-resources
+   Medtronic-Button-Errors
    troubleshooting
    wifi
    history
