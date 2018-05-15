@@ -9,4 +9,3 @@ Troubleshooting
    Pump-rig-communications-troubleshooting
    CGM-rig-communications-troubleshooting
    Rig-NS-communications-troubleshooting
-   Medtronic-Button-Errors
