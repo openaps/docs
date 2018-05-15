@@ -47,6 +47,26 @@ If you need to acquire a compatible pump, check CraigsList, ask around local or 
 
 If you're buying a pump online, we recommend you ask the seller to confirm the firmware version of the pump. (You may also want to consider asking for a video of the pump with working functionality before purchasing.)
 
+<details>
+    <summary> <b>Other purchasing tips (click here to expand)</b>:</summary>
+<br>
+
+* Use Paypal and purchase using the "Goods and Services" payment option. This costs nothing for the buyer, but the seller will lose 2.95% of the sale to Paypal fees. Paypal offers some protection for both buyer and seller in the event of fraud.
+
+* Ask for photos of the pump. Check to make sure the serial number of the pump on the backside matches the serial number of the pump showing in the display menu. Ask for a short video of the pump, or at least a photo of the pump turned on, so that you can see the pump's firmware and model number. Cracks and some wear on these pumps is expected...these pumps are not usually free of any marks. Many people are successfully looping on pumps that have cracks and rub marks...but you may want to ask if you are concerned about any you see.
+
+* Ask for shipping that includes a tracking number. USPS Priority Mail's smallest box is a great option. It's only $7.15 and includes tracking. Ask the seller to add a small bit of packing protection such as bubble wrap around the pump to keep it safe during shipping. Make sure you get a tracking number within a reasonable period of time after you have paid.
+
+Red flags that may indicate a scam:
+
+* Asking for payment through "friends and family" on Paypal, especially if you don't know the person or have any solid references for them. Paying in that way offers you no buyer protection. It's just like giving the seller cash, so you had better trust the seller.
+
+* Offering an "almost new" pump is a big red flag. These pumps should be at least 5 years old by now. Do you really think a 5 year old pump should be unused and sitting in shrink wrap at this point? Seems highly suspicious.
+
+* Not able to provide new pictures of the pump when requested. Sure they posted some pictures with the ad, but what if they just downloaded them from other people's ads? The seller should be able to furnish a couple "new" photos are your request. A good one to ask for is the battery and reservoir tops so you can see the condition of those.
+
+</details>
+
 ## Word of warning: Pump repairs rendering pumps useless for looping
 
 If you need to send your pump away to Medtronic for repair, be aware that during the repair process the firmware will get upgraded. This makes your pump not usable for looping. Ask the community if you run into a pump error - the community has tips for solving several common pump errors.
