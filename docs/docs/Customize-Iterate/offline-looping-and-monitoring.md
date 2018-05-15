@@ -21,9 +21,9 @@ from inside your openAPS directory, before your loop will start updating correct
 ### Dexcom CGM users
 Dexcom CGM users have a few different alternatives to retrieve blood glucose values locally for offline use.  The options to choose from are:
 
-1. Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the section below. The naming can be confusing. XDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the XDrip/XDrip+ Android app, you can always get the latest version here:
+1. Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the section below. The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
-   * There is no direct iOS version of XDrip+. iOSxdripreader is a different app with a different set of features.
+   * There is no direct iOS version of xDrip+. iOSxdripreader is a different app with a different set of features.
    
 2. For iPhone users, it is possible to setup a modified Loop app to bring data in locally such as the one you will find here: https://github.com/thebookins/Loop. This solution requires a build of an iOS app on a Mac and the use of a free Dev licenses (which will give you an app to test, but will only stay deployed for 7 days) or a full Dev license ($99/year). The modified Loop app will "listen in" for Dexcom data on iPhone, upload it to a scaled down version of Nightscout on your rig where xDrip is running. This solution requires some Mac OS and iOS savvy, and exploration.
 
@@ -147,7 +147,7 @@ With xDripAPS, data flow is as follows:
 2. xDrip+ Android app (https://github.com/NightscoutFoundation/xDrip). In the app, the REST API Upload feature is normally used to upload CGM data to Nightscout.  We use this feature to upload CGM data to xDripAPS on your OpenAPS rig (further details below).
 3. Your OpenAPS rig - usually a Raspberry Pi or an Intel Edison.
 
-OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the XDrip+ Android app delimited by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
+OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the xDrip+ Android app delimited by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
 
 #### Setup Steps (using oref0-setup.sh script)
 
@@ -190,7 +190,7 @@ https://<nightscout_api_secret>@<yournnightscoutsite>.herokuapp.com/api/v1/ http
 Be careful when entering the addresses - xDripAPS uses the http protocol, Nightscout uses the https protocol.
 
 #### Known limitations
-* xDripAPS does not process anything other than CGM data. If you use the XDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
+* xDripAPS does not process anything other than CGM data. If you use the xDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
 * Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or WiFi as long as there are carbs on board.
 
 #### Manual installation steps
