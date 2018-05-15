@@ -53,7 +53,7 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 * whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
-    * if you're using a Carelink, you will NOT be using mmeowlink
+    * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to add `carelink = on` to your `pump.ini` file
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  
    * Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source. As a consequence, if you use FreeStyle Libre or any other CGM system that gets its data only from Nightscout, you'll be fine choosing any of the options above. 
    * Note: G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
@@ -69,6 +69,20 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 At the end of the questions, the script will ask if you want to continue.  Review the information provided in the "to run again with these same options" area...check for any typos.  If everything looks correct, then press `y` to continue.  If you see a typo, press `n` and then type `cd && ~/src/oref0/bin/oref0-setup.sh` to start the setup questions over again.
 
 After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
+
+**************************
+Please note:  Work is being done to have the setup script automate this change, but in the meantime, please make sure that at the end of the setup script, your log rotate file is set to `daily` as described below.  Most users will have the `compress` line properly edited already, but the log rotate file seems to be left at `weekly` for many users.  If you leave the setup at `weekly`, you will likely get a `device full` error in your pump logs within a week...so please check this before moving on!
+
+* Enter `vi /etc/logrotate.conf` then press “i” for INSERT mode, and make the following changes so that your file matches the one below for the highlighted areas:
+
+ * set the log rotation to `daily` from `weekly`
+ * remove the # from the “#compress” line (if it is present)
+
+* Press ESC and then type `:wq` to save and quit
+
+![Log rotation examples](../Images/Edison/log_rotation.png)
+**************************
+
 
 ## Step 5: Watch your Pump-Loop Log
 

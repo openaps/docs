@@ -1,15 +1,9 @@
 # Information about compatible CGMs
-
-* Dexcom G4 Platinum System (with or without Share)
-* Dexcom G5 Mobile
-* Medtronic (MiniMed Paradigm REAL-Time Revel or Enlite)
-
-
 OpenAPS currently primarily supports three different CGM systems: 
-
 * the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality), 
-* the newer Dexcom G5 Mobile system and the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor), and, 
-* other CGM or CGM-like devices (Libre) if the data is uploaded to Nightscout and the OpenAPS rig has Internet connectivity.
+* the newer Dexcom G5 Mobile system
+* the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor) (MiniMed Paradigm REAL-Time Revel or Enlite),  
+* and other CGM or CGM-like devices (Abbott's FreeStyle Libre) if the data is uploaded to Nightscout and the OpenAPS rig has Internet connectivity.
 
 With Dexcom G4, the Share platform is not required; but is valuable for uploading BG data to the cloud (and into Nightscout, which can then send BGs to the rig). However, without Share, a G4 receiver can instead be plugged in directly to the OpenAPS rig. For Dexcom G5 Mobile you can also use a compatible receiver (software upgraded G4 with Share receiver or a G5 Mobile Receiver), or also pull data from the Dexcom Share servers into Nightscout for use with an Internet-connected OpenAPS rig.
 
