@@ -238,7 +238,7 @@ A few notes to clarify:
 
 ![REST API Upload setting](https://github.com/colinlennon/xDripAPS/blob/master/xDrip_REST_API_cropped.png "REST API Upload setting")
 
-If using xDrip+ navigate to Settings > Cloud Upload > MongoDB and uncheck the "Skip LAN uploads" option. Do not turn on the "Enable Nightscout Mongo DB sync" option. Next, navigate to Settings > Cloud Upload > API Upload (REST) and uncheck the "Skip LAN uploads" option. NOTE: if you don't have these options, update to a recent version of the xDrip+ app. These options were added to a nightly build in December 2016.
+If using xDrip+ navigate to Settings > Cloud Upload > MongoDB and uncheck the "Skip LAN uploads" option. Do not turn on the "Enable Nightscout Mongo DB sync" option. Next, navigate to Settings > Cloud Upload > Nightscout Sync (REST-API) > Extra Options > and uncheck the "Skip LAN uploads" option. NOTE: if you don't have these options, update to a recent version of the xDrip+ app. These options were added to a nightly build in December 2016.
 
 ##### Advanced Options
 
