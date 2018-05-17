@@ -233,7 +233,7 @@ A few notes to clarify:
    * <nightscout_api_secret> is the plain-text API secret used when creating your online Nightscout instance.
    * <rig_ip_address> is the IP address of your OpenAPS rig assigned by your WiFi, WiFi hotspot, or Bluetooth PAN tether connection. It will usually take the form of: `192.168.xxx.xxx`.
 
-![REST API Upload setting](https://github.com/colinlennon/xDripAPS/blob/master/xDrip_REST_API_cropped.png "REST API Upload setting")
+![REST API Upload setting](../Images/xDrip_REST_API_cropped.png "REST API Upload setting")
 
 ##### Entering multiple REST URLs
 
