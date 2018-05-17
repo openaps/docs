@@ -34,7 +34,9 @@ Single SMB amounts are limited by several factors.  The largest a single SMB bol
 
 It's important to note that maxIOB will limit SMBs from being issued if your IOB (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing SMBs.
 
-(History of SMB development: https://github.com/openaps/oref0/issues/262)
+In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an SMB while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).
+
+(History of SMB development: https://github.com/openaps/oref0/issues/262 )
 
 ## Understanding UAM 
 
@@ -42,7 +44,7 @@ It's important to note that maxIOB will limit SMBs from being issued if your IOB
 
 UAM will be triggered if the preference is toggled on and there is carb activity detected based on positive deviations. 
 
-(History of UAM development: https://github.com/openaps/oref0/issues/297)
+(History of UAM development: https://github.com/openaps/oref0/issues/297 )
 
 ## How to turn on SMB/UAM
 

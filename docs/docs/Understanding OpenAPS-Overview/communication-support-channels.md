@@ -14,11 +14,8 @@ A google group focused on #OpenAPS development work can be found [here](https://
 
 * The [nightscout/intend-to-bolus]( https://gitter.im/nightscout/intend-to-bolus) channel is where you will find active #OpenAPS discussions ranging from technical issues with openaps tools to control theory to general information. It is a great place to introduce yourself and get some help from those who are a few steps further down the road.
 * For Autotune conversations, use the [openaps/autotune channel](https://gitter.im/openaps/autotune)
-* For TI stick communication, use the [oskarpearson/mmeowlink channel](https://gitter.im/oskarpearson/mmeowlink)
-* For RileyLink conversations, use the [ps2/rileylink channel](https://gitter.im/ps2/rileylink)
-* For LoopKit conversations, use the [LoopKit/Loop channel](https://gitter.im/LoopKit/Loop)
 
-Gitter has a search function to find old information, but since it isn't threaded conversations, you may need to spend some time reading the posts after the search result to find the ultimate resolution to the question.  So, if you find a particularly useful bit of information that you couldn't find in the docs...please make a PR to the docs so that the information is permanently stored for others to find.
+Gitter has a search function to find old information, but since it isn't threaded conversations, you may need to spend some time reading the posts after the search result to find the ultimate resolution to the question.  So, if you find a particularly useful bit of information that you couldn't find in the docs...please make a [PR to the docs](http://openaps.readthedocs.io/en/latest/docs/Resources/my-first-pr.html) so that the information is permanently stored for others to find.
 
 Tag someone! You can tag particular people if you are responding to them directly by using the `@` symbol and then typing their username.  This will help notify the person that you are "speaking to them".  If someone asks you for information that shouldn't be shared in the public channel, you can also private message people by hovering over their profile picture and choosing the "chat privately" button. Please do not abuse the tagging or PM features: most questions are best asked untagged in the appropriate channel, so that anyone can respond to them as soon as they read Gitter and see the question. There are people from all over the world online at all hours who can help with most kinds of questions, and the core developers usually read every message in Gitter a few times per day and try to answer any questions that got missed.
 
@@ -49,12 +46,11 @@ The copy-pasted lines should have 3 backticks on the line above and the line bel
 
 There is also a [Looped Group](https://www.facebook.com/groups/TheLoopedGroup/?fref=nf) in Facebook that is currently a discussion place for users on various DIY closed loop systems (OpenAPS, AndroidAPS, etc.).  You will need to request membership for the group and respond to a message from the group administrators prior to joining.
 
-The Looped Group has grown considerably in the last 6 months and has many users on both systems.  You can search for previous posts on topics that may interest you.  Note:  If you are asking for troubleshooting help, screenshots and additional information about where you are in your problem will help get the best response.
+You can search for previous posts on topics that may interest you.  Note:  If you are asking for troubleshooting help, screenshots and additional information about where you are in your problem will help get the best response.
 
 ![FB group header](../Images/looped.jpg)
 
-A looping facebook group is also available for Austrlian users, [Aussie, Aussie, Aussie, Loop, Loop, Loop](https://www.facebook.com/groups/1558147697576040/) is very similar to the Looped Group however it only contains people from Australia which is useful for procurement of parts, advice and catch ups.
-Similar to Looped, you will need to request membership for the group and respond to a message from the group administrators prior to joining.
+There are also numerous country-specific Facebook groups. If you're in the UK, join [Looped UK](https://www.facebook.com/groups/LoopedUK/). Germany, join [Looped-DE](https://www.facebook.com/groups/loopedDE/). Australia, join [Aussie, Aussie, Aussie, Loop, Loop, Loop](https://www.facebook.com/groups/1558147697576040/). You will still want to join the main Looped group, but country-specific groups may be helpful regarding local-specific details about access to hardware, supplies, etc. Similar to Looped, you will need to request membership for the group and respond to a message from the group administrators prior to joining any of these groups.
 
 ### Issues on GitHub
 One of the above channels is the best place for real-time or near-time troubleshooting. However, you may occasionally stumble across a new bug or edge case that we want to work on resolving. If you're asked to "create an issue", that usually means going to [the oref0 repository on Github and logging an issue there](https://github.com/openaps/oref0/issues). (You may also be asked to create issues for the openaps toolkit or decocare, etc. but usually it's oref0 related.) 

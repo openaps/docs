@@ -110,6 +110,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
+Hooray! After you've flashed your Edison, [head back to the main install instructions for wifi, dependencies, and getting OpenAPS installed with the easy automated scripts]http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual install instructions0. 
 
 ## Initial Edison Setup
 
@@ -128,7 +129,7 @@ Run these commands to set secure passwords.  It will ask you to enter your new p
 
     passwd root
     passwd edison
-  
+
 ## Set up Wifi:
 
 `vi /etc/network/interfaces`
@@ -282,12 +283,14 @@ c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and
    * The _easiest_ - but perhaps not so forward compatible - thing is to figure out what the brew command was trying to do and edit the `flashall.sh` script accordingly.
    ** The v0.2.0 version of `flashapp.sh` has `$(brew list gnu-getopt | grep bin/getopt)`.
    ** Running `brew list gnu-getopt | grep bin/getopt` for me (Dec 2017) gave me `/usr/local/Cellar/gnu-getopt/1.1.6/bin/getopt`
-   * Edit the `flashall.sh` from ```:bash
-
+   * Edit the `flashall.sh` from 
+   ```:bash
         GETOPTS="$(which getopt)"
         if [[ "$OSTYPE" == "darwin"* ]] ; then READLINK=greadlink; GETOPTS="$(brew l    ist gnu-getopt | grep bin/getopt)"; else READLINK=readlink;fi;
-     ``` to ```:bash
-      
+   ```
+   to
+        
+   ```:bash
         GETOPTS="$(which getopt)"
         if [[ "$OSTYPE" == "darwin"* ]]
         then
@@ -296,7 +299,7 @@ c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and
         else
                 READLINK=readline
         fi
-```
+   ```
 
 d) If you have a failed flash or have problems with the reboot, try starting the console and hitting enter a bunch of times while connecting to stop autoboot.  You'll then be at a `boot>` prompt.  Run `sudo ./flashall.sh` and when it asks you to reboot type and enter `run do_flash` at the `boot>` prompt.
 

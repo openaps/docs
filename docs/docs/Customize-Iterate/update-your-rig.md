@@ -1,8 +1,20 @@
 # How to update your OpenAPS rig in the future
 
-You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref0-runagain.html)).
+You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref0-runagain.html)). You can see notes about what is included in a particular release in [the release notes page for oref0](https://github.com/openaps/oref0/releases).
 
 However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which version of oref0 you are currently running, `npm list -g oref0` and if you want to check which branch `cd ~/src/oref0` and then `git branch`. 
+
+<details>
+<summary> If you want to view the commit records between the version you are running and the new version (click here):</summary>
+<br>
+ 
+1. `cd ~/src/oref0`
+2. `git fetch` will update the local git repository. This does not change anything in your working directory
+3. `git status` will tell you which branch your working directory is on and how many commits your working directory is behind
+4. `git log origin/master` (replace `master` with the branch you are on) will print the commit descriptions. You only need to review the number of log messages corresponding to the number of commites your working directory is behind.
+5. `git diff origin/master..` (replace `master` with the branch you are on) will print the individual file differences between your working copy and the new version.
+
+</details>
 
 ## Step 1 (Master): Install the new version
 
@@ -19,11 +31,18 @@ Or, if the feature you want hasn't been released yet, and you want to test the l
 
 ### Alternative Step 1b (Test a feature branch): Not recommended for initial setup
 
+<details>
+<summary>Not recommended for initial setup, click here to see instructions</summary>
+<br>
+
 In case you want to test even more advanced stuff you've read about on gitter channels ([intend-to-bolus](https://gitter.im/nightscout/intend-to-bolus) / [openaps/oref0](https://gitter.im/openaps/oref0) / [openaps/autotune](https://gitter.im/openaps/autotune)) or on [official pull request list](https://github.com/openaps/oref0/pulls) you should follow the link, read description and in case you've decided to try it out, do:
 
 1. Checkout the header of pull request. It will contain author name, the branch to be merged to (dev or master) and the feature branch name that you want to test.
 2. run `cd ~/src/oref0 && git fetch && git checkout <feature-branch-name> && git pull && npm run global-install`
   * don't forget to replace `<feature-branch-name>` with the actual name of the feature branch you want to test
+ 
+ 
+</details> 
 
 ## Step 2: Re-run oref0-setup
 

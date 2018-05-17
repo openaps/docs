@@ -43,15 +43,15 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Collect your data & prepare <docs/While You Wait For Gear/collect-data-and-prepare>
    Make Your First PR <docs/While You Wait For Gear/loops-in-progress>
    Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
-   Understand your Explorer Board rig </docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
-   Understand determine-basal (OpenAPS math) <docs/While You Wait For Gear/Understand-determine-basal>
+   Understand your rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
+   How OpenAPS makes decisions <docs/While You Wait For Gear/Understand-determine-basal>
    Understanding netIOB calculations <docs/While You Wait For Gear/understanding-insulin-on-board-calculations>
    Monitoring OpenAPS <docs/While You Wait For Gear/monitoring-OpenAPS>
    Preferences and Safety Settings <docs/While You Wait For Gear/preferences-and-safety-settings>
    Understanding your wifi options <docs/While You Wait For Gear/understanding-wifi-options>
    
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :glob:
    :caption: Build Your Rig
     
