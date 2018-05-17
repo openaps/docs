@@ -36,7 +36,7 @@ Phase C - run autotune as a "one-off" on a computer of your choice.
 
 If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line: 
 
-* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* First, make sure you have the latest version of oref0: `npm list -g oref0 | egrep oref0@0.4.[0-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`. The process might take a couple of minutes. Don't worry if you get some warnings on the first few lines of the output (they'll start with `npm WARN`). This is expected behavior and they can be safely ignored. 
 * Install jq: `sudo apt-get install jq`
 * Make two copies of your profile.json, one to be the starting point for autotune, and one to provide the pump baseline for enforcing the min/max limits: `cd ~/myopenaps/settings/ && cp profile.json autotune.json && cp profile.json pumpprofile.json`
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` (obviously, sub in your NS url and the start date you want to start with. Try 1 day first before moving on to 1 week and 1 month to better troubleshoot).
@@ -204,7 +204,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 * Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
 * ^ Sub in your Nightscout URL. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
-* If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).
+* If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).  The start date should be the older date, the end date is the more recent date.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
 #### Why Isn't It Working At All?

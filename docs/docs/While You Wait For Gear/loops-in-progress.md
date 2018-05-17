@@ -246,3 +246,8 @@ List of people who are working on closed loops:
 - Roxana Soetebeer (New Brunswick, Canada)
 - Bulbul Ahmed (Charlottesvill, VA, USA)
 - Minna Hannula (Finland)
+- Mark Orders (UK)
+- Alan Ryder (UK)
+- Robert Riemann (DE)
+- Grant Carlson (Sunnyvale, CA, USA)
+- Zachary Christman (Philadelphia, PA, USA)
