@@ -23,7 +23,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 1. Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the section below. The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
-   * There is no direct iOS version of xDrip+. iOSxdripreader is a different app with a different set of features.
+   * There is no direct iOS version of xDrip+. [Spike](https://spike-app.com/) is a different app with a different set of features.
    
 2. For iPhone users, it is possible to setup a modified Loop app to bring data in locally such as the one you will find here: https://github.com/thebookins/Loop. This solution requires a build of an iOS app on a Mac and the use of a free Dev licenses (which will give you an app to test, but will only stay deployed for 7 days) or a full Dev license ($99/year). The modified Loop app will "listen in" for Dexcom data on iPhone, upload it to a scaled down version of Nightscout on your rig where xDrip is running. This solution requires some Mac OS and iOS savvy, and exploration.
 
@@ -233,7 +233,7 @@ A few notes to clarify:
    * <nightscout_api_secret> is the plain-text API secret used when creating your online Nightscout instance.
    * <rig_ip_address> is the IP address of your OpenAPS rig assigned by your WiFi, WiFi hotspot, or Bluetooth PAN tether connection. It will usually take the form of: `192.168.xxx.xxx`.
 
-![REST API Upload setting](https://github.com/colinlennon/xDripAPS/blob/master/xDrip_REST_API_cropped.png "REST API Upload setting")
+![REST API Upload setting](../Images/xDrip_REST_API_cropped.png "REST API Upload setting")
 
 ##### Entering multiple REST URLs
 
