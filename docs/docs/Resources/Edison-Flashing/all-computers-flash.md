@@ -28,7 +28,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 Note: Intel has announced the Edison will be discontinued at the end of 2017.  As part of this, apparently, the old link to Edison drivers has been removed.  We are unsure if this is a temporary issue or long term.  Therefore, if the link above for Intel Edison Drivers is not working, you can use [this link](https://www.dropbox.com/s/d5ooojru5jxsilp/IntelEdisonDriverSetup1.2.1.exe?dl=0) to download them directly from an OpenAPS user's dropbox.  Obviously screenshots below will be different if Intel has not fixed or repaired their driver downloads page for Edisons.
 
-********
+******
 
 - Install [PuTTY]( http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Download the installation file that matches your PC's architecture (32-bit or 64-bit).
 
@@ -48,7 +48,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
   -  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
   -  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
-  - Read the [Mac instructions for flashing](mac-flash.html) too, but note that they are now a little older than this.
+  - Read the [Mac instructions for flashing](mac-flash.md) too, but note that they are now a little older than this.
 
 
 ## Downloading image
@@ -110,6 +110,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
+Hooray! After you've flashed your Edison, [head back to the main install instructions for wifi, dependencies, and getting OpenAPS installed with the easy automated scripts]http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual install instructions0. 
 
 ## Initial Edison Setup
 
@@ -128,7 +129,7 @@ Run these commands to set secure passwords.  It will ask you to enter your new p
 
     passwd root
     passwd edison
-  
+
 ## Set up Wifi:
 
 `vi /etc/network/interfaces`
@@ -282,12 +283,14 @@ c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and
    * The _easiest_ - but perhaps not so forward compatible - thing is to figure out what the brew command was trying to do and edit the `flashall.sh` script accordingly.
    ** The v0.2.0 version of `flashapp.sh` has `$(brew list gnu-getopt | grep bin/getopt)`.
    ** Running `brew list gnu-getopt | grep bin/getopt` for me (Dec 2017) gave me `/usr/local/Cellar/gnu-getopt/1.1.6/bin/getopt`
-   * Edit the `flashall.sh` from ```:bash
-
+   * Edit the `flashall.sh` from 
+   ```:bash
         GETOPTS="$(which getopt)"
         if [[ "$OSTYPE" == "darwin"* ]] ; then READLINK=greadlink; GETOPTS="$(brew l    ist gnu-getopt | grep bin/getopt)"; else READLINK=readlink;fi;
-     ``` to ```:bash
-      
+   ```
+   to
+        
+   ```:bash
         GETOPTS="$(which getopt)"
         if [[ "$OSTYPE" == "darwin"* ]]
         then
@@ -296,7 +299,7 @@ c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and
         else
                 READLINK=readline
         fi
-```
+   ```
 
 d) If you have a failed flash or have problems with the reboot, try starting the console and hitting enter a bunch of times while connecting to stop autoboot.  You'll then be at a `boot>` prompt.  Run `sudo ./flashall.sh` and when it asks you to reboot type and enter `run do_flash` at the `boot>` prompt.
 

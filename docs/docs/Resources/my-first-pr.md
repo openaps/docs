@@ -8,7 +8,9 @@ At some point it will be suggested that you make a PR. PR is short for pull requ
 * Create a pull request, which asks the administrators to use your changes.
 * They will do a review and either (1)merge your changes, (2)comment back to you about your changes, or (3)start a new document with your changes.
 
-OK, let's get started. For our example we are going to make an edit to the openaps docs.  This does NOT need to be done in the linux environment on your rig.  This can be done on any Windows PC, Mac, etc. (any computer with Internet access).
+(Side note:  If you are a visual learner, there is a YouTube video [here](https://youtu.be/4b6tsL0_kzg) showing the PR workflow.)
+
+For our example we are going to make an edit to the openaps docs.  This does NOT need to be done in the linux environment on your rig.  This can be done on any Windows PC, Mac, etc. (any computer with Internet access).
 
 1. Go to https://github.com/openaps/docs and hit Fork in the upper right to make your own copy of the repository.
 ![Fork repo](../Images/PR0.png)
@@ -16,7 +18,7 @@ OK, let's get started. For our example we are going to make an edit to the opena
 ![edit doc](../Images/PR1.png)
 Or you can click on the "Edit in Github" link in the upper right corner, and then click the pencil icon that appears in the top bar of the page contents to be edited.
 ![RTD io](../Images/PR2.png)
-3.  Either of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
+3.  one or the other of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
 ![Edit branch](../Images/PR3.png)
 4. You have been working in the "<>Edit file" tab. Select the "Preview changes" tab for a fresh look to make sure everything you changed looks like you meant it to (typpos sic.). If you see a needed improvement, go back to the edit tab to make more improvements.
 ![preview mode](../Images/PR5.png)
