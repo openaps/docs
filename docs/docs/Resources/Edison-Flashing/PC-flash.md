@@ -1,6 +1,6 @@
 # Setting up Edison/Explorer Board on Windows/PC 
 
-(This is testing a separate workflow for Windows only. Please refer to the [main Edison setup guide](./setup-edison.md) as well for troubleshooting & full instructions for other computer setup processes.)
+(This is testing a separate workflow for Windows only. Please refer to the [main Edison setup guide](./all-computers-flash.html) as well for troubleshooting & full instructions for other computer setup processes.)
 
 ### Hardware Assumptions for this page
 
@@ -9,7 +9,7 @@
 
 ## Preparing/flashing the Edison
 
-We recommend [buying an Edison that is preinstalled with jubilinux](hardware/edison.md#edison).  If you did that, you can skip down to [section 1-4 Hostname for Edison](windows-edison.md#1-4-hostname-for-edison).
+We recommend [buying an Edison that is preinstalled with jubilinux](hardware/edison.md#edison).  If you did that, head back to the [main install instructions to begin installing Wifi and Dependencies](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies).
 
 If you didn't buy your Edison with jubilinux preinstalled, it comes with an operating system, called Yocto, that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  Both your Windows computer and the Edison board will need some work.
 
@@ -48,7 +48,11 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - Go to the Control Panel, click All Control Panel Items, then click System. At top left click the Remote Settings link.
  - Select the Advanced tab in the System Properties window, then under Performance click Settings.
  - On the Advanced tab click the Change... button to change the page size.
- - In the Virtual Memory window uncheck "Automatically manage paging file size for all drives," click "Custom size," and set the initial size to at least 4096 MB. If you have already attempted this process at least once continue to increase this number by 1024 MB. Set the maximum size to 2048 MB higher than the initial size you used.
+ - In the Virtual Memory window uncheck "Automatically manage paging file size for all drives," 
+ - Click "Custom size," below
+   - Set the initial size to 4096 MB
+   - Set maximum size to 6144 MB (2048 MB larger thand the initial size)
+   (If you have already attempted this process at least once and the flashing still hasn't worked, increase both size settings by 1024 MB and try again.)
  - Click the Set button, then click OK until all windows are closed.
  - Reboot and attempt the flash process.
 ******************************
@@ -108,7 +112,7 @@ After several reboots (don’t panic), you should get a ubilinux login prompt (I
 
 ![Successful flash](../../Images/Edison/successful.png)
 
-CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going.
+CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going. [Head back to the main install instructions for the easiest route of installing wifi, dependencies, and installing OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual instructions, but the main install instructions have an easier path to automate the below.)
 
 ### **1-4 Hostname for Edison**
 
@@ -173,7 +177,7 @@ iface wlan0 inet dhcp
 
 Press Esc and then type ':wq' and press Enter to write the file and quit
 
-`vi /etc/wpa_supplicant/wpa_supplicant.conf`
+Enter `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
 Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add.  Be sure to include the quotes around the network name and password.
 

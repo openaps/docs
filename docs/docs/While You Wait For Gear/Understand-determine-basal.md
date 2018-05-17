@@ -2,130 +2,82 @@
 
 The core, lowest level logic behind any oref0 implementation of OpenAPS can be found in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js). That code pulls together the required inputs (namely, recent CGM readings, current pump settings, including insulin on board and carbohydrates consumed, and your profile settings) and performs the calculations to make the recommended changes in temp basal rates that OpenAPS could/will enact. 
 
-Short of reading the actual code, one way to start to understand the key `determine-basal` logic is to understand the inputs passed into the script/program and how to interpret the outputs from the script/program. 
+## Basic diabetes math
 
-## Summary of inputs
+OpenAPS follows the same logic that a person with diabetes uses to make dosing decisions. Generally, this means looking at the current BG; subtracting the target; and applying your ISF (correction factor) to determine how much insulin is needed to correct the blood sugar to target. You can subtract any "insulin on board" from the amount needed. You can also add insulin needed to cover carbohydrates.
 
-The `determine-basal` algorithm requires 4 input files:
-* iob.json
-* currenttemp.json
-* glucose.json
-* profile.json
+In OpenAPS, we can do both a positive (more insulin) and a negative (less insulin) correction by making adjustments to your underlying basal rates to adjust insulin up or down to help bring the "eventual" BG into target. 
 
-In addition, the algorithm can accept 2 optional input files:
-* meal.json
-* autosens.json
+## OpenAPS decision inputs
 
-When running `oref0-determine-basal.js`, the first thing you'll see is a summary of all the inputs, which might look something like this:
+In OpenAPS, we take the same inputs you would use to manually decide what to do, but we also factor other things into our calculation.
 
-```
-{"carbs":0,"boluses":0}
-{"delta":5,"glucose":161,"short_avgdelta":4.5,"long_avgdelta":3.92}
-{"duration":0,"rate":0,"temp":"absolute"}
-{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}
-{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}
-```
+This includes:
 
-* meal.json = `{"carbs":0,"boluses":0}`
-  * `carbs` = # of carbs consumed
-  * `boluses` = amount of bolus insulin delivered
-  
-  Those data come from what you entered into your pump or Nightscout web app. If provided, allows determine-basal to decide when it is appropriate to enable Meal Assist.
-* glucose.json = `{"delta":5,"glucose":161,"short_avgdelta":4.5,"long_avgdelta":3.92}`
+* Blood glucose information
   * `delta` = change in BG between `glucose` (most recent BG) and an average of BG value from between 2.5 and 7.5 minutes ago (usually just a single BG value from 5 minutes ago)
   * `glucose` = most recent BG
   * `short_avgdelta` = change in BG between `glucose` (most recent BG) and an average of BG values from between 2.5 and 17.5 minutes ago (that average represents what BG levels were approximately 10 minutes ago)
   * `long_avgdelta` = change in BG between `glucose` (most recent BG) and an average of BG values from between 17.5 and 42.5 minutes ago (that average represents what BG levels were approximately 30 minutes ago)
+
+* Past insulin dosing information, pulled from your pump
+  * `iob` = Units of Insulin on Board (IOB), ***net*** of your pre-programmed basal rates. Net IOB takes all pre-programmed basal, OpenAPS temp basal, and bolus insulin into account. Note: `iob` can be negative when OpenAPS temp basal rate is below your pre-programmed basal rate (referred to as "low-temping"). *This will always be different than pump-calculated IOB, because it only takes into account boluses - ignore pump IOB.* This is a high level overview, but you can dive into more detail around how insulin activity is calculated [here](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/understanding-insulin-on-board-calculations.html).
+  * `basaliob` = Units of ***net*** basal Insulin on Board (IOB). This value does not include the IOB effects of boluses; just the difference between OpenAPS temp basal rates and your pre-programmed basal rates. As such, this value can be negative when OpenAPS has set a low-temp basal rate. 
+  * `bolusiob` = Units of bolus Insulin on Board. Does not take into account any temp basals.
+
+* We also add other calculations that we do to better predict and analyze what is happening:
+  * `dev` or `deviation` = how much actual BG change is deviating from the BGI 
+  * `BGI` (Blood Glucose Impact) = the degree to which BG “should” be rising or falling based on insulin activity alone. 
+  * `ISF` = ISF is anchored from the value in your pump; but if you use autotune and/or autosens, the ISF value shown is what is currently being used by OpenAPS, as modified by the Sensitivity Ratio
+  * `CR (Carb Ratio)` = As with ISF, it is anchored from the value in your pump; but if you use autotune and/or autosens, the CR value shown is what is currently being used by OpenAPS
+  * `Eventual BG `= what BG is estimated to be by the end of DIA
+  * `minGuardBG, IOBpredG, UAMpredBG` = eventual BG predictions based on 1) the lowest your BG is estimated to get over DIA; 2) predictions based on IOB only; and 3) predictions based on current deviations ramping down to zero at the same rate they have been recently. These represent the last entry on the purple prediction lines.
+  * `Sensitivity Ratio` = the ratio of how sensitive or resistant you are. This ratio is calculated by "Autosensitivity" (or "autosens"), and this ratio is applied to both basal and ISF to adjust accordingly. <1.0 = sensitive; >1.0 = resistant.  If your preferences allow it, sensitivityRatio can also be modified by temp targets.
+  * `Target` = pulled from your pump target; overridden if you have enacted a temporary target running.
   
-  Those data come from your connected CGM or from your Nightscout web app.
-* temp_basal.json = `{"duration":0,"rate":0,"temp":"absolute"}`
+You may also see information about settings, either from your pump or from your `preferences.json` file, that are limiting the insulin dosing decisions that OpenAPS would otherwise make. Make sure to [read the preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html) before you set up OpenAPS to understand what settings you have by default, and know how to get back to that page if you ever see a setting displayed in your pill. There is also [a handy chart with examples](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#a-few-examples) to help you understand how settings may impact the dosing output.
 
-  * `duration` = Length of time temp basal will run. A duration of 0 indicates none is running.
-  * `rate` = Units/hr basal rate is set to
-  * `temp` = Type of temporary basal rate in use. OpenAPS uses `absolute` basal rates only.
+## OpenAPS decision outputs
+
+After taking into account all of the above, oref0 will put out a recommendation of what needs to be done. This also includes the explanation of the variables above, so you can check and assess if you think it's doing the right thing. Generally, it will display all of the above values, plus the output of the decision of any temporary basal rates and/or boluses it decides it needs. This is the "reason" field.
+
+* Temp basals will be displayed with the `duration` (length of time temp basal will run. A duration of 0 indicates none is running) and `rate` (units/hr basal rate).
+* You may also see `insulinReq`, showing how much insulin is needed. This usually displays when OpenAPS is prepping to issue SMB's ([an advanced setting](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html)).
   
-  Those data come from your pump.
-* iob.json = `{"iob":0,"activity":0,"bolussnooze":0,"basaliob":0,"netbasalinsulin":0,"hightempinsulin":0,"time":"2017-03-17T00:34:51.000Z"}`
-  * `iob` = Units of Insulin on Board (IOB), ***net*** of your pre-programmed basal rates. Net IOB takes all pre-programmed basal, OpenAPS temp basal, and bolus insulin into account. Note: `iob` can be negative when OpenAPS temp basal rate is below your pre-programmed basal rate (referred to as "low-temping").
-  * `activity` = Units of insulin active in the previous minute. Approximately equal to (net IOB, 1 minute ago) - (net IOB, now).
-  * `bolussnooze` = Units of bolus IOB, if duration of insulin activity (DIA) was half what you specified in your pump settings. (`dia_bolussnooze_divisor` in profile.json is set by default to equal 2, but you may adjust this if you'd like OpenAPS to activate a low-temp sooner or later after bolusing.) `bolussnooze` is used in *oref0-determine-basal.js* to determine how long to avoid low-temping after a bolus while waiting for carbs to kick in.
-  * `basaliob` = Units of ***net*** basal Insulin on Board (IOB). This value does not include the IOB effects of boluses; just the difference between OpenAPS temp basal rates and your pre-programmed basal rates. As such, this value can be negative when OpenAPS has set a low-temp basal rate. Note: `max_iob` (described below) provides a constraint on how high this value can be. The `determine-basal` logic will not recommend a temp basal rate that will result in `basaliob` being greater than `max_iob`.
-  * `netbasalinsulin` = this variable isn't used in OpenAPS logic anymore, but hasn't been removed from iob.json yet.
-  * `hightempinsulin` = this variable isn't used in OpenAPS logic anymore, but hasn't been removed from iob.json yet.
-  * `time` = current time
+## OpenAPS examples
 
-  Those data are calculated based on information received from your pump.
-* preferences.json = `{"carbs_hr":28,"max_iob":1,"dia":3,"type":"current","current_basal":1.1,"max_daily_basal":1.3,"max_basal":3,"max_bg":120,"min_bg":115,"carbratio":10,"sens":40}`
-	* Contains all of the user’s relevant pump settings
+1. OpenPS rig issuing temp basals
 
-	* max_iob = maximum amount of net IOB that OpenAPS will ever allow when setting a high-temp basal rate. **This is an important safety measure and integral part of the OpenAPS design.** You should set this value based on your current basal rates and insulin sensitivity factor (ISF, or `sens` in the OpenAPS code) and after studying how the OpenAPS algorithm performs in low-glucose suspend mode for (at least) several days.
+![Rig setting a temp basal to slightly lower eventual BG](../Images/pill_example_temp_basal.png)
 
-	Those data are set during the OpenAPS setup script (or modified by you directly) and based on information received from your pump.
+In this example, a temp basal of 0.5u/hour has been enacted for 30 minutes. **Why?** BG is 104, which is above the target of 90, and eventualBG (101) is also above target. However, some of the predictions are *below* target, and so for safety, it is issuing a slightly lower temporary basal rate given the current level of IOB. 
 
-## Summary of outputs
+2. OpenAPS rig with SMB's enabled - issuing SMB's
 
-After displaying the summary of all input data, oref0-determine-basal outputs a recommended temp basal JSON (stored in suggested.json), which includes an explanation of why it's recommending that.  It might look something like this:
+**Note**: [SMB](../Images/http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) is an advanced feature you won't use until after you get familiar and experienced with OpenAPS basics. 
 
-```
-{"temp":"absolute","bg":110,"tick":-2,"eventualBG":95,"snoozeBG":95,"mealAssist":"Off: Carbs: 0 Boluses: 0 Target: 117.5 Deviation: -15 BGI: 0","reason":"Eventual BG 95<115, setting -1.15U/hr","duration":30,"rate":0}
-```
+![Issuing SMB's](../Images/pill_example_SMB_issuing_SMB.png)
 
-In this case, BG is 110 mg/dL (6.1 mmol/L), and falling slowly.  With zero IOB, you would expect BG to be flat, so the falling BG generates a "deviation" from what's expected.  In this case, because avgdelta is -2.5 mg/dL/5m (-0.1 mmol/L/5m), vs. BGI of 0, that avgdelta is extrapolated out for the next 30 minutes, resulting in a deviation of -15 mg/dL (-0.8 mmol/L).
+In this example, the eventualBG (170) is much higher than target (90). As you can see, BG is expected to be dropping (BGI: -15.92) but it is in fact rising (Dev: 165), with 47 carbs on board. Therefore, 1.58u of insulin is estimated to be needed. Per the safety design for SMB, OpenAPS is setting a zero temp for safety, followed by microbolusing 0.4U. You can also see the previous run, which also included a long zero temp for safety with a 0.2U microbolus. 
 
-deviation = avgdelta * 6 (or every 5 minutes for the next 30 minutes) = -15 mg/dL (-0.8 mmol/L).
+3. OpenAPS rig with SMB's enabled - setting a low temp
 
-The deviation is then applied to the current BG to get an eventualBG of 95 mg/dL (5.3 mmol/L).  There is no bolussnooze IOB, so snoozeBG is also 95  mg/dL (5.3 mmol/L), and because (among other things) avgdelta is negative, mealAssist remains off.  To correct from 95 mg/dL (5.3 mmol/L) up to 115 mg/dL (6.4 mmol/L) would require a -1.15U/hr temp for 30m, and since that is impossibly low, determine-basal recommends setting a temp basal to zero and stopping all insulin delivery for now.
+![Setting a zero temp after SMB's](../Images/pill_example_SMB_low_temp.png)
 
-Full definition of suggested.json:
-* temp = type of temporary basal - always "absolute"
-* bg = current blood glucose
-* tick = change since last blood glucose
-* eventualBG = predicted value of blood glucose (based on openaps logic) after full effect of IOB
-* snoozeBG = predicted value of blood glucose adjusted for bolussnooze IOB
-* predBGs = predicted blood sugars over next N minutes based on OpenAPS logic, in 5 minute increments
-* IOB = net insulin on board
-* reason = summary of why the decision was made
-* duration = time for recommended temp basal
-* rate = rate of recommended temp basal in units/hour
+In this example, you can see that after a meal (40g carb with a 5u meal bolus, and a subsequent 10g with 1.2u bolus), BG was rising more than expected and SMB's were issued. At the point in time the logs/pill was analyzed, it showed that BG was 179 and it set a zero temp basal rate for 90 minutes. **Why?** There were still ~15 grams of carb on board, but deviations were much higher than what was expected to happen at this point in time (Dev: 45, BG: -4.5, meaning the BG was expected to be dropping but was still rising). But, given the time period in which insulin can take effect, the current amount of IOB was such that most of the predBGs were below target. Therefore, the safe thing to do is to low temp at this point in time. 
 
-## Understanding “Advanced Meal Assist” (AMA) and the three purple lines
+## Understanding the purple prediction lines
 
-OpenAPS can high-temp more quickly after a meal bolus if it knows about carbs (which you can enter from either the bolus wizard, or if your rig is online, via Nightscout and/or IFTTT (Alexa, Siri, Pebble). 
-
-With AMA, once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have multiple purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.)
-
-* (Usually) Top line == assumes 10 mg/dL/5m carb (0.6 mmol/L/5m) absorption  - aka "aCOB" (see notes below about removing it in 0.6.0 and later)
-
-* (Usually) Middle line == based on current carb absorption (if current carb absorption is > 10 mg/dL/5m, this will end up being the top line)
-
-* Bottom line == based on insulin only
-
-The purple lines in Nightscout have changed beginning in oref0 0.6.0 and beyond. We are removing aCOB (unused by everyone) and subbing in a "zero temp"-predBG line (ZTpredBG, etc.) showing how long it will take BG to level off at/above target if deviations suddenly cease and we run a zero temp until then. It then uses the lowest of those ZTPredBGs to ensure that we're dosing safely with UAM: if UAM predicts BG to stay high (based on deviations), but we wouldn't be able to prevent a low if those deviations suddenly stopped, we'll adjust the UAM-based insulinReq to be somewhat less aggressive. Conversely, if UAM shows BG ending up below target in 4h, but the ZTPredBGs show that we can safely zero temp and level out well above target, it will allow oref0 to be slightly more aggressive and bring BG down faster, safe in the knowledge it can zero temp if needed. NOTE: you will require an update to NS to view the new line. 
-
-## Using temporary targets for “Eating Soon” mode and “Activity” modes
-
-Setting temporary targets is a great way to smoothly (safely) make adjustments using your closed loop instead of manually having to make as many adjustments. The two most frequent scenarios for temp targets are when you plan on eating or exercising, and you want to get all of your parameters (e.g., Insulin On Board - IOB) at an ideal value to keep BGs as flat as possible. Temporary or "temp" targets are ideal for when you want the loop to adjust to a different target level for a short period of time (temporarily) and don't want to hassle with changing targets in the pump (which is where OpenAPS normally pulls targets from). 
-
-Let's take "Eating Soon Mode" as an example. You know you'll be eating lunch in an hour, so you set a temporary target of 80 mg/dL (4.4 mmol/L) over the next hour. Because your blood glucose will go lower, it's a good practice to make sure your sensor is reliable and check you blood glucose before setting the temporary target. Otherwise you may cause a hypo. If your OpenAPS rig is connected to the Internet, it will pull the target from Nightscout and treat to the temporary target, rather than your usual closed loop target. The outcome of this means you'll have more IOB peaking closer to when you're eating, and that (along with your usual meal bolus) will help reduce the post-meal BG spike. There's some **really important background information** you should understand for this, so be sure and read through the DIYPS blog entries about it ([How to do "eating soon" mode](https://diyps.org/2015/03/26/how-to-do-eating-soon-mode-diyps-lessons-learned/) and [Picture this: How to do "eating soon" mode](https://diyps.org/2016/07/11/picture-this-how-to-do-eating-soon-mode/)).
-
-"Activity Mode" sets temporary targets that are higher than your normal targets, so you will want to set these with knowledge of how different activity affects your BG. You're doing essentially the same things as with Eating Soon Mode, but instead of setting a *lower* target to increase IOB, you're setting a *higher* target to provide a "cushion" to avoid a low that may occur as a result of the activity you're planning. With a higher target, if connected to the Internet so your rig knows about it, it will only do temps with the temporary high target, to provide that "cushion". You may want to consider setting activity mode *prior* to activity, in order to reduce the peak net IOB you have when activity commences. (Example would be setting activity mode to 140 mg/dL (7.8 mmol/L) one hour before you go for a hard run after dinner, to help reduce the impact of any meal time insulin that would otherwise be peaking at the time. You may still have to do carbs or other strategies to fully prevent lows, but this is one approach to help - as is being aware of net IOB going into any type of activity.)
-
-Once you have a good idea of how you would set those parameters for your system, you'll be ready to set some temporary targets. You can test this out manually by entering a temporary target using [Care Portal](http://www.nightscout.info/wiki/faqs-2/wifi-at-school/nightscout-care-portal) in Nightscout. You'll see your temporary target appear as a grey bar in Nightscout, spanning the length of the time frame you entered. You can also cancel the temporary targets via Care Portal. 
-
-When you're ready to use this regularly, you can also configure IFTTT to trigger a temporary basal from your Pebble/Apple Watch, etc., or via an [Alexa skill](https://github.com/nightscout/cgm-remote-monitor#alexa-amazon-alexa). You'll find a breakdown of how to use IFTTT on the next page.
-
-
+Once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have multiple purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.) These purple lines show you the different predictions based on current carb absorption; insulin only; and showing how long it will take BG to level off at/above target if deviations suddenly cease and we run a zero temp until then.
 
 ## Exploring further
 
 For each different situation, the determine-basal output will be slightly different, but it should always provide a reasonable recommendation and list any temp basal that would be needed to start bringing BG back to target.  If you are unclear on why it is making a particular recommendation, you can explore further by searching lib/determine-basal/determine-basal.js (the library with the core decision tree logic) for the keywords in the reason field (for example, "setting" in this case would find a line (`rT.reason += ", setting " + rate + "U/hr";`) matching the output above, and from there you could read up and see what `if` clauses resulted in making that decision.  In this case, it was because (working backwards) `if (snoozeBG > profile.min_bg)` was false (so we took the `else`), but `if (eventualBG < profile.min_bg)` was true (with the explanatory comment to tell you that means "if eventual BG is below target").
 
-If after reading through the code you are still unclear as to why determine-basal made a given decision (or think it may be the wrong decision for the situation), please join the #intend-to-bolus channel on Gitter, paste your output and any other context, and we'll be happy to discuss with you what it was doing and why, and whether that's the best thing to do in that and similar situations.
+If after reading through the code you are still unclear as to why determine-basal made a given decision (or think it may be the wrong decision for the situation), please join the [#intend-to-bolus channel on Gitter](https://gitter.im/nightscout/intend-to-bolus) or another support channel, paste your output and any other context, and we'll be happy to discuss with you what it was doing and why, and whether that's the best thing to do in that and similar situations.
 
 ## Note about Square Boluses, Dual Wave Boluses, and Basal Pump Settings of Zero
 
-Due to the way the Medtronic pumps operate, temp basals can only be set when there is no bolus running, including extended (square) / dual wave boluses.  
-
-Thus, if you use an extended bolus for carb heavy meals (e.g., pizza), which may still be the optimal approach for you, OpenAPS will not be able to provide temp basals during the extended bolus.
+Due to the way the Medtronic pumps operate, temp basals can only be set when there is no bolus running, including extended (square) / dual wave boluses. Thus, if you use an extended bolus for carb heavy meals (e.g., pizza), which may still be the optimal approach for you, OpenAPS will not be able to provide temp basals during the extended bolus.
 
 If you have periods in the day where your pump normally has basal settings of zero, your loop will not work!  You can resolve this by setting the lowest possible basal setting your pump will permit.  OpenAPS will then issue temp basals of zero, as needed.

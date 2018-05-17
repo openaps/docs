@@ -173,6 +173,10 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 ## Workflow to custom enter carbs and temp targets from Today widget on iPhone
 
+Workflow is a helpful app that can be displayed on the Today widget to easily enter custom carb entries (rather than relying on pre-set amounts) and also custom temporary targets on the fly. 
+
+![Workflow examples](../Images/Workflow_examples.png)
+
 1) Install the Workflow app on your phone from the App Store. 
 
 2) Swipe through the introduction pages, and then you'll be forced to pick a sample workflow to get started. (Don't worry, you can delete it at the end of setting up the OpenAPS-related workflows. Just pick one of the samples for now and tap through to allow you to progress through the entry screen.  The `Directions Home` one is pretty easy to get through fast.  In a few minutes when you are done setting up your OpenAPS-related workflows, simply go back to the `My Workflows` main view in the app, click on the `edit` button in upper left corner, tap on the sample workflow app that you want to delete, and then click the trashcan icon in the upper right corner.)
