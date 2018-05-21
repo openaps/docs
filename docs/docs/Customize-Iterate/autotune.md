@@ -60,7 +60,10 @@ mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdi
 ```
 
 **To run Autotune manually:** 
-* `oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` 
+
+```
+oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD
+``` 
   * obviously, sub in your NS url and the start date you want to start with
   * If you change your pump settings, you will need to re-copy your pump settings back into `newdirectory`
 
@@ -179,7 +182,11 @@ Mac install commands:
 <br>
 
 **Step 2: Install oref0**
-* Install the latest version of oref0: `npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)`
+* Install the latest version of oref0: 
+
+```
+npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)
+```
 
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
@@ -248,7 +255,10 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 * F. Create a third file from the command line by running: `cp profile.json autotune.json`
 
 **Step 4: Run autotune on retrospective data from Nightscout**
-* Run `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net [--start-date=YYYY-MM-DD] [--categorize-uam-as-basal=true|(false)]`
+* Run 
+```
+oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net [--start-date=YYYY-MM-DD] [--categorize-uam-as-basal=true|(false)]
+```
 * ^ Sub in your Nightscout URL. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).  The start date should be the older date, the end date is the more recent date.
