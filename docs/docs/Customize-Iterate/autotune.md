@@ -46,9 +46,9 @@ Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb r
 
 ### Different ways to utilize Autotune
 
-Phase A - run autotune as a one-off on an OpenAPS rig (aka, manually)
-Phase B - run autotune nightly in an OpenAPS rig (**DEFAULT OPENAPS BEHAVIOR**)
-Phase C - run autotune as a "one-off" on a computer of your choice. 
+* Phase A - run autotune as a one-off on an OpenAPS rig (aka, manually)
+* Phase B - run autotune nightly in an OpenAPS rig (**DEFAULT OPENAPS BEHAVIOR**)
+* Phase C - run autotune as a "one-off" on a computer of your choice. 
 
 #### Phase A: Running Autotune manually in OpenAPS 
 
@@ -97,7 +97,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
 **Step 1a: Run via a cloud-based virtual machine**
 
 <details>
-    <summary><b>Click here to expand the instructions for building via a cloud-based virtual machine:</b></summary>
+    <summary>Click here to expand the instructions for building via a cloud-based virtual machine:</summary>
 <br>
  
  * To run a Linux VM on a cloud server, free options include [AWS](https://aws.amazon.com/free/) (free for 1 year) and [Google Cloud](https://cloud.google.com/free/) (free trial for a year; about $5/mo after that).  If you're willing to pay up front, Digital Ocean is $5/mo and very fast to set up. AWS may take a day to spin up your account, so if you're in a hurry, one of the others might be a better option.
@@ -116,7 +116,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
  **Step 1b: Run via a Windows-based virtual machine**
  
 <details>
-    <summary><b>Click here to expand the instructions for building via a Windows-based virtual machine:</b></summary>
+    <summary>Click here to expand the instructions for building via a Windows-based virtual machine:</summary>
 <br>
  
  * An easy way to start is the [VirtualBox](https://www.virtualbox.org/wiki/Downloads) as VM and Ubuntu as Linux OS. Step-by-step setup instructions can be found here: https://www.youtube.com/watch?v=ncA85gRAJxk. However **skip** the instructions for downloading Ubuntu (time stamp 1:15 to 2:12) because those instructions are now outdated. Download the correct 32 bit version from this link: http://releases.ubuntu.com/17.04/ubuntu-17.04-desktop-i386.iso and then go back to the Youtube video to follow the setup instructions for installing Ubuntu on VirtualBox. If you experience problems with this version 17.04 of Ubuntu you can try the LTS version of Ubuntu, which has worked for some. Here is the link for Ubuntu LTS: https://www.ubuntu.com/download/desktop/thank-you?version=16.04.3&architecture=amd64. After downloading the LTS version go back to the Youtube video to follow the setup instructions for installing Ubuntu on VirtualBox.
@@ -129,7 +129,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
 **Step 1c: Prep your Mac**
 
 <details>
-    <summary><b>Click here to expand the instructions for building via your Mac:</b></summary>
+    <summary>Click here to expand the instructions for building via your Mac:</summary>
 <br>
  
 * MAC USERS: Follow these steps instead of 1a / 1b above if you want to run autotune on your Mac. (Mac users can instead do the above instructions if they prefer to create a Linux virtual machine to run it on):
@@ -151,7 +151,7 @@ Mac install commands:
  **Step 1d: Run on a Windows 10 computer using the Windows Subsystem for Linux (WSL)**
  
 <details>
-    <summary><b>Click here to expand the instructions for building via a Windows 10 computer using the Windows Subsystem for Linux (WSL):</b></summary>
+    <summary>Click here to expand the instructions for building via a Windows 10 computer using the Windows Subsystem for Linux (WSL):</summary>
 <br>
  
  * You must be running Windows 10 on your computer to use this option. The Windows Subsystem for Linux (WSL) is a Windows 10 feature  that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
