@@ -45,7 +45,6 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
    Understand your rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
    How OpenAPS makes decisions <docs/While You Wait For Gear/Understand-determine-basal>
-   Understanding netIOB calculations <docs/While You Wait For Gear/understanding-insulin-on-board-calculations>
    Monitoring OpenAPS <docs/While You Wait For Gear/monitoring-OpenAPS>
    Preferences and Safety Settings <docs/While You Wait For Gear/preferences-and-safety-settings>
    Understanding your wifi options <docs/While You Wait For Gear/understanding-wifi-options>
@@ -64,15 +63,16 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :glob:
    :caption: Customize-Iterate
 
+   Optimizing Your Settings <docs/Customize-Iterate/optimize-your-settings>
+   Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
    Enable Bluetooth tethering <docs/Customize-Iterate/bluetooth-tethering-edison>
+   Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
+   Useful mobile apps </docs/Customize-Iterate/useful-mobile-apps>
    IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
    Autosens <docs/Customize-Iterate/autosens>
    Autotune <docs/Customize-Iterate/autotune>
    Understanding Autotune <docs/Customize-Iterate/understanding-autotune>
    oref1: SMB and UAM <docs/Customize-Iterate/oref1>
-   Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
-   Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
-   Useful mobile apps </docs/Customize-Iterate/useful-mobile-apps>
    Tips & tricks <docs/Customize-Iterate/usability-considerations>
    Update your rig in the future <docs/Customize-Iterate/update-your-rig>
    How to run oref0-setup.sh again <docs/Customize-Iterate/oref0-runagain>
