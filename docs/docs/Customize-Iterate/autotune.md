@@ -54,14 +54,14 @@ Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb r
 
 If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line. You will want to do this in a different directory on your rig if you do not want OpenAPS to use the autotune settings by default.
 
-* Run this command to create a `newdirectory` and copy over the profile and pump settings files: `mkdir -p ~/newdirectory/settings && cd ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdirectory/settings/autotune.json && cp ~/myopenaps/settings/pumpprofile.json ~/newdirectory/settings/pumpprofile.json`
+* Run this command to create a `newdirectory` and copy over the profile and pump settings files: `mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdirectory/settings/autotune.json && cp ~/myopenaps/settings/pumpprofile.json ~/newdirectory/settings/pumpprofile.json`
 
 **To run Autotune manually:** 
 * `oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` 
   * obviously, sub in your NS url and the start date you want to start with
   * If you change your pump settings, you will need to re-copy your pump settings back into `newdirectory`
 
-**Note:** If you did this correctly in your `newdirectory`, settings will not be used by OpenAPS. You will need to `cat-autotune` inside of `newdirectory` to see your autotune recommendations, and it will only run when you manually run it. The recommended behavior is to run Autotune inside of your OpenAPS directory, per Phase B, which is the default and will automatically run every night and have OpenAPS use the settings from Autotune automatically.
+**Note:** If you did this correctly in your `newdirectory`, settings will not be used by OpenAPS. You will need to `cd ~/newdirectory/autotune && cat autotune_recommendations.log` to see your autotune recommendations, and autotune will only run when you manually run it. The recommended behavior is to run Autotune inside of your OpenAPS directory, per Phase B, which is the default and will automatically run every night and have OpenAPS use the settings from Autotune automatically.
 
 #### Phase B: Running Autotune automatically in OpenAPS 
 
