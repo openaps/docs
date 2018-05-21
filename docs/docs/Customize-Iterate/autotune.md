@@ -69,15 +69,20 @@ In oref0 0.6.0 and beyond, autotune will run by default. This means that autotun
 
 **Important** When autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately, you should run autotune manually to have it re-pull the settings from the pump and tune from the new settings.
 
-##### How to copy over autotune files from another rig:
+#### How to copy over autotune files from another rig:
 
-If you have multiple rigs and would like to sync up autotune results, or move an existing autotune over to a brand new rig, you'll want to copy files over.
+<details>
+    <summary> If you have multiple rigs and would like to sync up autotune results, or move an existing autotune over to a brand new rig, you'll want to copy files over. <b>(Click to expand these instructions)</b></summary>
+<br>
 
 Log into the NEW rig and run the following command: 
 `scp -r root@my-edison-original.local:~/myopenaps/autotune/ ~/myopenaps/autotune` (where "my-edison-original" is substituted for your rig name that you want to copy files from)
 
 * You'll be asked for your my-edison-original rig's password (where you are copying FROM).
 * This will copy everything in the autotune directory over.
+
+</details>
+<br>
 
 #### Phase C: Running Autotune for suggested adjustments without an OpenAPS rig
 
