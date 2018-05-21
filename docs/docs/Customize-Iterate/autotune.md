@@ -54,7 +54,10 @@ Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb r
 
 If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line. You will want to do this in a different directory on your rig if you do not want OpenAPS to use the autotune settings by default.
 
-* Run this command to create a `newdirectory` and copy over the profile and pump settings files: `mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdirectory/settings/autotune.json && cp ~/myopenaps/settings/pumpprofile.json ~/newdirectory/settings/pumpprofile.json`
+* Run this command to create a `newdirectory` and copy over the profile and pump settings files: 
+```
+mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdirectory/settings/autotune.json && cp ~/myopenaps/settings/pumpprofile.json ~/newdirectory/settings/pumpprofile.json
+```
 
 **To run Autotune manually:** 
 * `oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD` 
