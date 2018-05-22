@@ -2,7 +2,7 @@
 
 ### Download Raspbian and write it to your microSD card ###
 
-Following the (install instructions)[https://www.raspberrypi.org/documentation/installation/installing-images/README.md], download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
+Following the [install instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md), download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
 
 ### Place your wifi and ssh configs on the new microSD card ###
 
@@ -27,7 +27,7 @@ Eject the microSD card from your computer, insert it into your Pi, and plug in p
 
 On Mac, open Terminal and `ssh pi@raspberrypi.local`
 
-On Windows, use PuTTY anc establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. 
+On Windows, use PuTTY and establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. 
 
 The default password for logging in as `pi` is `raspberry`.  The `pi` username and default password is only used for this initial connection: subsequently you'll log in as `root` with a password and rig hostname of your choosing.
 
