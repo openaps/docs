@@ -99,7 +99,6 @@ Make sure that at the end of the setup script, your log rotate file is set to `d
 
 **************************
 
-
 ## Step 5: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
@@ -111,6 +110,9 @@ It's easy: simply type the letter `l` (short for "log", aka the very important p
 If this is your first rig, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
 ![First loop common messages](../Images/build-your-rig/first-loop.png)
+<details>
+    <summary><b>Click here</b> to expand the explanation of the non-error messages</summary>
+<br>
 
 When your loop very first starts, if you are quick enough to get into the logs before the first BG is read, you will likely see: 
 ```
@@ -164,6 +166,9 @@ and
 "carbs":0, "reason": "not enough glucose data to calculate carb absorption"
 ```
 Advanced meal assist requires at least 36 BG readings before it can begin to calculate its necessary data. So after about three hours of looping these messages will clear out.  You can watch the count-up of "found" BG readings and know when you are getting close.  
+
+</details>
+<br>
 
 #### What you'll see when you are looping successfully ~20+ minutes later!
 
