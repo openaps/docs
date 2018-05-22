@@ -19,7 +19,13 @@ network={
 }
 ```
 
-Also create an empty file named `ssh` (with no file extention) to enable SSH login to the Pi.
+To enable SSH login to the Pi, you will need to create an empty file named `ssh` (with no file extention).
+On Windows, you can make this file appear on your Desktop by opening the command prompt and typing:
+```
+cd %HOMEPATH%\Desktop
+type NUL > ssh
+```
+When you are done, copy it to the boot drive of your SD card.
 
 ### Boot up your Pi and connect to it ###
 
