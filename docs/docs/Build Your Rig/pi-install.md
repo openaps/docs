@@ -20,6 +20,11 @@ network={
 ```
 
 Also create an empty file named `ssh` (with no file extention) to enable SSH login to the Pi.
+On Windows, you can make this file appear on your Desktop by opening the command prompt and typing:
+```
+cd %HOMEPATH%\Desktop
+type NUL > ssh
+```
 
 ### Boot up your Pi and connect to it ###
 
