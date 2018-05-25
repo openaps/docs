@@ -17,6 +17,11 @@ The amount of Insulin on Board (IOB) at any given moment is a key input into the
      
 ## Insulin Activity
 
+NOTE: This page needs updating to reflect the fact that bilinear curves are now deprecated, and exponential curves are now the default.
+
+<details>
+     <summary><b>Click here</b> to expand this mostly out-of-date section</summary><br>
+
 The code in [oref0/lib/iob/calculate.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js) calculates a variable called `activityContrib`, which has two components: `treatment.insulin` and a component referenced here as `actvity`.  The unit of measurement for `treatment.insulin` is *units of insulin*; the unit of measurement for `activity` is *percent of insulin used each minute* and is used to scale the `treatment.insulin` value to *units of insulin used each minute*. (There is no variable `activity` created in [oref0/lib/iob/calculate.js](https://github.com/openaps/oref0/blob/master/lib/iob/calculate.js). There is, however, a variable called `activity` created in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js), which represents a slightly different concept. See the FINAL NOTE, below, for more details.)
 
 There are three key assumptions the OpenAPS algorithm makes about how insulin activity works in the body:
@@ -90,6 +95,7 @@ Finally, two sources to benchmark the `iob` curves against can be found [here](h
 
 >The `activity` and `iob` concepts plotted here are expressed in percentage terms and are used to scale the `treatment.insulin` dosage amounts, so the units for the `activityContrib` and `iobContrib` variables are *units of insulin per minute* and *units of insulin remaining at each minute*, repectively. Because the `activity` and `iob` variables in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) are just the sums of all insulin treatments, they're still in the same units of measurements: *units of insulin per minute* and *units of insulin remaining each minute*.
 
+</details><br>
 ---
 
 # Understanding the New IOB Curves Based on Exponential Activity Curves
