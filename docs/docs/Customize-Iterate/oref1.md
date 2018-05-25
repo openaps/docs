@@ -9,6 +9,7 @@ You may be interested in doing no-bolus with SMB.
 Do not combine turning on SMB and trying to do no-bolus or partial-bolus meals at the same time. 
 Take steps one by one to turn on SMBs; validate that SMBs are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
 ```
+* See this page on [optimizing settings](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/optimize-your-settings.html#optimizing-your-settings) for reminders and tips on changing one thing at a time.
 
 ## Only run oref1 with the following caveats in mind: 
 
