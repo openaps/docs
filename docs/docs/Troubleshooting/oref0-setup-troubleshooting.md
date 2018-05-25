@@ -37,6 +37,7 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is near your rig. Closer is better, e.g. check if it works when the pump and rig are at most 20 inches (50 cm) apart.
 * Check that your pump battery is not empty.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
+* If using a pump that has been without power for some time, it is a good practice to set a small temporary basal and bolus before trying to loop.  Otherwise, you could see seemingly-unrelated errors in your log files as OpenAPS attempts to loop with missing information.
 * Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the following display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * Check to make sure your carelink and/or radio stick is plugged in.
 * Check to make sure your receiver is plugged in, if you're plugging a receiver in.
