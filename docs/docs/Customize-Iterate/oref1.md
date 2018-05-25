@@ -4,6 +4,11 @@ NOTE OF CAUTION:
 * oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
 * You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail, before you enable oref1-related features.
 * If running more than one rig, you will want to make sure all rigs are running an SMB-aware oref0 version (release 0.5.1 or higher) before enabling SMB on any of them (even if SMB is not enacted on all rigs, all rigs need to know about it).
+```
+You may be interested in doing no-bolus with SMB. 
+Do not combine turning on SMB and trying to do no-bolus or partial-bolus meals at the same time. 
+Take steps one by one to turn on SMBs; validate that SMBs are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
+```
 
 ## Only run oref1 with the following caveats in mind: 
 
