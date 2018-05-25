@@ -257,7 +257,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 **Step 4: Run autotune on retrospective data from Nightscout**
 * Run 
 ```
-oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net [--start-date=YYYY-MM-DD] [--categorize-uam-as-basal=true|(false)]
+oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD 
 ```
 * ^ Sub in your Nightscout URL. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
