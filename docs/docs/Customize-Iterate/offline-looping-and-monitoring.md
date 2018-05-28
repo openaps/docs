@@ -52,6 +52,31 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
    
 **NOTE: Lookout, Logger (xdrip-js-logger), and xdrip-js library should be considered a WIP (Work In Progress), i.e., do not use if you cannot watch your BG and loop very carefully, and tolerate issues, failures, idiosynchrosies. Also please plan on contributing either through testing and feedback, updates, documentation, etc.**
    
+Testing a cleaner table:
+
+
+| Feature        | Lookout           | Logger  |
+| ------------- |:-------------:| -----:|
+| Still unfinished, i.e., a work-in-progress? 	| Yes |	Yes |
+Rig continues updating BG and looping while offline using xdripAPS? 	|Yes |	Yes |
+Offline (network) mode supports backfill to Nightscout? 	|? 	|Yes |
+Offline (away from transmitter times) supports backfill? 	|No |	No |
+Uses Dexcom official calibration? |	Yes |	Yes|
+Can use with expired/battery replaced transmitter? 	|In Dev |	Yes|
+Can interact with rig-hosted web page? (e.g., for calibration, start/stop sensor) 	|Yes |	No, can use rig cmd line|
+Also able to calibrate and start/stop sensor thru receiver? 	|Yes |	No|
+Calibrate through Web/Nightscout? 	|Yes (local rig Web UI)| 	Yes|
+Calibrate through pump-connected meter (e.g., Contour Next Link)? 	|No |	Yes|
+Calibrate from command line? |	No |	Yes|
+Linear Squared Regression Calibration |	Yes, for > 7 day extension| 	Yes|
+Single Point Linear Calibration 	|Yes, for > 7 day extension |	Yes|
+Calculate and send Noise with entries |	Yes |	Yes|
+Calculate glucose trending |	Yes| 	Yes|
+Start Stop Sensor 	|Yes via UI 	|Yes via NS/cmd line|
+Reset Expired Transmitter 	|No 	|Yes via cmd line|
+Support mmol |	Yes |	for Meter-Pump Calibration|
+View transmitter battery/resistance levels |	No |	Yes|
+   
    A summary of their features:
    
   <table>
