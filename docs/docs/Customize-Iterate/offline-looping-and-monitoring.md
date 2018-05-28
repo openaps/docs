@@ -226,7 +226,7 @@ With xDripAPS, data flow is as follows:
 
 OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the xDrip+ Android app delimited by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
 
-#### Setup Steps (using oref0-setup.sh script)
+#### Setup Steps (using oref0-setup.sh script) for xDripAPS
 
 <details>
 <br>
@@ -275,12 +275,11 @@ Be careful when entering the addresses - xDripAPS uses the http protocol, Nights
 </details>
 <br>
    
-
-#### Known limitations
+#### Known limitations of xDripAPS
 * xDripAPS does not process anything other than CGM data. If you use the xDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
 * Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or WiFi as long as there are carbs on board.
 
-#### Manual installation steps
+#### Manual installation steps for xDripAPS
 
 It is strongly recommended that you use the oref0-setup script as described above, rather than installing manually.
 
