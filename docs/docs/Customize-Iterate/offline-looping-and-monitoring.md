@@ -228,6 +228,12 @@ OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter
 
 #### Setup Steps (using oref0-setup.sh script)
 
+<details>
+<br>
+  
+  <summary><b>Click here</b> to expand the setup instructions for using oref0-setup.sh</summary>
+   
+
 ##### Setting up your OpenAPS rig
 Install OpenAPS as per the documentation. While running the oref0-setup script you will be prompted to specify a CGM source. Enter "xdrip" (without the quotes). The setup script takes care of the rest! Follow the remainder of the setup script as normal.
 
@@ -266,6 +272,10 @@ https://<nightscout_api_secret>@<yournnightscoutsite>.herokuapp.com/api/v1/ http
 ```
 Be careful when entering the addresses - xDripAPS uses the http protocol, Nightscout uses the https protocol.
 
+</details>
+<br>
+   
+
 #### Known limitations
 * xDripAPS does not process anything other than CGM data. If you use the xDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
 * Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or WiFi as long as there are carbs on board.
@@ -273,6 +283,12 @@ Be careful when entering the addresses - xDripAPS uses the http protocol, Nights
 #### Manual installation steps
 
 It is strongly recommended that you use the oref0-setup script as described above, rather than installing manually.
+
+<details>
+<br>
+  
+  <summary><b>Click here</b> to expand the setup instructions for installing manually (not recommended)</summary>
+   
 
 1. Install SQLite3 -
 
@@ -322,4 +338,6 @@ It is strongly recommended that you use the oref0-setup script as described abov
   openaps device add xdrip process 'bash -c "curl -s http://localhost:5000/api/v1/entries?count=288"'
   openaps report add monitor/glucose.json text xdrip shell
   ```
-  
+
+</details>
+<br>  
