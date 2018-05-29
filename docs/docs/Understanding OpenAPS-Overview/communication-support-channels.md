@@ -10,9 +10,9 @@ There are several ways to communicate with other participants and contributors i
 
 One huge resource is this documentation. We recommend bookmarking the [link](http://openaps.readthedocs.org/en/latest/) to the docs, as they are frequently updated (sometimes daily!) as we add more information, troubleshooting tips, and more. Anytime we are asked a question on one of the below channels, we try to add it to the documentation. So chances are, your question may already be answered here!
 
-#### Tips for navigating the documentaiton
+#### Tips for navigating the documentation
 
-You may notice that the left hand side of the documentation has navigation. It is organized in order of setting up OpenAPS, and has various sections on finding your gear; what you should do before you build a rig; how to setup up your rig; and additional  features and tips and tricks for optimizing your looping setup. 
+You may notice that the left hand side of the documentation has navigation. It is organized in order of setting up OpenAPS, and has various sections on finding your gear; what you should do before you build a rig; how to setup up your rig; and additional  features and tips and tricks for optimizing your looping setup. This navigation is long, you can mouse over the section and scroll down to see all the pages listed in the top-level navigation!
 
 ![Show documentation navigation](../Images/Understand_documentation_basic_1.png)
 
