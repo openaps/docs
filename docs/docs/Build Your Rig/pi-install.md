@@ -11,6 +11,7 @@ Once Etcher has finished writing the image to the microSD card, remove the micro
 Create a file named wpa_supplicant.conf on the boot drive, with your wifi network(s) configured.  It should look something like:
 
 ```
+country=xx
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
@@ -18,6 +19,8 @@ network={
   psk="MyWirelessPassword"
 }
 ```
+
+You will need to replace xx after country with the correct ISO3166-1 Alpha-2 country code for your country - otherwise WiFi is disabled on the Pi.
 
 To enable SSH login to the Pi, you will need to create an empty file named `ssh` (with no file extention).
 On Windows, you can make this file appear on your Desktop by opening the command prompt and typing:
