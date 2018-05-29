@@ -20,6 +20,10 @@ You may notice that the left hand side of the documentation has navigation. It i
 
 ![Show troubleshooting section of docs](../Images/Troublshooting_docs_section.png)
 
+You'll also notice that there is more content than just these high-level pages! If you click on a link in the left, many of them expand to show the sub-sections include, which make it easy to jump directly to the section you're looking for. If there is a `+`, that means there is more content you can expand.
+
+![Show how menu expands in the navigation of the docs](../Images/Show_nav_expand.png)
+
 #### The docs also have their own search function!
 
 See the top left of the docs for the search box. It's helpful to search *inside* the documentation itself, rather than Google, because you'll stay inside the most up to date version of the documentation. You may want to try a different word or shorter phrase if you don't get any results for your search phrase, as we may have worded a section differently.
