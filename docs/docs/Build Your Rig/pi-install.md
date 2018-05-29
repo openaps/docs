@@ -20,7 +20,7 @@ network={
 }
 ```
 
-You will need to replace xx after country with the correct ISO3166-1 Alpha-2 country code for your country - otherwise WiFi is disabled on the Pi.
+You will need to replace xx after country with the correct ISO3166-1 Alpha-2 country code for your country (such as US, UK, DE, etc) - otherwise wifi will remain disabled on the Pi.
 
 To enable SSH login to the Pi, you will need to create an empty file named `ssh` (with no file extention).
 On Windows, you can make this file appear on your Desktop by opening the command prompt and typing:
