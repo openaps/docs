@@ -4,11 +4,9 @@ NOTE OF CAUTION:
 * oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
 * You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail, before you enable oref1-related features.
 * If running more than one rig, you will want to make sure all rigs are running an SMB-aware oref0 version (release 0.5.1 or higher) before enabling SMB on any of them (even if SMB is not enacted on all rigs, all rigs need to know about it).
-```
-You may be interested in doing no-bolus with SMB. 
-Do not combine turning on SMB and trying to do no-bolus or partial-bolus meals at the same time. 
-Take steps one by one to turn on SMBs; validate that SMBs are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
-```
+* SMB is about front-shifting insulin activity. It is NOT a synonym for no-bolus, although it can enable no-bolus options (with very close monitoring and testing). But you should first test SMB with your existing bolus method.
+   * Take steps one by one to turn on SMBs; validate that SMBs are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
+   * Do not combine turning on SMB and trying to do no-bolus or partial-bolus meals at the same time. 
 * Make sure you have your easy bolus button on ([details here](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/collect-data-and-prepare.html#easy-bolus-button)) and know how to deliver boluses without using the bolus wizard.
 * See this page on [optimizing settings](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/optimize-your-settings.html#optimizing-your-settings) for reminders and tips on changing one thing at a time.
 
