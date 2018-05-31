@@ -8,8 +8,6 @@ The major categories of Nightscout troubleshooting include:
 
 **Future data**. Sometimes entries will get time stamped incorrectly, or the device time zones are off. [See below](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/Rig-NS-communications-troubleshooting.html#nightscout-admin-tools) for how to resolve.
 
-**Note about jubilinux versions**. Some people experienced issues with jubilinux 0.2.0. There is a fix in the oref0 dev branch, so if none of the above steps resolve an "unknown" pill in Nightscout, try oref0 dev. (As of August 6, 2017). After you install dev, make sure to reboot your rig, after which the changes should resolve the problem in Nightscout. 
-
 ## Setting up your NS hosting site
 
 You will need to make sure that you have setup you site configuration settings in your NS hosting site (usually that means Heroku) according to the docs.  See the [Nightscout Setup page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html) for help in setting up your NS site.  If you don't add the OpenAPS-specific settings to your setup, the communications with the rig will not work properly.

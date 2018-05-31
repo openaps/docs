@@ -2,7 +2,7 @@
 
 ### Download Raspbian and write it to your microSD card ###
 
-Following the (install instructions)[https://www.raspberrypi.org/documentation/installation/installing-images/README.md], download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
+Following the [install instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md), download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using Etcher.
 
 ### Place your wifi and ssh configs on the new microSD card ###
 
@@ -11,6 +11,7 @@ Once Etcher has finished writing the image to the microSD card, remove the micro
 Create a file named wpa_supplicant.conf on the boot drive, with your wifi network(s) configured.  It should look something like:
 
 ```
+country=xx
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
@@ -19,7 +20,15 @@ network={
 }
 ```
 
-Also create an empty file named `ssh` (with no file extention) to enable SSH login to the Pi.
+You will need to replace xx after country with the correct ISO3166-1 Alpha-2 country code for your country (such as US, UK, DE, etc) - otherwise wifi will remain disabled on the Pi.
+
+To enable SSH login to the Pi, you will need to create an empty file named `ssh` (with no file extention).
+On Windows, you can make this file appear on your Desktop by opening the command prompt and typing:
+```
+cd %HOMEPATH%\Desktop
+type NUL > ssh
+```
+When you are done, copy it to the boot drive of your SD card.
 
 ### Boot up your Pi and connect to it ###
 
@@ -27,7 +36,9 @@ Eject the microSD card from your computer, insert it into your Pi, and plug in p
 
 On Mac, open Terminal and `ssh pi@raspberrypi.local`
 
-On Windows, use PuTTY to connect as the `pi` user to hostname `raspberrypi.local`
+On Windows, use PuTTY and establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. 
+
+The default password for logging in as `pi` is `raspberry`.  The `pi` username and default password is only used for this initial connection: subsequently you'll log in as `root` with a password and rig hostname of your choosing.
 
 ### Run openaps-install.sh ###
 

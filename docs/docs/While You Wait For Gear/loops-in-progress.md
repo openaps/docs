@@ -251,3 +251,4 @@ List of people who are working on closed loops:
 - Robert Riemann (DE)
 - Grant Carlson (Sunnyvale, CA, USA)
 - Zachary Christman (Philadelphia, PA, USA)
+- Paul Featonby (UK)

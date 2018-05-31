@@ -12,18 +12,20 @@ Getting your rig with OpenAPS takes generally six steps:
 * The **first step** may already be done for you if you purchased a pre-flashed Edison board.  
 * The **second and third steps** are accomplished through what is called the "bootstrap" script.
 * The **fourth step** is accomplished through what is called the "setup script".
-* The **fifth step** is an important, required step.  If you ever need troubleshooting help, you'll need to be familiar with how to read and access your pump-loop logs.
-* The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like preferences, BT-tethering, IFTTT, etc.
+* The **fifth step** is an important, required step. You need to be familiar with how to read and access your logs.
+* The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like optimizing your settings, preferences, BT-tethering, IFTTT, etc.
 
-### Step 1: Jubilinux
+### Step 1: Jubilinux (for Edison rigs)
 
-If you purchased a pre-flashed Edison, you can skip on down to the Wifi and dependencies below.
+*Pi users can skip to [step 2](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies)*
+
+If you purchased a pre-flashed Edison, you can also skip on down to [step 2](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies).
 
 If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
 ### Steps 2-3: Wifi and Dependencies
 
-Steps 2-3 are covered in the page links below, dependent on which type of rig your are using.  
+Steps 2-3 are covered in the page links below, dependent on which type of rig you are using.  
 
 * If you are using an _**Intel Edison**_, start with the [Intel Edison instructions](edison-install.md).
 
@@ -97,7 +99,6 @@ Make sure that at the end of the setup script, your log rotate file is set to `d
 
 **************************
 
-
 ## Step 5: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
@@ -109,6 +110,9 @@ It's easy: simply type the letter `l` (short for "log", aka the very important p
 If this is your first rig, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
 ![First loop common messages](../Images/build-your-rig/first-loop.png)
+<details>
+    <summary><b>Click here</b> to expand the explanation of the non-error messages</summary>
+<br>
 
 When your loop very first starts, if you are quick enough to get into the logs before the first BG is read, you will likely see: 
 ```
@@ -162,6 +166,9 @@ and
 "carbs":0, "reason": "not enough glucose data to calculate carb absorption"
 ```
 Advanced meal assist requires at least 36 BG readings before it can begin to calculate its necessary data. So after about three hours of looping these messages will clear out.  You can watch the count-up of "found" BG readings and know when you are getting close.  
+
+</details>
+<br>
 
 #### What you'll see when you are looping successfully ~20+ minutes later!
 
