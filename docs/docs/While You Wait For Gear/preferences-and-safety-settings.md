@@ -10,6 +10,13 @@ Your preferences are found in the directory `myopenaps/preferences.json`.  To ed
 
 To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json` When editing preferences, it's advised to do so in terminal (not a word processor) in order to ensure ascii characters are used within your preferences file. 
 
+IMPORTANT: Any variables that are not **true**, **false**, or a **number** MUST be inclosed in straight (not curly) quotes. 
+        
+        1. "max_iob": 0,              <-- Zero is a number, so no quotes necessary.
+        2. "enableUAM": false,        <-- True/False do not require quotes
+        3. "curve": "rapid-acting"    <-- "Rapid-acting" is not true/false or a number, so it must be inclosed in quotes.
+
+
 ## Commonly-adjusted preferences:
 
 ```
@@ -184,11 +191,11 @@ Defaults to `15`. This sets the minimum time between SMB Pushover alerts.
 
 #### pushover_only:
 
-Defaults to `carb`. This sets the type of SMB alerts desired. Options are both, insulin, or carb. Setting pushover_only to insulin prevents SMB from sending carb required alerts when SMB thinks additional carbs are required to bring eventual BG up. Setting pushover_only to carb prevents SMB from sending insulin required alerts when SMB is hitting maxBolus (see warning in Pushover setup section). Setting pushover_only to both allows SMB to send both insulin required and carb required alerts.
+Defaults to `"carb"`. This sets the type of SMB alerts desired. Options are `"both"`, `"insulin"`, or `"carb"`. Setting pushover_only to `insulin` prevents SMB from sending carb required alerts when SMB thinks additional carbs are required to bring eventual BG up. Setting pushover_only to `carb` prevents SMB from sending insulin required alerts when SMB is hitting maxBolus (see warning in Pushover setup section). Setting pushover_only to `both` allows SMB to send both insulin required and carb required alerts.
 
 #### pushover_sound:
 
-Defaults to `none`. This sets the alert sound played on the user device. Valid options are available at https://pushover.net/api.
+Defaults to `"none"`. This sets the alert sound played on the user device. Valid options are available at https://pushover.net/api.
 
 #### pushover_priority:
 
