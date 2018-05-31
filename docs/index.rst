@@ -97,7 +97,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :glob:
    :caption: Resources/Reference
    
