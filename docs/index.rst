@@ -67,7 +67,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
    Enable Bluetooth tethering <docs/Customize-Iterate/bluetooth-tethering-edison>
    Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
-   Useful mobile apps </docs/Customize-Iterate/useful-mobile-apps>
+   Useful apps for accessing your rig </docs/Customize-Iterate/useful-mobile-apps>
    IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
    Autosens <docs/Customize-Iterate/autosens>
    Autotune <docs/Customize-Iterate/autotune>
@@ -97,7 +97,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :glob:
    :caption: Resources/Reference
    
