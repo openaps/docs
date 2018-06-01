@@ -12,6 +12,8 @@ Save the edits to the file using `control-x`, `y`, and `enter`.
 
 Helpful tip:  Add a couple "blank" networks to the file (see screenshot below), so that if you ever need to add new wifi networks while on-the-road, the process will be much faster and easier.  You'll only need to edit the network name and password then...instead of needing to type in the whole string of the template. 
 
+Newer versions of the setup script enact the editor "vi" instead of nano.  The important commands to know in vi are "i" to turn on insert mode on and "esc" to turn it off.   Once insert mode is on, edit your file and when you are done hit "esc"   To exit vi you have a few choices  :q! will exit and not save any changes, in case you mess up badly.   :w will write your changes and keep you in vi.  Once you have written and are satisfied :q will quit vi.
+
 ![Edit wifi file](../Images/sample-wifi-file.png)
 
 Some wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
