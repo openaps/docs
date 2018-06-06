@@ -28,7 +28,13 @@ On Windows, you can make this file appear on your Desktop by opening the command
 cd %HOMEPATH%\Desktop
 type NUL > ssh
 ```
-When you are done, copy it to the boot drive of your SD card.
+On a Mac, the equivalent command is:
+```
+cd ~/Desktop/
+touch ssh
+```
+
+When you are done, copy it from your Desktop to the boot drive of your SD card.
 
 ### Boot up your Pi and connect to it ###
 
