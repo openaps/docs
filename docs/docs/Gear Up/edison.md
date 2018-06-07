@@ -7,7 +7,23 @@ You have two main options for hardware:
 
 ## Hardware information for Pi-based setups with the Explorer HAT
 
-After April 2018, there will be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be pre-ordered or ordered from the same place that makes the Explorer Board ([click here to pre-order](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065)). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
+Summary of what you need for a Pi/HAT rig:
+* Explorer HAT
+* Pi0WH or Pi 3
+* Battery
+* SD card
+
+#### HAT: 
+As of April 2018, there is be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be ordered from the same place that makes the Explorer Board ([click here to pre-order](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065)). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
+
+#### PI 
+You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
+
+As an alternative, you can also use the HAT with a Raspberry Pi 3. 
+
+#### Battery
+
+#### SD card
 
 ## Hardware information for Intel Edison-based setups
 
