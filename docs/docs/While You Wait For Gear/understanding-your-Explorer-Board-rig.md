@@ -2,7 +2,33 @@
 
 ## Pi HAT rig
 
-After April 2018, there will be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be pre-ordered or ordered from the same place that makes the Explorer Board ([click here](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
+After April 2018, there is a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be ordered from the same place that makes the Explorer Board ([click here](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison. 
+
+![Explorer Hat](../Images/explorerhat.png)
+
+#### Getting Physical: Build your Pi/HAT rig
+
+If you chose a "Pi Zero WH" (with headers), you will place the HAT on the Pi.
+
+#### How the buttons work
+
+Double click to enter a menu item.
+
+Single click to go up or down.
+
+#### Charging
+
+The rig can be charged via microUSB.
+
+**Note:** the charging LED on the board is not working currently (unless you remove the Q3 transistor). Currently, it’s basically just a “plugged into the wall” indicator. The only side effect of removing Q3 is on the binary charging signal to the Pi (which doesn’t work anyway, and we’ve not tried to use). The voltage monitoring should work fine either way, but while the rig is charging will report 4.2V (“fully charged”) any time the battery is more than about 50% charged. So to be sure if it’s charged you should unplug the rig.
+
+#### Power
+
+Like an Edison rig, you can use a lipo battery or similar; or use wall power.
+
+#### Multiple Rigs? What if I have an Edison AND a Pi rig?
+
+Just like multiple Edison rigs play well together, an Edison and a Pi rig can also work fine side by side. As always, best practice is to make sure they're in the same feature set - don't have one type of rig using SMB's if the other hardware has an old code version that isn't aware of SMB's. 
 
 ## Edison/Explorer Board rig
 
