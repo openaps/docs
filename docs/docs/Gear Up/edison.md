@@ -25,6 +25,9 @@ As an alternative, you can also use the HAT with a Raspberry Pi 3.
 
 #### SD card
 
+#### Note about Pi+HAT cases
+Because we are still optimizing the software to be as power-efficient as possible, we have not narrowed down on the best recommended battery. And since we haven't picked a "most commonly used" battery, we also don't have any recommended 3D-printed cases yet. Stay tuned in the future for that; in the meantime, the same soft cases and the more generic hard cases seem to be working well for people in the interim.  
+
 ## Hardware information for Intel Edison-based setups
 
 Note: The Edison/Explorer Board Block combination is the rig setup recommended by the community for size, range, and portability reasons. The high level parts list (see below for more details, and links):
