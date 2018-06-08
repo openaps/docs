@@ -46,13 +46,13 @@ After taking into account all of the above, oref0 will put out a recommendation 
   
 ## OpenAPS examples
 
-1. OpenPS rig issuing temp basals
+`1.` OpenAPS rig issuing temp basals
 
 ![Rig setting a temp basal to slightly lower eventual BG](../Images/pill_example_temp_basal.png)
 
 In this example, a temp basal of 0.5u/hour has been enacted for 30 minutes. **Why?** BG is 104, which is above the target of 90, and eventualBG (101) is also above target. However, some of the predictions are *below* target, and so for safety, it is issuing a slightly lower temporary basal rate given the current level of IOB. 
 
-2. OpenAPS rig with SMB's enabled - issuing SMB's
+`2.` OpenAPS rig with SMB's enabled - issuing SMB's
 
 **Note**: [SMB](../Images/http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) is an advanced feature you won't use until after you get familiar and experienced with OpenAPS basics. 
 
@@ -60,7 +60,7 @@ In this example, a temp basal of 0.5u/hour has been enacted for 30 minutes. **Wh
 
 In this example, the eventualBG (170) is much higher than target (90). As you can see, BG is expected to be dropping (BGI: -15.92) but it is in fact rising (Dev: 165), with 47 carbs on board. Therefore, 1.58u of insulin is estimated to be needed. Per the safety design for SMB, OpenAPS is setting a zero temp for safety, followed by microbolusing 0.4U. You can also see the previous run, which also included a long zero temp for safety with a 0.2U microbolus. 
 
-3. OpenAPS rig with SMB's enabled - setting a low temp
+`3.` OpenAPS rig with SMB's enabled - setting a low temp
 
 ![Setting a zero temp after SMB's](../Images/pill_example_SMB_low_temp.png)
 
