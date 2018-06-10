@@ -61,6 +61,21 @@ You'll be prompted to set a password.  You'll want to change it to something per
 
 * Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
 
-The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
+The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter or control-c` for the setup script options.
+**************************
+At this time, the master installation of oref0 is not compatible with the pi0 installations.  So, instead of proceeding with the setup script, press `control-c` to cancel the setup script.
 
-Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-4-setup-script) to complete oref0-setup.
+Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot and then login to the rig again `ssh root@yourrigname.local` (or Putty equivalent for Windows users).
+
+Now we will select a pi0-compatible branch by using `cd src/oref0 && git checkout 0.7.0-refactor`. You should see a message returned of "Branch 0.7.0-refactor set up to track remote branch 0.7.0-refactor from origin.
+Switched to a new branch '0.7.0-refactor'".
+
+Now do `npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Now you can run the interactive oref0 setup script
+
+`cd && ~/src/oref0/bin/oref0-setup.sh`
+*****************************
+
+
+
+
+[saving this text for when the master branch is compatible with pi0...for now...ignore.  Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-4-setup-script) to complete oref0-setup.]
