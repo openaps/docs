@@ -92,7 +92,7 @@ Now you can run the interactive oref0 setup script:
 
 `cd && ~/src/oref0/bin/oref0-setup.sh`
 
-Answer all the setup questions.  A successful setup script will finish asking you if you want to setup cron.  Say yes to those two questions.  Finally, you'll see a message about Reboot required.  Go ahead and reboot the rig.
+Answer all the setup questions.  A successful setup script will finish asking you if you want to setup cron.  Say yes to those two questions.  Finally, you'll see a message about Reboot required.  Go ahead and reboot the rig.  You've finished the loop installation.  Login to the rig again, and then **make sure to [Watch the pump loop](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
 
 !["install piBakery"](../Images/build-your-rig/pi-loop-install.png)
 
@@ -102,5 +102,5 @@ Troubleshooting: If your rig gets stuck at the point shown below, simply login t
 
 *****************************
 
-You can Return to the OpenAPS page and learn to [Watch the pump loop](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)
+
 
