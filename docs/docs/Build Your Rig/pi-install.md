@@ -104,4 +104,3 @@ Troubleshooting: If your rig gets stuck at the point shown below, simply login t
 
 You can Return to the OpenAPS page and learn to [Watch the pump loop](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)
 
-[saving this text for when the master branch is compatible with Raspian...for now...please ignore.>>  Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-4-setup-script) to complete oref0-setup.]
