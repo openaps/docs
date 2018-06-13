@@ -24,7 +24,9 @@ A double press of the "Up" button will take you back to the previous screen.
 
 ##### Menu Items
 
-The current tree of available menu items:
+<details>
+ <summary><b>The current tree of available menu items (click to expand):</b></summary>
+<br>
 
 * OpenAPS
   * Status Graph
@@ -54,6 +56,9 @@ The current tree of available menu items:
   * lsusb
   * Reboot
   * Cancel Reboot
+
+</details>
+<br>
 
 A series of images of the menu items can be [viewed here](https://imgur.com/a/9qLf93B).
 
