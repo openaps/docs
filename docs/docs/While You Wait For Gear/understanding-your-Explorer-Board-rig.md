@@ -10,11 +10,57 @@ After April 2018, there is a Pi+HAT rig as an option for closing the loop with O
 
 If you chose a "Pi Zero WH" (with headers), you will place the HAT on the Pi.
 
-#### How the buttons work
+##### Buttons and Menu System
 
-Double click to enter a menu item.
+The Explorer Board Pi HAT includes a 128x64 OLED display with two general purpose buttons to navigate an included menu system.
 
-Single click to go up or down.
+##### Button Navigation
+
+The Pi HAT has two general purpose buttons labeled "Up" and "Down". A single press of the "Up" button will move the menu selection cursor up a single menu item and a single press of the "Down" button will move the menu selection cursor down a single menu item.
+
+A double press of the "Down" button will enter in currently selected menu item as indicated by the ">" next to a menu item.
+
+A double press of the "Up" button will take you back to the previous screen.
+
+##### Menu Items
+
+<details>
+ <summary><b>The current tree of available menu items (click to expand):</b></summary>
+<br>
+
+* OpenAPS
+  * Status Graph
+  * Set Temp Target
+    * Cancel temp Target
+    * Eating Soon: 60m@80
+    * Speaking: 45m@110
+    * Walking: 45m@120
+    * Running: 60m@140
+  * Status Text
+  * Enacted Reason
+  * Show pump-loop.log
+  * Unicorn Logo
+* Wifi
+  * Current Wifi Network
+  * Current Hostname
+  * Current IP Address
+  * Show network.log
+* System
+  * Voltage
+  * Display Tests
+    * Checkerboard 1
+    * Checkerboard 2
+    * All On
+    * Boxes 1
+    * Boxes 2
+  * lsusb
+  * Reboot
+  * Cancel Reboot
+
+</details>
+<br>
+
+A series of images of the menu items can be [viewed here](https://imgur.com/a/9qLf93B).
 
 #### Charging
 
