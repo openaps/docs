@@ -2,17 +2,16 @@
 
 You have two main options for hardware:
 
-1. The preferred rig still is an Edison + Explorer Board. Unfortunately Intel stopped making the edison boards as of 2018. If you can find an Intel Edison, this is still a highly recommmended rig. The pros of this setup are: 
+1. The preferred rig still is an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison, this is still a highly recommmended rig. The pros of this setup are: 
   - more power efficient so better battery life
   - faster 
   - smaller size
-  - better range
   - portability 
   [See below for details on Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
-2. The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping begins end of April 2018). The pros of this setup are:
+2. The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping began end of April 2018). The pros of this setup are:
 - Easier to use when offline
 - Has an onboard screen for displaying readouts
-- Good solution as a complementary stationary kit for use at home for extending the range (and OpenAPS can switch between the two devices)
+- Good solution as a complementary stationary kit for use at home for improving range/coverage (two or more OpenAPS rigs can be used simultaneously with a single pump)
 This documentation will be updated with more Pi details as they are decided. 
 
 ## Hardware information for Pi-based setups with the Explorer HAT
@@ -24,7 +23,7 @@ Summary of what you need for a Pi/HAT rig:
 * SD card
 
 #### HAT: 
-As of April 2018, there will be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be ordered from the same place that makes the Explorer Board ([click here to pre-order](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065)). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
+As of April 2018, there is be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be ordered from the same place that makes the Explorer Board ([click here to pre-order](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065)). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
 
 #### PI 
 You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
