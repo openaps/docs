@@ -9,6 +9,7 @@ Autotune is a DIY tool to help calculate potential adjustments to ISF, carb rati
    * [Phase A](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
    * [Phase B](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
    * [Phase C](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
+    * [Phase D](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig) - Use Autotune inside your Nightscout Website.   
 
 ## How Autotune works
 
@@ -49,8 +50,11 @@ Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb r
 * Phase A - run autotune as a one-off on an OpenAPS rig (aka, manually)
 * Phase B - run autotune nightly in an OpenAPS rig (**DEFAULT OPENAPS BEHAVIOR**)
 * Phase C - run autotune as a "one-off" on a computer of your choice. 
+* Phase D - run autotune manually on nightscout
 
 #### Phase A: Running Autotune manually in OpenAPS 
+<details>
+    <summary><b>(click to expand)</b></summary>
 
 If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line. You will want to do this in a different directory on your rig if you do not want OpenAPS to use the autotune settings by default.
 
@@ -68,9 +72,11 @@ oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites
   * If you change your pump settings, you will need to re-copy your pump settings back into `newdirectory`
 
 **Note:** If you did this correctly in your `newdirectory`, settings will not be used by OpenAPS. You will need to `cd ~/newdirectory/autotune && cat autotune_recommendations.log` to see your autotune recommendations, and autotune will only run when you manually run it. The recommended behavior is to run Autotune inside of your OpenAPS directory, per Phase B, which is the default and will automatically run every night and have OpenAPS use the settings from Autotune automatically.
+</details>
 
 #### Phase B: Running Autotune automatically in OpenAPS 
-
+<details>
+    <summary><b>(click to expand)</b></summary>
 In oref0 0.6.0 and beyond, autotune will run by default. This means that autotune would be iteratively running (as described in [#261](https://github.com/openaps/oref0/issues/261)) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps (your autosens_max and autosens_min) in place to limit the amount of tuning that can be done at any time compared to the underlying pump profile. The autotune_recommendations will be tracked against the current pump profile, and if over time the tuning constantly recommends changes beyond the caps, you can use this to determine whether to tune the basals and ratios in those directions.
 
 **Important** When autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately, you should run autotune manually to have it re-pull the settings from the pump and tune from the new settings.
@@ -88,10 +94,12 @@ Log into the NEW rig and run the following command:
 * This will copy everything in the autotune directory over.
 
 </details>
+</details>
 <br>
 
 #### Phase C: Running Autotune for suggested adjustments without an OpenAPS rig
-
+<details>
+    <summary><b>(click to expand)</b></summary>
 If you are not running autotune as part of a closed loop, you can still run it as a "one-off". We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone can run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
 **Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](./understanding-autotune.md)
@@ -264,6 +272,17 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.ne
 * If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).  The start date should be the older date, the end date is the more recent date.
 * When starting out with autotune, you may find your basals settings are far enough below your real basal rates for the algorithm to classify periods when basals are too low as unannounced meals. In this case, if you are certain you have entered all carb intake events, you can force the algorithm to classify unannounced meal periods as basal periods using the --categorize-uam-as-basal=true option. **\*\*SAFETY WARNING\*\*** If you use this option and treat lows due to basals that are too high without entering the low treatment carbs, an amplifying cycle will begin with autotune raising basals, treated lows get categorizes as basals being too low, basals are raised causing lows, etc.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
+</details>
+
+#### Phase D: Running Autotune manually in Nightscout
+<details>
+    <summary><b>(click to expand)</b></summary>
+  
+If you are already successfully running nightscout you can use autotune insight nightscout's reports.
+First, you need to update your fork. Go to http://nightscout.github.io/pages/update-fork/ and input your github username. If there's a box saying "Update Available" click on the green button.
+
+On Github, go to "compare" and pick "autotune" (https://imgur.com/WrBs2Xf). Now you may need to redeploy your nightscout. Once that is done, you can go to reports and then there's a tab for autotune.
+</details>
 
 #### Why Isn't It Working At All?
 
