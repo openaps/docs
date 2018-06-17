@@ -70,7 +70,7 @@ oref0 0.6.x and beyond will not use git and will not have git-related errors to 
 
 ## Debugging Disk Space Issues
 
-If you are having errors related to disk space shortages as determined by `df -h` you can use a very lightweight and fast tool called ncdu (a command-line disk usage analyzer) to determine what folders and files on your system are using the most disk space. You can install ncdu as follows: `sudo apt-get install ncdu`. You can run it by running the following command: `cd / && sudo ncdu` and follow the interactive screen to find your disk hogging folders.
+If you are having errors related to disk space shortages as determined by `df -h`, but you still have some room on your /root drive (i.e., it is not 100% in use), you can use a very lightweight and fast tool called ncdu (a command-line disk usage analyzer) to determine what folders and files on your system are using the most disk space. You can install ncdu as follows: `sudo apt-get install ncdu`. You can run it by running the following command: `cd / && sudo ncdu` and follow the interactive screen to find your disk hogging folders.
 
 An alternative approach to disk troubleshooting is to simply run the following command from the base unix directory after running `cd /`:
 
@@ -78,9 +78,13 @@ An alternative approach to disk troubleshooting is to simply run the following c
 
 Then, based on which folders are using the most space cd to those folders and run the above du command again until you find the folder that is using up the disk space.
 
-It is common that log files are the cause for disk space issues. If you determine that log file(s) are the problem, use a command like `less` to view the last entries in the logfile to attempt to figure out what is causing the logfile to fill up. To temporarily free up space, you can force the logfiles to rotate immediately by running the following command:
+It is common that log files (i.e., the /var/log directory) are the cause for disk space issues. If you determine that log file(s) are the problem, use a command like `less` to view the last entries in the logfile to attempt to figure out what is causing the logfile to fill up. If you still have some room on your /root drive (i.e., it is not 100% in use according to `df /root`), you can temporarily free up space by forcing the logfiles to rotate immediately, with the following command:
 
 `logrotate -f /etc/logrotate.conf`
+
+If your /root drive is 100% in use according to `df /root`, you may need to free up space by removing log files. It should be safe to remove archived log files with the command `rm /var/log/*.[0-9] /var/log/*.gz`. Check again with `df /root` that you have plenty of space - normally your /root drive should have 80% or less space in use. If you have more in use but still less than 100% you can use one of the above techniques to free more space. 
+
+If your disk is still 100% full, you may have to remove a live log file. Run the command `du /var/log/openaps/* /var/log/*|sort -n |tail -5`, which will show the largest 5 log files. Pick the largest file, use the command `less` to view the last entries to determine if there is a problem, and when you're sure you don't need the file any longer you can use the command `rm log_file_name` to delete it (replace log_file_name with the large log file's name). You should `reboot` after removing any of the live log files so the system resumes logging properly.
 
 ## Environment variables
 
