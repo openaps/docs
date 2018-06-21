@@ -121,6 +121,7 @@ Cases for Edison plus battery:
 * [Luis's ventilated acrylic simple design](https://drive.google.com/drive/folders/0BxeFg9yJZ_FZdWJEcG5KMXdUMjg?usp=sharing)
 * [Robert Silvers and Eric Burt's case for Explorer and 2500 mAh battery](http://www.thingiverse.com/thing:2282398)
 * [Robert Silvers' case for Explorer and 2000 or 2500 mAh battery](http://www.thingiverse.com/thing:2291125)
+* [tynbendad's case for 18650 battery](https://www.thingiverse.com/thing:2798858)
 
 Cases for Edison plus G4 receiver:
 
