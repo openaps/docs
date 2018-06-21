@@ -453,6 +453,9 @@ By default the urchin_loop_on, and urchin_iob is set to true. You must manually 
 ### Hot Button - for Android users
 
 #### Purpose
+
+NOTE: The Hotbutton app linked below has disappeared from Google Play. There are several others available if you search "SSH Button", but the app setup instructions won't match exactlty.
+
 [Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especially useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
 
 #### App Setup 
@@ -477,6 +480,21 @@ After setting up the button, simply click it to execute the command. The results
 #### Temporary targets
 It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
 
+```
+#! /bin/sh
+
+OPENAPSROOT="/root/myopenaps"
+REASON=$1
+TARGET=$2
+
+echo "\
+[{\"_id\":\"\",\"enteredBy\":\"\",\"eventType\":\"Temporary Target\",\"reason\":\"$REASON\",\"targetTop\":$TARGET,\"targetBottom\":$TARGET,\"duration\":60,\"created_at\":\"$(date --utc +'%Y-%m-%dT%H:%M:%S.000Z')\",\"carbs\":null,\"insulin\":null}] \
+" > $OPENAPSROOT/settings/temptargets.json
+cd $OPENAPSROOT
+openaps report invoke settings/profile.json
+echo "Temporary target started"
+```
+
 To setup activity mode run:
 `./set_temp_target.sh "Activity Mode" 130`
 
@@ -491,56 +509,6 @@ To speed up the command execution you can add to the `/etc/ssh/sshd_config` the 
 `UseDNS no`
 
 ********************************
-### HTTP Widget Offline Monitoring (Android Only)
-Android "HTTP widget" allows you to show text inside the widget, perfect for OpenAPS monitoring without using Nightscout (in case no internet access is available).
-
-A. Install "HTTP widget" on your Android phone:
-
-https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en
-
-B. Install jq:
-
-`sudo apt-get install jq`
-
-C. Add a cron line to your crontab to start the Simple HTTP Server:
-
-First `crontab -e` and then at the bottom of the page, then add
-
-`@reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337`.
-
-Then ctrl-X and select y to keep changes, and then Enter to keep the same file name.
-
-D. Add a line to your openaps alias in your openaps.ini:
-
-First `cd myopenaps` and then `nano openaps.ini`.
-
-Scroll down until you see the "Alias" list. Then copy and paste the following text into a new line directly under the other alias entires. 
-
-`http-widget = ! bash -c "( jq .timestamp ~/myopenaps/enact/enacted.json | awk '{print substr($0,13,5)}' | tr '\n' ' ' && echo \"(last enact)\" && jq -r .reason ~/myopenaps/enact/enacted.json && echo -n 'TBR: ' && jq .rate ~/myopenaps/enact/enacted.json && echo -n 'IOB: ' && jq .IOB ~/myopenaps/enact/enacted.json && echo -n 'Autosens: ' && jq .ratio ~/myopenaps/settings/autosens.json && echo -n 'Edison: ' && (~/src/EdisonVoltage/voltage short) | awk '{print $2,$1}' && echo -n 'Pump: ' && cat ~/myopenaps/monitor/reservoir.json && echo -n 'U ' && jq .voltage ~/myopenaps/monitor/battery.json | tr '\n' 'v' && echo \" \")> ~/myopenaps/enact/index.html"`
-
-E. Modify the openaps pump-loop cron line (openaps http-widget needs to be run each minute):
-
-Enter `crontab -e` again.
-
-Then find the pump-loop cron line (looks similar to `* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log`) 
-
-And then add this to the end of it `&& openaps http-widget > /dev/null 2>&1 `.
-
-When you're finished it should look something like this:
-
-`* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log && openaps http-widget > /dev/null 2>&1 ` 
-
-Ctrl-X and select y to save changes.
-
-F. Add Widget:
-
-On your Android phone, add an HTTP widget as you would normally add widgets. Then set up the http with your rig IP address using port 1337. 
-
-NOTE: BE SURE your phone and rig are on the same network, i.e. BT tethered or wifi hotspot. This widget will also work when your rig is online with a wifi connection, as long as your phone and rig are on the same network.
-
-G. Add Widget to Sony Smart Watch 3 or other Android Wear:
-
-Using the Wearable Widgets app, you can see the HTTP Widget on your watch. 
 
 ### Accessing your offline rig via SSH over Bluetooth
 
@@ -592,9 +560,10 @@ touch ~/myopenaps/enact/index.html
 (echo -n 'Edison Battery: ' && cat ~/myopenaps/monitor/edison-battery.json | jq -r .battery | tr '\n' ' ' && echo '%') >> ~/myopenaps/enact/index.html
 (echo -n 'Insulin Remaining: ' && cat ~/myopenaps/monitor/reservoir.json) >> ~/myopenaps/enact/index.html
 ```
-You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
 
-It can be set up where you choose, either in your openaps directory or at root.
+Create the above script by running `nano /root/myopenaps/http.sh` , then paste the above, and save it.
+
+You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
 
 B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](http://openaps.readthedocs.io/en/latest/docs/Resources/index.html) section for help on editing crontabs):
 
@@ -604,7 +573,7 @@ B. You will also need to start up the SimpleHTTPserver service that is already i
 The final thing to do is to make sure the script runs regularly to collect the data and publish it. This requires an additional cron line:
 
 ```
-*/5 * * * * (bash /root/http.sh) 2>&1 | tee -a /var/log/openaps/http.log
+*/5 * * * * (bash /root/myopenaps/http.sh) 2>&1 | tee -a /var/log/openaps/http.log
 ```
 In this case the script is running from the /root directory and I am publishing to the ~/myopenaps/enact directory.
 
