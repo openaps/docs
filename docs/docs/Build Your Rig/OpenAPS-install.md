@@ -23,7 +23,7 @@ If you purchased a pre-flashed Edison, you can also skip on down to [step 2](htt
 
 If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
-### Steps 2-3: Wifi and Dependencies
+### Steps 2-3: Set up Intel Edison / Raspberry Pi Wifi and Dependencies
 
 Steps 2-3 are covered in the page links below, dependent on which type of rig you are using.  
 
