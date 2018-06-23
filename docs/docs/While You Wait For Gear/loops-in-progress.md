@@ -252,3 +252,4 @@ List of people who are working on closed loops:
 - Grant Carlson (Sunnyvale, CA, USA)
 - Zachary Christman (Philadelphia, PA, USA)
 - Paul Featonby (UK)
+- Lisa Morales (California, USA)
