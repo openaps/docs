@@ -94,3 +94,25 @@ The most important setting for switching between insulin types in an OpenAPS rig
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 
 Some users who switch to Fiasp find that they need to adjust settings. Others do not need to change settings that much, and autosens and/or autotune can help adjust to any variances over time as your body's needs change related to the difference insulin type. YDMV, as always!
+
+## Improving the battery life of your Raspberry Pi
+
+| Version   | CPU Clock | Battery Life @ 2500mAh |
+| --------- | ---------:| ------------:|
+| 0.6.2     |  1000 MHz |  8 hours     |
+| 0.7.0-dev | 1000 MHz  |  9 hours     |
+| 0.7.0-dev | 500 MHz   | 14.5 hours   |
+
+As you can see, 0.7.0 made some battery life improvements, but under-clocking the CPU makes an even more significant improvement.
+
+To accomplish this, log into your rig via SSH and modify the file `/boot/config.txt`.
+
+Scroll down to find the line
+
+`#arm_freq=1000`
+
+and change it to
+
+`arm_freq=500`
+
+Note the removal of the `#` at the beginning of the line. Save your change and reboot your rig!
