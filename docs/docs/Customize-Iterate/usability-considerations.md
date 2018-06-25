@@ -97,11 +97,12 @@ Some users who switch to Fiasp find that they need to adjust settings. Others do
 
 ## Improving the battery life of your Raspberry Pi
 
-| Version   | CPU Clock | Battery Life @ 2500mAh |
-| --------- | ---------:| ------------:|
-| 0.6.2     |  1000 MHz |  8 hours     |
-| 0.7.0-dev | 1000 MHz  |  9 hours     |
-| 0.7.0-dev | 500 MHz   | 14.5 hours   |
+Version - CPU Clock - Battery Life @ 2500mAh
+___
+* 0.6.2 - 1000 MHz - **8 hours**
+* 0.7.0-dev - 1000 MHz - **9 hours**
+* 0.7.0-dev - 500 MHz  - **14.5 hours**
+___
 
 As you can see, 0.7.0 made some battery life improvements, but under-clocking the CPU makes an even more significant improvement.
 
