@@ -253,3 +253,4 @@ List of people who are working on closed loops:
 - Zachary Christman (Philadelphia, PA, USA)
 - Paul Featonby (UK)
 - Lisa Morales (California, USA)
+- Rob Neu (wife, Utah, USA; sister-in-law, Virginia, USA)
