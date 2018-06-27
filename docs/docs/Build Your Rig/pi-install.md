@@ -67,7 +67,7 @@ You'll be prompted to set two passwords; one for root user and one for pi user. 
 
 * Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
 
-The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter or control-c` for the setup script options.  Successful completion of this section should look like below.  **Do not press enter**
+The script will then continue to run awhile longer (10 to 30 minutes) before asking you to press `enter or control-c` for the setup script options.  Successful completion of this section should look like below.  **Do not press enter**
 
 !["install piBakery"](../Images/build-your-rig/pi-curl-success.png)
 
