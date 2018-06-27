@@ -46,7 +46,7 @@ Give the rig a couple minutes to boot up.  Once the green LED stops blinking as 
 
 On Mac, open Terminal and use `ssh pi@raspberrypi.local`
 
-On Windows, use PuTTY and establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. 
+On Windows, use PuTTY and establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. Respond YES to the warning about computer security.
 
 Troubleshooting:  If you have problems connecting, try rebooting your router.  If you have multiple channels (2.4Ghz vs 5Ghz), you could try redoing the PiBakery setup with the other channel's network name, if the first one fails.
 
@@ -61,9 +61,9 @@ sudo bash
 curl -s https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-install.sh > /tmp/openaps-install.sh && bash /tmp/openaps-install.sh
 ```
 
-You'll be prompted to set two passwords; one for root user and one for pi user.  You'll want to change the password to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice for each user.  There is no recovery of this password if you forget it.  You will have to start over from the top of this page if you forget your password.
-
 * Change your hostname (a.k.a, your rig's name). **Make sure to write down your hostname; this is how you will log in in the future as `ssh root@whatyounamedit.local`**
+
+* You'll be prompted to set two passwords; one for root user and one for pi user.  You'll want to change the password to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice for each user.  There is no recovery of this password if you forget it.  You will have to start over from the top of this page if you forget your password.
 
 * Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
 
@@ -80,7 +80,7 @@ Troubleshooting:  If your screen stops as shown below before successful completi
 **************************
 At this time, the master installation of oref0 is not compatible with the the newest Raspian system kernels.  So, instead of proceeding with the setup script, press `control-c` to cancel the setup script.
 
-Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users).
+Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users `yourrigname`).
 
 Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 && git checkout dev`. You should see a message returned of "Branch dev set up to track remote branch dev from origin. Switched to a new branch 'dev'".
 
