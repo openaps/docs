@@ -61,7 +61,7 @@ Android users can use the xDrip+ Android app. The details for setting up  offlin
 
 ### C. Send G5 BGs direct to rig (xdrip-js, Lookout/Logger)
 
-On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmitter, similar to xdrip+ on the phone. It replaces the iPhone G5 mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a G5 receiver at the same time as xdrip-js. There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
+On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmitter, similar to xdrip+ on the phone. It replaces the iPhone G5 mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a G5 receiver at the same time as xdrip-js. (The gitter channel for xdrip-js and related stuff is at https://github.com/thebookins/xdrip-js - head there for questions about setup.) There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
 
 #### Lookout/Logger:
    
