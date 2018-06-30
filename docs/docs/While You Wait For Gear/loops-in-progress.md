@@ -254,3 +254,4 @@ List of people who are working on closed loops:
 - Paul Featonby (UK)
 - Lisa Morales (California, USA)
 - Rob Neu (wife, Utah, USA; sister-in-law, Virginia, USA)
+- Nancy Simons ( SW France)
