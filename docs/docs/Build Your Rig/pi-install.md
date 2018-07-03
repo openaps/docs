@@ -80,7 +80,7 @@ Troubleshooting:  If your screen stops as shown below before successful completi
 **************************
 At this time, the master installation of oref0 is not compatible with the the newest Raspian system kernels.  So, instead of proceeding with the setup script, press `control-c` to cancel the setup script.
 
-Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users `yourrigname`).
+Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` on a Mac.  On a Windows PC with PuTTY, the hostname can be either `yourrigname` or `yourrigname.local`, and the username will be `root`.
 
 Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 && git checkout dev`. You should see a message returned of "Branch dev set up to track remote branch dev from origin. Switched to a new branch 'dev'".
 
