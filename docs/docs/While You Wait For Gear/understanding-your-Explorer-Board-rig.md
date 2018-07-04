@@ -68,9 +68,16 @@ The rig can be charged via microUSB.
 
 **Note:** the charging LED on the board is not working currently (unless you remove the Q3 transistor). Currently, it’s basically just a “plugged into the wall” indicator. The only side effect of removing Q3 is on the binary charging signal to the Pi (which doesn’t work anyway, and we’ve not tried to use). The voltage monitoring should work fine either way, but while the rig is charging will report 4.2V (“fully charged”) any time the battery is more than about 50% charged. So to be sure if it’s charged you should unplug the rig.
 
+**2nd Note:** make sure the battery plug is switched to ON while the rig is plugged. Otherwise the battery won't charge.
+
 #### Power
 
-Like an Edison rig, you can use a lipo battery or similar; or use wall power.
+Like an Edison rig, you can use a single cell (1s) lipo battery or similar; or use wall power.
+
+#### LED
+
+The Pi HAT offers 4 LEDs labeled with D1-D4. D1 is the charging LED and works as described above. D2 is the battery low indicator. It turns orange when the LiPo battery voltage goes below 3.6 V or when the rig is plugged and the battery switch is on OFF. D3 and D4 are connected to the CC1110 radio processor and are controlled by the radio firmware as RX/TX indicator.
+
 
 #### Multiple Rigs? What if I have an Edison AND a Pi rig?
 
