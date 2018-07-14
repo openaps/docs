@@ -44,6 +44,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Make Your First PR <docs/While You Wait For Gear/loops-in-progress>
    Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
    Understand your rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
+   Entering carbs & boluses </docs/While You Wait For Gear/entering-carbs-bolus>
    How OpenAPS makes decisions <docs/While You Wait For Gear/Understand-determine-basal>
    Monitoring OpenAPS <docs/While You Wait For Gear/monitoring-OpenAPS>
    Preferences and Safety Settings <docs/While You Wait For Gear/preferences-and-safety-settings>
