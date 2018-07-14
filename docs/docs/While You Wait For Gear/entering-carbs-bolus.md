@@ -12,7 +12,7 @@ How do you enter carbs & do boluses with OpenAPS? You have a variety of ways to 
 
 ## Entering carbs into OpenAPS
 
-Before OpenAPS, you may or may not have entered carbs into your pump. With OpenAPS, most people *do* want the rig to know about carbs. You have a variety of ways to enter them, depending on whether your rig is **online** or offline**.
+Before OpenAPS, you may or may not have entered carbs into your pump. With OpenAPS, most people *do* want the rig to know about carbs. You have a variety of ways to enter them, depending on whether your rig is **online** or **offline**.
 
 Look at this image for the big picture:
 
