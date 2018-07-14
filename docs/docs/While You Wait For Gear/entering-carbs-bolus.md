@@ -16,7 +16,7 @@ Before OpenAPS, you may or may not have entered carbs into your pump. With OpenA
 
 Look at this image for the big picture:
 
-![Different methods for entering carbs](https://github.com/openaps/docs/blob/master/docs/docs/Images/Carb_data_to_rig.jpg)
+![Different methods for entering carbs](../Images/Carb_data_to_rig.jpg)
 
 ### Offline carb entry
 
