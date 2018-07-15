@@ -255,3 +255,4 @@ List of people who are working on closed loops:
 - Lisa Morales (California, USA)
 - Rob Neu (wife, Utah, USA; sister-in-law, Virginia, USA)
 - Nancy Simons ( SW France)
+- Jill Gordon (UK)
