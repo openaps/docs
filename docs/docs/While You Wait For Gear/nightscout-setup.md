@@ -372,6 +372,12 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 
 * Click the three dots next to your timeframe horizon (2HR, 3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.
 
+### Understanding OpenAPS purple predictions/forecast lines
+
+* There are up to four purple prediction lines that you will see: IOBpredBG; ZTpredBG; UAM; and COBpredBG. 
+
+![Purple prediction line examples](../Images/Prediction_lines.jpg)
+
 ### Understanding the OpenAPS pill
 
 The OpenAPS pill box has four states, based on what happened in the last 15
