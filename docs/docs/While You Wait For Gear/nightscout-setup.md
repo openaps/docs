@@ -25,7 +25,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Create an account at [Heroku](https://www.heroku.com) and choose the Primary Development Language to be Node.js when you create your account.  You’re going to use a free account, but you will still need to enter credit card information for your account setup before the app will deploy.  You'll need to confirm your Heroku account by clicking a link sent via email.
 
-![Heroku signup example](../Images/nightscout/heroku_signup.jpg)
+<img src="../Images/nightscout/heroku_signup.jpg" width="400" height="300" alt="Heroku signup example">
 
 * Create an account at [GitHub](https://github.com)
 *****************
@@ -35,7 +35,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Click the `Fork` button in the upper right corner
 
-![Fork example](../Images/nightscout/ns_fork.jpg)
+<img src="../Images/nightscout/ns_fork.jpg" width="600" height="400" alt="Fork example">
 
 * Where it says `Branch: master` (to the far-left of the green "Clone or download" button), click on it and choose `dev`. This button should then say `Branch: dev`.
 
@@ -45,8 +45,11 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Give your app a name, this will be the prefix of your NS site’s URL. For example, `https://yourappname.herokuapp.com`
 
-* Fill out the information lines in the `Config Variables` Section of that page, as shown below.  Some of the lines can stay with the default entries already provided.
+* Fill out the information lines in the `Config Variables` Section of that page.  Some of the lines can stay with the default entries already provided.
 
+<details>
+  <summary><b>Click here to expand the list of the `Config Variables` you need to enter:</b></summary>
+<br>
 
 <table border="1">
 <thead>
@@ -123,6 +126,8 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tbody>
 </table>
 
+</details>
+<br>
 **The remaining variables can be left at their default values.**</br></br>
 
 *****************
@@ -133,15 +138,15 @@ You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which 
 
 * Click the purple `Deploy` button at the bottom of screen.
 
-![Deploy](../Images/nightscout/deploy_button.jpg)
+<img src="../Images/nightscout/deploy_button.jpg" width="400" height="300" alt="Deploy example">
 
 * Wait a little bit while Heroku builds your NS app.  You’ll see some text scroll by in the Build App box, and then finally, you will have a message that the NS app was successfully deployed.  If the app fails to deploy, it may be that you have not added your credit card information to your account yet.  Go add that information in your account billing section, and then come back and press the deploy button again.  Don't worry, your account is still free unless you choose otherwise.  The credit card simply gives you added dyno hours on your free account (win-win).
 
-![Successful deploy](../Images/nightscout/deploy_success.jpg)
+<img src="../Images/nightscout/deploy_success.jpg" width="400" height="300" alt="Successful deploy example">
 
 * You can verify your site’s successful build by clicking `View` (you should see black site with a profile warning).  You will be redirected to a profile set-up page.  (If it doesn't redirect automatically, refresh your webpage).  
 
-![No profile](../Images/nightscout/no_profile.jpg)
+<img src="../Images/nightscout/no_profile.jpg" width="400" height="300" alt="No profile example">
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
@@ -230,15 +235,14 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 ![Open app](../Images/nightscout/open_app.jpg)
 
-
 * Click on the settings (those three horizontal lines in upper right corner).  Now check that your basal render is selected to either default or icicle (personal preference for how the temp basals show as blue lines in NS site), check the boxes that you’d like display pills in the SHOW PLUGINS (usually all of them), and then press save. 
+
+<img src="../Images/nightscout/settings_ns.jpg" width="400" height="300" alt="NS settings">
 
 * **Battery monitoring**: Because running OpenAPS requires frequent communication with your pump, your pump battery tends to drain more quickly than you'd experience when not looping. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries (getting ~1.5weeks) rather than alkaline batteries (getting ~2-3 days). Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 for lithium batteries or 1.2 or 1.25 for alkaline batteries, and adding `battery` to your `PUMP_FIELDS` setting so that voltage is displayed on your Nightscout site. The voltage warning will give you many hours (reportedly ~8+ for lithium and ~6+ for alkaline) heads up that you will need to change your battery. 
 Note: If you don't change the battery in time and end up with a "low battery" warning on the pump, the pump will still function, but RF communications will be turned off and you will not be able to loop until you put a new battery in.
 
 Your NIGHTSCOUT site is now all set-up.  Congrats!
-
-![NS Settings](../Images/nightscout/settings_ns.jpg)
 
 ## Nightscout Migrations
 
