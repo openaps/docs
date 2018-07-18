@@ -223,9 +223,9 @@ This feature was previously enabled by default but will now default to false (wi
 
 #### skip_neutral_temps: 
 
-Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
+Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip setting neutral temps. However, we recommend leaving neutral temps enabled for most people who will be using this system on the go and out of constant connectivity.
 
-**Note**: if set to `true`, in order to reduce notifications at the top of the hour, it will attempt to cancel the temp basal prior to the top of the hour. (*Of course, cancelling a temp basal means you may have a delay if after that the rig has issues connecting to the pump, but people who want the 'on the hour' temp basal notification to go away may accept that risk and choose to set this to true.*)
+**Note**: if set to `true`, in order to reduce notifications at the top of the hour, it will also attempt to cancel temp basals (unless BG or minGuardBG is below threshold and a zero-temp is needed) prior to the top of the hour. Normally a new temp basal will be set (if still needed) after the top of the hour, but that may be delayed if the rig has issues connecting to the pump.  People who want to minimize the 'on the hour' temp basal notification beeps/vibrations may choose to accept that risk and choose to set skip_neutral_temps to true.
 
 #### bolussnooze_dia_divisor: 
 
