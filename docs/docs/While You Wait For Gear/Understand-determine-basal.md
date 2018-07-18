@@ -55,6 +55,32 @@ These purple lines are helpful in understanding, at a glance, *why* OpenAPS is m
 
 ![Purple prediction line examples](../Images/Prediction_lines.jpg)
 
+## OpenAPS algorithm examples
+
+### Scenario 1 - Zero Temp for safety
+
+In this example, BG is rising in the near-term time frame; however, it is predicted to be low over a longer time frame. In fact, it is predicted to go below target *and* the safety threshold. For safety to prevent the low, OpenAPS will issue a zero temp, until the eventualBG (in any time frame) is above threshold.
+
+![Dosing scenario 1](../Images/Dosing_scenario_1.jpg)
+
+### Scenario 2 - Zero temp for safety
+
+In this example, BG is predicted to go low in the near-term, although you are predicted to eventually be above target. However, because the near-term low is actually below the safety threshold, OpenAPS will issue a zero temp, until there is no longer any point of the prediction line that is below threshold.
+
+![Dosing scenario 2](../Images/Dosing_scenario_2.jpg)
+
+### Scenario 3 - More insulin needed
+
+In this example, a near-term prediction shows a dip below target. However, it is not predicted to be below the safety threshold. The eventual BG is above target. Therefore, OpenAPS will restrain from adding any insulin that would contribute to a near-term low (by adding insulin that would make the prediction go below threshold). It will then assess adding insulin to bring the lowest level of the eventual predicted BG down to target, once it is safe to do so. *(Depending on your settings and the amount and timing of insuli required, this insulin may be delivered via temp basals or SMB's).*
+
+![Dosing scenario 3](../Images/Dosing_scenario_3.jpg)
+
+### Scenario 4 - Low temping for safety
+
+In this example, OpenAPS sees that you are spiking well above your target. However, due to the timing of insulin, you already have enough in your body to bring you into range eventually. In fact, you are predicted to eventually be below target. Therefore, OpenAPS will not provide extra insulin so it will not contribute to a longer-timeframe low. Although you are high/rising, a low temporary basal rate is likely here.
+
+![Dosing scenario 4](../Images/Dosing_scenario_4.jpg)
+
 ## Exploring further
 
 For each different situation, the determine-basal output will be slightly different, but it should always provide a reasonable recommendation and list any temp basal that would be needed to start bringing BG back to target.  If you are unclear on why it is making a particular recommendation, you can explore further by searching lib/determine-basal/determine-basal.js (the library with the core decision tree logic) for the keywords in the reason field (for example, "setting" in this case would find a line (`rT.reason += ", setting " + rate + "U/hr";`) matching the output above, and from there you could read up and see what `if` clauses resulted in making that decision.  In this case, it was because (working backwards) `if (snoozeBG > profile.min_bg)` was false (so we took the `else`), but `if (eventualBG < profile.min_bg)` was true (with the explanatory comment to tell you that means "if eventual BG is below target").
