@@ -68,7 +68,9 @@ In this example, you can see that after a meal (40g carb with a 5u meal bolus, a
 
 ## Understanding the purple prediction lines
 
-Once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have multiple purple line predictions in Nightscout. (Unless you have NO carbs onboard, then you will have only one purple line.) These purple lines show you the different predictions based on current carb absorption; insulin only; and showing how long it will take BG to level off at/above target if deviations suddenly cease and we run a zero temp until then.
+Once you enable forecast display in your Nightscout configuration, you will be able to see multiple purple line predictions.  To do this, click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable "Show OpenAPS Forecasts".  Once enabled, you will have multiple purple line predictions in Nightscout. These purple lines show you the different predictions based on current carb absorption; insulin only; (optional feature: unannounced meal/effect detection); and showing how long it will take BG to level off at/above target if deviations suddenly cease and we run a zero temp until then.
+
+![Purple prediction line examples](../Images/Prediction_lines.jpg)
 
 ## Exploring further
 
