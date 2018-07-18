@@ -225,6 +225,8 @@ This feature was previously enabled by default but will now default to false (wi
 
 Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
 
+**Note**: if set to `true`, in order to reduce notifications at the top of the hour, it will attempt to cancel the temp basal prior to the top of the hour. (*Of course, cancelling a temp basal means you may have a delay if after that the rig has issues connecting to the pump, but people who want the 'on the hour' temp basal notification to go away may accept that risk and choose to set this to true.*)
+
 #### bolussnooze_dia_divisor: 
 
 Bolus snooze is enacted after you do a meal bolus, so the loop won’t counteract with low temps when you’ve just eaten. The example here and default is 2; so a 3 hour DIA means that bolus snooze will be gradually phased out over 1.5 hours (3DIA/2).
