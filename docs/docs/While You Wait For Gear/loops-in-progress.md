@@ -256,3 +256,4 @@ List of people who are working on closed loops:
 - Rob Neu (wife, Utah, USA; sister-in-law, Virginia, USA)
 - Nancy Simons ( SW France)
 - Jill Gordon (UK)
+- Elwin Versluis (Abcoude, The Netherlands)
