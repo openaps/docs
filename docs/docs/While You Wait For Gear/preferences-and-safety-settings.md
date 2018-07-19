@@ -121,9 +121,9 @@ Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
-#### enableSMB_with_bolus
+#### enableSMB_with_carbs
 
-This enables supermicrobolus for DIA hours after a manual bolus.
+This enables supermicrobolus for 3 hours after carb entry.
 
 #### enableSMB_with_COB
 
