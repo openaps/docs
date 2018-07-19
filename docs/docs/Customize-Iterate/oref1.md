@@ -34,7 +34,7 @@ SMB, like all things in OpenAPS, is designed with safety in mind. (Did you skip 
 Single SMB amounts are limited by several factors.  The largest a single SMB bolus can be is the SMALLEST value of:
 
 * 30 minutes of the current regular basal rate (as adjusted by autotune/autosens), or
-* 1/3 of the Insulin Required amount, or
+* 1/2 of the Insulin Required amount, or
 * the remaining portion of your maxIOB setting in preferences
 
 It's important to note that maxIOB will limit SMBs from being issued if your IOB (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing SMBs.
@@ -51,7 +51,7 @@ UAM provides an alternative method (in addition to or instead of carb entry) for
 
 (History of UAM development: https://github.com/openaps/oref0/issues/297 )
 
-## How to turn on SMB/UAM
+## How to turn on SMB
 
 * In oref0 0.6.0 and later, you will enable SMBs by adding the related preferences to your preferences.json. You may want to experiment with turning only one enableSMB option on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
