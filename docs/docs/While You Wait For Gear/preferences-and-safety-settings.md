@@ -29,7 +29,7 @@ IMPORTANT: Any variables that are not **true**, **false**, or a **number** MUST 
         "rewind_resets_autosens": true,
         "adv_target_adjustments": true,
         "unsuspend_if_no_temp": false,
-        "enableSMB_with_bolus": false,
+        "enableSMB_with_carbs": false,
         "enableSMB_with_COB": false,
         "enableSMB_with_temptarget": false,
         "enableUAM": false,
