@@ -2,23 +2,16 @@
 
 You have two main options for hardware:
 
-1. The preferred rig still is an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison, this is still a highly recommmended rig. The pros of this setup are: 
-  - more power efficient so better battery life
-  - faster 
-  - smaller size
-  - portability 
-  [See below for details on Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
-2. The other option is a Raspberry Pi-based setup, with the new Explorer HAT (shipping began end of April 2018). The pros of this setup are:
-- Easier to use when offline
-- Has an onboard screen for displaying readouts
-- Good solution as a complementary stationary kit for use at home for improving range/coverage (two or more OpenAPS rigs can be used simultaneously with a single pump)
-This documentation will be updated with more Pi details as they are decided. 
+`1.` The most recommended rig has been an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison (eBay, local stores, etc), this is still a highly recommmended rig. It is the smallest rig (and easily portable), with better battery life because it is power efficient. [See below for the list of hardware for Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
+  
+`2.` The other option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. See below for the list of hardware required for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-explorer-hat).
+****
 
 ## Hardware information for Pi-based setups with the Explorer HAT
 
 Summary of what you need for a Pi/HAT rig:
-* Explorer HAT
-* Pi0WH or Pi 3
+* [Explorer HAT](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hat)
+* [Pi0WH (recommended) or Pi 3](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#pi)
 * Battery
 * SD card
 
@@ -36,6 +29,8 @@ As an alternative, you can also use the HAT with a Raspberry Pi 3.
 
 #### Note about Pi+HAT cases
 Because we are still optimizing the software to be as power-efficient as possible, we have not narrowed down on the best recommended battery. And since we haven't picked a "most commonly used" battery, we also don't have any recommended 3D-printed cases yet. Stay tuned in the future for that; in the meantime, the same soft cases and the more generic hard cases seem to be working well for people in the interim.  
+
+***
 
 ## Hardware information for Intel Edison-based setups
 
