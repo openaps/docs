@@ -5,6 +5,8 @@ There are two general groups of ways to monitor your rigs:
 * Online, meaning it requires the rig to have internet connectivity (via a wifi or hotspot/tethered connection)
 * Offline, meaning the rig does not have any internet connectivity
 
+![Examples of online and offline monitoring](../Images/Online_Offline_monitoring.jpg)
+
 ## The main ways of monitoring your rig ONLINE include:
 
 * [Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended)
