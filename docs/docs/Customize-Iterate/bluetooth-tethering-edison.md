@@ -91,6 +91,16 @@ root@edisonhost:~# bluetoothd --version
 
 ### Bluetooth setup
 
+* Ensure that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
+
+First check the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
+
+`nano /etc/wpa_supplicant/wpa_supplicant.conf`
+
+Delete the phrase `update_config=1` from the file if it is present.
+
+
+
 * Stop cron to make sure oref0-online doesn't interfere:
 
 `sudo service cron stop`
