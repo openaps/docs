@@ -99,7 +99,7 @@ First check the wpa_supplicant.conf file to make sure it is set up to allow oref
 
 Delete the phrase `update_config=1` from the file if it is present.
 
-
+![Remove update_config](../Images/update_config%20adjustment.png)
 
 * Stop cron to make sure oref0-online doesn't interfere:
 
