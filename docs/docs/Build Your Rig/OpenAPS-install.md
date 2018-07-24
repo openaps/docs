@@ -1,48 +1,105 @@
 # Installing OpenAPS on your rig
 
-### Get your rig online and install dependencies
+Getting your rig with OpenAPS takes generally six steps:
 
-If you are using an Intel Edison, start with the [Intel Edison instructions](edison-install.md).
+1. Jubilinux installation (called "flashing" the Edison)
+2. Getting first wifi network connection
+3. Installing "dependencies" (helper code that make all the OpenAPS code function)
+4. Installing your OpenAPS loop
+5. Watching Pump-loop Log
+6. Finish your setup
 
-If you are using a Raspberry Pi, start with the [Raspberry Pi instructions](pi-install.md).
+* The **first step** may already be done for you if you purchased a pre-flashed Edison board.  
+* The **second and third steps** are accomplished through what is called the "bootstrap" script.
+* The **fourth step** is accomplished through what is called the "setup script".
+* The **fifth step** is an important, required step. You need to be familiar with how to read and access your logs.
+* The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like optimizing your settings, preferences, BT-tethering, IFTTT, etc.
 
-### Run oref0-setup
+### Step 1: Jubilinux (for Edison rigs)
 
-Once you've completed the instructions above, return to this page for details on running oref0-setup.
+*Pi users can skip to [step 2](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies)*
 
-#### Be prepared to enter the following information into "oref0-setup":
+If you purchased a pre-flashed Edison, you can also skip on down to [step 2](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies).
 
-The screenshot below shows an example of the questions you'll be prompted to reply to during the oref0-setup (a.k.a. setup script).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
+If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
-********************
-**IMPORTANT NOTE: One of the first setup questions is "What would you like to call your loop directory?"  PLEASE name your openaps directory with the default name of `myopenaps`.  There are many troubleshooting tips in these docs that assume you have used the default name.  If you don't use `myopenaps` as a new user, chances are nearly 100% that you will forget this warning and try to use the troubleshooting tips without replacing the directory name with your directory name.  Frustrations will ensue.  So PLEASE use the default name of `myopenaps`.  If you want personalization, name your rig something cool...not the `myopenaps` directory.**
-********************
+### Steps 2-3: Wifi and Dependencies
+
+Steps 2-3 are covered in the page links below, dependent on which type of rig you are using.  
+
+* If you are using an _**Intel Edison**_, start with the [Intel Edison instructions](edison-install.md).
+
+* If you are using a _**Raspberry Pi**_, start with the [Raspberry Pi instructions](pi-install.md).
+
+Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
+
+### Step 4: Setup script
+
+* **If you pressed `enter` to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By pressing `enter` to continuing on with setup script, the command was automatically started for you.
+
+* **If you pressed `control-c` to end at the completion of the bootstrap script** and did not continue automatically with setup script, this is where you'll pick back up.  At this point, your rig should have your first wifi connection finished and your dependencies installed.  
+
+    Login to your rig and run the following command (aka "the setup script"):
+    
+    `cd && ~/src/oref0/bin/oref0-setup.sh`
+
+(Note: if this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, it is likely that you forgot to enter `edison` at the first prompt for changing the password.)
+
+#### Be prepared to enter the following information into the setup script:
+
+The screenshot below shows an example of the questions you'll be prompted to reply to during the setup script (oref0-setup).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
+
+<details>
+    <summary><b>Be prepared to enter the following items (click here to expand list):</b></summary>
+<br>
+
+* 6-digit serial number of your pump
+* whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
+* whether you are using an Explorer board
+   * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
+    * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to check if the line `radio_type = carelink` is present in your `pump.ini` file.
+* CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  
+   * Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source. As a consequence, if you use FreeStyle Libre or any other CGM system that gets its data only from Nightscout, you'll be fine choosing any of the options above. 
+   * Note: G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
+* Nightscout URL and API secret (or NS authentication token, if you use that option)
+* BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
+  * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
+* Your desired max-iob
+* whether you want Autosensitivity and/or Autotune enabled
+* whether you want any carbs-required Pushover notifications (and if you do, you'll need your Pushover API token and User Key)
+
+</details>
 
 ![Oref1 setup script](../Images/build-your-rig/sample-setup.png)
 
-**Be prepared to enter the following items:** 
+At the end of the questions, the script will ask if you want to continue.  Review the information provided in the "to run again with these same options" area...check for any typos.  If everything looks correct, then press `y` to continue.  If you see a typo, press `n` and then type `cd && ~/src/oref0/bin/oref0-setup.sh` to start the setup questions over again.
 
-* email address for github commits
-* directory name for your openaps - we recommend the default `myopenaps` (see note above)
-* serial number of your pump
-* whether or not you are using an Explorer board
-   * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
-    * if you're using a Carelink, you will NOT be using mmeowlink
-* CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source.  G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
-* Nightscout URL and API secret (or NS authentication token, if you use that option)
-* whether you want Autosensitivity and/or Autotune enabled
-* whether you want any oref1-related advanced features (SMB/UAM) - NOT RECOMMENDED until you have run oref0 and are familiar with basic OpenAPS looping
-* BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
-  * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
-* After the setup script builds your myopenaps, it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.
+After the setup script finishes building your loop (called myopenaps), it will ask if you want to schedule a cron (in other words, automate and turn on your loop) and remove any existing cron.  You'll want to answer `y` to both - and also then press `enter` to reboot after the cron is installed.  If your setup script stalls out before those two questions happen, rerun the setup script again.
 
-#### Login again, and change your password
+**************************
 
-If this is your first build, after the rig reboots, you will be prompted to log back in. Login as "root" and the password from before (`edison` for new Edison rigs). If you're using an Edison and haven't set a password yet, it will ask you a second time for the current password (probably `edison`) and then prompt you to change your password.  You'll want to change it to something personal so your device is secure. Make sure to write down/remember your password; this is what you'll use to log in to your rig moving forward. You'll type it twice.  There is no recovery of this password if you forget it.  You will have to reflash your Edison if you forget your password.
+### Log rotate fix
 
-Once you've successfully changed your password, you'll end back at the command prompt, logged in as root and ready to watch your logs while the system begins to read your pump history, gather glucose records, and begin the calculations of any needed adjustments. So it's time to watch your logs next!
+<details>
+    <summary><b>Click here to expand notes about checking log rotate, which was fixed in 0.6.1:</b></summary>
+<br>
+    
+Make sure that at the end of the setup script, your log rotate file is set to `daily` as described below.  Most users will have the `compress` line properly edited already, but the log rotate file seems to be left at `weekly` for many users.  If you leave the setup at `weekly`, you will likely get a `device full` error in your pump logs within a week...so please check this before moving on!
 
-## Watch your Pump-Loop Log - REQUIRED!
+* Enter `vi /etc/logrotate.conf` then press “i” for INSERT mode, and make the following changes so that your file matches the one below for the highlighted areas:
+
+ * set the log rotation to `daily` from `weekly`
+ * remove the # from the “#compress” line (if it is present)
+
+* Press ESC and then type `:wq` to save and quit
+
+![Log rotation examples](../Images/Edison/log_rotation.png)
+
+</details> 
+
+**************************
+
+## Step 5: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
@@ -53,6 +110,9 @@ It's easy: simply type the letter `l` (short for "log", aka the very important p
 If this is your first rig, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
 ![First loop common messages](../Images/build-your-rig/first-loop.png)
+<details>
+    <summary><b>Click here</b> to expand the explanation of the non-error messages</summary>
+<br>
 
 When your loop very first starts, if you are quick enough to get into the logs before the first BG is read, you will likely see: 
 ```
@@ -75,7 +135,7 @@ Well, hey that's actually a good message.  It's saying "I don't hear any interru
 
 As the pump loop continues:
 ```
-Refreshed jq: settings/pumphistory-25h-zoned.json: No such file or directory
+Refreshed jq: settings/pumphistory-24h-zoned.json: No such file or directory
 ```
 That message will clear out once the pump history has successfully been read.
 
@@ -83,7 +143,7 @@ Or how about the fact that autotune hasn't run yet, but you enabled it during se
 ```
 Old settings refresh Could not parse autotune_data
 ```
-Autotune only runs at 12:05am every evening.  So, unless you're building your rig at midnight, you'll probably have to wait overnight for that error message to clear out.  Not a big deal.  You can still loop while that message is showing.  Additionally, you'll have to wait until Autotune runs before SMBs can be enacted (SMBs won't enact unless an Autotune directory exists).
+Autotune only runs at 4:05am every morning. So if autotune has not yet run, you must wait for that error message to clear out, or run it manually. You can still loop while that message is showing. Additionally, you'll have to wait until autotune runs before SMBs can be enacted. (SMBs won't enact unless an Autotune directory exists.)
 
 And then you may have an issue about the time on your pump not matching your rig's time:
 ```
@@ -107,19 +167,26 @@ and
 ```
 Advanced meal assist requires at least 36 BG readings before it can begin to calculate its necessary data. So after about three hours of looping these messages will clear out.  You can watch the count-up of "found" BG readings and know when you are getting close.  
 
+</details>
+<br>
+
 #### What you'll see when you are looping successfully ~20+ minutes later!
 
-Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with supermicrobolus pump-loop" (or simply pump-loop if you don't have SMBs enabled) and ending with "Completed supermicrobolus pump-loop"
+Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with oref0-pump-loop" and ending with "Completed oref0-pump-loop"
 
 ![Successful pump-loop](../Images/build-your-rig/loop-success.png)
 
-Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range.
+Reading these should give you an idea for what OpenAPS knows: current BG, changes in BG, information about netIOB (taking into account any temp basals it has set along with any boluses you have done), carbs on board, etc. Plus, it will give you information about the predictions and show you the data points it is using to draw the "purple prediction lines" in Nightscout. It also will tell you what, if anything, is limiting it's ability to give more insulin - i.e. if you have maxIOB at 0, or it is capped by one of the safety settings, etc. This information is a longer version of the information that will show in the "OpenAPS pill" on Nightscout. And - this is where it will tell you what insulin it thinks you need (more/less and how much) and what temporary basal rate (temp basal) it will try to set next to adjust and bring your eventualBG prediction into your target range. ([For more details on how to interpret the OpenAPS math and information, see this page for understanding OpenAPS determine-basal](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html#summary-of-outputs).)
 
 If after 20 minutes, you still have some errors showing instead of the above successful looping information, it may be time to head over to the [Troubleshooting oref0-setup tips page](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html) for ideas on your error messages and how to resolve them.  IF you aren't able to resolve your errors, please make sure that you have captured the error messages before heading over to Gitter or Facebook to get help.  Troubleshooting is far more successful when you come prepared with the error messages.
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
 #### Temp basals > 6.3, ISF > 255 or carb ratio > 25 with a x23 or x54?
+
+<details>
+    <summary><b>Expand here for notes:</b></summary>
+<br>
 
 * If your rig tries and fails to set a temp basal > 6.3 you should see "ValueError: byte must be in range(0, 256)" in the log.  
 
@@ -135,9 +202,11 @@ cd decocare
 python setup.py install
 ```
 
-#### Rig Logs and Shortcut commands
+</details>
 
-Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?"
+#### Rig Logs and Shortcut commands - bookmark this section!
+
+Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?" or "what do the logs say?"
 
 Note: The pump-loop log is not the only log your rig generates.  There are also several other loop logs contained within your OpenAPS setup such as:
 
@@ -147,29 +216,40 @@ Note: The pump-loop log is not the only log your rig generates.  There are also 
 
 * Network log: `tail -F /var/log/openaps/network.log`
 
-* Autotune log: `tail -F /var/log/openaps/autotune.log` (remember Autotune only runs at midnight, so there's not much action in that log)
+* Autotune log: `tail -F /var/log/openaps/autotune.log` (remember Autotune only runs at midnight (or at 4AM starting from 0.6.0-rc1), so there's not much action in that log)
 
-These logs and other files are things you may frequently access. There are shortcuts built in to help you more easily access key files on the go. The `l` you type for logs is an example of one of these shortcuts - it's actually a shortcut for the full command `tail -F /var/log/openaps/pump-loop.log`. Here are some other shortcuts:
+These logs and other files are things you may frequently access. There are shortcuts built in to help you more easily access key files on the go. The `l` you type for logs is an example of one of these shortcuts - it's actually a shortcut for the full command `tail -F /var/log/openaps/pump-loop.log`. Here are other shortcuts:
 
 ```
+ --View live logs--
  l => tail -F /var/log/openaps/pump-loop.log
- autosens-loop => tail -n 100 -F /var/log/openaps/autosens-loop.log
- autotune => tail -n 100 -F /var/log/openaps/autotune.log
- ns-loop => tail -n 100 -F /var/log/openaps/ns-loop.log
- pump-loop => tail -n 100 -F /var/log/openaps/pump-loop.log
+ autosens-looplog => tail -n 100 -F /var/log/openaps/autosens-loop.log
+ autotunelog => tail -n 100 -F /var/log/openaps/autotune.log
+ ns-looplog => tail -n 100 -F /var/log/openaps/ns-loop.log
+ pump-looplog => tail -n 100 -F /var/log/openaps/pump-loop.log
+ networklog => tail -n 100 -F /var/log/openaps/network.log
+ xdrip-looplog => tail -n 100 -F /var/log/openaps/xdrip-loop.log
+ cgm-looplog => tail -n 100 -F /var/log/openaps/cgm-loop.log
+ urchin-looplog => tail -n 100 -F /var/log/openaps/urchin-loop.log
+ * to quit watching, press Ctrl+C
+ 
+ --View settings/logs/info--
  cat-pref => cd ~/myopenaps && cat preferences.json
- edit-wifi => vi /etc/wpa_supplicant/wpa_supplicant.conf
  cat-wifi => cat /etc/wpa_supplicant/wpa_supplicant.conf
- edit-pref => cd ~/myopenaps && vi preferences.json
- log-wifi => tail -n 100 -F /var/log/openaps/network.log
- git-branch => cd ~/src/oref0 && git branch
  cat-autotune => cd ~/myopenaps/autotune && cat autotune_recommendations.log
- edit-runagain => cd ~/myopenaps && nano oref0-runagain.sh
  cat-runagain => cd ~/myopenaps && cat oref0-runagain.sh
-```
+ git-branch => cd ~/src/oref0 && git branch
+ edison-battery => cd ~/myopenaps/monitor && cat edison-battery.json
+ cat-reservoir => cd ~/myopenaps/monitor && cat reservoir.json
+ 
+ --Edit settings--
+ edit-wifi => vi /etc/wpa_supplicant/wpa_supplicant.conf
+ edit-pref => cd ~/myopenaps && vi preferences.json
+ edit-runagain => cd ~/myopenaps && nano oref0-runagain.sh
+ ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-## Finish your OpenAPS setup
+## Step 6: Finish your OpenAPS setup
 
 You're looping? Congrats! However, you're not done quite done yet. 
 

@@ -8,7 +8,9 @@ network={
     psk="my wifi password"
 }
 ```
-Save the edits to the file using `control-x`, `y`, and `enter`.
+Newer versions of the setup script enact the editor `vi` instead of `nano`.  The important commands to know in vi are `i` to turn on insert mode on and `esc` to turn it off.   Once insert mode is on, edit your file and when you are done hit `esc`.   To exit vi you have a few choices: `:q!` will exit and not save any changes, in case you mess up badly.   `:w` will write your changes and keep you in vi.  Once you are satisfied with your edits, `:wq` will write your changes and quit vi.
+
+Older version use `nano`, which is more intuitive, but doesn't work well over USB serial console connections, unless your window is exactly 80 characters wide.  If you're using `nano`, you can save the edits to the file using `control-x`, `y`, and `enter`.  If you mess up, you can do `control-x` and `n`.
 
 Helpful tip:  Add a couple "blank" networks to the file (see screenshot below), so that if you ever need to add new wifi networks while on-the-road, the process will be much faster and easier.  You'll only need to edit the network name and password then...instead of needing to type in the whole string of the template. 
 
@@ -31,3 +33,5 @@ network={
 ```
 
 Other wifi networks require you to accept a terms and conditions (or enter a room number and last name) prior to allowing access.  For example, Starbucks coffee shops and many hotels.  These networks are termed "captive" networks and connecting your rig to captive networks is currently not an option for a standard rig setup.  A device like [Hootoo mobile router](https://www.hootoo.com/network-devices.html) is an excellent tool in these situations.  A Hootoo mobile router will login to the hotel/Starbucks network via an app on your phone, and then the Hootoo "bridge" (non-technical word) the hotel's network for your rig to be able to connect to once you add the network to the rig.
+
+If you use priority (priority=1)  to select among more than one network at a time, just remember that HIGHER numbers are HIGHER priority.  

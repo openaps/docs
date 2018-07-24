@@ -2,10 +2,7 @@
 
 ## Nightscout Introduction
 
-[Nightscout](http://nightscout.info) (NS) is an open source, DIY project that allows real-time access to CGM data
-via a personal website, smartwatch viewers, or apps and widgets available for
-smartphones. Setting up a Nightscout web app is the recommended way to visualize your
-OpenAPS closed loop.
+[Nightscout](http://nightscout.info) (NS) is an open source, DIY project that allows real-time access to CGM data via a personal website, smartwatch viewers, or apps and widgets available for smartphones. Setting up a Nightscout web app is the recommended way to visualize your OpenAPS closed loop.  It is required in order to run autotune (highly recommended), which in turn is required if you want to use (e)SMB (an advanced feature of OpenAPS).
 
 Nightscout allows a user to upload CGM data from a variety of sources to an
 online database and cloud computing service. The information is then processed
@@ -20,7 +17,7 @@ OpenAPS closed loop.**
 Even if you don't choose to share your Nightscout site
 with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
-your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about the latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features/0-9-features).
+your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features)
 
 ## Nightscout Setup with Heroku
 
@@ -40,14 +37,19 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 ![Fork example](../Images/nightscout/ns_fork.jpg)
 
+* Where it says `Branch: master` (to the far-left of the green "Clone or download" button), click on it and choose `dev`. This button should then say `Branch: dev`.
+
 * Scroll down until you see the purple `Deploy to Heroku` button.  Click that button.
 
 ![Deploy to heroku button](../Images/nightscout/deploy_heroku.jpg)
 
 * Give your app a name, this will be the prefix of your NS site’s URL. For example, `https://yourappname.herokuapp.com`
 
-* Fill out the information lines in the `Config Variables` Section of that page, as shown below.  Some of the lines can stay with the default entries already provided.
+* Fill out the information lines in the `Config Variables` Section of that page.  Some of the lines can stay with the default entries already provided.
 
+<details>
+  <summary><b>Click here to expand the list of the `Config Variables` you need to enter:</b></summary>
+<br>
 
 <table border="1">
 <thead>
@@ -59,7 +61,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 <tbody>
 <tr>
 <th>API_SECRET</th>
-<td>Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` symbol.</td>
+<td>Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` or `&` symbols.</td>
 </tr>
 <tr>
 <th>AUTH_DEFAULT_ROLES</th>
@@ -124,6 +126,8 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tbody>
 </table>
 
+</details>
+<br>
 **The remaining variables can be left at their default values.**</br></br>
 
 *****************
@@ -231,15 +235,14 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 ![Open app](../Images/nightscout/open_app.jpg)
 
-
 * Click on the settings (those three horizontal lines in upper right corner).  Now check that your basal render is selected to either default or icicle (personal preference for how the temp basals show as blue lines in NS site), check the boxes that you’d like display pills in the SHOW PLUGINS (usually all of them), and then press save. 
 
-* **Battery monitoring**: Because running OpenAPS requires frequent communication with your pump, your pump battery tends to drain more quickly than you'd experience when not looping. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries (getting ~1.5weeks) rather than alkaline batteries (getting ~2-3 days). Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 (if using lithium batteries, as is most common) and adding `battery` to your `PUMP_FIELDS` so that voltage is displayed on your Nightscout site. The 1.39 voltage warning will give you many hours (reportedly ~8+) heads up that you will need to change your battery. If you don't change the battery in time and end up with a "low battery" warning on the pump, the pump will still function, but RF communications will be turned off and you will not be able to loop until you put a new battery in.
+![NS Settings](../Images/nightscout/settings_ns.jpg)
 
+* **Battery monitoring**: Because running OpenAPS requires frequent communication with your pump, your pump battery tends to drain more quickly than you'd experience when not looping. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries (getting ~1.5weeks) rather than alkaline batteries (getting ~2-3 days). Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 for lithium batteries or 1.2 or 1.25 for alkaline batteries, and adding `battery` to your `PUMP_FIELDS` setting so that voltage is displayed on your Nightscout site. The voltage warning will give you many hours (reportedly ~8+ for lithium and ~6+ for alkaline) heads up that you will need to change your battery. 
+Note: If you don't change the battery in time and end up with a "low battery" warning on the pump, the pump will still function, but RF communications will be turned off and you will not be able to loop until you put a new battery in.
 
 Your NIGHTSCOUT site is now all set-up.  Congrats!
-
-![NS Settings](../Images/nightscout/settings_ns.jpg)
 
 ## Nightscout Migrations
 
@@ -258,8 +261,9 @@ This has the following advantages:
 You can migrate each rig independently from `API_SECRET` authentication to token based authentication.
 If you want to secure your Nightscout and CGM data, then all rigs need to have oref0 version 0.5.0+ and all be configured with token based authentication.
 
-Here are the steps you need to follow:
-
+<details>
+  <summary><b>Here are the steps you need to follow - click here to expand the instructions:</b> </summary>
+<br>
 1. Visit https://yourappname.herokuapp.com/admin. Replace "yourappname" with the name you chose for your app above, that is, the prefix of your NS site's URL.
     - Add a new Role
 
@@ -334,6 +338,8 @@ Other notes:
 - You must always secure your Nightscout site with secure http (https).  Don't use http://mynightscout.herokuapp.com but rather always use https://mynightscout.herokuapp.com.
 - Once you have token auth enabled, you can stop entering your API_SECRET in your browser when authenticating, and keep your API_SECRET as a root/Administrator password that you only use for configuring Nightscout.  Instead, you can set up a user (as in steps 1 and 2 above) with the appropriate role.  If you wish to be able to enter treatments into NS, you'll need to create an account with `careportal` access and authenticate with that in Nightscout.  If you set AUTH_DEFAULT_ROLES to `denied` in step 5, you'll also need a user with `readable` permissions for any browsers that should have read-only access.
 
+</details>
+
 ### Switching from Azure to Heroku
 
 * If you are a current OpenAPS user and want to switch from Azure to Heroku, you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again. 
@@ -368,7 +374,13 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 
 ### How to display OpenAPS purple prediction/forecast lines
 
-* Click the three dots next to your timeframe horizon (3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.
+* Click the three dots next to your timeframe horizon (2HR, 3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.
+
+### Understanding OpenAPS purple predictions/forecast lines
+
+* There are up to four purple prediction lines that you will see: IOBpredBG; ZTpredBG; UAM; and COBpredBG. 
+
+![Purple prediction line examples](../Images/Prediction_lines.jpg)
 
 ### Understanding the OpenAPS pill
 
