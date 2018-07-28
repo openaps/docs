@@ -257,3 +257,4 @@ List of people who are working on closed loops:
 - Nancy Simons ( SW France)
 - Jill Gordon (UK)
 - Elwin Versluis (Abcoude, The Netherlands)
+- Carling Lellock (Pittsburgh, PA, USA)
