@@ -258,3 +258,4 @@ List of people who are working on closed loops:
 - Jill Gordon (UK)
 - Elwin Versluis (Abcoude, The Netherlands)
 - Carling Lellock (Pittsburgh, PA, USA)
+- Walter Feddern (Ontario, Canada)
