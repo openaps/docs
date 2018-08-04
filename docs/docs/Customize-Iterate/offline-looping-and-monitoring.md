@@ -59,7 +59,9 @@ Android users can use the xDrip+ Android app. The details for setting up  offlin
    
    * If you are using this configuration for G4 receivers and (1) are online and (2) want to see RAW BGs in NS, then you must remember to add `rawbg` to your ENABLE line in your Heroku/Azure settings.  You will also have to go to your Nightscout site's settings and select "always" from the Show RAW BG options.  You will also have to select `g4-raw` (if on master branch) or `g4-upload` (if on dev branch) as the CGM type in the loop setup script.
 
-### C. Send G5 BGs direct to rig (xdrip-js, Lookout/Logger)
+### C. Send G5 (and soon G6) BGs direct to rig (xdrip-js, Lookout/Logger)
+
+`Note: G6 is a work in progress! Stay tuned for confirmation when it's ready for wider testing.`
 
 On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmitter, similar to xdrip+ on the phone. It replaces the iPhone G5 mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a G5 receiver at the same time as xdrip-js. (The gitter channel for xdrip-js and related stuff is at [https://gitter.im/thebookins/xdrip-js](https://gitter.im/thebookins/xdrip-js) - head there for questions about setup.) There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
 
