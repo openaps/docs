@@ -260,3 +260,4 @@ List of people who are working on closed loops:
 - Carling Lellock (Pittsburgh, PA, USA)
 - Walter Feddern (Ontario, Canada)
 - Abigail Cember (Ardmore, PA, USA)
+- Megann Fuka (Tulsa, OK, USA)
