@@ -7,6 +7,7 @@ Resources
    :glob:
 
    my-first-pr
+   clinician-guide-to-OpenAPS
    technical-resources
    Medtronic-Button-Errors
    troubleshooting
