@@ -2,7 +2,7 @@
 
 This page is intended for clinicians who have expressed interest in open source artificial pancreas technology such as OpenAPS, or for patients who want to share such information with their clinicians.  If you're reading a printed copy of this page, you can access the latest version, with clickable links, at bit.ly/openaps-for-hcps (TODO: create this link)
 
-This guide has some high-level information about DIY closed looping and specifically how OpenAPS works. For more details on all of these topics, please view the [comprehensive documentation online](http://openaps.readthedocs.io/en/latest/index.html). If you have questions, please ask your patient for more details, or always feel free to reach out to the community with question. (If you’re not on social media, feel free to email Dana@OpenAPS.org)
+This guide has some high-level information about DIY closed looping and specifically how OpenAPS works. For more details on all of these topics, please view the [comprehensive OpenAPS documentation online](http://openaps.readthedocs.io/en/latest/index.html). If you have questions, please ask your patient for more details, or always feel free to reach out to the community with question. (If you’re not on social media, feel free to email Dana@OpenAPS.org)
 
 ### The steps for building a DIY Closed Loop:
 
@@ -84,6 +84,6 @@ Additionally, human behavior (learned from manual diabetes mode) often influence
 This is meant to be a high-level overview of how OpenAPS works. For more details, ask your patient, reach out to the community, or read the full OpenAPS documentation available online.
 
 Additional recommended reading:
-* The [OpenAPS Reference Design](https://openaps.org/reference-design/), which explains how OpenAPS is designed for safety: https://openaps.org/reference-design/
+* The [OpenAPS Reference Design](https://OpenAPS.org/reference-design/), which explains how OpenAPS is designed for safety: https://openaps.org/reference-design/
 * The [full OpenAPS documentation](http://openaps.readthedocs.io/en/latest/index.html)
   * More [details on OpenAPS calculations](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html#understanding-the-determine-basal-logic)
