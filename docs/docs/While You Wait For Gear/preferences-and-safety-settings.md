@@ -4,6 +4,67 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
 
 (*Note that there are some preferences that show up by default; these are the most commonly adjusted. There are additional preferences available to set that are not used by everyone, and are described below - any of these can also be added to the preferences.json*)
 
+
+<details>
+        <summary><b>Click here to expand a clickable list to jump to each preference:</b></summary>
+<br>
+
+- [Editing your preferences.json](#editing-your-preferencesjson)
+- [Commonly-adjusted preferences:](#commonly-adjusted-preferences)
+   * [max IOB:](#max-iob)
+   * [max daily safety multiplier:](#max-daily-safety-multiplier)
+   * [current basal safety multiplier:](#current-basal-safety-multiplier)
+  * [Important Note About Safety Multipliers:](#important-note-about-safety-multipliers)
+    + [A few examples:](#a-few-examples)
+  * [autosens_max:](#autosens-max)
+  * [autosens_min:](#autosens-min)
+  * [rewind_resets_autosens:](#rewind-resets-autosens)
+  * [unsuspend_if_no_temp:](#unsuspend-if-no-temp)
+  * [carbsReqThreshold](#carbsreqthreshold)
+  * [curve: "rapid-acting"](#curve-rapid-acting)
+  * [useCustomPeakTime](#usecustompeaktime)
+  * [insulinPeakTime](#insulinpeaktime)
+- [oref1-related preferences:](#oref1-related-preferences)
+  * [enableSMB_with_carbs](#enablesmb-with-carbs)
+  * [enableSMB_with_COB](#enablesmb-with-cob)
+  * [enableSMB_with_temptarget](#enablesmb-with-temptarget)
+  * [enableUAM](#enableuam)
+  * [enableSMB_always](#enablesmb-always)
+  * [enableSMB_after_carbs](#enablesmb-after-carbs)
+  * [allowSMB_with_high_temptarget](#allowsmb-with-high-temptarget)
+  * [maxSMBBasalMinutes](#maxsmbbasalminutes)
+- [Exercise-mode related preferences:](#exercise-mode-related-preferences)
+  * [exercise_mode](#exercise-mode)
+  * [high_temptarget_raises_sensitivity](#high-temptarget-raises-sensitivity)
+  * [low_temptarget_lowers_sensitivity](#low-temptarget-lowers-sensitivity)
+  * [sensitivity_raises_target](#sensitivity-raises-target)
+  * [resistance_lowers_target:](#resistance-lowers-target)
+  * [half_basal_exercise_target](#half-basal-exercise-target)
+- [Pushover related preferences](#pushover-related-preferences)
+  * [pushover_snooze:](#pushover-snooze)
+  * [pushover_only:](#pushover-only)
+  * [pushover_sound:](#pushover-sound)
+  * [pushover_priority:](#pushover-priority)
+  * [pushover_retry:](#pushover-retry)
+  * [pushover_expire:](#pushover-expire)
+- [Other preferences:](#other-preferences)
+  * [autosens_adjust_targets:](#autosens-adjust-targets)
+  * [adv_target_adjustments:](#adv-target-adjustments)
+  * [skip_neutral_temps:](#skip-neutral-temps)
+  * [bolussnooze_dia_divisor:](#bolussnooze-dia-divisor)
+  * [min_5m_carbimpact:](#min-5m-carbimpact)
+  * [carbratio_adjustmentratio:](#carbratio-adjustmentratio)
+  * [maxCOB:](#maxcob)
+  * [remainingCarbsCap:](#remainingcarbscap)
+  * [remainingCarbsFraction:](#remainingcarbsfraction)
+  * [autotune_isf_adjustmentFraction:](#autotune-isf-adjustmentfraction)
+  * [offline_hotspot](#offline-hotspot)
+  * [wide_bg_target_range](#wide-bg-target-range)
+  * [A52_risk_enable (A52 risk mitigation)](#a52-risk-enable-a52-risk-mitigation)
+
+</details>
+
+
 ## Editing your preferences.json
 
 Your preferences are found in the directory `myopenaps/preferences.json`.  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
