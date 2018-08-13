@@ -7,8 +7,6 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
 
 <details>
         <summary><b>Click here to expand a clickable list to jump to each preference:</b></summary>
-<br>
-
 - [Editing your preferences.json](#editing-your-preferencesjson)
 - [Commonly-adjusted preferences:](#commonly-adjusted-preferences)
    * [max IOB:](#max-iob)
