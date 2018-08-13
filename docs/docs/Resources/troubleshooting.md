@@ -2,6 +2,29 @@
 
 Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting. Here is also a [good blog post to read with tips on how to best seek help online to troubleshoot](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
+What's on this page:
+
+- [Generally useful linux commands](#generally-useful-linux-commands)
+- [Dealing with npm run global-install errors](#dealing-with-npm-run-global-install-errors)
+- [Dealing with a corrupted git repository](#dealing-with-a-corrupted-git-repository)
+- [Debugging Disk Space Issues](#debugging-disk-space-issues)
+- [Environment variables](#environment-variables)
+- [Wifi and hotspot issues](#wifi-and-hotspot-issues)
+   * [My wifi connection keeps dropping or I keep getting kicked out of ssh](#my-wifi-connection-keeps-dropping-or-i-keep-getting-kicked-out-of-ssh)
+   * [I forget to switch back to home wifi and it runs up my data plan](#i-forget-to-switch-back-to-home-wifi-and-it-runs-up-my-data-plan)
+   * [I am having trouble consistently connecting to my wifi hotspot when I leave the house](#i-am-having-trouble-consistently-connecting-to-my-wifi-hotspot-when-i-leave-the-house)
+   * [I am not able to connect to my wireless access point on my iPhone](#i-am-not-able-to-connect-to-my-wireless-access-point-on-my-iphone)
+- [Common error messages](#common-error-messages)
+   * [Don't have permission, permission not allowed, etc](#permission-not-allowed)
+   * [ValueError: need more than 0 values to unpack](#valueerror-need-more-than-0-values-to-unpack)
+   * [Unable to upload to Nightscout](#unable-to-upload-to-Nightscout)
+   * [No JSON object could be decoded](#no-json-object-could-be-decoded)
+   * [json: error: input is not JSON](#json-error-input-is-not-json)
+   * [TypeError: Cannot read property 'zzzz' of undefined](#typeerror-cannot-read-property-zzzz-of-undefined)
+   * [Could not parse carbratio date when invoking profile report](#could-not-parse-carbratio-date-when-invoking-profile-report)
+   * [Could not get subg rfspy state or version ccprog](#could-not-get-subg-rfspy-state-or-version-ccprog)
+   * [Dealing with the CareLink USB Stick](#dealing-with-the-carelink-usb-stick)
+
 ## Generally useful linux commands
 
 More comprehensive command line references can be found [here](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html) and [here](http://www.pixelbeat.org/cmdline.html). For the below, since these are basic linux things, also try using a basic search engine (i.e. Google) to learn more about them and their intended use.
@@ -58,7 +81,7 @@ then run `cd ~/src/oref0 && git checkout master && git pull` or if you are runni
 
 then run `cd ~/src/oref0 && npm run global-install` and then re-run oref0-setup.
 
-## Dealing with a corrupted git repository (pre-oref0 0.6.0)
+## Dealing with a corrupted git repository
 
 In oref0 versions prior to oref0 0.6.0, OpenAPS used git as the logging mechanism, so it commits report changes on each report invoke. Sometimes, due to "unexpected" power-offs (battery dying, unplugging, etc.),the git repository gets broken. You may see an error that references a loose object, or a corrupted git repository. To fix a corrupted git repository you can run `oref0-reset-git`, which will first run `oref0-fix-git-corruption` to try to fix the repository, and in case when repository is definitely broken it copies the .git history to a temporary location (`tmp`) and initializes a new git repo. In some versions of oref0 (up to 0.5.5), `oref0-reset-git` is in cron so that if the repository gets corrupted it can quickly reset itself. 
 
@@ -92,7 +115,7 @@ If you are getting your BG from Nightscout or you want to upload loop status/res
 
 ## Wifi and hotspot issues
 
-### My wifi connection keeps dropping and/or I keep getting kicked out of ssh
+### My wifi connection keeps dropping or I keep getting kicked out of ssh
 There is a script that you can add to your root cron that will test your connection and reset it if it is down. Here is an example that runs every two minuntes (odd minutes). You could also do it every 5 minutes or less. Note, this does not have to be for an Edison, you can set this up for a Pi, etc as well.
 
 ```
@@ -112,7 +135,7 @@ You can add a line to your cron that will check to see if <YOURWIFINAME> is avai
   * Edit your root cron ```crontab -e```
   * Add the following line ```*/2 * * * * ( (wpa_cli status | grep <YOURWIFINAME> > /dev/null && echo already on <YOURWIFINAME>) || (wpa_cli scan > /dev/null && wpa_cli scan_results | egrep <YOURWIFINAME> > /dev/null && udo pa_cli select_network $(wpa_clilist_networks | grep jsqrd | cut -f 1) && echo switched to <YOURWIFINAME> && sleep 15 && (for i in $(wpa_cli list_networks | grep DISABLED | cut -f 1); do wpa_cli enable_network $i > /dev/null; done) && echo and re-enabled other networks) ) 2>&1 | logger -t wifi-select```
 
-### I am having trouble consistently connecting to my wifi hotspot when I leave the house (iPhone)
+### I am having trouble consistently connecting to my wifi hotspot when I leave the house
 When you turn on your hotspot it will only broadcast for 90 seconds and then stop (even if it is flipped on). So, when you leave your house you need to go into the hotspot setting screen (and flip on if needed). Leave this screen open until you see your rig has connected. It may only take a few seconds or a full minute.
 
 ### I am not able to connect to my wireless access point on my iPhone 
@@ -127,7 +150,7 @@ Consider changing your iPhone's name...  In most cases iPhone will set the phone
 
 These error messages may appear in response to openaps commands in the console, or in the system log (located at /var/log/syslog when using raspbian OS). Some errors can be safely ignored, like timeout errors that occur when the pump is out of range.
 
-### Don't have permission, permission not allowed, etc
+### Permission not allowed
 
 The command you are running likely needs to be run with root permissions, try the same command again with ```sudo ``` in front of it
 
@@ -141,13 +164,13 @@ chmod u+x myscript.sh
 
 A JSON file did not contain entries. It usually will self-resolve with the next successful pump history read.
 
-### Unable to upload to http//my-nightscout-website.com
+### Unable to upload to Nightscout
 
 OpenAPS has failed to upload to the configured nightscout website. If you're using a Medtronic CGM and no BG readings appear in nightscout, connect to your rig and the directory of your openaps app (default is myopenaps) run
 
 `openaps first-upload`
 
-### [No JSON object could be decoded](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=openaps+%27No+JSON+object+could+be+decoded%27)
+### No JSON object could be decoded
 
 Usually means the file does not exist. It usually will self-resolve with the next successful pump history read. If it recurs, you will need to [drill down](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html#running-commands-manually-to-see-what-s-not-working-from-an-oref0-setup-sh-setup-process) to find the area where it is not successfully reading. 
 
@@ -165,7 +188,7 @@ example: `TypeError: Cannot read property 'rate' of undefined`
 
 Usually is related to a typo if you have manually been editing files. Otherwise, should self-resolve.
 
-### Could not parse carbratio_date when invoking profile report
+### Could not parse carbratio date when invoking profile report
 
     Could not parse carbratio_data.
     Feature Meal Assist enabled but cannot find required carb_ratios.
@@ -188,7 +211,10 @@ Below is correct definition
     remainder =
     insulin_sensitivities = settings/insulin_sensitivities.json
 
-### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type? (ccprog)
+### Could not get subg rfspy state or version ccprog
+
+Full error is usually: 
+`Could not get subg_rfspy state or version. Have you got the right port/device and radio_type? (ccprog)`
 
 Basic steps using an Intel Edison with Explorer Board, checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet:
   * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
