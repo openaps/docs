@@ -188,16 +188,13 @@ Below is correct definition
     remainder =
     insulin_sensitivities = settings/insulin_sensitivities.json
 
-### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
+### Could not get subg_rfspy state or version. Have you got the right port/device and radio_type? (ccprog)
 
 Basic steps using an Intel Edison with Explorer Board, checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet:
   * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
-  * Double check that your port in pump.ini is correct
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
-  * Reboot your rig
-  * Run oref0-runagain
-  * Fully power down and start up your rig
+  * Reboot, or fully power down and start up your rig
 
 If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
   * Stop the reboot loop: `sudo service cron stop && killall -g oref0-pump-loop && shutdown -c`
