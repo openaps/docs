@@ -41,7 +41,7 @@ OpenAPS makes multiple predictions (based on settings, and the situation) to sho
 
 #### Here are examples of the purple prediction lines, and how they might differ:
 
-![Purple prediction line examples](./Images/Prediction_lines.jpg)
+![Purple prediction line examples](../Images/Prediction_lines.jpg)
 
 #### Here are examples of different time frames that influence the needed adjustments to insulin delivery:
 
@@ -49,25 +49,25 @@ OpenAPS makes multiple predictions (based on settings, and the situation) to sho
 
 In this example, BG is rising in the near-term time frame; however, it is predicted to be low over a longer time frame. In fact, it is predicted to go below target *and* the safety threshold. For safety to prevent the low, OpenAPS will issue a zero temp, until the eventualBG (in any time frame) is above threshold.
 
-![Dosing scenario 1](./Images/Dosing_scenario_1.jpg)
+![Dosing scenario 1](../Images/Dosing_scenario_1.jpg)
 
 #### Scenario 2 - Zero temp for safety
 
 In this example, BG is predicted to go low in the near-term, although you are predicted to eventually be above target. However, because the near-term low is actually below the safety threshold, OpenAPS will issue a zero temp, until there is no longer any point of the prediction line that is below threshold.
 
-![Dosing scenario 2](./Images/Dosing_scenario_2.jpg)
+![Dosing scenario 2](../Images/Dosing_scenario_2.jpg)
 
 #### Scenario 3 - More insulin needed
 
 In this example, a near-term prediction shows a dip below target. However, it is not predicted to be below the safety threshold. The eventual BG is above target. Therefore, OpenAPS will restrain from adding any insulin that would contribute to a near-term low (by adding insulin that would make the prediction go below threshold). It will then assess adding insulin to bring the lowest level of the eventual predicted BG down to target, once it is safe to do so. *(Depending on your settings and the amount and timing of insulin required, this insulin may be delivered via temp basals or SMB's).*
 
-![Dosing scenario 3](./Images/Dosing_scenario_3.jpg)
+![Dosing scenario 3](../Images/Dosing_scenario_3.jpg)
 
 #### Scenario 4 - Low temping for safety
 
 In this example, OpenAPS sees that you are spiking well above your target. However, due to the timing of insulin, you already have enough in your body to bring you into range eventually. In fact, you are predicted to eventually be below target. Therefore, OpenAPS will not provide extra insulin so it will not contribute to a longer-timeframe low. Although you are high/rising, a low temporary basal rate is likely here.
 
-![Dosing scenario 4](./Images/Dosing_scenario_4.jpg)
+![Dosing scenario 4](../Images/Dosing_scenario_4.jpg)
 
 ### Optimizing settings and making changes 
 
