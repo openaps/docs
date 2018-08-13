@@ -76,7 +76,7 @@ Return to your home screen and you will be able to verify the `Size on Disk` has
 
 ![mLab compact verify](../Images/mlab_compact3.png) 
 
-**Note about inability to compact data**.  Several people have reported that they get a timeout error when following the above compacting instructions and the size on disk is not reduced.  If you run into this issue, you can send an email to mLab support at support@mlab.com and they will compact the database for you.
+**Note about inability to compact data**.  Several people have reported that they get a timeout error when following the above compacting instructions and the size on disk is not reduced. Try again and this text may appear. "If after issuing this command your Sandbox database still has a Size on Disk (file size) greater than 496 MB, [see our FAQ for possible explanations](https://docs.mlab.com/ops/#sandbox-not-compacting)." And so you would simply cleanout historical data. If you run into this issue, you can send an email to mLab support at support@mlab.com and they will compact the database for you.
 
 ### Cleanout data
 
