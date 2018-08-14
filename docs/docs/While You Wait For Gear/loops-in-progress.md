@@ -261,3 +261,4 @@ List of people who are working on closed loops:
 - Walter Feddern (Ontario, Canada)
 - Abigail Cember (Ardmore, PA, USA)
 - Megann Fuka (Tulsa, OK, USA)
+- Ariane Fleming (Seattle, WA)
