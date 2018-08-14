@@ -1,6 +1,6 @@
 # For Clinicians – A General Introduction and Guide to OpenAPS
 
-This page is intended for clinicians who have expressed interest in open source artificial pancreas technology such as OpenAPS, or for patients who want to share such information with their clinicians.  If you're reading a printed copy of this page, you can access the latest version, with clickable links, at bit.ly/openaps-for-hcps (TODO: create this link)
+This page is intended for clinicians who have expressed interest in open source artificial pancreas technology such as OpenAPS, or for patients who want to share such information with their clinicians. 
 
 This guide has some high-level information about DIY closed looping and specifically how OpenAPS works. For more details on all of these topics, please view the [comprehensive OpenAPS documentation online](http://openaps.readthedocs.io/en/latest/index.html). If you have questions, please ask your patient for more details, or always feel free to reach out to the community with question. (If you’re not on social media, feel free to email Dana@OpenAPS.org)
 
