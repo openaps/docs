@@ -103,3 +103,4 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :caption: Resources/Reference
    
    Resources <docs/Resources/index>
+   For Clinicians <docs/Resources/clinician-guide-to-OpenAPS>
