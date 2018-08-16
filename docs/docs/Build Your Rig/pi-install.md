@@ -82,7 +82,7 @@ At this time, the master installation of oref0 is not compatible with the the ne
 
 Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users).
 
-Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 && git checkout dev`. You should see a message returned of "Branch dev set up to track remote branch dev from origin. Switched to a new branch 'dev'".
+Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 && git checkout dev`. On your first install you should see a message returned of "Branch dev set up to track remote branch dev from origin. Switched to a new branch 'dev'". On subsequent installs or updates you would follow the direction to execute the command "git pull".
 
 Now run `npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Successful completion of this step should look like below.
 
