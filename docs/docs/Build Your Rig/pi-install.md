@@ -72,7 +72,7 @@ The script will then continue to run awhile longer (10 to 30 minutes) before ask
 !["install piBakery"](../Images/build-your-rig/pi-curl-success.png)
 
 
-Troubleshooting:  If your screen stops as shown below before successful completion (as shown above), rerun the curl -s command line shown above.  
+Troubleshooting:  If your screen stops as shown below or jumps ahead to the interactive portion before successful completion (as shown above), rerun the curl -s command line shown above.  
 
 !["install piBakery"](../Images/build-your-rig/pi-curl-fail.png)
 
