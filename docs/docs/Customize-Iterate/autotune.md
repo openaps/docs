@@ -190,6 +190,13 @@ Mac install commands:
 npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)
 ```
 
+* If you need the dev version of oref0 (for example, to run autotune with AndroidAPS as of August 2018):
+
+```
+cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+cd ~/src/oref0 && npm run global-install
+```
+
 **Step 3: Create a profile.json with your settings**
 * A. Create a myopenaps and settings directory. `mkdir -p ~/myopenaps/settings`
 * B. Change into that directory: `cd ~/myopenaps/settings`.
