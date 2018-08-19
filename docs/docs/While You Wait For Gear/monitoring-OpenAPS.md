@@ -544,6 +544,16 @@ For using the HooToo to join plane or hotel wifi, after you've joined the HooToo
 
 ### Offline web page from rig - for any phone user
 
+Starting with oref0 0.6.0, you can enable a rig hosted offline webpage that can be accessed over a local LAN. To do this, simply open a web browser and go to your rig's IP address. In most cases, this will be in the format 192.168.x.x
+
+![Successful pump-loop](../Images/offline_webpage_3.png) ![Unsuccessful pump-loop](../Images/offline_webpage_1.png)
+
+The box around your current BG will be either green or red, depending on the last time OpenAPS was able to successfully complete a pump-loop. The box functions similarly to the OpenAPS pill in Nightscout. If you tap on it, you will be able to view more info about the current state of your rig and its decision making process. 
+
+![Offline webpage OpenAPS pill](../Images/offline_webpage_2.png)
+
+### Old instructions for an offline webpage. It is HIGHLY recommended that you use the method above for oref0 0.6.0 or greater.
+
 **TODO** - implement this as a proper oref0 script that can be installed by oref0-setup
 
 This allows you to extract data from the various files that OpenAPS creates and access the locally from the phone that is connected to the rig, giving a full information set.
