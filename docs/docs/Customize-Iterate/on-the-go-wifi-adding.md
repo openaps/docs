@@ -8,7 +8,9 @@ network={
     psk="my wifi password"
 }
 ```
-Save the edits to the file using `control-x`, `y`, and `enter`.
+Newer versions of the setup script enact the editor `vi` instead of `nano`.  The important commands to know in vi are `i` to turn on insert mode on and `esc` to turn it off.   Once insert mode is on, edit your file and when you are done hit `esc`.   To exit vi you have a few choices: `:q!` will exit and not save any changes, in case you mess up badly.   `:w` will write your changes and keep you in vi.  Once you are satisfied with your edits, `:wq` will write your changes and quit vi.
+
+Older version use `nano`, which is more intuitive, but doesn't work well over USB serial console connections, unless your window is exactly 80 characters wide.  If you're using `nano`, you can save the edits to the file using `control-x`, `y`, and `enter`.  If you mess up, you can do `control-x` and `n`.
 
 Helpful tip:  Add a couple "blank" networks to the file (see screenshot below), so that if you ever need to add new wifi networks while on-the-road, the process will be much faster and easier.  You'll only need to edit the network name and password then...instead of needing to type in the whole string of the template. 
 

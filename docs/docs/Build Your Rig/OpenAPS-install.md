@@ -57,7 +57,7 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 * whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
-    * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to add `carelink = on` to your `pump.ini` file
+    * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to check if the line `radio_type = carelink` is present in your `pump.ini` file.
 * CGM method:  The options are `g4-upload`, `g4-local-only`, `g5`, `mdt`, and `xdrip`.  
    * Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source. As a consequence, if you use FreeStyle Libre or any other CGM system that gets its data only from Nightscout, you'll be fine choosing any of the options above. 
    * Note: G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.

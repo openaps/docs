@@ -92,6 +92,8 @@ Log into the NEW rig and run the following command:
 
 #### Phase C: Running Autotune for suggested adjustments without an OpenAPS rig
 
+*Caution for AndroidAPS users:* Currently, the master oref0 version with Autotune does not parse AndroidAPS entries correctly. **You must set AndroidAPS to upload all temp basals as "absolute" rates, instead of %, *and* use the dev branch of oref0.**  If you do not do both of these things, your results will be wrong! Future versions of Autotune will allow using AndroidAPS data as long as the option to upload temp basals as absolute values instead of / in addition to percent is enabled in AndroidAPS.
+
 If you are not running autotune as part of a closed loop, you can still run it as a "one-off". We are actively working to make it easier for people to run autotune as a one-off analysis. Ideally, someone can run this report before their endo appointment and take these numbers in along with their other diabetes data to discuss any needed changes to basal rates, ISF, and potentially carb ratio. With the instructions below, you should be able to run this, even if you do not have a closed loop or regardless of what type of DIY closed loop you have. (OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
 **Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](./understanding-autotune.md)
@@ -186,6 +188,13 @@ Mac install commands:
 
 ```
 npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 package && sudo npm install -g oref0)
+```
+
+* If you need the dev version of oref0 (for example, to run autotune with AndroidAPS as of August 2018):
+
+```
+cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+cd ~/src/oref0 && npm run global-install
 ```
 
 **Step 3: Create a profile.json with your settings**
@@ -305,6 +314,7 @@ Other things to check:
 * If VM is already set up, and you are returning to your VM for another session of autotune, double-check that your VM timezone matches your pump: `sudo dpkg-reconfigure tzdata` 
 * Invalid calculations may be due to the locale settings of your VM (correct settings are `en_US.utf-8` or another locale that uses `.` as the decimal separator). An easy way to overcome such a problem is to add `env LANG=en_US.UTF-8` in front of your command for running autotune, it should look like this: `env LANG=en_US.UTF-8 oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
 * Did you turn on Nightscout authentication with the setting `AUTH_DEFAULT_ROLES`?  Currently Autotune will only work with the `readable` setting.  See [issue #397](https://github.com/openaps/oref0/issues/397) in Github.
+* If you are using [NightScoutLoader](https://github.com/gh-davidr/NightscoutLoader) to load the Diasend data to your Nightscout site, ensure the Diasend xls date format is the same as the date format selected in the NightScoutLoader Settings.  For USA users, the Diasend xls date format is "mm/yy/yyyy HH:mm" format which isn't supported by NightScoutLoader at this time.  The NightScoutLoader app currently only supports {"Default", "dd/MM/yy hh:mm", "MM/dd/yy hh:mm", "dd/MM/yy", "MM/dd/yy"] formats. "Default" corresponds to your OS date format for the English locale.  If none of these formats correspond to your Diasend xls data, as a workaround until NightScoutLoader is remedied, either set your system default date format to correspond to Diasend's date format or change the date format in the Diasend xls data file for all Times and Dates to correspond to NightScoutLoader Settings.  For example, the tabs "Name and glucose", "CGM", "Insulin use and carbs", and "Alarms and events" all have date and time data. 
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightscout in a way that's not through Care Portal app directly, etc. 
 
 #### What does this output from autotune mean? 
