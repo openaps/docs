@@ -67,18 +67,18 @@ mmtune: 2018/08/19 21:05:58 connected to CC111x radio on /dev/spidev5.1
     ],
     [
       "916.700",
-      3,
-      -73
+      5,
+      -86
     ],
     [
       "916.750",
-      3,
-      -70
+      5,
+      -86
     ],
     [
       "916.800",
-      3,
-      -72
+      5,
+      -86
     ],
     [
       "916.850",
@@ -97,7 +97,7 @@ mmtune: 2018/08/19 21:05:58 connected to CC111x radio on /dev/spidev5.1
 "916.750", 3, -70
 ```
   
-The rig scanned frequencies between 916.300 and 916.876 mHz, and set the frequency for pump communications to 916.612 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  **Results of `0, -99` indicate NO pump communications.  This is an undesirable result.**  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.588, 916.612, and 916.636 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
+The rig scanned frequencies between 916.300 and 916.876 mHz, and set the frequency for pump communications to 916.612 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  **Results of `0, -128` indicate NO pump communications.  This is an undesirable result.**  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.7, 916.75, and 916.8 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
 
 ### How can you see the results of your pump tuning?
 
