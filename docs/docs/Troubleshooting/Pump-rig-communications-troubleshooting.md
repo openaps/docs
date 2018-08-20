@@ -6,37 +6,96 @@ If your looping is to be successful, you will need good communications between t
 
 For example, here's the results of a pump tune:
 ```
+mmtune: 2018/08/19 21:05:58 connected to CC111x radio on /dev/spidev5.1
+2018/08/19 21:05:58 setting frequency to 916.700
+2018/08/19 21:05:58 model 723 pump
+2018/08/19 21:05:58 frequency set to 916.300
+2018/08/19 21:05:59 frequency set to 916.350
+2018/08/19 21:06:01 frequency set to 916.400
+2018/08/19 21:06:03 frequency set to 916.450
+2018/08/19 21:06:04 frequency set to 916.500
+2018/08/19 21:06:06 frequency set to 916.550
+2018/08/19 21:06:07 frequency set to 916.600
+2018/08/19 21:06:09 frequency set to 916.650
+2018/08/19 21:06:10 frequency set to 916.700
+2018/08/19 21:06:11 frequency set to 916.750
+2018/08/19 21:06:12 frequency set to 916.800
+2018/08/19 21:06:12 frequency set to 916.850
+2018/08/19 21:06:14 frequency set to 916.900
+2018/08/19 21:06:15 disconnecting CC111x radio on /dev/spidev5.1
 {
   "scanDetails": [
     [
-      "916.300", 0, -99
-      "916.324", 0, -99
-      "916.348", 0, -99
-      "916.372", 0, -99
-      "916.396", 0, -99
-      "916.420", 0, -99
-      "916.444", 0, -99
-      "916.468", 0, -99
-      "916.492", 0, -99
-      "916.516", 0, -99
-      "916.540", 5, -90
-      "916.564", 5, -87
-      "916.588", 5, -86
-      "916.612", 5, -86
-      "916.636", 5, -86
-      "916.660", 5, -87
-      "916.684", 2, -98
-      "916.708", 0, -99
-      "916.732", 0, -99
-      "916.756", 0, -99
-      "916.780", 0, -99
-      "916.804", 0, -99
-      "916.828", 0, -99
-      "916.852", 0, -99
-      "916.876", 0, -99
-  "setFreq": 916.612, 
+      "916.300",
+      0,
+      -128
+    ],
+    [
+      "916.350",
+      0,
+      -128
+    ],
+    [
+      "916.400",
+      0,
+      -128
+    ],
+    [
+      "916.450",
+      0,
+      -128
+    ],
+    [
+      "916.500",
+      0,
+      -128
+    ],
+    [
+      "916.550",
+      0,
+      -128
+    ],
+    [
+      "916.600",
+      0,
+      -128
+    ],
+    [
+      "916.650",
+      0,
+      -128
+    ],
+    [
+      "916.700",
+      3,
+      -73
+    ],
+    [
+      "916.750",
+      3,
+      -70
+    ],
+    [
+      "916.800",
+      3,
+      -72
+    ],
+    [
+      "916.850",
+      0,
+      -128
+    ],
+    [
+      "916.900",
+      0,
+      -128
+    ]
+  ],
+  "setFreq": 916.75,
   "usedDefault": false
-  ```
+}
+"916.750", 3, -70
+```
   
 The rig scanned frequencies between 916.300 and 916.876 mHz, and set the frequency for pump communications to 916.612 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  **Results of `0, -99` indicate NO pump communications.  This is an undesirable result.**  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.588, 916.612, and 916.636 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
 
@@ -66,16 +125,15 @@ mmtune: "916.800", 2, -84 -- "916.850", 0, -128 waiting for 90 second silence be
 
 
 3. If you want to manually preform an mmtune, login to your rig and `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps mmtune && sudo service cron start` will show the selected frequency of the entire scan, for example, here's the terminal results of that command on a rig called edison3:
-  ```
-  root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-radio-tune && sudo service cron start
+```
+root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
 openaps: no process found
 oref0-pump-loop: no process found
-mmtune: pump://JSON/mmtune/monitor/mmtune.json
-reporting monitor/mmtune.json
-"916.636", 5, -92 root@edison3:~/myopenaps#
+mmtune: "916.636", 5, -92
+root@edison3:~/myopenaps#
 ```
 
-4.  If you want to manually perform an mmtune with the full frequency scan displayed, use `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=2 oref0-radio-tune && sudo service cron start` and you'll see results similar to the full scan details as shown at the beginning of this section.
+4.  If you want to manually perform an mmtune with the full frequency scan displayed, use `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start` and you'll see results similar to the full scan details as shown at the beginning of this section.
 
 ### What causes poor tuning results?
 
