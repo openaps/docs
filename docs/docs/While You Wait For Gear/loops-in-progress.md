@@ -262,3 +262,4 @@ List of people who are working on closed loops:
 - Abigail Cember (Ardmore, PA, USA)
 - Megann Fuka (Tulsa, OK, USA)
 - Ariane Fleming (Seattle, WA)
+- Sarah Withee (Pittsburgh, PA, USA)
