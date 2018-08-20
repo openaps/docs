@@ -128,8 +128,8 @@ mmtune: "916.800", 2, -84 -- "916.850", 0, -128 waiting for 90 second silence be
 
    If you are running oref0 0.7.0 or later, execute `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start`.  
 
- Here's an example of the results of that command on a rig called edison3:  
- ```
+   Here's an example of the results of that command on a rig called edison3:  
+   ```
 root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
 openaps: no process found
 oref0-pump-loop: no process found
