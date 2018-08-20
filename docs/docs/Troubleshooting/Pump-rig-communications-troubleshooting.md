@@ -4,7 +4,7 @@
 
 If your looping is to be successful, you will need good communications between the pump and rig.  They communicate with each other using radio frequency (rf).  If you have an North American (Pump Model REF contains NA) or Canadian/Australian pump (CA), the rf band used is 916 MHz.  If you have a European (WW) pump, the rf band is 868 MHz.  As part of the setup script, you will be telling the rig which type of pump you have (NA or WW) so that it can properly use the right rf band to communicate with the pump.  When the rig wants to talk with the pump, it will start by "tuning the rf"... basically it will try several frequencies around the 916 or 868 MHz frequency and choose the exact frequency that has the strongest response.  The tuning process for the pump is called "mmtune".
 
-For example, here's the results of a pump tune:
+For example, here's the results of a pump tune in oref0 0.7.0:
 ```
 mmtune: 2018/08/19 21:05:58 connected to CC111x radio on /dev/spidev5.1
 2018/08/19 21:05:58 setting frequency to 916.700
@@ -97,7 +97,7 @@ mmtune: 2018/08/19 21:05:58 connected to CC111x radio on /dev/spidev5.1
 "916.750", 3, -70
 ```
   
-The rig scanned frequencies between 916.300 and 916.876 mHz, and set the frequency for pump communications to 916.612 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  **Results of `0, -128` indicate NO pump communications.  This is an undesirable result.**  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.7, 916.75, and 916.8 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
+The rig scanned frequencies between 916.300 and 916.900 mHz, and set the frequency for pump communications to 916.75 because that exact frequency had the strongest communications.  How can you see the strength by looking at these tuning results?  The lower the last number is on the tune, the better the strength.  **Results of `0, -128` indicate NO pump communications in oref0 0.7.0 and `0,-99` in prior oref0 versions.  This is an undesirable result.**  Pump tunes in the 80s or lower are usually strong enough for stable looping.  If tunes are in the 90s, then you will likely experience periodic missed pump-rig communications and your looping will be intermittent.  In this example, 916.7, 916.75, and 916.8 had equally strong responses at `5, -86` and therefore the mid-point of that range is the selected frequency.
 
 ### How can you see the results of your pump tuning?
 
@@ -124,7 +124,7 @@ mmtune: "916.800", 2, -84 -- "916.850", 0, -128 waiting for 90 second silence be
 ![Papertrail mmtune results](../Images/papertrail-mmtune-sample.png) 
 
 
-3. If you want to manually preform an mmtune, login to your rig and `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start` will show the selected frequency of the entire scan, for example, here's the terminal results of that command on a rig called edison3:
+3. If you want to manually preform an mmtune, login to your rig and `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps mmtune && sudo service cron start` will show the selected frequency of the entire scan in oref0 prior to 0.7.0 and `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start` in oref0 0.7.0 and later. For example, here's the terminal results of that command on a rig called edison3:
 ```
 root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
 openaps: no process found
@@ -133,7 +133,7 @@ mmtune: "916.636", 5, -92
 root@edison3:~/myopenaps#
 ```
 
-4.  If you want to manually perform an mmtune with the full frequency scan displayed, use `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start` and you'll see results similar to the full scan details as shown at the beginning of this section.
+4.  If you want to manually perform an mmtune with the full frequency scan displayed, use `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps-use pump mmtune && sudo service cron start` in oref0 prior to 0.7.0 and use `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start` in oref0 0.7.0 and later. You'll see results similar to the full scan details as shown at the beginning of this section.
 
 ### What causes poor tuning results?
 
