@@ -24,7 +24,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
   * [useCustomPeakTime](#usecustompeaktime)
   * [insulinPeakTime](#insulinpeaktime)
 - [oref1-related preferences:](#oref1-related-preferences)
-  * [enableSMB_with_carbs](#enablesmb-with-carbs)
+  * [enableSMB_after_carbs](#enablesmb-after-carbs)
   * [enableSMB_with_COB](#enablesmb-with-cob)
   * [enableSMB_with_temptarget](#enablesmb-with-temptarget)
   * [enableUAM](#enableuam)
@@ -89,7 +89,7 @@ IMPORTANT: Any variables that are not **true**, **false**, or a **number** MUST 
         "rewind_resets_autosens": true,
         "adv_target_adjustments": true,
         "unsuspend_if_no_temp": false,
-        "enableSMB_with_carbs": false,
+        "enableSMB_after_carbs": false,
         "enableSMB_with_COB": false,
         "enableSMB_with_temptarget": false,
         "enableUAM": false,
@@ -181,9 +181,9 @@ Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
-#### enableSMB_with_carbs
+#### enableSMB_after_carbs
 
-This enables supermicrobolus for 3 hours after carb entry.
+This enables supermicrobolus for 6 hours after carb entry.
 
 #### enableSMB_with_COB
 
