@@ -544,7 +544,7 @@ For using the HooToo to join plane or hotel wifi, after you've joined the HooToo
 
 ### Offline web page from rig - for any phone user
 
-Starting with oref0 0.6.0, you can enable a rig hosted offline webpage that can be accessed over a local LAN. To do this, simply open a web browser and go to your rig's IP address. In most cases, this will be in the format 192.168.x.x
+Starting with oref0 0.6.1, you can enable a rig hosted offline webpage that can be accessed over a local LAN. To do this, simply open a web browser and go to your rig's IP address. In most cases, this will be in the format 192.168.x.x
 
 ![Successful pump-loop](../Images/offline_webpage_3.png) ![Unsuccessful pump-loop](../Images/offline_webpage_1.png)
 
