@@ -104,43 +104,46 @@ The rig scanned frequencies between 916.300 and 916.900 mHz, and set the frequen
 You can see the results of rf tunes (mmtune) several different ways:
 
 1. Login to your rig and use `grep mmtune /var/log/openaps/pump-loop.log` to search your pump-loop.log for mmtune results.  Sample result:
-```
-mmtune: "916.750", 3, -78 waiting for 36 second silence before continuing
-mmtune: "916.650", 2, -91 waiting for 62 second silence before continuing
-mmtune: "916.700", 3, -92 -- "916.750", 2, -93 waiting for 66 second silence before continuing
-mmtune: "916.750", 3, -86 waiting for 52 second silence before continuing
-mmtune: "916.800", 3, -82 -- "916.850", 0, -128 waiting for 90 second silence before continuing
-mmtune: "916.700", 2, -66 -- "916.750", 3, -66 waiting for 12 second silence before continuing
-mmtune: "916.700", 3, -69 -- "916.750", 2, -69 waiting for 18 second silence before continuing
-mmtune: "916.700", 3, -90 -- "916.750", 3, -91 waiting for 62 second silence before continuing
-mmtune: "916.750", 3, -81 waiting for 42 second silence before continuing
-mmtune: "916.750", 3, -85 waiting for 50 second silence before continuing
-mmtune: "916.750", 3, -79 waiting for 38 second silence before continuing
-mmtune: "916.800", 2, -84 -- "916.850", 0, -128 waiting for 90 second silence before continuing
-```
-
+   ```
+   mmtune: "916.750", 3, -78 waiting for 36 second silence before continuing
+   mmtune: "916.650", 2, -91 waiting for 62 second silence before continuing
+   mmtune: "916.700", 3, -92 -- "916.750", 2, -93 waiting for 66 second silence before continuing
+   mmtune: "916.750", 3, -86 waiting for 52 second silence before continuing
+   mmtune: "916.800", 3, -82 -- "916.850", 0, -128 waiting for 90 second silence before continuing
+   mmtune: "916.700", 2, -66 -- "916.750", 3, -66 waiting for 12 second silence before continuing
+   mmtune: "916.700", 3, -69 -- "916.750", 2, -69 waiting for 18 second silence before continuing
+   mmtune: "916.700", 3, -90 -- "916.750", 3, -91 waiting for 62 second silence before continuing
+   mmtune: "916.750", 3, -81 waiting for 42 second silence before continuing
+   mmtune: "916.750", 3, -85 waiting for 50 second silence before continuing
+   mmtune: "916.750", 3, -79 waiting for 38 second silence before continuing
+   mmtune: "916.800", 2, -84 -- "916.850", 0, -128 waiting for 90 second silence before continuing
+   ```
 2. If you setup Papertrail, search for mmtune.  For example, as shown:
-
-![Papertrail mmtune results](../Images/papertrail-mmtune-sample.png) 
-
-
-3. If you want to manually preform an mmtune and show the selected frequency of the entire scan in oref0 prior to 0.7.0, login to your rig and execute `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps mmtune && sudo service cron start`.  
-
-   If you are running oref0 0.7.0 or later, execute `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start`.  
-
-   Here's an example of the results of that command on a rig called edison3:  
-```
-root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
-openaps: no process found
-oref0-pump-loop: no process found
-mmtune: "916.636", 5, -92
-root@edison3:~/myopenaps#
-```
-
-4. If you want to manually perform an mmtune with the full frequency scan displayed in oref0 prior to 0.7.0, execute `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps-use pump mmtune && sudo service cron start`.  
-
-   If you are running oref0 0.7.0 or later, execute `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start`.  
-
+   ![Papertrail mmtune results](../Images/papertrail-mmtune-sample.png) 
+3. If you want to manually preform an mmtune and show the selected frequency of the entire scan in oref0 prior to 0.7.0, login to your rig and execute the command below.
+   ```
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps mmtune && sudo service cron start
+   ```  
+   If you are running oref0 0.7.0 or later, execute this command.
+   ```
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
+   ```
+   Here is an example of the results of that command on a rig called edison3:  
+   ```
+   root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
+   openaps: no process found
+   oref0-pump-loop: no process found
+   mmtune: "916.636", 5, -92
+   root@edison3:~/myopenaps#
+   ```
+4. If you want to manually perform an mmtune with the full frequency scan displayed in oref0 prior to 0.7.0, execute the command below.
+   ```
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps-use pump mmtune && sudo service cron start
+   ```
+   If you are running oref0 0.7.0 or later, execute this command.
+   ```
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start
+   ```
    You'll see results similar to the full scan details as shown at the beginning of this section.
 
 ### What causes poor tuning results?
