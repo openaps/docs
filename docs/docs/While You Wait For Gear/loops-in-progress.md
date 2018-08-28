@@ -251,6 +251,7 @@ List of people who are working on closed loops:
 - Robert Riemann (DE)
 - Grant Carlson (Sunnyvale, CA, USA)
 - Zachary Christman (Philadelphia, PA, USA)
+- Per Winterdijk (the Netherlands)
 - Paul Featonby (UK)
 - Lisa Morales (California, USA)
 - Rob Neu (wife, Utah, USA; sister-in-law, Virginia, USA)
