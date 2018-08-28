@@ -50,6 +50,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TR><TH>Samsung Galaxy S8 Android 7.0<TD>Yes<TD>Excellent BT tether, no need for 3rd party app to keep BT teter alive, can be set in settings<TD>xDrip+ with Libre/RFDuino transmitter, 99%+ capture rate,
 <TR><TH>Motorolo Moto Z Play<TD>Yes<TD>Excellent BT tethering; highly reliable using Blue Car Tethering.<TD>Not tested (using Enlite sensor).
 <TR><TH>Wiko Wim Lite<TD>Intermittent<TD>Works most of the time. Note, several issues with this phone: 1) NSClient has a tendency to crash on this phone and 2) Bluetooth tethering works intermittently with Blue Car Autotether and not at all with BT AutoTether. Note that this phone has a tendency to freeze and reboot on its own, so I think the phone itself is the issue.<TD>Not tested (using Enlite sensor).
+<TR><TH>Xiaomi Mi Mix 2 with LineageOS 15.1<TD>Yes<TD>Excellent connectivity - has worked almost flawlessly with tethering. Battery life has also been very good.<TD>Works brilliantly with xDrip+ and G6 - capture rate typically more than 95%.      
 </TABLE>
 
 **********************************************************************************************
@@ -89,6 +90,16 @@ root@edisonhost:~# bluetoothd --version
 ```
 
 ### Bluetooth setup
+
+* Ensure that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
+
+First check the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
+
+`nano /etc/wpa_supplicant/wpa_supplicant.conf`
+
+Delete the phrase `update_config=1` from the file if it is present.
+
+![Remove update_config](../Images/update_config%20adjustment.png)
 
 * Stop cron to make sure oref0-online doesn't interfere:
 
@@ -212,7 +223,9 @@ Finally, it's time to take a walk.  About a minute after walking out of range of
 
 On Android, the Bluetooth tether will shutdown if there is no tethering request within 3 minutes. Installing the application "BTAutoTethering" on your phone from the Play store will resolve this issue and allow the rig to switch to your phone when out of wifi range with no manual intervention. 
 
-This app has been used by numerous OpenAPS users, and found to work. It can be found here: https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en Other Auto Tethering apps are available if you prefer something different.
+This app has been used by numerous OpenAPS users, and found to work. It can be found here: https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en 
+
+Another app which others have found to work better (depending on phone and carrier OS tweaks) is Blue Car Tethering (https://play.google.com/store/apps/details?id=com.xplota.bluecartetheringauto&hl=en)
 
 ### Additional Troubleshooting Steps for Some Carriers
 

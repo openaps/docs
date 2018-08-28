@@ -8,7 +8,7 @@ The major categories of Nightscout troubleshooting include:
 
 **Future data**. Sometimes entries will get time stamped incorrectly, or the device time zones are off. [See below](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/Rig-NS-communications-troubleshooting.html#nightscout-admin-tools) for how to resolve.
 
-**Note about jubilinux versions**. Some people experienced issues with jubilinux 0.2.0. There is a fix in the oref0 dev branch, so if none of the above steps resolve an "unknown" pill in Nightscout, try oref0 dev. (As of August 6, 2017). After you install dev, make sure to reboot your rig, after which the changes should resolve the problem in Nightscout. 
+![Top level troubleshooting for rig-Nightscout issues](../Images/Rig-NS_troubleshooting.jpg)
 
 ## Setting up your NS hosting site
 
@@ -76,7 +76,7 @@ Return to your home screen and you will be able to verify the `Size on Disk` has
 
 ![mLab compact verify](../Images/mlab_compact3.png) 
 
-**Note about inability to compact data**.  Several people have reported that they get a timeout error when following the above compacting instructions and the size on disk is not reduced.  If you run into this issue, you can send an email to mLab support at support@mlab.com and they will compact the database for you.
+**Note about inability to compact data**.  Several people have reported that they get a timeout error when following the above compacting instructions and the size on disk is not reduced. Try again and this text may appear. "If after issuing this command your Sandbox database still has a Size on Disk (file size) greater than 496 MB, [see our FAQ for possible explanations](https://docs.mlab.com/ops/#sandbox-not-compacting)." If you run into this issue, you can send an email to mLab support at support@mlab.com and they will compact the database for you.
 
 ### Cleanout data
 
