@@ -145,7 +145,7 @@ You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which 
 
 You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
-**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into your Nightscout profile. You will need to keep your Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering.
+**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into your Nightscout profile. You will need to keep your Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering. OpenAPS has a helper script to synchronize the NS profile to the rig profile.  To synchronize the profile oref0 is using to Nightscout, execute on the rig `cd ~/myopenaps; oref0-upload-profile settings/profile.json $NIGHTSCOUT_HOST $API_SECRET`  To synchronize the profile OpenAPS downloaded from the pump, execute on the rig `cd ~/myopenaps; oref0-upload-profile settings/pumpprofile.json $NIGHTSCOUT_HOST $API_SECRET`
 
 ![Profile for basals](../Images/nightscout/profile.jpg)
 
