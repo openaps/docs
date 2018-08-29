@@ -148,16 +148,7 @@ You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which 
 
 ![No profile](../Images/nightscout/no_profile.jpg)
 
-You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
-
-**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into your Nightscout profile. You will need to keep your Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering. OpenAPS has a helper script to upload a rig profile to the Nightscout.  To upload the active oref0 profile to Nightscout, run the following command on the rig:
-```
-cd ~/myopenaps; oref0-upload-profile settings/profile.json $NIGHTSCOUT_HOST $API_SECRET
-```
-To synchronize the profile OpenAPS obtained from the pump, run the following command on the rig:
-```
-cd ~/myopenaps; oref0-upload-profile settings/pumpprofile.json $NIGHTSCOUT_HOST $API_SECRET
-```
+You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display at first.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
 ![Profile for basals](../Images/nightscout/profile.jpg)
 
@@ -378,6 +369,23 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 ### How to display basal changes ("render basal")
 
 * In case you missed it during setup: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
+
+### How to automatically sync your profile from Autotune
+
+OpenAPS does not read anything from Nightscout's *profile* to use for looping (so original basal rates, ISF, carb ratio, targets, etc. come from the pump) . However, if you like your Nightscout profile to accurately reflect what you are looping with and not be out of date, you can use a helper script to upload your rig's profile - that includes your Autotune results) to Nightscout. 
+
+To upload the active oref0 profile to Nightscout, run the following command on the rig:
+```
+cd ~/myopenaps; oref0-upload-profile settings/profile.json $NIGHTSCOUT_HOST $API_SECRET
+```
+To synchronize the profile OpenAPS obtained from the pump, run the following command on the rig:
+```
+cd ~/myopenaps; oref0-upload-profile settings/pumpprofile.json $NIGHTSCOUT_HOST $API_SECRET
+```
+
+Afterward, your profile will probably look something like this:
+
+![Autosync example of Nightscout uploaded with Autotune profile](../Images/Autosync_Autotune_Nightscout.jpeg)
 
 ### How to display OpenAPS purple prediction/forecast lines
 
