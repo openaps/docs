@@ -4,11 +4,78 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
 
 (*Note that there are some preferences that show up by default; these are the most commonly adjusted. There are additional preferences available to set that are not used by everyone, and are described below - any of these can also be added to the preferences.json*)
 
+
+<details>
+        <summary><b>Click here to expand a clickable list to jump to each preference:</b></summary>
+        
+- [Editing your preferences.json](#editing-your-preferencesjson)
+- [Commonly-adjusted preferences:](#commonly-adjusted-preferences)
+   * [max IOB:](#max-iob)
+   * [max daily safety multiplier:](#max-daily-safety-multiplier)
+   * [current basal safety multiplier:](#current-basal-safety-multiplier)
+  * [Important Note About Safety Multipliers:](#important-note-about-safety-multipliers)
+    + [A few examples:](#a-few-examples)
+  * [autosens_max:](#autosens-max)
+  * [autosens_min:](#autosens-min)
+  * [rewind_resets_autosens:](#rewind-resets-autosens)
+  * [unsuspend_if_no_temp:](#unsuspend-if-no-temp)
+  * [carbsReqThreshold](#carbsreqthreshold)
+  * [curve: "rapid-acting"](#curve-rapid-acting)
+  * [useCustomPeakTime](#usecustompeaktime)
+  * [insulinPeakTime](#insulinpeaktime)
+- [oref1-related preferences:](#oref1-related-preferences)
+  * [enableSMB_after_carbs](#enablesmb-after-carbs)
+  * [enableSMB_with_COB](#enablesmb-with-cob)
+  * [enableSMB_with_temptarget](#enablesmb-with-temptarget)
+  * [enableUAM](#enableuam)
+  * [enableSMB_always](#enablesmb-always)
+  * [enableSMB_after_carbs](#enablesmb-after-carbs)
+  * [allowSMB_with_high_temptarget](#allowsmb-with-high-temptarget)
+  * [maxSMBBasalMinutes](#maxsmbbasalminutes)
+- [Exercise-mode related preferences:](#exercise-mode-related-preferences)
+  * [exercise_mode](#exercise-mode)
+  * [high_temptarget_raises_sensitivity](#high-temptarget-raises-sensitivity)
+  * [low_temptarget_lowers_sensitivity](#low-temptarget-lowers-sensitivity)
+  * [sensitivity_raises_target](#sensitivity-raises-target)
+  * [resistance_lowers_target:](#resistance-lowers-target)
+  * [half_basal_exercise_target](#half-basal-exercise-target)
+- [Pushover related preferences](#pushover-related-preferences)
+  * [pushover_snooze:](#pushover-snooze)
+  * [pushover_only:](#pushover-only)
+  * [pushover_sound:](#pushover-sound)
+  * [pushover_priority:](#pushover-priority)
+  * [pushover_retry:](#pushover-retry)
+  * [pushover_expire:](#pushover-expire)
+- [Other preferences:](#other-preferences)
+  * [autosens_adjust_targets:](#autosens-adjust-targets)
+  * [adv_target_adjustments:](#adv-target-adjustments)
+  * [skip_neutral_temps:](#skip-neutral-temps)
+  * [bolussnooze_dia_divisor:](#bolussnooze-dia-divisor)
+  * [min_5m_carbimpact:](#min-5m-carbimpact)
+  * [carbratio_adjustmentratio:](#carbratio-adjustmentratio)
+  * [maxCOB:](#maxcob)
+  * [remainingCarbsCap:](#remainingcarbscap)
+  * [remainingCarbsFraction:](#remainingcarbsfraction)
+  * [autotune_isf_adjustmentFraction:](#autotune-isf-adjustmentfraction)
+  * [offline_hotspot](#offline-hotspot)
+  * [wide_bg_target_range](#wide-bg-target-range)
+  * [A52_risk_enable (A52 risk mitigation)](#a52-risk-enable-a52-risk-mitigation)
+
+</details>
+
+
 ## Editing your preferences.json
 
 Your preferences are found in the directory `myopenaps/preferences.json`.  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 
 To check your edits when you're done, use `cd ~/myopenaps && cat preferences.json` When editing preferences, it's advised to do so in terminal (not a word processor) in order to ensure ascii characters are used within your preferences file. 
+
+IMPORTANT: Any variables that are not **true**, **false**, or a **number** MUST be inclosed in straight (not curly) quotes. 
+        
+        1. "max_iob": 0,              <-- Zero is a number, so no quotes necessary.
+        2. "enableUAM": false,        <-- True/False do not require quotes
+        3. "curve": "rapid-acting"    <-- "Rapid-acting" is not true/false or a number, so it must be inclosed in quotes.
+
 
 ## Commonly-adjusted preferences:
 
@@ -22,7 +89,7 @@ To check your edits when you're done, use `cd ~/myopenaps && cat preferences.jso
         "rewind_resets_autosens": true,
         "adv_target_adjustments": true,
         "unsuspend_if_no_temp": false,
-        "enableSMB_with_bolus": false,
+        "enableSMB_after_carbs": false,
         "enableSMB_with_COB": false,
         "enableSMB_with_temptarget": false,
         "enableUAM": false,
@@ -114,9 +181,9 @@ Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
-#### enableSMB_with_bolus
+#### enableSMB_after_carbs
 
-This enables supermicrobolus for DIA hours after a manual bolus.
+This enables supermicrobolus for 6 hours after carb entry.
 
 #### enableSMB_with_COB
 
@@ -184,11 +251,11 @@ Defaults to `15`. This sets the minimum time between SMB Pushover alerts.
 
 #### pushover_only:
 
-Defaults to `carb`. This sets the type of SMB alerts desired. Options are both, insulin, or carb. Setting pushover_only to insulin prevents SMB from sending carb required alerts when SMB thinks additional carbs are required to bring eventual BG up. Setting pushover_only to carb prevents SMB from sending insulin required alerts when SMB is hitting maxBolus (see warning in Pushover setup section). Setting pushover_only to both allows SMB to send both insulin required and carb required alerts.
+Defaults to `"carb"`. This sets the type of SMB alerts desired. Options are `"both"`, `"insulin"`, or `"carb"`. Setting pushover_only to `insulin` prevents SMB from sending carb required alerts when SMB thinks additional carbs are required to bring eventual BG up. Setting pushover_only to `carb` prevents SMB from sending insulin required alerts when SMB is hitting maxBolus (see warning in Pushover setup section). Setting pushover_only to `both` allows SMB to send both insulin required and carb required alerts.
 
 #### pushover_sound:
 
-Defaults to `none`. This sets the alert sound played on the user device. Valid options are available at https://pushover.net/api.
+Defaults to `"none"`. This sets the alert sound played on the user device. Valid options are available at https://pushover.net/api.
 
 #### pushover_priority:
 
@@ -216,7 +283,9 @@ This feature was previously enabled by default but will now default to false (wi
 
 #### skip_neutral_temps: 
 
-Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip this setting. However, we recommend it for most people who will be using this system on the go and out of constant connectivity.
+Defaults to false, so that OpenAPS will set temps whenever it can, so it will be easier to see if the system is working, even when you are offline. This means OpenAPS will set a “neutral” temp (same as your default basal) if no adjustments are needed. If you are a light sleeper and the “on the hour” buzzing or beeping wakes you up (even in vibrate mode), you may want to turn this to “true” to skip setting neutral temps. However, we recommend leaving neutral temps enabled for most people who will be using this system on the go and out of constant connectivity.
+
+**Note**: if set to `true`, in order to reduce notifications at the top of the hour, it will also attempt to cancel temp basals (unless BG or minGuardBG is below threshold and a zero-temp is needed) prior to the top of the hour. Normally a new temp basal will be set (if still needed) after the top of the hour, but that may be delayed if the rig has issues connecting to the pump.  People who want to minimize the 'on the hour' temp basal notification beeps/vibrations may choose to accept that risk and choose to set skip_neutral_temps to true.
 
 #### bolussnooze_dia_divisor: 
 

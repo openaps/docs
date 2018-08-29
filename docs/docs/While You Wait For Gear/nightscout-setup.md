@@ -45,8 +45,11 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 
 * Give your app a name, this will be the prefix of your NS site’s URL. For example, `https://yourappname.herokuapp.com`
 
-* Fill out the information lines in the `Config Variables` Section of that page, as shown below.  Some of the lines can stay with the default entries already provided.
+* Fill out the information lines in the `Config Variables` Section of that page.  Some of the lines can stay with the default entries already provided.
 
+<details>
+  <summary><b>Click here to expand the list of the `Config Variables` you need to enter:</b></summary>
+<br>
 
 <table border="1">
 <thead>
@@ -123,6 +126,8 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tbody>
 </table>
 
+</details>
+<br>
 **The remaining variables can be left at their default values.**</br></br>
 
 *****************
@@ -143,9 +148,7 @@ You can change the BRIDGE_MAX_COUNT value to pull more samples per query, which 
 
 ![No profile](../Images/nightscout/no_profile.jpg)
 
-You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
-
-**Note:**  OpenAPS will only work based on the values in your pump; not the values that you put into your Nightscout profile. You will need to keep your Nightscout basal profile in-sync with any changes you make in your pump to prevent later confusion in watching the temp basal rendering.
+You do not have to enter all the information in the profile if you are using OpenAPS (since OpenAPS will be providing the information for IOB and COB rather than letting NS calculate them), but you do have to fill out the `Basal Profile` and `TimeZone` at a minimum in order to have your temp basals properly display at first.  Click `Save` when you have entered the information.  You will be prompted to authenticate, if it is the first time you’ve used the device to make changes in your profile.  Click on the `Authenticate` link at the bottom of the site, and enter your API_SECRET to complete the authentication.
 
 ![Profile for basals](../Images/nightscout/profile.jpg)
 
@@ -230,16 +233,14 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 
 ![Open app](../Images/nightscout/open_app.jpg)
 
-
 * Click on the settings (those three horizontal lines in upper right corner).  Now check that your basal render is selected to either default or icicle (personal preference for how the temp basals show as blue lines in NS site), check the boxes that you’d like display pills in the SHOW PLUGINS (usually all of them), and then press save. 
+
+![NS Settings](../Images/nightscout/settings_ns.jpg)
 
 * **Battery monitoring**: Because running OpenAPS requires frequent communication with your pump, your pump battery tends to drain more quickly than you'd experience when not looping. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries (getting ~1.5weeks) rather than alkaline batteries (getting ~2-3 days). Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 for lithium batteries or 1.2 or 1.25 for alkaline batteries, and adding `battery` to your `PUMP_FIELDS` setting so that voltage is displayed on your Nightscout site. The voltage warning will give you many hours (reportedly ~8+ for lithium and ~6+ for alkaline) heads up that you will need to change your battery. 
 Note: If you don't change the battery in time and end up with a "low battery" warning on the pump, the pump will still function, but RF communications will be turned off and you will not be able to loop until you put a new battery in.
 
-
 Your NIGHTSCOUT site is now all set-up.  Congrats!
-
-![NS Settings](../Images/nightscout/settings_ns.jpg)
 
 ## Nightscout Migrations
 
@@ -258,8 +259,9 @@ This has the following advantages:
 You can migrate each rig independently from `API_SECRET` authentication to token based authentication.
 If you want to secure your Nightscout and CGM data, then all rigs need to have oref0 version 0.5.0+ and all be configured with token based authentication.
 
-Here are the steps you need to follow:
-
+<details>
+  <summary><b>Here are the steps you need to follow - click here to expand the instructions:</b> </summary>
+<br>
 1. Visit https://yourappname.herokuapp.com/admin. Replace "yourappname" with the name you chose for your app above, that is, the prefix of your NS site's URL.
     - Add a new Role
 
@@ -334,6 +336,8 @@ Other notes:
 - You must always secure your Nightscout site with secure http (https).  Don't use http://mynightscout.herokuapp.com but rather always use https://mynightscout.herokuapp.com.
 - Once you have token auth enabled, you can stop entering your API_SECRET in your browser when authenticating, and keep your API_SECRET as a root/Administrator password that you only use for configuring Nightscout.  Instead, you can set up a user (as in steps 1 and 2 above) with the appropriate role.  If you wish to be able to enter treatments into NS, you'll need to create an account with `careportal` access and authenticate with that in Nightscout.  If you set AUTH_DEFAULT_ROLES to `denied` in step 5, you'll also need a user with `readable` permissions for any browsers that should have read-only access.
 
+</details>
+
 ### Switching from Azure to Heroku
 
 * If you are a current OpenAPS user and want to switch from Azure to Heroku, you will need to change your NS URL in both `ns.ini` and in `cron`.  Alternatively, you can edit your runagain.sh file and run the setup script again. 
@@ -366,9 +370,32 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 
 * In case you missed it during setup: we recommend that you "render"/display the basal rates (the blue lines to show what temp basals have been enacted, if any.) To do so, select "Default" or "Icicle" from the "Render Basal" pull-down menu in the Settings.
 
+### How to automatically sync your profile from Autotune
+
+OpenAPS does not read anything from Nightscout's *profile* to use for looping (so original basal rates, ISF, carb ratio, targets, etc. come from the pump) . However, if you like your Nightscout profile to accurately reflect what you are looping with and not be out of date, you can use a helper script to upload your rig's profile - that includes your Autotune results) to Nightscout. 
+
+To upload the active oref0 profile to Nightscout, run the following command on the rig:
+```
+cd ~/myopenaps; oref0-upload-profile settings/profile.json $NIGHTSCOUT_HOST $API_SECRET
+```
+To synchronize the profile OpenAPS obtained from the pump, run the following command on the rig:
+```
+cd ~/myopenaps; oref0-upload-profile settings/pumpprofile.json $NIGHTSCOUT_HOST $API_SECRET
+```
+
+Afterward, your profile will probably look something like this:
+
+![Autosync example of Nightscout uploaded with Autotune profile](../Images/Autosync_Autotune_Nightscout.jpeg)
+
 ### How to display OpenAPS purple prediction/forecast lines
 
 * Click the three dots next to your timeframe horizon (2HR, 3HR, 6HR, 12HR, 24HR) and then enable “Show OpenAPS Forecasts”. Don't see this option? Check and make sure you added this variable and that your OpenAPS has successfully run.
+
+### Understanding OpenAPS purple predictions/forecast lines
+
+* There are up to four purple prediction lines that you will see: IOBpredBG; ZTpredBG; UAM; and COBpredBG. 
+
+![Purple prediction line examples](../Images/Prediction_lines.jpg)
 
 ### Understanding the OpenAPS pill
 

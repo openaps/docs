@@ -2,6 +2,25 @@
 
 Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some ideas or tips to consider:
 
+<details>
+        <summary><b>Click here to expand a clickable list to see all tips on this page:</b></summary>
+
+- [How do I enter carbs and boluses so OpenAPS can use them?](#how-do-i-enter-carbs-and-boluses-so-openaps-can-use-them-)
+- [What do you do with the loop in airport security when you travel](#what-do-you-do-with-the-loop-in-airport-security-when-you-travel)
+- [What do you do with your loop when you travel across timezones? How do you update devices for a time zone change?](#what-do-you-do-with-your-loop-when-you-travel-across-timezones--how-do-you-update-devices-for-a-time-zone-change-)
+- [What do you do with the loop when you shower?](#what-do-you-do-with-the-loop-when-you-shower-)
+- [What do you do when you change sites?](#what-do-you-do-when-you-change-sites-)
+- [What do you do when you exercise?](#what-do-you-do-when-you-exercise-)
+- [What do you do if you want to be off the pump for long periods during a day when you're really active?  Like for the beach or water park or sporting activity or similar?](#what-do-you-do-if-you-want-to-be-off-the-pump-for-long-periods-during-a-day-when-you-re-really-active---like-for-the-beach-or-water-park-or-sporting-activity-or-similar-)
+- [What if I want to turn off the loop for a while?](#what-if-i-want-to-turn-off-the-loop-for-a-while-)
+- [How do I open loop?](#how-do-i-open-loop-)
+- [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
+- [How do I improve the range of my Edison/Explorer Board?](#how-do-i-improve-the-range-of-my-edison-explorer-board-)
+- [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types--or-switch-to-fiasp--what-should-i-change-)
+- [Improving the battery life of your Raspberry Pi](#improving-the-battery-life-of-your-raspberry-pi)
+
+</details>
+
 ## How do I enter carbs and boluses so OpenAPS can use them?
 Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs cans be either entered on the pump (for example, using Bolus Wizard) or into Nightscout (carb entries in Nightscout can either be made directly using the Care Portal) or via IFTTT or XDrip.</br>
 
@@ -94,3 +113,26 @@ The most important setting for switching between insulin types in an OpenAPS rig
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 
 Some users who switch to Fiasp find that they need to adjust settings. Others do not need to change settings that much, and autosens and/or autotune can help adjust to any variances over time as your body's needs change related to the difference insulin type. YDMV, as always!
+
+## Improving the battery life of your Raspberry Pi
+
+Version - CPU Clock - Battery Life @ 2500mAh
+___
+* 0.6.2 - 1000 MHz - **8 hours**
+* 0.7.0-dev - 1000 MHz - **9 hours**
+* 0.7.0-dev - 500 MHz  - **14.5 hours**
+___
+
+As you can see, 0.7.0 made some battery life improvements, but under-clocking the CPU makes an even more significant improvement.
+
+To accomplish this, log into your rig via SSH and modify the file `/boot/config.txt`.
+
+Scroll down to find the line
+
+`#arm_freq=1000`
+
+and change it to
+
+`arm_freq=500`
+
+Note the removal of the `#` at the beginning of the line. Save your change and reboot your rig!
