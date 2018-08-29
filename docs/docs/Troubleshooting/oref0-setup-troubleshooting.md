@@ -48,7 +48,7 @@ Make sure to check through the following list before asking on Gitter if your se
 
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
-You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
+You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following if you are running oref0 version prior to 0.7.0:
   
  * Start by killing anything that's currently running. ` killall -g oref0-pump-loop`
  * Look and see what's running in your cron. `crontab -l`
@@ -60,4 +60,9 @@ You've probably run into an error in your setup where someone has recommended "r
    * Don't use `2>/dev/null` or `>/dev/null ` parts of commands, because they will hide output of commands
    * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
    * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
+
+If you are running oref0 version 0.7.0 or later, do the following:
+
+  * Look and see what's running in your cron. Execute `crontab -l` and ensure it contains entries for `oref0-cron-every-minute`, `oref0-cron-post-reboot`, `oref0-cron-nightly`, and `oref0-cron-every-15min`
+  * Manually run oref0-pump-loop with debug enabled. `cd ~/myopenaps; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-pump-loop`
 
