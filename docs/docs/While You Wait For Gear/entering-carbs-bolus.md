@@ -28,6 +28,7 @@ Look at this image for the big picture:
 If your rig is online, you have a variety of ways to enter carbs online.
 
 * Nightscout care portal
+* AndroidAPS NS Client ([Download the app-nsclient-release APK from here](https://github.com/MilosKozak/AndroidAPS/releases).)
 * Many options for using IFTTT to get carbs into Nightscout Care portal. ([See the IFTTT page here for instructions](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).)
   * Pebble or Apple watch
   * Google Calendar
