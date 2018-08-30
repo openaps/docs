@@ -264,3 +264,4 @@ List of people who are working on closed loops:
 - Megann Fuka (Tulsa, OK, USA)
 - Ariane Fleming (Seattle, WA)
 - Sarah Withee (Pittsburgh, PA, USA)
+- Daniel Noor (TN)
