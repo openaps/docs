@@ -265,3 +265,4 @@ List of people who are working on closed loops:
 - Ariane Fleming (Seattle, WA)
 - Sarah Withee (Pittsburgh, PA, USA)
 - Daniel Noor (TN)
+- Raymond Richmond (Edmonton, AB, Canada)
