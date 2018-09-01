@@ -194,7 +194,17 @@ npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 packa
 
 ```
 cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
-cd ~/src/oref0 && npm run global-install
+cd ~/src/oref0 && sudo npm run global-install
+```
+If you have an existing oref0 installation and you want to update, it may be necessary to do these steps first before issuing the commands above:
+```
+brew update
+cd ~src/
+sudo rm -R oref0 
+```
+(Or you can simply navigate in the Finder and delete the `oref0` folder in the `src` folder)
+```
+sudo npm uninstall -g oref0
 ```
 
 **Step 3: Create a profile.json with your settings**
