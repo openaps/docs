@@ -1,5 +1,5 @@
 ### Making your first PR (pull request)
-
+Changes:
 At some point it will be suggested that you make a PR. PR is short for pull request, and it is a way of adding or editing information stored in GitHub.  It's actually not too hard to do one and it is a great way to contribute. This documentation is here because people like you made PRs.  Don't worry about making a mistake or somehow editing the wrong documents.  There is always a review process before changes are merged into the "formal" OpenAPS documentation repository.  You can't mess up the originals through any accidents in the PR process.  The general process is:
 
 * Make edits and improvements to code or documentation by editing the existing content.
@@ -7,7 +7,7 @@ At some point it will be suggested that you make a PR. PR is short for pull requ
 * Make a few notes of what's changed so people may understand the edits.
 * Create a pull request, which asks the administrators to use your changes.
 * They will do a review and either (1)merge your changes, (2)comment back to you about your changes, or (3)start a new document with your changes.
-
+change
 (Side note:  If you are a visual learner, there is a YouTube video [here](https://youtu.be/4b6tsL0_kzg) showing the PR workflow.)
 
 For our example we are going to make an edit to the openaps docs.  This does NOT need to be done in the linux environment on your rig.  This can be done on any Windows PC, Mac, etc. (any computer with Internet access).
