@@ -266,3 +266,4 @@ List of people who are working on closed loops:
 - Sarah Withee (Pittsburgh, PA, USA)
 - Daniel Noor (TN)
 - Raymond Richmond (Edmonton, AB, Canada)
+- Hosam El Din Mohamed El Nagar (Cairo, Egypt)
