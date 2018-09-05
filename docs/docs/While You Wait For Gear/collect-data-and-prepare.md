@@ -1,14 +1,14 @@
 # Collect your data and get prepared
 
-Before getting started, we ask that you store at least 30 days of CGM data.  Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses.  For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/nightscout-setup.html).  By logging and collecting a recent history of your insulin+BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases.
+Before getting started, we ask that you store at least 30 days of CGM data.  Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses.  For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](https://openaps.readthedocs.org/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html).  By logging and collecting a recent history of your insulin+BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases.
 
 If you aren't using Nightscout, you can upload your Dexcom G4 receiver to Dexcom Studio or if you use Dexcom G5 the data is in the cloud at Dexcom Clarity.  If you use a Medtronic CGM, upload your CGM data to CareLink.  If you use an Animas Vibe, upload your data to Tidepool or Diasend.  We suggest you get in the habit of doing this regularly so that you have ongoing data to show trends in your overall estimated average glucose (eAG, a good indicator in trends in A1c) and variations in your "time in range."
 
-Later in these docs is a link to donate your data to a project called [OpenHumans](http://openaps.readthedocs.io/en/latest/docs/Give Back-Pay It Forward/data-commons-data-donation.html).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
+Later in these docs is a link to donate your data to a project called [OpenHumans](https://openaps.readthedocs.org/en/latest/docs/Give%20Back-Pay%20It%20Forward/data-commons-data-donation.html).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
 
 ## Practice good CGM habits
 
-A good quality CGM session is a critical part of successful looping.  If you're used to stretching your sensor sessions out until failure, you may want to reconsider this approach as you will have failed looping times, too.  One technique that has helped eliminate early sensor jumpiness in a session is to "presoak" a new sensor before the old one dies when you notice the old sensor is getting jumpy or loses calibration.  To read more about this presoak technique, check out this [blog post](https://diyps.org/2016/06/27/how-to-soak-a-new-cgm-sensor-for-better-first-day-bgs/).  In addition, be diligent about your sensor calibration habits.  Only calibrate on flat arrows and when BGs are steady.  Many loopers calibrate once or twice a day only; at bedtime (after dinner has finished digesting) and/or just before getting out of bed.
+A good quality CGM session is a critical part of successful looping.  If you're used to stretching your sensor sessions out until failure, you may want to reconsider this approach as you will have failed looping times, too.  One technique that has helped eliminate early sensor jumpiness in a session is to "presoak" a new sensor before the old one dies when you notice the old sensor is getting jumpy or loses calibration.  To read more about this presoak technique, check out this [blog post](https://diyps.org/2016/06/27/how-to-soak-a-new-cgm-sensor-for-better-first-day-bgs/).  In addition, be diligent about your sensor calibration habits.  Only calibrate on flat arrows and when BGs are steady.  Many loopers calibrate once or twice a day only; at bedtime (after dinner has finished digesting) and/or just before getting out of bed. A good guide to sensor calibration - which generally applies regardless of which sensor you have - can be found [here](https://forum.fudiabetes.org/t/how-to-calibrate-a-dexcom-g4-g5-cgm/2049/).
 
 ## Use your gear
 
@@ -21,9 +21,16 @@ Starting a DIY loop system like OpenAPS means you are probably switching pumps, 
 
 ### Start Medtronic pump
 
-Many of us have come from OmniPods, Animas, or t:slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your T1D kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well.
+Many of us have come from  Animas, OmniPods, Roche, or t:slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your T1D kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well. Assuming that you're already familiar with insulin pumping (and you should be before trying to loop) but new to these old Medtronic pumps, these "quick memu" guides will help:
+
+* x12: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x12_user_guide.pdf
+* x15: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x15_user_guide.pdf
+* x22: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/workbooks/x22_menu_map.pdf (aka "REAL-TIME")
+* x23: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/workbooks/x23_menu_map.pdf (aka "REAL-TIME REVEL™")
+* x54: https://www.medtronic-diabetes.co.uk/sites/uk/medtronic-diabetes.co.uk/files/veo-x54_ifu_updated_26.04.2013.pdf (aka "Veo™")
 
 **You should definitely test your basals, ISFs, carb ratios, and DIA all over again now that you've switched pumps and infusion sets. If those settings aren't correct, looping isn't a good idea.**
+
 
 #### Pump settings
 
@@ -37,7 +44,11 @@ There are a couple areas in the pump that will need to be set specifically in or
 
 * Set basal profile, carb ratios, and ISF values.
 
-* ISFs over 250 mg/dl per unit will need a special step in loop setup (TODO: add link), even though the pump currently will allow you to set them higher.  Just remember later, you will need to run a couple extra commands when you setup your loop.
+  * **Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have carb ratios that vary significantly (such as more than 2x) between different times of day, you may get unexpected results in looping, such as COB reappearing when the CR schedule changes. For safety, we recommend checking your settings against Autotune, which currently uses a single CR for the entire day. If you are using a schedule with widely varying carb ratios or ISFs, that may be compensating for something other than an actual diurnal variation in carb ratio: perhaps different absorption speeds of different foods, or perhaps related to different macronutrient composition (instead of entering carb equivalents for fat/protein), differing basal insulin needs around mealtime, or something else.
+
+* Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
+
+* ISFs over 250 mg/dl per unit will need a special step in loop setup once your setup script is finished (see [here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#temp-basals-6-3-isf-255-or-carb-ratio-25-with-a-x23-or-x54)), even though the pump currently will allow you to set them higher.  Just remember, you will need to run a couple extra commands when you setup your loop.
 
 * If you have periods in the day where your pump normally has basal settings of zero - your loop will not work! You can resolve this by setting the lowest possible basal setting your pump will permit. OpenAPS will then issue temp basals of zero, as needed.
 

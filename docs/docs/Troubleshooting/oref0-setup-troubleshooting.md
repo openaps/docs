@@ -12,9 +12,9 @@ Cron is the scheduler that runs the loop. I.e. this is the automation feature to
 
 If you're troubleshooting and looking to use `openaps` manually, cron must be momentarily disabled to free access to local resources.  To check if cron is running use `crontab -e` or `crontab -l`.  If you see a file filled with content, chances are cron is enabled.
 
-To stop cron'd jobs and enter an openaps command:  `killall -g openaps; openaps <whatever>` 
+To stop cron'd jobs and enter an openaps command:  `killall -g oref0-pump-loop; openaps <whatever>` 
 
-If you'd like to run multiple commands without having to do `killall -g openaps; ` before each one, you can run `sudo service cron stop` first.
+If you'd like to run multiple commands without having to do `killall -g oref0-pump-loop; ` before each one, you can run `sudo service cron stop` first.
 <br>
 To start cron: `sudo service cron start` or reboot your rig.
 
@@ -37,6 +37,7 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is near your rig. Closer is better, e.g. check if it works when the pump and rig are at most 20 inches (50 cm) apart.
 * Check that your pump battery is not empty.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
+* If using a pump that has been without power for some time, it is a good practice to set a small temporary basal rate and bolus before trying to loop with that pump.  Otherwise, you could see seemingly-unrelated errors in your log files as OpenAPS attempts to loop with missing information from the history. ([Best practice is to use the pump before you start looping with it](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/collect-data-and-prepare.html#use-your-gear), regardless, so this is likely to be an issue for a "test" pump setup rather than one you have been using.)
 * Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the following display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * Check to make sure your carelink and/or radio stick is plugged in.
 * Check to make sure your receiver is plugged in, if you're plugging a receiver in.
@@ -47,7 +48,7 @@ Make sure to check through the following list before asking on Gitter if your se
 
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
-You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following:
+You've probably run into an error in your setup where someone has recommended "running commands manually" to drill down on an error. What to do? Some of the following if you are running oref0 version prior to 0.7.0:
   
  * Start by killing anything that's currently running. ` killall -g oref0-pump-loop`
  * Look and see what's running in your cron. `crontab -l`
@@ -59,4 +60,9 @@ You've probably run into an error in your setup where someone has recommended "r
    * Don't use `2>/dev/null` or `>/dev/null ` parts of commands, because they will hide output of commands
    * If a command does not return output, check with `echo $?` if the exit code returns `0`. That means OK (no error). If it returns non-zero (e.g. `1`) then the command failed and you need to drill down further. 
    * You can keep drilling down until you get through all the aliases to the actual reports, which can be run manually using a command like `openaps report invoke monitor/status.json` to see the raw unfiltered output with full error details.
+
+If you are running oref0 version 0.7.0 or later, do the following:
+
+  * Look and see what's running in your cron. Execute `crontab -l` and ensure it contains entries for `oref0-cron-every-minute`, `oref0-cron-post-reboot`, `oref0-cron-nightly`, and `oref0-cron-every-15min`
+  * Manually run oref0-pump-loop with debug enabled. `cd ~/myopenaps; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-pump-loop`
 

@@ -5,10 +5,12 @@ There are two general groups of ways to monitor your rigs:
 * Online, meaning it requires the rig to have internet connectivity (via a wifi or hotspot/tethered connection)
 * Offline, meaning the rig does not have any internet connectivity
 
+![Examples of online and offline monitoring](../Images/Online_Offline_monitoring.jpg)
+
 ## The main ways of monitoring your rig ONLINE include:
 
 * [Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended)
-* [Accessing via SSH (either using an app on your phone, or your computer)](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-rig-via-ssh)
+* [Accessing via SSH (either using an app on your phone, or your computer)](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh)
 * [Nightscout](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html)
 * Pebble watch (your watchface of choice, such as [Urchin](https://github.com/mddub/urchin-cgm))
 
@@ -18,7 +20,7 @@ There are two general groups of ways to monitor your rigs:
 
 * [Pancreabble](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#pancreabble-offline-connection-to-pebble-watch) (offline connection to your Pebble watch)
 * For Android users: "[Hot Button](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#hot-button-for-android-users)"
-* Accessing via SSH over Bluetooth
+* Accessing via [SSH over Bluetooth](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-over-bluetooth), or [by using a mobile router so your phone/rig can connect to the same network offline](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-when-your-phone-and-rig-are-connected-to-the-same-network)
 * For any phone type: [Creating a web page that can be accessed on the phone via the rig's IP address](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#offline-web-page-from-rig-for-any-phone-user)
 
 ********************************
@@ -139,7 +141,15 @@ Login to your rig. If you need help with that, please see the [Accessing Your Ri
 
 * Copy and paste each of these four command lines, one at a time.  The screenshot below shows the successful results of each command.  The first command will run for a short time and end with similar information to the green box.  The remaining three commands will not display anything specific as a result of the command.
 
+For Intel Edison rigs, use:
+
 `wget https://github.com/papertrail/remote_syslog2/releases/download/v0.19/remote_syslog_linux_i386.tar.gz`
+
+For Raspberry Pi rigs, use:
+
+`wget https://github.com/papertrail/remote_syslog2/releases/download/v0.18-beta1/remote_syslog_linux_arm.tar.gz`
+
+Then, for either rig type, run:
 
 `tar xzf ./remote_syslog*.tar.gz`
 
@@ -445,6 +455,9 @@ By default the urchin_loop_on, and urchin_iob is set to true. You must manually 
 ### Hot Button - for Android users
 
 #### Purpose
+
+NOTE: The Hotbutton app linked below has disappeared from Google Play. There are several others available if you search "SSH Button", but the app setup instructions won't match exactlty.
+
 [Hot Button app](https://play.google.com/store/apps/details?id=crosien.HotButton) can be used to monitor and control OpenAPS using SSH commands. It is especially useful for offline setups. Internet connection is not required, it is enough to have the rig connected to your android smartphone using bluetooth tethering.
 
 #### App Setup 
@@ -469,6 +482,21 @@ After setting up the button, simply click it to execute the command. The results
 #### Temporary targets
 It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
 
+```
+#! /bin/sh
+
+OPENAPSROOT="/root/myopenaps"
+REASON=$1
+TARGET=$2
+
+echo "\
+[{\"_id\":\"\",\"enteredBy\":\"\",\"eventType\":\"Temporary Target\",\"reason\":\"$REASON\",\"targetTop\":$TARGET,\"targetBottom\":$TARGET,\"duration\":60,\"created_at\":\"$(date --utc +'%Y-%m-%dT%H:%M:%S.000Z')\",\"carbs\":null,\"insulin\":null}] \
+" > $OPENAPSROOT/settings/temptargets.json
+cd $OPENAPSROOT
+openaps report invoke settings/profile.json
+echo "Temporary target started"
+```
+
 To setup activity mode run:
 `./set_temp_target.sh "Activity Mode" 130`
 
@@ -483,56 +511,6 @@ To speed up the command execution you can add to the `/etc/ssh/sshd_config` the 
 `UseDNS no`
 
 ********************************
-### HTTP Widget Offline Monitoring (Android Only)
-Android "HTTP widget" allows you to show text inside the widget, perfect for OpenAPS monitoring without using Nightscout (in case no internet access is available).
-
-A. Install "HTTP widget" on your Android phone:
-
-https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en
-
-B. Install jq:
-
-`sudo apt-get install jq`
-
-C. Add a cron line to your crontab to start the Simple HTTP Server:
-
-First `crontab -e` and then at the bottom of the page, then add
-
-`@reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337`.
-
-Then ctrl-X and select y to keep changes, and then Enter to keep the same file name.
-
-D. Add a line to your openaps alias in your openaps.ini:
-
-First `cd myopenaps` and then `nano openaps.ini`.
-
-Scroll down until you see the "Alias" list. Then copy and paste the following text into a new line directly under the other alias entires. 
-
-`http-widget = ! bash -c "( jq .timestamp ~/myopenaps/enact/enacted.json | awk '{print substr($0,13,5)}' | tr '\n' ' ' && echo \"(last enact)\" && jq -r .reason ~/myopenaps/enact/enacted.json && echo -n 'TBR: ' && jq .rate ~/myopenaps/enact/enacted.json && echo -n 'IOB: ' && jq .IOB ~/myopenaps/enact/enacted.json && echo -n 'Autosens: ' && jq .ratio ~/myopenaps/settings/autosens.json && echo -n 'Edison: ' && (~/src/EdisonVoltage/voltage short) | awk '{print $2,$1}' && echo -n 'Pump: ' && cat ~/myopenaps/monitor/reservoir.json && echo -n 'U ' && jq .voltage ~/myopenaps/monitor/battery.json | tr '\n' 'v' && echo \" \")> ~/myopenaps/enact/index.html"`
-
-E. Modify the openaps pump-loop cron line (openaps http-widget needs to be run each minute):
-
-Enter `crontab -e` again.
-
-Then find the pump-loop cron line (looks similar to `* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log`) 
-
-And then add this to the end of it `&& openaps http-widget > /dev/null 2>&1 `.
-
-When you're finished it should look something like this:
-
-`* * * * * cd /root/myopenaps && ( ps aux | grep -v grep | grep -q 'openaps pump-loop' || openaps pump-loop ) 2>&1 | tee -a /var/log/openaps/pump-loop.log && openaps http-widget > /dev/null 2>&1 ` 
-
-Ctrl-X and select y to save changes.
-
-F. Add Widget:
-
-On your Android phone, add an HTTP widget as you would normally add widgets. Then set up the http with your rig IP address using port 1337. 
-
-NOTE: BE SURE your phone and rig are on the same network, i.e. BT tethered or wifi hotspot. This widget will also work when your rig is online with a wifi connection, as long as your phone and rig are on the same network.
-
-G. Add Widget to Sony Smart Watch 3 or other Android Wear:
-
-Using the Wearable Widgets app, you can see the HTTP Widget on your watch. 
 
 ### Accessing your offline rig via SSH over Bluetooth
 
@@ -545,9 +523,36 @@ Your phone and rig must be BT paired and connected over BT PAN. See https://open
 
 Click Save in the upper right corner. You should now see the host you just created. If you click on that host, you’ll see a message that it is connecting (first time connections will ask if you want to save the rig to known hosts, cick continue and then you’ll be connected to a terminal app screen. You can now issue commands and edit files just like you can over an SSH connection from your computer.
 
+### Accessing your offline rig via SSH when your phone and rig are connected to the same network
+
+Just like the trick for getting internet to your rig through a network that requires you to log in via a portal (a "captive" network), a mobile router (e.g. [HooToo](https://www.hootoo.com/network-devices.html)) or other brand) can create a network that allows your phone and rig both to be connected, allowing you to then SSH into your rig, just as if they were connected via cellular. 
+
+You can then use the [same methods to SSH in for the phone or computer (that you're using to SSH) being on the same network as the rig](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh).
+
+Note: you will want to set your mobile router up in advance, and give it the same network name and password as a network already on your rig; or otherwise make sure to add the network and password to your rig before you travel and want to use this offline. 
+
+Generally, the steps for getting online with the HooToo, which you should practice with before you travel:
+* Plug in the HooToo/turn it on.
+* Use your phone or computer and join the HooToo network.
+* If you plan to loop offline and just want to SSH in, you should be able to SSH in and see your logs.
+
+For using the HooToo to join plane or hotel wifi, after you've joined the HooToo router network:
+* Open a browser and type in a URL (e.g. `cnn.com`) and hit enter. This should redirect you to the HooToo log in page.
+* Follow your router's instructions for how to get to the network page and scan and click to join the right network. 
+* Open another tab, type a URL again (e.g. `cnn.com`) and hit enter. This should take you to the login page (e.g. GoGo or the captive portal of the hotel wifi). Input your credentials or otherwise log in. Once you're successfully through that step, the router is online and will begin sharing the internet connectivity with the other devices that are joined to the network. 
 ********************************
 
 ### Offline web page from rig - for any phone user
+
+Starting with oref0 0.6.1, you can enable a rig hosted offline webpage that can be accessed over a local LAN. To do this, simply open a web browser and go to your rig's IP address. In most cases, this will be in the format 192.168.x.x
+
+![Successful pump-loop](../Images/offline_webpage_3.png) ![Unsuccessful pump-loop](../Images/offline_webpage_1.png)
+
+The box around your current BG will be either green or red, depending on the last time OpenAPS was able to successfully complete a pump-loop. The box functions similarly to the OpenAPS pill in Nightscout. If you tap on it, you will be able to view more info about the current state of your rig and its decision making process. 
+
+![Offline webpage OpenAPS pill](../Images/offline_webpage_2.png)
+
+### Old instructions for an offline webpage. It is HIGHLY recommended that you use the method above for oref0 0.6.0 or greater.
 
 **TODO** - implement this as a proper oref0 script that can be installed by oref0-setup
 
@@ -567,11 +572,12 @@ touch ~/myopenaps/enact/index.html
 (echo -n 'Edison Battery: ' && cat ~/myopenaps/monitor/edison-battery.json | jq -r .battery | tr '\n' ' ' && echo '%') >> ~/myopenaps/enact/index.html
 (echo -n 'Insulin Remaining: ' && cat ~/myopenaps/monitor/reservoir.json) >> ~/myopenaps/enact/index.html
 ```
+
+Create the above script by running `nano /root/myopenaps/http.sh` , then paste the above, and save it.
+
 You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
 
-It can be set up where you choose, either in your openaps directory or at root.
-
-B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron:
+B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](http://openaps.readthedocs.io/en/latest/docs/Resources/index.html) section for help on editing crontabs):
 
 ```
 @reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337
@@ -579,7 +585,7 @@ B. You will also need to start up the SimpleHTTPserver service that is already i
 The final thing to do is to make sure the script runs regularly to collect the data and publish it. This requires an additional cron line:
 
 ```
-*/5 * * * * (bash /root/http.sh) 2>&1 | tee -a /var/log/openaps/http.log
+*/5 * * * * (bash /root/myopenaps/http.sh) 2>&1 | tee -a /var/log/openaps/http.log
 ```
 In this case the script is running from the /root directory and I am publishing to the ~/myopenaps/enact directory.
 

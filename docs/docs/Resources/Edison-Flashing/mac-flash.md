@@ -6,7 +6,7 @@
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
+3.  Using a looping-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
 
 ## High Level Recommended Rig parts list
 
@@ -42,11 +42,11 @@ Building the software into your rig is comprised of three steps:
 2. Installing the “looping” code (aka setup script for oref0)
 3. Customizing your loop 
 
-### 1. Preparing/flashing the Edison
+### 1. Preparing/flashing the Edison/reflashing the Edison
 
 The Edison comes with an operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
-Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download Jubilinux. [jubilinux.zip](http://www.jubilinux.org/dist/)
+Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download Jubilinux (jubilinux 0.2.0 is the latest version known to work, jubilinux 0.3.0 does NOT work yet). [jubilinux.zip](http://www.jubilinux.org/dist/)
 
 Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
 
@@ -89,6 +89,8 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 #### **1-2.  Install a bunch of other stuff (dfu-util, coreutils, gnu-getopt)**
 
 `brew install dfu-util coreutils gnu-getopt`
+
+* If you are reflashing an Edison, it might suggest upgrading coreutils, in which case, run `brew upgrade coreutils gnu-getopt`
 
 ![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
@@ -187,7 +189,7 @@ for a few minutes: that's fine.  You can also expect to see an ugly red:
 ```
 That is also fine, and you can ignore it too.
 
-Eventually, you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Step 1-4 and start the flash process over again).  
+Eventually, you should get a ubilinux login prompt (If you see Yocto instead of ubliniux, then you need to go back to Steps 1-4 and start the flash process over again. Or if you are reflashing and your old rig name appears, then the reflashing did not work. Go back to Steps 1-4.)
 
 ![Login after successful Reboot](../../Images/Edison/login_after_successful_reboot.png)
 
@@ -195,7 +197,7 @@ Use login `root` and password `edison` to login to your newly flashed Edison.  A
 
 ![Terminal Prompt for Jubilinux](../../Images/Edison/name.png)
 
-CONGRATULATIONS! You just flashed the edison! Wahoo! Now, let's keep going.
+CONGRATULATIONS! You just flashed the edison! Wahoo! Now, [head back to the install instructions for the easy bootstrap script process of setting up wifi](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below has the manual instructions, but most people prefer the quick bootstrap script option).
 
 #### **1-8. Wifi for Edison**
 
@@ -241,6 +243,7 @@ Now your Edison has a new hostname.  (note: screenshot below is a little differe
    
    If you are new to INSERT MODE, realize that INSERT MODE inserts characters at the highlighted cursor (it does not overwrite the character showing beneath the cursor).  And, the default is that the cursor will be at the top left of the screen to start, so you will need to use the arrow keys to move the cursor to the area where you want to start typing.  If you freak out that you’ve made a change that you don’t want to commit...you can simply press the ESC key and then type (no quotes) “:q!” to quit without saving any of your typing/changes.
 
+   If you experience any erratic behavior while using the screen editor, such as the cursor overwriting or deleting adjacent words when typing or even when using the cursor arrow keys, this may be due to incorrectly set Mac Terminal window settings. Try going to the "Shell" on the menu bar above and selecting "Show Inspector." Ensure the Columns setting is set to "80" and the Rows setting is set to "25."
 
 **A-3.** Make the changes so they match the areas highlighted in yellow, above:
 * uncomment (remove the #) from the auto wlan0 line
@@ -317,6 +320,11 @@ ALRIGHTY...Your Edison is coming along.  Now we are going to set aside the Ediso
 
 ![Ping success](../../Images/Edison/ping_success.png)
 
+* If you are reflashing an Edison, you might get a scary looking error about "WARNING: POSSIBLE DNS SPOOFING DECTECTED WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!" that is likely because you are attempting to login to a rig that has the same hostname as a previous rig that has been logged into on the computer. You can delete the history of known hosts for the rig by entering the commands `cd .ssh` and then `rm known_hosts`.  This will delete the log of known hosts on your computer.  There's no significant downside to removing the known_host log, except that you will need to answer yes to the key fingerprint additions again for the first time you login to old rigs again. 
+
+![Mac spoofing error](../../Images/spoof-no-box.png)
+
+
 If the rig isn't online, go back and check your /etc/network/interfaces and /etc/wpa_supplicant/wpa_supplicant.conf files above: you probably either missed a step or made a typo.  Usually you will see `ping: unknown host google.com` if you are not connected to the internet, as shown below.
 
 ![Ping Unsuccessful](../../Images/Edison/ping_unsuccessful.png)
@@ -358,8 +366,8 @@ If the rig isn't online, go back and check your /etc/network/interfaces and /etc
 
 ### 2. Installing the looping script (openaps-setup.sh)
 
-You'll now want to move on to the [Phase 1 instructions](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-1/index.html) if you haven't already set up Nightscout; and if you've already done that, onward to [Phase 2 to install the closed loop](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-2/index.html)!
+You'll now want to move on to the [rest of the install instuctions](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html).
 
 ### 3. Personalising your closed loop
 
-See the [phase 3 documentation](http://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-3/index.html) for personalizing your closed loop.
+Remember to personalize your settings after you finish installing OpenAPS!

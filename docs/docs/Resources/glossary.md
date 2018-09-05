@@ -21,14 +21,19 @@
 
 <b>COB</b> - Carbs-on-board 
 
+<b>COBpredBG</b> - a variable that uses carbs and insulin together in predicting the BG curve. It is represented by a purple prediction line in NS. The default behaviour has changed for carb absorption in oref0 0.6.0 and beyond, with the adoption of a /\ shaped bilenear carb absorption model. This line in your NS display will show an S-curve shape immediately after entering carbs that starts out flat (in line with current BG trends) and then rises sharply after about an hour before flattening out. A typical meal absorption time of about 3 hours is assumed which is then extended overtime so that Oref0 gradually relies more on actual observed carb absorption as carbs are absorbed. When the carbs are first entered, remainingCATime is set to 3 hours. When 50% of carbs have absorbed, the remainder (that aren't seen to be absorbing already) are predicted to take another 4.5h. And as COB approaches zero, remainingCATime will approach 6 hours.
+
 <b>CR</b> - carb ratio, or carbohydrate ratio - the amount of carbohydrates that are covered by one unit of insulin. Example: 1 u of insulin for 10 carbs.
 
 <b>DIA</b> - duration of insulin action, or how long the insulin is active in your body (Ranges 3-6 hours typically).
 
 <b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.  While what's displayed in your NS IOB pill may match what IOB is in your current loop, it's probably a good practice to not rely on this pill alone for determining IOB.
 
+<b>IOBpredBG</b> - also a variable reported in your Openaps Pill in Nightscout - this is a predicted BG curve that is based on insulin only. It is represented by the purple prediction lines
 <b>ISF</b> - insulin sensitivity factor - the expected decrease in BG as a result of one unit of insulin. 
 Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
+
+<b>MINpredBG</b> - this variable is the lowest predicted value that Openaps has made for your future BG.
 
 <b>Net IOB</b> - amount of insulin on board, taking into account any adjusted (higher or lower) basal rates (see Basal IOB above) plus bolus activity. 
 
@@ -46,6 +51,8 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>Treatments IOB</b> - amount of insulin on board delivered via boluses. Reported by some pumps as 'active insulin'.
 
+<b>UAMpredBG's</b> - this variable represents the impact of 'floating carbs' and insulin together in predicting the BG curve, giving a prediction line for the new feature Unannounced Meals (or carbs).
+
 ## OpenAPS-specific terminology 
 
 <b>OpenAPS Nightscout Status Messages</b> appear when the OpenAPS plugin is enabled.
@@ -61,10 +68,16 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>Eventual BG</b> - BG after DIA hours (or maybe a bit sooner if most of your insulin was awhile ago), considering the current IOB and COB.
 
+<b>Exponential Curves</b> - Most insulin types reach their peak performance and decay along a curve. OpenAPS can calculate active insulin along a rapid-acting, ultra-rapid, or custom curve, or a bilinear non-curve. 
+
+  * <b>Rapid-acting</b>: This curve, the default, reaches activity peak at 75 minutes by default, and is recommended for use with Apidra, Humalog, Novolog, and Novorapid insulin.
+
+  * <b>Ultra-rapid</b>: This curve reaches activity peak at 55 minutes by default, and is recommended for use with Fiasp insulin.
+
+  * <b>Bilinear</b>: This is a non-curve insulin activity model that OpenAPS users can set in their preferences file to use an older insulin activity model.
+
+  * <b>Custom Insulin Peak Time</b>: Users may set a custom insulin peak time in their preference file with useCustomPeakTime, with legal values of insulinPeakTime from 35 to 120. The value refers to the amount of time until your insulin reaches maximum effect, defined as minutes from bolus to peak.
+
 <b>Exp. Delta</b> - expected BG delta right now, considering all OpenAPS inputs (IOB, COB, etc).
 
 <b>predBGs</b> - predicted blood sugars over next N many minutes based on openAPS logic, in 5 minute increments
-
-<b>snoozeBG</b> - predicted value of blood glucose adjusted for bolussnooze IOB. SnoozeBG will never exceed EventualBG.
-
-
