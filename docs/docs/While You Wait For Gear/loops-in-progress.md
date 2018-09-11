@@ -268,3 +268,4 @@ List of people who are working on closed loops:
 - Raymond Richmond (Edmonton, AB, Canada)
 - Hosam El Din Mohamed El Nagar (Cairo, Egypt)
 - Mary Anne Patton (Brisbane, Australia)
+-Jared Bechard (Overland Park, KS, USA)
