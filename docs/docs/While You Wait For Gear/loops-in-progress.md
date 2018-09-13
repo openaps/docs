@@ -269,3 +269,4 @@ List of people who are working on closed loops:
 - Hosam El Din Mohamed El Nagar (Cairo, Egypt)
 - Mary Anne Patton (Brisbane, Australia)
 -Jared Bechard (Overland Park, KS, USA)
+-Tyler Duncan (Lethbridge, Alberta, Canada)
