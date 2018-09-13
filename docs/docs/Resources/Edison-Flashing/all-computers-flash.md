@@ -1,4 +1,4 @@
-# Setting Up Your Intel Edison - Flashing instructions for all computer types
+﻿# Setting Up Your Intel Edison - Flashing instructions for all computer types
 
 The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, as this fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
@@ -56,7 +56,8 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 ### Jubilinux
 [Jubilinux](http://www.jubilinux.org/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps that are required when starting from ubilinux.
 
-  - Download Jubilinux [jubilinux.zip](http://www.jubilinux.org/dist/) - the 	jubilinux-v0.2.0.zip is known to work, version 0.3.0 does NOT work yet.
+  - Download [Jubilinux](http://www.jubilinux.org/dist/) - the 	jubilinux-v0.2.0.zip is known to work, version 0.3.0 does NOT work yet. 
+  *(If the Jubilinux website is down, you can download [jubilinux-v0.2.0.zip](https://files.aps.builders/jubilinux-v0.2.0.zip) from [here](https://files.aps.builders/jubilinux-v0.2.0.zip))*
   - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
   - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
   
