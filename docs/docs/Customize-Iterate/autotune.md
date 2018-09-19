@@ -327,3 +327,32 @@ Remember, autotune is still a work in progress (WIP). Please provide feedback al
 #### Yay, It Worked! This is Cool!
 
 Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool. You can also help us tackle some of the known issues and feature requests listed [here](./understanding-autotune.md). 
+
+How to Re-run Autotune After Initial ‘One-Off’ Set-up
+
+To initially set-up Autotune follow these instructions: https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig
+
+To subsequently Re-run Autotune:
+Open Ubuntu       (and enter password for Unix if asked)
+At command prompt which will start with your username type: cd ~/myopenaps/settings
+	PRESS ENTER
+Now type: nano profile.json       (this gets you to the pump settings section)
+	PRESS ENTER
+Now edit your settings (using up / down arrows and backspace) – CR; ISF; basals etc
+Press Control-X    (to save your new settings)
+Press Y   (to confirm save new settings)
+	PRESS ENTER
+Now should see command prompt which will start with your user name again.
+Now follow steps D, E, F from the link above ie:
+Type:  jq . profile.json 
+	PRESS ENTER   (if it prints a colourful version of your profile.json, you’re good to proceed) 
+Type: cp profile.json pumpprofile.json
+	PRESS ENTER
+Type: cp profile.json autotune.json
+	PRESS ENTER
+Type the following command to run Autotune: oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD 
+
+	(Sub in your Nightscout URL for “mynightscout.herokuapp.com” in the line above)
+
+	PRESS ENTER
+
