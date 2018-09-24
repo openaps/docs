@@ -32,3 +32,5 @@ If your rig is online, you have a variety of ways to enter carbs online.
   * Pebble or Apple watch
   * Google Calendar
   * Siri, Alexa, Google, etc. 
+* Android users: you can use the Care portal option in [NSClient app found here](https://github.com/nightscout/NSClient-Android/releases).
+  
