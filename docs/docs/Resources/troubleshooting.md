@@ -216,25 +216,36 @@ Below is correct definition
 Full error is usually: 
 `Could not get subg_rfspy state or version. Have you got the right port/device and radio_type? (ccprog)`
 
-Basic steps using an Intel Edison with Explorer Board, checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet:
-  * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
+Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT:
+  * checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet
+  * Make sure the Explorer board or HAT has not become loose and is sitting correctly on the Edison board or Pi
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
   * Reboot, or fully power down and start up your rig
 
-If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
+If you are using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board (respectively D1/D2 on Explorer HAT) stay on even after an mmtune, you may need to re-flash your radio chip:
   * Stop the reboot loop: `sudo service cron stop && killall -g oref0-pump-loop && shutdown -c`
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
   * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
+  * If using a Raspberry Pi with Explorer HAT make sure you've installed MRAA (folder `~/src/mraa` present)
   * Flash the radio chip:
+  
+#### Using an Intel Edision + Explorer Block:
 ```
 wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ./ccprog -p 19,7,36 erase
 ./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
 
-  * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
+#### Using a Raspberry Pi + Explorer HAT:
+```
+wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+./ccprog -p 16,18,7 reset
+./ccprog -p 16,18,7 erase
+./ccprog -p 16,18,7 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+```
 
+  * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
 
 ## Dealing with the CareLink USB Stick
 
