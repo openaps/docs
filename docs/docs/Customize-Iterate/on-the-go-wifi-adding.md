@@ -1,6 +1,12 @@
 # How to add new wifi network(s)
 
-Adding a wifi network is pretty easy once your initial loop has been setup.  Simply enter `edit-wifi` (which is a shortcut command for `nano /etc/wpa_supplicant/wpa_supplicant.conf` and add networks using the template:
+Adding a wifi network is pretty easy once your initial loop has been setup.  Simply enter `edit-wifi` (which is a shortcut command for `nano /etc/wpa_supplicant/wpa_supplicant.conf`.
+
+First check that `wpa_supplicant.conf` doesn't contain `update_config=1`
+
+If it does, delete this from the file as it will interfere with switching between wifi networks.
+
+You can then add wifi networks using the following template:
 
 ```
 network={
