@@ -116,7 +116,9 @@ Some users who switch to Fiasp find that they need to adjust settings. Others do
 
 ## Improving the battery life of your Raspberry Pi
 
-Version - CPU Clock - Battery Life @ 2500mAh
+!! Important for Enlite users: If you are using Enlite as CGM source, your rig will not work when it's underclocked, since the loop will not run fast enough! (You will always see the "BG too old" error). We are aware of that issue and try to find a solution...
+
+Version - CPU Clock - Battery Life @ 2500mAh (Li-Po)
 ___
 * 0.6.2 - 1000 MHz - **8 hours**
 * 0.7.0-dev - 1000 MHz - **9 hours**
