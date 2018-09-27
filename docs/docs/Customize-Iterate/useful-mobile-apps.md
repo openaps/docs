@@ -148,3 +148,43 @@ If you use an Apple watch and want to view your Nightscout site on the watch, gi
 ### LePhant for Heroku (iPhone)
 
 Logging into your NS site isn't a frequent need, but sometimes helpful when you need to redeploy your site, restart your dynos, add or change configuration settings, or check NS status.  You can use a browser to login to your Heroku account, but an app can make the process simpler by saving your password and providing an easier viewing screen for mobile device. LePhant app costs about $5 in the iPhone app store, but provides a really slick way to access your Heroku controls.
+
+
+## Review Logs
+Beside using SSH and reading logs by calling `l`, there are solutions to review the logs using a browser
+
+### Frontail
+[Frontail](https://github.com/mthenw/frontail) is a Node.js application for streaming logs to the browser. It's a `tail -F` with UI.
+To install frontail, just call `npm i frontail -g`.
+
+For a test run you have to call `frontail /var/log/openaps/pump-loop.log` and visit `<your rigs name>.local:9001` or `<your rigs IP>:9001` in a browser. The browser will show you the same output as the command `l` does.
+
+To make this serves always available, you have to start frontail on startup in daemon mode. 
+To do so, add frontail with your desired options to `/etc/rc.local` bevor the exit call.
+
+#### Excample for Pi with pump-loop and cgm-loop log files.
+```
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+# start frontail deamon
+frontail -d -n 200 --ui-highlight /var/log/openaps/pump-loop.log /var/log/openaps/cgm-loop.log
+
+exit 0
+```
