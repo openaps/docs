@@ -22,6 +22,7 @@ Look at this image for the big picture:
 
 * You can still use the bolus wizard to enter carbs, although it must be entered with the smallest unit of bolus (.1 or .05, depending on your pump). Otherwise, OpenAPS will ignore those carbs.
 * Some pumps can use the ['meal marker' feature](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#entering-carbs-while-offline).
+* See section on [extended and dual wave substitutes](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/collect-data-and-prepare.html#extended-and-dual-wave-substitute) for information on how extended boluses are handled in OpenAPS.
 
 ### Online carb entry
 
