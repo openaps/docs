@@ -12,7 +12,6 @@ There are two general groups of ways to monitor your rigs:
 * [Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended)
 * [Accessing via SSH (either using an app on your phone, or your computer)](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh)
 * [Nightscout](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html)
-* AndroidAPS NS Client ([Download the app-nsclient-release APK from here](https://github.com/MilosKozak/AndroidAPS/releases).)
 * Pebble watch (your watchface of choice, such as [Urchin](https://github.com/mddub/urchin-cgm))
 
 ********************************
@@ -121,54 +120,24 @@ See below for different ways to access your rig:
 
 ![Windows serial login success](../Images/access_3.png)
 
-### autossh Reverse Tunnel
-
-If you have an ssh server that is always accessible on the Internet, you can use it as a known hop point to ssh into your rig as long as the rig has an Internet connection.
-
-On the rig, install autossh: `apt-get install autossh`
-
-Your ssh environment must be setup to use key based authentication. ([Basic instructions are here](https://www.debian.org/devel/passwordlessssh).)
-
-On the rig, add the lines below to the `/etc/ssh/ssh_config` file.
-```
-    ServerAliveInterval 60
-    ServerAliveCountMax 5
-```
-
-On the server, add the lines below to the `/etc/ssh/sshd_config` file.
-```
-    ClientAliveInterval 60
-    ClientAliveCountMax 5
-```
-
-The configuration values above ensure when the rig moves from wifi network to wifi network, it will require 5 minutes at most for autossh to establish a new link to the server.
-
-Test the ssh setup by executing autossh on the rig:
-```
-autossh -f -M 0 -T -N <Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22`
-```
-
-Test ssh into the rig from another device by ssh to the internet server address on port `20201` instead of the default port `22`.
-
-Once the test are successful, add a line to your rig crontab to launch autossh at boot using the autossh command above: `@reboot autossh -f -M 0 -T -N <Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22`
 
 
 ********************************
-## Papertrail remote monitoring of OpenAPS logs (RECOMMENDED)
+### Papertrail remote monitoring of OpenAPS logs (RECOMMENDED) 
 
 If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We HIGHLY recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
 
-### Get an account at Papertrail
+#### Get an account at Papertrail
 
 Go to http://papertrailapp.com and setup a new account.  Choose to setup a new system.  Notice the header at the top of the new system setup that says the path and port that your logs will go to.  You’ll need that information later.
 
 ![Papertrail hosting information](../Images/papertrail_host.png)
 
-## System logging
+#### System logging 
 
 Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/monitoring-OpenAPS.html#accessing-your-rig-via-ssh) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
 
-### Aggregating logs
+#### Aggregating logs
 
 * Copy and paste each of these four command lines, one at a time.  The screenshot below shows the successful results of each command.  The first command will run for a short time and end with similar information to the green box.  The remaining three commands will not display anything specific as a result of the command.
 
@@ -218,7 +187,7 @@ type ESC and ":wq" to save changes and exit.
 
 Now you should be able to see your new logs in your papertrail, but we need to make it so this runs automatically when the rig is restarted.
 
-### Install auto restart at reboot
+#### Install auto restart at reboot
 
 * Create a new file that will restart the papertrail logging at reboot
 
@@ -259,7 +228,7 @@ and then go to your papertrailapp website to see the log
 
 ![papertrail log example](../Images/papertrail.png)
 
-### Optimize Papertrail use
+#### Optimize Papertrail use
 
 To make the most of your Papertrail logs, setting up some of your account settings and filters will help streamline your troubleshooting
 
@@ -291,7 +260,7 @@ Once you get your desired searches saved, it is an easy process to make them mor
 
 ![papertrail homescreen buttons](../Images/papertrail_home_buttons.png)
 
-### Troubleshooting using Papertrail
+#### Troubleshooting using Papertrail
 
 Papertrail can be very valuable to quickly troubleshoot a rig, because it is quite easy to see all the loops that log information about your rig's actions.  BUT, the way that the information comes into Papertrail is based on the time the action took place.  So, you'll be seeing information stream by that may or may not help you troubleshoot WHICH area your issues are.
 
