@@ -2,7 +2,7 @@
 
 Getting your rig with OpenAPS takes generally six steps:
 
-1. Jubilinux installation (called "flashing" the Edison)
+1. Jubilinux installation (called "flashing" the Edison - Pi users can skip to step 2)
 2. Getting first wifi network connection
 3. Installing "dependencies" (helper code that make all the OpenAPS code function)
 4. Installing your OpenAPS loop
@@ -15,7 +15,7 @@ Getting your rig with OpenAPS takes generally six steps:
 * The **fifth step** is an important, required step. You need to be familiar with how to read and access your logs.
 * The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like optimizing your settings, preferences, BT-tethering, IFTTT, etc.
 
-### Step 1: Jubilinux (for Edison rigs)
+### Step 1: Jubilinux (for Edison rigs only)
 
 *Pi users can skip to [step 2](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies)*
 
