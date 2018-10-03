@@ -270,3 +270,4 @@ List of people who are working on closed loops:
 - Mary Anne Patton (Brisbane, Australia)
 -Jared Bechard (Overland Park, KS, USA)
 -Tyler Duncan (Lethbridge, Alberta, Canada)
+-Eran I (Israel)
