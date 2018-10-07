@@ -271,12 +271,15 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
 * ^ Sub in your Nightscout URL. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).  The start date should be the older date, the end date is the more recent date.
+* Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
+* If useCustomPeak is not set in preferences.json and --tune-insulin-curve=true is not used, the DIA used by autotune is obtained from the pump and the peak time is obtained from the defaults of the insulin curve selected in preferences.json.
+
+#### Optional configurations
+
 * When starting out with autotune, you may find your basals settings are far enough below your real basal rates for the algorithm to classify periods when basals are too low as unannounced meals. In this case, if you are certain you have entered all carb intake events, you can force the algorithm to classify unannounced meal periods as basal periods using the --categorize-uam-as-basal=true option. **\*\*SAFETY WARNING\*\*** If you use this option and treat lows due to basals that are too high without entering the low treatment carbs, an amplifying cycle will begin with autotune raising basals, treated lows get categorizes as basals being too low, basals are raised causing lows, etc.
 * If running 0.7.0 or later, autotune has a --tune-insulin-curve=true option that enables autotune to tune the insulin end time (DIA) and insulin peak. The values listed below are calculated for insulin end times 2 hours less than the current end time to 2 hours more. If they agree in moving the insulin end time in the same direction, the insulin end time is moved by 1 hour. Insulin peak time is tuned similarly in steps of 5 minutes for peak times 10 minutes less than the current peak time to 10 minutes more than the current peak time. **\*\*SAFETY WARNING\*\*** This tuning method is still very much experimental and not recommended to be run unattended.
   * Average deviations observed in the data
   * Square root of the average of the squared deviations
-* Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
-* If useCustomPeak is not set in preferences.json and --tune-insulin-curve=true is not used, the DIA used by autotune is obtained from the pump and the peak time is obtained from the defaults of the insulin curve selected in preferences.json.
 
 #### Why Isn't It Working At All?
 
