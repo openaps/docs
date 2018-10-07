@@ -274,6 +274,8 @@ https://<nightscout_api_secret>@<yournnightscoutsite>.herokuapp.com/api/v1/ http
 ```
 Be careful when entering the addresses - xDripAPS uses the http protocol, Nightscout uses the https protocol.
 
+NOTE: To ensure your OpenAPS rig recieves glucose data through XdripAPS please confirm the following setting is UN-CHECKED : Open XDrip + and navigate to Settings > Cloud Upload > Nightscout Sync (REST-API) > Extra options > "Skip LAN uploads". This setting is checked by default, however does not allow your openaps rig to recieve glucose data when tethered offline.
+
 </details>
 <br>
    
