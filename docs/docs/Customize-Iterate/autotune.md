@@ -52,14 +52,26 @@ Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb r
 
 #### Phase A: Running Autotune manually in OpenAPS 
 
-If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line. You will want to do this in a different directory on your rig if you do not want OpenAPS to use the autotune settings by default.
+If you have an OpenAPS rig and want to run autotune manually, you can do so on the command line. 
+
+
+##### Running manually in your myopenaps directory
+If you want to have OpenAPS use your autotune results (e.g. you changed pump settings and just want it to be tuned sooner than 4am), run the following:
+
+```
+oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD
+```
+
+##### Running manually in a *different* directory to not use the results automatically
+
+You will want to run Autotune in a different directory on your rig if you do not want OpenAPS to use the autotune settings by default.
 
 * Run this command to create a `newdirectory` and copy over the profile and pump settings files: 
 ```
 mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdirectory/settings/autotune.json && cp ~/myopenaps/settings/pumpprofile.json ~/newdirectory/settings/pumpprofile.json
 ```
 
-**To run Autotune manually:** 
+* Then, run Autotune manually, pointing to the new directory:
 
 ```
 oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD
@@ -73,7 +85,7 @@ oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites
 
 In oref0 0.6.0 and beyond, autotune will run by default. This means that autotune would be iteratively running (as described in [#261](https://github.com/openaps/oref0/issues/261)) and making changes to the underlying basals, ISF, and carb ratio being used by the loop. However, there are safety caps (your autosens_max and autosens_min) in place to limit the amount of tuning that can be done at any time compared to the underlying pump profile. The autotune_recommendations will be tracked against the current pump profile, and if over time the tuning constantly recommends changes beyond the caps, you can use this to determine whether to tune the basals and ratios in those directions.
 
-**Important** When autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately, you should run autotune manually to have it re-pull the settings from the pump and tune from the new settings.
+**Important** When autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately, you should run autotune manually (see A for directions) to have it re-pull the settings from the pump and tune from the new settings.
 
 #### How to copy over autotune files from another rig:
 
