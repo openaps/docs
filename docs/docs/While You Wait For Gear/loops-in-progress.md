@@ -271,3 +271,4 @@ List of people who are working on closed loops:
 -Jared Bechard (Overland Park, KS, USA)
 -Tyler Duncan (Lethbridge, Alberta, Canada)
 -Eran I (Israel)
+- Mikko Kesti (Vantaa, Finland) Intel Edison
