@@ -272,3 +272,4 @@ List of people who are working on closed loops:
 - Tyler Duncan (Lethbridge, Alberta, Canada)
 - Eran I (Israel)
 - Mikko Kesti (Vantaa, Finland) Intel Edison
+- Jan Schenk (Munich, Germany)
