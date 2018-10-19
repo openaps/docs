@@ -31,6 +31,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TABLE border="1"
           summary="This table gives details about various cellphones used with BT Tethering with OpenAPS rigs">
 <TR><TH>Cellphone<TH>Works with Bluetooth Tethering?<TH>Issues/Experiences with BT<TH>Use with xDrip/xDripAPS and Dexcom G5
+<TR><TH>Google Pixel 3XL with Android 9<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>
 <TR><TH>Google Pixel 2 with Android 8<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>
 <TR><TH>LG Nexus 5X with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
 <TR><TH>Google Pixel with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
