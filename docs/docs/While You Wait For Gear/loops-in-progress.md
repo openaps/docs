@@ -6,6 +6,7 @@ New to Github, and PRs? [Check out how to submit your first PR](http://openaps.r
 
 List of people who are working on closed loops:
 
+- Jess Phoenix (London, UK)
 - Dana Lewis
 - Ben West
 - Chris Hannemann
