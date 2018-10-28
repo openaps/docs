@@ -273,3 +273,4 @@ List of people who are working on closed loops:
 - Eran I (Israel)
 - Mikko Kesti (Vantaa, Finland) Intel Edison
 - Jan Schenk (Munich, Germany)
+- Jess Phoenix (London, UK)
