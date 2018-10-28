@@ -50,7 +50,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TR><TH>Samsung Galaxy S8 Android 7.0<TD>Yes<TD>Excellent BT tether, no need for 3rd party app to keep BT teter alive, can be set in settings<TD>xDrip+ with Libre/RFDuino transmitter, 99%+ capture rate,
 <TR><TH>Motorolo Moto Z Play<TD>Yes<TD>Excellent BT tethering; highly reliable using Blue Car Tethering.<TD>Not tested (using Enlite sensor).
 <TR><TH>Wiko Wim Lite<TD>Intermittent<TD>Works most of the time. Note, several issues with this phone: 1) NSClient has a tendency to crash on this phone and 2) Bluetooth tethering works intermittently with Blue Car Autotether and not at all with BT AutoTether. Note that this phone has a tendency to freeze and reboot on its own, so I think the phone itself is the issue.<TD>Not tested (using Enlite sensor).
-<TR><TH>Xiaomi Mi Mix 2 with LineageOS 15.1<TD>Yes<TD>Excellent connectivity - has worked almost flawlessly with tethering. Battery life has also been very good.<TD>Works brilliantly with xDrip+ and G6 - capture rate typically more than 95%.
+<TR><TH>Xiaomi Mi Mix 2 with LineageOS 15.1<TD>Yes<TD>Excellent connectivity - has worked almost flawlessly with tethering. Battery life has also been very good.<TD>Works brilliantly with xDrip+ and G6 - capture rate typically more than 95%.     
 <TR><TH>OnePlus 6 (A6003) with OxygenOS 9.0 <TD>Yes<TD>Excellent connectivity - Tethering has been good and picks up right away. Battery life very good and really fast charge.<TD>xDrip+ w/ G5 - capture rates generally better than 98%.
 </TABLE>
 
