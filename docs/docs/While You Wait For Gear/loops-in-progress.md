@@ -274,3 +274,4 @@ List of people who are working on closed loops:
 - Mikko Kesti (Vantaa, Finland) Intel Edison
 - Jan Schenk (Munich, Germany)
 - Jess Phoenix (London, UK)
+- Kelly Polster (Fort Worth, TX)
