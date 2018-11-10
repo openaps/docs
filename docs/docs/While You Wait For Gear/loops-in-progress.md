@@ -275,3 +275,4 @@ List of people who are working on closed loops:
 - Jan Schenk (Munich, Germany)
 - Jess Phoenix (London, UK)
 - Kelly Polster (Fort Worth, TX)
+- Corey Stoerner (Phoenix, AZ)
