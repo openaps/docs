@@ -276,3 +276,4 @@ List of people who are working on closed loops:
 - Jess Phoenix (London, UK)
 - Kelly Polster (Fort Worth, TX)
 - Corey Stoerner (Phoenix, AZ)
+- Chris Wallis (Brisbane, QLD, Australia)
