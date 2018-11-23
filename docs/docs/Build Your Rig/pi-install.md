@@ -72,9 +72,9 @@ The script will then continue to run awhile longer (10 to 30 minutes) before ask
 
 !["install piBakery"](../Images/build-your-rig/pi-curl-success.png)
 
-**If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter.  You are done..**
+**If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter.  [Jump to finishing the installation](finish-installation)**
 
-**If you are installing to a newer Pi with a HAT as radio: Do not press enter!  Follow the instructions below.**
+**If you are installing to a newer Pi with a HAT as radio: Do not press enter!  [Continue on to the next section.](switch-to-dev-branch-for-your-pi-hat).**
 
 
 Troubleshooting:  If your screen stops as shown below or jumps ahead to the interactive portion before successful completion (as shown above), rerun the curl -s command line shown above.  
