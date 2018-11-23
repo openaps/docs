@@ -83,11 +83,14 @@ Troubleshooting:  If your screen stops as shown below or jumps ahead to the inte
 
 
 **************************
+### Switch to dev branch for your pi HAT ###
 If you are here - you should be building a rig with a Pi HAT.  Instead of proceeding with the setup script, press `control-c` to cancel the setup script.
 
 Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users).
 
 Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 && git checkout dev`. On your first install you should see a message returned of "Branch dev set up to track remote branch dev from origin. Switched to a new branch 'dev'". On subsequent installs or updates you would follow the direction to execute the command "git pull".
+
+### Finish installation ###
 
 Now run `npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Successful completion of this step should look like below.
 
