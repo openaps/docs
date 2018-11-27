@@ -67,9 +67,14 @@ You'll be prompted to set two passwords; one for root user and one for pi user. 
 
 * Pick your time zone (e.g., In the US, you'd select `US` and then scroll and find your time zone, such as `Pacific New` if you're in California).
 
-The script will then continue to run awhile longer (10 to 30 minutes) before asking you to press `enter or control-c` for the setup script options.  Successful completion of this section should look like below.  **Do not press enter**
+The script will then continue to run awhile longer (10 to 30 minutes) before asking you to press `enter or control-c` for the setup script options.  Successful completion of this section should look like below.  
+
 
 !["install piBakery"](../Images/build-your-rig/pi-curl-success.png)
+
+**If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter.  [Jump to finishing the installation](pi-install.md#finish-installation)**
+
+**If you are installing to a newer Pi with a HAT as radio: Do not press enter!  [Continue on to the next section.](pi-install.md#switch-to-dev-branch-for-your-pi-hat).**
 
 
 Troubleshooting:  If your screen stops as shown below or jumps ahead to the interactive portion before successful completion (as shown above), rerun the curl -s command line shown above.  
@@ -78,11 +83,14 @@ Troubleshooting:  If your screen stops as shown below or jumps ahead to the inte
 
 
 **************************
-At this time, the master installation of oref0 is not compatible with the the newest Raspian system kernels.  So, instead of proceeding with the setup script, press `control-c` to cancel the setup script.
+### Switch to dev branch for your pi HAT ###
+If you are here - you should be building a rig with a Pi HAT.  Instead of proceeding with the setup script, press `control-c` to cancel the setup script.
 
 Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users).
 
 Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 && git checkout dev`. On your first install you should see a message returned of "Branch dev set up to track remote branch dev from origin. Switched to a new branch 'dev'". On subsequent installs or updates you would follow the direction to execute the command "git pull".
+
+### Finish installation ###
 
 Now run `npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Successful completion of this step should look like below.
 
