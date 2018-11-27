@@ -73,7 +73,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>ENABLE</th>
-<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.  **Notice we are not including cob here.** If you have other plugins that you would like to enable, please add them here.)</td>
+<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.<br>**Notice we are not including cob here.**<br>If you are use Lookout or Logger, add xdrip-js to enable the CGM status pill<br>If you have other plugins that you would like to enable, please add them here.)</td>
 </tr>
 <tr>
 <th>DISABLE</th>
