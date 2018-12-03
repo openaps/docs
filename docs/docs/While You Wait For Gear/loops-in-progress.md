@@ -277,3 +277,4 @@ List of people who are working on closed loops:
 - Kelly Polster (Fort Worth, TX)
 - Corey Stoerner (Phoenix, AZ)
 - Chris Wallis (Brisbane, QLD, Australia)
+- Dave Gourley (Kaysville, UT)
