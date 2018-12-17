@@ -279,3 +279,4 @@ List of people who are working on closed loops:
 - Chris Wallis (Brisbane, QLD, Australia)
 - Dave Gourley (Kaysville, UT)
 - Chris Heywood (Manchester, UK)
+- Grahame Cottam (Newcastle upon Tyne, UK)
