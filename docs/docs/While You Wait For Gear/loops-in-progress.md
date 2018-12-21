@@ -280,3 +280,4 @@ List of people who are working on closed loops:
 - Dave Gourley (Kaysville, UT)
 - Chris Heywood (Manchester, UK)
 - Grahame Cottam (Newcastle upon Tyne, UK)
+- Norman Seward (Cardiff, Wales. UK)
