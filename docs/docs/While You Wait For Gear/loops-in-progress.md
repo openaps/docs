@@ -282,3 +282,4 @@ List of people who are working on closed loops:
 - Grahame Cottam (Newcastle upon Tyne, UK)
 - Norman Seward (Cardiff, Wales. UK)
 - Luminary Xion (Tokyo, Japan)
+- Nika Beros (Zagreb, Croatia)
