@@ -281,3 +281,4 @@ List of people who are working on closed loops:
 - Chris Heywood (Manchester, UK)
 - Grahame Cottam (Newcastle upon Tyne, UK)
 - Norman Seward (Cardiff, Wales. UK)
+- Luminary Xion (Tokyo, Japan)
