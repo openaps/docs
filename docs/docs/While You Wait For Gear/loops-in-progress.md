@@ -283,3 +283,4 @@ List of people who are working on closed loops:
 - Norman Seward (Cardiff, Wales. UK)
 - Luminary Xion (Tokyo, Japan)
 - Nika Beros (Zagreb, Croatia)
+- Katja Jacob (Seattle, WA)
