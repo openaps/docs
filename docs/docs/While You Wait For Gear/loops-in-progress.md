@@ -285,3 +285,4 @@ List of people who are working on closed loops:
 - Luminary Xion (Tokyo, Japan)
 - Nika Beros (Zagreb, Croatia)
 - Katja Jacob (Seattle, WA)
+- Paul Benedict (Evergreen, CO)
