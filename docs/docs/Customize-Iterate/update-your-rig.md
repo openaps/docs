@@ -27,7 +27,7 @@ However, if it's a brand-new feature that's being tested or is recently added to
 Or, if the feature you want hasn't been released yet, and you want to test the latest untested development version of `oref0`, run:
 
 1. `cd ~/src/oref0 && git checkout dev && git pull`
-2. `npm run global-install`
+2. `sudo npm run global-install`
 
 ### Alternative Step 1b (Test a feature branch): Not recommended for initial setup
 
@@ -46,7 +46,11 @@ In case you want to test even more advanced stuff you've read about on gitter ch
 
 ## Step 2: Re-run oref0-setup
 
-Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup) for a guide of what the setup script will be prompting you to enter.
+Now that you've updated your `oref0` version, you will want to run the oref0-setup script again via:
+
+1. `sudo ~/src/oref0/bin/oref0-setup.sh`
+
+See [this section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup) for a guide of what the setup script will be prompting you to enter.
 
 ## Step 3: Remember to set your preferences!
 
