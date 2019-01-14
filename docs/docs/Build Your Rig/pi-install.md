@@ -75,7 +75,7 @@ The script will then continue to run awhile longer (10 to 30 minutes) before ask
 
 **If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter.  [Jump to finishing the installation](pi-install.md#finish-installation)**
 
-**If you are installing to a newer Pi with a HAT as radio: Do not press enter!  [Continue on to Pi-Hat instructions.](pi-install.md#switch-to-dev-branch-for-your-pi-hat).**
+**If you are installing to a newer Pi with a HAT or RFM69HCW as radio: Do not press enter!  [Continue on to Pi-Hat instructions.](pi-install.md#switch-to-dev-branch-for-your-pi-hat).**
 
 Troubleshooting:  If your screen stops as shown below or jumps ahead to the interactive portion before successful completion (as shown above), rerun the curl -s command line shown above.  
 
@@ -83,7 +83,7 @@ Troubleshooting:  If your screen stops as shown below or jumps ahead to the inte
 
 **************************
 ### Switch to dev branch for your pi HAT ###
-If you are here - you should be building a rig with a Pi HAT.  Instead of proceeding with the setup script, press `control-c` to cancel the setup script.
+If you are here - you should be building a rig with a Pi HAT(recommended) or RFM69HCW (experimental).  Instead of proceeding with the setup script, press `control-c` to cancel the setup script.
 
 Reboot your rig by entering `reboot`.  This will end your ssh session.  Give your rig time to reboot, reconnect to wifi, and then login to the rig again.  This time the rig will be using the rig name you chose before in the setup so use `ssh root@yourrigname.local` (or Putty equivalent for Windows users).
 
@@ -99,13 +99,27 @@ Now you can run the interactive oref0 setup script:
 
 `cd && ~/src/oref0/bin/oref0-setup.sh`
 
-Answer all the setup questions.  A successful setup script will finish asking you if you want to setup cron.  Say yes to those two questions.  Finally, you'll see a message about Reboot required.  Go ahead and reboot the rig.  You've finished the loop installation.  Login to the rig again, and then **make sure to [Watch the pump loop](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
+Answer all the setup questions.  A successful setup script will finish asking you if you want to setup cron.  Say yes to those two questions.  Finally, you'll see a message about Reboot required.  Go ahead and reboot the rig.  You've finished the loop installation. Login to the rig again. 
+
+If you are using RFM69HCW as RF module, then, and only then, delete the openaps-menu folder to avoid error messages in your logs.
+
+`rm -rf ~/src/openaps-menu/`
+
+And now **make sure to [Watch the pump loop](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
 
 !["install piBakery"](../Images/build-your-rig/pi-loop-install.png)
 
 Troubleshooting: If your rig gets stuck at the point shown below, simply login to the rig again and run the setup script one more time.  Usually, running the setup script a second time will clear that glitch.
 
 !["install piBakery"](../Images/build-your-rig/pi-setup-stuck.png)
+
+If you experience something like this:
+mmtune: radio_locale = WW
+2019/01/14 15:14:25 cannot connect to CC111x radio on /dev/spidev0.0
+2019/01/14 15:14:25 cc111x: no response
+Usage: grep [OPTION]... PATTERN [FILE]...
+Try 'grep --help' for more information.
+Then you have probably not soldered diligently enough or flipped cables. Soldering problems are seldom the case for using the pin stripes, so you probably went one step further and used cables. Then you should know what you can try to find and fix the hardware problem.
 
 *****************************
 
