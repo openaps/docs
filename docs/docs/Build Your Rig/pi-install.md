@@ -114,12 +114,13 @@ Troubleshooting: If your rig gets stuck at the point shown below, simply login t
 !["install piBakery"](../Images/build-your-rig/pi-setup-stuck.png)
 
 If you experience something like this:
-mmtune: radio_locale = WW
+`mmtune: radio_locale = WW
 2019/01/14 15:14:25 cannot connect to CC111x radio on /dev/spidev0.0
 2019/01/14 15:14:25 cc111x: no response
 Usage: grep [OPTION]... PATTERN [FILE]...
-Try 'grep --help' for more information.
-Then you have probably not soldered diligently enough or flipped cables. Soldering problems are seldom the case for using the pin stripes, so you probably went one step further and used cables. Then you should know what you can try to find and fix the hardware problem.
+Try 'grep --help' for more information.`
+You have probably run the oref-runagain.sh script. Currently, with RFM69HCW, you can't use the runagain script. Please run the interactive setup script. Other option would be you didn't solder diligently enough. Before disassembling and resoldering, try running the interactive script first. It's less work. 
+
 
 *****************************
 
