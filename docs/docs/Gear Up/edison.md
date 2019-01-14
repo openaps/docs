@@ -140,3 +140,60 @@ Cases for Edison plus G4 receiver:
 ### Other non-case protection options
 
 * [Heat Shrink Tubing](https://www.amazon.com/gp/product/B009IILEVY)  
+
+
+
+## Hardware information for Pi-based setups with RFM69HCW (experimental)
+
+The Pi + RFM69HCW is still experimental! Do this at your own risk!
+
+If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper. You won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
+
+The Pi + RFM69HCW is still experimental! Do this at your own risk!
+
+That said, let's start:
+
+What you need: 
+* Raspberry Pi Zero 
+* RFM69HCW 
+* microSD Card
+* Bread board
+* Jumper wires
+* Soldering iron
+* Power source via Micro USB ( do I really need to mention this?)
+
+### The Raspberry Pi Zero
+Which model to choose: Raspberry Pi Zero W (This is the one that comes without header pins) OR Raspberry Pi Zero WH (the H stands for Header pins). Also, a regular Raspberry Pi 3 model B works fine.
+We recommend, as this is still experimental, to build this rig only for stationary use on a bread board. So you'd go for a Raspberry Pi Zero WH.
+
+### RFM69HCW
+You can buy this board e.g. here: https://www.adafruit.com/product/3070), but you can really buy it whereever you want. These boards are, like the RPi Zero, very common. Just make sure you get the right frequency. 868/915 MHz is correct. All others are wrong. 
+
+### Breadboard
+Any breadboard will do, no special requirements.
+
+### Soldering
+If you have never soldered before, this is going to be fun. All you have to do is solder the pin stripe into the RFM69HCW. Insert the pin stripe from the bottom of the board, with the short endings reaching through the holes. Fixate a bit, so you can rest the soldering iron tip on the pins and the board. 
+
+Solder the included pin stripe diligently into the 9 holes named 
+VIN GND EN G0 SCK MISO MOSI CS RST
+
+Cut an antenna at your preferred length corresponding to your frequency. This can be a simple piece of isolated, unshielded wire. (I simply took one of the jumper wires for my first try.)
+Calculate your length here: https://m0ukd.com/calculators/quarter-wave-ground-plane-antenna-calculator/ and just use the value from A (first green box). This should be the length of your antenna, from the soldering point on the board to the tip.
+
+Solder it to the board. It's the hole near the "o" from Radio. Make sure to not connect the soldering to the ground plates left and right from the hole. This antenna is really only connected to the one hole.
+
+This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a bread board, and connect:
+
+Board | Connect | Connect | Connect | Connect | Connect | Connect | Connect | Connect
+------|------|------|------|------|------|------|------|------
+RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CEO_N	|| 
+RPi PIN	| 17	| 25	| 19	| 21	| 23	| 16	| 24	| 18
+RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS	| RST or RESET
+
+After that, you're ready for a run. Be sure that your cat is not nibbling on the cables. You could put the setup in a small box for now. We'll take care of a more finished setup at a later point in time. But congrats! You're finished with the hardware part of this experimental setup. Continue to install OpenAPS on your rig now.
+
+
+A sophisticated schematic. 
+https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22
+
