@@ -43,24 +43,9 @@ Because we are still optimizing the software to be as power-efficient as possibl
 
 ## Hardware information for Pi-based setups with RFM69HCW (experimental)
 
-The Pi + RFM69HCW is still experimental!
+The Pi + RFM69HCW is still experimental! Do this at your own risk! 
 
 If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
-
-<details>
-    <summary> <b>
-Click here to expand and see pictures of a rig with a Pi0WH and RFM69HCW:</b>:</summary>
-<br>
-
-![Picture of RPI0WH with FM69HCW connected via breadboard](../Images/build-your-rig/RPi_breadboard_connected_to_RFM69HCW.jpg)
-
-![Picture of RPI0WH with FM69HCW view from the top ](../Images/build-your-rig/RPi_soldered_RFM69HCW_top_view.jpg)
-
-![Picture of RPI0WH with FM69HCW view of soldered connections](../Images/build-your-rig/RPi_soldered_RFM69HCW.jpg)
-
-![Picture of RPI0WH with FM69HCW and case](../Images/build-your-rig/RPi_open_case_with_battery_view_on_RFM69HCW.jpg)
-
-</details>
 
 ### Summary of what you need: 
 * Raspberry Pi Zero 
@@ -76,7 +61,7 @@ Click here to expand and see pictures of a rig with a Pi0WH and RFM69HCW:</b>:</
 For this setup, you want a Raspberry Pi Zero WH. (The "H" means it has Header pins). (Also, a regular Raspberry Pi 3 model B works fine.)
 
 ### RFM69HCW
-You can buy this board e.g. [here](https://www.adafruit.com/product/3070), but you can really buy it wherever you want. These boards are, like the RPi Zero, very common. Just make sure you get the right frequency. 868/915 MHz is correct. All others are wrong. 
+You can buy this board e.g. here: https://www.adafruit.com/product/3070), but you can really buy it whereever you want. These boards are, like the RPi Zero, very common. Just make sure you get the right frequency. 868/915 MHz is correct. All others are wrong. 
 
 ### Breadboard
 Any breadboard will do, no special requirements.
@@ -88,9 +73,11 @@ Solder the included pin stripe diligently into the 9 holes named
 VIN GND EN G0 SCK MISO MOSI CS RST
 
 Cut an antenna at your preferred length corresponding to your frequency. This can be a simple piece of isolated, unshielded wire. (I simply took one of the jumper wires for my first try.)
-Calculate your length here: https://m0ukd.com/calculators/quarter-wave-ground-plane-antenna-calculator/ and just use the value from A (first green box). This should be the length of your antenna, from the soldering point on the board to the tip.
+Calculate your length here: (https://m0ukd.com/calculators/quarter-wave-ground-plane-antenna-calculator/) and just use the value from A (first green box). This should be the length of your antenna, from the soldering point on the board to the tip.
 
 Solder it to the board. It's the hole near the "o" from Radio. Make sure to not connect the soldering to the ground plates left and right from the hole. This antenna is really only connected to the one hole.
+
+![Image of a regular Raspberry Pi 3 connected via jumper wires and a breadboard to a RFM69HCW RF board](https://github.com/jansche/docs/blob/master/docs/docs/Images/build-your-rig/RPi_breadboard_connected_to_RFM69HCW.jpg)
 
 This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a bread board, and connect:
 
@@ -103,6 +90,11 @@ RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS
 [Here is a copy of a a sophisticated schematic](https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22). 
 
 After that, you're ready to install OpenAPS. 
+
+But wait, here's a rough-and-ready budget version of a rig put together: contents of a 2000mAh powerbank, a plastic housing, a micro USB cable and some more soldering and hot glue. BE AWARE that this case will most likely overheat the Pi after a while. You need to at least drill some venting holes into the lid.
+https://github.com/jansche/docs/blob/master/docs/docs/Images/build-your-rig/RPi_open_case_with_Pi_on_top.jpg
+https://github.com/jansche/docs/blob/master/docs/docs/Images/build-your-rig/RPi_open_case_with_battery_view_on_RFM69HCW.jpg
+https://github.com/jansche/docs/blob/master/docs/docs/Images/build-your-rig/Rig_case_with_pump.jpg
 
 ***
 
