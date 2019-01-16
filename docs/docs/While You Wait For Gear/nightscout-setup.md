@@ -73,7 +73,7 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
 </tr>
 <tr>
 <th>ENABLE</th>
-<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.  **Notice we are not including cob here.** If you have other plugins that you would like to enable, please add them here.)</td>
+<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.<br>**Notice we are not including cob here.**<br>If you are use Lookout or Logger, add xdrip-js to enable the CGM status pill<br>If you have other plugins that you would like to enable, please add them here.)</td>
 </tr>
 <tr>
 <th>DISABLE</th>
@@ -353,6 +353,8 @@ Other notes:
 ### It's not working - I'm missing data in Nightscout? 
 
 If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected (and OpenAPS plugin is enabled and saved) the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users).
+
+Dexcom CGM users should make sure they have "share" enabled and have actively shared their data with at least one follower, before data will begin flowing to Nightscout. If you don't want to share your data with another person, you can just follow yourself. 
 
 ### A Note about Nightscout's COB Pill
 

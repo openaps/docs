@@ -181,10 +181,6 @@ Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
-#### enableSMB_after_carbs
-
-This enables supermicrobolus for 6 hours after carb entry.
-
 #### enableSMB_with_COB
 
 This enables supermicrobolus (SMB) while carbs on board (COB) is positive.
@@ -203,7 +199,7 @@ Defaults to false. When true, always enable supermicrobolus (unless disabled by 
 
 #### enableSMB_after_carbs
 
-Defaults to false. When true, enables supermicrobolus for 6h after carbs, even with 0 COB.
+Defaults to false. When true, enables supermicrobolus (SMB) for 6h after carbs, even with 0 COB.
 
 #### allowSMB_with_high_temptarget
 

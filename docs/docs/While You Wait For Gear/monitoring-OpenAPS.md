@@ -583,6 +583,8 @@ The box around your current BG will be either green or red, depending on the las
 
 ![Offline webpage OpenAPS pill](../Images/offline_webpage_2.png)
 
+NOTE: If the webpage does not load, check your crontab. On master (oref0 version 0.6.x) your crontab should contain the line `@reboot cd ~/src/oref0/www && export FLASK_APP=app.py && flask run -p 80 --host=0.0.0.0` You can check this by logging into your rig and typing `crontab -l`. If you need to edit your crontab the command is `crontab -e`.
+
 ### Old instructions for an offline webpage. It is HIGHLY recommended that you use the method above for oref0 0.6.0 or greater.
 
 **TODO** - implement this as a proper oref0 script that can be installed by oref0-setup

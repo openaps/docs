@@ -31,6 +31,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TABLE border="1"
           summary="This table gives details about various cellphones used with BT Tethering with OpenAPS rigs">
 <TR><TH>Cellphone<TH>Works with Bluetooth Tethering?<TH>Issues/Experiences with BT<TH>Use with xDrip/xDripAPS and Dexcom G5
+<TR><TH>Google Pixel 3XL with Android 9<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>
 <TR><TH>Google Pixel 2 with Android 8<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>
 <TR><TH>LG Nexus 5X with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
 <TR><TH>Google Pixel with Android 7<TD>Yes<TD>Supports tethering to both Wifi and Cellular network. No issues switching.<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. 90%+ capture rate.
@@ -52,6 +53,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TR><TH>Wiko Wim Lite<TD>Intermittent<TD>Works most of the time. Note, several issues with this phone: 1) NSClient has a tendency to crash on this phone and 2) Bluetooth tethering works intermittently with Blue Car Autotether and not at all with BT AutoTether. Note that this phone has a tendency to freeze and reboot on its own, so I think the phone itself is the issue.<TD>Not tested (using Enlite sensor).
 <TR><TH>Xiaomi Mi Mix 2 with LineageOS 15.1<TD>Yes<TD>Excellent connectivity - has worked almost flawlessly with tethering. Battery life has also been very good.<TD>Works brilliantly with xDrip+ and G6 - capture rate typically more than 95%.      
 <TR><TH>Nokia 2.1 with Android 8.1 Oreo Go Edition<TD>Yes<TD>Excellent bluetooth tethering to cellular network. No noted network drops. Works excellent as an offline option with XDripAPS. Awesome battery life(4000mAH)<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. Generally 95%+ capture rate.
+<TR><TH>OnePlus 6 (A6003) with OxygenOS 9.0 <TD>Yes<TD>Excellent connectivity - Tethering has been good and picks up right away. Battery life very good and really fast charge.<TD>xDrip+ w/ G5 - capture rates generally better than 98% on current nightlies.
 </TABLE>
 
 **********************************************************************************************
