@@ -60,6 +60,12 @@ Click here to expand and see pictures of a rig with a Pi0WH and RFM69HCW:</b>:</
 
 ![Picture of RPI0WH with FM69HCW and case](../Images/build-your-rig/RPi_open_case_with_battery_view_on_RFM69HCW.jpg)
 
+Here's a rough-and-ready budget version of a rig put together: contents of a 2000mAh powerbank, a plastic housing, a micro USB cable and some more soldering and hot glue. BE AWARE that this case will most likely overheat the Pi after a while. You need to at least drill some venting holes into the lid. 
+
+![Picture of the RPI0WH with case](../Images/build-your-rig/RPi_open_case_with_Pi_on_top.jpg)
+![Picture of the RPI0WH with case open and a view of the battery](../Images/build-your-rig/RPi_open_case_with_battery_view_on_RFM69HCW.jpg)
+![Picture of the RPI0WH with case next to the pump](../Images/build-your-rig/Rig_case_with_pump.jpg)
+
 </details>
 
 ### Summary of what you need: 
