@@ -5,6 +5,9 @@ You have two main options for hardware:
 `1.` The most recommended rig has been an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison (eBay, local stores, etc), this is still a highly recommmended rig. It is the smallest rig (and easily portable), with better battery life because it is power efficient. [See below for the list of hardware for Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
   
 `2.` The other option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [See below for the list of hardware required for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-explorer-hat).
+
+**Note** - there is an experimental alternative to an Explorer HAT, which can serve as the radio on a Pi-based rig, but will not have the screen, and requires you to solder. See below for more details. 
+
 ****
 
 ## Hardware information for Pi-based setups with the Explorer HAT
@@ -35,6 +38,58 @@ An 8 GB SD card should provide plenty of space for the linux operating system, O
 
 #### Note about Pi+HAT cases
 Because we are still optimizing the software to be as power-efficient as possible, we have not narrowed down on the best recommended battery.  You may want to use a soft case for ease of access to the components, flexible arrangement and the ability to use a variety of battery sizes.  If you are using the 2000 mah battery above, you can use this [3d printed hard case](https://www.thingiverse.com/thing:3010231) to protect the rig and battery in a relatively compact package.  The [design is built in OnShape](https://cad.onshape.com/documents/74459dfcb527ad12c33660aa/w/2be92a72bb7f1c83eb091de2/e/b4fa9c3be204ffa3dea128a1), which has a free access level subscription for public domain documents.  You can make a copy and tweak the design to your liking.
+
+*** 
+
+## Hardware information for Pi-based setups with RFM69HCW (experimental)
+
+The Pi + RFM69HCW is still experimental! Do this at your own risk! 
+
+If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
+
+### Summary of what you need: 
+* Raspberry Pi Zero 
+* RFM69HCW 
+* [microSD Card]((http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card))
+* Bread board
+* Jumper wires
+* Soldering iron
+* Power source via Micro USB
+
+### The Raspberry Pi Zero
+
+For this setup, you want a Raspberry Pi Zero WH. (The "H" means it has Header pins). (Also, a regular Raspberry Pi 3 model B works fine.)
+
+### RFM69HCW
+You can buy this board e.g. here: https://www.adafruit.com/product/3070), but you can really buy it whereever you want. These boards are, like the RPi Zero, very common. Just make sure you get the right frequency. 868/915 MHz is correct. All others are wrong. 
+
+### Breadboard
+Any breadboard will do, no special requirements.
+
+### Soldering
+You need to solder the pin stripe into the RFM69HCW. Insert the pin stripe from the bottom of the board, with the short endings reaching through the holes. Fixate a bit, so you can rest the soldering iron tip on the pins and the board. 
+
+Solder the included pin stripe diligently into the 9 holes named 
+VIN GND EN G0 SCK MISO MOSI CS RST
+
+Cut an antenna at your preferred length corresponding to your frequency. This can be a simple piece of isolated, unshielded wire. (I simply took one of the jumper wires for my first try.)
+Calculate your length here: https://m0ukd.com/calculators/quarter-wave-ground-plane-antenna-calculator/ and just use the value from A (first green box). This should be the length of your antenna, from the soldering point on the board to the tip.
+
+Solder it to the board. It's the hole near the "o" from Radio. Make sure to not connect the soldering to the ground plates left and right from the hole. This antenna is really only connected to the one hole.
+
+This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a bread board, and connect:
+
+Board | Connect | Connect | Connect | Connect | Connect | Connect | Connect | Connect
+------|------|------|------|------|------|------|------|------
+RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CEO_N	|| 
+RPi PIN	| 17	| 25	| 19	| 21	| 23	| 16	| 24	| 18
+RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS	| RST or RESET
+
+After that, you're ready to install OpenAPS. 
+
+A sophisticated schematic. 
+https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22
+
 
 ***
 
