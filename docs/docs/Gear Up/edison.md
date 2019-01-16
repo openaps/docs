@@ -85,11 +85,9 @@ RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CEO_N	||
 RPi PIN	| 17	| 25	| 19	| 21	| 23	| 16	| 24	| 18
 RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS	| RST or RESET
 
+[Here is a copy of a a sophisticated schematic](https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22). 
+
 After that, you're ready to install OpenAPS. 
-
-A sophisticated schematic. 
-https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22
-
 
 ***
 
