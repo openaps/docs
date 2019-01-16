@@ -100,26 +100,23 @@ Now you can run the interactive oref0 setup script:
 `cd && ~/src/oref0/bin/oref0-setup.sh`
 
 Answer all the setup questions.  A successful setup script will finish asking you if you want to setup cron.  Say yes to those two questions.  Finally, you'll see a message about Reboot required.  Go ahead and reboot the rig.  You've finished the loop installation. Login to the rig again. 
-
-If you are using RFM69HCW as RF module, then, and only then, delete the openaps-menu folder to avoid error messages in your logs.
-
-`rm -rf ~/src/openaps-menu/`
-
-And now **make sure to [Watch the pump loop](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
-
 !["install piBakery"](../Images/build-your-rig/pi-loop-install.png)
 
-Troubleshooting: If your rig gets stuck at the point shown below, simply login to the rig again and run the setup script one more time.  Usually, running the setup script a second time will clear that glitch.
-
+**Troubleshooting**: If your rig gets stuck at the point shown below, simply login to the rig again and run the setup script one more time.  Usually, running the setup script a second time will clear that glitch.
 !["install piBakery"](../Images/build-your-rig/pi-setup-stuck.png)
 
-If you experience something like this:
-`mmtune: radio_locale = WW
+Once your setup script finishes, **make sure to [watch the pump loop logs](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
+
+**NOTE**: If you are using RFM69HCW as RF module:
+* You'll want to also delete the openaps-menu folder to avoid error messages in your logs. `rm -rf ~/src/openaps-menu/`
+* If you experience something like this:
+```mmtune: radio_locale = WW
 2019/01/14 15:14:25 cannot connect to CC111x radio on /dev/spidev0.0
 2019/01/14 15:14:25 cc111x: no response
 Usage: grep [OPTION]... PATTERN [FILE]...
-Try 'grep --help' for more information.`
-You have probably run the oref-runagain.sh script. Currently, with RFM69HCW, you can't use the runagain script. Please run the interactive setup script. Other option would be you didn't solder diligently enough. Before disassembling and resoldering, try running the interactive script first. It's less work. 
+Try 'grep --help' for more information.
+```
+That means you have probably run the oref-runagain.sh script. Currently, with RFM69HCW, you can't use the runagain script. Please run the interactive setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`). Other option would be you didn't solder diligently enough. Before disassembling and resoldering, try running the interactive script first. It's less work. 
 
 
 *****************************
