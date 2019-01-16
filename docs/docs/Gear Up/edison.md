@@ -47,6 +47,21 @@ The Pi + RFM69HCW is still experimental! Do this at your own risk!
 
 If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
 
+<details>
+    <summary> <b>
+Click here to expand and see pictures of a rig with a Pi0WH and RFM69HCW:</b>:</summary>
+<br>
+
+![Picture of RPI0WH with FM69HCW connected via breadboard](../Images/build-your-rig/RPi_breadboard_connected_to_RFM69HCW.jpg)
+
+![Picture of RPI0WH with FM69HCW view from the top ](../Images/build-your-rig/RPi_soldered_RFM69HCW_top_view.jpg)
+
+![Picture of RPI0WH with FM69HCW view of soldered connections](../Images/build-your-rig/RPi_soldered_RFM69HCW.jpg)
+
+![Picture of RPI0WH with FM69HCW and case](../Images/build-your-rig/RPi_open_case_with_battery_view_on_RFM69HCW.jpg)
+
+</details>
+
 ### Summary of what you need: 
 * Raspberry Pi Zero 
 * RFM69HCW 
