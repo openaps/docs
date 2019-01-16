@@ -43,7 +43,7 @@ Because we are still optimizing the software to be as power-efficient as possibl
 
 ## Hardware information for Pi-based setups with RFM69HCW (experimental)
 
-The Pi + RFM69HCW is still experimental! Do this at your own risk! 
+The Pi + RFM69HCW is still experimental!
 
 If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
 
@@ -76,7 +76,7 @@ Click here to expand and see pictures of a rig with a Pi0WH and RFM69HCW:</b>:</
 For this setup, you want a Raspberry Pi Zero WH. (The "H" means it has Header pins). (Also, a regular Raspberry Pi 3 model B works fine.)
 
 ### RFM69HCW
-You can buy this board e.g. here: https://www.adafruit.com/product/3070), but you can really buy it whereever you want. These boards are, like the RPi Zero, very common. Just make sure you get the right frequency. 868/915 MHz is correct. All others are wrong. 
+You can buy this board e.g. [here](https://www.adafruit.com/product/3070), but you can really buy it wherever you want. These boards are, like the RPi Zero, very common. Just make sure you get the right frequency. 868/915 MHz is correct. All others are wrong. 
 
 ### Breadboard
 Any breadboard will do, no special requirements.
