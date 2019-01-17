@@ -115,11 +115,26 @@ If you are not running autotune as part of a closed loop, you can still run it a
 **Feedback**: Please note autotune is brand new, and still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/openaps/autotune), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
 **Step 0: Decide where to run Autotune**
-* There are five main ways to run Autotune: via (a) a cloud-based virtual machine (Linux VM through Google Cloud Platform, for example), (b) on via a virtual machine on Windows (e.g., VirtualBox), (c) on a Mac directly, (d) on a Windows 10 computer running the Windows Subsystem for Linux (WSL), or (e) direct on a physical machine running Linux. Instructions for the first four are below. 
-* Whichever route you are using, we recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments used on the Pi and Edison for OpenAPS.
+* There are six main ways to run Autotune: via (a) AutotuneWeb which offers the possibility to get autotune results just by entering the URL of your Nightscout-Website, (b) cloud-based virtual machine (Linux VM through Google Cloud Platform, for example), (c) on via a virtual machine on Windows (e.g., VirtualBox), (d) on a Mac directly, (e) on a Windows 10 computer running the Windows Subsystem for Linux (WSL), or (f) direct on a physical machine running Linux. Instructions for the first four are below. 
+* Whichever route b) to f) you are using, we recommend some form of Debian distro (Ubuntu is the most common) for consistency with the Raspbian and jubilinux environments used on the Pi and Edison for OpenAPS.
  * If you're interacting with your VM via its graphical interface, make sure you have installed a browser at your VM (i.e.  Firefox) then open the correct page from your VM. You may think that copying from your Windows/iOS and pasting in your Linux terminal would work but is not as simple ...and yes, there is lots of copying / pasting!  To make copying and pasting simpler, it is often better to `ssh` directly to your VM, rather than using its graphical interface (or the cloud provider's console interface).
 
-**Step 1a: Run via a cloud-based virtual machine**
+
+**Step 1a: The "quick and easy" way with zero-installation: Run via AutotuneWeb**
+
+<details>
+    <summary>Click here to expand the instructions for getting quick results without the need to install anything:</summary>
+<br>
+ 
+ * [AutotuneWeb](https://autotuneweb.azurewebsites.net/) is a great place to see what autotune will do for you without the need of setting up own hard- or software. 
+ * You simply enter the URL of your Nightscout Website and will be guided through configuration.
+ * The output with recommended basal settings and logfile will be sent to you via email - that's it.
+ * Downside:  because that site does not support using auth tokens, your Nightscout website has to be open to public. 
+ * Please read additional informations in the following chapters beginning at Step 3 to understand what AutotuneWeb does.  
+</details>
+<br>
+
+**Step 1b: Run via a cloud-based virtual machine**
 
 <details>
     <summary>Click here to expand the instructions for building via a cloud-based virtual machine:</summary>
@@ -138,7 +153,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
 </details>
 <br>
 
- **Step 1b: Run via a Windows-based virtual machine**
+ **Step 1c: Run via a Windows-based virtual machine**
  
 <details>
     <summary>Click here to expand the instructions for building via a Windows-based virtual machine:</summary>
@@ -151,7 +166,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
 </details>
 <br>
 
-**Step 1c: Prep your Mac**
+**Step 1d: Prep your Mac**
 
 <details>
     <summary>Click here to expand the instructions for building via your Mac:</summary>
@@ -173,7 +188,7 @@ Mac install commands:
 </details>
 <br>
 
- **Step 1d: Run on a Windows 10 computer using the Windows Subsystem for Linux (WSL)**
+ **Step 1e: Run on a Windows 10 computer using the Windows Subsystem for Linux (WSL)**
  
 <details>
     <summary>Click here to expand the instructions for building via a Windows 10 computer using the Windows Subsystem for Linux (WSL):</summary>
