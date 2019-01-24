@@ -117,15 +117,15 @@ This is another important OpenAPS safety limit. The default setting (which is al
 
 ### Important Note About Safety Multipliers:
 
-`max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump), as a safety limits.   
+`max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump in the "Basal" menu under "Max Basal Rate").  
 
-OpenAPS will use whichever of those three values is the lowest, at any given time, as the ceiling for the temp basal rate it will set.** 
+OpenAPS will use whichever of those three values is the lowest, at any given time, as the ceiling for the temp basal rate it will set. This value is shown in the pump-loop.log as "maxSafeBasal".
 
 #### A few examples:
 
 ![Example safety cap image - see raw file in the same folder of docs if needs editing](examples_safety_caps_in_play.png)
 
-* In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.  This is shown in the pump-loop.log as "maxSafeBasal", and can be changed in the pump's "basal" menu under "Max Basal Rate"   
+* In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.
 * In **Example 2**, 4x the user's current basal rate is the constraining limit on the OpenAPS recommended temp basal rate.  
 * In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
 * In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
