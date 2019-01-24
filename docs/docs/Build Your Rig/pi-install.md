@@ -46,7 +46,7 @@ Give the rig a couple minutes to boot up.  Once the green LED stops blinking as 
 
 On Mac, open Terminal and use `ssh pi@raspberrypi.local`
 
-On Windows, use PuTTY and establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. Respond YES to the warning about computer security.
+On Windows, use PuTTY and establish an SSH connection, with username `pi`, to hostname `raspberrypi.local`. If you receive a warning that the rig's host key is not yet cached, respond YES to add it.
 
 Troubleshooting:  If you have problems connecting, try rebooting your router.  If you have multiple channels (2.4Ghz vs 5Ghz), you could try redoing the PiBakery setup with the other channel's network name, if the first one fails.
 
