@@ -119,7 +119,21 @@ This is another important OpenAPS safety limit. The default setting (which is al
 
 `max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump in the "Basal" menu under "Max Basal Rate").  
 
-OpenAPS will use whichever of those three values is the lowest, at any given time, as the ceiling for the temp basal rate it will set. This value is shown in the pump-loop.log as "maxSafeBasal".
+OpenAPS will determine `maxSafeBasal` as the lowest of three values:
+
+* the user's max basal rate setting (which is set in the user's pump)
+* `max_daily_safety_multiplier` \* the highest programmed basal rate (as specified by the basal rates in the user's pump or, if enabled, determined by autotune)
+* `current_basal_safety_multiplier` \* the user's current basal rate (as specified by the current basal rate programmed in the user's pump or, if enabled, determined by autotune)
+
+If  the temporary basal rate setting recommended by OpenAPS (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)) exceeds `maxSafeBasal`, `maxSafeBasal` is used instead.
+
+The following message will be reported to the *pump-loop.log*:  
+
+       adj. req. rate: X.X to maxSafeBasal: Y.Y
+
+You can also view this message in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
+
+![max safe basal message](../Images/max-safe-basal.jpg) 
 
 #### A few examples:
 
@@ -130,19 +144,6 @@ OpenAPS will use whichever of those three values is the lowest, at any given tim
 * In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
 * In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
 
-If  the temporary basal rate setting recommended by OpenAPS (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)) exceeds either:
-
-* the user's max basal rate setting (which is set in the user's pump), or
-* `max_daily_safety_multiplier` \* the highest programmed basal rate (as specified by the basal rates in the user's pump), or
-* `current_basal_safety_multiplier` \* the user's current basal rate (as specified by the current basal rate programmed in the user's pump), then 
-
- the following message will be reported to the *pump-loop.log*:  
-
-       adj. req. rate: X.X to maxSafeBasal: Y.Y
-
-You can also view this message in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
-
-![max safe basal message](../Images/max-safe-basal.jpg) 
 
 #### autosens_max:
 
