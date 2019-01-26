@@ -360,7 +360,8 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 
 ![papertrail subg lights](../Images/subg_rfspy2.jpg)
 
-## apache-chainsaw
+## Apache-chainsaw
+![Apache picture](../Images/apache_chainsaw.jpg)
 If your computer and rig are on the same wifi network you can use Apache Chainsaw2 from a pc (running windows/mac/linux) to watch your logs. Chainsaw2 main advantages are:
 1) Easy setup.
 1) Strong filtering capabilities.
