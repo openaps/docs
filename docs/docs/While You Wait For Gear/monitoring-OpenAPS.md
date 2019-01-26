@@ -14,6 +14,7 @@ There are two general groups of ways to monitor your rigs:
 * [Nightscout](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html)
 * AndroidAPS NS Client ([Download the app-nsclient-release APK from here](https://github.com/MilosKozak/AndroidAPS/releases).)
 * Pebble watch (your watchface of choice, such as [Urchin](https://github.com/mddub/urchin-cgm))
+* [Apache Chainsaw] (http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#apache-chainsaw)
 
 ********************************
 
@@ -358,6 +359,22 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 ![papertrail subg error message](../Images/subg_rfspy.png)
 
 ![papertrail subg lights](../Images/subg_rfspy2.jpg)
+
+## apache-chainsaw
+If your computer and rig are on the same wifi network you can use Apache Chainsaw2 from a pc (running windows/mac/linux) to watch your logs. Chainsaw2 main advantages are:
+1) Easy setup.
+1) Strong filtering capabilities.
+1) Strong finding capabilities.
+1) Coloring capabilities.
+1) Adding marker capabilities.
+1) Logs can be searched for a long time (kept localy on the rig).
+1) Can tail new data.
+
+example picture:
+
+###To setup appache chainsaw on your computer, follow the following instructons:
+1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
+
 
 ********************************
 
