@@ -377,32 +377,37 @@ example picture:
 1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
 1) Unzip the file.
 1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
-```
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE log4j:configuration >
-<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
-   <appender name="A2" class="org.apache.log4j.ConsoleAppender">
-      <layout class="org.apache.log4j.SimpleLayout"/>
-   </appender>
+    ```
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE log4j:configuration >
+    <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+       <appender name="A2" class="org.apache.log4j.ConsoleAppender">
+          <layout class="org.apache.log4j.SimpleLayout"/>
+       </appender>
 
-   <plugin name="VFSLogFileReceiver1" class="org.apache.log4j.chainsaw.vfs.VFSLogFilePatternReceiver">
-     <param name="fileURL" value="sftp://root:password@192.168.1.20:22/var/log/openaps/openaps-date.log"/>
-     <param name="name" value="sampleVFSLogFileReceiver1"/>
-     <param name="tailing" value="true"/>
-     <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss"/>
-     <param name="logFormat" value="TIMESTAMP LOGGER MESSAGE"/>
-     <param name="autoReconnect" value="false"/>
-     <param name="group" value="group"/>
-   </plugin>
+       <plugin name="VFSLogFileReceiver1" class="org.apache.log4j.chainsaw.vfs.VFSLogFilePatternReceiver">
+         <param name="fileURL" value="sftp://root:password@192.168.1.20:22/var/log/openaps/openaps-date.log"/>
+         <param name="name" value="sampleVFSLogFileReceiver1"/>
+         <param name="tailing" value="true"/>
+         <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss"/>
+         <param name="logFormat" value="TIMESTAMP LOGGER MESSAGE"/>
+         <param name="autoReconnect" value="false"/>
+         <param name="group" value="group"/>
+       </plugin>
 
-   <root>
-      <level value="debug"/>
-   </root>
-</log4j:configuration>
+       <root>
+          <level value="debug"/>
+       </root>
+    </log4j:configuration>
 
-```
-Make sure to replace the password, with your rigs password, and 192.168.1.20 with the ip/hostname of your rig.
+    ```
+    Make sure to replace the password, with your rigs password, and 192.168.1.20 with the ip/hostname of your rig.
 1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin\chainsaw (linux and mac)
+1) From the file menu choose 'load chainsaw configuration'
+1) Choose use chainsaw configuration file.
+1) press open file.
+1) choose the file openaps.xml
+1) (optional) mark the checkbox "always start chainsaw with this configuration."
 
 Chainsaw has a welcome tab and a good toturial, use them.
 Still here are a few highligts:
