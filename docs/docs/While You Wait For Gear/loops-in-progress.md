@@ -287,3 +287,4 @@ List of people who are working on closed loops:
 - Katja Jacob (Seattle, WA)
 - Paul Benedict (Evergreen, CO)
 - Luis Toussaint (Tarragona, ES)
+- Dana Sturdivant (Washington, D.C.)
