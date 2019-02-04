@@ -201,7 +201,7 @@ Shortcuts is a helpful app that can be displayed on the Today widget to easily e
 
 {add picture of maker URL page w/ url highlighted w/ key redacted}
 
-7) Once you have pasted this string into the URL function, append the following onto the end of the URL, "?Value1=" (without quotes), then click on the 'Ask for input' button above your keyboard. This will send the input to the shortcut - in this case the number of carbs that we are eating - as a parameter to the event eatcarbs that will in turn trigger a call in IFTTT to NS that we have eaten.
+7) Once you have pasted this string into the URL function, append the following onto the end of the URL, "?value1=" (without quotes), then click on the 'Ask for input' button above your keyboard. This will send the input to the shortcut - in this case the number of carbs that we are eating - as a parameter to the event eatcarbs that will in turn trigger a call in IFTTT to NS that we have eaten.
 
 {add picture of EatCarbs Shortcut with complete URL w/ key redacted}
 
@@ -233,11 +233,11 @@ Shortcuts is a helpful app that can be displayed on the Today widget to easily e
      ```
      {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{Value1}}, "targetBottom": {{Value1}}, "duration": {{Value2}}, "secret": "your_hashed_api_goes_here!!!"}
      ```
-Note: For the temp target range Shortcut, you will need to append "?Value1={Ask for input 2}&Value2={Ask for input 1}&Value3={Ask for input 3} to the end of the URL in the Shortcuts app similar to how we did in step 7 above for the EatCarb shortcut.
+Note: For the temp target range Shortcut, you will need to append "?value1={Ask for input 2}&value2={Ask for input 1}&value3={Ask for input 3} to the end of the URL in the Shortcuts app similar to how we did in step 7 above for the EatCarb shortcut.
 
 {add pic of temp range shortcut URL w/ key redacted}
 
-For the tempTarget Shortcut you will need to append "?Value1={Ask for input 1&Value2={Ask for input 1}&Value3={Ask for input 2} to the end of the URL in the Shortcuts app similar to how we did in step 7 above for the EatCarb shortcut.
+For the tempTarget Shortcut you will need to append "?value1={Ask for input 1&value2={Ask for input 1}&value3={Ask for input 2} to the end of the URL in the Shortcuts app similar to how we did in step 7 above for the EatCarb shortcut.
 
 {add pic of temp range shortcut URL w/ key redacted}
 
