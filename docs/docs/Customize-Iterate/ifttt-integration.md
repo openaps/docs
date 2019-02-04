@@ -171,43 +171,45 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
 
 ![IFTTT Today View](../Images/IFTTT_reorder.png)
 
-## Workflow to custom enter carbs and temp targets from Today widget on iPhone
+## Shortcuts to custom enter carbs and temp targets from Today widget on iPhone
 
-Workflow is a helpful app that can be displayed on the Today widget to easily enter custom carb entries (rather than relying on pre-set amounts) and also custom temporary targets on the fly. 
+Shortcuts is a helpful app that can be displayed on the Today widget to easily enter custom carb entries (rather than relying on pre-set amounts) and also custom temporary targets on the fly. 
 
-![Workflow examples](../Images/Workflow_examples.png)
+![Shortcut examples](../Images/Workflow_examples.png)
 
-1) Install the Workflow app on your phone from the App Store. 
+1) Install the Shortcut app on your phone from the App Store. 
 
-2) Swipe through the introduction pages, and then you'll be forced to pick a sample workflow to get started. (Don't worry, you can delete it at the end of setting up the OpenAPS-related workflows. Just pick one of the samples for now and tap through to allow you to progress through the entry screen.  The `Directions Home` one is pretty easy to get through fast.  In a few minutes when you are done setting up your OpenAPS-related workflows, simply go back to the `My Workflows` main view in the app, click on the `edit` button in upper left corner, tap on the sample workflow app that you want to delete, and then click the trashcan icon in the upper right corner.)
+2) Click the home button on the iPhone.  Swipe left to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Shortcuts` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
 
-3) Click `add widget` to add the widget to your phone and follow the directions to force touch the Workflow app.  After you click the `Add Widget` button that pops up, click the home button on the iPhone.  Swipe left to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
+    ![IFTTT Shortcuts widget](../Images/add_widget_workflow.png)
 
-    ![IFTTT Workflow widget](../Images/add_widget_workflow.png)
-
-4) Open the Workflow app on your iPhone. From your iPhone's browser app (e.g., Safari), open this page and click on one of the below links to download one of the community's three recommended workflows.
+3) Open the Shortcuts app on your iPhone. From your iPhone's browser app (e.g., Safari), open this page and click on one of the below links to download one of the community's three recommended Shortcuts.
 
     * [**carbs entry using numeric keyboard**](https://workflow.is/workflows/f1c78b79155e47ee999a0f2f4116e88d) 
     * [**temp target range using numeric keyboard**](https://workflow.is/workflows/8d91839287694a158367c26f8630d6ad)
     * [**temp single target using numeric keyboard**](https://workflow.is/workflows/b8bb211fc44846278fe5ff8be3a0b4d0)
 
-5) The workflow will open in the Workflow app. Click `Get Workflow` and then `Open`.
+4) The Shortcut will open in the Shortcuts app. Click `Get Shortcut`.
 
-6) Sign in to `Workflow Sync` to connect with IFTTT. (Sign in and/or create a Workflow account as directed.)
+4.5) Note: The Shortcuts app - previously known as Workflow, was aquired by Apple and has some changes. One of which is that IFTTT integration is no longer Directly supported. As such, a workaround is presented below. Full credit given to the following article where the method used to modify the previous Workflows into Shortcuts compatible applets was dirived from: https://medium.com/@flat/making-ifttt-work-with-apples-new-shortcuts-app-5530e50d4527
 
-7) You'll then see the workflow in the app. Click on the `Create Applet` button.
+5) Due to the above, you will now need to modify the Shortcut. Click on the 3 dots menu button on the Shortcut. Scroll down to 'Trigger IFTTT Applet' and click on the 'X' to the right to remove that function. We will add back IFTTT support later since that trigger is currently not supported. In the search bar below type, "URL" and click on the URL function - Passes the specified URL to the next action. Click on the search bar again and type "URL" again, but this time click on the 'Open URLs' option - Opens URLs passed into the action in Safari. This will allow us to call our trigger via IFTTT via a webhook which we will get the URL for momentarily.
+
+{add picture of EatCarbs with url and open url functions - empty}
   
-    ![Workflow IFTTT 01](../Images/WorkflowIFTTTdg01.png)
+6) On your computer navegate to https://ifttt.com/maker_webhooks after logging in. Click on Settings in the upper right hand corner. Under Account Info, copy the long URL and paste it into your web browser's URL bar. Hit enter. in the {event} input field, create a name for the event that you would like to trigger in IFTTT - for example, we will use eatcarb. This would then present you with the URL, "https://maker.ifttt.com/trigger/eatcarb/with/key/your_maker_key_here - This will be the URL that we will need to input into the URL action in the Shortcuts app on your iPhone. I just sent it to myself in an email, but using a more secure method is up to you.
 
-8) Click `Open` to open the IFTTT app. In the IFTTT app click `Connect` in the upper right corner; click the green `Authorize` button; and then click `Open` to `Open in "IFTTT"?`.
+{add picture of maker URL page w/ url highlighted w/ key redacted}
 
-    ![Workflow IFTTT 02](../Images/WorkflowIFTTTdg02.png)
+7) Once you have pasted this string into the URL function, append the following onto the end of the URL, "?Value1=" (without quotes), then click on the 'Ask for input' button above your keyboard. This will send the input to the shortcut - in this case the number of carbs that we are eating - as a parameter to the event eatcarbs that will in turn trigger a call in IFTTT to NS that we have eaten.
 
-    *Side Note*: Steps 9-10 recommend some copy/paste of the body text to make life easier. If you use your iPhone to type in the body text in Step 10, the iPhone will enter 'curly quotes' rather than 'straight quotes'. Curly quotes will break the IFTTT applet and is usually the main cause of setup errors. If you find that copy/paste of the body text is too difficult on the little iPhone screen, you can alternatively start Step 9 by logging into your IFTTT account on a computer and starting a new applet creation there. The actions are very similar to creating the applet on your iPhone, just the copy/paste part might be easier.
+{add picture of EatCarbs Shortcut with complete URL w/ key redacted}
 
-9) Scroll down a bit to where it says `Try making your own Workflow Applet from scratch`. Click the `New Applet` button. On the recipe builder, click the blue `+this` and select or search `Workflow`, then select `A workflow is run`. Select `EatCarbs`, `BottomTopDuration` or `tempTarget` from the drop down for the trigger to use. Click the `Next` button in upper right.
+8) Back on your computer, go to IFTTT, navegate to My Applets, and click 'New Applet'. Click on the '+this' button, and type in "webhooks" (without the quotes). Click on, 'Receive a web request'. Make the Event name exactly the same as the event that you typed into the URL in step 6. In our example this was, "eatcarb" (without the quotes).
 
-    ![Workflow IFTTT 03](../Images/WorkflowIFTTTdg03.png)
+{add picture of ifttt page complete trigger fields w/ event name}
+
+9) Click on Create Trigger.
 
 10) Click the `+that` button and search for `Webhooks`. Select Webhooks and then click `Make a web request`. Fill in the web request similar to all the above directions with:
 
@@ -219,20 +221,29 @@ Workflow is a helpful app that can be displayed on the Today widget to easily en
 
      * **Body (for EatCarbs)**:
      ```
-     {"enteredBy": "IFTTT-button", "reason": "eat", "carbs": {{ExtraIngredient1}}, "secret": "your_hashed_api_goes_here!!!"} 
+     {"enteredBy": "IFTTT-button", "reason": "eat", "carbs": {{Value1}}, "secret": "your_hashed_api_goes_here!!!"} 
      ```
 
      * **Body (for temp target range)**:
      ```
-     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient2}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient3}}, "secret": "your_hashed_api_goes_here!!!"}
+     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{Value2}}, "targetBottom": {{Value1}}, "duration": {{Value3}}, "secret": "your_hashed_api_goes_here!!!"}
      ```
 
      * **Body (for single temp target range)**:
      ```
-     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient1}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient2}}, "secret": "your_hashed_api_goes_here!!!"}
+     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{Value1}}, "targetBottom": {{Value1}}, "duration": {{Value2}}, "secret": "your_hashed_api_goes_here!!!"}
      ```
+Note: For the temp target range Shortcut, you will need to append "?Value1={Ask for input 2}&Value2={Ask for input 1}&Value3={Ask for input 3} to the end of the URL in the Shortcuts app similar to how we did in step 7 above for the EatCarb shortcut.
 
-11) Click `Next` in the upper right corner. You can edit the title of the applet and then click `Finish`. You can test your applet by going back to your iPhone's Today widgets and clicking on the Workflow button you just created. You can also test inside the Workflow app by pressing the play button at the top of the workflow. You can confirm a successful run by looking at your Nightscout site for the carb entry/temp target bar, or by looking at the activity log of the applet in IFTTT. 
+{add pic of temp range shortcut URL w/ key redacted}
+
+For the tempTarget Shortcut you will need to append "?Value1={Ask for input 1&Value2={Ask for input 1}&Value3={Ask for input 2} to the end of the URL in the Shortcuts app similar to how we did in step 7 above for the EatCarb shortcut.
+
+{add pic of temp range shortcut URL w/ key redacted}
+
+Similarly, you would need to create web hook triggers in IFTTT for each Shortcut that you want to create as 'listeners' for each of the Shortcuts URL calls.
+
+11) Click `Next` in the upper right corner. You can edit the title of the applet and then click `Finish`. You can test your applet by going back to your iPhone's Today widgets and clicking on the Shortcut button you just created. You can also test inside the Shortcuts  app by pressing on the Shortcut button. You can confirm a successful run by looking at your Nightscout site for the carb entry/temp target bar, or by looking at the activity log of the applet in IFTTT. 
 
 **WARNING/REMINDER:** If you have SMBs turned on, do NOT try with large carb amounts. Only test with 1 carb entries! Ditto for temp targets - test a 99 or 101 mg/dl target or something conservative to not trigger SMBs.  You can delete the test entries via the Reports tab in your Nightscout site, choosing the Treatments tab, and finding the recent entry.
 
