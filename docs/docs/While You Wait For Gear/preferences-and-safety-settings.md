@@ -144,6 +144,9 @@ You can also view this message in the Nightscout OpenAPS pill (which pops up a d
 * In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
 * In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
 
+#### About "sensitivity"
+
+Sensitivity, or the sensitivity ratio, refers to autosens calculation of your current, presumably temporary, sensitivity to your normal insulin basal rates. The sensitivity ratio is relative to basal rates, so when using it for ISF it is inverted. Simply put, current insulin basal rate = normal insulin basal rate * sensitivity ratio, while current ISF = normal ISF / sensitivity ratio. So, for example if autosens detects you are more sensitive to insulin, it will lower your sensitivity ratio, e.g., to 0.8. Then, when determining the basal rate, it will use the sensitivity ratio of 0.8 to calculate your corrected basal rate, as normal basal rate * 0.8 (resulting in a lower basal rate), and your ISF as normal ISF / 0.8 (resulting in a higher ISF, i.e., more BG change per insulin unit). If you are less sensitive to insulin, it will raise your sensitivity ratio, e.g., to 1.2, resulting in basal rate of normal rate * 1.2 (a higher basal rate), and ISF of normal ISF / 1.2 (a lower ISF, i.e., less BG change per insulin unit).
 
 #### autosens_max:
 
@@ -222,11 +225,11 @@ synonmym for high_temptarget_raises_sensitivity
 
 #### high_temptarget_raises_sensitivity
 
-Defaults to false. When set to true, raises sensitivity for temp targets set to  >= 111.  synonym for exercise_mode
+Defaults to false. When set to true, raises sensitivity (lower sensitivity ratio) for temp targets set to  >= 111.  Synonym for exercise_mode. The higher your temp target above 110 will result in more sensitive (lower) ratios, e.g., temp target of 120 results in sensitivy ratio of 0.75, while 140 results in 0.6 (with default halfBasalTarget of 160).
 
 #### low_temptarget_lowers_sensitivity 
 
-Defaults to false. When set to true, can lower sensitivity for temptargets <= 99. 
+Defaults to false. When set to true, can lower sensitivity (higher sensitivity ratio) for temptargets <= 99. The lower your temp target below 100 will result in less sensitive (higher) ratios, e.g., temp target of 95 results in sensitivy ratio of 1.09, while 85 results in 1.33 (with default halfBasalTarget of 160).
 
 #### sensitivity_raises_target
 
