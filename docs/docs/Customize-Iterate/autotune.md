@@ -38,7 +38,8 @@ There are two key pieces: oref0-autotune-prep and oref0-autotune-core. (For more
 * Autotune limits how far it can adjust (or recommend adjustment, if running autotune outside oref0 closed loop) basal, or ISF or CSF, from what is in the existing pump profile.  Autotune uses the same autosens_max and autosens_min multipliers found in your preferences.json for oref0.  So if autotune is running as part of your loop, autotune can't get too far off without a chance for a human to review the changes.
 </details>
 
- *Autotune does not read pump basal rates data from Pattern A or Pattern B if set. You must use the Standard Basal Pattern to be compatible with autotune.
+
+ *Note: Autotune does not read from the active profile (e.g. Pattern A or Pattern B if set). The Standard Basal Pattern is what will be pulled to be used and tuned by Autotune.*  
  
 ## The difference between autotune and autosens:
 
