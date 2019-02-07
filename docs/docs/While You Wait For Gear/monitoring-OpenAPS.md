@@ -14,6 +14,7 @@ There are two general groups of ways to monitor your rigs:
 * [Nightscout](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html)
 * AndroidAPS NS Client ([Download the app-nsclient-release APK from here](https://github.com/MilosKozak/AndroidAPS/releases).)
 * Pebble watch (your watchface of choice, such as [Urchin](https://github.com/mddub/urchin-cgm))
+* [Apache Chainsaw](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#apache-chainsaw)
 
 ********************************
 
@@ -358,6 +359,61 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 ![papertrail subg error message](../Images/subg_rfspy.png)
 
 ![papertrail subg lights](../Images/subg_rfspy2.jpg)
+
+## Apache-chainsaw
+![Apache picture](../Images/apache_chainsaw.jpg)
+If your computer and rig are on the same wifi network you can use Apache Chainsaw2 from a pc (running windows/mac/linux) to watch your logs. Chainsaw2 main advantages are:
+1) Easy setup.
+1) Strong filtering capabilities.
+1) Strong finding capabilities.
+1) Coloring capabilities.
+1) Adding marker capabilities.
+1) Logs can be searched for a long time (kept localy on the rig).
+1) Can tail new data.
+
+example picture:
+
+### To setup appache chainsaw on your computer, follow the following instructons:
+1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
+1) Unzip the file.
+1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
+    ```
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE log4j:configuration >
+    <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+       <appender name="A2" class="org.apache.log4j.ConsoleAppender">
+          <layout class="org.apache.log4j.SimpleLayout"/>
+       </appender>
+
+       <plugin name="VFSLogFileReceiver1" class="org.apache.log4j.chainsaw.vfs.VFSLogFilePatternReceiver">
+         <param name="fileURL" value="sftp://root:password@192.168.1.20:22/var/log/openaps/openaps-date.log"/>
+         <param name="name" value="sampleVFSLogFileReceiver1"/>
+         <param name="tailing" value="true"/>
+         <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss"/>
+         <param name="logFormat" value="TIMESTAMP LOGGER MESSAGE"/>
+         <param name="autoReconnect" value="false"/>
+         <param name="group" value="group"/>
+       </plugin>
+
+       <root>
+          <level value="debug"/>
+       </root>
+    </log4j:configuration>
+
+    ```
+    Make sure to replace the password, with your rigs password, and 192.168.1.20 with the ip/hostname of your rig.
+1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin\chainsaw (linux and mac)
+1) From the file menu choose 'load chainsaw configuration'
+1) Choose use chainsaw configuration file.
+1) press open file.
+1) choose the file openaps.xml
+1) (optional) mark the checkbox "always start chainsaw with this configuration."
+
+Chainsaw has a welcome tab and a good toturial, use them.
+Still here are a few highligts:
+1) To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
+1) To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
+1) To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
 
 ********************************
 
