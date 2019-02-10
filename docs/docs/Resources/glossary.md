@@ -51,7 +51,11 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>Treatments IOB</b> - amount of insulin on board delivered via boluses. Reported by some pumps as 'active insulin'.
 
+<b>UAM</b> Unannounced Meal provides an alternative method (in addition to or instead of carb entry) for detecting and safely dosing insulin in response to significant BG rises, whether they are due to meals, adrenaline, or any other reason.
+
 <b>UAMpredBG's</b> - this variable represents the impact of 'floating carbs' and insulin together in predicting the BG curve, giving a prediction line for the new feature Unannounced Meals (or carbs).
+
+<b>SMB</b> - Super Micro Bolus. An alternetive insulin delivery method introduced in oref1 which allows oref1 to safely dose mealtime insulin more rapidly.
 
 ## OpenAPS-specific terminology 
 
