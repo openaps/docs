@@ -289,4 +289,5 @@ List of people who are working on closed loops:
 - Luis Toussaint (Tarragona, ES)
 - Dana Sturdivant (Washington, D.C.)
 - Jakub Tomaszczyk (Gold Coast, Australia)
+- Andrew Hopkins (Newcastle, Australia)
 - Robert Clark (Canberra, Australia)
