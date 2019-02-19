@@ -232,7 +232,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 
 ```
 {
-  "min_5m_carbimpact": 3,
+  "min_5m_carbimpact": 8.0,
   "dia": your_dia,
   "basalprofile": [
     {
