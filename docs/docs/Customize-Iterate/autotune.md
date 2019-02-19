@@ -274,6 +274,24 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
 * When starting out with autotune, you may find your basals settings are far enough below your real basal rates for the algorithm to classify periods when basals are too low as unannounced meals. In this case, if you are certain you have entered all carb intake events, you can force the algorithm to classify unannounced meal periods as basal periods using the --categorize-uam-as-basal=true option. **\*\*SAFETY WARNING\*\*** If you use this option and treat lows due to basals that are too high without entering the low treatment carbs, an amplifying cycle will begin with autotune raising basals, treated lows get categorizes as basals being too low, basals are raised causing lows, etc.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
+#### Re-Running Autotune
+
+Remember, to initially set-up Autotune follow the instructions [above](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig)
+
+To subsequently re-run Autotune at a later time:
+* Open Ubuntu/your machine of choice and login if necessary
+* At command prompt which will start with your username: `cd ~/myopenaps/settings`
+* Then: `nano profile.json` (this gets you to the pump settings section)
+  * Now edit your settings (using up / down arrows and backspace) – CR; ISF; basals etc. 
+  * Press Control-X    (to save your new settings)
+  * Press Y   (to confirm save new settings)
+* Now should see command prompt which will start with your user name again.
+* Now follow steps D, E, F from the link above ie:
+  * `jq . profile.json `(if it prints a colourful version of your profile.json, you’re good to proceed) 
+  * `cp profile.json pumpprofile.json`
+  * `cp profile.json autotune.json`
+* Then to re-run Autotune, subbing in your URL: `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD`
+
 #### Why Isn't It Working At All?
 
 (First - breathe, and have patience!) Here are some things to check: 
@@ -327,32 +345,3 @@ Remember, autotune is still a work in progress (WIP). Please provide feedback al
 #### Yay, It Worked! This is Cool!
 
 Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool. You can also help us tackle some of the known issues and feature requests listed [here](./understanding-autotune.md). 
-
-How to Re-run Autotune After Initial ‘One-Off’ Set-up
-
-To initially set-up Autotune follow these instructions: https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig
-
-To subsequently Re-run Autotune:
-Open Ubuntu       (and enter password for Unix if asked)
-At command prompt which will start with your username type: cd ~/myopenaps/settings
-	PRESS ENTER
-Now type: nano profile.json       (this gets you to the pump settings section)
-	PRESS ENTER
-Now edit your settings (using up / down arrows and backspace) – CR; ISF; basals etc
-Press Control-X    (to save your new settings)
-Press Y   (to confirm save new settings)
-	PRESS ENTER
-Now should see command prompt which will start with your user name again.
-Now follow steps D, E, F from the link above ie:
-Type:  jq . profile.json 
-	PRESS ENTER   (if it prints a colourful version of your profile.json, you’re good to proceed) 
-Type: cp profile.json pumpprofile.json
-	PRESS ENTER
-Type: cp profile.json autotune.json
-	PRESS ENTER
-Type the following command to run Autotune: oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD 
-
-	(Sub in your Nightscout URL for “mynightscout.herokuapp.com” in the line above)
-
-	PRESS ENTER
-
