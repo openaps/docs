@@ -296,6 +296,24 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
   * Average deviations observed in the data
   * Square root of the average of the squared deviations
 
+#### Re-Running Autotune
+
+Remember, to initially set-up Autotune follow the instructions [above](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig)
+
+To subsequently re-run Autotune at a later time:
+* Open Ubuntu/your machine of choice and login if necessary
+* At command prompt which will start with your username: `cd ~/myopenaps/settings`
+* Then: `nano profile.json` (this gets you to the pump settings section)
+  * Now edit your settings (using up / down arrows and backspace) – CR; ISF; basals etc. 
+  * Press Control-X    (to save your new settings)
+  * Press Y   (to confirm save new settings)
+* Now should see command prompt which will start with your user name again.
+* Now follow steps D, E, F from the link above ie:
+  * `jq . profile.json `(if it prints a colourful version of your profile.json, you’re good to proceed) 
+  * `cp profile.json pumpprofile.json`
+  * `cp profile.json autotune.json`
+* Then to re-run Autotune, subbing in your URL: `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD`
+
 #### Why Isn't It Working At All?
 
 (First - breathe, and have patience!) Here are some things to check: 
