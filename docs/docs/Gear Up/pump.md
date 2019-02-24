@@ -71,3 +71,6 @@ Red flags that may indicate a scam:
 
 If you need to send your pump away to Medtronic for repair, be aware that during the repair process the firmware will get upgraded. This makes your pump not usable for looping. Ask the community if you run into a pump error - the community has tips for solving several common pump errors.
 
+## Tips for longer battery life
+
+If you are new to looping, one of the first things you will notice is that you will go through batteries _very_ quickly. Even known good alkaline batteries may only last a few days of 24/7 looping. Many OpenAPS users recommend [Energizer Ultimate Lithium](https://www.amazon.com/Energizer-Ultimate-Lithium-Batteries-Count/dp/B06ZYWKBRB/) batteries. These should last a week or more. Just ensure you use the correct settings if you are using NightScout - [see here for details about alert settings in Nightscout for the different battery types](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html#battery-monitoring)
