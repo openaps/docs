@@ -108,6 +108,25 @@ Answer all the setup questions.  A successful setup script will finish asking yo
 Once your setup script finishes, **make sure to [watch the pump loop logs](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
 
 **NOTE**: If you are using RFM69HCW as RF module:
+
+If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#soldering), before running oref0-setup.sh run the following:
+`cd ~ && export PATH="$PATH:/usr/local/go/bin" && go get -u -v -tags "rfm69 walrus" github.com/ecc1/medtronic/...`
+
+While running interactive setup use following options:
+```Are you using an Explorer Board? [Y]/n n
+Are you using an Explorer HAT? [Y]/n n
+Are you using mmeowlink (i.e. with a TI stick)? If not, press enter. If so, paste your full port address: it looks like "/dev/ttySOMETHING" without the quotes.
+What is your TTY port? /dev/spidev0.0
+Ok, TTY /dev/spidev0.0 it is. 
+
+Would you like to [D]ownload released precompiled Go pump communication library or install an [U]nofficial (possibly untested) version.[D]/U u
+You could either build the Medtronic library from [S]ource, or type the version tag you would like to use, example 'v2018.08.08' [S]/<version> s
+Building Go pump binaries from source
+What type of radio do you use? [1] for cc1101 [2] for CC1110 or CC1111 [3] for RFM69HCW radio module 1/[2]/3 3
+Building Go pump binaries from source with  + radiotags +  tags.
+```
+This will help in building the right pump communication libraries.
+
 * You'll want to also delete the openaps-menu folder to avoid error messages in your logs. `rm -rf ~/src/openaps-menu/`
 * If you experience something like this:
 ```mmtune: radio_locale = WW
