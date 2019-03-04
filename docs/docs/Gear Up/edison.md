@@ -106,7 +106,10 @@ RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CEO_N	||
 RPi PIN	| 17	| 25	| 19	| 21	| 23	| 16	| 24	| 18
 RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS	| RST or RESET
 
-[Here is a copy of a a sophisticated schematic](https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22). 
+![Picture of RPI0WH with FM69HCW connection diagram](../Images/build-your-rig/rpii2RFM69HCW.JPG)
+
+
+[Here is a copy of a a sophisticated schematic](https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22). (Press "miniloop v1.0" to see the diagram).
 
 After that, you're ready to install OpenAPS. 
 
