@@ -291,3 +291,4 @@ List of people who are working on closed loops:
 - Jakub Tomaszczyk (Gold Coast, Australia)
 - Andrew Hopkins (Newcastle, Australia)
 - Robert Clark (Canberra, Australia)
+- Kirsten Otis (Guelph, Ontario, Canada)
