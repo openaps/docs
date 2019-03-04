@@ -292,3 +292,4 @@ List of people who are working on closed loops:
 - Andrew Hopkins (Newcastle, Australia)
 - Robert Clark (Canberra, Australia)
 - David Vanier (Saratoga Springs, NY, USA)
+- Kirsten Otis (Guelph, Ontario, Canada)
