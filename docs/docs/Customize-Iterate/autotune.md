@@ -1,11 +1,23 @@
 # Autotune
 
-Autotune is a DIY tool to help calculate potential adjustments to ISF, carb ratio, and basal rates. 
+Autotune is a tool to help calculate potential adjustments to ISF, carb ratio, and basal rates. 
 
-**What's on this page:**
+## The easiest way to run Autotune
+
+The easiest way to run Autotune, if you don't have an OpenAPS rig, is to use "AutotuneWeb". It's a website where you enter your Nightscout URL, confirm your profile, and get results emailed directly to you. 
+
+### Some tips for using AutotuneWeb:
+
+1. Make sure your Nightscout profile is up to date. This is where the "starting" settings are pulled from. 
+2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#how-autotune-works) and how you might use the results. 
+3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig). 
+
+## Other sections on this page
+
 * Background in plain language on [how Autotune works](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#how-autotune-works)
 * The [difference between Autotune and "autosens"](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#the-difference-between-autotune-and-autosens) (aka, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html))
 * Different ways to use Autotune
+   * Run it with AutotuneWeb 
    * [Phase A](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
    * [Phase B](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
    * [Phase C](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
@@ -106,6 +118,8 @@ Log into the NEW rig and run the following command:
 <br>
 
 #### Phase C: Running Autotune for suggested adjustments without an OpenAPS rig
+
+Note: the easiest way of running Autotune is now "AutotuneWeb". See the top of this page for instructions on running it via the web service, without having to set it up on your own computer. If you do want to manually set up your own computer to be able to run it over a time period >30 days or other reasons, see below. 
 
 *Caution for AndroidAPS users:* Currently, the master oref0 version with Autotune does not parse AndroidAPS entries correctly. **You must set AndroidAPS to upload all temp basals as "absolute" rates, instead of %, *and* use the dev branch of oref0.**  If you do not do both of these things, your results will be wrong! Future versions of Autotune will allow using AndroidAPS data as long as the option to upload temp basals as absolute values instead of / in addition to percent is enabled in AndroidAPS.
 
