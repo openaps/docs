@@ -91,7 +91,7 @@ Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 
 
 ### Finish installation ###
 
-Now run `npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Successful completion of this step should look like below.
+Now run `sudo npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Successful completion of this step should look like below.
 
 !["install piBakery"](../Images/build-your-rig/pi-install-success.png)
 
