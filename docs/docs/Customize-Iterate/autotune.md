@@ -8,7 +8,35 @@ The easiest way to run Autotune, if you don't have an OpenAPS rig, is to use "Au
 
 ![Example screenshot from AutotuneWeb](../Images/Example_AutotuneWeb.png)
 
-### Some tips for using AutotuneWeb:
+### What to expect when using AutotuneWeb
+
+<details>
+    <summary><b>Click here to expand and see more images from AutouneWeb</b></summary>
+<br>
+After you check your Nightscout profile to make sure it's up to date, and submit your URL, it will take you to the profile page. You should check again and make sure it's pulling from a current profile. This is where you can tell it what type of insulin you're using; how many days to run (up to 30, we recommend at least 7 to start); and provide your email address to get the results emailed to you.
+  
+* *(Also note that if you want to use the generated files and run Autotune yourself over a longer time frame or with more customized options, you can grab the generated profile files here.)*
+  
+![Profile page of AutotuneWeb](../Images/AutotuneWeb_ProfileStep.jpeg)
+
+When you get your email (note it may take 20 minutes), it will reference your NS URL at the top of the page and the date range you ran it on. The text will also tell you whether you ran with UAM on for basals. 
+
+On the left, you'll see your starting values from your current NS profile; on the right is the tuned recommendation from Autotune.
+
+![Top results from AutotuneWeb](../Images/AutotuneWeb_Results_1.png)
+
+Below the ISF and carb ratio, you'll see the basal report. 
+* Suggestions higlighted in yellow indicate a suggested change of at least 10%, and red indicates a change of +20% or -30% (the standard limits imposed by Autotune). Please always take care when adopting any changes suggested by Autotune, but especially for these larger highlighted changes.
+
+* The green & red blocks next to each basal suggestion indicate how many days the Autotune algorithm used actual BG data to produce the suggestion (green) and how many days it averaged the surrounding hours due to the data for that hour being dominated by other factors such as carb absorption. This is currently an experimental new feature to try to give an indication of how much trust to place in each suggestion. 
+
+![Example basal results from AutotuneWeb](../Images/AutotuneWeb_Results2.png)
+
+![Example red/yellow results from AutotuneWeb](../Images/AutotuneWeb_Results_RedYellow.png)
+
+</details>
+
+### If it's your first time using AutotuneWeb:
 
 1. Make sure your Nightscout profile is up to date. This is where the "starting" settings are pulled from. 
 2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#how-autotune-works) and how you might use the results. 
