@@ -585,10 +585,10 @@ echo "Temporary target started"
 ```
 
 To setup activity mode run:
-`./set_temp_target.sh "Activity Mode" 130`
+`./start-temp-target.sh "Activity Mode" 130`
 
 To setup eating soon mode run:
-`./set_temp_target.sh "Eating Soon" 80`
+`./start-temp-target.sh "Eating Soon" 80`
 
 The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
 To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove `openaps ns-temptargets` from ns-loop. 
