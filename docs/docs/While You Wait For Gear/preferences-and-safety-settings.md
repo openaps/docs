@@ -32,6 +32,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
   * [enableSMB_after_carbs](#enablesmb-after-carbs)
   * [allowSMB_with_high_temptarget](#allowsmb-with-high-temptarget)
   * [maxSMBBasalMinutes](#maxsmbbasalminutes)
+  * [maxUAMSMBBasalMinutes](#maxUAMSMBBasalMinutes)
 - [Exercise-mode related preferences:](#exercise-mode-related-preferences)
   * [exercise_mode](#exercise-mode)
   * [high_temptarget_raises_sensitivity](#high-temptarget-raises-sensitivity)
@@ -212,6 +213,10 @@ Defaults to false. When true, allows supermicrobolus (if otherwise enabled) even
 #### maxSMBBasalMinutes
 
 Defaults to start at 30. This is the maximum minutes of basal that can be delivered as a single SMB with uncovered COB. This gives the ability to make SMB more aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. It is not recommended to set this value higher than 90 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
+
+#### maxUAMSMBBasalMinutes
+
+Defaults to start at 30. This is the maximum minutes of basal that can be delivered by UAM as a single SMB when IOB exceeds COB. This gives the ability to make UAM more or less aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. Reducing the value will cause UAM to dose less insulin for each SMB. It is not recommended to set this value higher than 60 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
 
 ## Exercise-mode related preferences:
 
