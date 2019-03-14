@@ -154,7 +154,7 @@ Following the [install instructions](https://www.raspberrypi.org/documentation/i
 
 Once Etcher has finished writing the image to the microSD card, remove the microSD card from your computer and plug it right back in, so the boot partition shows up in Finder / Explorer.
 
-Create a file named wpa_supplicant.conf on the boot drive, with your wifi network(s) configured.  It should look something like:
+Create a file named wpa_supplicant.conf on the boot drive, with your wifi network(s) configured.  The file must be in a Unix format.  If creating the file in Windows, use an editor that allows you to save the file in Unix format instead of DOS format. There are many editors with this ability. `Notepad++` is one that works well. The file should look something like:
 
 ```
 country=xx
