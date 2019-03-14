@@ -54,7 +54,7 @@ Reminder! You'll need to re-set your preferences in `preferences.json`. See [the
 
  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 
-# How to update Linux on your OpenAPS rig in the future
+## How to update Linux on your OpenAPS rig in the future
 
 Along with updating the OpenAPS software on your rig, you will also want to periodically update your operating system. This isn't the place for a primer on [Linux Commands](http://www.circuitbasics.com/useful-raspberry-pi-commands/), but the following two are useful to keep your system updated and as secure as they can be from recently-found bugs:
 
@@ -63,4 +63,4 @@ Along with updating the OpenAPS software on your rig, you will also want to peri
 # apt-get upgrade
 ```
 
-The first fetches all of the updated package lists for your system, and the second upgrades all of your installed packages to their most current versions. These should be run every few weeks, and probably a day or two after you see a news story about Linux getting hacked.
+The first fetches all of the updated package lists for your system, and the second upgrades all of your installed packages to their most current versions. 
