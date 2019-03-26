@@ -567,31 +567,13 @@ To show your pump's battery status, you can set:
 After setting up the button, simply click it to execute the command. The results are displayed in the black text area below the buttons. You can change the font size of the text in the box, and you can add more buttons under the main Hot Button menu.  
 
 #### Temporary targets
-It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
+It is possible to use Hot Button application for setup of temporary targets.  The oref0 repo has a script named oref0-append-local-target that sets a temp target locally on the rig.
 
-```
-#! /bin/sh
+To set an activity mode target of 130 mg/dL for 60m, run:
+`oref0-append-local-temptarget 130 60`
 
-OPENAPSROOT="/root/myopenaps"
-REASON=$1
-TARGET=$2
-
-echo "\
-[{\"_id\":\"\",\"enteredBy\":\"\",\"eventType\":\"Temporary Target\",\"reason\":\"$REASON\",\"targetTop\":$TARGET,\"targetBottom\":$TARGET,\"duration\":60,\"created_at\":\"$(date --utc +'%Y-%m-%dT%H:%M:%S.000Z')\",\"carbs\":null,\"insulin\":null}] \
-" > $OPENAPSROOT/settings/temptargets.json
-cd $OPENAPSROOT
-openaps report invoke settings/profile.json
-echo "Temporary target started"
-```
-
-To setup activity mode run:
-`./set_temp_target.sh "Activity Mode" 130`
-
-To setup eating soon mode run:
-`./set_temp_target.sh "Eating Soon" 80`
-
-The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
-To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove `openaps ns-temptargets` from ns-loop. 
+To set an eating soon mode target of 80 mg/dL for 30m, run:
+`oref0-append-local-temptarget 80 30`
 
 #### SSH Login Speedup
 To speed up the command execution you can add to the `/etc/ssh/sshd_config` the following line:
