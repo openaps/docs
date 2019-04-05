@@ -293,3 +293,4 @@ List of people who are working on closed loops:
 - Robert Clark (Canberra, Australia)
 - David Vanier (Saratoga Springs, NY, USA)
 - Kirsten Otis (Guelph, Ontario, Canada)
+- Natalia Stanichevsky (Ontario, Canada)
