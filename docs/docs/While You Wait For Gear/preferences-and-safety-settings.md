@@ -32,6 +32,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
   * [enableSMB_after_carbs](#enablesmb-after-carbs)
   * [allowSMB_with_high_temptarget](#allowsmb-with-high-temptarget)
   * [maxSMBBasalMinutes](#maxsmbbasalminutes)
+  * [maxUAMSMBBasalMinutes](#maxUAMSMBBasalMinutes)
 - [Exercise-mode related preferences:](#exercise-mode-related-preferences)
   * [exercise_mode](#exercise-mode)
   * [high_temptarget_raises_sensitivity](#high-temptarget-raises-sensitivity)
@@ -117,32 +118,36 @@ This is another important OpenAPS safety limit. The default setting (which is al
 
 ### Important Note About Safety Multipliers:
 
-`max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump), as a safety limits.   
+`max_daily_safety_multiplier` and `current_basal_safety_multiplier` work together, along with your pump's max basal rate safety setting (set on your pump in the "Basal" menu under "Max Basal Rate").  
 
-OpenAPS will use whichever of those three values is the lowest, at any given time, as the ceiling for the temp basal rate it will set.** 
+OpenAPS will determine `maxSafeBasal` as the lowest of three values:
 
-#### A few examples:
+* the user's max basal rate setting (which is set in the user's pump)
+* `max_daily_safety_multiplier` \* the highest programmed basal rate (as specified by the basal rates in the user's pump or, if enabled, determined by autotune)
+* `current_basal_safety_multiplier` \* the user's current basal rate (as specified by the current basal rate programmed in the user's pump or, if enabled, determined by autotune)
 
-![Example safety cap image - see raw file in the same folder of docs if needs editing](examples_safety_caps_in_play.png)
+If  the temporary basal rate setting recommended by OpenAPS (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)) exceeds `maxSafeBasal`, `maxSafeBasal` is used instead.
 
-* In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.  This is shown in the pump-loop.log as "maxSafeBasal", and can be changed in the pump's "basal" menu under "Max Basal Rate"   
-* In **Example 2**, 4x the user's current basal rate is the constraining limit on the OpenAPS recommended temp basal rate.  
-* In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
-* In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
-
-If  the temporary basal rate setting recommended by OpenAPS (as determined in [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js)) exceeds either:
-
-* the user's max basal rate setting (which is set in the user's pump), or
-* `max_daily_safety_multiplier` \* the highest programmed basal rate (as specified by the basal rates in the user's pump), or
-* `current_basal_safety_multiplier` \* the user's current basal rate (as specified by the current basal rate programmed in the user's pump), then 
-
- the following message will be reported to the *pump-loop.log*:  
+The following message will be reported to the *pump-loop.log*:  
 
        adj. req. rate: X.X to maxSafeBasal: Y.Y
 
 You can also view this message in the Nightscout OpenAPS pill (which pops up a detailed message about recent OpenAPS activity if you hover your mouse over the OpenAPS pill):
 
 ![max safe basal message](../Images/max-safe-basal.jpg) 
+
+#### A few examples:
+
+![Example safety cap image - see raw file in the same folder of docs if needs editing](examples_safety_caps_in_play.png)
+
+* In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.
+* In **Example 2**, 4x the user's current basal rate is the constraining limit on the OpenAPS recommended temp basal rate.  
+* In **Example 3**, the user's current basal rate is at his/her highest programmed rate, but none of the safety constraints are binding; the OpenAPS recommended temp basal rate is delivered.  
+* In **Example 4**, 3x the user's highest programmed basal rates is the constraining limit on the OpenAPS recommended temp basal rate.  
+
+#### About "sensitivity"
+
+Sensitivity, or the sensitivity ratio, refers to autosens calculation of your current, presumably temporary, sensitivity to your normal insulin basal rates. The sensitivity ratio is relative to basal rates, so when using it for ISF it is inverted. Simply put, current insulin basal rate = normal insulin basal rate * sensitivity ratio, while current ISF = normal ISF / sensitivity ratio. So, for example if autosens detects you are more sensitive to insulin, it will lower your sensitivity ratio, e.g., to 0.8. Then, when determining the basal rate, it will use the sensitivity ratio of 0.8 to calculate your corrected basal rate, as normal basal rate * 0.8 (resulting in a lower basal rate), and your ISF as normal ISF / 0.8 (resulting in a higher ISF, i.e., more BG change per insulin unit). If you are less sensitive to insulin, it will raise your sensitivity ratio, e.g., to 1.2, resulting in basal rate of normal rate * 1.2 (a higher basal rate), and ISF of normal ISF / 1.2 (a lower ISF, i.e., less BG change per insulin unit).
 
 #### autosens_max:
 
@@ -181,10 +186,6 @@ Defaults to 55m for Fiasp if `useCustomPeakTime: false`
 
 These preference should **not** be enabled until you've been looping (and running autotune) for several weeks and are confident that all of your basals and ratios are correct.  Please read the [oref1 section of the docs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html) before doing so.
 
-#### enableSMB_after_carbs
-
-This enables supermicrobolus for 6 hours after carb entry.
-
 #### enableSMB_with_COB
 
 This enables supermicrobolus (SMB) while carbs on board (COB) is positive.
@@ -203,7 +204,7 @@ Defaults to false. When true, always enable supermicrobolus (unless disabled by 
 
 #### enableSMB_after_carbs
 
-Defaults to false. When true, enables supermicrobolus for 6h after carbs, even with 0 COB.
+Defaults to false. When true, enables supermicrobolus (SMB) for 6h after carbs, even with 0 COB.
 
 #### allowSMB_with_high_temptarget
 
@@ -212,6 +213,10 @@ Defaults to false. When true, allows supermicrobolus (if otherwise enabled) even
 #### maxSMBBasalMinutes
 
 Defaults to start at 30. This is the maximum minutes of basal that can be delivered as a single SMB with uncovered COB. This gives the ability to make SMB more aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. It is not recommended to set this value higher than 90 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
+
+#### maxUAMSMBBasalMinutes
+
+Defaults to start at 30. This is the maximum minutes of basal that can be delivered by UAM as a single SMB when IOB exceeds COB. This gives the ability to make UAM more or less aggressive if you choose. It is recommended that the value is set to start at 30, in line with the default, and if you choose to increase this value, do so in no more than 15 minute increments, keeping a close eye on the effects of the changes. Reducing the value will cause UAM to dose less insulin for each SMB. It is not recommended to set this value higher than 60 mins, as this may affect the ability for the algorithm to safely zero temp. It is also recommended that pushover is used when setting the value to be greater than default, so that alerts are generated for any predicted lows or highs.
 
 ## Exercise-mode related preferences:
 
@@ -225,11 +230,11 @@ synonmym for high_temptarget_raises_sensitivity
 
 #### high_temptarget_raises_sensitivity
 
-Defaults to false. When set to true, raises sensitivity for temp targets set to  >= 111.  synonym for exercise_mode
+Defaults to false. When set to true, raises sensitivity (lower sensitivity ratio) for temp targets set to  >= 111.  Synonym for exercise_mode. The higher your temp target above 110 will result in more sensitive (lower) ratios, e.g., temp target of 120 results in sensitivy ratio of 0.75, while 140 results in 0.6 (with default halfBasalTarget of 160).
 
 #### low_temptarget_lowers_sensitivity 
 
-Defaults to false. When set to true, can lower sensitivity for temptargets <= 99. 
+Defaults to false. When set to true, can lower sensitivity (higher sensitivity ratio) for temptargets <= 99. The lower your temp target below 100 will result in less sensitive (higher) ratios, e.g., temp target of 95 results in sensitivy ratio of 1.09, while 85 results in 1.33 (with default halfBasalTarget of 160).
 
 #### sensitivity_raises_target
 

@@ -1,4 +1,4 @@
-# How to update your OpenAPS rig in the future
+# How to update oref0 on your OpenAPS rig in the future
 
 You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref0-runagain.html)). You can see notes about what is included in a particular release in [the release notes page for oref0](https://github.com/openaps/oref0/releases).
 
@@ -54,4 +54,13 @@ Reminder! You'll need to re-set your preferences in `preferences.json`. See [the
 
  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 
+## How to update Linux on your OpenAPS rig in the future
 
+Along with updating the OpenAPS software on your rig, you will also want to periodically update your operating system. This isn't the place for a primer on [Linux Commands](http://www.circuitbasics.com/useful-raspberry-pi-commands/), but the following two are useful to keep your system updated and as secure as they can be from recently-found bugs:
+
+```bash
+# apt-get update
+# apt-get upgrade
+```
+
+The first fetches all of the updated package lists for your system, and the second upgrades all of your installed packages to their most current versions. 
