@@ -102,7 +102,7 @@ This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a 
 
 Board | Connect | Connect | Connect | Connect | Connect | Connect | Connect | Connect
 ------|------|------|------|------|------|------|------|------
-RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CEO_N	|| 
+RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CE1_N	|| 
 RPi PIN	| 17	| 25	| 19	| 21	| 23	| 15	| 26	| 22
 RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS	| RST or RESET
 
