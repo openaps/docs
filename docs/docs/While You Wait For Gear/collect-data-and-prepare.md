@@ -23,11 +23,11 @@ Starting a DIY loop system like OpenAPS means you are probably switching pumps, 
 
 Many of us have come from  Animas, OmniPods, Roche, or t:slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your T1D kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well. Assuming that you're already familiar with insulin pumping (and you should be before trying to loop) but new to these old Medtronic pumps, these "quick memu" guides will help:
 
-* x12: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x12_user_guide.pdf
-* x15: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x15_user_guide.pdf
-* x22: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/workbooks/x22_menu_map.pdf (aka "REAL-TIME")
-* x23: https://www.medtronicdiabetes.com/sites/default/files/library/download-library/workbooks/x23_menu_map.pdf (aka "REAL-TIME REVEL™")
-* x54: https://www.medtronic-diabetes.co.uk/sites/uk/medtronic-diabetes.co.uk/files/veo-x54_ifu_updated_26.04.2013.pdf (aka "Veo™")
+* [x12](https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x12_user_guide.pdf)
+* [x15](https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x15_user_guide.pdf)
+* [x22](https://www.medtronicdiabetes.com/sites/default/files/library/download-library/workbooks/x22_menu_map.pdf) (aka "REAL-TIME")
+* [x23](https://www.medtronicdiabetes.com/sites/default/files/library/download-library/workbooks/x23_menu_map.pdf) (aka "REAL-TIME REVEL™")
+* [x54](https://www.medtronic-diabetes.co.uk/sites/uk/medtronic-diabetes.co.uk/files/veo-x54_ifu_updated_26.04.2013.pdf) (aka "Veo™")
 
 **You should definitely test your basals, ISFs, carb ratios, and DIA all over again now that you've switched pumps and infusion sets. If those settings aren't correct, looping isn't a good idea.**
 
