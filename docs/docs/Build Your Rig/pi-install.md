@@ -93,6 +93,8 @@ Now we will select a Raspian-compatible updated branch by using `cd ~/src/oref0 
 
 First, update npm to the latest version. Run `npm install npm@latest -g`. 
 
+Next, change to the oref0 directory if you are not in it already. Run `cd ~/src/oref0`. 
+
 Now run `npm run global-install`.  After about 10-15 minutes, the installations will end and you will be dropped off at the `root@yourrigname:~/src/oref0#` prompt.  Successful completion of this step should look like below.
 
 !["install piBakery"](../Images/build-your-rig/pi-install-success.png)
