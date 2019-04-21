@@ -96,8 +96,6 @@ It's easiest to start with the Explorer board and put on 2 nuts and gold screws 
 
 ![Edison/Explorer Board rig with red light on](../Images/Edison/Edison_Explorer_Board.png) 
 
-![Edison/Explorer Board rig with labels](img/explorer.png) 
-
 #### Charging LiPo Battery
 
 You can use the little white block that comes with an iPhone (or similar charger) and a microB-USB cable.  The same cables you used to setup the rig and connect to the computer will work for charging, too.  Either one of the USB ports on the Explorer board will work for charging.  When charging is active, there is an extra red light on in the corner of the Explorer board.  When charging is complete, that corner red light will turn off.  It may come back on periodically as the battery "tops off".  You won’t do any damage leaving the rig plugged in for longer than the charge takes. 
