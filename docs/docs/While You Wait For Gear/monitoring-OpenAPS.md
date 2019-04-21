@@ -409,9 +409,13 @@ If your computer and rig are on the same wifi network you can use Apache Chainsa
 1) choose the file openaps.xml
 1) (optional) mark the checkbox "always start chainsaw with this configuration."
 1) This version will read logs of at least 10 days. you can change that using the parameter maxLogingDays.
-1) On some Raspberry Pi installations, there is a need to add the following line to the file /etc/ssh/sshd_config:<br />
+1) On some  Raspberry Pi installations, there is a need to add the following line to the file /etc/ssh/sshd_config:<br />
+Subsystem sftp internal-sftp<br />
+After the change restart ssh ```sudo service ssh restart``` and try again.
+1) On other Raspberry Pi installations, there is a need to replace the previous line with the following line on the file /etc/ssh/sshd_config:<br />
 Subsystem       sftp    /usr/libexec/openssh/sftp-server<br />
-see https://support.plesk.com/hc/en-us/articles/213957825-Unable-to-connect-to-SFTP-subsystem-request-for-sftp-failed-subsystem-not-found for more details. (this step is needed only if chainsaw will fail to connect to your drive).<br />
+After the change restart ssh ```sudo service ssh restart``` and try again.
+see https://support.plesk.com/hc/en-us/articles/213957825-Unable-to-connect-to-SFTP-subsystem-request-for-sftp-failed-subsystem-not-found and https://www.linuxquestions.org/questions/red-hat-31/error-subsystem-cannot-stat-usr-libexec-openssh-sftp-server-4175453017/ for more details. (this step is needed only if chainsaw will fail to connect to your drive).<br />
 
 Chainsaw has a welcome tab and a good toturial, use them.
 Still here are a few highligts:
