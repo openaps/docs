@@ -96,7 +96,7 @@ Temporary Targets can be set in advance by setting a future date/time stamp in N
 
 ## How do I improve the range of my Edison/Explorer Board?
 
-There are two options for improving the range of an Explorer Board. The easiest way is to purchase a "wire whip" antenna to add to your rig. [Here is one available at Mouser (915MHz only)](https://www.mouser.com/ProductDetail/620-66089-0930?R=66089-0930virtualkey65480000virtualkey620-66089-0930) or for 866/868 MHz [also availabe at Mouser](https://www.mouser.at/ProductDetail/Anaren/66089-0830?qs=pH7abCSN9NPb5X5zwyxl2w==). It physically clips on to your rig. The picture below shows the antenna clipped on and extended from the board; but you can experiment with wrapping the antenna around your rig to fit in your preferred case to see various impacts to the range. 
+There are two options for improving the range of an Explorer Board. The easiest way is to purchase a "wire whip" antenna to add to your rig. [Here is one available at Mouser (915MHz only)](https://www.mouser.com/ProductDetail/620-66089-0930?R=66089-0930virtualkey65480000virtualkey620-66089-0930) or for 866/868 MHz [also availabe at Mouser](https://www.mouser.at/ProductDetail/Anaren/66089-0830?qs=pH7abCSN9NPb5X5zwyxl2w==). You can buy one [at Enhanced Radio Devices](https://www.enhancedradio.com/collections/all) as well, you may consider ordering it with your Explorer Board. It physically clips on to your rig. The picture below shows the antenna clipped on and extended from the board; but you can experiment with wrapping the antenna around your rig to fit in your preferred case to see various impacts to the range. 
 
 ![Image of Antenna](../Images/antenna1.jpg)
 
