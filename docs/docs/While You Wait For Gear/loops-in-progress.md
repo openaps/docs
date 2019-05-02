@@ -296,3 +296,4 @@ List of people who are working on closed loops:
 - Natalia Stanichevsky (Ontario, Canada)
 - Patrick Gauthier (Toronto, Ontario, Canada)
 - Anne Evered (Philadelphia, PA)
+- Or Loantz (Israel)
