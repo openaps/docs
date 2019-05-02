@@ -295,3 +295,4 @@ List of people who are working on closed loops:
 - Kirsten Otis (Guelph, Ontario, Canada)
 - Natalia Stanichevsky (Ontario, Canada)
 - Patrick Gauthier (Toronto, Ontario, Canada)
+- Anne Evered (Philadelphia, PA)
