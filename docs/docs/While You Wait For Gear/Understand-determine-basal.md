@@ -17,8 +17,8 @@ This includes:
 * Blood glucose information
   * `delta` = change in BG between `glucose` (most recent BG) and an average of BG value from between 2.5 and 7.5 minutes ago (usually just a single BG value from 5 minutes ago)
   * `glucose` = most recent BG
-  * `short_avgdelta` = average change in BG values per 5 minute period from between 2.5 and 17.5 minutes ago 
-  * `long_avgdelta` = average change in BG values per 5 minute period from between 17.5 and 42.5 minutes ago 
+  * `short_avgdelta` = average rate of change (per 5m) in BG values between `glucose` (most recent BG) and each BG reading from 2.5 to 17.5 minutes ago 
+  * `long_avgdelta` = average rate of change (per 5m) in BG values between `glucose` (most recent BG) and each BG reading  from 17.5 to 42.5 minutes ago 
 * Past insulin dosing information, pulled from your pump
   * `iob` = Units of Insulin on Board (IOB), ***net*** of your pre-programmed basal rates. Net IOB takes all pre-programmed basal, OpenAPS temp basal, and bolus insulin into account. Note: `iob` can be negative when OpenAPS temp basal rate is below your pre-programmed basal rate (referred to as "low-temping"). *This will always be different than pump-calculated IOB, because it only takes into account boluses - ignore pump IOB.* This is a high level overview, but you can dive into more detail around how insulin activity is calculated [here](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/understanding-insulin-on-board-calculations.html).
   * `basaliob` = Units of ***net*** basal Insulin on Board (IOB). This value does not include the IOB effects of boluses; just the difference between OpenAPS temp basal rates and your pre-programmed basal rates. As such, this value can be negative when OpenAPS has set a low-temp basal rate. 
