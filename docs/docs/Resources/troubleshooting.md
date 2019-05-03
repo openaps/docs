@@ -111,7 +111,7 @@ If your disk is still 100% full, you may have to remove a live log file. Run the
 
 ## Environment variables
 
-If you are getting your BG from Nightscout or you want to upload loop status/results to Nightscout, among other things you'll need to set 2 environment variables: `NIGHTSCOUT_HOST` and `API_SECRET`. If you do not set and export these variables you will receive errors while running `openaps report invoke monitor/ns-glucose.json` and while executing `ns-upload.sh` script which is most probably part of your `upload-recent-treatments` alias.Make sure your `API_SECRET` is in hashed format. Please see [this page](https://github.com/openaps/oref0#ns-upload-entries) for details. Additionally, your `NIGHTSCOUT_HOST` should be in a format like `http://yourname.herokuapp.com` (without trailing slash). For the complete visualization guide use [this page](https://github.com/openaps/docs/blob/master/docs/Automate-system/vizualization.md) from the OpenAPS documentation.
+If you are getting your BG from Nightscout or you want to upload loop status/results to Nightscout, among other things you'll need to set 2 environment variables: `NIGHTSCOUT_HOST` and `API_SECRET`. If you do not set and export these variables you will receive errors while running `openaps report invoke monitor/ns-glucose.json` and while executing `ns-upload.sh` script which is most probably part of your `upload-recent-treatments` alias.Make sure your `API_SECRET` is in hashed format. Please see [this page](https://github.com/openaps/oref0#ns-upload-entries) or [this issue](https://github.com/openaps/oref0/issues/397) for details. Additionally, your `NIGHTSCOUT_HOST` should be in a format like `http://yourname.herokuapp.com` (without trailing slash). For the complete visualization guide use [this page](https://github.com/openaps/docs/blob/master/docs/Automate-system/vizualization.md) from the OpenAPS documentation.
 
 ## Wifi and hotspot issues
 
@@ -130,10 +130,10 @@ Next, add the script to your root cron. Note this is a different cron that what 
   * Add the following line ```1-59/2 * * * * /root/src/edison_wifi/wifi.sh google.com 2>&1 | logger -t wifi-reset```
 
 ### I forget to switch back to home wifi and it runs up my data plan
-You can add a line to your cron that will check to see if <YOURWIFINAME> is avaiable and automatically switch to it if you are on a different network.
+You can add a line to your cron that will check to see if `<YOURWIFINAME>` is available and automatically switch to it if you are on a different network.
   * Log in as root ```su root```
   * Edit your root cron ```crontab -e```
-  * Add the following line ```*/2 * * * * ( (wpa_cli status | grep <YOURWIFINAME> > /dev/null && echo already on <YOURWIFINAME>) || (wpa_cli scan > /dev/null && wpa_cli scan_results | egrep <YOURWIFINAME> > /dev/null && udo pa_cli select_network $(wpa_clilist_networks | grep jsqrd | cut -f 1) && echo switched to <YOURWIFINAME> && sleep 15 && (for i in $(wpa_cli list_networks | grep DISABLED | cut -f 1); do wpa_cli enable_network $i > /dev/null; done) && echo and re-enabled other networks) ) 2>&1 | logger -t wifi-select```
+  * Add the following line ```*/2 * * * * ( (wpa_cli status | grep <YOURWIFINAME> > /dev/null && echo already on <YOURWIFINAME>) || (wpa_cli scan > /dev/null && wpa_cli scan_results | egrep <YOURWIFINAME> > /dev/null && sudo wpa_cli select_network $(wpa_cli list_networks | grep jsqrd | cut -f 1) && echo switched to <YOURWIFINAME> && sleep 15 && (for i in $(wpa_cli list_networks | grep DISABLED | cut -f 1); do wpa_cli enable_network $i > /dev/null; done) && echo and re-enabled other networks) ) 2>&1 | logger -t wifi-select```
 
 ### I am having trouble consistently connecting to my wifi hotspot when I leave the house
 When you turn on your hotspot it will only broadcast for 90 seconds and then stop (even if it is flipped on). So, when you leave your house you need to go into the hotspot setting screen (and flip on if needed). Leave this screen open until you see your rig has connected. It may only take a few seconds or a full minute.
@@ -216,25 +216,36 @@ Below is correct definition
 Full error is usually: 
 `Could not get subg_rfspy state or version. Have you got the right port/device and radio_type? (ccprog)`
 
-Basic steps using an Intel Edison with Explorer Board, checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet:
-  * Make sure the Explorer board has not become loose and is sitting correctly on the Edison board
+Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT:
+  * checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet
+  * Make sure the Explorer board or HAT has not become loose and is sitting correctly on the Edison board or Pi
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
   * Reboot, or fully power down and start up your rig
 
-If you are using an Intel Edison with Explorer Board, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board stay on even after an mmtune, you may need to re-flash your radio chip:
+If you are using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board (respectively D1/D2 on Explorer HAT) stay on even after an mmtune, you may need to re-flash your radio chip:
   * Stop the reboot loop: `sudo service cron stop && killall -g oref0-pump-loop && shutdown -c`
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
   * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
+  * If using a Raspberry Pi with Explorer HAT make sure you've installed MRAA (folder `~/src/mraa` present)
   * Flash the radio chip:
+  
+#### Using an Intel Edision + Explorer Block:
 ```
 wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ./ccprog -p 19,7,36 erase
 ./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
 
-  * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
+#### Using a Raspberry Pi + Explorer HAT:
+```
+wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+./ccprog -p 16,18,7 reset
+./ccprog -p 16,18,7 erase
+./ccprog -p 16,18,7 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
+```
 
+  * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
 
 ## Dealing with the CareLink USB Stick
 

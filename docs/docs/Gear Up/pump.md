@@ -12,7 +12,7 @@ Currently, only the following Medtronic MiniMed models allow us to remotely set 
     523/723 (with firmware 2.4A or lower)
     554/754 (European Veo, with firmware 2.6A or lower; OR Canadian Veo with firmware 2.7A or lower)
 
-NOTE: For European/WorldWide users who have access to a `DANA*R` or `Roche Accu-chek Combo` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R`/`Roche Accu-chek Combo` pump. [See here for instructions and details related to AndroidAPS](https://github.com/MilosKozak/AndroidAPS).
+NOTE: For European/WorldWide users who have access to a `DANA*R/RS`, `Roche Accu-chek Combo` or `Roche Accu-chek Insight` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R`/`DANA*RS`/`Roche Accu-chek Combo`/`Insight` pump. [See here for instructions and details related to AndroidAPS](http://wiki.AndroidAps.org).
 
 ## How to check pump firmware (check for absence of PC Connect)
 
@@ -71,3 +71,6 @@ Red flags that may indicate a scam:
 
 If you need to send your pump away to Medtronic for repair, be aware that during the repair process the firmware will get upgraded. This makes your pump not usable for looping. Ask the community if you run into a pump error - the community has tips for solving several common pump errors.
 
+## Tips for longer battery life
+
+If you are new to looping, one of the first things you will notice is that you will go through batteries _very_ quickly. Even known good alkaline batteries may only last a few days of 24/7 looping. Many OpenAPS users recommend [Energizer Ultimate Lithium](https://www.amazon.com/Energizer-Ultimate-Lithium-Batteries-Count/dp/B06ZYWKBRB/) batteries. These should last a week or more. Just ensure you use the correct settings if you are using NightScout - [see here for details about alert settings in Nightscout for the different battery types](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html#battery-monitoring)

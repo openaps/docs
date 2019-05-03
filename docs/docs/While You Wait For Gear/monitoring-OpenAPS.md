@@ -14,6 +14,7 @@ There are two general groups of ways to monitor your rigs:
 * [Nightscout](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html)
 * AndroidAPS NS Client ([Download the app-nsclient-release APK from here](https://github.com/MilosKozak/AndroidAPS/releases).)
 * Pebble watch (your watchface of choice, such as [Urchin](https://github.com/mddub/urchin-cgm))
+* [Apache Chainsaw](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#apache-chainsaw)
 
 ********************************
 
@@ -359,6 +360,61 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 
 ![papertrail subg lights](../Images/subg_rfspy2.jpg)
 
+## Apache-chainsaw
+![Apache picture](../Images/apache_chainsaw.jpg)
+If your computer and rig are on the same wifi network you can use Apache Chainsaw2 from a pc (running windows/mac/linux) to watch your logs. Chainsaw2 main advantages are:
+1) Easy setup.
+1) Strong filtering capabilities.
+1) Strong finding capabilities.
+1) Coloring capabilities.
+1) Adding marker capabilities.
+1) Logs can be searched for a long time (kept localy on the rig).
+1) Can tail new data.
+
+example picture:
+
+### To setup appache chainsaw on your computer, follow the following instructons:
+1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
+1) Unzip the file.
+1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
+    ```
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE log4j:configuration >
+    <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+       <appender name="A2" class="org.apache.log4j.ConsoleAppender">
+          <layout class="org.apache.log4j.SimpleLayout"/>
+       </appender>
+
+       <plugin name="VFSLogFileReceiver1" class="org.apache.log4j.chainsaw.vfs.VFSLogFilePatternReceiver">
+         <param name="fileURL" value="sftp://root:password@192.168.1.20:22/var/log/openaps/openaps-date.log"/>
+         <param name="name" value="sampleVFSLogFileReceiver1"/>
+         <param name="tailing" value="true"/>
+         <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss"/>
+         <param name="logFormat" value="TIMESTAMP LOGGER MESSAGE"/>
+         <param name="autoReconnect" value="false"/>
+         <param name="group" value="group"/>
+       </plugin>
+
+       <root>
+          <level value="debug"/>
+       </root>
+    </log4j:configuration>
+
+    ```
+    Make sure to replace the password, with your rigs password, and 192.168.1.20 with the ip/hostname of your rig.
+1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin\chainsaw (linux and mac)
+1) From the file menu choose 'load chainsaw configuration'
+1) Choose use chainsaw configuration file.
+1) press open file.
+1) choose the file openaps.xml
+1) (optional) mark the checkbox "always start chainsaw with this configuration."
+
+Chainsaw has a welcome tab and a good toturial, use them.
+Still here are a few highligts:
+1) To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
+1) To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
+1) To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
+
 ********************************
 
 ## Accessing your offline rig
@@ -511,31 +567,13 @@ To show your pump's battery status, you can set:
 After setting up the button, simply click it to execute the command. The results are displayed in the black text area below the buttons. You can change the font size of the text in the box, and you can add more buttons under the main Hot Button menu.  
 
 #### Temporary targets
-It is possible to use Hot Button application for setup of temporary targets.  This [script](https://github.com/lukas-ondriga/openaps-share/blob/master/start-temp-target.sh) generates the custom temporary target starting at the time of its execution. You need to edit the path to the openaps folder inside it.
+It is possible to use Hot Button application for setup of temporary targets.  The oref0 repo has a script named oref0-append-local-target that sets a temp target locally on the rig.
 
-```
-#! /bin/sh
+To set an activity mode target of 130 mg/dL for 60m, run:
+`oref0-append-local-temptarget 130 60`
 
-OPENAPSROOT="/root/myopenaps"
-REASON=$1
-TARGET=$2
-
-echo "\
-[{\"_id\":\"\",\"enteredBy\":\"\",\"eventType\":\"Temporary Target\",\"reason\":\"$REASON\",\"targetTop\":$TARGET,\"targetBottom\":$TARGET,\"duration\":60,\"created_at\":\"$(date --utc +'%Y-%m-%dT%H:%M:%S.000Z')\",\"carbs\":null,\"insulin\":null}] \
-" > $OPENAPSROOT/settings/temptargets.json
-cd $OPENAPSROOT
-openaps report invoke settings/profile.json
-echo "Temporary target started"
-```
-
-To setup activity mode run:
-`./set_temp_target.sh "Activity Mode" 130`
-
-To setup eating soon mode run:
-`./set_temp_target.sh "Eating Soon" 80`
-
-The script is currently work in progress. The first parameter is probably not needed, it is there to have the same output as Nightscout produces. It is not possible to set different top and bottom target, but this could be easily added in the future. 
-To be able to use the script, the most straigtforward solution is to disable the download of temporary targets from Nightscout. To do that edit your openaps.ini and remove `openaps ns-temptargets` from ns-loop. 
+To set an eating soon mode target of 80 mg/dL for 30m, run:
+`oref0-append-local-temptarget 80 30`
 
 #### SSH Login Speedup
 To speed up the command execution you can add to the `/etc/ssh/sshd_config` the following line:
@@ -582,6 +620,8 @@ Starting with oref0 0.6.1, you can enable a rig hosted offline webpage that can 
 The box around your current BG will be either green or red, depending on the last time OpenAPS was able to successfully complete a pump-loop. The box functions similarly to the OpenAPS pill in Nightscout. If you tap on it, you will be able to view more info about the current state of your rig and its decision making process. 
 
 ![Offline webpage OpenAPS pill](../Images/offline_webpage_2.png)
+
+NOTE: If the webpage does not load, check your crontab. On master (oref0 version 0.6.x) your crontab should contain the line `@reboot cd ~/src/oref0/www && export FLASK_APP=app.py && flask run -p 80 --host=0.0.0.0` You can check this by logging into your rig and typing `crontab -l`. If you need to edit your crontab the command is `crontab -e`.
 
 ### Old instructions for an offline webpage. It is HIGHLY recommended that you use the method above for oref0 0.6.0 or greater.
 

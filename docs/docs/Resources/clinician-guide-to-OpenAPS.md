@@ -2,7 +2,7 @@
 
 This page is intended for clinicians who have expressed interest in open source artificial pancreas technology such as OpenAPS, or for patients who want to share such information with their clinicians. 
 
-This guide has some high-level information about DIY closed looping and specifically how OpenAPS works. For more details on all of these topics, please view the [comprehensive OpenAPS documentation online](http://openaps.readthedocs.io/en/latest/index.html). If you have questions, please ask your patient for more details, or always feel free to reach out to the community with question. (If you’re not on social media, feel free to email Dana@OpenAPS.org)
+This guide has some high-level information about DIY closed looping and specifically how OpenAPS works. For more details on all of these topics, please view the [comprehensive OpenAPS documentation online](http://openaps.readthedocs.io/en/latest/index.html). If you have questions, please ask your patient for more details, or always feel free to reach out to the community with question. (If you’re not on social media (e.g. [Twitter](https://twitter.com/OpenAPS) or Facebook), feel free to email Dana@OpenAPS.org). [You can also find some of the latest studies & outcomes related data here](https://openaps.org/outcomes/).
 
 ### The steps for building a DIY Closed Loop:
 
@@ -16,6 +16,8 @@ When someone builds an OpenAPS rig, the steps are generally to:
 Without a closed loop system, a person with diabetes gathers data from their pump and CGM, decides what to do, and takes action.
 
 With automated insulin delivery, the system does the same thing: it gathers data from the pump, CGM, and anywhere else information is logged (such as Nightscout), uses this information to do the math and decide how much more or less insulin is needed (above or below the underlying basal rate), and uses temporary basal rates to make the necessary adjustments to keep or eventually bring BGs into target range.
+
+If the rig breaks or goes out of range of the pump, once the latest temporary basal rate ends, the pump falls back to being a standard pump with the usual basals runnning. 
 
 ### How data is gathered:
 

@@ -93,7 +93,7 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
     </tr>
     <tr>
       <td>Offline (network) mode supports backfill to Nightscout?</td>
-      <td>?</td> 
+      <td>Yes</td> 
       <td>Yes</td>
     </tr>
     <tr>
@@ -163,7 +163,7 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
     </tr>
       <tr>
       <td>Reset Expired Transmitter</td>
-      <td>No</td> 
+      <td>Yes via UI</td> 
       <td>Yes via cmd line</td>
     </tr>
       <tr>
@@ -173,7 +173,7 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
     </tr>
       <tr>
       <td>View transmitter battery/resistance levels</td>
-      <td>No</td> 
+      <td>Yes via NS xdrip-js pill</td> 
       <td>Yes</td>
     </tr>
 </table>
@@ -213,7 +213,7 @@ If you wish to set a true temporary target while offline, you can do so by ssh'i
 
 ### xDripAPS - offline looping for users of the xDrip+ Android app
 
-Do you use OpenAPS and the xDrip+ Android app? By deafult, the xDrip+ Android app uploads CGM data to an online Nightscout instance, OpenAPS then downloads this data for use in your online loop. 
+Do you use OpenAPS and the xDrip+ Android app? By default, the xDrip+ Android app uploads CGM data to an online Nightscout instance, OpenAPS then downloads this data for use in your online loop. 
 
 The xDripAPS code resides on your OpenAPS rig and allows the direct transfer of xDrip+ Android app CGM data to your OpenAPS rig via a "local" network (WiFi hotspot or Bluetooth PAN tethering) without an internet connection. This will make CGM data available to the OpenAPS rig without internet access.
 
@@ -227,6 +227,8 @@ With xDripAPS, data flow is as follows:
 3. Your OpenAPS rig - usually a Raspberry Pi or an Intel Edison.
 
 OpenAPS/xDripAPS will NOT upload CGM data to Nightscout. It is possible to enter two upload destinations in the xDrip+ Android app delimited by a space character - the rig for offline looping and Nightscout for upload when internet access is available. If no CGM data is available to xDripAPS for any reason, OpenAPS will fall back to downloading CGM data online from Nightscout if an internet connection is available.
+
+Logger and Lookout also use xDripAPS on the rig to support offline looping. No xDripAPS setup is required to support Logger or Lookout beyond selecting xdrip CGM source in oref0-setup as described below.
 
 #### Setup Steps (using oref0-setup.sh script) for xDripAPS
 
@@ -273,6 +275,8 @@ http://<nightscout_api_secret>@<rig_ip_address1>:5000/api/v1/ http://<nightscout
 https://<nightscout_api_secret>@<yournnightscoutsite>.herokuapp.com/api/v1/ http://<nightscout_api_secret>@<rig_ip_address2>:5000/api/v1/
 ```
 Be careful when entering the addresses - xDripAPS uses the http protocol, Nightscout uses the https protocol.
+
+NOTE: To ensure your OpenAPS rig recieves glucose data through XdripAPS please confirm the following setting is UN-CHECKED : Open XDrip + and navigate to Settings > Cloud Upload > Nightscout Sync (REST-API) > Extra options > "Skip LAN uploads". This setting is checked by default, however does not allow your openaps rig to recieve glucose data when tethered offline.
 
 </details>
 <br>
