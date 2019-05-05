@@ -59,17 +59,15 @@ Android users can use the xDrip+ Android app. The details for setting up  offlin
    
    * If you are using this configuration for G4 receivers and (1) are online and (2) want to see RAW BGs in NS, then you must remember to add `rawbg` to your ENABLE line in your Heroku/Azure settings.  You will also have to go to your Nightscout site's settings and select "always" from the Show RAW BG options.  You will also have to select `g4-raw` (if on master branch) or `g4-upload` (if on dev branch) as the CGM type in the loop setup script.
 
-### C. Send G5 (and soon G6) BGs direct to rig (xdrip-js, Lookout/Logger)
+### C. Send G5 or G6 BGs direct to rig (xdrip-js, Lookout/Logger)
 
-`Note: G6 is a work in progress! Stay tuned for confirmation when it's ready for wider testing.`
-
-On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmitter, similar to xdrip+ on the phone. It replaces the iPhone G5 mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a G5 receiver at the same time as xdrip-js. (The gitter channel for xdrip-js and related stuff is at [https://gitter.im/thebookins/xdrip-js](https://gitter.im/thebookins/xdrip-js) - head there for questions about setup.) There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
+On your OpenAPS rig, the xdrip-js library can read directly from the Dexcom transmitter, similar to xdrip+ on the phone. It replaces the iPhone Dexcom mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a Dexcom receiver at the same time as xdrip-js. (The gitter channel for xdrip-js and related stuff is at [https://gitter.im/thebookins/xdrip-js](https://gitter.im/thebookins/xdrip-js) - head there for questions about setup.) There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
 
 #### Lookout/Logger:
    
-   * **Lookout** - this application runs on your rig and uses the xdrip-js library to read from the G5 transmitter directly. It uses the transmitter's built-in calibration algorithm, and you can enter BG calibrations either from the receiver or from a browser on your phone or computer, when connected to a web server that Lookout manages on your rig. The Lookout web pages also allow you to view CGM, pump, and OpenAPS status. Regardless of whether you use the receiver or Lookout to enter calibrations, they will be sent to the transmitter and both devices will report the same resulting BG values (though they may take a reading or two to 'catch up' after a calibration). Depending on your phone's hotspot capabilities, you may be able to access the Lookout web server even when cellular data is not available. Lookout will read G5 BG data and update OpenAPS locally (via xDripAPS), so your rig will continue to loop while offline, as well as send to Nightscout when your rig is online. Since Lookout uses the official transmitter calibration algorithm, it still requires sensor restarts every 7 days, with 2-hour warmups, and cannot be used with transmitters that have reached the Dexcom expiration (105-112 days from their first use).
+   * **Lookout** - this application runs on your rig and uses the xdrip-js library to read from the G5 or G6 transmitter directly. It uses the transmitter's built-in calibration algorithm, and you can enter BG calibrations either from the receiver or from a browser on your phone or computer, when connected to a web server that Lookout manages on your rig. The Lookout web pages also allow you to view CGM, pump, and OpenAPS status. Regardless of whether you use the receiver or Lookout to enter calibrations, they will be sent to the transmitter and both devices will report the same resulting BG values (though they may take a reading or two to 'catch up' after a calibration). Depending on your phone's hotspot capabilities, you may be able to access the Lookout web server even when cellular data is not available. Lookout will read G5 BG data and update OpenAPS locally (via xDripAPS), so your rig will continue to loop while offline, as well as send to Nightscout when your rig is online. Since Lookout uses the official transmitter calibration algorithm, it still requires sensor restarts every 7 days, with 2-hour warmups, and cannot be used with transmitters that have reached the Dexcom expiration (105-112 days from their first use).
    
-   * **Logger** (xdrip-js-logger) - this application is restarted regularly from your rig's crontab, and uses the xdrip-js library to read from the G5 transmitter directly. It can now use non-expired or expired transmitters. It leverages both the in transmitter session calibration algorithms and falls back to the LSR calibrations automatically when the sensor has an issue or stops (i.e. after 7 days). For LSR calibration, Logger uses the raw filtered/unfiltered values from the G5 transmitter, instead of the official calibrated value, and so can be used with transmitters that are past their standard expiration (including those with replaced batteries). Recently, Logger added the ability to reset an expired transmitter to new so that in transmitter calibrations can be used (even for battery replaced transmitters). Calibrations for Logger are entered through nightscout as BG Treatments, or through the pump (e.g., via the Contour Next Link meter that automatically loads to the pump), or through the command line. BG data is sent to both OpenAPS (via xDripAPS) locally, so your rig will continue to loop while offline, and Nightscout when online. You can use a receiver with Logger, but the BG values will not necessarily match between the two, and the calibrations on the receiver must be entered separately. Nightscout is the user interface for entering calibration and getting sensor status / requests such as "Needs calibration" as Announcements. Nightscout also shows the transmitter battery status, voltages, resistance, temperature every 12 hours as a note. Nightscout is also used to let Logger know that a new sensor has been inserted and to start a sensor. You can set the time back on a start - i.e. 2 hours (if you soaked the sensor). Logger has command line scripts that run on the rig (g5-reset, g5-start, g5-stop, g5-battery, and calibrate). There is currently no local web browser for entering calibrations or interacting with Logger, so the only way to view its data is through a terminal, xDripAPS web server, or Nightscout. **NOTE: for expired transmitters, Logger LSR calibration method is an approximation of what the g5 does internally so caution and serious oversite and testing should be exercised when using.**
+   * **Logger** (xdrip-js-logger) - this application is restarted regularly from your rig's crontab, and uses the xdrip-js library to read from the Dexcom G5 or G6 transmitter directly. It can use non-expired or expired transmitters. It leverages both the in transmitter session calibration algorithms and falls back to LSR calibrations automatically when the sensor has an issue or stops (i.e. after 7 days). For LSR calibration, Logger uses the raw filtered/unfiltered values from the Dexcom transmitter, instead of the official calibrated value, and so can be used with transmitters that are past their standard expiration (including those with replaced batteries). Logger also has the ability to reset an expired transmitter to new so that in transmitter calibrations can be used (even for battery replaced transmitters). Calibrations for Logger are entered through nightscout as BG Treatments, or through the pump (e.g., via the Contour Next Link meter that automatically loads to the pump), or through the command line. BG data is sent to both OpenAPS (via xDripAPS) locally, so your rig will continue to loop while offline, and include Nightscout when online. You can use a receiver with Logger, but the BG values will not necessarily match between the two, and the calibrations on the receiver must be entered separately. Nightscout is the user interface for entering calibration and getting sensor status / requests such as "Needs calibration" as Announcements. Nightscout also shows the transmitter battery status, voltages, resistance, temperature every 12 hours as a note. Nightscout is also used to let Logger know that a new sensor has been inserted and to start a sensor. You can set the time back on a start - i.e. 2 hours (if you soaked the sensor). Logger has command line scripts that run on the rig (cgm-reset, cgm-start, cgm-stop, cgm-battery, and calibrate). There is currently no local web browser for entering calibrations or interacting with Logger, so the only way to view its data is through a terminal, xDripAPS web server, or Nightscout. **NOTE: for expired transmitters, Logger LSR calibration method is an approximation of what the Dexcom transmitter does internally so caution and serious oversite and testing should be exercised when using.**
    
 > NOTE: Lookout, Logger (xdrip-js-logger), and xdrip-js library should be considered a WIP (Work In Progress), i.e., do not use if you cannot watch your BG and loop very carefully, and tolerate issues, failures, idiosynchrosies. Also please plan on contributing either through testing and feedback, updates, documentation, etc.
    
@@ -98,8 +96,8 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
     </tr>
     <tr>
       <td>Offline (away from transmitter times) supports backfill?</td>
-      <td>No</td> 
-      <td>No</td>
+      <td>Yes</td> 
+      <td>Yes</td>
     </tr>
     <tr>
       <td>Uses Dexcom official calibration?</td>
@@ -108,18 +106,18 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
     </tr>
     <tr>
       <td>Can use with expired/battery replaced transmitter?</td>
-      <td>In Dev</td> 
+      <td>Yes</td> 
       <td>Yes</td>
     </tr>
     <tr>
       <td>Can interact with rig-hosted web page? (e.g., for calibration, start/stop sensor)</td>
       <td>Yes</td> 
-      <td>No, can use rig cmd line</td>
+      <td>No, can use rig cmd line while offline</td>
     </tr>
     <tr>
       <td>Also able to calibrate and start/stop sensor thru receiver?</td>
       <td>Yes</td> 
-      <td>No</td>
+      <td>Yes, for non-expired transmitter/session</td>
     </tr>
     <tr>
       <td>Calibrate through Web/Nightscout?</td>
@@ -133,7 +131,7 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
     </tr>
     <tr>
       <td>Calibrate from command line?</td>
-      <td>No</td> 
+      <td>Yes</td> 
       <td>Yes</td>
     </tr>
     <tr>
@@ -169,11 +167,11 @@ On your OpenAPS rig, the xdrip-js library can read directly from the G5 transmit
       <tr>
       <td>Support mmol</td>
       <td>Yes</td> 
-      <td>for Meter-Pump Calibration</td>
+      <td>Yes, in NS and for Meter-Pump Calibration</td>
     </tr>
       <tr>
       <td>View transmitter battery/resistance levels</td>
-      <td>Yes via NS xdrip-js pill</td> 
+      <td>Yes via NS CGM pill</td> 
       <td>Yes</td>
     </tr>
 </table>
