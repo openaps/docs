@@ -72,12 +72,12 @@ Let's face it.  There are some days when you just don't want to be attached to a
 
 ## What if I want to turn off the loop for a while?
 
-If you're near the rig or pumper:
+If you're near the rig or pumper, any one of these actions will turn off the loop:
 * Power down the rig
-* Turn the basal type to % on the pump, which blocks temps from being set
+* Turn the temp basal type to % on the pump, which blocks temps from being set
 * Log in and stop cron
 
-If you're not near the rig or pumper:
+If you're not near the rig or pumper, any one of these actions will turn off the loop:
 * If on same wifi as rig, you can log in and stop cron
 * Or change the API secret of NS temporarily, which means OpenAPS can't pull BGs in and loop anymore (so after last temp basal previously set expires, defaults to normal basal rates). 
 * *(This one needs testing and validation, the low target may get ignored, or set as 80 as that's the lowest target you can usually set in OpenAPS)*: use very wide temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  
@@ -85,7 +85,7 @@ If you're not near the rig or pumper:
 
 ## How do I open loop?
 
-The easiest way to "open loop" is to set the basal type on your pump to be "%" instead of "u/hr". This means your pump cannot and willnot accept temporary basal rates commands issued by the rig. But, the rig will still be able to read from the pump and your CGM, and make the calculations of what it would otherwise do. 
+The easiest way to "open loop" is to set the temp basal type on your pump to be "%" instead of "u/hr". This means your pump cannot and willnot accept temporary basal rates commands issued by the rig. But, the rig will still be able to read from the pump and your CGM, and make the calculations of what it would otherwise do. 
 
 You can then watch the OpenAPS pill in Nightscout, or your logs (`l`) on the rig to see what OpenAPS would be doing.
 
