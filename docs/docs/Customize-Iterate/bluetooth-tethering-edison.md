@@ -68,7 +68,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
-This section is completed by the install method found here http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#copy-and-paste-to-run-the-wifi-and-oref0-setup-scripts . If you selected the option of installing Bluetooth at a later time during installation you may skip to Bluetooth Setup, the next section. 
+This section is completed by the install method found [here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#copy-and-paste-to-run-the-wifi-and-oref0-setup-scripts) . If you selected the option of installing Bluetooth at a later time during installation you may skip to Bluetooth Setup, the next section. 
 ### Install dependencies 
 You will need to get the MAC address from your phone or whatever device you are using.
 * On Android, go to Settings/About Phone/ Status; you will find your Bluetooth address looking like AA:BB:CC:DD:EE:FF 
@@ -102,7 +102,7 @@ First check the wpa_supplicant.conf file to make sure it is set up to allow oref
 
 Delete the phrase `update_config=1` from the file if it is present.
 
-![Remove update_config](../Images/update_config%20adjustment.png)
+![Remove update_config](../Images/update_config_adjustment.png)
 
 * Stop cron to make sure oref0-online doesn't interfere:
 
@@ -226,9 +226,9 @@ Finally, it's time to take a walk.  About a minute after walking out of range of
 
 On Android, the Bluetooth tether will shutdown if there is no tethering request within 3 minutes. Installing the application "BTAutoTethering" on your phone from the Play store will resolve this issue and allow the rig to switch to your phone when out of wifi range with no manual intervention. 
 
-This app has been used by numerous OpenAPS users, and found to work. It can be found here: https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en 
+This app has been used by numerous OpenAPS users, and found to work. It can be found [here](https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en).
 
-Another app which others have found to work better (depending on phone and carrier OS tweaks) is Blue Car Tethering (https://play.google.com/store/apps/details?id=com.xplota.bluecartetheringauto&hl=en)
+Another app which others have found to work better (depending on phone and carrier OS tweaks) is [Blue Car Tethering](https://play.google.com/store/apps/details?id=com.xplota.bluecartetheringauto&hl=en).
 
 ### Additional Troubleshooting Steps for Some Carriers
 

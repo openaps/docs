@@ -21,7 +21,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 ### A. xDrip+ for Android users
 
-Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the section below. The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
+Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
    * There is no direct iOS version of xDrip+. [Spike](https://spike-app.com/) is a different app with a different set of features.
 
