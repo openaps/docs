@@ -204,7 +204,7 @@ Defaults to false. When true, always enable supermicrobolus (unless disabled by 
 
 #### enableSMB_after_carbs
 
-Defaults to false. When true, enables supermicrobolus (SMB) for 6h after carbs, even with 0 COB.
+Defaults to false. When true, enables supermicrobolus (SMB) for 6h after carbs, even with 0 carbs on board (COB).
 
 #### allowSMB_with_high_temptarget
 
@@ -226,7 +226,7 @@ Defaults to false. When true, > 105 mg/dL high temp target adjusts sensitivityRa
 
 **This majorly changes the behavior of high temp targets from before.** 
 
-synonmym for high_temptarget_raises_sensitivity
+synonym for high_temptarget_raises_sensitivity
 
 #### high_temptarget_raises_sensitivity
 
