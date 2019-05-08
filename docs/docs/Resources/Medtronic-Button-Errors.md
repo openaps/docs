@@ -23,5 +23,5 @@ When the sticker has been peeled up, it might retain enough stickiness to put ba
 
 If you've lost the sticker or the sticker has lost enough of its adhesive to be a problem, you can replace both the film and the sticker with [this material](https://www.digikey.com/product-detail/en/keystone-electronics/5200/36-5200-ND/6834332). Cut a piece in approximately the shape of the sticker; hold it against the pump to see which edges needs to be trimmed further, and repeat until you have a piece in the same shape as the sticker.
 
-Videos:
-* https://www.youtube.com/watch?v=nWRVSHXN5cQ
+
+Watch [video showing button error repair](https://www.youtube.com/watch?v=nWRVSHXN5cQ).

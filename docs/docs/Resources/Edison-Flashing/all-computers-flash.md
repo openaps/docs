@@ -1,4 +1,4 @@
-﻿# Setting Up Your Intel Edison - Flashing instructions for all computer types
+# Setting Up Your Intel Edison - Flashing instructions for all computer types
 
 The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, as this fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
@@ -114,7 +114,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
-Hooray! After you've flashed your Edison, [head back to the main install instructions for wifi, dependencies, and getting OpenAPS installed with the easy automated scripts]http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual install instructions0. 
+Hooray! After you've flashed your Edison, head back to the main [install instructions for wifi and dependencies](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies) to use the easy automated scripts. (Below are manual install instructions). 
 
 ## Initial Edison Setup
 
