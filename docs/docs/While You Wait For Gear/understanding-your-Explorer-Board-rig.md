@@ -127,7 +127,7 @@ LiPo batteries are great for a lot of things, but taking damage is not one of th
 
 Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The LiPo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#cases) for both hard and soft case ideas).
 
-The connections between the LiPo battery and it's red and black wires are fragile and can break easily.  Consider taping the wires to the battery with electrical tape as described in SparkFun's LiPo battery care [tutorial](https://www.sparkfun.com/tutorials/241).  (See the Reinforcing the Power Cables section.)  This will stabilize the wires and relieve tension on the connections. 
+The connections between the LiPo battery and its red and black wires are fragile and can break easily.  Consider taping the wires to the battery with electrical tape as described in SparkFun's LiPo battery care [tutorial](https://www.sparkfun.com/tutorials/241).  (See the Reinforcing the Power Cables section.)  This will stabilize the wires and relieve tension on the connections. 
 
 There are several places to get LiPo batteries, with lots of different dimensions and capacities.  A 2000 mAh LiPo will get you about 12-14 hours of use, assuming you have the standard setup (which is what you get following these docs) running. 
 
