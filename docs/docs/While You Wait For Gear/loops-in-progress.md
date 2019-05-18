@@ -297,3 +297,4 @@ List of people who are working on closed loops:
 - Patrick Gauthier (Toronto, Ontario, Canada)
 - Anne Evered (Philadelphia, PA)
 - Or Loantz (Israel)
+- Marsha Vasserman (Calgary, Alberta, Canada)
