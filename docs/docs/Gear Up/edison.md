@@ -47,6 +47,10 @@ The Pi + RFM69HCW is still experimental!
 
 If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
 
+On the other hand, Adafruit has released a version of a [RFM69HCW in a bonnet style](https://www.adafruit.com/product/4072) so the board with display and an RFM69HCW simply goes one on top of the another and in installing procedure be sure to choose RFM69HCW (radiofruit) option. Showing data on a display is still under development and there is no battery power management hardware so it would be advised to use an external battery power source like power banks. 
+
+There is one 3D printable case [available on thingiverse](https://www.thingiverse.com/thing:3656500), where Raspberry Pi Zero fits with the bonnet. 
+
 <details>
     <summary> <b>
 Click here to expand and see pictures of a rig with a Pi0WH and RFM69HCW:</b>:</summary>
