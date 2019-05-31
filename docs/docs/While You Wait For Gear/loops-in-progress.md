@@ -300,3 +300,4 @@ List of people who are working on closed loops:
 - Marsha Vasserman (Calgary, Alberta, Canada)
 - Melanie Ellis (Auckland, New Zealand)
 - Kelsey Mosley (Saint Joseph, MN, USA)
+- David Klapan (Osijek, Croatia)
