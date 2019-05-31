@@ -299,3 +299,4 @@ List of people who are working on closed loops:
 - Or Loantz (Israel)
 - Marsha Vasserman (Calgary, Alberta, Canada)
 - Melanie Ellis (Auckland, New Zealand)
+- Kelsey Mosley (Saint Joseph, MN, USA)
