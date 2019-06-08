@@ -301,3 +301,4 @@ List of people who are working on closed loops:
 - Melanie Ellis (Auckland, New Zealand)
 - Kelsey Mosley (Saint Joseph, MN, USA)
 - David Klapan (Osijek, Croatia)
+- Grant M. Beahlen (Macomb Co., MI,)
