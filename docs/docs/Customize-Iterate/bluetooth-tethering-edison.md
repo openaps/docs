@@ -94,38 +94,39 @@ root@edisonhost:~# bluetoothd --version
 
 ### Bluetooth setup
 
-* Ensure that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
+1) First, check that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
 
-First check the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
+   a) Open the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
 
-`nano /etc/wpa_supplicant/wpa_supplicant.conf`
+      `nano /etc/wpa_supplicant/wpa_supplicant.conf`
 
-Delete the phrase `update_config=1` from the file if it is present.
+   b) Delete the phrase `update_config=1` from the file if it is present.
 
-![Remove update_config](../Images/update_config_adjustment.png)
+      ![Remove update_config](../Images/update_config_adjustment.png)
 
-* Stop cron to make sure oref0-online doesn't interfere:
+2) Next, stop cron to make sure oref0-online doesn't interfere:
 
-`sudo service cron stop`
+   `sudo service cron stop`
 
-* Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
+3) If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. **If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4.** 
 
-`sudo killall bluetoothd`
+   a) Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
 
-* Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
+      `sudo killall bluetoothd`
 
-`sudo /usr/local/bin/bluetoothd --experimental &`
+   b) Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
 
-As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
+      `sudo /usr/local/bin/bluetoothd --experimental &`
+
+      As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
 ![Bluetooth sudo commands](../Images/BT_sudos.png)
-* Wait at least 10 seconds, and then run:  
-`sudo hciconfig hci0 name $HOSTNAME`
 
-* If you get a `Can't change local name on hci0: Network is down (100)` error, run `bluetoothctl`, then `power off` and `power on`, then `exit` and try `sudo hciconfig hci0 name $HOSTNAME` again.
+   c) Wait at least 10 seconds, and then run:  
+     `sudo hciconfig hci0 name $HOSTNAME`
 
-* Now launch the Bluetooth control program: `bluetoothctl`
+   d) If you get a `Can't change local name on hci0: Network is down (100)` error, run `bluetoothctl`, then `power off` and `power on`, then `exit` and try `sudo hciconfig hci0 name $HOSTNAME` again.
 
-* and type each of the following:
+4) Now launch the Bluetooth control program: `bluetoothctl` and type each of the following:
 
 ```
 power off
