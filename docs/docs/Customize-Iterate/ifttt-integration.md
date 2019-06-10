@@ -4,6 +4,8 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, Go
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
+You can also create desktop widgets on your Android device to directly enter data into nightscout (just like IFTTT with workflow on Apple devices) using tools like <a href="https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts" target="_blank">HTTP Request Shortcuts</a> from the play store.  Examples toward end of document for this tool.
+
 
 ## IFTTT Setup for phones
 
@@ -286,3 +288,27 @@ Custom Low Treatment with a 60 min high target to help recovery. EX: Triggered b
 * You will need make sure to allow the Google Calendar Applet access to your Google Calendar.  When you do this it will ask which calendar you want to connect.  You can use your main calendar, or a calendar you've set up especially for IFTTT events.  You'll need to do this ahead of time using the administrative functions of Google Calendar.  To do this click on the gear icon at the upper right of Google Calendar (google.com/calendar, not the Applet in IFTTT), choose settings, choose the calendar tab (upper left) and then click the button to make a new calendar.  Call it whatever you want and set permissions as appropriate.  
 * Once you've connected the appropriate calendar, continue your setup in IFTTT and choose "Event from search starts".  Type a phrase that you'll use on the Google Calendar to denote a temp target (or other event).  For example "Eating Soon" or "Activity" and then click the button that says create trigger. Click on the blue "+that" text and continue to follow the directions as above from Setup for Phones above to connect the Maker app and make the appropriate Web request.  
 * Now on your Google Calendar (make sure you create the event on whichever calendar you've connected to the Google Calendar IFTTT applet) you can create recurring events or one-time events to trigger temp targets.  Use the same phrase that you used to create the trigger (Eating Soon, Activity, etc).  For example, if you get up every day and eat at the same time during the week, schedule Eating Soon on those days at the appropriate time.  If you know you're going to take a day off work or school just remember to delete the event ahead of that date, or change as appropriate.  Gym class for a child or sports practice only some days of a month?  Sit down and schedule Activity Mode for those dates well in advance so you don't have to remember at the time and they'll trigger automatically.   
+
+## HTTP Request Shortcuts Integration
+
+HTTP Request Shortcuts allows direct posting of data to your nightscout site on your Android Phone without requiring a middle-ware tool like IFTTT.  It also supports automation similar to the Workflow app on iOS.  This can be valuable as there have been cases of IFTTT becoming unavailable which leads to unpredictable behavior when you start mashing buttons!  Setup of this tool is fairly straightforward and will actually incorporate some of the same data as shown above for IFTTT buttons, particularly IFTTT trigger content above.
+
+* Install the <a href="https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts" target="_blank">HTTP Request Shortcuts</a> app from the Play Store to the device you interact with.
+
+* Open the app and tap the + button on the lower right.  That should bring you to a screen that looks similar to this (except your install won't have 3 shortcuts already defined of course. :) ): ![HRS Start](../Images/customize-iterate/HRS-Start.jpg)
+
+* Press the + button on the lower right to start adding a new shortcut from scratch.
+![HRS New](../Images/customize-iterate/HRS-New.jpg)
+
+* The example is to setup a shortcut to use to enter carbs into nightscout.  The example has URL and API key fields blacked out, simple replace those with your values.  You may notice that the values in the body section are almost the same as for the IFTTT examples above.  You can create shortcuts for all of those this way simply by changing the body values.
+
+![HRS Carb Shortcut](../Images/customize-iterate/HRS-Carb.jpg)  
+
+* The one difference with the IFTTT example is that we can insert a variable into the carbohydrate value field to tell HRS to ask you for how many grams of carbs you wish to log.  Pressing on the {} to the right of the Body field will bring up a Variable selector.  You can see I have 3 defined already, for a new setup, simply select "Edit Variables". Then select the + sign to start setting up a new variable.
+
+![HRS Carb Variable Setup](../Images/customize-iterate/HRS-Variables-1.jpg)  
+
+* Here is the setup for the Carb Entry Variable.  This variable simply pops up a dialog and a numeric keypad asking you for the carb count when triggered.  Once the variable is defined, go back to the Edit Shortcut screen.  Delete the 10 (if you are using the IFTTT example data from above, or whatever carb value was defined) and select the new variable you created.  It should look like the long Carb Shortcut image a bit above.
+
+
+![HRS Carb Variable Finish](../Images/customize-iterate/HRS-Variables-2.jpg)  
