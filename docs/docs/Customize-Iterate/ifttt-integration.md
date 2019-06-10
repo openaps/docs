@@ -309,8 +309,6 @@ HTTP Request Shortcuts allows direct posting of data to your nightscout site on 
 ![HRS Carb Variable Setup](../Images/customize-iterate/HRS-Variables-1.jpg)  
 
 * Here is the setup for the Carb Entry Variable.  This variable simply pops up a dialog and a numeric keypad asking you for the carb count when triggered.  Once the variable is defined, go back to the Edit Shortcut screen.  Delete the 10 (if you are using the IFTTT example data from above, or whatever carb value was defined) and select the new variable you created.  It should look like the long Carb Shortcut image a bit above.
-=======
-* Here is the setup for the Carb Entry Variable.  This variable simply pops up a dialog and a numeric keypad asking you for the carb count when triggered.  Once the variable is defined, go back to the Edit Shortcut screen.  Delete the 10 (if you are using the IFTTT example data from above, or whatever carb value was defined) and select the new variable you created.  It should look like the Carb Shortcut image above.
->>>>>>> baa5b9052351df5865ac1a814b7bafc2625e1bf8
+
 
 ![HRS Carb Variable Finish](../Images/customize-iterate/HRS-Variables-2.jpg)  
