@@ -108,23 +108,27 @@ root@edisonhost:~# bluetoothd --version
 
    `sudo service cron stop`
 
-3) If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. **If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4.** 
+<details>
+    <summary>3) If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4. <b>If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. (click here to expand instructions)</b></summary>
+<br>
 
    a) Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
 
-      `sudo killall bluetoothd`
+`sudo killall bluetoothd`
 
    b) Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
 
-      `sudo /usr/local/bin/bluetoothd --experimental &`
+`sudo /usr/local/bin/bluetoothd --experimental &`
 
-      As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
+As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
 ![Bluetooth sudo commands](../Images/BT_sudos.png)
 
    c) Wait at least 10 seconds, and then run:  
-     `sudo hciconfig hci0 name $HOSTNAME`
+`sudo hciconfig hci0 name $HOSTNAME`
 
    d) If you get a `Can't change local name on hci0: Network is down (100)` error, run `bluetoothctl`, then `power off` and `power on`, then `exit` and try `sudo hciconfig hci0 name $HOSTNAME` again.
+
+</details>
 
 4) Now launch the Bluetooth control program: `bluetoothctl` and type each of the following:
 
