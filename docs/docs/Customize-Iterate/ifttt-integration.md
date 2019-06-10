@@ -1,4 +1,4 @@
-# IFTTT (And other mobile device automation tools!) Integration
+# IFTTT Integration
 
 Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, Google Assistant, or anything that supports If This, Then That (IFTTT)?  Check out the YouTube Video below to see some sample integrations (click on the watchface photo to start video):
 
