@@ -1,11 +1,15 @@
-# Bluetooth tethering on Edison (optional) 
+# Bluetooth Tethering (optional) 
 
 Your cell phone can act as a mobile "hotspot" to allow your rig to access the internet.  If you don't have offline BG data setup, setting up Bluetooth (BT) tethering to allow your rig to connect to the internet through your phone can keep your rig looping as you move around areas without known wifi networks.
 
 A few things to know about using your phone's hotspot feature:
 
-1. Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot internet connections and BT tethering are available.
+1. Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot internet connections and BT tethering are available.  
+
+Even though some specific phones are fully capable of bluetooth tethering and the phone OS (eg: Android) fully supports it, providers like T-Mobile may arbitrarily disable it on all of their phones without explanation, even though they fully support Wifi Hotspots. Word to the wise: (1) If you can, purchase your phone from the OEM fully unlocked so the carrier can't deprovision bluetooth tethering. In the US some are permanently boot locked and can't be changed. (2) If you get caught in this situation you'll need to call the carrier's customer support network as soon as possible (hopefully within the 14 day return policy) to return it.  After the 14 days you'll need to plead your case with them.
+
 2. Hotspot, when activated, uses your cell phone's data.  Know what your cell phone plan data limits are and consider if you want to change/update based on your frequency of hotspot use.  You can get an estimate of cell data use by resetting your cell data use, at the beginning of the day, within your phone.
+
 3. A device (like your rig) can be connected to your phone's hotspot in one of three ways:
 
       **BT tether**:  BT tethering (also known as BT PAN *Personal Area Network*) requires your phone and rig to be BT-paired before they can connect (that's what this section of the docs is specifically about).  The advantage of connecting to your hotspot via BT tether is that it will happen automatically.  You do not have to remember to toggle hotspot.  Simply leave your hotspot toggled on as usual, leave the house, and within a few minutes (or sooner) your rig will BT tether to the hotspot.  (Screenshot below shows what you'll see in your network logs as you move from known wifi network to BT tether.  Oref0-online will automatically find BT tether and connect.)  Your rig will then use your cell phone as its internet connection.  When your rig comes back into a known wifi network, it will automatically drop the BT tether and connect with the wifi network.
@@ -54,6 +58,8 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 <TR><TH>Xiaomi Mi Mix 2 with LineageOS 15.1<TD>Yes<TD>Excellent connectivity - has worked almost flawlessly with tethering. Battery life has also been very good.<TD>Works brilliantly with xDrip+ and G6 - capture rate typically more than 95%.      
 <TR><TH>Nokia 2.1 with Android 8.1 Oreo Go Edition<TD>Yes<TD>Excellent bluetooth tethering to cellular network. No noted network drops. Works excellent as an offline option with XDripAPS. Awesome battery life(4000mAH)<TD>Works well with Dexcom G5 and xDrip. No issues with compatibility. Generally 95%+ capture rate.
 <TR><TH>OnePlus 6 (A6003) with OxygenOS 9.0 <TD>Yes<TD>Excellent connectivity - Tethering has been good and picks up right away. Battery life very good and really fast charge.<TD>xDrip+ w/ G5 - capture rates generally better than 98% on current nightlies.
+<TR><TH>Samsung S10/S10e with Android Pie<TD>Not on TMobile Native<TD>Both the S10 and S10e are fully capable of bluetooth pairing and tethering, but unlike Verizon, T-Mobile deprovisions bluetooth tethering for unknown and inexplicable reasons.  On all of their phones as far as we know.<TD>Verizon and OEM Unlocked phones may work.
+
 </TABLE>
 
 **********************************************************************************************
