@@ -101,7 +101,7 @@ An alternative approach to disk troubleshooting is to simply run the following c
 
 Then, based on which folders are using the most space cd to those folders and run the above du command again until you find the folder that is using up the disk space.
 
-One potential culprit can be cached software packages, which can be removed with `sudo apt-get clean`
+One potential culprit can be cached software packages, which can be removed with `sudo apt-get clean` and/or `sudo apt-get autoremove --purge`
 
 It is also common that log files (i.e., the /var/log directory) are the cause for disk space issues. If you determine that log file(s) are the problem, use a command like `less` to view the last entries in the logfile to attempt to figure out what is causing the logfile to fill up. If you still have some room on your /root drive (i.e., it is not 100% in use according to `df /root`), you can temporarily free up space by forcing the logfiles to rotate immediately, with the following command:
 
