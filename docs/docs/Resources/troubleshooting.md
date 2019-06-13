@@ -276,17 +276,17 @@ Erasing chip.
 This code is only tested on CC1110. Unsupported chip id = 0x00.
 Chip erase failed.
 ```
-Also, the two LEDs next to the microUSB ports on your Explorer board are still on. Or they may flash during loop attempts, but stay on between loops. If this is the case, you may need to completely reinstall openAPS. This requires redoing everything from the Jubilinux flash, to the bootstrap script and finally the openAPS setup. 
+If you're affected by this particular issue, the two LEDs next to the microUSB ports on your Explorer board may stay on continuously, or they may flash during loop attempts, but stay on between loops. If this is the case, you may need to completely reinstall OpenAPS. This requires redoing everything from the Jubilinux flash, to the bootstrap script and finally the OpenAPS setup. 
 
 **Note:** Starting the Jubilinux flash from the beginning will overwrite everything, so you may want to copy and save any configuration files you don't want to lose, like your `wpa_supplicant.conf` Wi-Fi settings for example. 
 
-Instructions to reinstall openAPS are here: https://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-1-jubilinux-for-edison-rigs-only
+Instructions to reinstall OpenAPS are [here](https://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-1-jubilinux-for-edison-rigs-only)
 
-Once you have finished running the openAPS setup script, view your loop by entering `l`. Your loop will probably still be failing, but with a different error message:
+Once you have finished running the OpenAPS setup script, view your loop by entering `l`. Your loop will probably still be failing, but with a different error message:
 ```
 Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
 ```
-Now you should be able to follow the directions above to reflash the radio: https://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html?highlight=ccprog#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio
+Now you should be able to follow [the directions above](https://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html?highlight=ccprog#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio) to reflash the radio.
 This time the reflash should be successful and you should see:
 ```
 Erasing chip.
