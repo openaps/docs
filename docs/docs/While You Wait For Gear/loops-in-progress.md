@@ -302,3 +302,4 @@ List of people who are working on closed loops:
 - Kelsey Mosley (Saint Joseph, MN, USA)
 - David Klapan (Osijek, Croatia)
 - Grant M. Beahlen (Macomb Co., MI,)
+- Nobu Aoki(Hyogo,Japan)
