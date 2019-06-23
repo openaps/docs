@@ -303,3 +303,4 @@ List of people who are working on closed loops:
 - David Klapan (Osijek, Croatia)
 - Grant M. Beahlen (Macomb Co., MI,)
 - Nobu Aoki(Hyogo,Japan)
+- Kim & Remy Scott (Cambridge, MA)
