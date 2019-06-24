@@ -2,6 +2,8 @@
 
 There are a number of ways to have an "offline" OpenAPS rig, and numerous ways to monitor offline ([see the monitoring section for information about monitoring offline](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#the-main-ways-of-monitoring-your-rig-offline-include)).  Offline refers to situations where your rig moves into an area where it does not have internet access (i.e., the rig does not have a known WiFi network available and the cell phone used with the rig does not have cell coverage/hotspot available).  By setting up one of these offline solutions, your rig can still loop while in an offline area.  Depending on the setup, the opportunities to visualize or monitor the loop actions (e.g., check what temp basal is actually being set) may vary until you can get back into an online area.
 
+**NOTE: TRY BEFORE YOU FLY!** Remember this when you decide to use an offline looping method for the first time - try it before you go offline for the situation in which you likely need it (e.g. flying, camping, hiking, etc.). Sometimes there's something small and easy like remembering to plug a secondary power source to your rig that can make your offline looping method work, but you'll forget on your first try - so try before you go! 
+
 ## Medtronic CGM users
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
 
