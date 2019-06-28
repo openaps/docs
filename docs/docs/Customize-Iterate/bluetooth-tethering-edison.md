@@ -217,7 +217,7 @@ bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
 ```
 (for iPhone, the inet addr will always start with 172.20.10. - Android will likely be different)
 
-* If you don't see the `ifconfig bnep0` output displaying the `inet addr:172.20.10.x` info for the bnep0 ineterface as shown above, you may have a problem with your dhclient.leases file. Try editing your /var/lib/dhcp/dhclient.leases file and deleting the contents. After clearing out the dhclient.leases file, reboot your rig and start testing from the `sudo bt-pan client AA:BB:CC:DD:EE:FF` command above.
+* If you don't see the `inet addr:172.20.10.x` info in the `ifconfig bnep0` output shown above, your bnep0 interface did not get an IP address. Your rig will need this address to access the internet via the BT tether. One possible cause may be an issue with your dhclient.leases file. Try editing your /var/lib/dhcp/dhclient.leases file and deleting the contents. After clearing out the dhclient.leases file, reboot your rig and start testing from the `sudo bt-pan client AA:BB:CC:DD:EE:FF` command above and verify that bnep0 gets an IP address before you continue.
 
 * To disconnect the connection, you can run:
 
