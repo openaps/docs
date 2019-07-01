@@ -22,7 +22,13 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 </details>
 
 ## How do I enter carbs and boluses so OpenAPS can use them?
-Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs can be either entered on the pump (for example, using Bolus Wizard) or into Nightscout (carb entries in Nightscout can either be made directly using the Care Portal) or via IFTTT or XDrip.</br>
+Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs can be either entered in any of several ways: </br>
+- on the pump (for example, using Bolus Wizard),
+- into the Nightscout UI (using the Care Portal),
+- via an HTTPS POST to the treatments API, for example using the iOS Shortcuts app,
+- via [IFTTT](./ifttt-integration.html?highlight=IFTTT), 
+- via [xDrip](https://github.com/NightscoutFoundation/xDrip),
+- via [CarbDialer (iOS App)](https://apps.apple.com/us/app/carbdialer/id1315809661).
 
 **SAFETY WARNING:** If the pump has a target range high end set lower than the BG input into the Bolus Wizard, the Bolus Wizard will add insulin to cover the carbs as well as bring BG down to the high end. I.e. if your high end is 110 and you enter a 160 BG and 45g of carbs in the Bolus Wizard, the Bolus Wizard will dose 1U to bring BG to 110 and 3U for carbs (assuming 50 (mg/dL)/U and 15g/U factors). The rig will likely have already dosed insulin to bring your BG to your low target, and you are potentially "double dosing". In these scenarios, you will have too much insulin onboard and can experience a severe low. If you use the Boluz Wizard, ensure the high end of the BG target range is a high number such as 250 mg/dL. OpenAPS default behavior (`wide_bg_target_range` preference) is to only use the target range lower end. Setting the high end does not impact the OpenAPS algorithms.
 
