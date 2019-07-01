@@ -252,6 +252,7 @@ cd ~/src/ccprog
 ./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
 
+
 #### Using a Raspberry Pi + Explorer HAT:
 ```
 wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-explorer/spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
@@ -261,6 +262,45 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 ```
 
   * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
+  
+  
+### Monitor/mmtune.json is empty or does not exist
+#### Only verified to work with Intel Edison + Explorer Block
+Full error is:
+```
+cannot connect to CC111x radio on /dev/spidev5.1
+1999/12/31 19:14:23 cc111x: no response
+monitor/mmtune.json is empty or does not exist
+```
+Trying to reflash the radio may result in:
+```
+Erasing chip.
+This code is only tested on CC1110. Unsupported chip id = 0x00.
+Chip erase failed.
+```
+If you're affected by this particular issue, the two LEDs next to the microUSB ports on your Explorer board may stay on continuously, or they may flash during loop attempts, but stay on between loops. If this is the case, you may need to completely reinstall OpenAPS. This requires redoing everything from the Jubilinux flash, to the bootstrap script and finally the OpenAPS setup. 
+
+**Note:** Starting the Jubilinux flash from the beginning will overwrite everything, so you may want to copy and save any configuration files you don't want to lose, like your `wpa_supplicant.conf` Wi-Fi settings for example. 
+
+Instructions to reinstall OpenAPS are [here](https://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-1-jubilinux-for-edison-rigs-only)
+
+Once you have finished running the OpenAPS setup script, view your loop by entering `l`. Your loop will probably still be failing, but with a different error message:
+```
+Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
+```
+Now you should be able to follow [the directions above](https://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html?highlight=ccprog#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio) to reflash the radio.
+This time the reflash should be successful and you should see:
+```
+Erasing chip.
+Chip erased.
+root@yourrig:~/src/ccprog# ./ccprog -p 19,7,36 write spi1_alt2_EDISON_EXPLORES_STDLOC.hex
+```
+Press enter, then you should see:
+```
+Writing 2769 bytes to flash....
+```
+You have now successfully reflashed the radio. Now `reboot` and your loop should start running with red and green LEDs off (except for an occasional blink).
+
 
 ## Dealing with the CareLink USB Stick
 
