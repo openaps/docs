@@ -207,6 +207,8 @@ Device AA:BB:CC:DD:EE:FF Samsung S7
 * Next, to test your Internet connectivity, you'll need to get an IP address:
 
   `sudo dhclient bnep0`
+  
+(If you need more information about what the dhclient command is doing, you can use `sudo dhclient -d bnep0` to force dhclient to run in the foreground)
 
 * If that succeeds, you should be able to run `ifconfig bnep0` and see something like:  
 ```
@@ -214,6 +216,8 @@ bnep0     Link encap:Ethernet  HWaddr 98:4f:ee:03:a6:91
           inet addr:172.20.10.4  Bcast:172.20.10.15  Mask:255.255.255.240
 ```
 (for iPhone, the inet addr will always start with 172.20.10. - Android will likely be different)
+
+* If you don't see the `inet addr:172.20.10.x` info in the `ifconfig bnep0` output shown above, your bnep0 interface did not get an IP address. Your rig will need this address to access the internet via the BT tether. One possible cause may be an issue with your dhclient.leases file. Try editing your /var/lib/dhcp/dhclient.leases file and deleting the contents. After clearing out the dhclient.leases file, reboot your rig and start testing from the `sudo bt-pan client AA:BB:CC:DD:EE:FF` command above and verify that bnep0 gets an IP address before you continue.
 
 * To disconnect the connection, you can run:
 
