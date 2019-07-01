@@ -146,12 +146,21 @@ The configuration values above ensure when the rig moves from wifi network to wi
 
 Test the ssh setup by executing autossh on the rig:
 ```
-autossh -f -M 0 -T -N <Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22`
+autossh -f -M 0 -T -N <userid>@<Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22
 ```
 
-Test ssh into the rig from another device by ssh to the internet server address on port `20201` instead of the default port `22`.
+Test ssh into the rig from another device by ssh to the internet server address on port `20201` instead of the default port `22`:
 
-Once the test are successful, add a line to your rig crontab to launch autossh at boot using the autossh command above: `@reboot autossh -f -M 0 -T -N <Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22`
+-connect to the internet server
+-from that server:
+```
+ssh -l root -p 20201 localhost
+```
+
+Once the test are successful, add a line to your rig crontab to launch autossh at boot using the autossh command above:
+```
+@reboot autossh -f -M 0 -T -N <userid>@<Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22
+```
 
 
 ********************************
