@@ -44,7 +44,7 @@ See below for different ways to access your rig:
 
 ### If your computer and rig are on the same wifi network
 
-![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
+![If your computer and rig are on the same wifi network](../Images/Computer_rig_same_wifi.png)
 
 #### For Mac computers
 
