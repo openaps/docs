@@ -304,3 +304,4 @@ List of people who are working on closed loops:
 - Grant M. Beahlen (Macomb Co., MI,)
 - Nobu Aoki(Hyogo,Japan)
 - Kim & Remy Scott (Cambridge, MA)
+- Susanne Röckl (Berlin, Germany)
