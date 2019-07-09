@@ -33,11 +33,13 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
 
-[Codecademy Python Course](https://www.codecademy.com/tracks/python)
+[Codecademy Python Course](https://www.codecademy.com/catalog/language/python)
 
 [Python 2.7 Quick Reference](http://rgruet.free.fr/PQR27/PQR2.7.html)
 
 [NumPy for MATLAB Users](http://mathesaurus.sourceforge.net/matlab-numpy.html)
+
+[Python Online Courses](https://classpert.com/python-programming)
 
 ## Useful Apps
 
