@@ -380,10 +380,9 @@ If your computer and rig are on the same wifi network you can use Apache Chainsa
 1) Logs can be searched for a long time (kept localy on the rig).
 1) Can tail new data.
 
-example picture:
 
 ### To setup appache chainsaw on your computer, follow the following instructons:
-1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
+1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.1/apache-chainsaw-2.0.1.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
 1) Unzip the file.
 1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
     ```
@@ -395,13 +394,14 @@ example picture:
        </appender>
 
        <plugin name="VFSLogFileReceiver1" class="org.apache.log4j.chainsaw.vfs.VFSLogFilePatternReceiver">
-         <param name="fileURL" value="sftp://root:password@192.168.1.20:22/var/log/openaps/openaps-date.log"/>
+         <param name="fileURL" value="sftp://root:password@192.168.1.20:22/var/log/openaps/openaps-date.log*"/>
          <param name="name" value="sampleVFSLogFileReceiver1"/>
          <param name="tailing" value="true"/>
          <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss"/>
          <param name="logFormat" value="TIMESTAMP LOGGER MESSAGE"/>
          <param name="autoReconnect" value="false"/>
          <param name="group" value="group"/>
+         <param name="maxLogingDays" value="10"/>
        </plugin>
 
        <root>
@@ -417,6 +417,14 @@ example picture:
 1) press open file.
 1) choose the file openaps.xml
 1) (optional) mark the checkbox "always start chainsaw with this configuration."
+1) This version will read logs of at least 10 days. you can change that using the parameter maxLogingDays.
+1) On some  Raspberry Pi installations, there is a need to add the following line to the file /etc/ssh/sshd_config:<br />
+Subsystem sftp internal-sftp<br />
+After the change restart ssh ```sudo service ssh restart``` and try again.
+1) On other Raspberry Pi installations, there is a need to replace the previous line with the following line on the file /etc/ssh/sshd_config:<br />
+Subsystem       sftp    /usr/libexec/openssh/sftp-server<br />
+After the change restart ssh ```sudo service ssh restart``` and try again.
+see https://support.plesk.com/hc/en-us/articles/213957825-Unable-to-connect-to-SFTP-subsystem-request-for-sftp-failed-subsystem-not-found and https://www.linuxquestions.org/questions/red-hat-31/error-subsystem-cannot-stat-usr-libexec-openssh-sftp-server-4175453017/ for more details. (this step is needed only if chainsaw will fail to connect to your drive).<br />
 
 Chainsaw has a welcome tab and a good toturial, use them.
 Still here are a few highligts:
