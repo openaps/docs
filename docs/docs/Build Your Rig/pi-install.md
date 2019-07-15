@@ -113,38 +113,15 @@ Once your setup script finishes, **make sure to [watch the pump loop logs](http:
 
 **NOTE**: If you are using RFM69HCW as RF module:
 
-If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#soldering), while running interactive setup use following options:
-```Are you using an Explorer Board? [Y]/n n
-Are you using an Explorer HAT? [Y]/n n
-Are you using mmeowlink (i.e. with a TI stick)? If not, press enter. If so, paste your full port address: it looks like "/dev/ttySOMETHING" without the quotes.
-What is your TTY port? /dev/spidev0.0
-Ok, TTY /dev/spidev0.0 it is. 
-
-Would you like to [D]ownload released precompiled Go pump communication library or install an [U]nofficial (possibly untested) version.[D]/U u
-You could either build the Medtronic library from [S]ource, or type the version tag you would like to use, example 'v2018.08.08' [S]/<version> s
-Building Go pump binaries from source
-What type of radio do you use? [1] for cc1101 [2] for CC1110 or CC1111 [3] for RFM69HCW radio module 1/[2]/3 3
-Building Go pump binaries from source with  + radiotags +  tags.
+If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#soldering), while running interactive setup use following option:
 ```
-after running oref0-setup.sh run the following:
-```$ cd ~ && export PATH="$PATH:/usr/local/go/bin"
-$ rm -rf ~/go/src/github.com/ecc1
-$ go get -u -v -tags "rfm69 walrus" github.com/ecc1/medtronic/...
-$ cp -pruv $HOME/go/bin/* /usr/local/bin/
-$ mv /usr/local/bin/mmtune /usr/local/bin/Go-mmtune
+3) RFM69HCW (DIY: SPI)
 ```
-This will help in building the right pump communication libraries.
-
-* You'll want to also delete the openaps-menu folder to avoid error messages in your logs. `rm -rf ~/src/openaps-menu/`
-* If you experience something like this:
-```mmtune: radio_locale = WW
-2019/01/14 15:14:25 cannot connect to CC111x radio on /dev/spidev0.0
-2019/01/14 15:14:25 cc111x: no response
-Usage: grep [OPTION]... PATTERN [FILE]...
-Try 'grep --help' for more information.
+and then select your ttyport, depending on which you have wired your RFM69HCW to (CE0 on RPi pin 24 will be `/dev/spidev0.0`, CE1 on RPi pin 26 will be `/dev/spidev0.1`):
 ```
-That means you have probably run the oref-runagain.sh script. Currently, with RFM69HCW, you can't use the runagain script. Please run the interactive setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`). Other option would be you didn't solder diligently enough. Before disassembling and resoldering, try running the interactive script first. It's less work. 
-
+3) RFM69HCW on /dev/spidev0.0 (walrus)
+4) RFM69HCW on /dev/spidev0.1 (radiofruit bonnet)
+```
 
 *****************************
 
