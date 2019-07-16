@@ -256,7 +256,7 @@ npm list -g oref0 | egrep oref0@0.5.[5-9] || (echo Installing latest oref0 packa
 * If you need the dev version of oref0 (for example, to run autotune with AndroidAPS as of August 2018):
 
 ```
-cd ~/src && git clone git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
 cd ~/src/oref0 && npm run global-install
 ```
 
