@@ -17,6 +17,7 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 - [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
 - [How do I improve the range of my Edison/Explorer Board?](#how-do-i-improve-the-range-of-my-edison-explorer-board-)
 - [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types--or-switch-to-fiasp--what-should-i-change-)
+- [How do I switch to a different Medtronic pump?](#how-do-i-switch-to-a-different-medtronic-pump-)
 - [Improving the battery life of your Raspberry Pi](#improving-the-battery-life-of-your-raspberry-pi)
 
 </details>
@@ -119,6 +120,34 @@ The most important setting for switching between insulin types in an OpenAPS rig
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 
 Some users who switch to Fiasp find that they need to adjust settings. Others do not need to change settings that much, and autosens and/or autotune can help adjust to any variances over time as your body's needs change related to the difference insulin type. YDMV, as always!
+
+## How do I switch to a different Medtronic pump?
+
+Please note that the procedure is likely different if switching to or from a 512 or 712 pump.
+
+First locate the serial number of the Medtronic pump you would like to start using. Then log into your rig and open your "runagain" script so you can edit the serial number.
+
+`cd ~/myopenaps && nano oref0-runagain.sh`
+
+Change the number in `--serial=123456` from your old serial number to your new serial number, save the changes, and exit nano.
+
+Now run the "runagain" script and respond to any prompts it gives you.
+
+`cd ~/myopenaps && bash oref0-runagain.sh`  
+
+When the script is done and you have rebooted, log back into your rig and look at the pump loop logs
+
+`l`
+
+If you see errors regarding the pump history such as `Couldn't invoke_pumphistory_etc - continuing` and `Couldn't refresh_pumphistory_and_meal` then delete your pump history from your rig.
+
+`rm ~/myopenaps/monitor/pumphistory-24h-zoned.json`
+
+Now look at the pump loop logs again.
+
+`l`
+
+After some time, all errors should resolve and you should begin looping successfully with your new pump!
 
 ## Improving the battery life of your Raspberry Pi
 
