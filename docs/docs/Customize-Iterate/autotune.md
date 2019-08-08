@@ -337,6 +337,23 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 * If useCustomPeak is not set in preferences.json and --tune-insulin-curve=true is not used, the DIA used by autotune is obtained from the pump and the peak time is obtained from the defaults of the insulin curve selected in preferences.json.
 
+**Step 5: Upload resulting profile to Nightscout**
+* Run
+```
+oref0-upload-profile ./myopenaps/autotune/profile.json $NS_SITE $API_SECRET
+```
+* ^ Replace `$NS_SITE` with address to your Nightscout, and `$API_SECRET` with your API secret or token
+* Upload may fail if the profile doesn't have settings that OpenAPS or Nightscout deem required for a profile to have. Unfortunately, the messages about this are somewhat cryptic.
+* This will make a copy of all the profiles you currently have, and upload the generated one, naming it `OpenAPS Autosync`
+
+**Step 5a: Upload resulting profile to Nightscout and switch to it**
+* Run
+```
+oref0-upload-profile ./myopenaps/autotune/profile.json $NS_SITE $API_SECRET
+```
+* ^ Replace `$NS_SITE` with address to your Nightscout, and `$API_SECRET` with your API secret or token
+* In addition to uploading the profile like described above, it will issue a `Profile Switch` event, as [described in AndroidAPS documentation](https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html). This will make AndroidAPS automatically pick up the new profile and switch to it, also *resetting autosens*. Keep this in mind, since, as [diabettech writes](https://www.diabettech.com/artificial-pancreas/automating-hypo-hyper-temp-targets-a-quick-hack/) *Frequent profile switches will stop Autosens from working properly*.
+
 #### Optional configurations
 
 * For most people, autotune's UAM detection does a good job of excluding anomalous data from unannounced or imprecisely estimated carbs, stress spikes, etc., and is able to properly tune basals using the non-excluded data. In rare cases, some people's basal settings are so far below their real basal rates when starting out with autotune that they find the algorithm unable to suggest raising basals because it is classifying all periods when basals are too low as unannounced meals. If you notice this issue, you are certain you have precisely entered carb counts for all carb intake events, and you want autotune to raise basal for abrupt BG rises due to stress etc., then you can force the algorithm to classify unannounced meal periods as basal periods using the --categorize-uam-as-basal=true option. Most people should not need this option, and it should only be used with care.  **\*\*SAFETY WARNING\*\*** If you use this option and treat lows without entering the low treatment carbs, an amplifying cycle will begin with autotune raising basals, treated lows get categorizes as basals being too low, basals are raised causing lows, etc.
