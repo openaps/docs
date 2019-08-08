@@ -342,7 +342,7 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
 ```
 oref0-upload-profile ./myopenaps/autotune/profile.json $NS_SITE $API_SECRET
 ```
-* ^ Replace `$NS_SITE` with address to your Nightscout, and `$API_SECRET` with your API secret or token
+* ^ Replace `$NS_SITE` with address of your Nightscout, and `$API_SECRET` with your API secret or token
 * Upload may fail if the profile doesn't have settings that OpenAPS or Nightscout deem required for a profile to have. Unfortunately, the messages about this are somewhat cryptic.
 * This will make a copy of all the profiles you currently have, and upload the generated one, naming it `OpenAPS Autosync`
 
