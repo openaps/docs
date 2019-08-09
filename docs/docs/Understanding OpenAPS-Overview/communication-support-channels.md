@@ -1,37 +1,13 @@
 # Where to go for help
 
-There are several ways to communicate with other participants and contributors in the #OpenAPS project. See also the [Resources](../Resources/index.rst) section for additional assistance.
+First check the [Troubleshooting](../Troubleshooting/index.rst) section for assistance, and try searching within this documentation for the problem you are having (including text of any error message you are seeing).
+
+There are several ways to communicate with other participants and contributors in the #OpenAPS project. To help get your issue resolved more quickly, you can proactively provide information as described in [this blog post for tips on how to best seek help when troubleshooting online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
 **Note:** It's best practice not to share your pump's serial number, so make sure not to include it in pictures or pasted text output when seeking help on pump communication. Ditto for Nightscout URL and API secret and other private information that could enable someone to access your setup.
 
-**Related**: You may want to read [this blog post for tips on how to best seek help when troubleshooting online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/) - there is a lot of information you can provide proactively when seeking help that will aid in getting your issue resolved more quickly.
-
-### Read the documentation!
-
-One huge resource is this documentation. We recommend bookmarking the [link](http://openaps.readthedocs.org/en/latest/) to the docs, as they are frequently updated (sometimes daily!) as we add more information, troubleshooting tips, and more. Anytime we are asked a question on one of the below channels, we try to add it to the documentation. So chances are, your question may already be answered here!
-
-#### Tips for navigating the documentation
-
-You may notice that the left hand side of the documentation has navigation. It is organized in order of setting up OpenAPS, and has various sections on finding your gear; what you should do before you build a rig; how to setup up your rig; and additional  features and tips and tricks for optimizing your looping setup. This navigation is long, you can mouse over the section and scroll down to see all the pages listed in the top-level navigation!
-
-![Show documentation navigation](../Images/Understand_documentation_basic_1.png)
-
-![Show documentation navigation 2](../Images/Understand_documentation_basic_2.png)
-
-![Show troubleshooting section of docs](../Images/Troublshooting_docs_section.png)
-
-You'll also notice that there is more content than just these high-level pages! If you click on a link in the left, many of them expand to show the sub-sections include, which make it easy to jump directly to the section you're looking for. If there is a `+`, that means there is more content you can expand.
-
-![Show how menu expands in the navigation of the docs](../Images/Show_nav_expand.png)
-
-#### The docs also have their own search function!
-
-See the top left of the docs for the search box. It's helpful to search *inside* the documentation itself, rather than Google, because you'll stay inside the most up to date version of the documentation. You may want to try a different word or shorter phrase if you don't get any results for your search phrase, as we may have worded a section differently.
-
-![Show documentation search](../Images/Search_documentation.png)
-
-### Google Group - everyone is recommended and welcome to join!
-A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev). You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter.
+### Google Group 
+A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev) - everyone is recommended and welcome to join! You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter.
 
 ### Gitter
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
