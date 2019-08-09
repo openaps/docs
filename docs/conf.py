@@ -125,7 +125,7 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default`
+html_theme = 'sphinx_rtd_theme'
 
 
 extra_nav_links = {
@@ -138,31 +138,15 @@ extra_nav_links = {
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-# alabaster
-theme_github_user = 'openaps'
-theme_github_repo = 'docs'
 html_theme_options = {
-  'show_related': True,
-  'github_user': theme_github_user,
-  'github_repo': theme_github_repo,
-  'logo': 'openaps-logo.png',
-  # TODO: ???? doesn't work?
-  'extra_nav_links': extra_nav_links,
+    'collapse_navigation': False,
+    'sticky_navigation': False,
+    'navigation_depth': 3,
+    'titles_only': False
 }
-
-"""
-html_theme = 'default'
-html_theme_options = {
-  'display_github': True,
-  'github_user': 'openaps',
-  'github_repo': 'docs',
-}
-import sphinx_rtd_theme
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path( )]
-"""
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = []
+# html_theme_path = []
 # html_theme_path = [alabaster.get_path( )]
 
 # The name for this set of Sphinx documents.  If None, it defaults to

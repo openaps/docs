@@ -1,9 +1,11 @@
-Give Back/Pay it Forward
-----------------------
+Give Back-Pay It Forward
+==============================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
+   :glob:
+   :hidden:
 
-   
-   data-commons-data-donation
-   contribute
+   Donate your data <data-commons-data-donation>
+   Help others - pay it forward <contribute>
+

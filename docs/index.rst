@@ -25,88 +25,22 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Understanding OpenAPS (Overview)
+   :hidden:
 
-   How OpenAPS works <docs/Understanding OpenAPS-Overview/how-openaps-works-overview>
-   How this guide works/overview of steps <docs/Understanding OpenAPS-Overview/overview-of-build-process>
-   Where to go for help <docs/Understanding OpenAPS-Overview/communication-support-channels>
+   Understanding OpenAPS (Overview) <docs/Understanding OpenAPS-Overview/index>
    
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Gear Up
-
-   docs/Gear Up/hardware
-   Compatible Pumps <docs/Gear Up/pump>
-   Compatible CGMs <docs/Gear Up/CGM>
-   Get your rig parts <docs/Gear Up/edison> 
+   Gear Up <docs/Gear Up/index>
    
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: While You Wait For Gear
-   
-   Collect your data & prepare <docs/While You Wait For Gear/collect-data-and-prepare>
-   Make Your First PR <docs/While You Wait For Gear/loops-in-progress>
-   Setting up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
-   Understand your rig <docs/While You Wait For Gear/understanding-your-Explorer-Board-rig>
-   Entering carbs & boluses </docs/While You Wait For Gear/entering-carbs-bolus>
-   How OpenAPS makes decisions <docs/While You Wait For Gear/Understand-determine-basal>
-   Monitoring OpenAPS <docs/While You Wait For Gear/monitoring-OpenAPS>
-   Preferences and Safety Settings <docs/While You Wait For Gear/preferences-and-safety-settings>
-   Understanding your wifi options <docs/While You Wait For Gear/understanding-wifi-options>
-   
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Build Your Rig
+   While You Wait For Gear <docs/While You Wait For Gear/index>
     
-   Installing OpenAPS <docs/Build Your Rig/OpenAPS-install>
-   512/712 pump users <docs/Build Your Rig/x12-users>
-   Tell us you’re looping <docs/Build Your Rig/keeping-up-to-date>
+   Build your rig <docs/Build Your Rig/index>
 
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Customize-Iterate
-
-   Optimizing Your Settings <docs/Customize-Iterate/optimize-your-settings>
-   Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
-   Enable Bluetooth tethering <docs/Customize-Iterate/bluetooth-tethering-edison>
-   Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
-   Useful apps for accessing your rig </docs/Customize-Iterate/useful-mobile-apps>
-   IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
-   Autosens <docs/Customize-Iterate/autosens>
-   Autotune <docs/Customize-Iterate/autotune>
-   Understanding Autotune <docs/Customize-Iterate/understanding-autotune>
-   oref1: SMB and UAM <docs/Customize-Iterate/oref1>
-   Tips & tricks <docs/Customize-Iterate/usability-considerations>
-   Update your rig in the future <docs/Customize-Iterate/update-your-rig>
-   How to run oref0-setup.sh again <docs/Customize-Iterate/oref0-runagain>
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Troubleshooting
+   Customize-Iterate <docs/Customize-Iterate/index>
    
-   Troubleshooting oref0-setup <docs/Troubleshooting/oref0-setup-troubleshooting>
-   General linux troubleshooting <docs/Troubleshooting/General_linux_troubleshooting>
-   Pump-rig troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
-   CGM-rig troubleshooting <docs/Troubleshooting/CGM-rig-communications-troubleshooting>
-   Rig-NS troubleshooting <docs/Troubleshooting/Rig-NS-communications-troubleshooting>
+   Troubleshooting <docs/Troubleshooting/index>
 
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Give Back-Pay It Forward
-
-   Donate your data <docs/Give Back-Pay It Forward/data-commons-data-donation>
-   Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: Resources/Reference
+   Give Back - Pay it Forward <docs/Give Back-Pay It Forward/index>
    
    Resources <docs/Resources/index>
-   For Clinicians <docs/Resources/clinician-guide-to-OpenAPS>
+
+

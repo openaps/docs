@@ -1,19 +1,21 @@
-Customize-Iterate
-----------------------
+Customize - Iterate
+==============================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
+   :glob:
+   :hidden:
 
-   
-   bluetooth-tethering-edison
-   ifttt-integration
-   autosens
-   autotune
-   understanding-autotune
-   oref1
-   offline-looping-and-monitoring
-   on-the-go-wifi-adding
-   useful-mobile-apps
-   usability-considerations
-   update-your-rig
-   oref0-runagain
+   Optimizing Your Settings <optimize-your-settings>
+   Offline Looping <offline-looping-and-monitoring>
+   Enable Bluetooth tethering <bluetooth-tethering-edison>
+   Add more wifi to your rig <on-the-go-wifi-adding>
+   Useful apps for accessing your rig <useful-mobile-apps>
+   IFTTT and Pebble buttons <ifttt-integration>
+   Autosens <autosens>
+   Autotune <autotune>
+   Understanding Autotune <understanding-autotune>
+   oref1: SMB and UAM <oref1>
+   Tips & tricks <usability-considerations>
+   Update your rig in the future <update-your-rig>
+   How to run oref0-setup.sh again <oref0-runagain>

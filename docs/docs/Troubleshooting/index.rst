@@ -5,6 +5,7 @@ Even those who follow this documentation precisely are bound to end up stuck at 
 
 .. toctree::
    :maxdepth: 4
+   :hidden:
    
    oref0-setup-troubleshooting
    General_linux_troubleshooting

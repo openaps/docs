@@ -1,10 +1,15 @@
-Understanding OpenAPS/Overview
-----------------------
+Understanding OpenAPS (Overview)
+==============================================
+
+Contents:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
+   :glob:
+   :hidden:
 
+   How OpenAPS works <how-openaps-works-overview>
+   Overview of steps <overview-of-build-process>
+   Using this documentation <using-the-docs>
+   Where to go for help <communication-support-channels>
    
-   how-openaps-works-overview
-   overview-of-build-process
-   communication-support-channels

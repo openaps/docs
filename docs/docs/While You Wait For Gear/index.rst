@@ -1,16 +1,18 @@
-While You Wait For Gear
-----------------------
-
-.. toctree::
-   :maxdepth: 4
-
+While you wait for gear
+==============================================
    
-   collect-data-and-prepare
-   loops-in-progress
-   nightscout-setup
-   understanding-your-Explorer-Board-rig
-   Understand-determine-basal
-   understanding-insulin-on-board-calculations
-   monitoring-OpenAPS
-   preferences-and-safety-settings
-   understanding-wifi-options
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   
+   Collect your data & prepare <collect-data-and-prepare>
+   Make Your First PR <loops-in-progress>
+   Setting up Nightscout  <nightscout-setup>
+   Understand your rig <understanding-your-Explorer-Board-rig>
+   Entering carbs & boluses <entering-carbs-bolus>
+   How OpenAPS makes decisions <Understand-determine-basal>
+   Monitoring OpenAPS <monitoring-OpenAPS>
+   Preferences and Safety Settings <preferences-and-safety-settings>
+   Understanding your wifi options <understanding-wifi-options>
+
