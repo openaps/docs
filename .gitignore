@@ -15,3 +15,6 @@ _book
 *.mobi
 *.pdf
 .*.sw[op]
+
+# All build output (HTML etc.)
+build
