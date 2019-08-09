@@ -27,3 +27,5 @@ When you build an OpenAPS rig, you run through the setup described in this docum
 * configure it to talk to YOUR devices and have your information and safety settings on it (based on your preferences)
 
 The open source software is designed to make it easy for the computer to do the work you used to do to calculate what needs to be done. It runs a series of reports to collect data from all the devices and places. Then it prepares the data and runs the calculations. Then it attempts to communicate and send any necessary adjustments to your pump. Then it reads the data back, and does it over and over again. You can see what it's doing in the logs of the rig, or by viewing the information on your watch or on Nightscout.
+
+

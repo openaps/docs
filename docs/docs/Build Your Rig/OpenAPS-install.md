@@ -2,19 +2,11 @@
 
 Getting your rig with OpenAPS takes generally six steps:
 
-1. Jubilinux installation (called "flashing" the Edison - Pi users can skip to step 2)
-2. Getting first wifi network connection
-3. Installing "dependencies" (helper code that make all the OpenAPS code function)
-4. Installing your OpenAPS loop
-5. Watching Pump-loop Log
-6. Finish your setup
-
-* The **first step** may already be done for you if you purchased a pre-flashed Edison board.  
-* The **second and third steps** are accomplished through what is called the "bootstrap" script.
-* The **fourth step** is accomplished through what is called the "setup script".
-* The **fifth step** is an important, required step. You need to be familiar with how to read and access your logs.
-* The **sixth step** is all the polishing steps to your OpenAPS setup.  Things like optimizing your settings, preferences, BT-tethering, IFTTT, etc.
-
+1. **Jubilinux installation** (called "flashing" the Edison - Pi users can skip to step 2). This may already be done for you if you purchased a pre-flashed Edison board.  
+2. **Getting first wifi network connection and installing "dependencies"** (helper code that make all the OpenAPS code function). This is done using what is called the "bootstrap" script.
+3. **Installing your OpenAPS loop**. This is done using what is called the "setup" script.
+4. **Watching the Pump-loop Log**. This is an important, required step. You need to be familiar with how to read and access your logs.
+5. **Finish your setup**: all the polishing steps to your OpenAPS setup.  Things like optimizing your settings, preferences, BT-tethering, IFTTT, etc.
 
 ### Some conventions used in these docs:
 
@@ -32,7 +24,7 @@ If you purchased a pre-flashed Edison, you can also skip on down to [step 2](htt
 
 If you need to flash your Edison, the directions are slightly different depending on the computer you are using.  Please see the [Mac-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html) or the [Windows-specific flashing page](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) for detailed info on how to flash jubilinux.  There is also a more general flashing page [here](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) that has some good [troubleshooting tips](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting) at the end of the page, if you flashing stalls out.
 
-### Steps 2-3: Wifi and Dependencies
+### Step 2: Wifi and Dependencies
 
 Steps 2-3 are covered in the page links below, dependent on which type of rig you are using.  
 
@@ -42,7 +34,7 @@ Steps 2-3 are covered in the page links below, dependent on which type of rig yo
 
 Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
 
-### Step 4: Setup script
+### Step 3: Setup script
 
 * **If you pressed `enter` to continuing on with the setup script at the end of the bootstrap script**, you do **NOT** need to specifically enter the command in the box below.  By pressing `enter` to continuing on with setup script, the command was automatically started for you.
 
@@ -109,7 +101,7 @@ Make sure that at the end of the setup script, your log rotate file is set to `d
 
 **************************
 
-## Step 5: Watch your Pump-Loop Log
+## Step 4: Watch your Pump-Loop Log
 
 THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! This is a key skill for monitoring your OpenAPS setup to "check" or "monitor" or "watch" the logs. 
 
@@ -259,7 +251,7 @@ These logs and other files are things you may frequently access. There are short
  ```
 To use these shortcuts, just type in the phrase you see on the left - i.e. `edit-wifi` and hit enter.
 
-## Step 6: Finish your OpenAPS setup
+## Step 5: Finish your OpenAPS setup
 
 You're looping? Congrats! However, you're not done quite done yet. 
 

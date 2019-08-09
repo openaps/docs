@@ -3,8 +3,6 @@ Welcome to OpenAPS's documentation!
 
 This documentation supports a self-driven Do-It-Yourself (DIY) implementation of an artificial pancreas based on the OpenAPS reference design. By proceeding to use these tools or any piece within, you agree to `the copyright <https://github.com/openaps/docs/blob/master/license.txt>`_ for more information; and `the full README here <https://github.com/openaps/docs/blob/master/README.md>`_ and release any contributors from liability, and assume full responsibility for all of your actions and outcomes related to usage of these tools or ideas.
 
-
-
 .. note:: 
    **A Note on DIY and the "Open" Part of OpenAPS**
    
@@ -32,7 +30,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    
    While You Wait For Gear <docs/While You Wait For Gear/index>
     
-   Build your rig <docs/Build Your Rig/index>
+   Installing OpenAPS on your rig <docs/Build Your Rig/index>
 
    Customize-Iterate <docs/Customize-Iterate/index>
    

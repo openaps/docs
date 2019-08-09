@@ -5,7 +5,6 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :glob:
    :hidden:
 
    How OpenAPS works <how-openaps-works-overview>
