@@ -4,7 +4,7 @@ Babel==2.7.0
 certifi==2019.6.16
 chardet==3.0.4
 CommonMark==0.5.4
-decocare==0.0.30.dev0
+decocare==0.0.31
 dexcom-reader==0.1.10
 docutils==0.14
 gitdb2==2.0.5
