@@ -52,7 +52,11 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
   
   ```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)```
   
-  You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password). It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of commands scrolling by in Terminal window.  Just wait it out until you see the screen showing Installation successful and you’ll be returned to the Terminal prompt.
+  You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password). When you type the password, you will not see any letters appear in the Terminal screen..that is normal.  Terminal does not show keystrokes for passwords.
+
+![Enter return example](../Images/Edison/Enter_return.png)
+
+It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of commands scrolling by in Terminal window.  Just wait it out until you see the screen showing Installation successful and you’ll be returned to the Terminal prompt.
   
   If you get a message that Homebrew is already installed, that's also fine!
   
@@ -60,7 +64,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
   
   ```brew install dfu-util coreutils gnu-getopt```
   
-![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
+![After installing other stuff](../Images/Edison/After_install_other_stuff.png)
 
 - If you are reflashing an Edison, you might see a recommendation to upgrade coreutils, in which case, run `brew upgrade coreutils gnu-getopt`
 
@@ -68,7 +72,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 `brew update && brew tap jlhonora/lsusb && brew install lsusb`
 
-![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
+![After installing lsusb](../Images/Edison/after_install_lsusb.png)
 
 The above instructions are based on [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) which may be useful as a reference.
 
