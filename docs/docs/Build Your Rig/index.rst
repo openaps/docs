@@ -10,6 +10,7 @@ Getting OpenAPS running on your rig generally takes five steps:
 4. **Watching the Pump-loop Log**. This is an important, required step. You need to be familiar with how to read and access your logs.
 5. **Finish your setup**: all the polishing steps to your OpenAPS setup.  Things like optimizing your settings, preferences, BT-tethering, IFTTT, etc.
 
+Going through steps 1-2 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 2), you will be asked if you want to continue on with the set-up script (step 3).  If you need to take a break and come back to step 3 later, you can answer "no" to continuing on and come back later.
 
 Some conventions used in these docs:
 

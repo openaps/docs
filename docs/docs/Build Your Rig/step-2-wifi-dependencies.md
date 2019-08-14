@@ -6,11 +6,11 @@ Steps 2-3 are covered in the page links below, dependent on which type of rig yo
 
 * If you are using a _**Raspberry Pi**_, start with the [Raspberry Pi instructions](pi-install.md).
 
-Going through steps 1-3 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 3), you will be asked if you want to continue on with the set-up script (step 4).  If you need to take a break and come back to step 4 later, you can answer "no" to continuing on and come back later...picking up at the directions below for running the setup script.
 
 
 
-Below are the manual instructions for reference. It is strongly recommended that you use the easy setup scripts instead.
+
+Below are the manual instructions for reference only - it is strongly recommended that you use the easy setup scripts instead.
 
 
 ## Initial Edison Setup
@@ -26,7 +26,7 @@ And then paste the following to rename your Edison accordingly:
     echo $myedisonhostname > /etc/hostname
     sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
 
-Run these commands to set secure passwords.  It will ask you to enter your new password for each user 2 times. Type the password in the same both times.  To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
+Run these commands to set secure passwords. Make sure you save them somewhere - you will need them! It will ask you to enter your new password for each user 2 times. Type the password in the same both times.  To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
 
     passwd root
     passwd edison
@@ -35,7 +35,11 @@ Run these commands to set secure passwords.  It will ask you to enter your new p
 
 `vi /etc/network/interfaces`
 
-Type 'i' to get into INSERT mode
+A screen similar to the one below will appear.  Type “i” to enter INSERT mode for editing on the file.
+
+![Wifi edit screen](../Images/Edison/Wifi_edit_screen.png)
+
+Type 'i' to get into INSERT mode. In INSERT mode 
 * Uncomment 'auto wlan0' (remove the `#` at the beginning of the line)
 * Edit the next two lines to read:
 ```
@@ -43,7 +47,7 @@ auto wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-Comment out or delete the wpa-ssid and wpa-psk lines.
+Comment out (add # at the start of the line) or delete the wpa-ssid and wpa-psk lines.
 
 After editing, your file should look like:
 
@@ -62,7 +66,7 @@ iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-Press Esc and then type ':wq' and press Enter to write the file and quit
+Press Esc and then type ':wq' and press Enter to write (save) the file and quit.
 
 `vi /etc/wpa_supplicant/wpa_supplicant.conf`
 
@@ -154,5 +158,3 @@ and add to the end of the file:
 ``` 
  edison ALL=(ALL) NOPASSWD: ALL   
 ```    
-
-You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/loops-in-progress.html)

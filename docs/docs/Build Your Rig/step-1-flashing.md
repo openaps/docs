@@ -13,7 +13,7 @@ It's best to replace this with a custom version of Debian, as this fits best wit
 
 ## 1. Prerequisites
 
-### If you’re using a Raspberry Pi - prerequisites:
+### If you’re using a Raspberry Pi:
 
 To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB+) SD card for your Pi.  The Edison image is almost 2GB, so you’ll not only need space for the compressed and uncompressed image, but you’ll also need to enable a large swapfile on your Pi to fit the image into virtual memory while it is being flashed.  Using an SD card as memory is very slow, so allow extra time to flash the Edison image using a Pi.
 
@@ -22,7 +22,7 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
   -  Run `sudo /etc/init.d/dphys-swapfile stop` and then `sudo /etc/init.d/dphys-swapfile start` to enable the new swap file.
   -  If you installed `watchdog` on the pi, it's a good idea to stop it since loading the image into memory to flash is intensive
 
-### If you're using a Windows PC - prerequisites:
+### If you're using a Windows PC:
 
 - Install the [Intel Edison drivers for Windows](https://downloadcenter.intel.com/download/26993/Intel-Edison-Configuration-Tool?product=84572). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
 
@@ -46,7 +46,9 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
  - Reboot and attempt the flash process.
 
 
-### If you're using a Mac to flash - prerequisites:
+### If you're using a Mac:
+
+- If you're not familiar with using the command line, take 5-10 minutes to get familiar with the Terminal app before continuing. [Here's a good introduction.] (https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
 
 - Install Homebrew, a tool which allows you to easily install other software packages and keep them up to date. Enter the following command in the Terminal app to install Homebrew: 
   
@@ -99,32 +101,34 @@ Now we move to the rig.  Your Explorer Board has 2 micro USB connectors. They ca
 
 You must use DATA micro USB to USB cables. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
 
-![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
+![Edison in Finder](../Images/Edison/Edison_in_Finder_folder.png) 
 
 Note: If you are using a Macbook with a USB-C Hub you may encounter some issues with the flashing process, including unexpected rebooting and the wireless LAN setup not functioning correctly, so if you have an option to use a PC or Laptop with directly connected USB cables, it will be easier to do so. If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295).
 
   - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labeled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
-![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
+![Explorer Board rig with two cables and red light on](../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
-### If you’re using a Raspberry Pi for console:
-  - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
+### If you're using a Raspberry Pi or Mac for console:
+  - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` 
+  - If you do not have screen installed you can install with `sudo apt-get install screen`.
+  - If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
+  - You’ll most likely be asked for your computer password again because you're using sudo.  Enter it.  
   
 ### If you're using a Windows PC for console:
   - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. this is the port you are looking for.
   - Open PuTTY, change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer board. Change the speed (baud rate) to 115200. 
   - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration window. 
   - Continue with the All platforms section below.
-
-### If you're using a Mac for console:
-  - Open a terminal window and type `sudo screen /dev/tty.usbserial-* 115200` If necessary, replace the '*' with your Edison UART serial number, obtained using lsusb.
   
 ### All platforms:
   - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
-  - Now you will see a login prompt for the edison on the console screen. Login using the username "root" (all lowercase) and no password. This will have us ready to reboot from the command line when we are ready.  
+  - Now you will see a login prompt for the edison on the console screen. Login using the username "root" (all lowercase) and no password. This will have us ready to reboot from the command line when we are ready. This is your "console window" - keep it open.
    - - Note!  If you do not have your edison password at this point don't panic.  We are only logging in to reboot the edison and that can be accomplished via the black button on the explorer board as well.  Without the root password you may continue.
   - Don't resize your console window: it will likely mess up your terminal's line wrapping.  (Once you get wifi working and connect with SSH you can resize safely.)
+  
+If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", exit your console window.  Then unplug the usb cables from your computer (not from the Edison... leave those ones as is) and swap the USB ports they were plugged into. Then try the above directions again. Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
 
 ## 4. Flashing image onto the Edison
 
@@ -140,17 +144,67 @@ Note: If you are using a Macbook with a USB-C Hub you may encounter some issues 
   - In the "flash window" from the Download Image instructions above, run `flashall.bat`
 
 ### All platforms:
-  - The flashall script will ask you to reboot the Edison. 
+  - The flashall script will ask you to "plug and reboot" the Edison. 
   - - If you have your edison root password: Go back to your console window and type `reboot`. 
   - - If you do not have your edison root password: Press the black button on the explorer board until the LED between the usb connectors shuts off.  Then press it again until the light comes back on. 
   - Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
-  - It will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
+  - In the console window where you typed `reboot`, you should see:
+
+```
+Hit any key to stop autoboot:  0
+Target:blank
+Partitioning using GPT
+Writing GPT: success!
+Saving Environment to MMC...
+Writing to redundant MMC(0)... done
+Flashing already done...
+GADGET DRIVER: usb_dnl_dfu
+#
+DFU complete CRC32: 0x77ccc805
+DOWNLOAD ... OK
+Ctrl+C to exit ...
+######################################################################################################################
+```
+  And in the flash window, you should see 
+```
+Using U-Boot target: edison-blankcdc
+Now waiting for dfu device 8087:0a99
+Please plug and reboot the board
+Flashing IFWI
+Download	[=========================] 100%      4194304 bytes
+Download	[=========================] 100%      4194304 bytes
+Flashing U-Boot
+Download	[=========================] 100%       245760 bytes
+Flashing U-Boot Environment
+Download	[=========================] 100%        65536 bytes
+Flashing U-Boot Environment Backup
+Download	[=========================] 100%        65536 bytes
+Rebooting to apply partition changes
+Now waiting for dfu device 8087:0a99
+Flashing boot partition (kernel)
+Download	[=========================] 100%      5980160 bytes
+Flashing rootfs, (it can take up to 10 minutes... Please be patient)
+```
+  
+  - Like it says, it will take about 10 minutes to flash from Mac or Windows.  If the step that flashall says should take up to 10 minutes completes in seconds, then the flash did not complete successfully, perhaps because you didn't set up the virtual memory / swap settings correctly; check the troubleshooting section.  If you’re using a Raspberry Pi, it may take up to 45 minutes, and for the first 10-15 minutes it may appear like nothing is happening, but eventually you will start to see a progress bar in the console. 
   - After flashing is complete and the Edison begins rebooting, watch the console: you may get asked to type `control-D` to continue after one or more reboots. If so, press `Ctrl-d` to allow it to continue. 
-  - After several more reboots (just about when you'll start to get concerned that it is stuck in a loop), you should get a login prompt.  If so, congratulations! Your Edison is flashed. The default password is `edison`.
+  - The Edison will reboot several times. You may see 
+```
+[**    ] A start job is running for /etc/rc.local Compatibili...14s / no limit)
+```
+for a few minutes: that's fine.  You can also expect to see an ugly red:
+```
+[FAILED] Failed to start Hostname Service.
+```
+That is also fine, and you can ignore it too. Just about when you'll start to get concerned that it is stuck in a loop, you should get a login prompt.  If so, congratulations! Your Edison is flashed. Use login `root` and password `edison` to login to your newly flashed Edison. 
+
+After logging in, you will notice that the Terminal prompt says `root@ubilinux:~#`.  This is the correct prompt for the jubilinux system.  You will not see jubilinux in the prompt.  If you bought a pre-flashed Edison, this is how your initial Terminal prompt will look.
+
+![Terminal Prompt for Jubilinux](../Images/Edison/name.png)
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
-Hooray! After you've flashed your Edison, head on to [step 2 - setting up wifi and installing dependencies](step-2wifi-dependencies)
+After you've flashed your Edison, head on to [step 2 - setting up wifi and installing dependencies](step-2wifi-dependencies)
 
 
 ## Troubleshooting
