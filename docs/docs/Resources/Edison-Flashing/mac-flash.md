@@ -1,62 +1,4 @@
-# Setting up Edison/Explorer Board on a Mac
-
-(This is a separate workflow for Mac only. Please refer to the all-computer flashing instructions as well for troubleshooting & full instructions for other computer setup processes.)
-
-## Hardware Assumptions for this page
-
-1.  Using an explorer board and Edison
-2.  Using an Apple computer
-3.  Using a looping-compatible Medtronic pump. If using a x12 series Medtronic pump, it will require one small [extra step](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html). See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
-
-## High Level Recommended Rig parts list
-
-* [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
-
-* [**Edison - link**](https://www.sparkfun.com/products/13024)
-
-* [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187)
-
-* **At least one Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
- * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
- * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
-
-* **Cables**  (you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
- * [**3 ft long cable, USB-microB - link**](https://www.adafruit.com/products/592)
- * [**6 inch long cable, USB-microB - link**](https://www.adafruit.com/products/898)
-
-## Getting Physical: Build your rig/put the physical pieces together
-
-The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
-
-The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
-
-It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
-
-![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
-
-## Software-build your rig
-
-Building the software into your rig is comprised of three steps:
-
-1. Preparing the Edison (aka flashing the Edison)
-2. Installing the “looping” code (aka setup script for oref0)
-3. Customizing your loop 
-
 ### 1. Preparing/flashing the Edison/reflashing the Edison
-
-The Edison comes with an operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
-
-Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download [Jubilinux](http://www.jubilinux.org/dist/) (jubilinux 0.3.0 is the only fully supported version; jubilinux 0.2.0 runs Debian jessie, which is NOT supported by Debian any longer).
-
-Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
-
-Note: Before starting to flash an Edison using a Mac, if you are using a Macbook with a USB-C Hub you may encounter some issues with the flashing process, including the wireless LAN setup not functioning correctly, so if you have an option to use a PC or Laptop with directly connected USB cables, it may be better to do so.
-
-![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
-
-Once you plug in the cables, you should see your Edison board in your Finder as a connected “device” (similar to what you would see if you plug in a USB thumb drive).  If you don’t…try different cables.  If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295) (it’s not hard to do, takes 2 minutes.)
-
-![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
 
 The OpenAPS uses Terminal, kind of like Loop uses Xcode.  It’s our interaction with the code that forms the basis of the loop.  You may have never even used the Terminal app.  Go to your Applications folder and find the Terminal App in the Utilities folder.  Double click to open it.
 
@@ -70,35 +12,7 @@ When you first launch Terminal, you will probably see something rather plain lik
 
 If you’re like me, you don’t “speak linux” (or python or java or…) nor do you really know what linux is.  So, you’ll be comforted to know that most of this setup is copy and paste commands into Terminal.  You won’t need to suddenly learn linux…just will need to follow directions and be willing  learn some basics.
 
-**IMPORTANT NOTE**: STEPS 1-10 will be updated periodically, and also will likely be out of date.  Since this is just a cheat sheet for Mac users, it may not have all the troubleshooting tips or updated info that the main OpenAPS docs have.  If you get stuck and this guide’s set of instructions do not work at the moment, the place to look is the [OpenAPS Walkthrough Phase 0, Setting up your Intel Edison](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html) for the full information on this part of the OpenAPS setup.
-
 The next steps will be done in the Terminal app.  If you see red colored text/code lines in a box, that’s what you want to copy and paste into Terminal, and then press enter.  Don’t try typing it…you’ll likely miss a space or add a typo.  So, let’s start…
-
-#### **1-1. Install homebrew**
-
-`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
-You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password).  When you type the password, you will not see any letters appear in the Terminal screen..that is normal.  Terminal does not show keystrokes for passwords.
-
-![Enter return example](../../Images/Edison/Enter_return.png)
-
-It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of commands scrolling by in Terminal window.  Just wait it out until you see the screen showing Installation successful and you’ll be returned to the $ Terminal prompt.
-
-![After Homebrew](../../Images/Edison/After_Homebrew.png)
-
-#### **1-2.  Install a bunch of other stuff (dfu-util, coreutils, gnu-getopt)**
-
-`brew install dfu-util coreutils gnu-getopt`
-
-* If you are reflashing an Edison, it might suggest upgrading coreutils, in which case, run `brew upgrade coreutils gnu-getopt`
-
-![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
-
-#### **1-3.  Install lsusb**
-
-`brew update && brew tap jlhonora/lsusb && brew install lsusb`
-
-![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
 
 #### **1-4.     Start Edison in screen mode**
 
@@ -363,11 +277,3 @@ If the rig isn't online, go back and check your /etc/network/interfaces and /etc
 ![Log rotation examples](../../Images/Edison/log_rotation.png)
 
 **Congratulations you have successfully flashed your edison and configured some basic settings. Time to move onto OpenAPS install**
-
-### 2. Installing the looping script (openaps-setup.sh)
-
-You'll now want to move on to the [rest of the install instuctions](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html).
-
-### 3. Personalising your closed loop
-
-Remember to personalize your settings after you finish installing OpenAPS!

@@ -1,15 +1,17 @@
-# Setting Up Your Intel Edison - Flashing instructions for all computer types
+# Step 1: Jubilinux (for Edison rigs only)
 
-The Intel Edison system comes with a very limited Operating System. It's best to replace this with a custom version of Debian, as this fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
+This is only necessary for Edison rigs. Pi users can skip to 
+[step 2](step-2-wifi-dependencies). If you purchased a pre-flashed Edison, you can also skip on down to [step 2](step-2-wifi-dependencies).
 
-## Helpful notes before you get started
-Your Explorer Board has 2 micro USB connectors, they both provide power. On the community developed Edison Explorer Board the port labeled OTG is for flashing, and the one labeled UART provides console login. You must connect both ports to your computer to complete the flash process.
+The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi). Linux users in general should be able to follow the steps for the Raspberry Pi.
 
-You must use a DATA micro USB to USB cable. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
+## What is flashing?
 
-The steps outlined below include instructions for the various build-platforms (Windows PC, Mac, and Raspberry Pi). Linux users in general should be able to follow the steps for the Raspberry Pi. If you'd prefer to follow directions specific to one platform you are using, you can use the [Windows PC cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/PC-flash.html) or the [Mac OSX cheat sheet](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/mac-flash.html).
+The Edison comes with a ver limited operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
-## Prerequisites
+It's best to replace this with a custom version of Debian, as this fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
+
+## 1. Prerequisites
 
 ### If you’re using a Raspberry Pi - prerequisites:
 
@@ -46,19 +48,39 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ### If you're using a Mac to flash - prerequisites:
 
-  -  Read, but only follow steps 3-5 of, [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) first.  When you get to step 6, you'll need to cd into the jubilinux directory (see how to create it in the Jubilinux section below if you don't already have it) instead of the Intel image one, and continue with the directions below.
-  -  Check also to see if you have lsusb installed prior to proceeding.  If not, follow the instructions here to add: https://github.com/jlhonora/homebrew-lsusb
-  - Read the [Mac instructions for flashing](mac-flash.md) too, but note that they are now a little older than this.
+- Install Homebrew, a tool which allows you to easily install other software packages and keep them up to date. Enter the following command in the Terminal app to install Homebrew: 
+  
+  ```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)```
+  
+  You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password). It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of commands scrolling by in Terminal window.  Just wait it out until you see the screen showing Installation successful and you’ll be returned to the Terminal prompt.
+  
+  If you get a message that Homebrew is already installed, that's also fine!
+  
+- Install several other utilities by entering the command:
+  
+  ```brew install dfu-util coreutils gnu-getopt```
+  
+![After installing other stuff](../../Images/Edison/After_install_other_stuff.png)
 
+- If you are reflashing an Edison, you might see a recommendation to upgrade coreutils, in which case, run `brew upgrade coreutils gnu-getopt`
 
-## Downloading image
+-  Install lsusb: 
+
+`brew update && brew tap jlhonora/lsusb && brew install lsusb`
+
+![After installing lsusb](../../Images/Edison/after_install_lsusb.png)
+
+The above instructions are based on [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) which may be useful as a reference.
+
+## 2. Downloading image
 
 ### Jubilinux
+
 [Jubilinux](http://www.jubilinux.org/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps that are required when starting from ubilinux.
 
-  - Download [Jubilinux](http://www.jubilinux.org/dist/) - the jubilinux-v0.3.0.zip is known to work; jubilinux 0.2.0 runs Debian jessie, which is NOT supported by Debian any longer
+  - Download [Jubilinux](http://www.jubilinux.org/dist/) - the jubilinux-v0.3.0.zip is known to work; jubilinux 0.2.0 runs Debian jessie, which is NOT supported by Debian any longer.
   - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
-  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window", keep it open for later.
+  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window."  Keep it open for later!
   
   For Windows OS:
   
@@ -67,11 +89,21 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
      Extract the two files, libusb-1.0.dll and dfu-util.exe, to the directory where you extracted jublinux.zip.
      (you can also extract all files to a separate folder and then copy the files to the jublinux directory)
 
-## Connecting cables and starting console
+## 3. Connecting cables to the Explorer Board and starting console
+
+Now we move to the rig.  Your Explorer Board has 2 micro USB connectors. They can both provide power. On the community developed Edison Explorer Board, the port labeled OTG is for flashing, and the one labeled UART provides console login. You must connect both ports to your computer to complete the flash process.
+
+You must use DATA micro USB to USB cables. How do you know if your cable is for data? One good way is to plug the cable into your computer USB port and the explorer board OTG port. If your folder/window explorer shows Edison as a drive then the cable supports data.
+
+![Edison in Finder](../../Images/Edison/Edison_in_Finder_folder.png) 
+
+Note: If you are using a Macbook with a USB-C Hub you may encounter some issues with the flashing process, including unexpected rebooting and the wireless LAN setup not functioning correctly, so if you have an option to use a PC or Laptop with directly connected USB cables, it will be easier to do so. If your USB port is bad and not recognizing the device, you may need to [reset your SMC first](https://support.apple.com/en-au/HT201295).
 
   - Connect a USB cable (one that carries data, not just power) to the USB console port. On the Explorer board or Sparkfun base block, this is the port labeled `UART`.  On the Intel mini breakout board, this is the USB port that is labeled P6 (should be the USB closest to the JST battery connector).  Plug the other end into the computer (or Pi) you want to use to connect to console.
   - Plug another USB cable (one that carries data, not just power) into the USB port labeled OTG on the Explorer board or Sparkfun base block, or the port that is almost in the on the bottom right (if reading the Intel logo) if setting up with the Intel mini breakout board.  Plug the other end into the computer (or Pi) you want to flash from.
   
+![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
+
 ### If you’re using a Raspberry Pi for console:
   - Open a terminal window and type `sudo screen /dev/ttyUSB0 115200` or similar.  If you do not have screen installed you can install with `sudo apt-get install screen`.
   
@@ -90,7 +122,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
    - - Note!  If you do not have your edison password at this point don't panic.  We are only logging in to reboot the edison and that can be accomplished via the black button on the explorer board as well.  Without the root password you may continue.
   - Don't resize your console window: it will likely mess up your terminal's line wrapping.  (Once you get wifi working and connect with SSH you can resize safely.)
 
-## Flashing image onto the Edison
+## 4. Flashing image onto the Edison
 
 ### If you’re using a Raspberry Pi - starting flash:
   - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
@@ -114,151 +146,7 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
-Hooray! After you've flashed your Edison, head back to the main [install instructions for wifi and dependencies](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies) to use the easy automated scripts. (Below are manual install instructions). 
-
-## Initial Edison Setup
-
-Log in as root/edison via serial console.
-
-Type/edit the following:
-
-    myedisonhostname=<thehostname-you-want>     #Do not type the <>
-
-And then paste the following to rename your Edison accordingly:
-
-    echo $myedisonhostname > /etc/hostname
-    sed -r -i"" "s/localhost( jubilinux)?$/localhost $myedisonhostname/" /etc/hosts
-
-Run these commands to set secure passwords.  It will ask you to enter your new password for each user 2 times. Type the password in the same both times.  To use SSH (which you will need to do shortly) this password needs to be at least 8 characters long.  Do not use a dictionary word or other easy-to-guess word/phrase as the basis for your passwords.  Do not reuse passwords you've already used elsewhere.
-
-    passwd root
-    passwd edison
-
-## Set up Wifi:
-
-`vi /etc/network/interfaces`
-
-Type 'i' to get into INSERT mode
-* Uncomment 'auto wlan0' (remove the `#` at the beginning of the line)
-* Edit the next two lines to read:
-```
-auto wlan0
-iface wlan0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-```
-Comment out or delete the wpa-ssid and wpa-psk lines.
-
-After editing, your file should look like:
-
-```
-# interfaces(5) file used by ifup(8) and ifdown(8)
-auto lo
-iface lo inet loopback
-
-auto usb0
-iface usb0 inet static
-    address 192.168.2.15
-    netmask 255.255.255.0
-
-auto wlan0
-iface wlan0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-```
-
-Press Esc and then type ':wq' and press Enter to write the file and quit
-
-`vi /etc/wpa_supplicant/wpa_supplicant.conf`
-
-Type 'i' to get into INSERT mode and add the following to the end, once for each network you want to add.  Be sure to include the quotes around the network name and password.
-
-```
-network={
-    ssid="my network"
-    psk="my wifi password"
-}
-```
-
-If you want to add open networks to your list, then add:
-
-```
-network={
-        key_mgmt=NONE
-        priority=-999
-}
-```
-
-If you have a hidden wifi network add the line `scan_ssid=1`.
-
-Some wifi networks require you to accept a terms and conditions prior to allowing access.  For example, Starbucks coffee shops and many hotels.  These networks are termed "captive" networks and connecting your rig to them is currently not an option.
-
-Other wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school district wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
-
-```
-network={
-   scan_ssid=1
-   ssid="network name"
-   password="wifi password"
-   identity="wifi username"
-   key_mgmt=WPA-EAP
-   pairwise=CCMP TKIP
-   group=CCMP TKIP WEP104 WEP40
-   eap=TTLS PEAP TLS
-   priority=1
-}
-```
-
-Press Esc and then type ':wq' and press Enter to write the file and quit
-
-`reboot` to apply the wifi changes and (hopefully) get online
-
-After rebooting, log back in and type `iwgetid -r` to make sure you successfully connected to wifi. It should print out your network name.
-
-Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.
-
-Leave the serial window open in case you can't get in via SSH and need to fix your wifi config.
- 
-If you need more details on setting up wpa_supplicant.conf, see one of these guides:
-
-* [http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/](http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/)
-* [http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/](http://www.geeked.info/raspberry-pi-add-multiple-wifi-access-points/)
-* [http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks](http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks)
-* [http://www.cs.upc.edu/lclsi/Manuales/wireless/files/wpa_supplicant.conf](http://www.cs.upc.edu/lclsi/Manuales/wireless/files/wpa_supplicant.conf)
-
-
-## Install packages, ssh keys, and other settings
-
-From a new terminal or PuTTY window, `ssh root@myedisonhostname.local`. If you can't connect via `youredisonhostname.local` (for example, on a Windows PC without iTunes), you can instead connect directly to the IP address you found with `ifconfig` above.
-
-Log in as root (with the password you just set above), and run:
-
-    dpkg -P nodejs nodejs-dev
-    apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove
-    apt-get install -y sudo strace tcpdump screen acpid vim python-pip locate
-    
-And:
-
-    adduser edison sudo
-    adduser edison dialout
-    dpkg-reconfigure tzdata    # Set local time-zone
-       Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER
-
-Edit (with `nano` or `vi`) /etc/logrotate.conf and change the log rotation to `daily` from `weekly` and enable log compression by removing the hash on the #compress line, to reduce the probability of running out of disk space
-
-If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
-
-If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison ([directions you can adapt are here](http://openaps.readthedocs.io/en/latest/docs/Resources/Deprecated-Pi/Pi-setup.html#mac-and-linux)).  For Windows/Putty users, you can use these instructions: [https://www.howtoforge.com/ssh_key_based_logins_putty](https://www.howtoforge.com/ssh_key_based_logins_putty).
-
-If you're *not* using the Explorer board, are running as the `edison` users, and want to be able to run sudo without typing a password, run:
-```
-    $ su -
-    $ visudo
-```    
-and add to the end of the file:
-``` 
- edison ALL=(ALL) NOPASSWD: ALL   
-```    
-
-You have now installed the operating system on your Edison! You can now proceed to the next step of adding yourself to [Loops in Progress](https://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/loops-in-progress.html)
+Hooray! After you've flashed your Edison, head on to [step 2 - setting up wifi and installing dependencies](step-2wifi-dependencies)
 
 
 ## Troubleshooting
