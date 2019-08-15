@@ -7,7 +7,7 @@ The steps outlined below include instructions for the various build-platforms (W
 
 ## What is flashing?
 
-The Edison comes with a ver limited operating system that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
+The Edison comes with a very limited operating system, called Yocto, that doesn’t work easily with OpenAPS.  The first step is to replace the operating system with a new one.  This is called “flashing” the Edison.  
 
 It's best to replace this with a custom version of Debian, as this fits best with OpenAPS, and it also means you have the latest security and stability patches. (These setup instructions were pulled from the mmeowlink wiki; if you're an advanced user and want/need to use Ubilinux instead of the recommended Jubilinux, [go here](https://github.com/oskarpearson/mmeowlink/wiki/Prepare-the-Edison-for-OpenAPS).) The setup instructions also are going to assume you're using the Explorer Board that has a built in radio stick. If you're using any other base board and/or any other radio sticks (TI, ERF, Rileylink, etc.), check out [the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for support of those hardware options.
 
@@ -24,15 +24,23 @@ To flash the Edison using a Raspberry Pi, you’ll need a large (preferably 16GB
 
 ### If you're using a Windows PC:
 
-- Install the [Intel Edison drivers for Windows](https://downloadcenter.intel.com/download/26993/Intel-Edison-Configuration-Tool?product=84572). Select the "Windows standalone driver" download. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
+- Install the [Intel Edison drivers for Windows](https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download if available.  (Note: Intel has announced the Edison will be discontinued at the end of 2017.  As part of this, apparently, the old link to Edison drivers has been removed.  We are unsure if this is a temporary issue or long term.  Therefore, if the link above for Intel Edison Drivers is not working, you can use [this link](https://www.dropbox.com/s/d5ooojru5jxsilp/IntelEdisonDriverSetup1.2.1.exe?dl=0) to download them directly from an OpenAPS user's dropbox.  Obviously screenshots below will be different if Intel has not fixed or repaired their driver downloads page for Edisons.) After it is done downloading, click on the downloaded file and it will execute installation. You do not need to reflash the Edison or setup security or Wi-Fi with this tool because later steps in this process will overwrite those settings.
 
-******
+![Edison Drivers](../Images/Edison/edison_driver.png)
 
-Note: Intel has announced the Edison will be discontinued at the end of 2017.  As part of this, apparently, the old link to Edison drivers has been removed.  We are unsure if this is a temporary issue or long term.  Therefore, if the link above for Intel Edison Drivers is not working, you can use [this link](https://www.dropbox.com/s/d5ooojru5jxsilp/IntelEdisonDriverSetup1.2.1.exe?dl=0) to download them directly from an OpenAPS user's dropbox.  Obviously screenshots below will be different if Intel has not fixed or repaired their driver downloads page for Edisons.
+![Edison Drivers](../Images/Edison/edison_driver2.png)
 
-******
+- Install [PuTTY]( http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). PuTTY is the program you will normally use to login to your rig in the future from the computer.  Creating a desktop shortcut for it is a good idea, since you will likely use it often.  Download the installation file that matches your PC's architecture (32-bit or 64-bit).  If you are unsure, you can check your computer's build and memory in the Control Panel.  Example shown is for a 64-bit computer.  If unsure, installing the 32-bit version won't harm anything...it just might be a little slower to use PuTTY.
 
-- Install [PuTTY]( http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Download the installation file that matches your PC's architecture (32-bit or 64-bit).
+![Control Panel](../Images/Edison/64_bit.png)
+
+![Putty](../Images/Edison/putty.png)
+
+![Putty](../Images/Edison/putty2.png)
+
+![Putty](../Images/Edison/putty3.png)
+
+#### Windows PCs with under 6 GB of RAM
 
 Windows PCs with less than 6 GB of RAM  may need to have the size of the page file increased to flash the Edison. Close all unnecessary programs and attempt to flash the device. If the flash operation fails follow these steps to ensure enough swap space is allocated when the computer boots, then restart and try again. Only do this if flashing the device doesn't work without changing these settings.
 
@@ -48,13 +56,13 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ### If you're using a Mac:
 
-- If you're not familiar with using the command line, take 5-10 minutes to get familiar with the Terminal app before continuing. [Here's a good introduction.] (https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+- If you're not familiar with using the command line, take 5-10 minutes to get familiar with the Terminal app before continuing. [Here's a good introduction.](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
 
 - Install Homebrew, a tool which allows you to easily install other software packages and keep them up to date. Enter the following command in the Terminal app to install Homebrew: 
   
   ```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)```
   
-  You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password). When you type the password, you will not see any letters appear in the Terminal screen..that is normal.  Terminal does not show keystrokes for passwords.
+  You will be prompted to enter “RETURN” to continue and then enter your passcode for the user account (your computer password). When you type the password, you will not see any letters appear in the Terminal screen--that is normal.  Terminal does not show keystrokes for passwords.
 
 ![Enter return example](../Images/Edison/Enter_return.png)
 
@@ -78,22 +86,20 @@ It will take about 1-2 minutes for Homebrew to install.  You’ll see a bunch of
 
 The above instructions are based on [these instructions](https://software.intel.com/en-us/node/637974#manual-flash-process) which may be useful as a reference.
 
-## 2. Downloading image
-
-### Jubilinux
+## 2. Downloading Jubilinux image
 
 [Jubilinux](http://www.jubilinux.org/) "is an update to the stock ubilinux edison distribution to make it more useful as a server, most significantly by upgrading from wheezy to jessie."  That means we can skip many of the time-consuming upgrade steps that are required when starting from ubilinux.
 
   - Download [Jubilinux](http://www.jubilinux.org/dist/) - the jubilinux-v0.3.0.zip is known to work; jubilinux 0.2.0 runs Debian jessie, which is NOT supported by Debian any longer.
-  - In download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line) You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
-  - Open a terminal window and navigate to the extracted folder: `cd jubilinux`. If using Windows OS use the command prompt (cmd). This is your "flash window."  Keep it open for later!
+  - In the download folder, right-click on file and extract (or use `unzip jubilinux.zip` from the command line). You will access this directory from a command prompt in the next step. It is a good idea to create the Jubilinux in your root directory to make this easier to access.
   
-  For Windows OS:
+  **Note** On Windows, you should see an `extract all` option when you right-click.  However, in some instances, it may not be active for zipped files. If you do not see the `extract all` option in the right-click menu, right-click the zipped file, choose `Properties` at the bottom of the context menu.  On the General tab, click on the button next to the "opens with" and change it to use Windows Explorer.  Apply the change and select `OK` to save the change.  You should now be able to right-click the jubilinux.zip file to extract all.
   
-     You will need an additional utility prior to flashing from Windows. 
-     Download [DFU-Util](https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz).
-     Extract the two files, libusb-1.0.dll and dfu-util.exe, to the directory where you extracted jublinux.zip.
-     (you can also extract all files to a separate folder and then copy the files to the jublinux directory)
+  - Open a Terminal (Mac) or Command Prompt (Windows) window and navigate to the extracted folder: `cd jubilinux`. This is your "flash window."  Keep it open for later!
+  
+  - If using Windows, you will need two additional utilities.  Download [DFU-Util](https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz). Extract the two files, libusb-1.0.dll and dfu-util.exe, to the directory where you extracted jublinux.zip. (Alternately, you can download the two files [libusb-1.0.dll](http://dfu-util.sourceforge.net/releases/dfu-util-0.8-binaries/win32-mingw32/libusb-1.0.dll) and [dfu-util.exe](http://dfu-util.sourceforge.net/releases/dfu-util-0.8-binaries/win32-mingw32/dfu-util.exe) directly.) When you have successfully moved those two folders into the jubilinux folder, you should see files/folders inside the jubilinux folder like so:
+
+![Ready to Flashall](../Images/Edison/ready.png)
 
 ## 3. Connecting cables to the Explorer Board and starting console
 
@@ -117,10 +123,16 @@ Note: If you are using a Macbook with a USB-C Hub you may encounter some issues 
   - You’ll most likely be asked for your computer password again because you're using sudo.  Enter it.  
   
 ### If you're using a Windows PC for console:
-  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. this is the port you are looking for.
-  - Open PuTTY, change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer board. Change the speed (baud rate) to 115200. 
+  - Go to Control Panel\All Control Panel Items\Device Manager\Ports\ and look for USB Serial Port COMXX. If you have multiple and are unsure of which is the port you need: Make note of existing ports. Unplug the cable from the Explorer board. Notice which port disappears. This is the port you are looking for. (If only one shows up, that is your Edison's port.)
+  
+  ![Port Select](../Images/Edison/port.png)
+  
+  - Open PuTTY, and change from SSH to Serial. It normally defaults to COM1 and speed of 9600. Change the COM number to the number you found when you plugged into the Explorer board. Change the speed (baud rate) to 115200. 
+  
+    ![Putty port](../Images/Edison/putty_port.png) 
   - Once you've made those changes, Click on OPEN at the bottom of your Putty configuration window. 
   - Continue with the All platforms section below.
+  
   
 ### All platforms:
   - Once the screen comes up, press enter a few times to wake things up. This will give you a "console" view of what is happening on your Edison. 
@@ -145,8 +157,8 @@ If you have a problem getting to the Edison login prompt, and possibly get a war
 
 ### All platforms:
   - The flashall script will ask you to "plug and reboot" the Edison. 
-  - - If you have your edison root password: Go back to your console window and type `reboot`. 
-  - - If you do not have your edison root password: Press the black button on the explorer board until the LED between the usb connectors shuts off.  Then press it again until the light comes back on. 
+    - If you have your edison root password: Go back to your console window and type `reboot`. 
+    - If you do not have your edison root password: Press the black button on the explorer board until the LED between the usb connectors shuts off.  Then press it again until the light comes back on. 
   - Switch back to the other window and you will see the flash process begin. You can monitor both the flash and console windows throughout the rest of the flash process. If nothing else works and you are feeling brave, you can try pulling the Edison out and reconnecting it to the board to start the flash process. 
   - In the console window where you typed `reboot`, you should see:
 
@@ -204,7 +216,7 @@ After logging in, you will notice that the Terminal prompt says `root@ubilinux:~
 
 If you have any difficulty with flashing, skip down to [Troubleshooting](#troubleshooting)
 
-After you've flashed your Edison, head on to [step 2 - setting up wifi and installing dependencies](step-2wifi-dependencies)
+After you've flashed your Edison, head on to [step 2 - setting up wifi and installing dependencies](step-2-wifi-dependencies)
 
 
 ## Troubleshooting
@@ -234,10 +246,12 @@ c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and
    ** The v0.2.0 version of `flashapp.sh` has `$(brew list gnu-getopt | grep bin/getopt)`.
    ** Running `brew list gnu-getopt | grep bin/getopt` for me (Dec 2017) gave me `/usr/local/Cellar/gnu-getopt/1.1.6/bin/getopt`
    * Edit the `flashall.sh` from 
-   ```:bash
+   ```
+   :bash
         GETOPTS="$(which getopt)"
         if [[ "$OSTYPE" == "darwin"* ]] ; then READLINK=greadlink; GETOPTS="$(brew l    ist gnu-getopt | grep bin/getopt)"; else READLINK=readlink;fi;
    ```
+   
    to
         
    ```:bash
