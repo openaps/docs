@@ -1,16 +1,17 @@
 # Step 2: Wifi and Dependencies
 
-The directions for this step depend on which type of rig you are using. 
+The directions for this step depend on which type of rig you are using:
+
+- [Intel Edison](#Intel-Edison-instructions)
+
+- [Raspberry Pi](#Raspberry-Pi-instructions)
 
 ## Intel Edison instructions
 
 ### Prep Computer and Login to rig
 
-Assuming you don't have your computer setup yet for OpenAPS, here's the instructions for getting the environment ready and logging in, depending on computer system:
+To get your first wifi connection set up and install OpenAPS, you'll need to log in to the rig via the console. Follow the [console login directions](../Build Your Rig/logging-into-rig-serial) to get a console window open, then the rest of the instructions below.
 
-* **PC users:** [follow these instructions to get PUTTY and plug in your rig](windows-putty-prep.md). Then, follow the rest of the instructions below.
-
-* **Mac users:** [follow these instructions to open Terminal and plug in your rig](mac-prep.md). Then, follow the rest of the instructions below.
 
 ### Bootstrap script
 
@@ -79,7 +80,7 @@ Now that step 2 is done, the bootstrap script will then continue to run awhile l
 
 At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#run-oref0-setup) for finishing step 4.
 
-
+Now that you have a wifi connection to your rig, you can log in to it using 
 
 
 
@@ -452,7 +453,7 @@ You'll be prompted to set a password.  You'll want to change it to something per
 
 The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
 
-Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-4-setup-script) to complete oref0-setup. 
+Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-3-setup-script) to complete oref0-setup. 
 
 **If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter. [Jump to finishing the installation](#finish-installation)**
 

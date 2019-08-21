@@ -1,7 +1,6 @@
 Understanding OpenAPS (Overview)
 ==============================================
 
-Contents:
 
 .. toctree::
    :maxdepth: 2

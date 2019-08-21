@@ -39,5 +39,3 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    Give Back - Pay it Forward <docs/Give Back-Pay It Forward/index>
    
    Resources <docs/Resources/index>
-
-

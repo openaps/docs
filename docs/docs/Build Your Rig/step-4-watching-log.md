@@ -4,7 +4,7 @@ THIS IS A REQUIRED MUST-LEARN HOW-TO STEP - DO NOT MOVE ON WITHOUT DOING THIS! T
 
 It's easy: simply type the letter `l` (short for "log", aka the very important pump-loop.log). (*This is a shortcut for the full command, `tail -F /var/log/openaps/pump-loop.log`*.)
 
-#### What you'll see while waiting for your first loop (common non-error messages)
+## What you'll see while waiting for your first loop (common non-error messages)
 
 If this is your first rig, you are probably (1) going to underestimate how long it takes for the first loop to successfully run and (2) while underestimating the time, you'll freak out over the messages you see in the pump-loop logs.  Let's go over what are NOT errors:
 
@@ -69,7 +69,7 @@ Advanced meal assist requires at least 36 BG readings before it can begin to cal
 </details>
 <br>
 
-#### What you'll see when you are looping successfully ~20+ minutes later!
+## What you'll see when you are looping successfully ~20+ minutes later!
 
 Finally, you should eventually see colorful indications of successful looping, with a message saying "Starting with oref0-pump-loop" and ending with "Completed oref0-pump-loop"
 
@@ -81,7 +81,7 @@ If after 20 minutes, you still have some errors showing instead of the above suc
 
 **Done watching the logs? Type control-C to exit the pump-loop log.**
 
-#### Temp basals > 6.3, ISF > 255 or carb ratio > 25 with a x23 or x54?
+## Temp basals > 6.3, ISF > 255 or carb ratio > 25 with a x23 or x54?
 
 <details>
     <summary><b>Expand here for notes:</b></summary>
@@ -103,7 +103,7 @@ python setup.py install
 
 </details>
 
-#### Rig Logs and Shortcut commands - bookmark this section!
+## Rig Logs and Shortcut commands - bookmark this section!
 
 Checking your pump-loop.log is a great place to start anytime you are having looping failures.  Your error may not be in the pump-loop, but the majority of the time, you'll get a good head start on the issue by looking at the logs first. So, develop a good habit of checking the pump-loop log to get to know what a normal log looks like so that when a real error appears, you can easily see it as out of place and needing to be addressed.  Additionally, knowing how to access your pump-loop log is important if you come to Gitter or Facebook looking for troubleshooting help...one of the first questions will usually be "what does your pump-loop log look like?" or "what do the logs say?"
 
