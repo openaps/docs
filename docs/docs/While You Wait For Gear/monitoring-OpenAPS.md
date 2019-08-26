@@ -88,6 +88,8 @@ See below for different ways to access your rig:
 
 **Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.  You will need a cable capable of transmitting data.  If you try all of the steps below and are unsuccessful at connecting, try a new cable.**
 
+You should have changed your rig's root password during setup; if not, please [go back and do so now](../Build Your Rig/step-1-flashing). The default password is most likely "edison" without quotes, but check the slip of paper that might have come with your pre-flashed Edison.
+
 #### For Mac computers
 
 * Use the Terminal app on the Mac, or follow [these directions for Windows](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#if-you-re-using-a-windows-pc-for-console)
@@ -96,7 +98,7 @@ See below for different ways to access your rig:
 
 ![Mac Screen first password](../Images/access_mac_password.png)
 
-* You may see a blank screen.  Press RETURN to bring up the edison’s login screen.  Login as `root` and use your root password (you should have changed it from the default of `edison` during the setup of the rig - if not, please [go back and do so now](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#initial-edison-setup).  A successful login will look like below.
+* You may see a blank screen.  Press RETURN to bring up the edison’s login screen.  Login as `root` and use your root password (you should have changed it from the default of `edison` during the setup of the rig - if not, please [go back and do so now](../Build Your Rig/step-1-flashing).  A successful login will look like below.
 
 ![Mac Screen successful login](../Images/access_mac_screen.png)
 

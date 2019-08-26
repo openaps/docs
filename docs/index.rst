@@ -24,7 +24,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    :glob:
    :hidden:
 
-   Understanding OpenAPS (Overview) <docs/Understanding OpenAPS-Overview/index>
+   Overview: Understanding OpenAPS <docs/Understanding OpenAPS-Overview/index>
    
    Gear Up <docs/Gear Up/index>
    
