@@ -12,14 +12,11 @@ The directions for this step depend on which type of rig you are using:
 
 To get your first wifi connection set up and install OpenAPS, you'll need to log in to the rig via the console. Follow the [console login directions](../Build Your Rig/logging-into-rig-serial) to get a console window open, then the rest of the instructions below.
 
-
 ### Bootstrap script
 
 If you're not already, make sure you're logged into your rig via root. You should see `root@jubilinux` on the command prompt.
 
 The box below is the Bootstrap script, which will set up your first wifi network connection and install dependencies.  Copy this text (all of it in the box): 
-
-TODO: this differs from the scripts in oref0, see if I can pull directly from there - otherwise either update or only link
 
 ```
 #!/bin/bash
@@ -80,14 +77,11 @@ Now that step 2 is done, the bootstrap script will then continue to run awhile l
 
 At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#run-oref0-setup) for finishing step 4.
 
-Now that you have a wifi connection to your rig, you can log in to it using 
+Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](../While%20You%20Wait%20For%20Gear/monitoring-OpenAPS#accessing-your-online-rig-via-ssh) from a computer on the same network, rather than using a cable. 
 
+### Manual instructions for Intel Edison
 
-
-### Manual instructions
-
-Below are the manual instructions for reference only - it is strongly recommended that you use the easy setup scripts instead.
-
+Below are the manual instructions for reference only - it is strongly recommended that you use the bootstrap script above instead.
 
 #### Initial Edison Setup
 
@@ -160,7 +154,7 @@ network={
 
 The networks you enter here are the wifi networks that your rig will be able to use to stay connected to internet. After getting your initial wireless connection set up, you can return to [the instructions for adding additional wireless connections ](http://openaps.readthedocs.io/en/latest/docs/Customize%20Iterate/on-the-go-wifi-adding.html) to add more options to your rig at any point.
 
-![Wifi edit screen](../../Images/Edison/Wifi_add.png)
+![Wifi edit screen](../Images/Edison/Wifi_add.png)
 
 On a Mac, if you experience any erratic behavior while using the screen editor, such as the cursor overwriting or deleting adjacent words when typing or even when using the cursor arrow keys, this may be due to incorrectly set Mac Terminal window settings. Try going to the "Shell" on the menu bar above and selecting "Show Inspector." Ensure the Columns setting is set to "80" and the Rows setting is set to "25."
 
@@ -168,7 +162,7 @@ Press Esc and then type ':wq' and press Enter to write the file and quit.
 
 Run `ifup wlan0` to make sure you can connect to wifi.  A successful connection should look similar (IP address numbers will be different than mine):
 
-![ifup wlan0 example](../../Images/Edison/ifup_wlan0.png)
+![ifup wlan0 example](../Images/Edison/ifup_wlan0.png)
 
 Make sure you see a message showing you are successfully connected, then `reboot` to apply the wifi changes and (hopefully) get online.
 
@@ -180,7 +174,7 @@ Note: If you are reflashing an Edison, you might get a scary looking error about
 
 Run `ifconfig wlan0` to determine the IP address of the wireless interface, in case you need it to SSH below.  Alternatively, if you know how to login to your router, you can also see the Edison's IP address there.
 
-![IP address](../../Images/Edison/ip_address.png)
+![IP address](../Images/Edison/ip_address.png)
 
 Leave the serial window open in case you can't get in via SSH and need to fix your wifi config.
  
@@ -236,6 +230,7 @@ and add to the end of the file:
 ``` 
  edison ALL=(ALL) NOPASSWD: ALL   
 ```    
+
 
 
 ## Raspberry Pi instructions

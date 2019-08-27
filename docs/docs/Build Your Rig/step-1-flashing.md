@@ -82,7 +82,8 @@ The above instructions are based on [these instructions](https://software.intel.
 
 ## 3. Connecting cables to the Explorer Board and starting console
 
-Now we move to the rig. You'll need to connect two cables from the rig to your computer. Follow the [console login directions](../Build Your Rig/logging-into-rig-serial) to get set up. 
+Now we move to the rig. You'll need to connect two cables from the rig to your computer. 
+Follow the [console login directions](<../Build Your Rig/logging-into-rig-serial:Accessing your online rig via SSH>) to get set up. 
 
 Once you get to the login prompt, log in using the username "root" (all lowercase) and no password. This will have us ready to reboot from the command line when we are ready. This is your "console window" - keep it open.
 

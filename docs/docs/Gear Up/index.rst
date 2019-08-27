@@ -20,10 +20,12 @@ If you come across something that doesn't seem to work, is no longer available, 
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :glob:
    :hidden:
 
    Compatible Pumps <pump>
    Compatible CGMs <CGM>
-   Get your rig parts <edison> 
+   Your rig hardware options <rig-options> 
+   Edison rigs <edison-explorer-board> 
+   Raspberry Pi rigs <pi-based-rigs> 
