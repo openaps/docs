@@ -26,13 +26,17 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
 
    Overview: Understanding OpenAPS <docs/Understanding OpenAPS-Overview/index>
    
-   Gear Up <docs/Gear Up/index>
+   Hardware <docs/Gear Up/index>
    
-   While You Wait For Gear <docs/While You Wait For Gear/index>
+   Getting ready <docs/While You Wait For Gear/index>
     
-   Installing OpenAPS on your rig <docs/Build Your Rig/index>
-
-   Customize-Iterate <docs/Customize-Iterate/index>
+   Installing OpenAPS <docs/Build Your Rig/index>
+   
+   How OpenAPS works <docs/How it works/index>
+   
+   Usage and maintenance <docs/Usage and maintenance/index>
+   
+   Customizing and extra features <docs/Customize-Iterate/index>
    
    Troubleshooting <docs/Troubleshooting/index>
 

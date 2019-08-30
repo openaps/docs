@@ -77,7 +77,7 @@ Now that step 2 is done, the bootstrap script will then continue to run awhile l
 
 At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](<../Build Your Rig/step-3-setup-script>) for finishing step 3.
 
-Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](<../While You Wait For Gear/monitoring-OpenAPS#accessing-your-online-rig-via-ssh>) from a computer on the same network, rather than using a cable. 
+Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](<../Usage and maintenance/monitoring-openaps#accessing-your-online-rig-via-ssh>) from a computer on the same network, rather than using a cable. 
 
 ### Manual instructions for Intel Edison
 
@@ -152,7 +152,7 @@ network={
 }
 ```
 
-The networks you enter here are the wifi networks that your rig will be able to use to stay connected to internet. After getting your initial wireless connection set up, you can return to [the instructions for adding additional wireless connections ](<../Customize-Iterate/on-the-go-wifi-adding>) to add more options to your rig at any point.
+The networks you enter here are the wifi networks that your rig will be able to use to stay connected to internet. After getting your initial wireless connection set up, you can return to [the instructions for adding additional wireless connections ](<../Usage and maintenance/Wifi/on-the-go-wifi-adding>) to add more options to your rig at any point.
 
 ![Wifi edit screen](../Images/Edison/Wifi_add.png)
 

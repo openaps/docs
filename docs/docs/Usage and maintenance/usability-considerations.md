@@ -96,7 +96,7 @@ Temporary Targets can be set in advance by setting a future date/time stamp in N
 
 ## How do I switch between insulin types, or switch to Fiasp? What should I change?
 
-The most important setting for switching between insulin types in an OpenAPS rig is the "curve" type for duration of insulin activity. In oref0 0.6.0, most users will use the rapid-acting curve if they are using Humalog, Novolog, or similar. Fiasp users should use the "ultra-rapid" curve type. [See the preferences page here for more details on how to change your curve](<../While You Wait For Gear/preferences-and-safety-settings#curve-rapid-acting>) in your `preferences.json` file (which you can edit with `edit-pref`). 
+The most important setting for switching between insulin types in an OpenAPS rig is the "curve" type for duration of insulin activity. In oref0 0.6.0, most users will use the rapid-acting curve if they are using Humalog, Novolog, or similar. Fiasp users should use the "ultra-rapid" curve type. [See the preferences page here for more details on how to change your curve](<../Usage and maintenance/preferences-and-safety-settings#curve-rapid-acting>) in your `preferences.json` file (which you can edit with `edit-pref`). 
 
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 

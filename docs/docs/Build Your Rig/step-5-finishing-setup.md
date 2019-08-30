@@ -3,7 +3,7 @@
 You're looping? Congrats! However, you're not done quite done yet. 
 
 ****************
-**Shortly after you confirm your loop is running, you should [set your preferences](<../While You Wait For Gear/preferences-and-safety-settings>).  Don't forget, your preferences are reset to defaults after each run of a setup script, so please remember to check preferences after confirming a loop is successfully run/rerun.**
+**Shortly after you confirm your loop is running, you should [set your preferences](<../Usage and maintenance/preferences-and-safety-settings>).  Don't forget, your preferences are reset to defaults after each run of a setup script, so please remember to check preferences after confirming a loop is successfully run/rerun.**
 *******************
 
 ## So you think you're looping? Now keep up to date!
@@ -24,10 +24,10 @@ So that we can notify you if necessary, [please fill out this form if you have b
 
 As your time permits, there's still more useful and cool things you can do to make looping more efficient and automated.
 
-* [Add more wifi networks to your rig](<../Customize-Iterate/on-the-go-wifi-adding>) so that when you are away from home, the rig has access to trusted wifi networks
-* [Set up Papertrail](<../While You Wait For Gear/monitoring-OpenAPS#papertrail-remote-monitoring-of-openaps-logs-recommended>) Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+* [Add more wifi networks to your rig](<../Usage and maintenance/Wifi/on-the-go-wifi-adding>) so that when you are away from home, the rig has access to trusted wifi networks
+* [Set up Papertrail](<../Usage and maintenance/monitoring-openaps#papertrail-remote-monitoring-of-openaps-logs-recommended>) Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 * [Set up IFTTT for your phone or watch](<../Customize-Iterate/ifttt-integration>) to allow you to use Nightscout's temp targets, carb entries, and similar for single button interactions with your rig
-* [Finish Bluetooth tethering your phone](<../Customize-Iterate/bluetooth-tethering-edison>) so that when you are away from trusted wifi networks, your rig can automatically access your phone's mobile hotspot for continued online looping. 
+* [Finish Bluetooth tethering your phone](<../Usage and maintenance/Wifi/bluetooth-tethering-edison>) so that when you are away from trusted wifi networks, your rig can automatically access your phone's mobile hotspot for continued online looping. 
 * [Learn about offline looping](<../Customize-Iterate/offline-looping-and-monitoring>) for times when your rig is not able to access internet (no wifi, no hotspot).
 * [Additional access to your rig via other types of mobile apps.](<../Customize-Iterate/useful-mobile-apps>) Grab some of these other apps, based on your preference, for accessing your rig in different ways. 
 

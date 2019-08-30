@@ -1,6 +1,6 @@
 # How to update oref0 on your OpenAPS rig in the future
 
-You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](<../Customize-Iterate/oref0-runagain>)). You can see notes about what is included in a particular release in [the release notes page for oref0](https://github.com/openaps/oref0/releases).
+You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](<../Usage and maintenance/oref0-runagain>)). You can see notes about what is included in a particular release in [the release notes page for oref0](https://github.com/openaps/oref0/releases).
 
 However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which version of oref0 you are currently running, `npm list -g oref0` and if you want to check which branch `cd ~/src/oref0` and then `git branch`. 
 
@@ -50,7 +50,7 @@ Now that you've updated your `oref0` version, you will want to run the oref0-set
 
 ## Step 3: Remember to set your preferences!
 
-Reminder! You'll need to re-set your preferences in `preferences.json`. See [the preferences page](<../While You Wait For Gear/preferences-and-safety-settings>) to see what preferences might have changed or become available since your last update. 
+Reminder! You'll need to re-set your preferences in `preferences.json`. See [the preferences page](<../Usage and maintenance/preferences-and-safety-settings>) to see what preferences might have changed or become available since your last update. 
 
  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 

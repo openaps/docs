@@ -8,7 +8,7 @@ NOTE OF CAUTION:
    * Take steps one by one to turn on Super Micro Boluses; validate that Super Micro Boluses are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
    * Do not combine turning on Super Micro Bolus (SMB) and trying to do no-bolus or partial-bolus meals at the same time. 
 * Make sure you have your easy bolus button on ([details here](<../While You Wait For Gear/collect-data-and-prepare#easy-bolus-button>)) and know how to deliver boluses without using the bolus wizard.
-* See this page on [optimizing settings](<../Customize-Iterate/optimize-your-settings#optimizing-your-settings>) for reminders and tips on changing one thing at a time.
+* See this page on [optimizing settings](<../Usage and maintenance/optimize-your-settings#optimizing-your-settings>) for reminders and tips on changing one thing at a time.
 
 ## Only run oref1 with the following caveats in mind: 
 
@@ -54,7 +54,7 @@ In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal ca
 
 * In oref0 0.6.0 and later, you will enable Super Micro Bolus (SMB)s by adding the related preferences to your preferences.json. You may want to experiment with turning only one enableSMB option on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
-There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](<../While You Wait For Gear/preferences-and-safety-settings#advanced-oref1-preferences>) for more details on all the settings, but the short version is:
+There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](<../Usage and maintenance/preferences-and-safety-settings#advanced-oref1-preferences>) for more details on all the settings, but the short version is:
 
 ```
  * enableSMB_with_COB means Super Micro Bolus (SMB) will be enabled as long as COB is above zero

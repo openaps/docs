@@ -549,7 +549,7 @@ To speed up the command execution you can add to the `/etc/ssh/sshd_config` the 
 
 ### Accessing your offline rig via SSH over Bluetooth
 
-Your phone and rig must be BT paired and connected over BT PAN. See [here](<../Customize-Iterate/bluetooth-tethering-edison>) for BT PAN configuration. When you first open Termius on your mobile device (JuiceSSH and SimpleSSH are also good choices) it will prompt you to add a new host. Click the + button to add a new host. Turn the toggle on for Use SSH and then fill out the following information:
+Your phone and rig must be BT paired and connected over BT PAN. See [here](<../Usage and maintenance/Wifi/bluetooth-tethering-edison>) for BT PAN configuration. When you first open Termius on your mobile device (JuiceSSH and SimpleSSH are also good choices) it will prompt you to add a new host. Click the + button to add a new host. Turn the toggle on for Use SSH and then fill out the following information:
 
     Alias – use an alias name that let’s you know which rig and which connection point this host is for, for example YourRigName on device BT
     Hostname – Enter the IP address of the rig as assigned by your BT PAN

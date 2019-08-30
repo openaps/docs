@@ -20,7 +20,7 @@ This includes:
   * `short_avgdelta` = average rate of change (per 5m) in BG values between `glucose` (most recent BG) and each BG reading from 2.5 to 17.5 minutes ago 
   * `long_avgdelta` = average rate of change (per 5m) in BG values between `glucose` (most recent BG) and each BG reading  from 17.5 to 42.5 minutes ago 
 * Past insulin dosing information, pulled from your pump
-  * `iob` = Units of Insulin on Board (IOB), ***net*** of your pre-programmed basal rates. Net IOB takes all pre-programmed basal, OpenAPS temp basal, and bolus insulin into account. Note: `iob` can be negative when OpenAPS temp basal rate is below your pre-programmed basal rate (referred to as "low-temping"). *This will always be different than pump-calculated IOB, because it only takes into account boluses - ignore pump IOB.* This is a high level overview, but you can dive into more detail around how insulin activity is calculated [here](<../While You Wait For Gear/understanding-insulin-on-board-calculations>).
+  * `iob` = Units of Insulin on Board (IOB), ***net*** of your pre-programmed basal rates. Net IOB takes all pre-programmed basal, OpenAPS temp basal, and bolus insulin into account. Note: `iob` can be negative when OpenAPS temp basal rate is below your pre-programmed basal rate (referred to as "low-temping"). *This will always be different than pump-calculated IOB, because it only takes into account boluses - ignore pump IOB.* This is a high level overview, but you can dive into more detail around how insulin activity is calculated [here](<../How it works/understanding-insulin-on-board-calculations>).
   * `basaliob` = Units of ***net*** basal Insulin on Board (IOB). This value does not include the IOB effects of boluses; just the difference between OpenAPS temp basal rates and your pre-programmed basal rates. As such, this value can be negative when OpenAPS has set a low-temp basal rate. 
   * `bolusiob` = Units of bolus Insulin on Board. Does not take into account any temp basals.
 
@@ -38,7 +38,7 @@ This includes:
 
   ![Estimating carb impact](../Images/Carb_predictions.jpg)
   
-You may also see information about settings, either from your pump or from your `preferences.json` file, that are limiting the insulin dosing decisions that OpenAPS would otherwise make. Make sure to [read the preferences page](<../While You Wait For Gear/preferences-and-safety-settings>) before you set up OpenAPS to understand what settings you have by default, and know how to get back to that page if you ever see a setting displayed in your pill. There is also [a handy chart with examples](<../While You Wait For Gear/preferences-and-safety-settings#a-few-examples>) to help you understand how settings may impact the dosing output.
+You may also see information about settings, either from your pump or from your `preferences.json` file, that are limiting the insulin dosing decisions that OpenAPS would otherwise make. Make sure to [read the preferences page](<../Usage and maintenance/preferences-and-safety-settings>) before you set up OpenAPS to understand what settings you have by default, and know how to get back to that page if you ever see a setting displayed in your pill. There is also [a handy chart with examples](<../Usage and maintenance/preferences-and-safety-settings#a-few-examples>) to help you understand how settings may impact the dosing output.
 
 ## OpenAPS decision outputs
 

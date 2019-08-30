@@ -2,7 +2,7 @@
 
 If you want to keep your rig small and portable, using the internet will be important (assuming you are using a Dexcom CGM) to keep BG values flowing to the loop.  Ways your rig can stay online and access the internet are:
 
-* Joining known wifi networks [(you'll be able to add more wifi networks to your rig in the future)](<../Customize-Iterate/on-the-go-wifi-adding>)
+* Joining known wifi networks [(you'll be able to add more wifi networks to your rig in the future)](<../Usage and maintenance/Wifi/on-the-go-wifi-adding>)
 * BT-tethering to your cell phone's hotspot 
 * Wifi-tethering to your cell phone's hotspot
 * Wifi-tethering to mifi device
@@ -35,7 +35,7 @@ Most home routers can be accessed by going to the URL `http://192.168.1.1` on yo
 
 By having access to your home router, you can easily see if you rig is listed as a connected device.  You can also bring up the MAC address and IP address of the rig, which may be helpful in other areas of the rig setup that are discussed later.  
 
-![Home Router](../Images/access_ip.png) 
+![Home Router](../../Images/access_ip.png) 
 
 ### School wifi networks
 

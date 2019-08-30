@@ -35,7 +35,7 @@ Note for iPhone users: It is recommended that you update the name of your iPhone
 
 Helpful tip:  Add a couple "blank" networks to the file (see screenshot below), so that if you ever need to add new wifi networks while on-the-road, the process will be much faster and easier.  You'll only need to edit the network name and password then...instead of needing to type in the whole string of the template. 
 
-![Edit wifi file](../Images/sample-wifi-file.png)
+![Edit wifi file](../../Images/sample-wifi-file.png)
 
 Some wifi networks may require you to enter a login name and password at an initial screen before allowing access (such as many school wifi networks).  Some users have success in using the following wpa network settings for those types of networks:
 

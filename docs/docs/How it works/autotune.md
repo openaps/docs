@@ -39,20 +39,20 @@ Below the ISF and carb ratio, you'll see the basal report.
 ### If it's your first time using AutotuneWeb:
 
 1. Make sure your Nightscout profile is up to date. This is where the "starting" settings are pulled from. 
-2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](<../Customize-Iterate/autotune#how-autotune-works>) and how you might use the results. 
-3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](<../Customize-Iterate/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>). 
+2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](<../How it works/autotune#how-autotune-works>) and how you might use the results. 
+3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](<../How it works/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>). 
 4. Make sure to check out the [privacy policy for AutotuneWeb](https://autotuneweb.azurewebsites.net/Home/Privacy), which includes directions for requesting your data to be deleted. 
-5. Results don't look like what you expected to see? [See here for some suggestions](<../Customize-Iterate/autotune#why-isn-t-it-working-at-all>) that might contribute to flukey data. 
+5. Results don't look like what you expected to see? [See here for some suggestions](<../How it works/autotune#why-isn-t-it-working-at-all>) that might contribute to flukey data. 
 
 ## Other sections on this page
 
-* Background in plain language on [how Autotune works](<../Customize-Iterate/autotune#how-autotune-works>)
-* The [difference between Autotune and "autosens"](<../Customize-Iterate/autotune#the-difference-between-autotune-and-autosens>) (aka, [autosensitivity](<../Customize-Iterate/autosens>))
+* Background in plain language on [how Autotune works](<../How it works/autotune#how-autotune-works>)
+* The [difference between Autotune and "autosens"](<../How it works/autotune#the-difference-between-autotune-and-autosens>) (aka, [autosensitivity](<../How it works/autosens>))
 * Different ways to use Autotune
    * Run it with [AutotuneWeb](https://autotuneweb.azurewebsites.net/)
-   * [Phase A](<../Customize-Iterate/autotune#phase-a-running-autotune-manually-in-openaps>) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
-   * [Phase B](<../Customize-Iterate/autotune#phase-a-running-autotune-manually-in-openaps>) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
-   * [Phase C](<../Customize-Iterate/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
+   * [Phase A](<../How it works/autotune#phase-a-running-autotune-manually-in-openaps>) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
+   * [Phase B](<../How it works/autotune#phase-a-running-autotune-manually-in-openaps>) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
+   * [Phase C](<../How it works/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
 
 ## How Autotune works
 
@@ -158,7 +158,7 @@ Log into the NEW rig and run the following command:
 
 If you are not running autotune as part of a closed loop, you can still run it as a "one-off".(OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
-**Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](./understanding-autotune.md)
+**Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](<./understanding-autotune>)
 
 **Note**: this is currently based on *one* ISF and carb ratio throughout the day. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
@@ -346,7 +346,7 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
 
 #### Re-Running Autotune
 
-Remember, to initially set-up Autotune follow the instructions [above](<../Customize-Iterate/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>)
+Remember, to initially set-up Autotune follow the instructions [above](<../How it works/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>)
 
 To subsequently re-run Autotune at a later time:
 * Open Ubuntu/your machine of choice and login if necessary
@@ -381,7 +381,7 @@ To test this fix, type `echo $API_SECRET` and hit enter.  If this returns the AP
 Other things to check:
 
 * If you see error like `TypeError: opts.glucose.map is not a function` check that you have `API_SECRET` in the right format, [as described in this issue](https://github.com/openaps/oref0/issues/397). You either need `API_SECRET=xxxx` where `xxxx` is the string you gave Nightscout, or `API_SECRET=token=xxxxx` where `xxxxx` is the token you generated in Nightscout admin interface.
-* Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](./understanding-autotune.md) with what output you should get and pay attention to depending on data input.
+* Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](<./understanding-autotune>) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
 * Check your profile.json and make sure it really matches the example - chances are there's a stray character in there.
@@ -407,7 +407,7 @@ Other things to check:
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightscout in a way that's not through Care Portal app directly, etc. 
 
 #### What does this output from autotune mean? 
-Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](./understanding-autotune.md).
+Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](<./understanding-autotune>).
 
 Remember, autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/openaps/autotune), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
@@ -415,4 +415,4 @@ Remember, autotune is still a work in progress (WIP). Please provide feedback al
 
 #### Yay, It Worked! This is Cool!
 
-Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool. You can also help us tackle some of the known issues and feature requests listed [here](./understanding-autotune.md). 
+Great! We'd love to hear if it worked well, plus any additional feedback - please also provide input via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2) and/or comment on [this issue in Github](https://github.com/openaps/oref0/issues/261) for more detailed feedback about the tool. You can also help us tackle some of the known issues and feature requests listed [here](<./understanding-autotune>). 

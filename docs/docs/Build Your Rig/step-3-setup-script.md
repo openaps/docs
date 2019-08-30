@@ -25,7 +25,7 @@ The screenshot below shows an example of the questions you'll be prompted to rep
    * Note: G4-upload will allow you to have raw data when the G4 receiver is plugged directly into the rig.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
-  * Note, you'll still need to do finish the BT tethering as outlined [here](<../Customize-Iterate/bluetooth-tethering-edison>) after setup.
+  * Note, you'll still need to do finish the BT tethering as outlined [here](<../Usage and maintenance/Wifi/bluetooth-tethering-edison>) after setup.
 * Your desired max-iob
 * whether you want Autosensitivity and/or Autotune enabled
 * whether you want any carbs-required Pushover notifications (and if you do, you'll need your Pushover API token and User Key)

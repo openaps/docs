@@ -70,7 +70,7 @@ Some of the super advanced features you'll learn about later - Unannounced Meals
 
 ### Autotune
 
-You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great...now autotune can give you a headstart to fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](<../Customize-Iterate/autotune>) for how to deal with multiple values. You can run autotune before you get your loop setup...it doesn't have to run on a rig.
+You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great...now autotune can give you a headstart to fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](<../How it works/autotune>) for how to deal with multiple values. You can run autotune before you get your loop setup...it doesn't have to run on a rig.
 
 How important are good basals and ISFs? You mean you weren't convinced already by the amount of work put into autotune itself? Well, autotune is a required step in order to enable the most advanced features (SMB and UAM). The new version will check to see if you have an autotune directory in your rig before the loop will be allowed to actually enact any SMBs (no matter what your preferences say). To fulfill this requirement you can do one of the following which will create an autotune directory where it needs to be:
 

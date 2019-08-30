@@ -25,7 +25,7 @@ Even though some specific phones are fully capable of bluetooth tethering and th
 * It consumes less battery on your phone compared to a wifi connection to your phone's hotspot
 
 Below is an image that shows how a rig automatically switches from a known wifi network to an internet connection through a BT tether to a phone:
-![Bluetooth papertrail oref0 online switch](../Images/BT_papertrail.PNG)
+![Bluetooth papertrail oref0 online switch](../../Images/BT_papertrail.PNG)
 
      
 ### Phone selection for BT Tethering
@@ -99,7 +99,7 @@ root@edisonhost:~# bluetoothd --version
 5.37
 ```
 
-### Bluetooth setup
+### Bluetooth setupUsage and maintenance/optimize-your-settings
 
 1) First, check that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
 
@@ -109,7 +109,7 @@ root@edisonhost:~# bluetoothd --version
 
    b) Delete the phrase `update_config=1` from the file if it is present.
 
-      ![Remove update_config](../Images/update_config_adjustment.png)
+      ![Remove update_config](../../Images/update_config_adjustment.png)
 
 2) Next, stop cron to make sure oref0-online doesn't interfere:
 
@@ -128,7 +128,7 @@ root@edisonhost:~# bluetoothd --version
 `sudo /usr/local/bin/bluetoothd --experimental &`
 
 As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
-![Bluetooth sudo commands](../Images/BT_sudos.png)
+![Bluetooth sudo commands](../../Images/BT_sudos.png)
 
    c) Wait at least 10 seconds, and then run:  
 `sudo hciconfig hci0 name $HOSTNAME`
@@ -152,7 +152,7 @@ agent on
 
 default-agent
 ```
-![Bluetooth pairing](../Images/BT_pairing.png)
+![Bluetooth pairing](../../Images/BT_pairing.png)
 
 For Android
 ********************************
