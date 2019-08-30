@@ -92,7 +92,7 @@ Finally, two sources to benchmark the `iob` curves against can be found [here](h
 
 ---
 
-# Understanding the New IOB Curves Based on Exponential Activity Curves
+## Understanding the New IOB Curves Based on Exponential Activity Curves
 
 As mentioned at the top of this page, the next OpenAPS release will have new activity curves available for users to use. 
 
