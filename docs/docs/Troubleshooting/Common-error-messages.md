@@ -26,7 +26,7 @@ OpenAPS has failed to upload to the configured nightscout website. If you're usi
 
 ## No JSON object could be decoded
 
-Usually means the file does not exist. It usually will self-resolve with the next successful pump history read. If it recurs, you will need to [drill down](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html#running-commands-manually-to-see-what-s-not-working-from-an-oref0-setup-sh-setup-process) to find the area where it is not successfully reading. 
+Usually means the file does not exist. It usually will self-resolve with the next successful pump history read. If it recurs, you will need to [drill down](<../Troubleshooting/oref0-setup-troubleshooting#running-commands-manually-to-see-what-s-not-working-from-an-oref0-setup-sh-setup-process>) to find the area where it is not successfully reading. 
 
 ## json: error: input is not JSON
 ```

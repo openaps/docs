@@ -7,8 +7,8 @@ NOTE OF CAUTION:
 * Super Micro Bolus (SMB) is about front-shifting insulin activity. It is NOT a synonym for no-bolus, although it can enable no-bolus options (with very close monitoring and testing). But you should first test Super Micro Bolus (SMB) with your existing bolus method.
    * Take steps one by one to turn on Super Micro Boluses; validate that Super Micro Boluses are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
    * Do not combine turning on Super Micro Bolus (SMB) and trying to do no-bolus or partial-bolus meals at the same time. 
-* Make sure you have your easy bolus button on ([details here](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/collect-data-and-prepare.html#easy-bolus-button)) and know how to deliver boluses without using the bolus wizard.
-* See this page on [optimizing settings](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/optimize-your-settings.html#optimizing-your-settings) for reminders and tips on changing one thing at a time.
+* Make sure you have your easy bolus button on ([details here](<../While You Wait For Gear/collect-data-and-prepare#easy-bolus-button>)) and know how to deliver boluses without using the bolus wizard.
+* See this page on [optimizing settings](<../Customize-Iterate/optimize-your-settings#optimizing-your-settings>) for reminders and tips on changing one thing at a time.
 
 ## Only run oref1 with the following caveats in mind: 
 
@@ -39,7 +39,7 @@ Single Super Micro Bolus (SMB) amounts are limited by several factors.  The larg
 
 It's important to note that maxIOB will limit Super Micro Bolus (SMB)s from being issued if your Insulin On Board (IOB) (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing Super Micro Bolus (SMB)s.
 
-In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an Super Micro Bolus (SMB) while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).
+In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an Super Micro Bolus (SMB) while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](<../docs/Customize-Iterate/ifttt-integration>).
 
 (History of Super Micro Bolus (SMB) development: https://github.com/openaps/oref0/issues/262 )
 
@@ -54,7 +54,7 @@ In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal ca
 
 * In oref0 0.6.0 and later, you will enable Super Micro Bolus (SMB)s by adding the related preferences to your preferences.json. You may want to experiment with turning only one enableSMB option on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
-There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
+There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](<../While You Wait For Gear/preferences-and-safety-settings#advanced-oref1-preferences>) for more details on all the settings, but the short version is:
 
 ```
  * enableSMB_with_COB means Super Micro Bolus (SMB) will be enabled as long as COB is above zero

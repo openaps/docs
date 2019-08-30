@@ -2,7 +2,7 @@
 
 If you want to keep your rig small and portable, using the internet will be important (assuming you are using a Dexcom CGM) to keep BG values flowing to the loop.  Ways your rig can stay online and access the internet are:
 
-* Joining known wifi networks [(you'll be able to add more wifi networks to your rig in the future)](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/on-the-go-wifi-adding.html)
+* Joining known wifi networks [(you'll be able to add more wifi networks to your rig in the future)](<../Customize-Iterate/on-the-go-wifi-adding>)
 * BT-tethering to your cell phone's hotspot 
 * Wifi-tethering to your cell phone's hotspot
 * Wifi-tethering to mifi device
@@ -11,7 +11,7 @@ By default, the rig's programming in OpenAPS is to prefer joining known wifi con
 
 Most users prefer a combination of known wifi networks and BT-tethering to maintain internet access for their rig.  This minimizes cell phone data use while at the same time requiring no intentional action on the user's part when they enter/leave their known network areas.  The rig will move seamlessly off/on known networks and BT-tethers without needing help.  Using wifi-tethers requires the user to manually turn the connections on/off when they get into the range of a preferred wifi network to save cell data, therefore those connections aren't preferred.
 
-These [helpful mobile apps](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/useful-mobile-apps.html) are worth checking out, as they'll aid you with accessing your rig when it gets connected online. 
+These [helpful mobile apps](<../Customize-Iterate/useful-mobile-apps>) are worth checking out, as they'll aid you with accessing your rig when it gets connected online. 
 
 ### Home Wifi
 

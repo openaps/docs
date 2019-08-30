@@ -3,10 +3,10 @@
 ## Parts you'll need 
 
 Summary of what you need for a Pi/HAT rig:
-* [Explorer HAT](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hat)
-* [Pi0WH (recommended) or Pi 3](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#pi)
-* [Battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#battery)
-* [SD Card](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card)
+* [Explorer HAT](<#hat>)
+* [Pi0WH (recommended) or Pi 3](<#pi>)
+* [Battery](<#battery>)
+* [SD Card](<#sd-card>)
 
 ### HAT: 
 As of April 2018, there is be a Pi+HAT rig as an option for closing the loop with OpenAPS. The HAT can be ordered from the same place that makes the Explorer Board ([click here](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-hat?variant=1950212653065)). We call it the "Explorer HAT", to differentiate from the Explorer "Board" that goes with the Edison (see below).
@@ -23,7 +23,7 @@ Lipo batteries are typically used to power the rig on the go because they charge
 
 If you will need to run longer than that while unplugged from wall power, consider a portable charger.  These are in widespread use for cell phones and commonly available in a large number of sizes.  Here is an example [portable charger from Amazon](https://www.amazon.com/Anker-PowerCore-Ultra-Compact-High-speed-Technology/dp/B0194WDVHI/ref=sr_1_6?ie=UTF8&qid=1532089932&sr=8-6&keywords=backup+battery&dpID=31B5rBNP%252B8L&preST=_SY300_QL70_&dpSrc=srch).  Using a USB to micro-USB adapter you can power the rig from the portable charger by plugging the charger into the Power port, which is the micro-USB port nearest the corner of the Pi0.
 
-**Note**: You will probably want to underclock your Raspberry Pi to get a longer battery life. [See this for details](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/usability-considerations.html#improving-the-battery-life-of-your-raspberry-pi).
+**Note**: You will probably want to underclock your Raspberry Pi to get a longer battery life. [See this for details](<../Customize-Iterate/usability-considerations#improving-the-battery-life-of-your-raspberry-pi>).
 
 ### SD card
 An 8 GB SD card should provide plenty of space for the linux operating system, OpenAPS code and storage for log files.  The ability to use larger and removable storage is one of the advantages of the Raspberry Pi.  You can get a [MicroSD card and adapter from Adafruit](https://www.adafruit.com/product/2692) when you order your Pi and Hat.  Or you can get an equivalent [8 GB SD card from Amazon](https://www.amazon.com/Kingston-microSDHC-Class-Memory-SDC4/dp/B00200K1TS/ref=sr_1_8?s=wireless&ie=UTF8&qid=1532090813&sr=1-8&keywords=8gb+micro+sd) or other sellers.
@@ -202,7 +202,7 @@ Here's a rough-and-ready budget version of a rig put together: contents of a 200
 ### Summary of what you need: 
 * Raspberry Pi Zero 
 * RFM69HCW 
-* [microSD Card]((http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card))
+* [microSD Card]((<../Gear Up/pi-based-rigs#sd-card))
 * Bread board
 * Jumper wires
 * Soldering iron
@@ -217,6 +217,7 @@ You can buy this board e.g. [here](https://www.adafruit.com/product/3070), but y
 
 ### Breadboard
 Any breadboard will do, no special requirements.
+
 ### Soldering
 You need to solder the pin stripe into the RFM69HCW. Insert the pin stripe from the bottom of the board, with the short endings reaching through the holes. Fixate a bit, so you can rest the soldering iron tip on the pins and the board. 
 

@@ -39,20 +39,20 @@ Below the ISF and carb ratio, you'll see the basal report.
 ### If it's your first time using AutotuneWeb:
 
 1. Make sure your Nightscout profile is up to date. This is where the "starting" settings are pulled from. 
-2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#how-autotune-works) and how you might use the results. 
-3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig). 
+2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](<../Customize-Iterate/autotune#how-autotune-works>) and how you might use the results. 
+3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](<../Customize-Iterate/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>). 
 4. Make sure to check out the [privacy policy for AutotuneWeb](https://autotuneweb.azurewebsites.net/Home/Privacy), which includes directions for requesting your data to be deleted. 
-5. Results don't look like what you expected to see? [See here for some suggestions](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#why-isn-t-it-working-at-all) that might contribute to flukey data. 
+5. Results don't look like what you expected to see? [See here for some suggestions](<../Customize-Iterate/autotune#why-isn-t-it-working-at-all>) that might contribute to flukey data. 
 
 ## Other sections on this page
 
-* Background in plain language on [how Autotune works](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#how-autotune-works)
-* The [difference between Autotune and "autosens"](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#the-difference-between-autotune-and-autosens) (aka, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html))
+* Background in plain language on [how Autotune works](<../Customize-Iterate/autotune#how-autotune-works>)
+* The [difference between Autotune and "autosens"](<../Customize-Iterate/autotune#the-difference-between-autotune-and-autosens>) (aka, [autosensitivity](<../Customize-Iterate/autosens>))
 * Different ways to use Autotune
    * Run it with [AutotuneWeb](https://autotuneweb.azurewebsites.net/)
-   * [Phase A](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
-   * [Phase B](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
-   * [Phase C](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
+   * [Phase A](<../Customize-Iterate/autotune#phase-a-running-autotune-manually-in-openaps>) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
+   * [Phase B](<../Customize-Iterate/autotune#phase-a-running-autotune-manually-in-openaps>) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
+   * [Phase C](<../Customize-Iterate/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
 
 ## How Autotune works
 
@@ -209,7 +209,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
 <br>
  
 * MAC USERS: Follow these steps instead of 1a / 1b above if you want to run autotune on your Mac. (Mac users can instead do the above instructions if they prefer to create a Linux virtual machine to run it on):
-* To run AutoTune using a Mac you will use the Terminal application. Open the Terminal application on your Mac (it is located in the Utilities application folder on your Mac). For more information about using Terminal see: http://openaps.readthedocs.io/en/latest/docs/Understanding OpenAPS-Overview/overview-of-build-process.html#before-you-get-started
+* To run AutoTune using a Mac you will use the Terminal application. Open the Terminal application on your Mac (it is located in the Utilities application folder on your Mac). For more information about using Terminal see [here](<../Understanding OpenAPS-Overview/overview-of-build-process#before-you-get-started>)
 * After you open a Terminal window, copy and paste the command for each of the Mac install command steps below, and then hit the return key after you paste each command, which will execute it. If you are asked for a password, enter the password for your Mac.
 * Tip for New Mac Users: If you typically use a Windows machine and you keep trying to do a control-c (copy) and control-v (paste), remember, on a Mac use command-c (copy) and command-v (paste) instead.
 * For example, the first step is to install Homebrew on your Mac. To do this you need to copy and paste the following command from step 1.) of the Mac install commands below and then hit the return key:  `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -346,7 +346,7 @@ oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --
 
 #### Re-Running Autotune
 
-Remember, to initially set-up Autotune follow the instructions [above](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig)
+Remember, to initially set-up Autotune follow the instructions [above](<../Customize-Iterate/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>)
 
 To subsequently re-run Autotune at a later time:
 * Open Ubuntu/your machine of choice and login if necessary

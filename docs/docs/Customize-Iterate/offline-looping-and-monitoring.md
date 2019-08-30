@@ -1,6 +1,6 @@
 # Offline looping - aka, running OpenAPS without internet connectivity
 
-There are a number of ways to have an "offline" OpenAPS rig, and numerous ways to monitor offline ([see the monitoring section for information about monitoring offline](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#the-main-ways-of-monitoring-your-rig-offline-include)).  Offline refers to situations where your rig moves into an area where it does not have internet access (i.e., the rig does not have a known WiFi network available and the cell phone used with the rig does not have cell coverage/hotspot available).  By setting up one of these offline solutions, your rig can still loop while in an offline area.  Depending on the setup, the opportunities to visualize or monitor the loop actions (e.g., check what temp basal is actually being set) may vary until you can get back into an online area.
+There are a number of ways to have an "offline" OpenAPS rig, and numerous ways to monitor offline ([see the monitoring section for information about monitoring offline](<../While You Wait For Gear/monitoring-OpenAPS#the-main-ways-of-monitoring-your-rig-offline-include>)).  Offline refers to situations where your rig moves into an area where it does not have internet access (i.e., the rig does not have a known WiFi network available and the cell phone used with the rig does not have cell coverage/hotspot available).  By setting up one of these offline solutions, your rig can still loop while in an offline area.  Depending on the setup, the opportunities to visualize or monitor the loop actions (e.g., check what temp basal is actually being set) may vary until you can get back into an online area.
 
 ## Medtronic CGM users
 Medtronic CGM users can, by default, automatically loop offline because the rig will read CGM data directly from the pump.
@@ -21,7 +21,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 ### A. xDrip+ for Android users
 
-Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
+Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the [section below](<../Customize-Iterate/offline-looping-and-monitoring#xdripaps-offline-looping-for-users-of-the-xdrip-android-app>). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
    * There is no direct iOS version of xDrip+. [Spike](https://spike-app.com/) is a different app with a different set of features.
 
@@ -181,7 +181,7 @@ On your OpenAPS rig, the xdrip-js library can read directly from the Dexcom tran
      * Logger: [https://github.com/xdrip-js/Logger/blob/dev/README.md](https://github.com/xdrip-js/Logger/blob/dev/README.md)
 
 ### Entering carbs while offline
-While offline you will not be able to enter carbs and set temporary targets using Nightscout. You have two options to enter carbs while offline. You can use the Medtronic pump's Bolus Wizard. When using the Bolus Wizard, be careful to avoid an A52 error if you have enabled SMB. By default, use of the Bolus Wizard disables SMB for 6 hours ([learn more here](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#a52-risk-enable-a52-risk-mitigation)). The second option, which as far as we know avoids the A52 risk, is to use the Medtronic pump's Capture Event feature. To turn on the Capture Event feature, do these steps:
+While offline you will not be able to enter carbs and set temporary targets using Nightscout. You have two options to enter carbs while offline. You can use the Medtronic pump's Bolus Wizard. When using the Bolus Wizard, be careful to avoid an A52 error if you have enabled SMB. By default, use of the Bolus Wizard disables SMB for 6 hours ([learn more here](<../While You Wait For Gear/preferences-and-safety-settings#a52-risk-enable-a52-risk-mitigation>)). The second option, which as far as we know avoids the A52 risk, is to use the Medtronic pump's Capture Event feature. To turn on the Capture Event feature, do these steps:
 
 1. Go to the CAPTURE EVENT ON/OFF screen: Main > Utilities > Capture Option
 2. Select On, then press ACT.

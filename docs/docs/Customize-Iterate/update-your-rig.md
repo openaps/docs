@@ -1,6 +1,6 @@
 # How to update oref0 on your OpenAPS rig in the future
 
-You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref0-runagain.html)). You can see notes about what is included in a particular release in [the release notes page for oref0](https://github.com/openaps/oref0/releases).
+You've probably heard about all kinds of cool new features that you want to try. If they're part of the master branch already, you just need to go enable them (usually by [re-running the oref0-setup script](<../Customize-Iterate/oref0-runagain>)). You can see notes about what is included in a particular release in [the release notes page for oref0](https://github.com/openaps/oref0/releases).
 
 However, if it's a brand-new feature that's being tested or is recently added to master, you'll need to install the new version of `oref0` first.  By the way, if you want to check which version of oref0 you are currently running, `npm list -g oref0` and if you want to check which branch `cd ~/src/oref0` and then `git branch`. 
 
@@ -46,11 +46,11 @@ In case you want to test even more advanced stuff you've read about on gitter ch
 
 ## Step 2: Re-run oref0-setup
 
-Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#be-prepared-to-enter-the-following-information-into-oref0-setup) for a guide of what the setup script will be prompting you to enter.
+Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](<../Build Your Rig/step-3-setup-script#be-prepared-to-enter-the-following-information-into-oref0-setup>) for a guide of what the setup script will be prompting you to enter.
 
 ## Step 3: Remember to set your preferences!
 
-Reminder! You'll need to re-set your preferences in `preferences.json`. See [the preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html) to see what preferences might have changed or become available since your last update. 
+Reminder! You'll need to re-set your preferences in `preferences.json`. See [the preferences page](<../While You Wait For Gear/preferences-and-safety-settings>) to see what preferences might have changed or become available since your last update. 
 
  To edit any of your preferences, you can enter `edit-pref` (as a shortcut) or `cd ~/myopenaps && nano preferences.json`
 

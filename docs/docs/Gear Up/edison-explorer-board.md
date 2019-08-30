@@ -4,11 +4,11 @@
 
 The high level parts list (see below for more details, and links):
 
-* [Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)
-* [Edison](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#edison)
-* [Nuts and Bolts to attach the Edison to the Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#nuts-and-bolts)
-* [At least one Lithium battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#lithium-ion-polymer-lipo-battery-or-other-battery-supply)
-* [2 USB cables](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#usb-cables)
+* [Explorer Board Block](<#explorer-board-block>)
+* [Edison](<#edison>)
+* [Nuts and Bolts to attach the Edison to the Explorer Board Block](<#nuts-and-bolts>)
+* [At least one Lithium battery](<#lithium-ion-polymer-lipo-battery-or-other-battery-supply>)
+* [2 USB cables](<#usb-cables>)
 
 ### Explorer Board Block
 
@@ -22,9 +22,9 @@ There are 4 types of Edison's. All of them work, but Versions 3 and 4 require an
 
   * You may need to hunt for an Edison as supplies of them are dwindling - if you get it as part of a "kit" (i.e. breakoutboard + Edison), keep in mind _you'll still need to get the Explorer Board Block from Hamshield_.
 
-  * **Note:** If you are doing Option 1 (an Edison from wherever you can find it) - you are getting an UNFLASHED Edison. Not a big deal - flashing it with jubilinux is just a few more steps (~15 minutes) - but remember you'll need to start with the flashing instructions. Follow the [steps for flashing](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html). 
+  * **Note:** If you are doing Option 1 (an Edison from wherever you can find it) - you are getting an UNFLASHED Edison. Not a big deal - flashing it with jubilinux is just a few more steps (~15 minutes) - but remember you'll need to start with the [flashing instructions](<../Build Your Rig/step-1-flashing>).
 
-* Option 2 - (previously [buy an Edison that is already flashed with jublinux when supplies were available](https://enhanced-radio-devices.myshopify.com/products/intel-edison-w-jubilinux). If you get a pre-flashed Edison, you can start with [step 2](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html).
+* Option 2 - (previously [buy an Edison that is already flashed with jublinux when supplies were available](https://enhanced-radio-devices.myshopify.com/products/intel-edison-w-jubilinux). If you get a pre-flashed Edison, you can start with [step 2](<../Build Your Rig/step-2-wifi-dependencies>).
 
 ### Lithium-ion polymer (LiPo) battery or other battery supply
 
@@ -44,13 +44,13 @@ You should monitor the rig periodically - **especially the LiPo battery**, check
 
 LiPo batteries are great for a lot of things, but taking damage is not one of them.  Please treat LiPo batteries with care.  Keep them protected from puncture.  The Explorer board has some “pointy” parts on the underside, so providing some protection from the board’s squish is a good idea.  A small piece of protection (such as a business card or non-conductive thin foam sheet) will help protect the battery from the board above it.  
 
-Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The LiPo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#cases) for both hard and soft case ideas).
+Since there is some warmth with an OpenAPS rig, it is also not recommended to put a rig unprotected in a pocket close to the body.  The LiPo battery can become warped from the heat or bent from being in the pocket and potentially compromised.  A durable case or waist-belt pouch is a good idea (see [here](<#cases>) for both hard and soft case ideas).
 
 The connections between the LiPo battery and its red and black wires are fragile and can break easily.  Consider taping the wires to the battery with electrical tape as described in SparkFun's LiPo battery care [tutorial](https://www.sparkfun.com/tutorials/241).  (See the Reinforcing the Power Cables section.)  This will stabilize the wires and relieve tension on the connections. 
 
 ### Radio stick (only if not using Explorer board)
 
-We recommend an Explorer Board with a built-in radio ([see above](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
+We recommend an Explorer Board with a built-in radio ([see above](<#explorer-board-block>)), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
 
 If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these, and also note that it will be more work as the documentation is designed for the Edison/Explorer Board setup as the easiest path forward. 
 
@@ -126,7 +126,7 @@ The nuts and bolts are tiny, and the spaces are a little tight.  I find it reall
 
 It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
-![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
+![Edison/Explorer Board rig with red light on](../Images/Edison/Edison_Explorer_Board.png) 
 
 ### Optional: adding an antenna
 

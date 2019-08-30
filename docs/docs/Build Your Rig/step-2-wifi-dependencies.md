@@ -10,7 +10,7 @@ The directions for this step depend on which type of rig you are using:
 
 ### Prep Computer and Login to rig
 
-To get your first wifi connection set up and install OpenAPS, you'll need to log in to the rig via the console. Follow the [console login directions](../Build Your Rig/logging-into-rig-serial) to get a console window open, then the rest of the instructions below.
+To get your first wifi connection set up and install OpenAPS, you'll need to log in to the rig via the console. Follow the [console login directions](<../Build Your Rig/logging-into-rig-serial>) to get a console window open, then the rest of the instructions below.
 
 ### Bootstrap script
 
@@ -75,9 +75,9 @@ Now that step 2 is done, the bootstrap script will then continue to run awhile l
 
 ![End of Bootstrap script](../Images/Edison/bootstrap-end.png)
 
-At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#run-oref0-setup) for finishing step 4.
+At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](<../Build Your Rig/step-3-setup-script>) for finishing step 3.
 
-Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](../While%20You%20Wait%20For%20Gear/monitoring-OpenAPS#accessing-your-online-rig-via-ssh) from a computer on the same network, rather than using a cable. 
+Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](<../While You Wait For Gear/monitoring-OpenAPS#accessing-your-online-rig-via-ssh>) from a computer on the same network, rather than using a cable. 
 
 ### Manual instructions for Intel Edison
 
@@ -152,7 +152,7 @@ network={
 }
 ```
 
-The networks you enter here are the wifi networks that your rig will be able to use to stay connected to internet. After getting your initial wireless connection set up, you can return to [the instructions for adding additional wireless connections ](http://openaps.readthedocs.io/en/latest/docs/Customize%20Iterate/on-the-go-wifi-adding.html) to add more options to your rig at any point.
+The networks you enter here are the wifi networks that your rig will be able to use to stay connected to internet. After getting your initial wireless connection set up, you can return to [the instructions for adding additional wireless connections ](<../Customize-Iterate/on-the-go-wifi-adding>) to add more options to your rig at any point.
 
 ![Wifi edit screen](../Images/Edison/Wifi_add.png)
 
@@ -206,7 +206,7 @@ And these three (the first two will be fast, the last line will take you to a sc
     dpkg-reconfigure tzdata    # Set local time-zone
        Use arrow button to choose zone then arrow to the right to make cursor highlight <OK> then hit ENTER
 
-![Time zone examples](../../Images/Edison/Time_zone.png)
+![Time zone examples](../Images/Edison/Time_zone.png)
 
 Enter `vi /etc/logrotate.conf`, press “i” for INSERT mode, and make the following changes:
 
@@ -219,7 +219,7 @@ Press ESC and then type “:wq” to save and quit
 
 If you're *not* using the Explorer board and want to run everything as `edison` instead of `root`, log out and log back in as edison (with the password you just set above).  (If you're using an Explorer board you'll need to stay logged in as root and run everything that follows as root for libmraa to work right.)
 
-If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison ([directions you can adapt are here](http://openaps.readthedocs.io/en/latest/docs/Resources/Deprecated-Pi/Pi-setup.html#mac-and-linux)).  For Windows/Putty users, you can use these instructions: [https://www.howtoforge.com/ssh_key_based_logins_putty](https://www.howtoforge.com/ssh_key_based_logins_putty).
+If you have an ssh key and want to be able to log into your Edison without a password, copy your ssh key to the Edison ([directions you can adapt are here](<../Resources/Deprecated-Pi/Pi-setup#mac-and-linux>)).  For Windows/Putty users, you can use these instructions: [https://www.howtoforge.com/ssh_key_based_logins_putty](https://www.howtoforge.com/ssh_key_based_logins_putty).
 
 If you're *not* using the Explorer board, are running as the `edison` users, and want to be able to run sudo without typing a password, run:
 ```
@@ -235,11 +235,11 @@ and add to the end of the file:
 
 ## Raspberry Pi instructions
 
-Note: there are two key ways to setup a Pi rig. One uses Pi Bakery, the other is a manual method. If your Pi Bakery process does not work, just use [Option B](#Option-B). 
+Note: there are two key ways to setup a Pi rig. One uses Pi Bakery, the other is a manual method. If your Pi Bakery process does not work, just use [Option B](<#option-b>). 
 
 ### Option A - Use Pi Bakery
 
-There are many ways setup Raspian (the operating system...like jubilinux is for Edison board) microSD card to use in your Raspberry Pi.  One easy way for a new user is to use PiBakery, a free application you'll download from the internet. (Note that if this is not successful, you can switch to [Option B](#Option-B) below). 
+There are many ways setup Raspian (the operating system...like jubilinux is for Edison board) microSD card to use in your Raspberry Pi.  One easy way for a new user is to use PiBakery, a free application you'll download from the internet. (Note that if this is not successful, you can switch to [Option B](<#option-b>) below). 
 
 Download PiBakery [here](http://pibakery.org/download.html).  Follow the directions for installing PiBakery on your computer (the directions on their site include screenshots that are helpful).  The download is fairly large (2.2GB) so it may take a couple minutes to complete.
 
@@ -344,11 +344,11 @@ Answer all the setup questions.  A successful setup script will finish asking yo
 **Troubleshooting**: If your rig gets stuck at the point shown below, simply login to the rig again and run the setup script one more time.  Usually, running the setup script a second time will clear that glitch.
 !["install piBakery"](../Images/build-your-rig/pi-setup-stuck.png)
 
-Once your setup script finishes, **make sure to [watch the pump loop logs](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
+Once your setup script finishes, **make sure to [watch the pump loop logs](<../Build Your Rig/step-4-watching-log>)**
 
 **NOTE**: If you are using RFM69HCW as RF module:
 
-If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#soldering), while running interactive setup use following options:
+If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](<../Gear Up/pi-based-rigs#soldering>), while running interactive setup use following options:
 ```Are you using an Explorer Board? [Y]/n n
 Are you using an Explorer HAT? [Y]/n n
 Are you using mmeowlink (i.e. with a TI stick)? If not, press enter. If so, paste your full port address: it looks like "/dev/ttySOMETHING" without the quotes.
@@ -448,8 +448,8 @@ You'll be prompted to set a password.  You'll want to change it to something per
 
 The script will then continue to run awhile longer (~10+ minutes) before asking you to press `enter` to run oref0-setup.
 
-Return to the [OpenAPS Install page](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-3-setup-script) to complete oref0-setup. 
+Return to the [setup script page](<../Build Your Rig/step-3-setup-script>) to complete oref0-setup. 
 
-**If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter. [Jump to finishing the installation](#finish-installation)**
+**If you are installing to a Pi with a legacy radio (Ti-stick, SliceOfRadio, etc.) - Press enter. [Jump to finishing the installation](<#finish-installation>)**
 
-**If you are installing to a newer Pi with a HAT as radio: Do not press enter!  [Continue on to Pi-Hat instructions.](#switch-to-dev-branch-for-your-pi-hat).**
+**If you are installing to a newer Pi with a HAT as radio: Do not press enter!  [Continue on to Pi-Hat instructions.](<#switch-to-dev-branch-for-your-pi-hat>).**

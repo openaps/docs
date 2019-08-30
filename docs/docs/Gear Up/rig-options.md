@@ -2,9 +2,9 @@
 
 You have two main options for hardware:
 
-1. The most recommended rig has been an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison (eBay, local stores, etc - this is still very possible), this is still a highly recommmended rig. It is the smallest rig (and easily portable), with better battery life because it is power efficient. [Go here for the list of hardware and setup instructions for Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison-explorer-board.html).
+1. The most recommended rig has been an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison (eBay, local stores, etc - this is still very possible), this is still a highly recommmended rig. It is the smallest rig (and easily portable), with better battery life because it is power efficient. [Go here for the list of hardware and setup instructions for Edison setups](<../Gear Up/edison-explorer-board>).
   
-2. The other option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [Go here for hardware required and setup instructions for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pi-based-rigs.html). There is also an experimental alternative to an Explorer HAT, RFM69HCW, which can serve as the radio on a Pi-based rig, but will not have the screen, and requires you to solder.
+2. The other option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [Go here for hardware required and setup instructions for Pi/HAT setups](<../Gear Up/pi-based-rigs>). There is also an experimental alternative to an Explorer HAT, RFM69HCW, which can serve as the radio on a Pi-based rig, but will not have the screen, and requires you to solder.
 
 ## What happens if you have multiple rigs?
 

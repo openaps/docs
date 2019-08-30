@@ -62,3 +62,7 @@ Note: If you are using a Macbook with a USB-C Hub you may encounter some issues 
   - Don't resize your console window: it will likely mess up your terminal's line wrapping.  (Once you get wifi working and connect with SSH you can resize safely.)
   
 If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", exit your console window.  Then unplug the usb cables from your computer (not from the Edison... leave those ones as is) and swap the USB ports they were plugged into. Then try the above directions again. Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
+
+### Not sure of your password?
+
+You should have changed your rig's root password during setup; if not, please [go back and do so now](../Build Your Rig/step-1-flashing). The default password is most likely "edison" without quotes, but check the slip of paper that might have come with your pre-flashed Edison.

@@ -9,7 +9,6 @@ While you wait for gear
    Collect your data & prepare <collect-data-and-prepare>
    Make Your First PR <loops-in-progress>
    Setting up Nightscout  <nightscout-setup>
-   Understand your rig <understanding-your-Explorer-Board-rig>
    Entering carbs & boluses <entering-carbs-bolus>
    How OpenAPS makes decisions <Understand-determine-basal>
    Monitoring OpenAPS <monitoring-OpenAPS>

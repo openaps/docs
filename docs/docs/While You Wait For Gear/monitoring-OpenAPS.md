@@ -9,21 +9,21 @@ There are two general groups of ways to monitor your rigs:
 
 ## The main ways of monitoring your rig ONLINE include:
 
-* [Papertrail](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#papertrail-remote-monitoring-of-openaps-logs-recommended)
-* [Accessing via SSH (either using an app on your phone, or your computer)](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh)
-* [Nightscout](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html)
+* [Papertrail](<#papertrail-remote-monitoring-of-openaps-logs-recommended>)
+* [Accessing via SSH (either using an app on your phone, or your computer)](<#accessing-your-online-rig-via-ssh>)
+* [Nightscout](<../While You Wait For Gear/nightscout-setup>)
 * AndroidAPS NS Client ([Download the app-nsclient-release APK from here](https://github.com/MilosKozak/AndroidAPS/releases).)
 * Pebble watch (your watchface of choice, such as [Urchin](https://github.com/mddub/urchin-cgm))
-* [Apache Chainsaw](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#apache-chainsaw)
+* [Apache Chainsaw](<#apache-chainsaw>)
 
 ********************************
 
 ## The main ways of monitoring your rig OFFLINE include:
 
-* [Pancreabble](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#pancreabble-offline-connection-to-pebble-watch) (offline connection to your Pebble watch)
-* For Android users: "[Hot Button](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#hot-button-for-android-users)"
-* Accessing via [SSH over Bluetooth](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-over-bluetooth), or [by using a mobile router so your phone/rig can connect to the same network offline](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-offline-rig-via-ssh-when-your-phone-and-rig-are-connected-to-the-same-network)
-* For any phone type: [Creating a web page that can be accessed on the phone via the rig's IP address](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#offline-web-page-from-rig-for-any-phone-user)
+* [Pancreabble](<#pancreabble-offline-connection-to-pebble-watch>) (offline connection to your Pebble watch)
+* For Android users: "[Hot Button](<#hot-button-for-android-users>)"
+* Accessing via [SSH over Bluetooth](<#accessing-your-offline-rig-via-ssh-over-bluetooth>), or [by using a mobile router so your phone/rig can connect to the same network offline](<#accessing-your-offline-rig-via-ssh-when-your-phone-and-rig-are-connected-to-the-same-network>)
+* For any phone type: [Creating a web page that can be accessed on the phone via the rig's IP address](<#offline-web-page-from-rig-for-any-phone-user>)
 
 ********************************
 
@@ -36,15 +36,15 @@ At this point, if you're not yet set up on OpenAPS, you won't quite be ready to 
 ## Accessing your online rig via SSH
 
 See below for different ways to access your rig:
-* [If your computer and rig are on the same wifi network](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#if-your-computer-and-rig-are-on-the-same-wifi-network)
-* [If your computer and rig are on different wifi networks](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#if-your-computer-and-rig-are-on-different-wifi-networks)
-* [If your iPhone and rig are on the same wifi network](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#if-your-iphone-and-rig-are-on-the-same-wifi-network)
+* [If your computer and rig are on the same wifi network](<#if-your-computer-and-rig-are-on-the-same-wifi-network>)
+* [If your computer and rig are on different wifi networks](<#if-your-computer-and-rig-are-on-different-wifi-networks>)
+* [If your iPhone and rig are on the same wifi network](<#if-your-iphone-and-rig-are-on-the-same-wifi-network>)
 
 ********************************
 
 ### If your computer and rig are on the same wifi network
 
-![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
+![If your computer and rig are on the same wifi network](../Images/Computer_rig_same_wifi.png)
 
 #### For Mac computers
 
@@ -86,43 +86,7 @@ See below for different ways to access your rig:
 
 ![If your computer and rig are on different wifi networks](../Images/Computer_rig_different_wifi.png)
 
-**Access to the rig will need a cable to connect the UART port on the rig with the USB port on the computer.  You will need a cable capable of transmitting data.  If you try all of the steps below and are unsuccessful at connecting, try a new cable.**
-
-You should have changed your rig's root password during setup; if not, please [go back and do so now](../Build Your Rig/step-1-flashing). The default password is most likely "edison" without quotes, but check the slip of paper that might have come with your pre-flashed Edison.
-
-#### For Mac computers
-
-* Use the Terminal app on the Mac, or follow [these directions for Windows](http://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#if-you-re-using-a-windows-pc-for-console)
-
-* If you're using a Mac, use the command `sudo screen /dev/tty.usbserial-* 115200` to enable “screen” mode.  You will be prompted to enter a password.  Enter your **computer's password** not the rig's password here.
-
-![Mac Screen first password](../Images/access_mac_password.png)
-
-* You may see a blank screen.  Press RETURN to bring up the edison’s login screen.  Login as `root` and use your root password (you should have changed it from the default of `edison` during the setup of the rig - if not, please [go back and do so now](../Build Your Rig/step-1-flashing).  A successful login will look like below.
-
-![Mac Screen successful login](../Images/access_mac_screen.png)
-
-* If instead, you see a message at the bottom of the screen that says "Sorry, could not find a PTY." that usually means the system has not cleared a previous screen session.  If you only had the rig connected by one cable in the UART port on rig, you can simply unplug the rig from the computer and move to a new USB port on the computer.  If you don't have any "new" USB ports that were not used by the previous login attempt, then close out terminal app, restart the computer, and try again.  This will clear the error.
-
-![Mac Screen message for busy port](../Images/access_mac_sorry.png)
-
-* If instead you see a message at the bottom of the screen that says "Cannot exec '/dev/tty.usbserial-*': No such file or directory", double check that you have your rig and computer connected via the rig's UART port.  Using the OTG port will cause this error message.  Or typos in the screen command will have same result.  Double check your spelling, or better yet...use copy and paste whenever possible.
-
-![Mac Screen message for OTG port](../Images/access_mac_no_exec.png)
-
-#### For Windows Users
-
-* Navigate to your Control Panel and then to Device Manager.  Click on the Ports to open your USB serial port.  Find the COM port that the rig is connected to.  In the screenshot below, COM7.  Note: different USB ports will have different numbers.  If you regularly plug your rig into the computer and use this connection type, you may need to make sure you update the COM number in the steps below if you are switching between different USB ports.  
-
-![Windows COM port number](../Images/access_1.png)
-
-* Open PuTTY program.  Click on the Serial radio button, enter the COM number you got from the previous step into the Serial line number and change the speed to 115200.  Click on Open button.
-
-![Windows serial setup](../Images/access_2.png)
-
-* Enter `root` for the login and the password is whatever you changed it to during setup in Phase 0.  The default password was edison.  As you type the password, no keystrokes will appear on the screen.  Successful login will leave you at a prompt for the root user as shown below.
-
-![Windows serial login success](../Images/access_3.png)
+If your computer and rig are on different wifi networks, you will need to connect using a data cable connected to the UART port on the rig. See [these instructions](<../Build Your Rig/logging-into-rig-serial>).
 
 ### autossh Reverse Tunnel
 
@@ -169,7 +133,7 @@ Go to http://papertrailapp.com and setup a new account.  Choose to setup a new s
 
 ## System logging
 
-Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
+Login to your rig. If you need help with that, please see the [Accessing Your Rig](<#accessing-your-online-rig-via-ssh>) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
 
 ### Aggregating logs
 
@@ -356,7 +320,7 @@ AND also make this edit using `vi /etc/default/avahi-daemon`  Change the number 
 
 **subg_rfspy state or version??**
 
-If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#could-not-get-subg-rfspy-state-or-version-have-you-got-the-right-port-device-and-radio-type) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
+If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](<../Troubleshooting/common-error-messages#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio>) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
 
 ![papertrail subg error message](../Images/subg_rfspy.png)
 
@@ -585,7 +549,7 @@ To speed up the command execution you can add to the `/etc/ssh/sshd_config` the 
 
 ### Accessing your offline rig via SSH over Bluetooth
 
-Your phone and rig must be BT paired and connected over BT PAN. See https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html for BT PAN configuration. When you first open Termius on your mobile device (JuiceSSH and SimpleSSH are also good choices) it will prompt you to add a new host. Click the + button to add a new host. Turn the toggle on for Use SSH and then fill out the following information:
+Your phone and rig must be BT paired and connected over BT PAN. See [here](<../Customize-Iterate/bluetooth-tethering-edison>) for BT PAN configuration. When you first open Termius on your mobile device (JuiceSSH and SimpleSSH are also good choices) it will prompt you to add a new host. Click the + button to add a new host. Turn the toggle on for Use SSH and then fill out the following information:
 
     Alias – use an alias name that let’s you know which rig and which connection point this host is for, for example YourRigName on device BT
     Hostname – Enter the IP address of the rig as assigned by your BT PAN
@@ -598,7 +562,7 @@ Click Save in the upper right corner. You should now see the host you just creat
 
 Just like the trick for getting internet to your rig through a network that requires you to log in via a portal (a "captive" network), a mobile router (e.g. [HooToo](https://www.hootoo.com/network-devices.html)) or other brand) can create a network that allows your phone and rig both to be connected, allowing you to then SSH into your rig, just as if they were connected via cellular. 
 
-You can then use the [same methods to SSH in for the phone or computer (that you're using to SSH) being on the same network as the rig](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh).
+You can then use the [same methods to SSH in for the phone or computer (that you're using to SSH) being on the same network as the rig](<#accessing-your-online-rig-via-ssh>).
 
 Note: you will want to set your mobile router up in advance, and give it the same network name and password as a network already on your rig; or otherwise make sure to add the network and password to your rig before you travel and want to use this offline. 
 
@@ -650,7 +614,7 @@ Create the above script by running `nano /root/myopenaps/http.sh` , then paste t
 
 You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
 
-B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](http://openaps.readthedocs.io/en/latest/docs/Resources/index.html) section for help on editing crontabs):
+B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](<../Resources/index>) section for help on editing crontabs):
 
 ```
 @reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337

@@ -1,10 +1,10 @@
 # Collect your data and get prepared
 
-Before getting started, we ask that you store at least 30 days of CGM data.  Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses.  For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](https://openaps.readthedocs.org/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html).  By logging and collecting a recent history of your insulin+BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases.
+Before getting started, we ask that you store at least 30 days of CGM data.  Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses.  For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](<../While You Wait For Gear/nightscout-setup>).  By logging and collecting a recent history of your insulin+BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases.
 
 If you aren't using Nightscout, you can upload your Dexcom G4 receiver to Dexcom Studio or if you use Dexcom G5 the data is in the cloud at Dexcom Clarity.  If you use a Medtronic CGM, upload your CGM data to CareLink.  If you use an Animas Vibe, upload your data to Tidepool or Diasend.  We suggest you get in the habit of doing this regularly so that you have ongoing data to show trends in your overall estimated average glucose (eAG, a good indicator in trends in A1c) and variations in your "time in range."
 
-Later in these docs is a link to donate your data to a project called [OpenHumans](https://openaps.readthedocs.org/en/latest/docs/Give%20Back-Pay%20It%20Forward/data-commons-data-donation.html).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
+Later in these docs is a link to donate your data to a project called [OpenHumans](<../Give Back-Pay It Forward/data-commons-data-donation>).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
 
 ## Practice good CGM habits
 
@@ -48,7 +48,7 @@ There are a couple areas in the pump that will need to be set specifically in or
 
 * Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
 
-* ISFs over 250 mg/dl per unit will need a special step in loop setup once your setup script is finished (see [here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#temp-basals-6-3-isf-255-or-carb-ratio-25-with-a-x23-or-x54)), even though the pump currently will allow you to set them higher.  Just remember, you will need to run a couple extra commands when you setup your loop.
+* ISFs over 250 mg/dl per unit will need a special step in loop setup once your setup script is finished (see [here](<../Build Your Rig/step-4-watching-log#temp-basals-6-3-isf-255-or-carb-ratio-25-with-a-x23-or-x54)), even though the pump currently will allow you to set them higher.  Just remember, you will need to run a couple extra commands when you setup your loop.
 
 * If you have periods in the day where your pump normally has basal settings of zero - your loop will not work! You can resolve this by setting the lowest possible basal setting your pump will permit. OpenAPS will then issue temp basals of zero, as needed.
 
@@ -70,7 +70,7 @@ Some of the super advanced features you'll learn about later - Unannounced Meals
 
 ### Autotune
 
-You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great...now autotune can give you a headstart to fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html) for how to deal with multiple values. You can run autotune before you get your loop setup...it doesn't have to run on a rig.
+You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great...now autotune can give you a headstart to fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](<../Customize-Iterate/autotune>) for how to deal with multiple values. You can run autotune before you get your loop setup...it doesn't have to run on a rig.
 
 How important are good basals and ISFs? You mean you weren't convinced already by the amount of work put into autotune itself? Well, autotune is a required step in order to enable the most advanced features (SMB and UAM). The new version will check to see if you have an autotune directory in your rig before the loop will be allowed to actually enact any SMBs (no matter what your preferences say). To fulfill this requirement you can do one of the following which will create an autotune directory where it needs to be:
 
