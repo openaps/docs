@@ -414,7 +414,7 @@ hosted_root = os.environ.get('HOSTEDROOT', 'http://localhost:8000/') # Allow set
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
   rtd_version = os.environ.get('READTHEDOCS_VERSION')
-  rtd_domain = draft-openaps-reorg # TEMPORARY to keep links working on RTD preview. os.environ.get('RTDDOMAIN', 'openaps') 
+  rtd_domain = 'draft-openaps-reorg' # TEMPORARY to keep links working on RTD preview. os.environ.get('RTDDOMAIN', 'openaps') 
   hosted_root = 'https://%s.readthedocs.org/en/%s/' % rtd_domain, rtd_version
 def setup(app):
     app.add_config_value('recommonmark_config', {
