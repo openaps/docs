@@ -10,7 +10,7 @@ To **run again**: `bash ~/myopenaps/oref0-runagain.sh` will run oref0-setup with
 
 Don't have a runagain or want to start fresh? `cd && ~/src/oref0/bin/oref0-setup.sh`
 
-Because you're re-running, **remember you will need to also re-do adjustments to your `preferences.json` once you finish re-running setup with either of the methods above. You can do that by `edit-pref`.** 
+Because you're re-running, **remember you will need to also [re-do adjustments to your `preferences.json`](<../Usage and maintenance/preferences-and-safety-settings>) once you finish re-running setup with either of the methods above. You can do that by `edit-pref`.** 
 
 Note: The following items are not impacted by re-running the setup script:
 

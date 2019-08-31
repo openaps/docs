@@ -1,4 +1,4 @@
-# Finish your OpenAPS setup
+# Step 5: Finish your OpenAPS setup
 
 You're looping? Congrats! However, you're not done quite done yet. 
 
