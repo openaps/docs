@@ -13,6 +13,8 @@ Most users prefer a combination of known wifi networks and BT-tethering to maint
 
 These [helpful mobile apps](<../Customize-Iterate/useful-mobile-apps>) are worth checking out, as they'll aid you with accessing your rig when it gets connected online. 
 
+It is also possible to have your rig [loop offline](<../../Customize-Iterate/offline-looping-and-monitoring>) but this requires some additional setup.
+
 ### Home Wifi
 
 If your home wifi is flaky, your OpenAPS looping will likely be flaky as well.  Speed isn't super important, but reliability of uptime is.  If your router is old and hasn't been updated in awhile, simply updating your router may be a good idea.  Routers are about $100 for a new, well-featured router.  If you get your router as part of a package from your ISP, you can ask if they have any updated equipment to improve your home wifi network's stability.  Many ISPs tend to forget about their customers' old equipment until they start complaining about it.

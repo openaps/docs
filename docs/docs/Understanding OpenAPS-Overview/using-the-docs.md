@@ -12,7 +12,7 @@ We recommend bookmarking the [link](http://openaps.readthedocs.org/en/latest/) t
 
 ## The docs have their own search function!
 
-See the top left of the docs for the search box. It's helpful to search *inside* the documentation itself, rather than Google, because you'll stay inside the most up to date version of the documentation. You may want to try a different word or shorter phrase if you don't get any results for your search phrase, as we may have worded a section differently.
+See the top left of the docs for the search box. It's best to search *inside* the documentation itself, rather than Google, because you'll stay inside the most up to date version of the documentation. You may want to try a different word or shorter phrase if you don't get any results for your search phrase, as we may have worded a section differently.
 
 ![Show documentation search](../Images/Search_documentation.png)
 
