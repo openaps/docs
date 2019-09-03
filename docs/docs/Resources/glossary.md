@@ -11,7 +11,7 @@
 
 <b>BG</b> - Blood Glucose
 
-<b>BGI</b> (Blood Glucos Impact) - The degree to which Blood Glucose (BG) "should" be rising or falling. OpenAPS calculates this value to determine the 'Eventual Blood Glucose'. This value can be used to make other high/low basal decisions in advanced implementations of OpenAPS.
+<b>BGI</b> (Blood Glucose Impact) - The degree to which Blood Glucose (BG) "should" be rising or falling. OpenAPS calculates this value to determine the 'Eventual Blood Glucose'. This value can be used to make other high/low basal decisions in advanced implementations of OpenAPS.
 
 <b>Bolus</b> - extra insulin given by a pump, usually to correct for a high Blood Glucose (BG) or for carbohydrates
 
