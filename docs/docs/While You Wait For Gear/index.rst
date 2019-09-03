@@ -6,7 +6,7 @@ While you wait for gear
    :glob:
    :hidden:
    
-   Setting up Nightscout  <nightscout-setup>
+   Set up Nightscout  <nightscout-setup>
    Collect your data & prepare <collect-data-and-prepare>
-   Make Your First PR <loops-in-progress>
+   Make your first PR <loops-in-progress>
    Do some reading <reading-list>
