@@ -20,10 +20,36 @@ So that we can notify you if necessary, [please fill out this form if you have b
 
 **Note**: you only ever need to fill this form out once. If you're building multiple rigs, or switching between DIY systems, no need to fill this out multiple times. We're just counting - and wanting to connect with in terms of safety announcements - humans. :) 
 
-## 
+## Optional step: improving the battery life of your Raspberry Pi
+
+!! Important for Enlite users: If you are using Enlite as CGM source, your rig will not work when it's underclocked, since the loop will not run fast enough! (You will always see the "BG too old" error). We are aware of that issue and try to find a solution...
+
+Version - CPU Clock - Battery Life @ 2500mAh (Li-Po)
+___
+* 0.6.2 - 1000 MHz - **8 hours**
+* 0.7.0-dev - 1000 MHz - **9 hours**
+* 0.7.0-dev - 500 MHz  - **14.5 hours**
+___
+
+As you can see, 0.7.0 made some battery life improvements, but under-clocking the CPU makes an even more significant improvement.
+
+To accomplish this, log into your rig via SSH and modify the file `/boot/config.txt`.
+
+Scroll down to find the line
+
+`#arm_freq=1000`
+
+and change it to
+
+`arm_freq=500`
+
+Note the removal of the `#` at the beginning of the line. Save your change and reboot your rig!
+
+## Customizing your closed loop
 
 As your time permits, there's still more useful and cool things you can do to make looping more efficient and automated.
 
+* First, review some [common situations you may encounter and practical advice for using your loop.](<../Usage and maintenance/usability-considerations>)
 * [Add more wifi networks to your rig](<../Usage and maintenance/Wifi/on-the-go-wifi-adding>) so that when you are away from home, the rig has access to trusted wifi networks
 * [Set up Papertrail](<../Usage and maintenance/monitoring-openaps#papertrail-remote-monitoring-of-openaps-logs-recommended>) Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 * [Set up IFTTT for your phone or watch](<../Customize-Iterate/ifttt-integration>) to allow you to use Nightscout's temp targets, carb entries, and similar for single button interactions with your rig

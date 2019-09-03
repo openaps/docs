@@ -1,11 +1,8 @@
-# Usability Considerations
+# Using your loop: practical advice for common situations
 
-Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some ideas or tips to consider:
+Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some common situations and questions you may encounter:
 
-<details>
-        <summary><b>Click here to expand a clickable list to see all tips on this page:</b></summary>
-
-- [How do I enter carbs and boluses so OpenAPS can use them?](#how-do-i-enter-carbs-and-boluses-so-openaps-can-use-them-)
+- [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
 - [What do you do with the loop in airport security when you travel](#what-do-you-do-with-the-loop-in-airport-security-when-you-travel)
 - [What do you do with your loop when you travel across timezones? How do you update devices for a time zone change?](#what-do-you-do-with-your-loop-when-you-travel-across-timezones--how-do-you-update-devices-for-a-time-zone-change-)
 - [What do you do with the loop when you shower?](#what-do-you-do-with-the-loop-when-you-shower-)
@@ -14,17 +11,14 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 - [What do you do if you want to be off the pump for long periods during a day when you're really active?  Like for the beach or water park or sporting activity or similar?](#what-do-you-do-if-you-want-to-be-off-the-pump-for-long-periods-during-a-day-when-you-re-really-active---like-for-the-beach-or-water-park-or-sporting-activity-or-similar-)
 - [What if I want to turn off the loop for a while?](#what-if-i-want-to-turn-off-the-loop-for-a-while-)
 - [How do I open loop?](#how-do-i-open-loop-)
-- [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
-- [How do I improve the range of my Edison/Explorer Board?](#how-do-i-improve-the-range-of-my-edison-explorer-board-)
 - [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types--or-switch-to-fiasp--what-should-i-change-)
-- [Improving the battery life of your Raspberry Pi](#improving-the-battery-life-of-your-raspberry-pi)
 
-</details>
 
-## How do I enter carbs and boluses so OpenAPS can use them?
-Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs can be either entered on the pump (for example, using Bolus Wizard) or into Nightscout (carb entries in Nightscout can either be made directly using the Care Portal) or via IFTTT or XDrip.</br>
+## How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets
 
-**SAFETY WARNING:** If the pump has a target range high end set lower than the BG input into the Bolus Wizard, the Bolus Wizard will add insulin to cover the carbs as well as bring BG down to the high end. I.e. if your high end is 110 and you enter a 160 BG and 45g of carbs in the Bolus Wizard, the Bolus Wizard will dose 1U to bring BG to 110 and 3U for carbs (assuming 50 (mg/dL)/U and 15g/U factors). The rig will likely have already dosed insulin to bring your BG to your low target, and you are potentially "double dosing". In these scenarios, you will have too much insulin onboard and can experience a severe low. If you use the Boluz Wizard, ensure the high end of the BG target range is a high number such as 250 mg/dL. OpenAPS default behavior (`wide_bg_target_range` preference) is to only use the target range lower end. Setting the high end does not impact the OpenAPS algorithms.
+The use of Temporary Targets can provide additional fine tuning of insulin control on the go, or remotely for parents monitoring children when they are at school or away from home. As described elsewhere in this documentation, an Eating Soon-type (lower than normal) Temporary Target can be used in advance of a meal or activity. Lower Temporary Targets can also be used to force the OpenAPS system to be somewhat more aggressive in correcting a rising blood sugar. Similarly, a higher temporary target can soften a blood sugar drop and help avoid a low, or help limit stacking of insulin that is likely to peak during activity. Temp targets can be set by entering them in Nightscout Care Portal; you can also set up IFTTT buttons to set common temp targets from your watch or phone with a single button.
+
+Temporary Targets can be set in advance by setting a future date/time stamp in Nightscout when you set them.  For example, a parent may wish to set a week's worth of Eating Soon or Activity Modes in advance of a regular school week.  This may be particularly helpful for meals or activity (i.e. gym class) which are regularly scheduled but for which you may have difficulty remembering to trigger the Temporary Target at the right time.  Scheduled or remotely activated Temporary Targets can also be very useful in supporting children in optimal management at school or other locations where there may not be an adult who is in a position to set the Temporary Target each time it is needed. It's also helpful even for adult PWDs when traveling; a loved one at home in a different time zone can set temp targets as needed to help direct the rig's activity while the PWD might be asleep or otherwise occupied.<br>
 
 ## What do you do with the loop in airport security when you travel
 The loop is off the shelf hardware - it's no different than your phone or other small gadgets, so leave it in your carry-on bag when going through security. (Dana note: I have traveled [well](https://twitter.com/danamlewis/status/811682733445496833) over 100 times with my loop, and in some cases with 3-4 Pis and batteries and related accessories, and have never had issues going through security because of my loop.)
@@ -89,11 +83,6 @@ The easiest way to "open loop" is to set the temp basal type on your pump to be 
 
 You can then watch the OpenAPS pill in Nightscout, or your logs (`l`) on the rig to see what OpenAPS would be doing.
 
-## How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:
-The use of Temporary Targets can provide additional fine tuning of insulin control on the go, or remotely for parents monitoring children when they are at school or away from home. As described elsewhere in this documentation, an Eating Soon-type (lower than normal) Temporary Target can be used in advance of a meal or activity. Lower Temporary Targets can also be used to force the OpenAPS system to be somewhat more aggressive in correcting a rising blood sugar. Similarly, a higher temporary target can soften a blood sugar drop and help avoid a low, or help limit stacking of insulin that is likely to peak during activity. Temp targets can be set a number of ways, from using IFTTT so you can set them easily from your watch or phone; or by entering them in Nightscout Care Portal.
-
-Temporary Targets can be set in advance by setting a future date/time stamp in Nightscout when you set them.  For example, a parent may wish to set a week's worth of Eating Soon or Activity Modes in advance of a regular school week.  This may be particularly helpful for meals or activity (i.e. gym class) which are regularly scheduled but for which you may have difficulty remembering to trigger the Temporary Target at the right time.  Scheduled or remotely activated Temporary Targets can also be very useful in supporting children in optimal management at school or other locations where there may not be an adult who is in a position to set the Temporary Target each time it is needed. It's also helpful even for adult PWDs when traveling; a loved one at home in a different time zone can set temp targets as needed to help direct the rig's activity while the PWD might be asleep or otherwise occupied.<br>
-
 ## How do I switch between insulin types, or switch to Fiasp? What should I change?
 
 The most important setting for switching between insulin types in an OpenAPS rig is the "curve" type for duration of insulin activity. In oref0 0.6.0, most users will use the rapid-acting curve if they are using Humalog, Novolog, or similar. Fiasp users should use the "ultra-rapid" curve type. [See the preferences page here for more details on how to change your curve](<../Usage and maintenance/preferences-and-safety-settings#curve-rapid-acting>) in your `preferences.json` file (which you can edit with `edit-pref`). 
@@ -101,28 +90,3 @@ The most important setting for switching between insulin types in an OpenAPS rig
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 
 Some users who switch to Fiasp find that they need to adjust settings. Others do not need to change settings that much, and autosens and/or autotune can help adjust to any variances over time as your body's needs change related to the difference insulin type. YDMV, as always!
-
-## Improving the battery life of your Raspberry Pi
-
-!! Important for Enlite users: If you are using Enlite as CGM source, your rig will not work when it's underclocked, since the loop will not run fast enough! (You will always see the "BG too old" error). We are aware of that issue and try to find a solution...
-
-Version - CPU Clock - Battery Life @ 2500mAh (Li-Po)
-___
-* 0.6.2 - 1000 MHz - **8 hours**
-* 0.7.0-dev - 1000 MHz - **9 hours**
-* 0.7.0-dev - 500 MHz  - **14.5 hours**
-___
-
-As you can see, 0.7.0 made some battery life improvements, but under-clocking the CPU makes an even more significant improvement.
-
-To accomplish this, log into your rig via SSH and modify the file `/boot/config.txt`.
-
-Scroll down to find the line
-
-`#arm_freq=1000`
-
-and change it to
-
-`arm_freq=500`
-
-Note the removal of the `#` at the beginning of the line. Save your change and reboot your rig!

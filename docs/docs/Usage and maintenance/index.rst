@@ -9,8 +9,8 @@ Usage and maintenance
    How to enter carbs and boluses <entering-carbs-bolus>
    Preferences and safety settings <preferences-and-safety-settings>
    Monitoring OpenAPS <monitoring-OpenAPS>
-   Optimizing Your Settings <optimize-your-settings>
-   Tips & tricks <usability-considerations>
-   Update your rig in the future <update-your-rig>
+   Using your loop: common situations <usability-considerations>
+   Optimizing your settings <optimize-your-settings>
    How to run oref0-setup.sh again <oref0-runagain>
+   Update your rig in the future <update-your-rig>
    Wifi options <Wifi/index>

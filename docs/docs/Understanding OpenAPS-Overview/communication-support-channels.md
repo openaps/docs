@@ -7,7 +7,7 @@ There are several ways to communicate with other participants and contributors i
 **Note:** It's best practice not to share your pump's serial number, so make sure not to include it in pictures or pasted text output when seeking help on pump communication. Ditto for Nightscout URL and API secret and other private information that could enable someone to access your setup.
 
 ### Google Group 
-A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev) - everyone is recommended and welcome to join! You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter.
+A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev) - everyone is encouraged and welcome to join! You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter.
 
 ### Gitter
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
