@@ -1,10 +1,14 @@
 # Optimizing your settings
 
-Once you've been looping, you may look at your graphs and wonder how to achieve different results. It takes some time to do, but optimizing your settings is one of the keys to improving things, once you have basic looping up and running.
+Once you've been looping for a while, you may look at your graphs and wonder how to achieve different results. It takes some time to do, but optimizing your settings is one of the keys to improving things, once you have basic looping up and running.
 
 Note: if you're not familiar with the approach of optimizing settings, it's very important to understand that you should only change ONE thing at a time, and observe the impact for 2-3 days before choosing to change or modify another setting (unless it's obviously a bad change that makes things worse, in which case you should revert immediately to your previous setting). The human tendency is to turn all the knobs and change everything at once; but if you do so, then you may end up with further sub-optimal settings for the future, and find it hard to get back to a known good state. 
 
-Think about this: when many people start looping, they often have too high basal and too low carb ratio or ISF. What this means is they're using basal insulin around mealtimes to compensate for not usually giving the amount of insulin needed for food. When you go on a DIY closed loop and the system begins to help with adjusting insulin for BGs, it can become apparent that settings need to be tweaked. Here are a series of general approaches you can take for optimizing your settings, with example patterns:
+When people start looping, they often have too high basal and too low carb ratio or ISF. What this means is they're using basal insulin around mealtimes to compensate for not usually giving the amount of insulin needed for food. When you go on a DIY closed loop and the system begins to help with adjusting insulin for BGs, it can become apparent that settings need to be tweaked. Here are a series of general approaches you can take for optimizing your settings, with example patterns:
+
+## Using Nightscout reports
+
+If you are new to using Nightscout, you may want to start using the "reports" (via hamburger menu in top right corner) to view aggregate data and look for trends. 
 
 ## Using Autotune
 
