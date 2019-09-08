@@ -18,6 +18,9 @@ NOTE OF CAUTION:
    * enable autotune during your OpenAPS setup script and autotune will run automatically as part of your loop
    * run autotune as a one-off (single run) on your rig
 * You should have basals of > 0.5 U/hr. (Super Micro Bolus (SMB) is *not* advisable for those with very small basals; since 0.1U is the smallest increment that can be bolused by Super Micro Bolus (SMB).  We also added a basal check to disable Super Micro Bolus (SMB) when basals are < 0.3 U/hr.  If your "regular" basal in the pump is 0.3 U/hr and autosens or autotune has adjusted your basal rate to below 0.3 U/hr, Super Micro Bolus (SMB)s will be disabled as well.)
+
+   * ***Note about Autosens, Autotune, and SMBs**: It is possible that your auto-adjusted basal rate used by the loop may end up being lower than what is programmed in your pump. Since SMBs require a minimum basal rate of 0.3 U/hr, if you expect to see SMBs enacting, but your pump basal rate is very close to 0.3 U/hr... adjustments by autosens and/or autotune may have changed your basal rate to be less than 0.3 U/hr.
+
 * Read the following:
   * A. The updated reference design ([https://openaps.org/reference-design/](https://openaps.org/reference-design/)) that explains the differences between oref0 and oref1
   * B. The following two posts for background on oref1:
