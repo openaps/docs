@@ -37,7 +37,7 @@ PS, your fork and branch will still be sitting on your own personal GitHub accou
 
 If you are planning to make a lot of edits, including adding images to help illustrate parts of the documentation (thank you!), you may want to take the following approach:
 
-* As you go and save screenshots, rename the screenshots to a descriptive name - but try not to use spaces as that confuses Github. Instead, use underscores. I.e. Example_batch_images_upload.png rather than "Example batch images upload.png". 
+* As you go and save screenshots, rename the screenshots to a descriptive name - but try not to use spaces as that confuses Github. Instead, use underscores. E.g. Example_batch_images_upload.png rather than "Example batch images upload.png". 
 
 * You can upload images in batches easily by:
  

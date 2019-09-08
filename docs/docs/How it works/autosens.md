@@ -30,11 +30,11 @@ Here's what each symbol above means:
 
  "+"  : deviation was above what was expected
 
- "-"  : deviation was below what was expected.   In addition, if a high temp target is running (i.e. activity mode), a negative deviation is added every 5 minutes, to nudge sensitivityRatio downward to reflect the sensitivity likely to result from activity.
+ "-"  : deviation was below what was expected.   In addition, if a high temp target is running (e.g. activity mode), a negative deviation is added every 5 minutes, to nudge sensitivityRatio downward to reflect the sensitivity likely to result from activity.
 
  "="  : BGI is doing what we expect.  Neutral deviations are also added every 2h to help decay sensitivityRatio back toward 1 if all data is excluded. 
  
- "4h" : time stamp to mark hour of day - i.e. 4h = 4am, 22h = 10pm, etc.
+ "4h" : time stamp to mark hour of day - e.g. 4h = 4am, 22h = 10pm, etc.
  
  "8g" : COB is displayed at any time a new carbs are recorded. Initial carb entry will show as full carbohydrate count followed by "(" with subsequent COB notes (4g) as calculated net COB at any time when additional carbs are entered.
  

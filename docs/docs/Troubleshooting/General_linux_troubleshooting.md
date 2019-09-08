@@ -1,4 +1,4 @@
-# Troubleshooting 
+# Troubleshooting overview
 
 Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting. Here is also a [good blog post to read with tips on how to best seek help online to troubleshoot](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
@@ -14,7 +14,7 @@ There are many commands that are useful, but some of the commands you'll get com
 
 * `cat` means "concatenation" - it will show you the contents of a file if you `cat <filename>`.  Very useful when trying to see what you have in preferences or other oref0 files.
 
-* `vi` and `nano` are both editing command prefixes.  Using those will bring you into files for the purposes of editing their contents.  It is like `cat` except you will be able to edit.
+* `vi` and `nano` are both text editors.  Using those will bring you into files for the purposes of editing their contents.  It is like `cat` except you will be able to edit.
   * Within `vi` editor, you will need to enter the letter `i` to begin INSERT mode (and a little INSERT word will be shown at the bottom of the screen once you do that).  While in INSERT mode, you will be able to make edits.  To exit INSERT mode, you will press `esc`.  To save your changes and quit, you need to exit INSERT mode and then type `:wq`.
   * Within `nano` editor, you are automatically in editing mode.  You can make your edits and then to exit and save, you'll use `control-x`, `y` (to save the edits), and then `return` to save the edits to the same filename you started with.
 
@@ -93,7 +93,7 @@ One other helpful thing to do before starting any software work is to log your t
 
 ## Generally useful linux commands
 
-More comprehensive command line references can be found [here](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html) and [here](http://www.pixelbeat.org/cmdline.html). For the below, since these are basic linux things, also try using a basic search engine (i.e. Google) to learn more about them and their intended use.
+More comprehensive command line references can be found [here](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html) and [here](http://www.pixelbeat.org/cmdline.html). For the below, since these are basic linux things, also try using a basic search engine (e.g. Google) to learn more about them and their intended use.
 
 `ls -alt` (List all of the files in the current directory with additional details.)
 

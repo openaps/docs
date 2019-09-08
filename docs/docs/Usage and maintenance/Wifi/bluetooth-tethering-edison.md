@@ -20,7 +20,7 @@ Even though some specific phones are fully capable of bluetooth tethering and th
 
 ### Benefit of Using BT Tethering to Your Phone's Hotspot
 
-* BT tethering automatically picks up when your rig loses wifi (i.e. walking out the door) without you even having to pull your phone out of your pocket
+* BT tethering automatically picks up when your rig loses wifi (e.g. walking out the door) without you even having to pull your phone out of your pocket
 * It also automatically allows the rig to pick back up on wifi when it finds a known wifi network
 * It consumes less battery on your phone compared to a wifi connection to your phone's hotspot
 

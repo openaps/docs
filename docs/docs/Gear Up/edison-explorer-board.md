@@ -20,7 +20,7 @@ There are 4 types of Edison's. All of them work, but Versions 3 and 4 require an
 
 * Option 1 - Buy it from places like Ebay, Craiglist, or your nearest store  - and follow the instructions to flash it.  
 
-  * You may need to hunt for an Edison as supplies of them are dwindling - if you get it as part of a "kit" (i.e. breakoutboard + Edison), keep in mind _you'll still need to get the Explorer Board Block from Hamshield_.
+  * You may need to hunt for an Edison as supplies of them are dwindling - if you get it as part of a "kit" (e.g. breakoutboard + Edison), keep in mind _you'll still need to get the Explorer Board Block from Hamshield_.
 
   * **Note:** If you are doing Option 1 (an Edison from wherever you can find it) - you are getting an UNFLASHED Edison. Not a big deal - flashing it with jubilinux is just a few more steps (~15 minutes) - but remember you'll need to start with the [flashing instructions](<../Build Your Rig/step-1-flashing>).
 
