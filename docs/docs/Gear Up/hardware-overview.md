@@ -6,7 +6,7 @@ The basic setup requires:
 
 * a compatible insulin pump
 * a CGM
-* a small computer (Intel Edison, or Raspberry Pi for example) and a radio board/stick (i.e. Explorer Board for Edison or Explorer HAT for Pi)
+* a small computer (Intel Edison, or Raspberry Pi for example) and a radio board/stick (e.g. Explorer Board for Edison or Explorer HAT for Pi)
 * a battery 
 
 If you come across something that doesn't seem to work, is no longer available, or if you have a notable alternative, feel free to edit this documentation with your suggestions.

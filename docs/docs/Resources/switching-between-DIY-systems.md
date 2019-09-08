@@ -71,7 +71,7 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 ### Targets and algorithm differences
 
 * Loop pulled targets from the app. OpenAPS pulls targets from the pump. Here’s [more detail on the data OpenAPS pulls and how it outputs data for you to understand the algorithm in action](<../How it works/understand-determine-basal>).
-* Loop has temporary targets available by using the workout mode in the Loop app.  OpenAPS can have [multiple temp targets](<../How it works/autosens#eating-soon-and-activity-mode-temporary-targets>) (i.e. Eating Soon and Workout, etc., and can be set via the Nightscout Care Portal if the rig is online, and via [IFTTT/Alexa/pebble/scheduled in advance/location based triggers](<../Customize-Iterate/ifttt-integration>).
+* Loop has temporary targets available by using the workout mode in the Loop app.  OpenAPS can have [multiple temp targets](<../How it works/autosens#eating-soon-and-activity-mode-temporary-targets>) (e.g. Eating Soon and Workout, etc., and can be set via the Nightscout Care Portal if the rig is online, and via [IFTTT/Alexa/pebble/scheduled in advance/location based triggers](<../Customize-Iterate/ifttt-integration>).
 * OpenAPS has no bolus momentum or safety guard that prevent boluses; but has other key safety settings (see below)
 
 ### “MaxIOB” and other safety settings
@@ -115,7 +115,7 @@ See [this short list for what to buy for an Edison/Explorer Board OpenAPS rig.](
 * Loop users must bolus from Loop app or Apple watch. Loop tracks IOB through reservoir volume changes as the default, and will fallback to the pump's event history in the event reservoir readings aren't continuous.
 * OpenAPS users bolus from the pump (either bolus wizard, or easy bolus button). OpenAPS will read the information about the bolus and other insulin activity based on the pump’s event history. 
  * The pros of this means you won’t have to do anything special for pump rewinds/primes/site changes. OpenAPS will also provide treatment notes on your Nightscout site showing pump events such as suspensions, bolus wizard changes, basal profile edits, and primes.
- * The downside of this means you DO need to set a temp basal to 0 unit/hour before suspending, so OpenAPS will know that you didn’t get insulin during the time of suspend (i.e. for shower or taking off the pump to swim, etc.)
+ * The downside of this means you DO need to set a temp basal to 0 unit/hour before suspending, so OpenAPS will know that you didn’t get insulin during the time of suspend (e.g. for shower or taking off the pump to swim, etc.)
 
 ### Multiple rigs
 * Loop uses one RileyLink paired via bluetooth.  Typically users keep their RileyLink fairly close to the pump (like using a pants pocket) to help maintain communications. 
