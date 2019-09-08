@@ -96,7 +96,10 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    Optimizing your settings <docs/Usage and maintenance/optimize-your-settings>
    How to run oref0-setup.sh again <docs/Usage and maintenance/oref0-runagain>
    Update your rig in the future <docs/Usage and maintenance/update-your-rig>
-   Wifi options <docs/Usage and maintenance/Wifi/index>
+   Wifi overview <docs/Usage and maintenance/Wifi/understanding-wifi-options>
+   Adding wifi networks to your rig <odocs/Usage and maintenance/Wifi/n-the-go-wifi-adding>
+   Bluetooth tethering <docs/Usage and maintenance/Wifi/bluetooth-tethering-edison>
+   
    
 .. toctree::
    :maxdepth: 2
