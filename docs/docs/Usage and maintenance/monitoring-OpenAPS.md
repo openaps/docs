@@ -3,6 +3,7 @@
 There are two general groups of ways to monitor your rigs:
 
 * Online, meaning it requires the rig to have internet connectivity (via a wifi or hotspot/tethered connection)
+
 * Offline, meaning the rig does not have any internet connectivity
 
 ![Examples of online and offline monitoring](../Images/Online_Offline_monitoring.jpg)
@@ -20,29 +21,26 @@ There are two general groups of ways to monitor your rigs:
 
 ## The main ways of monitoring your rig OFFLINE include:
 
+* [Connecting via SSH over a serial connection](<../Build Your Rig/logging-into-rig-serial>).
 * [Pancreabble](<#pancreabble-offline-connection-to-pebble-watch>) (offline connection to your Pebble watch)
 * For Android users: "[Hot Button](<#hot-button-for-android-users>)"
 * Accessing via [SSH over Bluetooth](<#accessing-your-offline-rig-via-ssh-over-bluetooth>), or [by using a mobile router so your phone/rig can connect to the same network offline](<#accessing-your-offline-rig-via-ssh-when-your-phone-and-rig-are-connected-to-the-same-network>)
 * For any phone type: [Creating a web page that can be accessed on the phone via the rig's IP address](<#offline-web-page-from-rig-for-any-phone-user>)
 
-********************************
-
-## You'll probably come back to this page later to setup different monitoring options
-
-At this point, if you're not yet set up on OpenAPS, you won't quite be ready to set up all of the below options for accessing your rig - because your rig is not built yet! But, just know that there are different "online" and "offline" ways to **monitor** your rig, so you'll want to think about your preferences for both situations, and know that the instructions on the rest of this page are here when you're more familiar and are ready to set up some or all of them.
-
-********************************
+*********************************
 
 ## Accessing your online rig via SSH
 
 See below for different ways to access your rig:
 * [If your computer and rig are on the same wifi network](<#if-your-computer-and-rig-are-on-the-same-wifi-network>)
-* [If your computer and rig are on different wifi networks](<#if-your-computer-and-rig-are-on-different-wifi-networks>)
 * [If your iPhone and rig are on the same wifi network](<#if-your-iphone-and-rig-are-on-the-same-wifi-network>)
+* [Set up an autossh reverse tunnel to access from a different network](#autossh-reverse-tunnel)
 
 ********************************
 
 ### If your computer and rig are on the same wifi network
+
+These instructions will work only if your computer and rig are on the same wifi network. If they are on different networks, you will need to connect using a data cable connected to the UART port on the rig to use SSH. See [these instructions](<../Build Your Rig/logging-into-rig-serial>).
 
 ![If your computer and rig are on the same wifi network](../Images/Computer_rig_same_wifi.png)
 
@@ -82,11 +80,6 @@ See below for different ways to access your rig:
 
 ![Windows IP address for rig](../Images/access_7.png)
 
-### If your computer and rig are on different wifi networks
-
-![If your computer and rig are on different wifi networks](../Images/Computer_rig_different_wifi.png)
-
-If your computer and rig are on different wifi networks, you will need to connect using a data cable connected to the UART port on the rig. See [these instructions](<../Build Your Rig/logging-into-rig-serial>).
 
 ### autossh Reverse Tunnel
 
@@ -121,6 +114,8 @@ Once the test are successful, add a line to your rig crontab to launch autossh a
 
 
 ********************************
+
+
 ## Papertrail remote monitoring of OpenAPS logs (RECOMMENDED)
 
 If you want to remotely view the rig's logs/loops, you can use Papertrail service.  We HIGHLY recommend setting up this service for at least the first month of your OpenAPS use to help remotely and quickly troubleshoot your rig, if you have problems.  The first month of Papertrail comes with a very generous amount of free data.  If you decide you like the service, you can sign up for monthly plan.  Typically, the monthly cost for using Papertrail with OpenAPS is approximately $5-7 depending on how many rigs you use and how long you'd want to save old data.
@@ -228,9 +223,9 @@ and then go to your papertrailapp website to see the log
 
 ### Optimize Papertrail use
 
-To make the most of your Papertrail logs, setting up some of your account settings and filters will help streamline your troubleshooting
+To make the most of your Papertrail logs, setting up some of your account settings and filters will help streamline your troubleshooting.
 
-##### Account Filters
+#### Account Filters
 
 Adding filters to your incoming Papertrail logs will help minimize unuseful data (and help keep you below your data caps) and streamline your review of your relevant OpenAPS logs.  You can go to your Papertrail account's `Settings` and then choose the `Log Destinations`. Click on `Log Filters` to go to the screen where you can add specific filters.
 
@@ -240,7 +235,7 @@ Click on the `Add Log Filter` button and add three filters for `CRON`, `libmraa`
 
 ![papertrail log filters](../Images/log_filters.png)
 
-##### Saved Searches
+#### Saved Searches
 
 Unfortunately, Papertrail does not currently have an app for use on mobile devices.  Instead, you will be using an internet browser to view your papertrail.  Setting up saved searches, in advance, can help you sort through your logs more efficiently.  Most OpenAPS troubleshooting will involve either wifi connection issues or pump communications.  Some helpful searches to save in order to find those issues fastest are:
 
