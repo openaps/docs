@@ -1,8 +1,8 @@
-# Understanding your wifi options
+# Wifi overview
 
 If you want to keep your rig small and portable, using the internet will be important (assuming you are using a Dexcom CGM) to keep BG values flowing to the loop.  Ways your rig can stay online and access the internet are:
 
-* Joining known wifi networks [(you'll be able to add more wifi networks to your rig in the future)](<../Usage and maintenance/Wifi/on-the-go-wifi-adding>)
+* Joining known wifi networks
 * BT-tethering to your cell phone's hotspot 
 * Wifi-tethering to your cell phone's hotspot
 * Wifi-tethering to mifi device
@@ -44,6 +44,8 @@ By having access to your home router, you can easily see if you rig is listed as
 School districts vary widely in their wifi structure and access.  Start talking to your school district's IT department well in advance of looping to discuss options for the rig's access to school wifi.
 
 If you are sending your t1d kid to school with an OpenAPS rig, getting on the school's wifi network will save you cell phone data and phone battery.  Some school districts will need the MAC address of the rig to add it to their "approved" devices list.  Other school districts may provide a special login for the rig.
+
+It is common for educational networks not to provide full Internet access, just web - i.e., they allow HTTP(S) but not other protocols like SSH. In this case, your child's online rig may "work" at school and send/receive data from Nightscout, but will not be accessible via SSH and may not send logs to Papertrail.
 
 If the school district refuses to allow the rig access to the school's wifi network, you can use BT tethering to your phone's hotspot to stay online while at school.  The downside is that you will be using your cell data during the school day and it will cause added drain on the phone's battery.  
 
