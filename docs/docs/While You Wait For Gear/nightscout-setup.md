@@ -1,4 +1,4 @@
-# Visualization and Monitoring
+# Visualization and Monitoring using Nightscout
 
 ## Nightscout Introduction
 
@@ -241,7 +241,8 @@ If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers 
 Because running OpenAPS requires frequent communication with your pump, your pump battery tends to drain more quickly than you'd experience when not looping. Some users have had good experiences with Energizer Ultimate Lithium AAA batteries (getting ~1.5weeks) rather than alkaline batteries (getting ~2-3 days). Regardless of whether you use alkaline or lithium, you may want to consider a Nightscout alarm to alert you to when the battery is running low. You can do this by setting (in your Nightscout config vars) `PUMP_WARN_BATT_V` to 1.39 for lithium batteries or 1.2 or 1.25 for alkaline batteries, and adding `battery` to your `PUMP_FIELDS` setting so that voltage is displayed on your Nightscout site. The voltage warning will give you many hours (reportedly ~8+ for lithium and ~6+ for alkaline) heads up that you will need to change your battery. 
 Note: If you don't change the battery in time and end up with a "low battery" warning on the pump, the pump will still function, but RF communications will be turned off and you will not be able to loop until you put a new battery in.
 
-Your NIGHTSCOUT site is now all set-up.  Congrats!
+Your NIGHTSCOUT site is now all set up.  Congrats!
+
 
 ## Nightscout Migrations
 
@@ -349,15 +350,10 @@ Other notes:
 
 ![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 
-## Nightscout Troubleshooting and FAQ 
 
-### It's not working - I'm missing data in Nightscout? 
+## Understanding and using your Nightscout site
 
-If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected (and OpenAPS plugin is enabled and saved) the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](<../Customize-Iterate/offline-looping-and-monitoring#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users>).
-
-Dexcom CGM users should make sure they have "share" enabled and have actively shared their data with at least one follower, before data will begin flowing to Nightscout. If you don't want to share your data with another person, you can just follow yourself. 
-
-### A Note about Nightscout's COB Pill
+### A note about Nightscout's COB Pill
 
 If you have the Advanced Meal Assist (AMA) OpenAPS feature turned on, OpenAPS calculates COB *dynamically*. To see your COB on your Nightscout web app, look inside the OpenAPS pill. _(If it says "undefined", this means you do NOT have AMA turned on.)_
 
@@ -411,6 +407,9 @@ minutes: Enacted, Looping, Waiting, and Warning:
 * Looping means OpenAPS is running but has not enacted the pump
 * Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
 
+
+## Nightscout troubleshooting
+
 ### All of a sudden, Nightscout is no longer showing treatments (bolus, carbs, finger BGs) on the graph or rendering my basals.
 
 If you suddenly find that Nightscout is not showing treatments (bolus, carbs, finger BGs etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
@@ -421,3 +420,8 @@ You probably somehow got a future-dated treatment. One possible reason is a cloc
 * Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). If the future treatments were caused by a time mismatch, you'll need to resolve that first, or the future dated treatments may simply be re-uploaded.
 
 ![How to delete future-dated treaments](../Images/Remove_future_treatments.png)
+### It's not working - I'm missing data in Nightscout? 
+
+If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected (and OpenAPS plugin is enabled and saved) the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](<../Customize-Iterate/offline-looping-and-monitoring#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users>).
+
+Dexcom CGM users should make sure they have "share" enabled and have actively shared their data with at least one follower, before data will begin flowing to Nightscout. If you don't want to share your data with another person, you can just follow yourself. 
