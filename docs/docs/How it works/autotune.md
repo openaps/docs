@@ -2,7 +2,7 @@
 
 Autotune is a tool to help calculate potential adjustments to ISF, carb ratio, and basal rates. 
 
-## The easiest way to run Autotune
+## AutotuneWeb: the easiest way to run Autotune
 
 The easiest way to run Autotune, if you don't have an OpenAPS rig, is to use "AutotuneWeb". It's a website where you enter your Nightscout URL, confirm your profile, and get results emailed directly to you. [Click here to go use AutotuneWeb](https://autotuneweb.azurewebsites.net/).
 
