@@ -1,6 +1,4 @@
--------------------------------
-Installing OpenAPS on your rig
--------------------------------
+# Installing OpenAPS on your rig
 
 Getting OpenAPS running on your rig generally takes five steps:
 
@@ -21,16 +19,3 @@ Some conventions used in these docs:
 * You will see a <tt>$</tt> at the beginning of many of the lines of code. This
   indicates that it is to be entered and executed at the terminal prompt. Do not type in the dollar sign <tt>$</tt>.
 * Wherever there are `<bracketed_components>` in the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `myedison` as your  `<edisonhostname>`, you must use `myedison` every time you see `<edisonhostname>`. Do not include the `< >` brackets in your commands when you enter them.  So for the example above, if the code snipped says `ssh root@<edisonhostname>.local`, you would enter `ssh root@myedison.local`
-
-
-
-.. toctree::
-   :maxdepth: 4
-   :hidden:
-   
-   step-1-flashing
-   step-2-wifi-dependencies
-   step-3-setup-script
-   step-4-watching-log
-   step-5-finishing-setup
-   logging-into-rig-serial

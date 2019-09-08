@@ -19,27 +19,138 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    
    Additionally, it is equally important to only use original supplies such as inserters, cannulas and insulin containers approved by the manufacturer for use with your pump or CGM. Using untested or modified supplies can cause CGM inaccuracy and insulin dosing errors. Insulin is highly dangerous when misdosed - please do not play with your life by hacking with your supplies.
 
+
+
 .. toctree::
    :maxdepth: 2
    :glob:
    :hidden:
+   :caption: Overview
 
-   Overview: Understanding OpenAPS <docs/Understanding OpenAPS-Overview/index>
+   How OpenAPS works <docs/Understanding OpenAPS-Overview/how-openaps-works-overview>
+   Overview of steps <docs/Understanding OpenAPS-Overview/overview-of-build-process>
+   Using this documentation <docs/Understanding OpenAPS-Overview/using-the-docs>
+   Where to go for help <docs/Understanding OpenAPS-Overview/communication-support-channels>
    
-   Hardware <docs/Gear Up/index>
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Hardware
    
-   Getting ready <docs/While You Wait For Gear/index>
-    
-   Installing OpenAPS <docs/Build Your Rig/index>
+   Overview <docs/Gear Up/hardware-overview>
+   Compatible Pumps <docs/Gear Up/pump>
+   Compatible CGMs <docs/Gear Up/CGM>
+   Your rig hardware options <docs/Gear Up/rig-options> 
+   Edison rigs <docs/Gear Up/edison-explorer-board> 
+   Raspberry Pi rigs <docs/Gear Up/pi-based-rigs> 
    
-   How OpenAPS works <docs/How it works/index>
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Getting ready
    
-   Usage and maintenance <docs/Usage and maintenance/index>
+   Set up Nightscout  <docs/While You Wait For Gear/nightscout-setup>
+   Collect your data & prepare <docs/While You Wait For Gear/collect-data-and-prepare>
+   Make your first PR <docs/While You Wait For Gear/loops-in-progress>
+   Do some reading <docs/While You Wait For Gear/reading-list>
    
-   Customizing and extra features <docs/Customize-Iterate/index>
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Installing OpenAPS
    
-   Troubleshooting <docs/Troubleshooting/index>
+   Overview <docs/Build Your Rig/install-overview>
+   Step 1: Flashing<docs/Build Your Rig/step-1-flashing>
+   Step 2: Wifi and dependencies <docs/Build Your Rig/step-2-wifi-dependencies>
+   Step 3: Setup script <docs/Build Your Rig/step-3-setup-script>
+   Step 4: Watching logs <docs/Build Your Rig/step-4-watching-log>
+   Step 5: Finishing setup <docs/Build Your Rig/step-5-finishing-setup>
+   Logging into the rig using a serial connection <docs/Build Your Rig/logging-into-rig-serial>
+   
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: How OpenAPS works
+   
+   How OpenAPS makes decisions  <docs/How it works/understand-determine-basal>
+   Insulin on board calculations <docs/How it works/understanding-insulin-on-board-calculations>
+   Understanding Autotune <docs/How it works/understanding-autotune>
+   Running Autotune <docs/How it works/autotune>
+   Using Autosens <docs/How it works/autosens>
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Usage and maintenance 
+   
+	How to enter carbs and boluses <docs/Usage and maintenance/entering-carbs-bolus>
+   Preferences and safety settings <docs/Usage and maintenance/preferences-and-safety-settings>
+   Monitoring OpenAPS <docs/Usage and maintenance/monitoring-OpenAPS>
+   Using your loop: common situations <docs/Usage and maintenance/usability-considerations>
+   Optimizing your settings <docs/Usage and maintenance/optimize-your-settings>
+   How to run oref0-setup.sh again <docs/Usage and maintenance/oref0-runagain>
+   Update your rig in the future <docs/Usage and maintenance/update-your-rig>
+   Wifi options <docs/Usage and maintenance/Wifi/index>
+   
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Customizing and extra features
+   
+   oref1: SMB and UAM <docs/Customize-Iterate/oref1>
+   Useful apps for accessing your rig <docs/Customize-Iterate/useful-mobile-apps>
+   IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
+   Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
 
-   Give Back - Pay it Forward <docs/Give Back-Pay It Forward/index>
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Troubleshooting
    
-   Resources <docs/Resources/index>
+   Overview and Linux reference <docs/Troubleshooting/General_linux_troubleshooting>
+   oref0-setup Troubleshooting<docs/Troubleshooting/oref0-setup-troubleshooting
+   Common error messages <docs/Troubleshooting/Common-error-messages>
+   Wifi and hotspot issues <docs/Troubleshooting/Wifi-and-hotspot-issues>
+   Pump-rig communications troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
+   CGM-rig communications troubleshooting <docs/Troubleshooting/CGM-rig-communications-troubleshooting>
+   NS-rig communications troubleshooting<docs/Troubleshooting/Rig-NS-communications-troubleshooting>
+   Medtronic button errors <docs/Troubleshooting/Medtronic-Button-Errors>
+   Carelink troubleshooting <docs/Troubleshooting/Carelink>
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Give Back-Pay It Forward
+
+   Donate your data <docs/Give Back-Pay It Forward/data-commons-data-donation>
+   Help others - pay it forward <docs/Give Back-Pay It Forward/contribute>
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+   :caption: Resources/Reference
+   
+   For Clinicians <docs/Resources/clinician-guide-to-OpenAPS>
+   History <docs/Resources/history>
+   Glossary <docs/Resources/glossary>
+   Making a PR <docs/Resources/my-first-pr>
+   Technical resources <docs/Resources/technical-resources>
+   Switching between DIY systems <docs/Resources/switching-between-DIY-systems>
+   <docs/Resources/Deprecated: Pi Hardware info <Deprecated-Pi/Pi-hardware>
+   <docs/Resources/Deprecated: Pi Setup info <Deprecated-Pi/Pi-setup>
+
+
+
+
+
+
