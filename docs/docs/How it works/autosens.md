@@ -2,16 +2,19 @@
 
 Wouldn't it be great if the system knew when you were running sensitive or resistant? That's what we thought, so we created "auto-sensitivity mode". Autosens allows the system to analyze historical data on-the-go and make adjustments if it recognizes that you are reacting more sensitively (or conversely, more resistant) to insulin than usual. Autosens will then make temporary adjustments to the basal, ISF, and targets used for calculating temp basals, in order to keep BG closer to your configured target.
 
-## Autosens vs Autotune
+## The difference between autotune and autosens:
 
-Autosens looks at the last 8 and 24 hours to estimate how sensitive to insulin you currently are. It will make adjustments to whatever basal, ISF, and target profiles are currently set for the loop. If autotune is not enabled, that means autosens will be making on-the-go adjustments based on the settings read from your pump.  If autotune is enabled, that means autosens will be using the autotuned-profile as the basis for making adjustments. 
+Autosensitivity/resistance mode (aka “autosens”) is an advanced feature in OpenAPS that you can enable that looks at 24 hours of data and makes adjustments to ISF and targets based on the resulting sensitivity calculations. If you have a dying pump site, or have been sick and are resistant, your ISF is likely to be calculated down by autosens and then used in OpenAPS calculations accordingly. The opposite for being more sensitive is true as well. [(Here’s a blog post describing autosensitivity during sick days.)](https://diyps.org/2016/12/01/sick-days-with-a-diy-closed-loop-openaps/)
 
-Autosens does not change your basal profile or carb ratios like Autotune does. Autotune is saying things like "you need more basal insulin in the evening" or "you need less insulin for meals." Autosens is saying, instead, things like "and TODAY you are a bit more resistant." 
+Autosens will make temporary adjustments to whatever basal, ISF, and target profiles are currently set for the loop. If autotune is not enabled, that means autosens will be making on-the-go adjustments based on the settings read from your pump.  If autotune is enabled, that means autosens will be using the autotuned-profile as the basis for making adjustments. 
+
+Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb ratio over the course of weeks.  Because it makes changes more slowly than autosens, autotune ends up drawing on a larger pool of data, and is therefore able to differentiate whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Whereas we don’t recommend changing basals or ISF based on the output of autosens (because it’s only looking at 24h of data, and can't tell apart the effects of basals vs. the effect of ISF), autotune is intended to be used to help guide basal, ISF, *and* carb ratio changes because it’s tracking trends over a large period of time.
 
 ## Understanding autosens logs
 
 When you watch your autosens log (shortcut command is `autosens-looplog`) and sensitivity changes is going to be detected, you might see something like this:
-******************
+
+```
 Calculating sensitivity using 8h of non-exluded data
 Setting lastSiteChange to Tue Dec 19 2017 09:42:24 GMT-0600 (CST) using timestamp 2017-12-19T09:42:24-06:00
 u(xxxxxxxxxxxx11hxxxxxxxxxxxx12h=43g(xxxxxxxxxxxx13hxxxxxxxxxxxx14h=xxx45gxxxxxxxxx15hxxxxxxxxxxx16h=xxxxxxxx17hxxxxxx0gx)u(xxxxx18h=x35g(xx46gxxxxxxxxx19hxxxxxxx38gxxxxx20h=xxxxxxxxxxxx21hxxxxxx-x-x-x-x-x-x-22h=x-x-x-x-x-xxxxxxx23hxx0gx
@@ -30,7 +33,8 @@ Sensitivity normal.
 ISF adjusted from 120 to 120
 Using 24h autosens ratio of 1 (ISF 120)
 Autosens refreshed: {"ratio":1}
-******************
+```
+
 Here's what each symbol above means:
 
  "x"  : deviation is excluded.  All deviations are excluded when there is COB through the time that COB drops to zero (carbs are fully absorbed) and deviations go negative once again.  This is appropriate to eliminate the impact of rising BG due to carb absorption from sensitivity calcualations and not falsely attribute it to insulin resistance.  Deviations may also be excluded becuase of an unexplained high deviation (site failure, etc).

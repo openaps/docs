@@ -79,9 +79,8 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    
    How OpenAPS makes decisions  <docs/How it works/understand-determine-basal>
    Insulin on board calculations <docs/How it works/understanding-insulin-on-board-calculations>
-   Understanding Autotune <docs/How it works/understanding-autotune>
-   Running Autotune <docs/How it works/autotune>
-   Using Autosens <docs/How it works/autosens>
+   Understanding Autotune <docs/How it works/autotune>
+   Understanding Autosens <docs/How it works/autosens>
    
 .. toctree::
    :maxdepth: 2
@@ -94,6 +93,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    Monitoring OpenAPS <docs/Usage and maintenance/monitoring-OpenAPS>
    Using your loop: common situations <docs/Usage and maintenance/usability-considerations>
    Optimizing your settings <docs/Usage and maintenance/optimize-your-settings>
+   Running Autotune <docs/Usage and maintenance/running-autotune>
    How to run oref0-setup.sh again <docs/Usage and maintenance/oref0-runagain>
    Update your rig in the future <docs/Usage and maintenance/update-your-rig>
    Wifi overview <docs/Usage and maintenance/Wifi/understanding-wifi-options>
