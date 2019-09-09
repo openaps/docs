@@ -10,7 +10,7 @@ Getting OpenAPS running on your rig generally takes five steps:
 
 Going through steps 1-2 may take about 1-3 hours depending on your internet connection, whether the edison was pre-flashed, and comfort level with the instructions.  At the end of the bootstrap script (step 2), you will be asked if you want to continue on with the set-up script (step 3).  If you need to take a break and come back to step 3 later, you can answer "no" to continuing on and come back later.
 
-Before you start, it's a good idea to have some basic familiarity with using the command line on your computer, via a program like Terminal (on Mac) or Command Line (on Windows). This will be helpful not just for initial installation, but for monitoring and adjusting your setup later. [Here's a good introduction to using Terminal on Mac.](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+Before you start, it's a good idea to have some basic familiarity with using the command line on your computer, via a program like Terminal (on Mac) or Command Line (on Windows). This will be helpful not just for initial installation, but for monitoring and adjusting your setup later. [Here's a good introduction to using Terminal on Mac.](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line) You can also reference the [generally-useful Linux commands](<../Troubleshooting/General_linux_troubleshooting>) from the troubleshooting guide.
 
 Some conventions used in these docs:
 
