@@ -87,7 +87,7 @@ By default, a higher temp target (101 if your target is 100) will disable Super 
 
 ## Pushover, Super Micro Bolus (SMB), and OpenAPS
 
-_This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). Pushover is a way to easily send messages to your phone from another device with simple messages. If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts.  Nightscout Pushover alerts are separate and distinct from OpenAPS-generated Pushover alerts.  Each can exists with or without the other._
+This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). Pushover is a way to easily send messages to your phone from another device with simple messages. If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts.  Nightscout Pushover alerts are separate and distinct from OpenAPS-generated Pushover alerts.  Each can exist with or without the other.
 
 If Pushover API token and User key were added during the setup script and you have oref1 enabled, you can get Pushover alerts in the following situations:
 
