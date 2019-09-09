@@ -97,7 +97,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    How to run oref0-setup.sh again <docs/Usage and maintenance/oref0-runagain>
    Update your rig in the future <docs/Usage and maintenance/update-your-rig>
    Wifi overview <docs/Usage and maintenance/Wifi/understanding-wifi-options>
-   Adding wifi networks to your rig <odocs/Usage and maintenance/Wifi/n-the-go-wifi-adding>
+   Adding wifi networks to your rig <docs/Usage and maintenance/Wifi/on-the-go-wifi-adding>
    Bluetooth tethering <docs/Usage and maintenance/Wifi/bluetooth-tethering-edison>
    
    
