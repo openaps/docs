@@ -1,6 +1,6 @@
 # Where to go for help
 
-First check the [Troubleshooting](../Troubleshooting/index.rst) section for assistance, and try searching within this documentation for the problem you are having (including text of any error message you are seeing).
+First check the [Troubleshooting](<../Troubleshooting/General_linux_troubleshooting>) section for assistance, and try searching within this documentation for the problem you are having (including text of any error message you are seeing).
 
 There are several ways to communicate with other participants and contributors in the #OpenAPS project. To help get your issue resolved more quickly, you can proactively provide information as described in [this blog post for tips on how to best seek help when troubleshooting online](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 

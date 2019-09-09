@@ -4,7 +4,7 @@ How do you make decisions about your diabetes? You gather data, crunch the numbe
 
 A DIY loop is no different. It gathers data from:
 * [your pump](<../Gear Up/pump>)
-* [your CGM](<../Gear Up/cgm>)
+* [your CGM](<../Gear Up/CGM>)
 * any other place you log information, like [Nightscout](<../While You Wait For Gear/nightscout-setup>)
 
 It then uses this information to do the math and decide how your basal rates might need to be adjusted (above or below your underlying basal rate) in order to keep or bring your BGs in your target range. 
