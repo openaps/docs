@@ -14,7 +14,7 @@ If you are new to using Nightscout, you may want to start using the "reports" (v
 
 The most powerful tool at your disposal for adjusting settings is Autotune, which you can run nightly as part of your loop, and which will automatically start adjusting your basals, carb ratio, and ISF based on observed trends.  If your pump settings are too far from what autotune thinks is necessary, it won't be able to adjust further without some manual action on your part, so you'll want to review autotune's recommendations periodically and consider adjusting pump settings in the recommended direction.  As noted before, it's best to change things gradually, and observe the results before changing additional settings.
 
-In oref0 0.6.0 and beyond, autotune runs every night on your rig automatically. You can `cat-autotune` to view your autotune recommendations log. ([More about Autotune in the docs here](<../How it works/autotune>).)
+In oref0 0.6.0 and beyond, autotune runs every night on your rig automatically. You can `cat-autotune` to view your autotune recommendations log. Learn more about [how autotune works](<../How it works/autotune>) or [how to run it](<../Usage and maintenance/running-autotune>).
 
 ## Frequent negative IOB at the same time every day
 
