@@ -124,7 +124,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    Wifi and hotspot issues <docs/Troubleshooting/Wifi-and-hotspot-issues>
    Pump-rig communications troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
    CGM-rig communications troubleshooting <docs/Troubleshooting/CGM-rig-communications-troubleshooting>
-   NS-rig communications troubleshooting<docs/Troubleshooting/Rig-NS-communications-troubleshooting>
+   Nightscout troubleshooting<docs/Troubleshooting/Rig-NS-communications-troubleshooting>
    Medtronic button errors <docs/Troubleshooting/Medtronic-Button-Errors>
    Carelink troubleshooting <docs/Troubleshooting/Carelink>
 
