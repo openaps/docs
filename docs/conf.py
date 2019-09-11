@@ -410,19 +410,18 @@ epub_exclude_files = ['search.html']
 #epub_use_index = True
 
 github_doc_root = 'https://github.com/openaps/docs/tree/master/'
-hosted_root = os.environ.get('HOSTEDROOT', 'http://localhost:8000/') # Allow setting custom root in local .env file
+hosted_root = os.environ.get('HOSTEDROOT', 'http://localhost:8000/') # Allow setting custom root in local .env file for serving static files
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
   rtd_version = os.environ.get('READTHEDOCS_VERSION')
-  rtd_domain = 'draft-openaps-reorg' # TEMPORARY to keep links working on RTD preview. os.environ.get('RTDDOMAIN', 'openaps') 
+  rtd_domain = os.environ.get('READTHEDOCS_PROJECT')
   hosted_root = 'https://%s.readthedocs.org/en/%s/' % (rtd_domain, rtd_version)
 def setup(app):
     app.add_config_value('recommonmark_config', {
             # 'url_resolver': lambda url: github_doc_root + url,
-            # 'url_resolver': lambda url: hosted_root + url + '.html',
+            'url_resolver': lambda url: hosted_root + url + '.html',
             'auto_toc_tree_section': 'Summary',
             'enable_auto_doc_ref': True,
             'enable_eval_rst': True,
             }, True)
     app.add_transform(AutoStructify)
-
