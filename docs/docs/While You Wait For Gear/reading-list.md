@@ -8,7 +8,7 @@ Here are the most important sections to read:
 
 2. Read and understand [how OpenAPS decides on adjustments to your basal insulin](<../How it works/understand-determine-basal>).
 
-3. Skim the section on [monitoring OpenAPS](<../Usage and maintenance/monitoring-openaps>) so you're aware of the various options for monitoring your rig once it's looping. It's not necessary to understand all the options in detail, just be aware of them; you'll probably want to return to that section to set up additional options in the future.
+3. Skim the section on [monitoring OpenAPS](<../Usage and maintenance/monitoring-OpenAPS>) so you're aware of the various options for monitoring your rig once it's looping. It's not necessary to understand all the options in detail, just be aware of them; you'll probably want to return to that section to set up additional options in the future.
 
 4. Skim the section on [preferences and safety settings](<../Usage and maintenance/preferences-and-safety-settings>) you can set so you're aware of the things you can easily adjust. You'll be returning to set these in Step 5 of the installation process. 
 

@@ -16,7 +16,7 @@ Single Super Micro Bolus (SMB) amounts are limited by several factors.  The larg
 
 It's important to note that maxIOB will limit Super Micro Bolus (SMB)s from being issued if your Insulin On Board (IOB) (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing Super Micro Bolus (SMB)s.
 
-In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an Super Micro Bolus (SMB) while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](<../docs/Customize-Iterate/ifttt-integration>).
+In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an Super Micro Bolus (SMB) while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](<./ifttt-integration>).
 
 (History of Super Micro Bolus (SMB) development: https://github.com/openaps/oref0/issues/262 )
 
@@ -68,7 +68,7 @@ Remember that you are choosing to test a still-in-development feature. Do so at 
 
 * In oref0 0.6.0 and later, you will enable Super Micro Bolus (SMB)s by adding the related preferences to your preferences.json. You may want to experiment with turning only one enableSMB option on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
-There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](<../Usage and maintenance/preferences-and-safety-settings#advanced-oref1-preferences>) for more details on all the settings, but the short version is:
+There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](<../Usage and maintenance/preferences-and-safety-settings#oref1-related-preferences>) for more details on all the settings, but the short version is:
 
  * `enableSMB_with_COB` means Super Micro Bolus (SMB) will be enabled as long as COB is above zero
  * `enableSMB_after_carbs` means Super Micro Bolus (SMB) will be enabled for 6h after carb entry

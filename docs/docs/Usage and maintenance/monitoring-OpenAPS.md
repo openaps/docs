@@ -315,7 +315,7 @@ AND also make this edit using `vi /etc/default/avahi-daemon`  Change the number 
 
 **subg_rfspy state or version??**
 
-If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](<../Troubleshooting/common-error-messages#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio>) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
+If your loop is failing, lights are staying on, and you see repeated error messages about "Do you have the right subg_rfsby state or version?" as below, then you need to head to [this section of docs](<../Troubleshooting/Common-error-messages#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio>) to fix that issue.  Don't worry, it is a 5 minute fix.  Very straight-forward.
 
 ![papertrail subg error message](../Images/subg_rfspy.png)
 
@@ -609,7 +609,7 @@ Create the above script by running `nano /root/myopenaps/http.sh` , then paste t
 
 You may need to adjust the values in `'{print substr($0,12,5)}'` - whilst I know these work on the rigs I have set them up on, other's have had better results with `{print substr($0,13,5)}'`
 
-B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](<../Resources/index>) section for help on editing crontabs):
+B. You will also need to start up the SimpleHTTPserver service that is already installed on jubilinux in the location you will place your file. This is done by adding the following line to your Cron (refer to the [resources](<../Resources/technical-resources#linux-shell-terminal>) section for help on editing crontabs):
 
 ```
 @reboot cd /root/myopenaps/enact && python -m SimpleHTTPServer 1337

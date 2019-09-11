@@ -11,7 +11,7 @@ By default, the rig's programming in OpenAPS is to prefer joining known wifi con
 
 Most users prefer a combination of known wifi networks and BT-tethering to maintain internet access for their rig.  This minimizes cell phone data use while at the same time requiring no intentional action on the user's part when they enter/leave their known network areas.  The rig will move seamlessly off/on known networks and BT-tethers without needing help.  Using wifi-tethers requires the user to manually turn the connections on/off when they get into the range of a preferred wifi network to save cell data, therefore those connections aren't preferred.
 
-These [helpful mobile apps](<../Customize-Iterate/useful-mobile-apps>) are worth checking out, as they'll aid you with accessing your rig when it gets connected online. 
+These [helpful mobile apps](<../../Customize-Iterate/useful-mobile-apps>) are worth checking out, as they'll aid you with accessing your rig when it gets connected online. 
 
 It is also possible to have your rig [loop offline](<../../Customize-Iterate/offline-looping-and-monitoring>) but this requires some additional setup.
 

@@ -98,7 +98,7 @@ As mentioned at the top of this page, the next OpenAPS release will have new act
 
 In the new release, users will be able to select between using a "bilinear" (looks like what was  plotted above: /\) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
 
-A user can select one of three curve defaul settings:
+A user can select one of three curve default settings:
 
 * **bilinear:** Same as how the curves work in oref0, version 0.5 -- IOB curve is calculated based on a bilinear `activity` curve that varies by user's `dia` setting in their pump.
 

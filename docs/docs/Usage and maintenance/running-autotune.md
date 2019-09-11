@@ -35,9 +35,9 @@ Below the ISF and carb ratio, you'll see the basal report.
 
 1. Make sure your Nightscout profile is up to date. This is where the "starting" settings are pulled from. 
 2. If you've not read about Autotune, please see below to get an understanding of [how Autotune works](<../How it works/autotune#how-autotune-works>) and how you might use the results. 
-3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](<../How it works/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>). 
+3. Want to run over a different time frame? Keep in mind you can also get a profile generated from AutotuneWeb and then [follow the manual instructions below for running Autotune on your own computer](<#running-autotune-for-suggested-adjustments-without-an-openaps-rig>). 
 4. Make sure to check out the [privacy policy for AutotuneWeb](https://autotuneweb.azurewebsites.net/Home/Privacy), which includes directions for requesting your data to be deleted. 
-5. Results don't look like what you expected to see? [See here for some suggestions](<../How it works/autotune#why-isn-t-it-working-at-all>) that might contribute to flukey data. 
+5. Results don't look like what you expected to see? [See here for some suggestions](<#why-isn-t-it-working-at-all>) that might contribute to flukey data. 
 
 ## Running Autotune manually in OpenAPS 
 
@@ -72,7 +72,7 @@ oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites
 
 ## Running Autotune automatically in OpenAPS (default OpenAPS behavior)
 
-In oref0 0.6.0 and beyond, autotune will run by default. This means that autotune would be iteratively running (as described in [#261](https://github.com/openaps/oref0/issues/261)) and making changes to the underlying basals, ISF, and carb ratio being used by the loop, making small adjustments from the previously autotuned settings based on each day’s new data. However, there are safety caps (your autosens_max and autosens_min) in place to limit the amount of tuning that can be done at any time compared to the underlying pump profile. The autotune_recommendations will be tracked against the current pump profile, and if over time the tuning constantly recommends changes beyond the caps, you can use this to determine whether to tune the basals and ratios in those directions.
+In oref0 0.6.0 and beyond, autotune will run by default. This means that autotune would be iteratively running (as described in [#261](https://github.com/openaps/oref0/issues/261)) and making changes to the underlying basals, ISF, and carb ratio being used by the loop, making small adjustments from the previously autotuned settings based on each day’s new data. However, there are safety caps (your `autosens_max` and `autosens_min`) in place to limit the amount of tuning that can be done at any time compared to the underlying pump profile. The autotune_recommendations will be tracked against the current pump profile, and if over time the tuning constantly recommends changes beyond the caps, you can use this to determine whether to tune the basals and ratios in those directions.
 
 **Important** When autotune is enabled in your loop to run automatically, changes to your basal profile within the pump during the middle of the day will NOT cause an immediate change to the basal profile the loop is using.  The loop will continue to use your autotune-generated profile until a new one is updated just after midnight each night.  Each autotune nightly run will pull the current pump profile as its baseline for being able to make adjustments.  If you have reason to want a want a mid-day change to your basal program immediately, you should run autotune manually (see [directions](<#running-manually-in-your-myopenaps-directory-to-use-recommendations>)) to have it re-pull the settings from the pump and tune from the new settings.
 
@@ -94,7 +94,7 @@ Log into the NEW rig and run the following command:
 
 If you are not running autotune as part of a closed loop, you can still run it as a "one-off".(OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
-**Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](<./understanding-autotune>)
+**Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](../How it works/autotune#if-you-are-diy-closed-looping-and-looking-at-autotune>)
 
 **Note**: this is currently based on *one* ISF and carb ratio throughout the day. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
@@ -348,7 +348,7 @@ Other things to check:
 
 ## What does this output from autotune mean? 
 
-Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](<../How it works/understanding-autotune>).
+Go here to read more about [understanding the output, to see an example visual of what the output might look like, and scenarios when you may want to disregard portions of the output based on the data you provide it](<../How it works/autotune>).
 
 Remember, autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/openaps/autotune), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 

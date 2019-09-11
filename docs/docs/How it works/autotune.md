@@ -6,7 +6,7 @@ This page describes how Autotune works. For information on how to run it, please
 
 ## The difference between autotune and autosens
 
-[Autosensitivity/resistance mode (aka “autosens”)](<./autosens>) is a feature in OpenAPS that looks at 24 hours of data and makes adjustments to ISF and targets based on the resulting sensitivity calculations. If you have a dying pump site, or have been sick and are resistant, your ISF is likely to be calculated down by autosens and then used in OpenAPS calculations accordingly. The opposite for being more sensitive is true as well. [(Here’s a blog post describing autosensitivity during sick days.)](https://diyps.org/2016/12/01/sick-days-with-a-diy-closed-loop-openaps/)
+[Autosensitivity/resistance mode (aka “autosens”)](<./autosens>) is a feature in OpenAPS that looks at 24 hours of data and makes adjustments to ISF and targets based on the resulting sensitivity calculations. This can help make global adjustments to your insulin needs for transient changes such as illness, an aging pump site, or variation in activity level. 
 
 Autotune, by contrast, is designed to iteratively adjust basals, ISF, and carb ratio over the course of weeks.  Because it makes changes more slowly than autosens, autotune ends up drawing on a larger pool of data, and is therefore able to differentiate whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Whereas we don’t recommend changing basals or ISF based on the output of autosens (because it’s only looking at 24h of data, and can't tell apart the effects of basals vs. the effect of ISF), autotune is intended to be used to help guide basal, ISF, *and* carb ratio changes because it’s tracking trends over a large period of time.
 

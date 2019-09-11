@@ -77,7 +77,7 @@ Now that step 2 is done, the bootstrap script will then continue to run awhile l
 
 At the completion, you will be prompted to press `enter` if you want to continue the setup script (oref0-setup).  If you don't have time to run the setup script (a fresh install of setup script can take about an hour to run), then you can cancel and come back to it later.  Regardless of your answer, you should now return to [the Setup Script section](<../Build Your Rig/step-3-setup-script>) for finishing step 3.
 
-Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](<../Usage and maintenance/monitoring-openaps#accessing-your-online-rig-via-ssh>) from a computer on the same network, rather than using a cable. 
+Now that you have a wifi connection to your rig, you have the option of [logging into it using SSH](<../Usage and maintenance/monitoring-OpenAPS#accessing-your-online-rig-via-ssh>) from a computer on the same network, rather than using a cable. 
 
 ### Manual instructions for Intel Edison
 

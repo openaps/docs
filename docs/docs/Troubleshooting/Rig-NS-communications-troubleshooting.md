@@ -2,7 +2,7 @@
 
 The major categories of Nightscout troubleshooting include:
 
-**Connectivity**. The rig and Nightscout are good friends. Information is usually two-way so long as the rig has access to the internet (aka, online use).  When rigs go "offline", NS will go stale until internet is again available. If you're having issues with NS and it's a brand new setup, you'll want to double check [per the below](<../Troubleshooting/rig-ns-communications-troubleshooting#setting-up-your-ns-hosting-site>) that URL, API secret, etc. are correct.
+**Connectivity**. The rig and Nightscout are good friends. Information is usually two-way so long as the rig has access to the internet (aka, online use).  When rigs go "offline", NS will go stale until internet is again available. If you're having issues with NS and it's a brand new setup, you'll want to double check [per the below](<#setting-up-your-ns-hosting-site>) that URL, API secret, etc. are correct.
 
 **Mlab size is too big and you need to clean it**. [See below](<#mlab-maintenance>) for how to check the size of, and compact if needed, your mlab database, which can influence what displays in Nightscout.
 

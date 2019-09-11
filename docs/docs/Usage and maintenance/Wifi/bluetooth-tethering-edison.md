@@ -74,7 +74,7 @@ Certain phones don't work well using bluetooth tethering with OpenAPS. Various u
 
 ## Configure Bluetooth tethering on Edison running Jubilinux [optional]
 
-This section is completed by the install method found [here](<../Build Your Rig/step-3-setup-script>) . If you selected the option of installing Bluetooth at a later time during installation you may skip to Bluetooth Setup, the next section. 
+This section is completed by the install method found [here](<../../Build Your Rig/step-3-setup-script>) . If you selected the option of installing Bluetooth at a later time during installation you may skip to Bluetooth Setup, the next section. 
 
 ### Install dependencies 
 You will need to get the MAC address from your phone or whatever device you are using.

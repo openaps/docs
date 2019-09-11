@@ -51,7 +51,7 @@ As your time permits, there's still more useful and cool things you can do to ma
 
 * First, review some [common situations you may encounter and practical advice for using your loop.](<../Usage and maintenance/usability-considerations>)
 * [Add more wifi networks to your rig](<../Usage and maintenance/Wifi/on-the-go-wifi-adding>) so that when you are away from home, the rig has access to trusted wifi networks
-* [Set up Papertrail](<../Usage and maintenance/monitoring-openaps#papertrail-remote-monitoring-of-openaps-logs-recommended>) Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
+* [Set up Papertrail](<../Usage and maintenance/monitoring-OpenAPS#papertrail-remote-monitoring-of-openaps-logs-recommended>) Papertrail will even allow you to remotely track your logs when you are not logged into your rig. Setting up Papertrail and watching your logs will dramatically help you understand your rig and help troubleshoot if you run into problems.
 * [Set up IFTTT for your phone or watch](<../Customize-Iterate/ifttt-integration>) to allow you to use Nightscout's temp targets, carb entries, and similar for single button interactions with your rig
 * [Finish Bluetooth tethering your phone](<../Usage and maintenance/Wifi/bluetooth-tethering-edison>) so that when you are away from trusted wifi networks, your rig can automatically access your phone's mobile hotspot for continued online looping. 
 * [Learn about offline looping](<../Customize-Iterate/offline-looping-and-monitoring>) for times when your rig is not able to access internet (no wifi, no hotspot).

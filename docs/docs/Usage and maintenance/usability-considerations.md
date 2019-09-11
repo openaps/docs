@@ -2,16 +2,16 @@
 
 Now that you've closed the loop, you probably have a lot of new "first" experiences to deal with. Like much of this looping experience, you'll figure it out as you go along, and figure out what's right for you. But here are some common situations and questions you may encounter:
 
-- [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
+- [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go-optimizing-with-temporary-targets)
 - [What do you do with the loop in airport security when you travel](#what-do-you-do-with-the-loop-in-airport-security-when-you-travel)
-- [What do you do with your loop when you travel across timezones? How do you update devices for a time zone change?](#what-do-you-do-with-your-loop-when-you-travel-across-timezones--how-do-you-update-devices-for-a-time-zone-change-)
-- [What do you do with the loop when you shower?](#what-do-you-do-with-the-loop-when-you-shower-)
+- [What do you do with your loop when you travel across timezones? How do you update devices for a time zone change?](#what-do-you-do-with-your-loop-when-you-travel-across-timezones-how-do-you-update-devices-for-a-time-zone-change)
+- [What do you do with the loop when you shower?](#what-do-you-do-with-the-loop-when-you-shower)
 - [What do you do when you change sites?](#what-do-you-do-when-you-change-sites-)
-- [What do you do when you exercise?](#what-do-you-do-when-you-exercise-)
-- [What do you do if you want to be off the pump for long periods during a day when you're really active?  Like for the beach or water park or sporting activity or similar?](#what-do-you-do-if-you-want-to-be-off-the-pump-for-long-periods-during-a-day-when-you-re-really-active---like-for-the-beach-or-water-park-or-sporting-activity-or-similar-)
-- [What if I want to turn off the loop for a while?](#what-if-i-want-to-turn-off-the-loop-for-a-while-)
-- [How do I open loop?](#how-do-i-open-loop-)
-- [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types--or-switch-to-fiasp--what-should-i-change-)
+- [What do you do when you exercise?](#what-do-you-do-when-you-exercise)
+- [What do you do if you want to be off the pump for long periods during a day when you're really active?  Like for the beach or water park or sporting activity or similar?](#what-do-you-do-if-you-want-to-be-off-the-pump-for-long-periods-during-a-day-when-you-re-really-active-like-for-the-beach-or-water-park-or-sporting-activity-or-similar)
+- [What if I want to turn off the loop for a while?](#what-if-i-want-to-turn-off-the-loop-for-a-while)
+- [How do I open loop?](#how-do-i-open-loop)
+- [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types-or-switch-to-fiasp-what-should-i-change)
 
 
 ## How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets
