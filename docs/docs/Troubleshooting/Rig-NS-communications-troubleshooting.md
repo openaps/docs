@@ -14,33 +14,6 @@ The major categories of Nightscout troubleshooting include:
 
 You will need to make sure that you have setup you site configuration settings in your NS hosting site (usually that means Heroku) according to the docs.  See the [Nightscout Setup page](<../While You Wait For Gear/nightscout-setup>) for help in setting up your NS site.  If you don't add the OpenAPS-specific settings to your setup, the communications with the rig will not work properly.
 
-### What information is passed from rig to NS?
-
-The rig uploads the following information to NS:
-
-* Assuming pump communications are good, the rig will read information from the pump as follows:
-  * boluses and carbs; entered through either the pump bolus wizard or the easy bolus button
-  * current temp basal rate and duration/time set
-  * pump status; bolusing or suspended, reservoir volume, pump battery voltage
-  * pump notes; time changes, profile changes, battery changes, alarms (these show as grey dots on NS site)
-  * if a MDT enlite user, BGs will be read directly from the pump
-  
-* From OpenAPS looping, the additional information is also uploaded:
-  * determine-basal information (such as IOB, COB, temp basal enacted, etc) goes to fill out the OpenAPS pill in NS
-  * rig battery voltage and estimated %
-  
-* If (1) a dexcom receiver is connected to the rig and (2) the loop is setup with G4-upload as the CGM type and (3) the rig has internet, then the rig will also upload BGs and/or rawBG directly to NS.  This keeps the loop functional even if the Share app fails.  For example, if the phone battery dies during the night, and Share App therefore goes down...the rig can read BGs/rawBGs directly from the receiver and use your home wifi to upload to NS still.
-
-### What information is passed from NS to rig?
-
-The careportal "treatment" entries and BG data are the two most important items transmitted from NS to the rig.
-
-* Careportal entries transmitted and **USED** by the loop are:
-  * carb entries
-  * temp BG targets
-
-* BG values from Dexcom share servers via the NS bridge
-
 ## mLab maintenance
 
 Your NS data is stored in a place called an mLab database.  This mLab database is free so long as you stay below a 500mb data limit.  Inevitably, after several months of OpenAPS use, you may fill that free data storage limit.  Typically, you won't be notified of that issue...instead you'll start to notice sudden problems with your NS site when you haven't done anything different.  Strange symptoms include, but aren't limited to:
@@ -109,11 +82,29 @@ If you go to your Nightscout site's settings (the three horizontal bars in the u
 
 ![mLab collection select](../Images/admin_tools.jpg) 
 
-## Future data
+## Future data: all of a sudden, Nightscout is no longer showing treatments (bolus, carbs, finger BGs) on the graph or rendering my basals.
 
-Sometimes data gets recorded into your NS site that can be date stamped into the future.  For example, if your CGM or pump had the wrong time or date set.  These future-data will cause problems in rendering (displaying) data correctly, and can usually cause loop failures as well.  Check your NS Admin Tools section (described above) to easily identify and cleanout your database of future data points.  Every once in awhile however, that future data point tool will not work effectively because the future data will actually be stored within the `devicestatus` collection's information.  If that is the case, you should try cleaning out the `devicestatus` collection, as described above in the Cleanout Data section.
+If you suddenly find that Nightscout is not showing treatments (bolus, carbs, finger BGs etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
 
-## Nightscout info incorrect
+You probably somehow got a future-dated treatment. Sometimes data gets recorded into your NS site that can be date stamped into the future - for example, if your CGM, BG meter, OpenAPS rig, or pump had the wrong time or date set.
+
+These future-data will cause problems in rendering (displaying) data correctly, and can usually cause loop failures as well.  
+
+To remove future treatments:
+
+Check your NS Admin Tools section (click the three horizontal bars in the upper right of your Nightscout site, then Admin Tools) to easily identify and clean out your database of future data points (press the "remove treatments in the future" button). If the future treatments were caused by a time mismatch, you'll need to resolve that first, or the future dated treatments may simply be re-uploaded.
+
+![How to delete future-dated treaments](../Images/Remove_future_treatments.png)
+
+Every once in a while, however, that future data point tool will not work effectively because the future data will actually be stored within the `devicestatus` collection's information.  If that is the case, you should try cleaning out the `devicestatus` collection, as described above in the Cleanout Data section.
+
+## No data is being displayed, or no Nightscout pills are displayed
+
+If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected (and OpenAPS plugin is enabled and saved) the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](<../Customize-Iterate/offline-looping-and-monitoring#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users>).
+
+Dexcom CGM users should make sure they have "share" enabled and have actively shared their data with at least one follower, before data will begin flowing to Nightscout. If you don't want to share your data with another person, you can just follow yourself. 
+
+## Nightscout pill info is incorrect
 
 There are three pills (aka, information boxes) that are noteworthy about your NS display, and that people commonly interpret as "incorrect" despite all the warnings/explanations in these docs.
 

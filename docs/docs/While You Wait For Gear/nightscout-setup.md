@@ -19,6 +19,45 @@ with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
 your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features)
 
+If you already have a Nightscout site, still review the directions below to change your config variables to prepare for using OpenAPS! See [Using your Nightscout site](<#using-your-nightscout-site>) for important details about how to display and interpret OpenAPS-related information.
+
+## How Nightscout and OpenAPS work together
+
+OpenAPS is designed to work closely with Nightscout. 
+
+### What information is passed from rig to NS?
+
+The rig uploads the following information to NS:
+
+* Assuming pump communications are good, the rig will read information from the pump as follows:
+  * boluses and carbs; entered through either the pump bolus wizard or the easy bolus button
+  * current temp basal rate and duration/time set
+  * pump status; bolusing or suspended, reservoir volume, pump battery voltage
+  * pump notes; time changes, profile changes, battery changes, alarms (these show as grey dots on NS site)
+  * if a MDT enlite user, BGs will be read directly from the pump
+  
+* From OpenAPS looping, the additional information is also uploaded:
+  * determine-basal information (such as IOB, COB, temp basal enacted, etc) goes to fill out the OpenAPS pill in NS
+  * rig battery voltage and estimated %
+  
+* If (1) a dexcom receiver is connected to the rig and (2) the loop is setup with G4-upload as the CGM type and (3) the rig has internet, then the rig will also upload BGs and/or rawBG directly to NS.  This keeps the loop functional even if the Share app fails.  For example, if the phone battery dies during the night, and Share App therefore goes down...the rig can read BGs/rawBGs directly from the receiver and use your home wifi to upload to NS still.
+
+### What information is passed from NS to rig?
+
+The careportal "treatment" entries and BG data are the two most important items transmitted from NS to the rig.
+
+* Careportal entries transmitted and **USED** by the loop are:
+  * carb entries - these are taken into account by OpenAPS to predict your blood glucose curve
+  * temp BG targets - you can set a "temporary target" from Nightscout which will be used by OpenAPS
+
+* BG values from Dexcom share servers via the NS bridge
+
+Note that insulin logged on Nightscout but not read from the pump (e.g., an injection logged) is not directly used by the loop.
+
+## Troubleshooting Nightscout issues
+
+Please see the [Nightscout troubleshooting](<../Troubleshooting/rig-ns-communications-troubleshooting>) page if you experience problems with the setup process or with communications with Nightscout.
+
 ## Nightscout Setup with Heroku
 
 * If you plan to use Nightscout with OpenAPS, we recommend using Heroku, as OpenAPS can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.  Currently, the only added benefit to choosing the $7/mo Heroku plan vs the free Heroku plan is a section showing site use metrics for performance (such as response time).  This has limited benefit to the average OpenAPS user.  **In short, Heroku is the free and OpenAPS-friendly option for NS hosting.**
@@ -351,7 +390,20 @@ Other notes:
 ![Deploy branch](../Images/nightscout/deploy_branch.jpg)
 
 
-## Understanding and using your Nightscout site
+## Using your Nightscout site
+
+### Understanding the OpenAPS pill
+
+The OpenAPS pill box has four states, based on what happened in the last 15
+minutes: Enacted, Looping, Waiting, and Warning:
+
+* Waiting is when OpenAPS is uploading, but hasn't seen the pump in a while
+* Warning is when there hasn't been a status upload in the last 15 minutes
+* Enacted means OpenAPS has recently enacted the pump
+* Looping means OpenAPS is running but has not enacted the pump
+* Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
+
+If you click/tap on the pill, you will see more information about the most recent information used and decisions made by OpenAPS, including calculated IOB and COB; predicted eventual BG; any temp basal set; and any problems such as too-old BG data if your CGM is not working.
 
 ### A note about Nightscout's COB Pill
 
@@ -364,6 +416,14 @@ Nightscout, however, has its own COB pill, which decays carbs *statically*, and 
 * **Note also**: Nightscout's Bolus Wizard Preview (BWP) pill also decays carbs *statically*. 
 
 * **To avoid confusion: Turn off all other Nightscout pills that use *static* COB calculations.**
+
+### The IOB pill
+
+This pill will normally display the IOB reported by your OpenAPS pill.  If your loop is failing or NS communications are down because the rig has gone offline, there's a good possibility that your IOB pill will be displaying an incorrect IOB based on the careportal's method of calculating IOB (rather than OpenAPS's way).  You can determine the source of your IOB pill's information by clicking or hovering on the pill.  If the pills says "OpenAPS", then it's good to use that data.  Additionally, it should report the portion of IOB termed "basal IOB", which is the IOB from of temp basal adjustments and SMBs, if enabled.
+
+### The Basal pill
+
+This pill should NOT be used in your NS site.  The information on that pill updates so slowly sometimes, that you may incorrectly jump to assumptions that your rig is behaving differently than it actually is.  Instead, use the OpenAPS pill to find current information about your current basal rate...or press the ESC button on your pump in order to directly read the current temp basal.  Additionally, the basal rendering (the blue lines of the NS display) can sometimes lag by up to 2-5 minutes, depending on loop activities...so again use the OpenAPS pill or pump if you are interested in the most up-to-date information on temp basals.
 
 ### How to display basal changes ("render basal")
 
@@ -395,33 +455,3 @@ Afterward, your profile will probably look something like this:
 * There are up to four purple prediction lines that you will see: IOBpredBG; ZTpredBG; UAM; and COBpredBG. 
 
 ![Purple prediction line examples](../Images/Prediction_lines.jpg)
-
-### Understanding the OpenAPS pill
-
-The OpenAPS pill box has four states, based on what happened in the last 15
-minutes: Enacted, Looping, Waiting, and Warning:
-
-* Waiting is when OpenAPS is uploading, but hasn't seen the pump in a while
-* Warning is when there hasn't been a status upload in the last 15 minutes
-* Enacted means OpenAPS has recently enacted the pump
-* Looping means OpenAPS is running but has not enacted the pump
-* Unknown means Error or Timeout; OpenAPS has reported a failure, or has reported no status for many hours.
-
-
-## Nightscout troubleshooting
-
-### All of a sudden, Nightscout is no longer showing treatments (bolus, carbs, finger BGs) on the graph or rendering my basals.
-
-If you suddenly find that Nightscout is not showing treatments (bolus, carbs, finger BGs etc.) on the graph; and/or that your basals are no longer being rendered in the blue basal line; but otherwise, everything looks normal and you are looping properly:
-
-You probably somehow got a future-dated treatment. One possible reason is a clock-time mismatch between your devices - for example, your BG meter, pump, CGM, or OpenAPS rig may have different dates or times set.
-
-**To remove future treatments:**
-* Go into Nightscout under "Settings" and "Admin tools" and delete any future-dated treatments (press the "remove treatments in the future" button). If the future treatments were caused by a time mismatch, you'll need to resolve that first, or the future dated treatments may simply be re-uploaded.
-
-![How to delete future-dated treaments](../Images/Remove_future_treatments.png)
-### It's not working - I'm missing data in Nightscout? 
-
-If you are using a "test pump" that has not received sufficient data in some time, Nightscout pills will NOT be displayed onscreen. Nightscout may also not work if it hasn't had CGM data in a while - so if you haven't been using a CGM and uploading CGM data to Nightscout for the past few days, the site may be empty as well.  If this happens, simply use this pump in tandem with a CGM so glucose values are recorded and eventually uploaded to Nightscout.  Once sufficient data has been collected (and OpenAPS plugin is enabled and saved) the OpenAPS pills should appear automatically. Medtronic CGM users may also [need to do this to get their CGM data flowing into Nightscout after a gap in uploading data](<../Customize-Iterate/offline-looping-and-monitoring#note-about-recovery-from-camping-mode-offline-mode-for-medtronic-cgm-users>).
-
-Dexcom CGM users should make sure they have "share" enabled and have actively shared their data with at least one follower, before data will begin flowing to Nightscout. If you don't want to share your data with another person, you can just follow yourself. 
