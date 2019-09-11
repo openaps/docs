@@ -73,7 +73,13 @@ The easiest way to increase the range of your rig is to purchase a "wire whip" a
 
 ### Nuts and Bolts
 
-You will likely want to screw your Edison onto the Explorer Block to stabilize the rig. There are two methods to do this.  The simplest is to order a kit like the [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187), which provides standoffs, screws, and nuts specifically designed for the Edison. Alternatively, you can use (2) M2 screws and (2) M2 nuts and (4)  M3 nuts (M3 or a bit larger to used as spacers).  In this configuration, the screws should be just long enough to fit through the spacer nuts and screw into the M2 nuts on the other side. (Note: Sparkfun is no longer selling these screw kits. There are some available on Amazon [lock nuts](https://www.amazon.com/Uxcell-a15072100ux0228-Plated-Nylock-Insert/dp/B015A3BZJQ) and [cap screws](https://www.amazon.com/iExcell-Stainless-Steel-Socket-Screws/dp/B07FLLGW19).
+You will likely want to screw your Edison onto the Explorer Block to stabilize the rig. You will need two M2 screws, two M2 nuts, and two spacers or standoffs to support the 3mm 
+between the Edison and Explorer Board. The Explorer Board is currently being shipped with M2 screws, 3mm spacers, and M2 nuts, but you may want spares (or may have gotten it used). Here are some examples of options:
+- [M2 cap screws](https://www.amazon.com/iExcell-Stainless-Steel-Socket-Screws/dp/B07FLLGW19).
+- [M3 nuts to use as spacers](https://www.amazon.com/uxcell-Thread-Stainless-Metric-Fastener/dp/B01M0D7U5V/) - if using these, or another 3mm spacer option, your M2 screws should be just long enough to fit through the spacers and screw into the M2 nuts on the other side. You can also use a stack of washers or some [3mm nylon spacers](https://www.amazon.com/Electronics-Salon-Assortment-Screws-Plastic-Standoff/dp/B074N5HD42/).
+- [M2 nuts](https://www.amazon.com/gp/product/B07H3SXSN2/)
+
+(Note: Sparkfun has discontinued its kits of hardware specifically for the Edison, but for reference here are the specs for the [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187).)
 
 ### Cases
 
@@ -81,6 +87,7 @@ You can use a variety of cases, either soft or hard. Make sure to check the case
 
 #### Soft Cases 
 * [TallyGear soft case](http://www.tallygear.com/index.php?route=product/category&path=120) - these are the soft cases Dana uses ([see this example](https://twitter.com/danamlewis/status/792782116140388353)). The OpenAPS-sized case can be made any any pattern/fabric she uses elsewhere on the site.
+* [Custom soft case from Tallygear with a neoprene divider between battery and rig compartments](https://photos.app.goo.gl/gSubQDMDUqwDsJu18)
 * [JD Burrows SD card case](https://www.officeworks.com.au/shop/officeworks/p/j-burrows-sd-and-usb-case-blue-jbsdcasbu) - this is a hard / soft case which fits the rig with a 2500mAh battery perfectly, can also fit a spare AAA pump battery (Australia)
 
 #### Hard cases 
