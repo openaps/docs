@@ -151,9 +151,3 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    Switching between DIY systems <docs/Resources/switching-between-DIY-systems>
    <docs/Resources/Deprecated: Pi Hardware info <Deprecated-Pi/Pi-hardware>
    <docs/Resources/Deprecated: Pi Setup info <Deprecated-Pi/Pi-setup>
-
-
-
-
-
-
