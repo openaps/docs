@@ -26,6 +26,8 @@ How important are good basals and ISFs? You mean you weren't convinced already b
 
 Regardless of if you want to use advanced features later, we highly recommend running autotune as part of the rig nightly, or as a one-off and periodically checking the output to see if the settings on the pump that you are using reflect what the data says your body really needs.
 
+**Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have carb ratios that vary significantly (such as more than 2x) between different times of day, you may get unexpected results in looping, such as COB reappearing when the CR schedule changes. For safety, we recommend checking your settings against Autotune, which currently uses a single CR for the entire day. If you are using a schedule with widely varying carb ratios or ISFs, that may be compensating for something other than an actual diurnal variation in carb ratio: perhaps different absorption speeds of different foods, or perhaps related to different macronutrient composition (instead of entering carb equivalents for fat/protein), differing basal insulin needs around mealtime, or something else.
+
 ## Use your gear
 
 Starting a DIY loop system like OpenAPS means you are probably switching pumps, and quite possibly using Nightscout for the first time. It is worth taking some time to get familiar with your new gear and with using Nightscout ahead of adding your DIY closed loop to the mix! 
@@ -54,8 +56,6 @@ There are a couple areas in the pump that will need to be set specifically in or
 * Set the max basal rate to a reasonable value (typically no more than 3-4 times your regular basal).
 
 * Set basal profile, carb ratios, and ISF values.
-
-  * **Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have carb ratios that vary significantly (such as more than 2x) between different times of day, you may get unexpected results in looping, such as COB reappearing when the CR schedule changes. For safety, we recommend checking your settings against Autotune, which currently uses a single CR for the entire day. If you are using a schedule with widely varying carb ratios or ISFs, that may be compensating for something other than an actual diurnal variation in carb ratio: perhaps different absorption speeds of different foods, or perhaps related to different macronutrient composition (instead of entering carb equivalents for fat/protein), differing basal insulin needs around mealtime, or something else.
 
 * Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
 
