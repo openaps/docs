@@ -1,10 +1,6 @@
 # iPhone Shortcuts Integration
 
-In June 2018 Apple released iOS 12 which renamed Workflow to Shortcuts and unfortunately removed the IFTTT integration. 
-Early OpenAPS users were able to integrate Workflow/Shortcuts with their Nightscout site using the excellent IFTTT 
-service, but 
-You can however achieve the same result of a button press on an iPhone sending instructions to your Nightscout site by
-following these instructions. 
+In June 2018 Apple released iOS 12 which renamed Workflow to Shortcuts and unfortunately removed the IFTTT integration. Early OpenAPS users were able to easily integrate Workflow/Shortcuts with their Nightscout site using the excellent IFTTT service. However, several people have noticed that the IFTTT service sometimes causes carb entries to be delayed, which sometimes can result in duplicate carb entries and insulin overdosing. You can instead safely achieve the same result, of a button press on an iPhone sending instructions to your Nightscout site, by following these instructions. 
 
 **Note** All of these integrations send instructions to your Nightscout site over the internet. Your phone will not be
 communicating directly with your rig so your phone must be online and your rig must have internet connectivity too to
