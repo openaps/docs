@@ -124,7 +124,7 @@ root@edisonhost:~# bluetoothd --version
 
    b) Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
 
-`sudo /usr/local/bin/bluetoothd --experimental &`
+`sudo bluetoothd --experimental &`
 
 As shown in the "success" section below, you should see a single line returned with a short string of numbers and then be returned to a clean prompt.  If you instead see messages about D-bus Setup failed (as shown in the "Failure" part of screenshot), or otherwise see that you don't have a clean prompt returned in order to enter the next command...go back to the `sudo killall bluetoothd` and try again. 
 ![Bluetooth sudo commands](../Images/BT_sudos.png)
