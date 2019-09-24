@@ -159,8 +159,8 @@ To install frontail, just call `npm i frontail -g`.
 
 For a test run you have to call `frontail /var/log/openaps/pump-loop.log` and visit `<your rigs name>.local:9001` or `<your rigs IP>:9001` in a browser. The browser will show you the same output as the command `l` does.
 
-To make this serves always available, you have to start frontail on startup in daemon mode. 
-To do so, add frontail with your desired options to `/etc/rc.local` bevor the exit call.
+To make this service always available, you have to start frontail on startup in daemon mode. 
+To do so, add frontail with your desired options to `/etc/rc.local` before the exit call.
 
 #### Excample for Pi with pump-loop and cgm-loop log files.
 ```

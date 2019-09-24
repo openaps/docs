@@ -207,7 +207,7 @@ To change your target on your Medtronic pump do the following:
 1. Make sure the EDIT SETTINGS screen is open: Main > Bolus > Bolus Setup > Bolus Wizard Setup > Edit Settings
 2. Select BG Target, then press ACT, and change your target.
 
-If you wish to set a true temporary target while offline, you can do so by ssh'ing into the rig and running `oref0-set-local-temptarget <target> <duration> [starttime]`.  So for example, to set a 110 local temp target for 60 minutes, you can run `oref0-set-local-temptarget 110 60`.  In the future, we plan to expose this local temp target functionality using the offline web page interface, but for now it only works via `ssh`.
+If you wish to set a true temporary target while offline, you can do so by ssh'ing into the rig and running `cd /root/myopenaps && oref0-append-local-temptarget <target> <duration> [starttime]`.  So for example, to set a 110 local temp target for 60 minutes, you can run `cd /root/myopenaps && oref0-append-local-temptarget 110 60`.  In the future, we plan to expose this local temp target functionality using the offline web page interface, but for now it only works via `ssh`.
 
 ********************************
 
