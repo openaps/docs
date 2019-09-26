@@ -305,3 +305,4 @@ List of people who are working on closed loops:
 - Nobu Aoki(Hyogo,Japan)
 - Kim & Remy Scott (Cambridge, MA)
 - Susanne Röckl (Berlin, Germany)
+- Jose Rico (Bilbao, Spain)
