@@ -306,3 +306,4 @@ List of people who are working on closed loops:
 - Kim & Remy Scott (Cambridge, MA)
 - Susanne Röckl (Berlin, Germany)
 - Jose Rico (Bilbao, Spain)
+- Sara Gardiner (Bicester, UK)
