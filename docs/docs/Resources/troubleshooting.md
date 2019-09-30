@@ -222,7 +222,7 @@ Or (on an intel edison):
 `cannot connect to CC111x radio on /dev/spidev5.1`
 
 Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT:
-  * checking with `killall -g oref0-pump-loop; openaps mmtune` to see if it is resolved yet
+  * checking with `killall -g oref0-pump-loop; openaps-mmtune` to see if it is resolved yet
   * Make sure the Explorer board or HAT has not become loose and is sitting correctly on the Edison board or Pi
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
@@ -261,7 +261,7 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 ./ccprog -p 16,18,7 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
 
-  * Reboot, and try `killall -g oref0-pump-loop; openaps mmtune` to make sure it works
+  * Reboot, and try `killall -g oref0-pump-loop; openaps-mmtune` to make sure it works
   
   
 ### Monitor/mmtune.json is empty or does not exist
@@ -304,7 +304,7 @@ You have now successfully reflashed the radio. Now `reboot` and your loop should
 
 ## Dealing with the CareLink USB Stick
 
-**Note:** Generally, the Carelink stick is no longer supported. We *highly* recommend moving forward with a different radio stick. See [the hardware currently recommended in the docs](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/hardware.html), or ask on Gitter. 
+**Note:** Generally, the Carelink stick is no longer supported. We *highly* recommend moving forward with a different radio stick. See [the hardware currently recommended in the docs](http://openaps.readthedocs.io/en/latest/docs/Geaopr%20Up/hardware.html), or ask on Gitter. 
 
 The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model` (after you do a `killall -g oref0-pump-loop`).
 
