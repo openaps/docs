@@ -385,7 +385,7 @@ example picture:
 ### To setup apache chainsaw on your computer, follow the following instructons:
 1) Download the following version of apache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
 1) Unzip the file.
-1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
+1) On your pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
     ```
     <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE log4j:configuration >
@@ -419,7 +419,7 @@ example picture:
 1) (optional) mark the checkbox "always start chainsaw with this configuration."
 
 Chainsaw has a welcome tab and a good tutorial, use them.
-Still here are a few highligts:
+Still here are a few highlights:
 1) To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
 1) To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
 1) To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
