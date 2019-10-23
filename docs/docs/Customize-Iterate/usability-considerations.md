@@ -123,8 +123,6 @@ Some users who switch to Fiasp find that they need to adjust settings. Others do
 
 ## How do I switch to a different Medtronic pump?
 
-Please note that the procedure is likely different if switching to or from a 512 or 712 pump.
-
 First locate the serial number of the Medtronic pump you would like to start using. Then log into your rig and open your "runagain" script so you can edit the serial number.
 
 `cd ~/myopenaps && nano oref0-runagain.sh`
