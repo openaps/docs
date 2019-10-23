@@ -54,7 +54,6 @@ The screenshot below shows an example of the questions you'll be prompted to rep
 <br>
 
 * 6-digit serial number of your pump
-* whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
     * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to check if the line `radio_type = carelink` is present in your `pump.ini` file.
