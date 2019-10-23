@@ -44,7 +44,6 @@ Make sure to check through the following list before asking on Gitter if your se
 * Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct. Check your Nightscout URL, too - it's one of the most common errors to mistype that. (And FWIW, you shouldn't be typing things like that in the first place: that's what copy and paste are for.)
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the rig battery and prevent it from operating).
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
-* 512/712 users - make sure you follow the additional instructions for the 512/712 before asking for help troubleshooting. You have a few additional steps you need to do.
 
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
