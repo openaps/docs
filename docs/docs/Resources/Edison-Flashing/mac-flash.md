@@ -6,7 +6,7 @@
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a looping-compatible Medtronic pump. If using a x12 series Medtronic pump, it will require one small [extra step](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html). See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
+3.  Using a looping-compatible Medtronic pump. See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
 
 ## High Level Recommended Rig parts list
 

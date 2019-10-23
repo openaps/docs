@@ -1,8 +1,10 @@
 # 512 and 712 Pump users
 
-If you have one of the x12 model pumps, you can still successfully use OpenAPS for basic looping (but not some advanced featuers like SMB).  You'll need to complete some extra setup tweaks before your loop will be successful, however.
+#### For releases 0.7.0 and beyond, all of this is done automatically; please skip this step.
 
-Note: If you have an old rig running oref0 0.5.3 or below, you'll need to follow historical instructions. The instructions below reflect the adjusted oref0-setup.sh in 0.6.0 and beyond, that does some of this work manually.
+Note: If you have an old rig running oref0 0.5.3 or below, you'll need to follow historical instructions. The instructions below reflect the adjusted oref0-setup.sh in 0.6.x which does some of this work manually. 
+
+If you have one of the x12 model pumps, you can still successfully use OpenAPS for basic looping (but not some advanced features like SMB).  You'll need to complete some extra setup tweaks before your loop will be successful, however.
 
 ## Most important step - make sure you said yes (y) in oref0-setup.sh 
 
