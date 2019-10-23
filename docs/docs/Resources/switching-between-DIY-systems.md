@@ -50,7 +50,7 @@ If you’re coming to try OpenAPS from a Loop system, there’s going to be some
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires one extra step not documented here. See this page in OpenAPS docs for all compatible pumps.)
+3.  Using a Loop-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, but it will be unable to use some advanced features like SMB. See this page in OpenAPS docs for all compatible pumps.)
 
 ### High Level Recommended Rig parts list
 
