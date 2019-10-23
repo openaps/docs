@@ -15,6 +15,12 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    
    This community of contributors believes in "paying it forward," and individuals who are implementing these tools are asked to contribute by asking questions, helping improve documentation, and contributing in other ways. Have questions? Hop into `Gitter <https://gitter.im/nightscout/intend-to-bolus>`_ and ask anytime!
 
+.. DANGER:: 
+   **IMPORTANT SAFETY NOTICE**
+
+   The foundation of OpenAPS safety features discussed in this documentation are built on the safety features of the hardware used to build your system. It is critically important that you only use a tested, fully functioning FDA or CE approved insulin pump and CGM for closing an automated insulin dosing loop. Hardware or software modifications to these components can cause unexpected insulin dosing, causing significant risk to the user. If you find or get offered broken, modified or self-made insulin pumps or CGM receivers, *do not use* these for creating an OpenAPS system.
+   
+   Additionally, it is equally important to only use original supplies such as inserters, cannulas and insulin containers approved by the manufacturer for use with your pump or CGM. Using untested or modified supplies can cause CGM inaccuracy and insulin dosing errors. Insulin is highly dangerous when misdosed - please do not play with your life by hacking with your supplies.
 
 .. toctree::
    :maxdepth: 2
@@ -70,6 +76,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
    Useful apps for accessing your rig </docs/Customize-Iterate/useful-mobile-apps>
    IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
+   iPhone Shortcuts buttons <docs/Customize-Iterate/iPhone Shortcuts Integration>
    Autosens <docs/Customize-Iterate/autosens>
    Autotune <docs/Customize-Iterate/autotune>
    Understanding Autotune <docs/Customize-Iterate/understanding-autotune>

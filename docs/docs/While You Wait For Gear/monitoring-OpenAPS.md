@@ -44,7 +44,7 @@ See below for different ways to access your rig:
 
 ### If your computer and rig are on the same wifi network
 
-![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
+![If your computer and rig are on the same wifi network](../Images/Computer_rig_same_wifi.png)
 
 #### For Mac computers
 
@@ -146,12 +146,21 @@ The configuration values above ensure when the rig moves from wifi network to wi
 
 Test the ssh setup by executing autossh on the rig:
 ```
-autossh -f -M 0 -T -N <Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22`
+autossh -f -M 0 -T -N <userid>@<Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22
 ```
 
-Test ssh into the rig from another device by ssh to the internet server address on port `20201` instead of the default port `22`.
+Test ssh into the rig from another device by ssh to the internet server address on port `20201` instead of the default port `22`:
 
-Once the test are successful, add a line to your rig crontab to launch autossh at boot using the autossh command above: `@reboot autossh -f -M 0 -T -N <Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22`
+-connect to the internet server
+-from that server:
+```
+ssh -l root -p 20201 localhost
+```
+
+Once the test are successful, add a line to your rig crontab to launch autossh at boot using the autossh command above:
+```
+@reboot autossh -f -M 0 -T -N <userid>@<Internet server address> -o "ExitOnForwardFailure yes" -R 20201:localhost:22
+```
 
 
 ********************************
@@ -167,7 +176,7 @@ Go to http://papertrailapp.com and setup a new account.  Choose to setup a new s
 
 ## System logging
 
-Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/While You Wait For Gear/monitoring-OpenAPS.html#accessing-your-rig-via-ssh) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
+Login to your rig. If you need help with that, please see the [Accessing Your Rig](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/monitoring-OpenAPS.html#accessing-your-online-rig-via-ssh) section of these docs.  Copy and paste the code that is displayed in your new system setup's shaded box, as shown in the red arrowed area in the screen shot above. This will setup papertrail for just your syslogs.  But, we now will need to add more (aggregate) your logs such as pump-loop and ns-loop.
 
 ### Aggregating logs
 
@@ -308,7 +317,7 @@ First, let's start with messages that **ARE NOT ERRORS**
 
 ![papertrail homescreen buttons](../Images/error-messages.png)
 
-But, really, most of those messages are the normal course of the rig telling you what's going on.  Like "Hey, I seem to have disconnected from the wifi...I'm going to look for BT now.  Hold on.  I need to organize myself.  Bringing up my stuff I need to find BT.  Ok, found a BT device.  Well, I can connect to it, but some of the features I don't need...like an audio BT connection."  But, the rig doesn't speak English...it speaks code.  So, if you don't speak code...sometimes a filer for `network` might help you filter for the English bits of info a little better.  Here's what that same period of time looked like with a `network` filter applied.  It's a little more clear that my rig was changing from a BT tether to a wifi connection when you filter the results.
+But, really, most of those messages are the normal course of the rig telling you what's going on.  Like "Hey, I seem to have disconnected from the wifi...I'm going to look for BT now.  Hold on.  I need to organize myself.  Bringing up my stuff I need to find BT.  Ok, found a BT device.  Well, I can connect to it, but some of the features I don't need...like an audio BT connection."  But, the rig doesn't speak English...it speaks code.  So, if you don't speak code...sometimes a filter for `network` might help you filter for the English bits of info a little better.  Here's what that same period of time looked like with a `network` filter applied.  It's a little more clear that my rig was changing from a BT tether to a wifi connection when you filter the results.
 
 ![papertrail homescreen buttons](../Images/network-filter.png)
 
@@ -373,10 +382,10 @@ If your computer and rig are on the same wifi network you can use Apache Chainsa
 
 example picture:
 
-### To setup appache chainsaw on your computer, follow the following instructons:
-1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
+### To setup apache chainsaw on your computer, follow the following instructons:
+1) Download the following version of apache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
 1) Unzip the file.
-1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
+1) On your pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
     ```
     <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE log4j:configuration >
@@ -401,7 +410,7 @@ example picture:
     </log4j:configuration>
 
     ```
-    Make sure to replace the password, with your rigs password, and 192.168.1.20 with the ip/hostname of your rig.
+    Make sure to replace the password, with your rig's password, and 192.168.1.20 with the ip/hostname of your rig.
 1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin\chainsaw (linux and mac)
 1) From the file menu choose 'load chainsaw configuration'
 1) Choose use chainsaw configuration file.
@@ -409,8 +418,8 @@ example picture:
 1) choose the file openaps.xml
 1) (optional) mark the checkbox "always start chainsaw with this configuration."
 
-Chainsaw has a welcome tab and a good toturial, use them.
-Still here are a few highligts:
+Chainsaw has a welcome tab and a good tutorial, use them.
+Still here are a few highlights:
 1) To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
 1) To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
 1) To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
@@ -664,6 +673,6 @@ C. Accessing via your phone
 
 **IPHONE USERS:** To access this from an iphone browser, enter something like the following: http://172.20.10.x:1337/index.html and you should receive an unformatted html page with the data in it. The value you need will be the ip address you see when you first set up bluetooth on your rig, and can be found using `ifconfig bnep0` when your rig is connected to your phone via bluetooth.  If you want to improve the output for a browser, the script can be modified to generate html tags that will allow formatting and could provide colouring if various predicted numbers were looking too low.
 
-**ANDROID USERS:** On Android, you can download http-widget (https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en_GB) and add a widget to your home screen that will display this data. You will need the IP address that your rig uses. If you are using xdrip as your glucose data source, it is the same as the value you use there.
+**ANDROID USERS:** On Android, you can download [http-widget](https://play.google.com/store/apps/details?id=com.axgs.httpwidget&hl=en_US) and add a widget to your home screen that will display this data. You will need the IP address that your rig uses. If you are using xdrip as your glucose data source, it is the same as the value you use there.
 
-**SAMSUNG GEAR S3 WATCH USERS:** If you use a Samsung Gear S3 watch, you can use the above http-widget with Wearable Widgets (http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.
+**SAMSUNG GEAR S3 WATCH USERS:** If you use a Samsung Gear S3 watch, you can use the above http-widget with [Wearable Widgets](http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.

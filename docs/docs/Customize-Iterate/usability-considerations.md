@@ -17,12 +17,19 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 - [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
 - [How do I improve the range of my Edison/Explorer Board?](#how-do-i-improve-the-range-of-my-edison-explorer-board-)
 - [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types--or-switch-to-fiasp--what-should-i-change-)
+- [How do I switch to a different Medtronic pump?](#how-do-i-switch-to-a-different-medtronic-pump-)
 - [Improving the battery life of your Raspberry Pi](#improving-the-battery-life-of-your-raspberry-pi)
 
 </details>
 
 ## How do I enter carbs and boluses so OpenAPS can use them?
-Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs cans be either entered on the pump (for example, using Bolus Wizard) or into Nightscout (carb entries in Nightscout can either be made directly using the Care Portal) or via IFTTT or XDrip.</br>
+Boluses always have to be set on the pump for OpenAPS to take them into consideration. Carbs can be either entered in any of several ways: </br>
+- on the pump (for example, using Bolus Wizard),
+- into the Nightscout UI (using the Care Portal),
+- via an HTTPS POST to the treatments API, for example using the iOS Shortcuts app,
+- via [IFTTT](./ifttt-integration.html?highlight=IFTTT), 
+- via [xDrip](https://github.com/NightscoutFoundation/xDrip),
+- via [CarbDialer (iOS App)](https://apps.apple.com/us/app/carbdialer/id1315809661).
 
 **SAFETY WARNING:** If the pump has a target range high end set lower than the BG input into the Bolus Wizard, the Bolus Wizard will add insulin to cover the carbs as well as bring BG down to the high end. I.e. if your high end is 110 and you enter a 160 BG and 45g of carbs in the Bolus Wizard, the Bolus Wizard will dose 1U to bring BG to 110 and 3U for carbs (assuming 50 (mg/dL)/U and 15g/U factors). The rig will likely have already dosed insulin to bring your BG to your low target, and you are potentially "double dosing". In these scenarios, you will have too much insulin onboard and can experience a severe low. If you use the Boluz Wizard, ensure the high end of the BG target range is a high number such as 250 mg/dL. OpenAPS default behavior (`wide_bg_target_range` preference) is to only use the target range lower end. Setting the high end does not impact the OpenAPS algorithms.
 
@@ -72,12 +79,12 @@ Let's face it.  There are some days when you just don't want to be attached to a
 
 ## What if I want to turn off the loop for a while?
 
-If you're near the rig or pumper:
+If you're near the rig or pumper, any one of these actions will turn off the loop:
 * Power down the rig
-* Turn the basal type to % on the pump, which blocks temps from being set
+* Turn the temp basal type to % on the pump, which blocks temps from being set
 * Log in and stop cron
 
-If you're not near the rig or pumper:
+If you're not near the rig or pumper, any one of these actions will turn off the loop:
 * If on same wifi as rig, you can log in and stop cron
 * Or change the API secret of NS temporarily, which means OpenAPS can't pull BGs in and loop anymore (so after last temp basal previously set expires, defaults to normal basal rates). 
 * *(This one needs testing and validation, the low target may get ignored, or set as 80 as that's the lowest target you can usually set in OpenAPS)*: use very wide temp targets in your Nightscout website.  You can set an wide range from -1000 to 1000 as a temp target for a period of time and it will effectively turn off the loop.  
@@ -85,7 +92,7 @@ If you're not near the rig or pumper:
 
 ## How do I open loop?
 
-The easiest way to "open loop" is to set the basal type on your pump to be "%" instead of "u/hr". This means your pump cannot and willnot accept temporary basal rates commands issued by the rig. But, the rig will still be able to read from the pump and your CGM, and make the calculations of what it would otherwise do. 
+The easiest way to "open loop" is to set the temp basal type on your pump to be "%" instead of "u/hr". This means your pump cannot and willnot accept temporary basal rates commands issued by the rig. But, the rig will still be able to read from the pump and your CGM, and make the calculations of what it would otherwise do. 
 
 You can then watch the OpenAPS pill in Nightscout, or your logs (`l`) on the rig to see what OpenAPS would be doing.
 
@@ -108,11 +115,39 @@ If you're unsure whether you need to cut your Explorer Block's antenna, you prob
 
 ## How do I switch between insulin types, or switch to Fiasp? What should I change?
 
-The most important setting for switching between insulin types in an OpenAPS rig is the "curve" type for duration of insulin activity. In oref0 0.6.0, most users will use the rapid-active curve if they are using Humalog, Novolog, or similar. Fiasp users should use the "ultra-rapid" curve type. [See the preferences page here for more details on how to change your curve](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#curve-rapid-acting) in your `preferences.json` file (which you can edit with `edit-pref`). 
+The most important setting for switching between insulin types in an OpenAPS rig is the "curve" type for duration of insulin activity. In oref0 0.6.0, most users will use the rapid-acting curve if they are using Humalog, Novolog, or similar. Fiasp users should use the "ultra-rapid" curve type. [See the preferences page here for more details on how to change your curve](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#curve-rapid-acting) in your `preferences.json` file (which you can edit with `edit-pref`). 
 
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 
 Some users who switch to Fiasp find that they need to adjust settings. Others do not need to change settings that much, and autosens and/or autotune can help adjust to any variances over time as your body's needs change related to the difference insulin type. YDMV, as always!
+
+## How do I switch to a different Medtronic pump?
+
+Please note that the procedure is likely different if switching to or from a 512 or 712 pump.
+
+First locate the serial number of the Medtronic pump you would like to start using. Then log into your rig and open your "runagain" script so you can edit the serial number.
+
+`cd ~/myopenaps && nano oref0-runagain.sh`
+
+Change the number in `--serial=123456` from your old serial number to your new serial number, save the changes, and exit nano.
+
+Now run the "runagain" script and respond to any prompts it gives you.
+
+`cd ~/myopenaps && bash oref0-runagain.sh`  
+
+When the script is done and you have rebooted, log back into your rig and look at the pump loop logs
+
+`l`
+
+If you see errors regarding the pump history such as `Couldn't invoke_pumphistory_etc - continuing` and `Couldn't refresh_pumphistory_and_meal` then delete your pump history from your rig.
+
+`rm ~/myopenaps/monitor/pumphistory-24h-zoned.json`
+
+Now look at the pump loop logs again.
+
+`l`
+
+After some time, all errors should resolve and you should begin looping successfully with your new pump!
 
 ## Improving the battery life of your Raspberry Pi
 

@@ -2,7 +2,7 @@
 
 Medtronic insulin pumps sometimes develop problems with their buttons; this seems to be the most common type of failure for older Medtronic pumps. If you have a pump which has lost the sticker that covers the buttons, which has a button that doesn't respond, or which displays a "button error", it is likely repairable.
 
-NOTE: Before attempting to repair an insulin pump, have a plan for what to do if the repair fails, or if the pump stops working some time later. This may mean carrying a spare pump, or a vial of insulin and syringes. If your pump has failed and you don't have a backup, don't try to repair it until you've solved the immediate problem by gotting an alternative in place and stabilizing your blood sugar. If a pump has had a button fail and been repaired, it's much more likely to have another button problem than a pump which has never had a button problem in the first place.
+NOTE: Before attempting to repair an insulin pump, have a plan for what to do if the repair fails, or if the pump stops working some time later. This may mean carrying a spare pump, or a vial of insulin and syringes. If your pump has failed and you don't have a backup, don't try to repair it until you've solved the immediate problem by getting an alternative in place and stabilizing your blood sugar. If a pump has had a button fail and been repaired, it's much more likely to have another button problem than a pump which has never had a button problem in the first place.
 
 There are two symptoms of button problems: either the button doesn't respond when you press it, or it registers a press when you didn't push it. If a button is held for three minutes continuously, the pump will report a Button Error; to clear a button error, you need to press ESC then ACT, which may be difficult if the failing button is one of those two. The ACT button is the one most likely to have a problem, because it gets pressed the most times during normal use. According to Medtronic's documentation, the pump will not deliver insulin (including basal) until the error is cleared.
 
@@ -23,5 +23,5 @@ When the sticker has been peeled up, it might retain enough stickiness to put ba
 
 If you've lost the sticker or the sticker has lost enough of its adhesive to be a problem, you can replace both the film and the sticker with [this material](https://www.digikey.com/product-detail/en/keystone-electronics/5200/36-5200-ND/6834332). Cut a piece in approximately the shape of the sticker; hold it against the pump to see which edges needs to be trimmed further, and repeat until you have a piece in the same shape as the sticker.
 
-Videos:
-* https://www.youtube.com/watch?v=nWRVSHXN5cQ
+
+Watch [video showing button error repair](https://www.youtube.com/watch?v=nWRVSHXN5cQ).

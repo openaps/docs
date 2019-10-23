@@ -4,6 +4,11 @@ Want to be able to set or cancel temp targets from your phone, Pebble, Alexa, Go
 
 <a href="https://youtu.be/0ck23JTa2Wk" target="_blank"><img src="https://raw.githubusercontent.com/openaps/docs/master/docs/docs/Images/PebbleTempTargets.png" alt="Pebble and OpenAps" width="400" height="400" border="10" title="Click on the hairy arm to watch how it works!" /></a>
 
+You can also create desktop widgets on your Android device to directly enter data into nightscout (just like IFTTT with workflow on Apple devices) using tools like <a href="https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts" target="_blank">HTTP Request Shortcuts</a> from the play store.  Examples toward end of document for this tool.
+
+**Note for iPhone users** In June 2018 Apple released iOS 12 which renamed Workflow to Shortcuts and unfortunately 
+removed the IFTTT integration. You can however achieve the same result of a button press on an iPhone sending 
+instructions to your Nightscout site by following the [iPhone Shortcuts Integration](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/iPhone%20Shortcuts%20Integration.html) instructions. 
 
 ## IFTTT Setup for phones
 
@@ -148,7 +153,7 @@ Reservoir Change
 
 ![IFTTT NS enable](../../Images/IFTTT_enable.png)
 
-## Install IFTTT app on your iPhone/Android
+## Install IFTTT app on your Android
 
 * Download the IFTTT app on your phone and log in.
 
@@ -170,71 +175,6 @@ If you end up with more than four IFTTT applets, they will appear in reverse-ord
   * click and hold the three lines that appear on the right side of the widget that you want to move.  Drag the widget to the order in the list that you'd like it to appear in your widget quickscreen.
 
 ![IFTTT Today View](../Images/IFTTT_reorder.png)
-
-## Workflow to custom enter carbs and temp targets from Today widget on iPhone
-
-Workflow is a helpful app that can be displayed on the Today widget to easily enter custom carb entries (rather than relying on pre-set amounts) and also custom temporary targets on the fly. 
-
-![Workflow examples](../Images/Workflow_examples.png)
-
-1) Install the Workflow app on your phone from the App Store. 
-
-2) Swipe through the introduction pages, and then you'll be forced to pick a sample workflow to get started. (Don't worry, you can delete it at the end of setting up the OpenAPS-related workflows. Just pick one of the samples for now and tap through to allow you to progress through the entry screen.  The `Directions Home` one is pretty easy to get through fast.  In a few minutes when you are done setting up your OpenAPS-related workflows, simply go back to the `My Workflows` main view in the app, click on the `edit` button in upper left corner, tap on the sample workflow app that you want to delete, and then click the trashcan icon in the upper right corner.)
-
-3) Click `add widget` to add the widget to your phone and follow the directions to force touch the Workflow app.  After you click the `Add Widget` button that pops up, click the home button on the iPhone.  Swipe left to get into the Today screen. Scroll down to the bottom and click "edit" to see a list of available widgets.  The `Workflow` widget should be on your active widgets list now; you can drag it up to be toward the top, using the three horizontal lines, or wherever you want it placed. Click `Done`. 
-
-    ![IFTTT Workflow widget](../Images/add_widget_workflow.png)
-
-4) Open the Workflow app on your iPhone. From your iPhone's browser app (e.g., Safari), open this page and click on one of the below links to download one of the community's three recommended workflows.
-
-    * [**carbs entry using numeric keyboard**](https://workflow.is/workflows/f1c78b79155e47ee999a0f2f4116e88d) 
-    * [**temp target range using numeric keyboard**](https://workflow.is/workflows/8d91839287694a158367c26f8630d6ad)
-    * [**temp single target using numeric keyboard**](https://workflow.is/workflows/b8bb211fc44846278fe5ff8be3a0b4d0)
-
-5) The workflow will open in the Workflow app. Click `Get Workflow` and then `Open`.
-
-6) Sign in to `Workflow Sync` to connect with IFTTT. (Sign in and/or create a Workflow account as directed.)
-
-7) You'll then see the workflow in the app. Click on the `Create Applet` button.
-  
-    ![Workflow IFTTT 01](../Images/WorkflowIFTTTdg01.png)
-
-8) Click `Open` to open the IFTTT app. In the IFTTT app click `Connect` in the upper right corner; click the green `Authorize` button; and then click `Open` to `Open in "IFTTT"?`.
-
-    ![Workflow IFTTT 02](../Images/WorkflowIFTTTdg02.png)
-
-    *Side Note*: Steps 9-10 recommend some copy/paste of the body text to make life easier. If you use your iPhone to type in the body text in Step 10, the iPhone will enter 'curly quotes' rather than 'straight quotes'. Curly quotes will break the IFTTT applet and is usually the main cause of setup errors. If you find that copy/paste of the body text is too difficult on the little iPhone screen, you can alternatively start Step 9 by logging into your IFTTT account on a computer and starting a new applet creation there. The actions are very similar to creating the applet on your iPhone, just the copy/paste part might be easier.
-
-9) Scroll down a bit to where it says `Try making your own Workflow Applet from scratch`. Click the `New Applet` button. On the recipe builder, click the blue `+this` and select or search `Workflow`, then select `A workflow is run`. Select `EatCarbs`, `BottomTopDuration` or `tempTarget` from the drop down for the trigger to use. Click the `Next` button in upper right.
-
-    ![Workflow IFTTT 03](../Images/WorkflowIFTTTdg03.png)
-
-10) Click the `+that` button and search for `Webhooks`. Select Webhooks and then click `Make a web request`. Fill in the web request similar to all the above directions with:
-
-     * URL: `https://yoursite.herokuapp.com/api/v1/treatments.json` (change the "yoursite" part to your NS info)
-
-     * Method: `POST`
-
-     * Content Type: `application/json`
-
-     * **Body (for EatCarbs)**:
-     ```
-     {"enteredBy": "IFTTT-button", "reason": "eat", "carbs": {{ExtraIngredient1}}, "secret": "your_hashed_api_goes_here!!!"} 
-     ```
-
-     * **Body (for temp target range)**:
-     ```
-     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient2}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient3}}, "secret": "your_hashed_api_goes_here!!!"}
-     ```
-
-     * **Body (for single temp target range)**:
-     ```
-     {"enteredBy": "IFTTT-button", "eventType": "Temporary Target", "reason": "Manual", "targetTop": {{ExtraIngredient1}}, "targetBottom": {{ExtraIngredient1}}, "duration": {{ExtraIngredient2}}, "secret": "your_hashed_api_goes_here!!!"}
-     ```
-
-11) Click `Next` in the upper right corner. You can edit the title of the applet and then click `Finish`. You can test your applet by going back to your iPhone's Today widgets and clicking on the Workflow button you just created. You can also test inside the Workflow app by pressing the play button at the top of the workflow. You can confirm a successful run by looking at your Nightscout site for the carb entry/temp target bar, or by looking at the activity log of the applet in IFTTT. 
-
-**WARNING/REMINDER:** If you have SMBs turned on, do NOT try with large carb amounts. Only test with 1 carb entries! Ditto for temp targets - test a 99 or 101 mg/dl target or something conservative to not trigger SMBs.  You can delete the test entries via the Reports tab in your Nightscout site, choosing the Treatments tab, and finding the recent entry.
 
 
 ## ThisButton for the Pebble Watch - pictured at the very top of this page
@@ -286,3 +226,27 @@ Custom Low Treatment with a 60 min high target to help recovery. EX: Triggered b
 * You will need make sure to allow the Google Calendar Applet access to your Google Calendar.  When you do this it will ask which calendar you want to connect.  You can use your main calendar, or a calendar you've set up especially for IFTTT events.  You'll need to do this ahead of time using the administrative functions of Google Calendar.  To do this click on the gear icon at the upper right of Google Calendar (google.com/calendar, not the Applet in IFTTT), choose settings, choose the calendar tab (upper left) and then click the button to make a new calendar.  Call it whatever you want and set permissions as appropriate.  
 * Once you've connected the appropriate calendar, continue your setup in IFTTT and choose "Event from search starts".  Type a phrase that you'll use on the Google Calendar to denote a temp target (or other event).  For example "Eating Soon" or "Activity" and then click the button that says create trigger. Click on the blue "+that" text and continue to follow the directions as above from Setup for Phones above to connect the Maker app and make the appropriate Web request.  
 * Now on your Google Calendar (make sure you create the event on whichever calendar you've connected to the Google Calendar IFTTT applet) you can create recurring events or one-time events to trigger temp targets.  Use the same phrase that you used to create the trigger (Eating Soon, Activity, etc).  For example, if you get up every day and eat at the same time during the week, schedule Eating Soon on those days at the appropriate time.  If you know you're going to take a day off work or school just remember to delete the event ahead of that date, or change as appropriate.  Gym class for a child or sports practice only some days of a month?  Sit down and schedule Activity Mode for those dates well in advance so you don't have to remember at the time and they'll trigger automatically.   
+
+## HTTP Request Shortcuts Integration
+
+HTTP Request Shortcuts allows direct posting of data to your nightscout site on your Android Phone without requiring a middle-ware tool like IFTTT.  It also supports automation similar to the Workflow app on iOS.  This can be valuable as there have been cases of IFTTT becoming unavailable which leads to unpredictable behavior when you start mashing buttons!  Setup of this tool is fairly straightforward and will actually incorporate some of the same data as shown above for IFTTT buttons, particularly IFTTT trigger content above.
+
+* Install the <a href="https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts" target="_blank">HTTP Request Shortcuts</a> app from the Play Store to the device you interact with.
+
+* Open the app and tap the + button on the lower right.  That should bring you to a screen that looks similar to this (except your install won't have 3 shortcuts already defined of course. :) ): ![HRS Start](../Images/customize-iterate/HRS-Start.jpg)
+
+* Press the + button on the lower right to start adding a new shortcut from scratch.
+![HRS New](../Images/customize-iterate/HRS-New.jpg)
+
+* The example is to setup a shortcut to use to enter carbs into nightscout.  The example has URL and API key fields blacked out, simple replace those with your values.  You may notice that the values in the body section are almost the same as for the IFTTT examples above.  You can create shortcuts for all of those this way simply by changing the body values.
+
+![HRS Carb Shortcut](../Images/customize-iterate/HRS-Carb.jpg)  
+
+* The one difference with the IFTTT example is that we can insert a variable into the carbohydrate value field to tell HRS to ask you for how many grams of carbs you wish to log.  Pressing on the {} to the right of the Body field will bring up a Variable selector.  You can see I have 3 defined already, for a new setup, simply select "Edit Variables". Then select the + sign to start setting up a new variable.
+
+![HRS Carb Variable Setup](../Images/customize-iterate/HRS-Variables-1.jpg)  
+
+* Here is the setup for the Carb Entry Variable.  This variable simply pops up a dialog and a numeric keypad asking you for the carb count when triggered.  Once the variable is defined, go back to the Edit Shortcut screen.  Delete the 10 (if you are using the IFTTT example data from above, or whatever carb value was defined) and select the new variable you created.  It should look like the long Carb Shortcut image a bit above.
+
+
+![HRS Carb Variable Finish](../Images/customize-iterate/HRS-Variables-2.jpg)  

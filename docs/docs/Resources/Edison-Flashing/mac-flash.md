@@ -1,4 +1,4 @@
-﻿# Setting up Edison/Explorer Board on a Mac
+# Setting up Edison/Explorer Board on a Mac
 
 (This is a separate workflow for Mac only. Please refer to the all-computer flashing instructions as well for troubleshooting & full instructions for other computer setup processes.)
 
@@ -6,7 +6,7 @@
 
 1.  Using an explorer board and Edison
 2.  Using an Apple computer
-3.  Using a looping-compatible Medtronic pump (note - OpenAPS can actually use an additional set of pumps, the x12 series, although it requires [one small extra step](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#why-do-i-need-a-certain-pump-firmware). See [this page in OpenAPS docs for all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear Up/pump.html#information-about-compatible-insulin-pumps).)
+3.  Using a looping-compatible Medtronic pump. If using a x12 series Medtronic pump, it will require one small [extra step](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html). See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
 
 ## High Level Recommended Rig parts list
 

@@ -21,7 +21,7 @@ Starting a DIY loop system like OpenAPS means you are probably switching pumps, 
 
 ### Start Medtronic pump
 
-Many of us have come from  Animas, OmniPods, Roche, or t:slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your T1D kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well. Assuming that you're already familiar with insulin pumping (and you should be before trying to loop) but new to these old Medtronic pumps, these "quick memu" guides will help:
+Many of us have come from  Animas, OmniPods, Roche, or t:slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your T1D kid, if that's the person who will be using the pump.  Train care-givers on the new pump, as well. Assuming that you're already familiar with insulin pumping (and you should be before trying to loop) but new to these old Medtronic pumps, these "quick menu" guides will help:
 
 * [x12](https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x12_user_guide.pdf)
 * [x15](https://www.medtronicdiabetes.com/sites/default/files/library/download-library/user-guides/x15_user_guide.pdf)
