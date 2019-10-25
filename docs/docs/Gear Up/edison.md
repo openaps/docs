@@ -1,10 +1,12 @@
 # Get your rig hardware
 
-You have two main options for hardware:
+You have three main options for hardware:
 
 `1.` The most recommended rig has been an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison (eBay, local stores, etc - this is still very possible), this is still a highly recommmended rig. It is the smallest rig (and easily portable), with better battery life because it is power efficient. [See below for the list of hardware for Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
   
-`2.` The other option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [See below for the list of hardware required for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-explorer-hat).
+`2.` Another option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [See below for the list of hardware required for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-explorer-hat).
+
+`3.` Yet another option is a Raspberry Pi-based setup, with an Adafruit RFM69HCW Bonnet. This rig setup makes it easier to see information when offline because it has a small onboard screen for displaying readouts, but it does not come with charging hardware for a battery like the Explorer HAT or Explorer Board. You will need to build your own charging circuit or use a USB power block if you want to make this rig portable. However, this makes an excellent stationary or backup rig! [See below for the list of hardware required for Pi/Bonnet setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-adafruit-rfm69hcw-bonnet).
 
 **Note** - there is an experimental alternative to an Explorer HAT, which can serve as the radio on a Pi-based rig, but will not have the screen, and requires you to solder. See [below](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-rfm69hcw-experimental) for more details on a setup with RFM69HCW. 
 
@@ -24,7 +26,7 @@ As of April 2018, there is be a Pi+HAT rig as an option for closing the loop wit
 #### PI 
 You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
 
-As an alternative, you can also use the HAT with a Raspberry Pi 3. 
+As an alternative, you can also use the HAT with a Raspberry Pi 2/3/4. 
 
 #### Battery
 Lipo batteries are typically used to power the rig on the go because they charge quickly and come in a variety of compact sizes.  When choosing a battery, you have a trade-off between a larger battery with longer duration or a smaller battery with shorter duration that is easier to carry around.  A 2000 mah battery is roughly the size of the Raspberry Pi0, and can last around 4 hours.  You'll want a "1S" type, which uses a single cell and outputs at 3.7 VDC.  It needs a JST connector to plug into the Raspberry Pi.  See this [battery from HobbyKing](https://hobbyking.com/en_us/turnigy-2000mah-1s-1c-lipoly-w-2-pin-jst-ph-connector.html?___store=en_us).
@@ -43,7 +45,7 @@ Because we are still optimizing the software to be as power-efficient as possibl
 
 ## Hardware information for Pi-based setups with RFM69HCW (experimental)
 
-The Pi + RFM69HCW is still experimental!
+This Pi + RFM69HCW is still experimental!
 
 If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
 
@@ -112,6 +114,37 @@ RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS
 [Here is a copy of a a sophisticated schematic](https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22). (Press "miniloop v1.0" to see the diagram).
 
 After that, you're ready to install OpenAPS. 
+
+***
+
+## Hardware information for Pi-based setups with the Adafruit RHM69HCW Bonnet
+
+Summary of what you need for a Pi/Bonnet rig:
+* [Explorer HAT](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#Bonnet)
+* [Pi0WH (recommended) or Pi 3](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#pi)
+* [Antenna](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#antenna)
+* [SD Card](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card)
+
+#### Bonnet: 
+
+There is be a Pi+Bonnet rig as an option for closing the loop with OpenAPS. This hardware is available from Adafruit, and is called the [Adafruit RFM69HCW Transceiver Radio Bonnet - 868 or 915 MHz - RadioFruit](https://www.adafruit.com/product/4072). As of October 2019, this hardware is supported via automated setup via `oref0-setup.sh`.  
+
+#### PI 
+You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
+
+As an alternative, you can also use the bonnet with a Raspberry Pi 2/3/4. 
+
+#### Antenna
+
+The bonnet does not come with an antenna, so you will need to purchase (or make) one. The end connector needs to be of the u.fl type, and the antenna length that you need will be determined by the frequency on which that your pump operates. The following antennas work well for either 868MHz (WW) or 915MHz (NA):
+
+[Slim Sticker-type GSM/Cellular Quad-Band Antenna - 3dBi uFL](https://www.adafruit.com/product/1991)
+
+[900Mhz Antenna Kit - For LoPy, LoRa, etc](https://www.adafruit.com/product/3340)
+
+
+#### SD card
+An 8 GB SD card should provide plenty of space for the linux operating system, OpenAPS code and storage for log files.  The ability to use larger and removable storage is one of the advantages of the Raspberry Pi.  You can get a [MicroSD card and adapter from Adafruit](https://www.adafruit.com/product/2692) when you order your Pi and Hat.  Or you can get an equivalent [8 GB SD card from Amazon](https://www.amazon.com/Kingston-microSDHC-Class-Memory-SDC4/dp/B00200K1TS/ref=sr_1_8?s=wireless&ie=UTF8&qid=1532090813&sr=1-8&keywords=8gb+micro+sd) or other sellers.
 
 ***
 
