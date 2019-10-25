@@ -222,14 +222,14 @@ Or (on an intel edison):
 `cannot connect to CC111x radio on /dev/spidev5.1`
 
 Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT:
-  * checking with `cd ~/myopenaps && sudo service cron stop && pkill -f openaps ; pkill -f oref0-pump-loop; oref0-mmtune && sudo service cron start` to see if it is resolved yet
+  * checking with `cd ~/myopenaps && sudo service cron stop && `killall-g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to see if it is resolved yet
   * Make sure the Explorer board or HAT has not become loose and is sitting correctly on the Edison board or Pi
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
   * Reboot, or fully power down and start up your rig
 
 If you are using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board (respectively D1/D2 on Explorer HAT) stay on even after an mmtune, you may need to re-flash your radio chip:
-  * Stop the reboot loop: `sudo service cron stop && killall -g oref0-pump-loop && shutdown -c`
+  * Stop the reboot loop: `sudo service cron stop && killall-g oref0-pump-loop && shutdown -c`
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
   * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
   * If using a Raspberry Pi with Explorer HAT make sure you've installed MRAA (folder `~/src/mraa` present)
@@ -261,7 +261,7 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 ./ccprog -p 16,18,7 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
 
-  * Reboot, and try `cd ~/myopenaps && sudo service cron stop && pkill -f openaps ; pkill -f oref0-pump-loop; oref0-mmtune && sudo service cron start` to make sure it works
+  * Reboot, and try `cd ~/myopenaps && sudo service cron stop && killall-g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to make sure it works
   
   
 ### Monitor/mmtune.json is empty or does not exist
@@ -306,7 +306,7 @@ You have now successfully reflashed the radio. Now `reboot` and your loop should
 
 **Note:** Generally, the Carelink stick is no longer supported. We *highly* recommend moving forward with a different radio stick. See [the hardware currently recommended in the docs](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/hardware.html), or ask on Gitter. 
 
-The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model` (after you do a `killall -g oref0-pump-loop`).
+The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model` (after you do a `killall-g oref0-pump-loop`).
 
 If you can't get a response, it may be a range issue. The range of the CareLink radio is not particularly good, and orientation matters; see [range testing report](https://gist.github.com/channemann/0ff376e350d94ccc9f00) for more information.
 
