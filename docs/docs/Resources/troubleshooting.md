@@ -222,7 +222,7 @@ Or (on an intel edison):
 `cannot connect to CC111x radio on /dev/spidev5.1`
 
 Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT:
-  * checking with `cd ~/myopenaps && sudo service cron stop && `killall-g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to see if it is resolved yet
+  * checking with `cd ~/myopenaps && sudo service cron stop && `killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to see if it is resolved yet
   * Make sure the Explorer board or HAT has not become loose and is sitting correctly on the Edison board or Pi
   * Check that your rig is in close range of your pump
   * Check that your pump battery is not empty
@@ -261,7 +261,7 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 ./ccprog -p 16,18,7 write spi1_alt2_EDISON_EXPLORER_US_STDLOC.hex
 ```
 
-  * Reboot, and try `cd ~/myopenaps && sudo service cron stop && killall-g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to make sure it works
+  * Reboot, and try `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to make sure it works
   
   
 ### Monitor/mmtune.json is empty or does not exist
