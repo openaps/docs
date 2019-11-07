@@ -32,8 +32,8 @@ To enable the xDrip service for OpenAPS, go to the Inter-app settings section in
   
   <summary><b>Click here</b> to display images of the xDrip settings screens</summary>
    
-   ![Settings](../Images/xDrip_offline_1.png)
-   ![Secret](../Images/xDrip_offline_2.png)
+   ![Settings](../Images/xDrip_offline_1.png =300x)
+   ![Secret](../Images/xDrip_offline_2.png =300x)
 
 </details>
 
