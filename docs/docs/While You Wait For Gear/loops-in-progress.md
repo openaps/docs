@@ -307,3 +307,4 @@ List of people who are working on closed loops:
 - Susanne Röckl (Berlin, Germany)
 - Jose Rico (Bilbao, Spain)
 - Sara Gardiner (Bicester, UK)
+- Mark Fletcher (Ipswich. UK)
