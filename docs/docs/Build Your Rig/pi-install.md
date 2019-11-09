@@ -77,7 +77,7 @@ cd ~/Desktop/
 touch ssh
 ```
 
-When you are done, copy it from your Desktop to the boot drive of your SD card. Continue with the "boot up your Pi and connect to it" instructions below.
+When you are done, copy it from your Desktop to the boot drive of your SD card. Now you will need to [boot up your Pi and connect to it](#boot-up-your-pi-and-connect-to-it).
 
 ****
 
