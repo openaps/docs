@@ -116,6 +116,9 @@ RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS
 
 After that, you're ready to install OpenAPS. 
 
+### Optional - case for the bonnet
+There is one 3D printable case [available on thingiverse](https://www.thingiverse.com/thing:3656500), where Raspberry Pi Zero fits with the bonnet. 
+
 ***
 
 ## Hardware information for Pi-based setups with the Adafruit RHM69HCW Bonnet
