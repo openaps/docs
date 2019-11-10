@@ -23,7 +23,21 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 ### A. xDrip+ for Android users
 
-Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
+Android users can use the xDrip+ Android app for offline looking, assuming xDrip+ is used as the CGM data source. There are two ways to get offline looping to work with xDrip+. Firstly, when connected to an Android phone running xDrip+, you can enable the phone to share the CGM information to OpenAPS, after which OpenAPS will automatically fetch the CGM data directly from the phone when connected onto the phone hotspot, even in cases where the phone is actually offline.
+
+To enable the xDrip service for OpenAPS, go to the Inter-app settings section in xDrip settings and enable the xDrip Web Service and Open Web Service settings, then enter xDrip Web Service Secret, which has to match the same secret you have configured for Nightscout. After these settings are turned on,OpenAPS will query your phone for the CGM data automatically without additional configuration settings. You can validate the offline looping works by connecting your rig to the xDrip hotspot and checking the ns-loop.log has a line saying `CGM results loaded from xDrip`.
+
+<details>
+<br>
+  
+  <summary><b>Click here</b> to display images of the xDrip settings screens</summary>
+   
+   ![Settings](../Images/xDrip_offline_1.png)
+   ![Secret](../Images/xDrip_offline_2.png)
+
+</details>
+
+The second method involves installing an application called xDripAPS onto your rig. The details for setting up xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
    * There is no direct iOS version of xDrip+. [Spike](https://spike-app.com/) is a different app with a different set of features.
 
@@ -47,8 +61,6 @@ Android users can use the xDrip+ Android app. The details for setting up  offlin
 
    * The order of the cables and ports is important.  The OTG cable must be plugged into the OTG port on the Explorer board.  There are two kinds of OTG cables; (1) both ends are micro-USB like the one you can [order here](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW) or (2) one end is USB and one end is micro-USB like the one you can [order here](https://www.adafruit.com/product/1099).  Both will work, but if you have the second kind, that cable must be the one plugged into the rig directly, and the other non-OTG cable must be plugged into the receiver (as shown in photo below).  That port is labeled on the underside of the port, it is the one closest to the lipo battery plug. A USB battery or wall charger must be plugged into the UART port to supply sufficient voltage to the OTG port (the lipo battery alone is not enough to power the OTG port). 
    
-
-
 <details>
 <br>
   

@@ -25,7 +25,7 @@ A double-check for pump compatibility is to look for the ABSENCE of PC connect i
   * If "PC Connect" is absent, then the pump should be able to receive temp basal commands and be compatible.
  * If there is no "Connect Devices" menu, then the pump should be able to receive temp basal commands and be compatible.
    * This is the case for the 512/712, the 515/715 and 522/722 models. 
-   * For 512/712 pumps, certain commands like Read Settings, BG Targets and certain Read Basal Profile are not available, and require creating special files for the missing info to successfully run the loop ([Instructions for 512/712 users, click here](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html)). 512/712 users are not going to be able to use an advanced feature - (e)SMB - but will be able to do basic looping.
+   * For 512/712 pumps, you will not be able to use an advanced feature (SMB) but will be able to do basic temp-basal based looping.
 
 Note that not _all_ possible sellers of pumps will accuratly describe the model number: if they are willing to sell a pump they may not have interest in setting it up for looping, and the distinctions about model numbers and firmware version may not be important to them. It will be for you though! Therefore, it's prudent to verify the model by seeing pctures and/or videos of the pump in action. 
 

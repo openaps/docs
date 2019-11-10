@@ -2,7 +2,7 @@
 OpenAPS currently primarily supports three different CGM systems: 
 * the Dexcom G4 Platinum system (with or without the [Share](http://www.dexcom.com/dexcom-g4-platinum-share) functionality), 
 * the Dexcom G5 system
-* the Dexcom G6 system (online connectivity only, for now)
+* the Dexcom G6 system
 * the [Medtronic system](https://www.medtronicdiabetes.com/treatment-and-products/enlite-sensor) (MiniMed Paradigm REAL-Time Revel or Enlite),  
 * and other CGM or CGM-like devices (Abbott's FreeStyle Libre) if the data is uploaded to Nightscout and the OpenAPS rig has Internet connectivity.
 

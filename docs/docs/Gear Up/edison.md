@@ -1,12 +1,16 @@
 # Get your rig hardware
 
-You have two main options for hardware:
+You have several options for hardware:
 
 `1.` The most recommended rig has been an Edison + Explorer Board. Unfortunately Intel stopped making the Edison boards as of 2018. If you can find an Intel Edison (eBay, local stores, etc - this is still very possible), this is still a highly recommmended rig. It is the smallest rig (and easily portable), with better battery life because it is power efficient. [See below for the list of hardware for Edison setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-intel-edison-based-setups).
   
-`2.` The other option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [See below for the list of hardware required for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-explorer-hat).
+`2.` Another recommended option is a Raspberry Pi-based setup, with the new Explorer HAT. This rig setup makes it easier to see information when offline because it has an onboard screen for displaying readouts. [See below for the list of hardware required for Pi/HAT setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-explorer-hat).
 
-**Note** - there is an experimental alternative to an Explorer HAT, which can serve as the radio on a Pi-based rig, but will not have the screen, and requires you to solder. See [below](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-rfm69hcw-experimental) for more details on a setup with RFM69HCW. 
+`3.` Yet another option is a Raspberry Pi-based setup, with an Adafruit RFM69HCW Bonnet. This rig setup makes it easier to see information when offline because it has a small onboard screen for displaying readouts, but it does not come with charging hardware for a battery like the Explorer HAT or Explorer Board. You will need to build your own charging circuit or use a USB power block if you want to make this rig portable. However, this makes an excellent stationary or backup rig! [See below for the list of hardware required for Pi/Bonnet setups](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-the-adafruit-rfm69hcw-bonnet).
+
+`4.` (Not recommended, but supported) There is an experimental alternative to prefabricated hardware on the Raspberry Pi (Explorer HAT or Adafruit Bonnet), which can serve as the radio on a Pi-based rig, but will not have the screen and requires you to solder. [See below for the list of hardware required for more details on a setup with RFM69HCW breakout board](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-rfm69hcw-experimental). 
+
+`5.` (Not recommended, but supported) If you *already have* a USB TI stick (from an older rig build), you can continue using it in 0.7.0 if you reflash it with new firmware and wire it to the SPI header on the Raspberry Pi. [See below for the instructions on how to re-flash and re-wire your TI stick](https://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#hardware-information-for-pi-based-setups-with-rewired-TI-stick).
 
 ****
 
@@ -24,7 +28,7 @@ As of April 2018, there is be a Pi+HAT rig as an option for closing the loop wit
 #### PI 
 You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
 
-As an alternative, you can also use the HAT with a Raspberry Pi 3. 
+As an alternative, you can also use the HAT with a Raspberry Pi 2/3/4. 
 
 #### Battery
 Lipo batteries are typically used to power the rig on the go because they charge quickly and come in a variety of compact sizes.  When choosing a battery, you have a trade-off between a larger battery with longer duration or a smaller battery with shorter duration that is easier to carry around.  A 2000 mah battery is roughly the size of the Raspberry Pi0, and can last around 4 hours.  You'll want a "1S" type, which uses a single cell and outputs at 3.7 VDC.  It needs a JST connector to plug into the Raspberry Pi.  See this [battery from HobbyKing](https://hobbyking.com/en_us/turnigy-2000mah-1s-1c-lipoly-w-2-pin-jst-ph-connector.html?___store=en_us).
@@ -43,7 +47,7 @@ Because we are still optimizing the software to be as power-efficient as possibl
 
 ## Hardware information for Pi-based setups with RFM69HCW (experimental)
 
-The Pi + RFM69HCW is still experimental!
+This Pi + RFM69HCW is still experimental!
 
 If you are a maker person or a bit into soldering electronics at least, you may also build your rig with a piece of hardware, that is a lot cheaper than the Explorer HAT, although it does **not** have the screen. You also won't have LEDs indicating status, no battery charging and there will not be (m)any 3d printable case models. If it's your only option because you're on a budget and can't afford to spend 150 bucks on a rig, please think about this step twice. This one will cost you only 30, but a lot of extra time.
 
@@ -102,16 +106,48 @@ This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a 
 
 Board | Connect | Connect | Connect | Connect | Connect | Connect | Connect | Connect
 ------|------|------|------|------|------|------|------|------
-RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CEO_N	|| 
-RPi PIN	| 17	| 25	| 19	| 21	| 23	| 16	| 24	| 18
+RPi	| 3.3V	| GND	| MOSI | MISO | SCLK	| | CE1_N	|| 
+RPi PIN	| 17	| 25	| 19	| 21	| 23	| 15	| 26	| 22
 RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS	| RST or RESET
 
 ![Picture of RPI0WH with FM69HCW connection diagram](../Images/build-your-rig/rpii2RFM69HCW.JPG)
 
-
-[Here is a copy of a a sophisticated schematic](https://easyeda.com/editor#id=4128da76dc1644c9a1cf6fd53ec1885f|003da073fac94f058c872b643d1d9e22). (Press "miniloop v1.0" to see the diagram).
+[See more info here](https://github.com/ecc1/rfm69/blob/master/README.md).
 
 After that, you're ready to install OpenAPS. 
+
+***
+
+## Hardware information for Pi-based setups with the Adafruit RHM69HCW Bonnet
+
+Summary of what you need for a Pi/Bonnet rig:
+* [Explorer HAT](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#Bonnet)
+* [Pi0WH (recommended) or Pi 3](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#pi)
+* [Antenna](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#antenna)
+* [SD Card](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card)
+
+#### Bonnet: 
+
+There is be a Pi+Bonnet rig as an option for closing the loop with OpenAPS. This hardware is available from Adafruit, and is called the [Adafruit RFM69HCW Transceiver Radio Bonnet - 868 or 915 MHz - RadioFruit](https://www.adafruit.com/product/4072). As of October 2019, this hardware is supported via automated setup via `oref0-setup.sh`.  
+
+#### PI 
+You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
+
+As an alternative, you can also use the bonnet with a Raspberry Pi 2/3/4. 
+
+#### Antenna
+
+The bonnet does not come with an antenna, so you will need to purchase (or make) one. The end connector needs to be of the u.fl type, and the antenna length that you need will be determined by the frequency on which that your pump operates. The following antennas work well for either 868MHz (WW) or 915MHz (NA):
+
+[Slim Sticker-type GSM/Cellular Quad-Band Antenna - 3dBi uFL](https://www.adafruit.com/product/1991)
+
+[900Mhz Antenna Kit - For LoPy, LoRa, etc](https://www.adafruit.com/product/3340)
+
+#### SD card
+An 8 GB SD card should provide plenty of space for the linux operating system, OpenAPS code and storage for log files.  The ability to use larger and removable storage is one of the advantages of the Raspberry Pi.  You can get a [MicroSD card and adapter from Adafruit](https://www.adafruit.com/product/2692) when you order your Pi and Hat.  Or you can get an equivalent [8 GB SD card from Amazon](https://www.amazon.com/Kingston-microSDHC-Class-Memory-SDC4/dp/B00200K1TS/ref=sr_1_8?s=wireless&ie=UTF8&qid=1532090813&sr=1-8&keywords=8gb+micro+sd) or other sellers.
+
+#### Optional - case for the bonnet
+There is one 3D printable case [available on thingiverse](https://www.thingiverse.com/thing:3656500), where Raspberry Pi Zero fits with the bonnet. 
 
 ***
 
@@ -157,10 +193,32 @@ You can also use any charger with a USB plug, including a wall power charger. Th
 
 You should monitor the rig periodically - **especially the LiPo battery**, checking for swelling or damage. Immediately discontinue use of any battery that shows sign of swelling or damage.
 
+****
+
+## Hardware information for Pi-based setups with rewired TI-stick
+
+This hardware setup is **not recommended unless you already have a USB TI stick** and want to continue using it with 0.7.0. This part of the documentation is a work-in-progress and as of 11/9/2019 not fully tested -- if you can help with this, we would appreciate it very much!
+
+You will need a CC-Debugger to re-flash your TI stick with an SPI-compatible firmware, [located here](https://github.com/ps2/subg_rfspy/releases). Any of the v0.8 `spi1_alt2` versions should work.
+
+You will also need jumpers to wire your TI stick to the Raspberry Pi's GPIO header in the following configuration:
+```
+SPI0 CS0 (Pi pin 24) -> debug  pin 5
+SPI0 CLK (Pi pin  23) -> debug pin 6
+SPI0 MISO (Pi pin 21) -> debug pin 8
+SPI0 MOSI (Pi pin 19) -> debug pin 10
+any Pi 3.3V pin -> debug pin 2
+any Pi ground pin -> debug pin 1
+GPIO 4 (Pi pin 7) -> debug pin 7
+```
+
+When prompted in oref0-setup.sh, you will need to select the "TI Stick (SPI-connected)" option.
+ 
 ### Radio stick (only if not using Explorer board)
 
 We recommend an Explorer Board with a built-in radio ([see above](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
 
+The following options are not yet documented for oref0 versions < 0.7.0, and may not work anymore:
 If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these, and also note that it will be more work as the documentation is designed for the Edison/Explorer Board setup as the easiest path forward. 
 
 ### USB Cables

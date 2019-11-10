@@ -126,11 +126,11 @@ You can see the results of rf tunes (mmtune) several different ways:
    ```  
    If you are running oref0 0.7.0 or later, execute this command.
    ```
-   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start
    ```
    Here is an example of the results of that command on a rig called edison3:  
    ```
-   root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
+   root@edison3:~# cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start
    openaps: no process found
    oref0-pump-loop: no process found
    mmtune: "916.636", 5, -92
@@ -138,11 +138,11 @@ You can see the results of rf tunes (mmtune) several different ways:
    ```
 4. If you want to manually perform an mmtune with the full frequency scan displayed in oref0 prior to 0.7.0, execute the command below.
    ```
-   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; openaps-use pump mmtune && sudo service cron start
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; openaps-use pump mmtune && sudo service cron start
    ```
    If you are running oref0 0.7.0 or later, execute this command.
    ```
-   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; OREF0_DEBUG=1 oref0-mmtune && sudo service cron start
    ```
    You'll see results similar to the full scan details as shown at the beginning of this section.
 
