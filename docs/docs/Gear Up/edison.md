@@ -116,9 +116,6 @@ RFM69HCW	| VIN or 3.3V	| GND	| MOSI	| MISO	| SCK or CLK	| G0 or DIO0	| CS or NSS
 
 After that, you're ready to install OpenAPS. 
 
-### Optional - case for the bonnet
-There is one 3D printable case [available on thingiverse](https://www.thingiverse.com/thing:3656500), where Raspberry Pi Zero fits with the bonnet. 
-
 ***
 
 ## Hardware information for Pi-based setups with the Adafruit RHM69HCW Bonnet
@@ -146,9 +143,11 @@ The bonnet does not come with an antenna, so you will need to purchase (or make)
 
 [900Mhz Antenna Kit - For LoPy, LoRa, etc](https://www.adafruit.com/product/3340)
 
-
 #### SD card
 An 8 GB SD card should provide plenty of space for the linux operating system, OpenAPS code and storage for log files.  The ability to use larger and removable storage is one of the advantages of the Raspberry Pi.  You can get a [MicroSD card and adapter from Adafruit](https://www.adafruit.com/product/2692) when you order your Pi and Hat.  Or you can get an equivalent [8 GB SD card from Amazon](https://www.amazon.com/Kingston-microSDHC-Class-Memory-SDC4/dp/B00200K1TS/ref=sr_1_8?s=wireless&ie=UTF8&qid=1532090813&sr=1-8&keywords=8gb+micro+sd) or other sellers.
+
+#### Optional - case for the bonnet
+There is one 3D printable case [available on thingiverse](https://www.thingiverse.com/thing:3656500), where Raspberry Pi Zero fits with the bonnet. 
 
 ***
 
