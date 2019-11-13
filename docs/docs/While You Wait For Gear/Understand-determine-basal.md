@@ -59,7 +59,7 @@ These purple lines are helpful in understanding, at a glance, *why* OpenAPS is m
 
 ### Scenario 1 - Zero Temp for safety
 
-In this example, BG is rising in the near-term time frame; however, it is predicted to be low over a longer time frame. In fact, it is predicted to go below target *and* the safety threshold. For safety to prevent the low, OpenAPS will issue a zero temp, until the eventualBG (in any time frame) is above threshold.
+In this example, BG is rising in the near-term time frame; however, it is predicted to be low over a longer time frame. In fact, it is predicted to go below target *and* the safety threshold. For safety to prevent the low, OpenAPS will issue a zero temp, until the minimum predicted BG is above threshold.
 
 ![Dosing scenario 1](../Images/Dosing_scenario_1.jpg)
 
