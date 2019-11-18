@@ -4,50 +4,55 @@
 
 ## Hardware Assumptions for this page
 
-1.  Using an explorer board and Edison
+1.  Using an Explorer board and Edison
 2.  Using an Apple computer (with either USB-A or USB-C ports)
 3.  Using a looping-compatible Medtronic pump. See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
 
 ## High Level Recommended Rig parts list
 
-* [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
+a) [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
 
-* [**Edison - link**](https://www.sparkfun.com/products/13024)
+b) [**Edison - link**](https://www.sparkfun.com/products/13024).  (Intel has discontinued the Edison, and the link is mostly so you can look at what the chip looks like. You can still find Edison chips on EBay. They are often sold as a part of a kit (e.g. Arduino), check with the seller to confirm that the chip is included. (https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2060353.m570.l1312.R2.TR10.TRC3.A0.H0.XIntel+.TRS2&_nkw=intel+edison&_sacat=175673) ~$30-$50 is a typical price for a new-in-box Edison chip, usually more for a kit. Since it's EBay, you will see them occasionally offered for much more, or much less. 
 
-* [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187) <<< These sets are no longer available. Enhanced Radio Devices now ships their Explorer boards with suitable nuts and screws, and plastic spacers. 
+c) **Nuts and Bolts**
+Enhanced Radio Devices shipped their Explorer boards with suitable nuts and screws, and plastic spacers in early 2019. 
 My first explorer board did not come with usable nuts and screws, and I had trouble locating suitable spacers. An easy workaround: Once you have two suitable matching sets of screws and nuts (M2, or slightly smaller), you can fashion spacers from a thin tube, e.g. a drinking straw that you cut to a length to snugly fit between the board and the Edison chip. 
 
-* **At least one Lithium Battery** Larger capacity batteries allow longer runtime before needing to be recharged. The cylindrical batteries hold up better if you carry the rig in a soft case than the flat ones. Some 3-D- printed cases only work with specific battery sizes.
+d) **At least one Lithium Battery** Larger capacity batteries allow longer runtime before needing to be recharged. The cylindrical batteries hold up better if you carry the rig in a soft case than the flat ones. Most 3-D-printed cases only work with specific battery sizes.
 
- * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
- * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
- * [**2200mAh Lithium Ion Cylindrical Battery - link**](https://www.adafruit.com/product/1781)
- * [**4400mAh Lithium Ion Battery Pack - link**](https://www.adafruit.com/product/354)
+ * [2500mAh battery - link](https://www.adafruit.com/products/328)
+ * [2000mAh battery - link](https://www.sparkfun.com/products/8483)
+ * [2200mAh Lithium Ion Cylindrical Battery - link](https://www.adafruit.com/product/1781)
+ * [4400mAh Lithium Ion Battery Pack - link](https://www.adafruit.com/product/354)
  
-* **Cables**  You may already have workable USB cables; you need two cables that are long enough to connect the rig to the computer to complete this process. 
+e)* **USB cables**  You may already have workable USB cables; you need two cables that are long enough to connect the rig to the computer to complete this process. "Bad" cables can cause problems during flashing; when in doubt, get a couple of new USB cables.
 
-Example USB-A to Micro USB cables: 
-* [**3 ft long cable, USB A - Micro USB - link**](https://www.adafruit.com/products/592)
-* [**6 inch long cable, USB A - Micro USB - link**](https://www.adafruit.com/products/898) 
+ Example USB-A to Micro USB cables: 
+ * [3 ft long cable, USB A - Micro USB - link](https://www.adafruit.com/products/592)
+ * [6 inch long cable, USB A - Micro USB - link](https://www.adafruit.com/products/898) 
  
-Example USB-C to Micro USB cables: 
-b/dp/b07cwfnssn?&tag=admarketus-20&ref=pd_sl_a11B613E6E90698630840E2C92)
+ Example USB-C to Micro USB cables: 
+ * [1 ft long cable, USB C - Micro USB - link](https://www.amazon.com/AmazonBasics-Double-Braided-Type-C-Micro-B/dp/B07CWFNSSN/ref=sr_1_5?crid=1KOKFYDQR41WY&keywords=usb%2Bc%2Bto%2Bmicro%2Busb&qid=1574060073&sprefix=usb%2Bc%2Bto%2Bmicro%2Caps%2C215&sr=8-5&th=1)
 
 ## Getting Physical: Build your rig/put the physical pieces together
 
 The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with nuts and bolts.  
 
-The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
+The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.  The Edison board should not wobble, and be securely seated when you are done.  
 
-### If you use gold screws and spacers: 
-It's easiest to start with the Explorer board and put on two nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  
+This is a bit challenging to do the first few times - everything is small, you don't want to damage the chip or the board, or lose the spacers, nuts and screws. 
 
-### If you use screws, nuts, and spacers:
-Place the spacers between the board and the Edison chip. The spacers should fit tightly. A small pincer comes in handy for this, and you'll probably drop a nut or spacer at some point during this step. Working at a table can save you lengthy searches for tiny dropped parts.
+I generally start by looking at the board and chip, to locate where the chip will be seated on the board. 
+
+Then I place the two spacers between the board and the Edison chip where the holes for the screws are, holding the spacers in that area while seating the chip carefully. The spacers should fit tightly, but can't be too long, as that would prevent the chip from clicking into its seat once everything's aligned. Then I arrange the spacers so they don't cover the screw holes. Typically this is the time I can fully seat the Edison, and it clicks into place when it's fully seated. Only then I install the screws, and nuts. I find it helpful to hold each nut by pressing it against the board with one finger while turning the screwdriver. I re-check the seating of the chip befor moving on to the next step. It must be firmly seated.
+
+Did you notice a click when it settled into its place? Good job!
+
+You'll probably drop a nut or spacer at some point during this step. Working at a table can save you lengthy searches for tiny dropped parts. Use a small screwdriver that fits your screws to tighten them - not too tight - on the nuts. You can find tiny screwdrivers in "eye glass repair kits", or at electronic stores, hardware stores, etc. 
 
 ### Attach your battery into the explorer board plug.  
 A single red light should appear and stay lit.  
-Note: You *can* flash the chip and install the software without a battery attached. However, a battery reduces the risk of having weird problems because of power glitches during the flashing and installation process (Example: Corrupted Jubilinux installations, frequent rebooting.) #Practice Safe Flashing - Flash with Battery Attached!#
+Note: You *can* flash the chip and install the software without a battery attached. However, a battery reduces the risk of having problems from power glitches during the flashing and installation process (Example: Corrupted Jubilinux installations, frequent rebooting.) #Practice Safe Flashing - Flash with Battery Attached!#
 
 During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
