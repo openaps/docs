@@ -43,7 +43,7 @@ Going through steps 1-3 may take about 1-3 hours depending on your internet conn
     
     `cd && ~/src/oref0/bin/oref0-setup.sh`
 
-(Note: if this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, it is likely that you forgot to enter `edison` at the first prompt for changing the password.)
+(Note: if this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, you likely forgot to enter `edison` at the first prompt for changing the password.)
 
 #### Be prepared to enter the following information into the setup script:
 
