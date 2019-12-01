@@ -58,8 +58,9 @@ The screenshot below shows an example of the questions you'll be prompted to rep
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
     * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to check if the line `radio_type = carelink` is present in your `pump.ini` file.
 * CGM method:  The options are `g4-go`, `g5`, `g5-upload`, `g6`, `g6-upload`, `mdt`, `xdrip`, and `xdrip-js`.
-   * Note:  OpenAPS also attempts to get BG data from your Nightscout.  OpenAPS will always use the most recent BG data regardless of the source. As a consequence, if you use FreeStyle Libre or Medtronic 640G as a CGM, or any other CGM system that gets its data only from Nightscout, you should choose g4-go, g5, or g6. Do *not* choose MDT unless you are using an Enlite sensor attached to the pump you're looping with.
-   * Note: g4-go will allow you to have raw data when the G4 receiver is plugged directly into the rig.
+   * The various G4/G5/G6 options are for plugging a physical receiver into the rig with USB.
+   * If you would like the rig to communicate directly with your G5/G6 transmitter over Bluetooth (most likely in place of a receiver, using Alternate Channel mode), choose xdrip-js.
+   * Do *not* choose MDT unless you are using an Enlite sensor attached to the pump you're looping with. If you use FreeStyle Libre or Medtronic 640G as a CGM, or any other CGM system that gets its data only from Nightscout, you should choose g4-go, g5, or g6. OpenAPS also attempts to get BG data from your Nightscout. OpenAPS will always use the most recent BG data regardless of the source, so if offline looping is unavailable, if will try to pull from NS, and vice versa.
 * Nightscout URL and API secret (or NS authentication token, if you use that option)
 * BT MAC address of your phone, if you want to pair for BT tethering to personal hotspot (letters should be in all caps)
   * Note, you'll still need to do finish the BT tethering as outlined [here](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/bluetooth-tethering-edison.html) after setup.
