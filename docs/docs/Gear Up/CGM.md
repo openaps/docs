@@ -6,24 +6,26 @@ OpenAPS currently primarily supports these different CGM systems:
 * the older Medtronic CGM system (MiniMed Paradigm REAL-Time Revel or Enlite),  
 * and other CGM or CGM-like devices (Abbott's FreeStyle Libre) if the data is uploaded to Nightscout and the OpenAPS rig has Internet connectivity.
 
-With Dexcom G4, the Share platform is not required; but is valuable for uploading BG data to the cloud (and into Nightscout, which can then send BGs to the rig). However, without Share, a G4 receiver can instead be plugged in directly to the OpenAPS rig. For Dexcom G5 Mobile you can also use a compatible receiver (software upgraded G4 with Share receiver or a G5 Mobile Receiver), or also pull data from the Dexcom Share servers into Nightscout for use with an Internet-connected OpenAPS rig.
+### Using a Dexcom CGM
 
-NOTE: You can also pull CGM data from Nightscout as an alternative (including Dexcom G5 to iOS device + Nightscout Bridge plugin), or use xDrip (see below). The Medtronic CGM system communicates directly with the associated pump, so that data can be retrieved using the CareLink USB stick. The Medtronic Minimed 530g Pump's Enlite CGM Sensors CAN be used with the older OpenAPS compatible Medtronic Pumps (Despite that pump originally being offered with SoftSensor CGM Sensors).
+With Dexcom G4, the Share platform is not required; but is valuable for uploading BG data to the cloud (and into Nightscout, which can then send BGs to the rig). However, without Share, a G4 receiver can instead be plugged in directly to the OpenAPS rig. For Dexcom G5 you can also use a compatible receiver (software upgraded G4 with Share receiver or a G5 Mobile Receiver), or also pull data from the Dexcom Share servers into Nightscout for use with an Internet-connected OpenAPS rig. The same applies for G6 as it does for a G5. 
 
-### Using the Dexcom receiver CGM
+Also note that an easy way to [loop offline](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#c-send-g5-or-g6-bgs-direct-to-rig-xdrip-js-lookout-logger) is to choose the `xdrip-js` setup option during `oref0-setup` (in 0.7.0 and later versions) to have the rig pull directly from a G5 or G6 receiver. 
 
-This refers to the Dexcom receiver hardware. Note that your Dexcom should be nearly fully charged before plugging it in to a Raspberry Pi or Edison-based OpenAPS rigs. If, when you plug in your receiver, it causes your WiFi dongle to stop blinking, that is a sign that it is drawing too much power and needs to be charged. Once the receiver is fully charged, it will stay charged when connected to the rig.
+### Using the Medtronic CGM
+
+As the Medtronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. This CGM setup means you can loop offline without any extra setup steps.
 
 ### Pulling CGM data from the cloud
 
-Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. You can find more documentation about pulling CGM data from a Nightscout site [here](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html).
+Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly, when your rig has internet connectivity. You can find more documentation about pulling CGM data from a Nightscout site [here](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html).
   
 * If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS.
-* If you have a Share receiver [follow these directions](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless) to set up your Android uploader and Nightscout website.
+* If you have a Dexcom G4 Share receiver or Dexcom G5/G6 paired with your phone, you can send that data to Nightscout to be used by OpenAPS.
 * You could also build a DIY receiver. Directions to build the receiver, set up your uploader and Nightscout can be found [here](http://www.nightscout.info/wiki/nightscout-with-xdrip-wireless-bridge).
 * You can also use part of the DIY receiver set up - the wixel – directly to the Raspberry Pi. Learn more about the wixel setup [here](https://github.com/jamorham/python-usb-wixel-xdrip) and [here](https://github.com/ochenmiller/wixelpi_uploader).
 * If you are using Abbott Freestyle Libre in combination with Sony SmartWatch 3 and xdrip+ (or possibly other combinations of technology to get Libre data up into the cloud), you can also pull CGM data directly from Nightscout.
 
-### Using the Medtronic CGM
+### Offline looping options
 
-As the Medtronic pump collects data directly from the Enlite sensors, OpenAPS will retrieve CGM data in addition to your regular pump data from your pump. While you use the same OpenAPS commands to get it, the Medtronic CGM data may need a little special formatting after being retrieved. If so, it will be specified in other areas of the documentation.
+See [this page for much more detail on all of your offline looping options](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html) with various CGM types. 
