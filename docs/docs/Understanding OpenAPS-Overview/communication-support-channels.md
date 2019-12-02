@@ -14,11 +14,15 @@ One huge resource is this documentation. We recommend bookmarking the [link](htt
 
 You may notice that the left hand side of the documentation has navigation. It is organized in order of setting up OpenAPS, and has various sections on finding your gear; what you should do before you build a rig; how to setup up your rig; and additional  features and tips and tricks for optimizing your looping setup. This navigation is long, you can mouse over the section and scroll down to see all the pages listed in the top-level navigation!
 
+<details>
+  <summary><b>Click here</b> to expand some pictures that shows you the left hand navigation</summary>
+
 ![Show documentation navigation](../Images/Understand_documentation_basic_1.png)
 
 ![Show documentation navigation 2](../Images/Understand_documentation_basic_2.png)
 
 ![Show troubleshooting section of docs](../Images/Troublshooting_docs_section.png)
+</details>
 
 You'll also notice that there is more content than just these high-level pages! If you click on a link in the left, many of them expand to show the sub-sections include, which make it easy to jump directly to the section you're looking for. If there is a `+`, that means there is more content you can expand.
 
@@ -30,8 +34,8 @@ See the top left of the docs for the search box. It's helpful to search *inside*
 
 ![Show documentation search](../Images/Search_documentation.png)
 
-### Google Group - everyone is recommended and welcome to join!
-A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev). You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter.
+### Slack
+There is a [Slack channel](https://omniapsslack.azurewebsites.net/) that you can add yourself to - then look for the `#OpenAPS` channel to post questions. That slack can also be used to stay up to date on other, broader DIY diabetes projects such as communication around other pumps that are being explored and worked on, but aren't yet DIY loopable.
 
 ### Gitter
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
@@ -88,17 +92,11 @@ There are also numerous country-specific Facebook groups. You will still want to
 * Australia, join [Aussie, Aussie, Aussie, Loop, Loop, Loop](https://www.facebook.com/groups/1558147697576040/). 
 * New Zealand, join [Aotearoa DIY Artificial Pancreas Society](https://www.facebook.com/groups/1405899059555406/).
 
-
 ### Issues on GitHub
 One of the above channels is the best place for real-time or near-time troubleshooting. However, you may occasionally stumble across a new bug or edge case that we want to work on resolving. If you're asked to "create an issue", that usually means going to [the oref0 repository on Github and logging an issue there](https://github.com/openaps/oref0/issues). (You may also be asked to create issues for the openaps toolkit or decocare, etc. but usually it's oref0 related.) 
 
 ### Other online forums
 Those in the #OpenAPS community are frequently found in other forums, such as on Twitter (using [the #OpenAPS hashtag](https://twitter.com/search?f=tweets&vertical=default&q=%23OpenAPS&src=typd), as well as [#WeAreNotWaiting](https://twitter.com/search?f=tweets&vertical=default&q=%23WeAreNotWaiting&src=typd)) and on Facebook in the ["CGM In The Cloud"](https://www.facebook.com/groups/cgminthecloud/) and ["Looped"](https://www.facebook.com/groups/TheLoopedGroup/)group.
 
-* There is also a [Slack channel](https://omniapsslack.azurewebsites.net/) to discuss communication around other pumps that are being explored and worked on, but aren't yet DIY loopable.
-
-### Find (or start) a local meetup group
-
-Here are some places where there are regular-ish meetups, and how to find out about them:
-* Seattle - join the [Seattle OpenAPS Google Group](https://groups.google.com/forum/#!forum/seattleopenaps) to find out about upcoming meetups
-* NYC - join the [NYC OpenAPS Google Group](https://groups.google.com/forum/#!forum/openaps-nyc) to find out about upcoming meetups
+### Google Group - everyone is welcome to join!
+A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev). You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume. However, please note that troubleshooting questions about rig setups are best posted to Slack or Gitter - email tends to be slower and you will likely be redirected to another channel if you're actively working to resolve a setup problem.
