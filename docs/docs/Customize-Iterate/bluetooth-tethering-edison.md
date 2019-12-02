@@ -112,10 +112,10 @@ b) Delete the phrase `update_config=1` from the file if it is present.
 
 `2.` Next, stop cron to make sure oref0-online doesn't interfere:
 
-   `sudo service cron stop`
+`sudo service cron stop`
 
-<details>
-    <summary> `3.` If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4. <b>If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. (click here to expand instructions)</b></summary>
+`3.` If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4. <details>
+<summary> <b>If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. (click here to expand instructions)</b></summary>
 <br>
 
    a) Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
