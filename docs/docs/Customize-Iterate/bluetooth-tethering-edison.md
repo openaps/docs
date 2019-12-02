@@ -102,13 +102,13 @@ root@edisonhost:~# bluetoothd --version
 
 `1.` First, check that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
 
-   a) Open the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
+a) Open the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
 
-      `nano /etc/wpa_supplicant/wpa_supplicant.conf`
+`nano /etc/wpa_supplicant/wpa_supplicant.conf`
 
-   b) Delete the phrase `update_config=1` from the file if it is present.
+b) Delete the phrase `update_config=1` from the file if it is present.
 
-      ![Remove update_config](../Images/update_config_adjustment.png)
+![Remove update_config](../Images/update_config_adjustment.png)
 
 `2.` Next, stop cron to make sure oref0-online doesn't interfere:
 
