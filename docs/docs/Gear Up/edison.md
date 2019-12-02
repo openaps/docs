@@ -177,7 +177,7 @@ When prompted in oref0-setup.sh, you will need to select the "TI Stick (SPI-conn
 
 The high level parts list (see below for more details, and links):
 
-* [Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)
+* [Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-board-block)
 * [Edison](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#edison)
 * [Nuts and Bolts to attach the Edison to the Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#nuts-and-bolts)
 * [At least one Lithium battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#lithium-ion-polymer-lipo-battery-or-other-battery-supply)
