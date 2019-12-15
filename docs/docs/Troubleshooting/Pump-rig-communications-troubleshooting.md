@@ -126,7 +126,7 @@ You can see the results of rf tunes (mmtune) several different ways:
    ```  
    If you are running oref0 0.7.0 or later, execute this command.
    ```
-   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start
+   cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall -g oref0-pump-loop; oref0-mmtune && sudo service cron start
    ```
    Here is an example of the results of that command on a rig called edison3:  
    ```
