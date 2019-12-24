@@ -308,3 +308,4 @@ List of people who are working on closed loops:
 - Jose Rico (Bilbao, Spain)
 - Sara Gardiner (Bicester, UK)
 - Mark Fletcher (Ipswich. UK)
+- Colum Keegan (Wicklow, Ireland)
