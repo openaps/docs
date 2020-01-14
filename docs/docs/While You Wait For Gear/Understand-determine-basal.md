@@ -35,8 +35,6 @@ This includes:
   * `Target` = pulled from your pump target; overridden if you have enacted a temporary target running.
   * `Carb Impact` = we estimate carb impact by looking at what we predict to happen with your carbs entered (`predCI`) and adding it to our estimate of the remaining carb impact (`remainingCI`)
   * `Safety Threshold` = `min_bg - 0.5*(min_bg-40)` where `min_bg` is your BG target
-
-  ![Estimating carb impact](../Images/Carb_predictions.jpg)
   
 You may also see information about settings, either from your pump or from your `preferences.json` file, that are limiting the insulin dosing decisions that OpenAPS would otherwise make. Make sure to [read the preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html) before you set up OpenAPS to understand what settings you have by default, and know how to get back to that page if you ever see a setting displayed in your pill. There is also [a handy chart with examples](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#a-few-examples) to help you understand how settings may impact the dosing output.
 
@@ -54,6 +52,84 @@ Once you enable forecast display in your Nightscout configuration, you will be a
 These purple lines are helpful in understanding, at a glance, *why* OpenAPS is making the decisions it is, based on your near-term and longer-term BG predictions.
 
 ![Purple prediction line examples](../Images/Prediction_lines.jpg)
+
+## Understanding the basic logic (written version) 
+
+Here is a written explanation of the code that you can explore. For some visual and practical examples, see the [OpenAPS algorithm examples](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html#openaps-algorithm-examples) section.
+
+The OpenAPS reference design algorithm, oref0, determines insulin dosing based on a number of scenarios that it forecasts with different types of predictions. Two of these scenarios, the “eventual” (eventualBG) and “IOB-based” (IOBpredBGs) ones, attempt to predict BGs in situations without (much) carb absorption. Another scenario, the “zero-temp” (ZTpredBGs) one, attempts to predict the “worst likely case” if observed carb absorption suddenly ceases and if a zero-temp were applied until BG begins rising at/above target. The final two scenarios, the COB-based (COBpredBGs) one and the unannounced meal (UAM)-based (UAMpredBGs) one, attempt to predict how long an observed BG rise will continue, to dose appropriately for announced and unannounced meals, and for anything else that causes a sustained rise in BG.
+
+COB-based BG predictions require the announcement of meals, with a rough estimate of carbs. Carb counting need not be precise: any estimate within 1.5x of the actual value will generally be sufficient for near-optimal dosing, as the COB-based and UAM-based predictions are blended (with the UAM-based dosing constrained by the zero-temp predictions) to generate dosing recommendations. If no carb announcement is provided, UAM-based predictions can be used to reactively dose for a meal rise, which is sufficient, with Fiasp, to bring BG back into range fairly quickly after unannounced meals.
+
+When no carb announcements are available, or when announced carbs are mostly absorbed and COB-based predictions are less reliable, it is also possible to predict that observed deviations will gradually return to zero over some period of time. (A “deviation” term is calculated represent how much BG is currently rising or falling relative to what it should be doing based solely on insulin activity.) Once deviations have peaked and are decreasing at a reasonable rate, oref0’s UAM calculations assume that the deviations will continue to decrease at the same rate until they reach zero. If they’re decreasing, but too slowly, it assumes they’ll decrease linearly to zero over 3 hours. If deviations are still increasing, it assumes they’ll peak immediately and start decreasing at ⅓ of the rate they increased from their recent minimum. 
+
+#### eventualBG
+
+<details>
+ <summary><b>Click here to expand the eventualBG description</b></summary>
+The simplest and oldest prediction, called eventualBG, uses traditional bolus calculator math. 
+
+Specifically, the naive_eventualBG is set to current BG - IOB*ISF.
+
+It also calculates a “deviation” term, which represents how much BG is currently rising or falling relative to what it should be doing based solely on insulin activity. These deviations are projected to continue for the next 30 minutes (or, equivalently, to linearly decrease from the current value to zero over the next 60 minutes).
+
+Then, eventualBG = naive_eventualBG + deviation
+</details>
+
+#### IOBpredBGs
+
+<details>
+ <summary><b>Click here to expand the IOBpredBGs description</b></summary>
+The eventualBG, by its nature, predicts only an eventual BG value, once all insulin activity takes effect.
+
+In order to make predictions about what BGs will do between now and then, oref0 performs a calculation similar to the eventualBG calculation, but every 5 minutes (for 4 hours). In that calculation, the predicted blood glucose impact of insulin (predBGI) and predicted deviation (predDev) are calculated for every 5-minute interval, allowing us to predict a BG value for each interval, which are stored in the IOBpredBGs array. As with the eventualBG calculation, deviations are projected to linearly decrease from the current value to zero over the next 60 minutes, thereby predicting an element of “momentum”.
+</details>
+
+#### ZTpredBGs
+
+<details>
+ <summary><b>Click here to expand the ZTpredBGs description</b></summary>
+ Another fairly simple prediction is for what will happen in the “worst likely case,” if observed carb absorption suddenly ceases, and a zero-temp is applied until BG begins rising at/above target.
+
+To do so, oref0 simply calculates what BGI will be every 5 minutes if it sets a long zero-temp immediately, and use those BGIs (without any deviations) to predict a BG value for each interval, which are stored in the ZTpredBGs array.
+</details>
+
+#### COBpredBGs
+
+<details>
+ <summary><b>Click here to expand the COBpredBGs description</b></summary>
+The calculation of predicted BG in the COB-based scenario depends on a calculation of COB. In oref0, the COB is calculated based on observed deviations since carb entry, based on the assumptions that positive deviations were caused by carb absorption, and any low or negative deviations were caused by something else (like physical activity), but that carbs would continue to be digested/absorbed over that time at a configurable minimum rate.
+
+If a user chooses to bolus for their meal, then oref0 can simply wait to observe positive deviations indicating carb absorption and can assume that those deviations will gradually decrease to zero over a timeframe long enough to “use up” all remaining COB. In this scenario, oref0 can simply perform the same calculation as for IOBpredBGs, but use the gradually decreasing predicted carb impact (predCI) value instead of the predDev.
+
+Before such carb absorption is observed, oref0 must make a prediction about how quickly carbs are likely to begin absorbing, so that it can make sure at least some of the insulin needed for the meal is delivered via SMB if the user didn’t already bolus (sufficiently). One of the design goals of oref0 was that users should *not* have to enter a guess as to the absorption speed of their meal. Instead, oref0 makes a conservative estimate of likely carb absorption, based on the size of the meal, how long ago it was entered, the current sensitivityRatio (from autosens or temp target overrides). For meals <= 60g, the initial absorption time estimate starts at 3 hours, and for >= 90g, the first 90g is assumed to absorb in 4.5 hours. Anything > 90g is ignored until actual carb absorption is observed by capping COB at 90g.
+
+If carb absorption remains low or drops low at some later time, oref0 predicts that remaining COB will be absorbed more slowly than when carbs were just entered. This is calculated as 1.5x the lastCarbAge, so any carbs not observed to be absorbing after 1 hour are assumed to take 1.5 additional hours to absorb, which means 4.5h for <=60g COB, and 6h for >= 90g.
+
+Once the absorption time is calculated for carbs not yet being absorbed, that is translated into a /\ shaped carb absorption curve that increases from the current level of absorption up to a peak value halfway to the assumed absorption time, and then decreases linearly to zero at the assumed absorption time (remainingCATime). The rate of carb absorption predicted at the remainingCIpeak is calculated to ensure that all COB (up to the 90g cap) is absorbed over the remainingCATime.
+
+  ![Estimating carb impact](../Images/Carb_predictions.jpg)
+</details>
+
+#### UAMpredBGs
+ 
+<details>
+ <summary><b>Click here to expand the UAMpredBGs description</b></summary>
+ When no carb announcements are available, or when announced carbs are mostly absorbed and COB-based predictions are less reliable, it is also possible to predict that observed deviations will gradually return to zero over some period of time. Once deviations have peaked and are decreasing at a reasonable rate, oref0’s UAM calculations assume that the deviations will continue decreasing at that same rate until they reach zero. If they’re decreasing, but too slowly, it assumes they’ll decrease linearly to zero over 3 hours. If deviations are still increasing, it assumes they’ll peak immediately and start decreasing at ⅓ of the rate they increased from their recent minimum. 
+ </details>
+
+### Blending relevant predictions
+
+After oref0 generates all relevant predictions (the different predBG arrays, depending on the presence or absence of COB and positive deviations), it:
+* blends and combines them to produce estimates of the lowest predicted BGs likely to be observed over the timeframe relevant for dosing, 
+* calculates how much insulin is required (insulinReq) to bring the minimum predicted BG down toward the target, 
+* and then uses the insulinReq to calculate an appropriate microbolus or temp basal. 
+
+  **If no carb announcement is present**, minPredBG is generally set to the higher of minIOBPredBG, the lowest IOBpredBG (starting 90m in the future), and minZTUAMPredBG, which is the average of the lowest UAMpredBG (starting ~60m in the future, minUAMPredBG) and the lowest ZTpredBG (starting immediately, minZTGuardBG).
+
+  **When COB from a meal announcement is present**, oref0 sets minPredBG by blending the UAM-and-ZT-based minPredBG described above (minZTUAMPredBG) with the lowest COBpredBG (starting ~90m in the future, minCOBPredBG), according to the fraction of carbs remaining as COB (fractionCarbsLeft).
+
+insulinReq is then set to the difference between the minPredBG and target BG, divided by ISF. Each loop, half of the insulinReq is delivered as a microbolus, and on each subsequent loop the minPredBG is recalculated to calculate a new insulinReq and microbolus.
 
 ## OpenAPS algorithm examples
 
