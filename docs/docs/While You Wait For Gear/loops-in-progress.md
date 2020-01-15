@@ -311,3 +311,4 @@ List of people who are working on closed loops:
 - Colum Keegan (Wicklow, Ireland)
 - Nicholas Taylor (London, UK)
 - Andre Champigny (Moncton, New-Brunswick, Canada)
+- Martin Fredheim (Oslo, Norway)
