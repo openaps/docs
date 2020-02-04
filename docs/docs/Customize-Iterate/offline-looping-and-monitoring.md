@@ -88,110 +88,29 @@ The oref0-setup option for `xdrip-js` installs Logger by default.
 > NOTE: Lookout, Logger (xdrip-js-logger), and xdrip-js library should be considered a WIP (Work In Progress), i.e., do not use if you cannot watch your BG and loop very carefully, and tolerate issues, failures, idiosynchrosies. Also please plan on contributing either through testing and feedback, updates, documentation, etc.
    
    A summary of their features:
-   
-  <table>
-    <tr>
-      <th>Feature</th>
-      <th>Lookout</th> 
-      <th>Logger</th>
-    </tr>
-    <tr>
-      <td>Still unfinished, i.e., a work-in-progress?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Rig continues updating BG and looping while offline using xdripAPS?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Offline (network) mode supports backfill to Nightscout?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Offline (away from transmitter times) supports backfill?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Uses Dexcom official calibration?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Can use with expired/battery replaced transmitter?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Can interact with rig-hosted web page? (e.g., for calibration, start/stop sensor)</td>
-      <td>Yes</td> 
-      <td>No, can use rig cmd line while offline</td>
-    </tr>
-    <tr>
-      <td>Also able to calibrate and start/stop sensor thru receiver?</td>
-      <td>Yes</td> 
-      <td>Yes, for non-expired transmitter/session</td>
-    </tr>
-    <tr>
-      <td>Calibrate through Web/Nightscout?</td>
-      <td>Yes (local rig Web UI)</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Calibrate through pump-connected meter (e.g., Contour Next Link)?</td>
-      <td>No</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Calibrate from command line?</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Linear Squared Regression Calibration</td>
-      <td>Yes, for > 7 day extension</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Single Point Linear Calibration</td>
-      <td>Yes, for > 7 day extension</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Calculate and send Noise with entries</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Calculate glucose trending</td>
-      <td>Yes</td> 
-      <td>Yes</td>
-    </tr>
-      <tr>
-      <td>Start Stop Sensor</td>
-      <td>Yes via UI</td> 
-      <td>Yes via NS/cmd line</td>
-    </tr>
-      <tr>
-      <td>Reset Expired Transmitter</td>
-      <td>Yes via UI</td> 
-      <td>Yes via cmd line</td>
-    </tr>
-      <tr>
-      <td>Support mmol</td>
-      <td>Yes</td> 
-      <td>Yes, in NS and for Meter-Pump Calibration</td>
-    </tr>
-      <tr>
-      <td>View transmitter battery/resistance levels</td>
-      <td>Yes via NS CGM pill</td> 
-      <td>Yes</td>
-    </tr>
-</table>
-   
+
+| Feature | Lookout | Logger |
+| ------- | ------- | ------ |
+| Still unfinished, i.e., a work-in-progress? | Yes | Yes |
+| Rig continues updating BG and looping while offline using xdripAPS? | Yes | Yes |
+| Offline (network) mode supports backfill to Nightscout? | Yes | Yes |
+| Offline (away from transmitter times) supports backfill? | Yes | Yes |
+| Uses Dexcom official calibration? | Yes | Yes |
+| Can use with expired/battery replaced transmitter? | Yes | Yes |
+| Can interact with rig-hosted web page? (e.g., for calibration, start/stop sensor) | Yes | No, can use rig cmd line while offline |
+| Also able to calibrate and start/stop sensor thru receiver? | Yes | Yes, for non-expired transmitter/session |
+| Calibrate through Web/Nightscout? | Yes (local rig Web UI) | Yes |
+| Calibrate through pump-connected meter (e.g., Contour Next Link)? | No | Yes |
+| Calibrate from command line? | Yes | Yes |
+| Linear Squared Regression Calibration | Yes, for > 7 day extension | Yes |
+| Single Point Linear Calibration | Yes, for > 7 day extension | Yes |
+| Calculate and send Noise with entries | Yes | Yes |
+| Calculate glucose trending | Yes | Yes |
+| Start Stop Sensor | Yes via UI | Yes via NS/cmd line |
+| Reset Expired Transmitter | Yes via UI | Yes via cmd line |
+| Support mmol | Yes | Yes, in NS and for Meter-Pump Calibration |
+| View transmitter battery/resistance levels | Yes via NS CGM pill | Yes |
+
    * Lookout and Logger (xdrip-js-logger) are documented separately:
      * Lookout: [https://github.com/xdrip-js/Lookout/blob/dev/README.md](https://github.com/xdrip-js/Lookout/blob/dev/README.md)
      * Logger: [https://github.com/xdrip-js/Logger/blob/dev/README.md](https://github.com/xdrip-js/Logger/blob/dev/README.md)
