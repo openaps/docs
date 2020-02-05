@@ -138,7 +138,15 @@ You can also view this message in the Nightscout OpenAPS pill (which pops up a d
 
 #### A few examples:
 
-![Example safety cap image - see raw file in the same folder of docs if needs editing](examples_safety_caps_in_play.png)
+|     | Example 1 | Example 2 | Example 3 | Example 4 |
+| --- | --------- | --------- | --------- | --------- |
+| user's max basal safety setting (in pump) | 2.0 | 2.0 | 3.0 | 2.5 |
+| `max_daily_safety_multiplier` | 3 | 3 | 3 | 3 |
+| `current_basal_safety_multiplier` | 4 | 4 | 4 | 4 |
+| user's current basal rate | 1.0 | 0.4 | 1.2 | 0.7 |
+| user's highest programmed basal rate | 1.5 | 1.0 | 1.2 | 0.8 |
+| OpenAPS recommended temp basal rate | 3.0 | 1.8 | 2.4 | 2.6 |
+| Actual temp basal rate allowed | 2.0 | 1.6 | 2.4 | 2.4 |
 
 * In **Example 1**, the user's max basal safety setting is the constraining limit on the OpenAPS recommended temp basal rate.
 * In **Example 2**, 4x the user's current basal rate is the constraining limit on the OpenAPS recommended temp basal rate.  
