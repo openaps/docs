@@ -18,7 +18,7 @@ As the Medtronic pump collects data directly from the Enlite sensors, OpenAPS wi
 
 ### Pulling CGM data from the cloud
 
-Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly, when your rig has internet connectivity. You can find more documentation about pulling CGM data from a Nightscout site [here](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html).
+Your OpenAPS implementation can also pull CGM data from a Nightscout site in addition to pulling from the CGM directly. You can find more documentation about pulling CGM data from a Nightscout site [here](<../While You Wait For Gear/nightscout-setup>).
   
 * If you have an Android phone, you can use the xDrip app to get your data from the Dexcom to Nightscout, to then be used in OpenAPS.
 * If you have a Dexcom G4 Share receiver or Dexcom G5/G6 paired with your phone, you can send that data to Nightscout to be used by OpenAPS.

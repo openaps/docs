@@ -23,6 +23,8 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [Codecademy Command Line Course](https://www.codecademy.com/en/courses/learn-the-command-line)
 
+[Introduction to using Terminal on Mac](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line) 
+
 [Cron How To Guide](https://help.ubuntu.com/community/CronHowto)
 
 ## Python

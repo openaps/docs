@@ -1,14 +1,8 @@
-# General linux and other guide/troubleshooting basic
+# Troubleshooting overview
 
-Some conventions used in these docs:
+Even those who follow this documentation precisely are bound to end up stuck at some point. This could be due to something unique to your system, a mistyped command, actions performed out of order, or even a typo in this guide. This section provides some tools to help diagnose the issue as well as some common errors that have been experienced and resolved before. If you get stuck, try re-reading the documentation again and after that, share what you've been working on, attempted steps to resolve, and other pertinent details in [#intend-to-bolus in Gitter](https://gitter.im/nightscout/intend-to-bolus) when asking for help troubleshooting. Here is also a [good blog post to read with tips on how to best seek help online to troubleshoot](https://diyps.org/2017/03/19/tips-for-troubleshooting-diy-diabetes-devices-openaps-or-otherwise/).
 
-* Wherever you see text that is formatted `like this`, it is a code snippet. You should copy and paste those code snippets instead of attempting to type these out; this will save you debugging time for finding your typos.
-* Double check that your copy-paste has copied correctly.  Sometimes a paste may drop a character or two and that will cause an error in the command that you are trying to execute.  Sometimes, depending on what step you are doing, you may not see the issue.  So, do make a point of double checking the paste before pressing return.
-* You will see a <tt>$</tt> at the beginning of many of the lines of code. This
-  indicates that it is to be entered and executed at the terminal prompt. Do not type in the dollar sign <tt>$</tt>.
-* Wherever there are `<bracketed_components>` in the code, these are meant for you to insert your own information. Most of the time, it doesn't matter what you choose **as long as you stay consistent throughout this guide**. That means if you choose `myedison` as your  `<edisonhostname>`, you must use `myedison` every time you see `<edisonhostname>`. Do not include the `< >` brackets in your commands when you enter them.  So for the example above, if the code snipped says `ssh root@<edisonhostname>.local`, you would enter `ssh root@myedison.local`
-
-### Before you get started
+## Introduction to using Linux
 
 Some familiarity with using the Terminal app (Mac computers) or Putty (Windows computers) will go a long way, but is not required for getting started.  Terminal (or PuTTY) is basically a portal into your rig, allowing us to use our computer's display and keyboard to communicate with the little [Edison or Pi] computer in your rig.  The active terminal line will show your current location, within the computer's file structure, where commands will be executed.  The line will end with a <tt>$</tt> and then have a prompt for you to enter your command.  
 
@@ -16,11 +10,11 @@ There are many commands that are useful, but some of the commands you'll get com
 
 * `cd` means "change directory" - you can `cd <directorynamewithnobrackets>` to change into a directory; and `cd ..` will take you backward one directory and `cd` will take you back to the root directory. If you try to `cd` into a file, your computer will tell you that's not going to happen.
 
-* `ls` means "list", is also your friend - it will tell you what is inside a directory. If you don't see what you expect, you likely want to `cd ..` to back up a level until you can orient yourself. If you aren't comfortable with what `cd` and `ls` do or how to use them, take a look at some of the Linux Shell / Terminal commands on the [Troubleshooting](../Resources/troubleshooting.md) page and the reference links on the [Technical Resources](../Resources/technical-resources.md) page. 
+* `ls` means "list", is also your friend - it will tell you what is inside a directory. If you don't see what you expect, you likely want to `cd ..` to back up a level until you can orient yourself. If you aren't comfortable with what `cd` and `ls` do or how to use them, take a look at some of the reference links on the [Technical Resources](<../Resources/technical-resources>) page. 
 
 * `cat` means "concatenation" - it will show you the contents of a file if you `cat <filename>`.  Very useful when trying to see what you have in preferences or other oref0 files.
 
-* `vi` and `nano` are both editing command prefixes.  Using those will bring you into files for the purposes of editing their contents.  It is like `cat` except you will be able to edit.
+* `vi` and `nano` are both text editors.  Using those will bring you into files for the purposes of editing their contents.  It is like `cat` except you will be able to edit.
   * Within `vi` editor, you will need to enter the letter `i` to begin INSERT mode (and a little INSERT word will be shown at the bottom of the screen once you do that).  While in INSERT mode, you will be able to make edits.  To exit INSERT mode, you will press `esc`.  To save your changes and quit, you need to exit INSERT mode and then type `:wq`.
   * Within `nano` editor, you are automatically in editing mode.  You can make your edits and then to exit and save, you'll use `control-x`, `y` (to save the edits), and then `return` to save the edits to the same filename you started with.
 
@@ -29,6 +23,8 @@ There are many commands that are useful, but some of the commands you'll get com
 * `Control-r` will let you search for previous commands.
 
 One other helpful thing to do before starting any software work is to log your terminal session. This will allow you to go back and see what you did at a later date. This will also be immensely helpful if you request help from other OpenAPS contributors as you will be able to provide an entire history of the commands you used. To enable this, just run `script <filename>` at the beginning of your session. It will inform you that `Script started, file is <filename>`. When you are done, simply `exit` and it will announce `Script done, file is <filename>`. At that point, you can review the file as necessary.
+
+## Directories on your rig
 
 `ls <myopenaps>` will show the following files and subdirectories contained within the directory:
 * autotune
@@ -95,3 +91,50 @@ One other helpful thing to do before starting any software work is to log your t
 `ls enact` will show the contents of the `enact` subdirectory; loop's suggested and enacted temp basals and changes.
 * enacted.json
 * suggested.json
+
+
+## Generally useful linux commands
+
+More comprehensive command line references can be found [here](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html) and [here](http://www.pixelbeat.org/cmdline.html). For the below, since these are basic linux things, also try using a basic search engine (e.g. Google) to learn more about them and their intended use.
+
+`ls -alt` (List all of the files in the current directory with additional details.)
+
+`cd` (Change directory)
+
+`pwd` (Show the present working directory (your current location within the filesystem).)
+
+`sudo <command>` (Super-user do. Temporarily elevates the current users permission to that of root.)
+
+`apt-get install <package>` (Aptitude is a package manager, when a package is missing it will (usually) be there and can be installed by issuing 'apt-get install <missing package name>.)
+
+`tail -f /var/log/syslog`
+
+`grep LOOP /var/log/syslog` (Display lines in file that contain a string, in this example, 'LOOP')
+
+`df -h` (shows available memory on your rig)
+
+`ifconfig`
+
+`cat <filename>` (Display the contents of the file.)
+
+`nano <filename>` (Open and edit the file in the nano text editor.)
+
+`stat <filename>`
+
+`head <filename>` (Display the beginning of the file.)
+
+`less <filename>` (Display the contents of the file, with advanced navigation)
+
+`pip freeze`
+
+`sudo reboot` (Reboot the system)
+
+`sudo shutdown -h now` (The correct way to shut down the Raspberry Pi from the command line. Wait for the green light to stop blinking before removing the power supply.)
+
+`dmesg` (Displays all the kernel output since boot. It’s pretty difficult to read, but sometimes you see things in there about the wifi getting disconnected and so forth.)
+
+`uptime` (Shows how long the system has been running and the load average of last minute/5 minutes/15 minutes)
+
+`crontab -l` (Display cron jobs)
+
+`sudo service cron status` (Display info on cron service. Also use `stop` and `start`)

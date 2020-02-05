@@ -1,23 +1,38 @@
 # Collect your data and get prepared
 
-Before getting started, we suggest that you store at least 30 days of CGM data. People often like to compare their before and after looping data. Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses.  For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](https://openaps.readthedocs.org/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html).  By logging and collecting a recent history of your insulin+BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases, as well as use Nightscout reports, which are often helpful for showing your data to your healthcare provider. 
+## Store data - CGM, and ideally carbs and insulin
 
-Later in these docs is a link to donate your data to a project called [OpenHumans](https://openaps.readthedocs.org/en/latest/docs/Give%20Back-Pay%20It%20Forward/data-commons-data-donation.html).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. That being said, it is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
+Before getting started, we ask that you store at least 30 days of CGM data.  It is always a good idea to record your data before embarking on a new set of experiments. This will be helpful to understand the effects of the system as well as gain a better understanding of your response to different control strategies.
+
+Nightscout is an excellent tool to capture your CGM history, as well as log your carbs and boluses. Your Nightscout site will (in a typical setup) be the source of CGM data for your OpenAPS rig. For instructions on setting up your own Nightscout site (or updating your existing one for OpenAPS use), see [here](<../While You Wait For Gear/nightscout-setup>).  
+
+By logging and collecting a recent history of your basal, bolus, carb, and BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases (see below). You can log carbs and boluses using the Nightscout "careportal," and tell it about your basal insulin using a "profile."
+
+If you aren't using Nightscout, you can upload your Dexcom G4 receiver to Dexcom Studio or if you use Dexcom G5 the data is in the cloud at Dexcom Clarity.  If you use a Medtronic CGM, upload your CGM data to CareLink.  If you use an Animas Vibe, upload your data to Tidepool or Diasend.  We suggest you get in the habit of doing this regularly so that you have ongoing data to show trends in your overall estimated average glucose (eAG, a good indicator in trends in A1c) and variations in your "time in range."
+
+Later in these docs is a link to donate your data to a project called [OpenHumans](<../Give Back-Pay It Forward/data-commons-data-donation>).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. 
 
 ## Practice good CGM habits
 
-A good quality CGM session is a critical part of successful looping.  If you're used to stretching your sensor sessions out until failure, you may want to reconsider this approach as you will have failed looping times, too.  One technique that has helped eliminate early sensor jumpiness in a session is to "presoak" a new sensor before the old one dies when you notice the old sensor is getting jumpy or loses calibration.  To read more about this presoak technique, check out this [blog post](https://diyps.org/2016/06/27/how-to-soak-a-new-cgm-sensor-for-better-first-day-bgs/).  In addition, be diligent about your sensor calibration habits.  Only calibrate on flat arrows and when BGs are steady.  Many loopers calibrate once or twice a day only; at bedtime (after dinner has finished digesting) and/or just before getting out of bed. A good guide to sensor calibration - which generally applies regardless of which sensor you have - can be found [here](https://forum.fudiabetes.org/t/how-to-calibrate-a-dexcom-g4-g5-cgm/2049/).
+A good quality CGM session is a critical part of successful looping.  If you're used to stretching your sensor sessions out until failure, you may want to reconsider this approach as you will have failed looping times, too.  One technique that has helped eliminate early sensor jumpiness in a session is to "presoak" a new sensor before the old one dies when you notice the old sensor is getting jumpy or loses calibration.  To read more about this presoak technique, check out this [blog post](https://diyps.org/2016/06/27/how-to-soak-a-new-cgm-sensor-for-better-first-day-bgs/).  
+
+In addition, be diligent about your sensor calibration habits.  Only calibrate on flat arrows and when BGs are steady.  Many loopers calibrate once or twice a day only; at bedtime (after dinner has finished digesting) and/or just before getting out of bed. A good guide to sensor calibration - which generally applies regardless of which sensor you have - can be found [here](https://forum.fudiabetes.org/t/how-to-calibrate-a-dexcom-g4-g5-cgm/2049/).
+
+## Optimize your settings with Autotune
+
+You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great... now autotune can give you a head start on fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](<../How it works/autotune>) for how to deal with multiple values. You can run autotune before you get your loop setup - it doesn't have to run on a rig, it just needs your Nightscout data. The easiest way is to [run it on AutotuneWeb](<../Usage and maintenance/running-autotune#autotuneweb-the-easiest-way-to-run-autotune>). 
+
+How important are good basals and ISFs? You mean you weren't convinced already by the amount of work put into autotune itself? Well, autotune is a required step in order to enable the most advanced features (SMB and UAM). OpenAPS will check to see if you have an autotune directory in your rig before the loop will be allowed to actually enact any SMBs (no matter what your preferences say). 
+
+Regardless of if you want to use advanced features later, we highly recommend running autotune as part of the rig nightly, or as a one-off and periodically checking the output to see if the settings on the pump that you are using reflect what the data says your body really needs.
+
+**Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have carb ratios that vary significantly (such as more than 2x) between different times of day, you may get unexpected results in looping, such as COB reappearing when the CR schedule changes. For safety, we recommend checking your settings against Autotune, which currently uses a single CR for the entire day. If you are using a schedule with widely varying carb ratios or ISFs, that may be compensating for something other than an actual diurnal variation in carb ratio: perhaps different absorption speeds of different foods, or perhaps related to different macronutrient composition (instead of entering carb equivalents for fat/protein), differing basal insulin needs around mealtime, or something else.
 
 ## Use your gear
 
-Starting a DIY loop system like OpenAPS means you are probably switching pumps, and quite possibly using Nightscout for the first time. You may find, like many new users, that settings you thought you had dialed in before will need to be adjusted.  Good news, there are several tools and techiques to get you off to the right start.  They include:
+Starting a DIY loop system like OpenAPS means you are probably switching pumps, and quite possibly using Nightscout for the first time. It is worth taking some time to get familiar with your new gear and with using Nightscout ahead of adding your DIY closed loop to the mix! 
 
-* Use your pump **BEFORE** you begin looping
-* Practice good CGM habits
-* Collect your carb, bolus, and BG history using Nightscout
-* Use Autotune to analyze and fine-tune your pump settings
-
-### Start Medtronic pump
+### Starting Medtronic pump
 
 Many loopers have come from  Animas, OmniPods, Roche, or t:slim pumps in order to pump using old Medtronic pumps. The menus will be different and you need to get proficient with the pump's normal use before complicating things with looping. Become familiar with the reservoir changes and teach your T1D kid, if that's the person who will be using the pump.  Train caregivers on the new pump, as well. Assuming that you're already familiar with insulin pumping (and you should be before trying to loop) but new to these old Medtronic pumps, these "quick menu" guides will help:
 
@@ -41,9 +56,9 @@ There are a couple areas in the pump that will need to be set specifically in or
 
 * Set basal profile, carb ratios, and ISF values.
 
-  * **Safety note**: your carb ratio is unlikely to vary significantly throughout the course of day. If you have carb ratios that vary significantly (such as more than 2x) between different times of day, you may get unexpected results in looping, such as COB reappearing when the CR schedule changes. For safety, we recommend checking your settings against Autotune, which currently uses a single CR for the entire day. If you are using a schedule with widely varying carb ratios or ISFs, that may be compensating for something other than an actual diurnal variation in carb ratio: perhaps different absorption speeds of different foods, or perhaps related to different macronutrient composition (instead of entering carb equivalents for fat/protein), differing basal insulin needs around mealtime, or something else.
-
 * Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
+
+* ISFs over 250 mg/dl per unit will need a special step in loop setup once your setup script is finished (see [here](<../Build Your Rig/step-4-watching-log#temp-basals-6-3-isf-255-or-carb-ratio-25-with-a-x23-or-x54)), even though the pump currently will allow you to set them higher. Just remember, you will need to run a couple extra commands when you setup your loop.
 
 * If you have periods in the day where your pump normally has basal settings of zero - your loop will not work! You can resolve this by setting the lowest possible basal setting your pump will permit. OpenAPS will then issue temp basals of zero, as needed.
 
@@ -62,14 +77,3 @@ Due to the way Medtronic pumps operate, temp basals can only be set when there i
 But, you don't need the square/dual wave boluses anymore, as OpenAPS will help simulate the longer tail insulin needed if you've entered carbs into the system. Also, many loopers have found they can convert to a split bolus strategy to effectively deal with the same meals.  There is a carb+insulin+BG simulator called [Glucodyn](http://perceptus.org) that can be used to model a split bolus strategy for those meals.  By setting different bolus times and bolus amounts, the model allows the user to slide adjustments to minimize early-meal lows as well as late meal rises.  For example, you may find that a 20 minute pre-bolus of 50% of the carbs and a later bolus for the remaining 50% will work well, with looping helping to make up the difference that an extended bolus used to provide.  You can practice the transition to split bolusing even before you get your loop running.
 
 Some of the super advanced features you'll learn about later - Unannounced Meals and Supermicrobolus (UAM/SMBs) - also help smooth the transition from extended bolusing.  Some users have found that entering in carbs alone can be effective, especially in helping later BG rises from slow-absorping carbs.  Once you get your loop running, and are ready for the advanced features, you may be interested in playing with the various techniques available for heavy, slow carb meals.
-
-### Autotune
-
-You've been logging and recording your carbs and boluses in Nightscout, right?  You have your CGM data flowing into Nightscout too?  Great...now autotune can give you a headstart to fine-tuning your basals and ISF. There are some restrictions on autotune still (only a single daily carb ratio and single daily ISF), but there are tips on the [autotune page](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html) for how to deal with multiple values. You can run autotune before you get your loop setup...it doesn't have to run on a rig.
-
-How important are good basals and ISFs? You mean you weren't convinced already by the amount of work put into autotune itself? Well, autotune is a required step in order to enable the most advanced features (SMB and UAM). The new version will check to see if you have an autotune directory in your rig before the loop will be allowed to actually enact any SMBs (no matter what your preferences say). To fulfill this requirement you can do one of the following which will create an autotune directory where it needs to be:
-
-* enable autotune during your OpenAPS setup script and autotune will run automatically as part of your loop.
-* run autotune as a one-off (single run) on your rig using the directions given in the link above
-
-Regardless of if you want to use advanced features later, we highly recommend running autotune as part of the rig nightly, or as a one-off and periodically checking the output to see if the settings on the pump that you are using reflect what the data says your body really needs.

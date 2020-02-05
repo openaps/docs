@@ -1,29 +1,6 @@
 # oref1 (super advanced features)
 
-NOTE OF CAUTION:
-* oref1 is different than oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
-* You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail, before you enable oref1-related features.
-* If running more than one rig, you will want to make sure all rigs are running an Super Micro Bolus (SMB) aware oref0 version (release 0.5.1 or higher) before enabling Super Micro Bolus (SMB) on any of them (even if Super Micro Bolus (SMB) is not enacted on all rigs, all rigs need to know about it).
-* Super Micro Bolus (SMB) is about front-shifting insulin activity. It is NOT a synonym for no-bolus, although it can enable no-bolus options (with very close monitoring and testing). But you should first test Super Micro Bolus (SMB) with your existing bolus method.
-   * Take steps one by one to turn on Super Micro Boluses; validate that Super Micro Boluses are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
-   * Do not combine turning on Super Micro Bolus (SMB) and trying to do no-bolus or partial-bolus meals at the same time. 
-* Make sure you have your easy bolus button on ([details here](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/collect-data-and-prepare.html#easy-bolus-button)) and know how to deliver boluses without using the bolus wizard.
-* See this page on [optimizing settings](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/optimize-your-settings.html#optimizing-your-settings) for reminders and tips on changing one thing at a time.
-
-## Only run oref1 with the following caveats in mind: 
-
-* Remember that you are choosing to test a still-in-development feature. Do so at your own risk & with due diligence to keep yourself safe. 
-* You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail.
-* **We are requiring that you also have run autotune prior to enabling Super Micro Bolus (SMB).** Why? Because if you have wonky ISF settings, for example, you may be more likely to go low or high with Super Micro Bolus (SMB). It will help a lot to have run autotune and be aware if the algorithm is recommending changes to ISF, basal, and/or carb ratio. You are not required to run autotune automatically/nightly as part of your loop with Super Micro Bolus (SMB); but you should at least run it manually and get an idea for how confident you are in your settings being right or not; and keep that in mind when evaluating Super Micro Bolus (SMB) outcomes for yourself.
-* You should have basals of > 0.5 U/hr. (Super Micro Bolus (SMB) is *not* advisable for those with very small basals; since 0.1U is the smallest increment that can be bolused by Super Micro Bolus (SMB).  We also added a basal check to disable Super Micro Bolus (SMB) when basals are < 0.3 U/hr.  If your "regular" basal in the pump is 0.3 U/hr and autosens or autotune has adjusted your basal rate to below 0.3 U/hr, Super Micro Bolus (SMB)s will be disabled as well.)
-* Read the following:
-  * A. The updated reference design ([https://openaps.org/reference-design/](https://openaps.org/reference-design/)) that explains the differences between oref0 and oref1
-  * B. The following two posts for background on oref1:
-    * [https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/](https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/)
-    *  [https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/](https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/)
-* Make sure you understand what Super Micro Bolus (SMB) & Unannounced Meals (UAM) stand for (**read the above posts, we know you skipped them**!)
-* Plan to have a learning curve. You will interact with oref1 differently when on Super Micro Bolus (SMB) and Unannounced Meal (UAM) than how you were interacting with oref0. In particular: **do not do correction boluses based on insulinReq**; instead use temp targets to give the rig a "nudge". You are very likely to overshoot if you try to do things manually on top of what Super Micro Bolus (SMB) has already done!
-* Super Micro Bolus (SMB) may not be for everyone. Like everything else, plan to test it, fall back to previous methods of diabetes treatment if needed, and give yourself a time period for deciding whether or not it works well for you. 
+oref1, the use of "super-microboluses (SMB)" and/or "unannounced meals (UAM)" is different from oref0, the baseline "traditional" OpenAPS implementation that only uses temporary basal rates.
 
 ## Understanding Super Micro Bolus (SMB)
 
@@ -39,7 +16,7 @@ Single Super Micro Bolus (SMB) amounts are limited by several factors.  The larg
 
 It's important to note that maxIOB will limit Super Micro Bolus (SMB)s from being issued if your Insulin On Board (IOB) (for instance, from an easy bolus you have inputted before a meal) exceeds your maxIOB. So if your maxIOB is relatively low and you are running high post-meal, you may want to examine your logs to see if it is routinely preventing Super Micro Bolus (SMB)s.
 
-In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an Super Micro Bolus (SMB) while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/ifttt-integration.html).
+In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal carbs is no longer recommended because of the possibility of errors when the rig attempts to issue an Super Micro Bolus (SMB) while Bolus Wizard is in use. Instead, many users [use IFTTT to notify their rig of upcoming carbs](<./ifttt-integration>).
 
 (History of Super Micro Bolus (SMB) development: https://github.com/openaps/oref0/issues/262 )
 
@@ -50,30 +27,67 @@ In addition, as of 0.6.0-master, using Bolus Wizard to input boluses and meal ca
 
 (History of Unannounced Meals (UAM) development: https://github.com/openaps/oref0/issues/297 )
 
+
+## Getting ready to enable oref1
+
+* You should have run oref0 (basic OpenAPS looping) for more than two weeks, and be very aware of all the types of situations in which your rig might fail, before you enable oref1-related features.
+
+* Read the following:
+  * A. The updated reference design ([https://openaps.org/reference-design/](https://openaps.org/reference-design/)) that explains the differences between oref0 and oref1
+  * B. The following two posts for background on oref1:
+    * [https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/](https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/)
+    *  [https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/](https://diyps.org/2017/05/08/choose-one-what-would-you-give-up-if-you-could-with-openaps-maybe-you-can-oref1-includes-unannounced-meals-or-uam/)
+    
+* Make sure you understand what Super Micro Bolus (SMB) & Unannounced Meals (UAM) stand for (**read the above posts, we know you skipped them**!)
+
+* Plan to have a learning curve. You will interact with oref1 differently when on Super Micro Bolus (SMB) and Unannounced Meal (UAM) than how you were interacting with oref0. In particular: **do not do correction boluses based on insulinReq**; instead use temp targets to give the rig a "nudge". You are very likely to overshoot if you try to do things manually on top of what Super Micro Bolus (SMB) has already done! 
+
+* If running more than one rig, you will want to make sure all rigs are running an Super Micro Bolus (SMB) aware oref0 version (release 0.5.1 or higher) before enabling Super Micro Bolus (SMB) on any of them (even if Super Micro Bolus (SMB) is not enacted on all rigs, all rigs need to know about it).
+
+* Make sure you have your easy bolus button on ([details here](<../While You Wait For Gear/collect-data-and-prepare#easy-bolus-button>)) and know how to deliver boluses without using the bolus wizard.
+
+* **We are requiring that you also have run autotune prior to enabling Super Micro Bolus (SMB).** Why? Because if you have wonky ISF settings, for example, you may be more likely to go low or high with Super Micro Bolus (SMB). It will help a lot to have run autotune and be aware if the algorithm is recommending changes to ISF, basal, and/or carb ratio. You are not required to run autotune automatically/nightly as part of your loop with Super Micro Bolus (SMB); but you should at least run it manually and get an idea for how confident you are in your settings being right or not; and keep that in mind when evaluating Super Micro Bolus (SMB) outcomes for yourself. To fulfill this requirement you can do one of the following which will create an autotune directory where it needs to be:
+   * enable autotune during your OpenAPS setup script and autotune will run automatically as part of your loop
+   * run autotune as a one-off (single run) on your rig
+   
+* You should have basals of > 0.5 U/hr. (Super Micro Bolus (SMB) is *not* advisable for those with very small basals; since 0.1U is the smallest increment that can be bolused by Super Micro Bolus (SMB).  We also added a basal check to disable Super Micro Bolus (SMB) when basals are < 0.3 U/hr.  If your "regular" basal in the pump is 0.3 U/hr and autosens or autotune has adjusted your basal rate to below 0.3 U/hr, Super Micro Bolus (SMB)s will be disabled as well.)
+   * ***Note about Autosens, Autotune, and SMBs**: It is possible that your auto-adjusted basal rate used by the loop may end up being lower than what is programmed in your pump. Since SMBs require a minimum basal rate of 0.3 U/hr, if you expect to see SMBs enacting, but your pump basal rate is very close to 0.3 U/hr... adjustments by autosens and/or autotune may have changed your basal rate to be less than 0.3 U/hr.
+
+## Getting started
+
+Super Micro Bolus (SMB) is about front-shifting insulin activity. It is NOT a synonym for no-bolus, although it can enable no-bolus options (with very close monitoring and testing). But you should first test Super Micro Bolus (SMB) with your existing bolus method.
+
+Take steps one by one to turn on Super Micro Boluses; validate that Super Micro Boluses are working and understand if it is working for you; and only then should you approach changing behaviors related to meal-time boluses.
+
+Do not combine turning on Super Micro Bolus (SMB) and trying to do no-bolus or partial-bolus meals at the same time. See this page on [optimizing settings](<../Usage and maintenance/optimize-your-settings#optimizing-your-settings>) for reminders and tips on changing one thing at a time.
+
+Remember that you are choosing to test a still-in-development feature. Do so at your own risk & with due diligence to keep yourself safe.  Super Micro Bolus (SMB) may not be for everyone. Like everything else, plan to test it, fall back to previous methods of diabetes treatment if needed, and give yourself a time period for deciding whether or not it works well for you. 
+
+
 ## How to turn on Super Micro Bolus (SMB)
 
 * In oref0 0.6.0 and later, you will enable Super Micro Bolus (SMB)s by adding the related preferences to your preferences.json. You may want to experiment with turning only one enableSMB option on at a time so you can closely observe the behavior (via both Nightscout and pump-loop.log) in the enabled situation. In addition to testing oref1 in "normal" situations, pay special attention to how it behaves in more extreme situations, such as with rescue carbs (announced or not), post-meal activity, etc. 
 
-There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/preferences-and-safety-settings.html#advanced-oref1-preferences) for more details on all the settings, but the short version is:
+There are multiple preference toggles for Super Micro Bolus (SMB). Check out the [preferences page](<../Usage and maintenance/preferences-and-safety-settings#oref1-related-preferences>) for more details on all the settings, but the short version is:
 
-```
- * enableSMB_with_COB means Super Micro Bolus (SMB) will be enabled as long as COB is above zero
- * enableSMB_after_carbs means Super Micro Bolus (SMB) will be enabled for 6h after carb entry
- * enableSMB_with_temptarget means Super Micro Bolus (SMB) will be enabled with a low temp target (< 100 mg/dL). 
+ * `enableSMB_with_COB` means Super Micro Bolus (SMB) will be enabled as long as COB is above zero
+ * `enableSMB_after_carbs` means Super Micro Bolus (SMB) will be enabled for 6h after carb entry
+ * `enableSMB_with_temptarget` means Super Micro Bolus (SMB) will be enabled with a low temp target (< 100 mg/dL). 
+ 
 By default, a higher temp target (101 if your target is 100) will disable Super Micro Bolus (SMB). 
-```
 
 ## Troubleshooting
 
-1. Make sure you read the above, especially the "only enable oref1 if..." section. Super Micro Bolus (SMB) will behave differently than oref0 would. Watch carefully, and use your common sense and do what's right for you & your diabetes. 
+1. Make sure you read the above. Super Micro Bolus (SMB) will behave differently than oref0 would. Watch carefully, and use your common sense and do what's right for you & your diabetes. 
 2. Common errors include:
-* Not changing the preferences to be "true" for the relevant settings after you've enabled the oref1 features. 
+* Not changing the preferences to be "true" for the relevant settings. 
 * Not running autotune. Remember, you don't have to enable it to run as part of your loop at night, but you should run it manually, review the results, and otherwise be VERY confident in your underlying pump settings (basals, ISF, carb ratio) before using oref1.
+* Having basals below 0.3u/hour, either in a pump profile or after adjustment by autotune and/or autosens. (This isn't an error, but will prevent SMBs from being enacted for safety reasons!)
 * Pump clock being >1 minute off from rig's time. This means 60 seconds. Not 61 seconds; 68 seconds; 90 seconds. Needs to be less than 60 seconds apart. `"Checking pump clock: "2017-05-16T15:46:32-04:00" is within 1m of current time: Tue May 16 15:47:40 EDT 2017` is an example of a >60 second gap that needs fixing before it will work properly. We added a script to automatically attempt to fix the pump time in case of a >60 second difference, but you may occasionally see this type of error in the logs until the script is able to properly adjust the pump time.
 
 ## Pushover, Super Micro Bolus (SMB), and OpenAPS
 
-_This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). Pushover is a way to easily send messages to your phone from another device with simple messages. If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts.  Nightscout Pushover alerts are separate and distinct from OpenAPS-generated Pushover alerts.  Each can exists with or without the other._
+This is for OpenAPS-specific pushovers related to oref1 features about insulin required (insulinReq) and carbs required (carbsReq). Pushover is a way to easily send messages to your phone from another device with simple messages. If you have Pushover set up for Nightscout, you still need to tell your OpenAPS rig your Pushover information to get these rig-driven alerts.  Nightscout Pushover alerts are separate and distinct from OpenAPS-generated Pushover alerts.  Each can exist with or without the other.
 
 If Pushover API token and User key were added during the setup script and you have oref1 enabled, you can get Pushover alerts in the following situations:
 

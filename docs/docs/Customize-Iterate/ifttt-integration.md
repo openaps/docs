@@ -149,9 +149,9 @@ Reservoir Change
 
 * Login to your Nightscout site host (azure or heroku) and (1) add your Maker Key to the MAKER_KEY line and (2) add "maker" to your ENABLE line.
 
-![IFTTT NS marker key](../../Images/IFTTT_NSkey.png)
+![IFTTT NS marker key](../Images/IFTTT_NSkey.png)
 
-![IFTTT NS enable](../../Images/IFTTT_enable.png)
+![IFTTT NS enable](../Images/IFTTT_enable.png)
 
 ## Install IFTTT app on your Android
 
