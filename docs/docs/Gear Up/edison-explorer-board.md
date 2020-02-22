@@ -76,10 +76,12 @@ The easiest way to increase the range of your rig is to purchase a "wire whip" a
 ### Nuts and Bolts
 
 You will likely want to screw your Edison onto the Explorer Block to stabilize the rig. You will need two M2 screws, two M2 nuts, and two spacers or standoffs to support the 3mm 
-between the Edison and Explorer Board. The Explorer Board is currently being shipped with M2 screws, 3mm spacers, and M2 nuts, but you may want spares (or may have gotten it used). Here are some examples of options:
+between the Edison and Explorer Board. 
+As of early 2019, Enhanced Radio Devices shipped their Explorer boards with suitable M2 screws, 3mm spacers, and M2 nuts, and plastic spacers. However, you may want spares (or may have gotten it used). Here are some examples of options:
 - [M2 cap screws](https://www.amazon.com/iExcell-Stainless-Steel-Socket-Screws/dp/B07FLLGW19).
 - [M3 nuts to use as spacers](https://www.amazon.com/uxcell-Thread-Stainless-Metric-Fastener/dp/B01M0D7U5V/) - if using these, or another 3mm spacer option, your M2 screws should be just long enough to fit through the spacers and screw into the M2 nuts on the other side. You can also use a stack of washers or some [3mm nylon spacers](https://www.amazon.com/Electronics-Salon-Assortment-Screws-Plastic-Standoff/dp/B074N5HD42/).
 - [M2 nuts](https://www.amazon.com/gp/product/B07H3SXSN2/)
+- Once you have two suitable matching sets of screws and nuts (M2, or slightly smaller), you can fashion spacers from a thin tube, e.g. a drinking straw that you cut to a length to snugly fit between the board and the Edison chip.
 
 (Note: Sparkfun has discontinued its kits of hardware specifically for the Edison, but for reference here are the specs for the [Sparkfun Intel Edison Hardware Pack](https://www.sparkfun.com/products/13187).)
 
@@ -133,7 +135,19 @@ The Explorer board is where all the communications are housed for the rig, as we
 
 The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
 
-It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
+Start by looking at the board and chip, to locate where the chip will be seated on the board. 
+
+Then place the two spacers between the board and the Edison chip where the holes for the screws are, holding the spacers in that area while seating the chip carefully. The spacers should fit tightly, but can't be too long, as that would prevent the chip from clicking into its seat once everything's aligned. Arrange the spacers so they don't cover the screw holes. 
+
+Now you can lay the Edison board on top, aligning the screw holes. It clicks into place when it's fully seated. Only then use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them. It is helpful to hold each nut by pressing it against the board with one finger while turning the screwdriver. The Edison board should not wobble, and should feel secure when you are done. 
+
+### Attach your battery into the explorer board plug
+
+A single red light should appear and stay lit.  
+
+Note: You *can* flash the chip and install the software without a battery attached. However, a battery reduces the risk of having problems from power glitches during the flashing and installation process (Example: Corrupted Jubilinux installations, frequent rebooting.) Practice Safe Flashing - Flash with Battery Attached!
+
+During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
 ![Edison/Explorer Board rig with red light on](../Images/Edison/Edison_Explorer_Board.png) 
 

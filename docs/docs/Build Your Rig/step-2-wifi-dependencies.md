@@ -2,9 +2,9 @@
 
 The directions for this step depend on which type of rig you are using:
 
-- [Intel Edison](#Intel-Edison-instructions)
+- [Intel Edison](#intel-edison-instructions)
 
-- [Raspberry Pi](#Raspberry-Pi-instructions)
+- [Raspberry Pi](#raspberry-pi-instructions)
 
 ## Intel Edison instructions
 
@@ -275,7 +275,7 @@ Put your microSD card into a reader for your computer.  Once you get your recipe
 
 !["install piBakery"](../Images/build-your-rig/pi-step5.png)
 
-Now you will need to [boot up your Pi and connect to it](#boot-up-your-pi-and-connect-to-it).
+Now you will need to [boot up your Pi and connect to it](#boot-up-your-pi-and-connect-to-it); continue following the directions from there.
 
 
 

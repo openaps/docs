@@ -56,8 +56,6 @@ There are a couple areas in the pump that will need to be set specifically in or
 
 * Set your DIA. **Note**: Most people have their DIA for traditional pumping to be too short (e.g. 2 or 3). For looping, OpenAPS will default to using 5. Many people find they actually need it to be 6 or 7 with properly adjusted other settings. 
 
-* ISFs over 250 mg/dl per unit will need a special step in loop setup once your setup script is finished (see [here](<../Build Your Rig/step-4-watching-log#temp-basals-6-3-isf-255-or-carb-ratio-25-with-a-x23-or-x54)), even though the pump currently will allow you to set them higher. Just remember, you will need to run a couple extra commands when you setup your loop.
-
 * If you have periods in the day where your pump normally has basal settings of zero - your loop will not work! You can resolve this by setting the lowest possible basal setting your pump will permit. OpenAPS will then issue temp basals of zero, as needed.
 
 #### Easy Bolus Button

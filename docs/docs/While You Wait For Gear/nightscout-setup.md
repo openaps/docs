@@ -56,7 +56,7 @@ Note that insulin logged on Nightscout but not read from the pump (e.g., an inje
 
 ## Troubleshooting Nightscout issues
 
-Please see the [Nightscout troubleshooting](<../Troubleshooting/rig-ns-communications-troubleshooting>) page if you experience problems with the setup process or with communications with Nightscout.
+Please see the [Nightscout troubleshooting](<../Troubleshooting/Rig-NS-communications-troubleshooting>) page if you experience problems with the setup process or with communications with Nightscout.
 
 ## Nightscout Setup with Heroku
 
