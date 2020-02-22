@@ -174,7 +174,7 @@ OpenAPS has failed to upload to the configured nightscout website. If you're usi
 
 ### No JSON object could be decoded
 
-Usually means the file does not exist. It usually will self-resolve with the next successful pump history read. If it recurs, you will need to [drill down](http://openaps.readthedocs.io/en/latest/docs/Troubleshooting/oref0-setup-troubleshooting.html#running-commands-manually-to-see-what-s-not-working-from-an-oref0-setup-sh-setup-process) to find the area where it is not successfully reading. 
+Usually means the file does not exist. It usually will self-resolve with the next successful pump history read. If it recurs, you will need to [drill down](<../Troubleshooting/oref0-setup-troubleshooting#running-commands-manually-to-see-what-s-not-working-from-an-oref0-setup-sh-setup-process>) to find the area where it is not successfully reading. 
 
 ### json: error: input is not JSON
 ```
@@ -286,13 +286,13 @@ If you're affected by this particular issue, the two LEDs next to the microUSB p
 
 **Note:** Starting the Jubilinux flash from the beginning will overwrite everything, so you may want to copy and save any configuration files you don't want to lose, like your `wpa_supplicant.conf` Wi-Fi settings for example. 
 
-Instructions to reinstall OpenAPS are [here](https://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-1-jubilinux-for-edison-rigs-only)
+Instructions to reinstall OpenAPS are [here](<../Build Your Rig/index>)
 
 Once you have finished running the OpenAPS setup script, view your loop by entering `l`. Your loop will probably still be failing, but with a different error message:
 ```
 Could not get subg_rfspy state or version. Have you got the right port/device and radio_type?
 ```
-Now you should be able to follow [the directions above](https://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html?highlight=ccprog#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio) to reflash the radio.
+Now you should be able to follow [the directions above](<#could-not-get-subg-rfspy-state-or-version-ccprog-or-cannot-connect-to-cc111x-radio>) to reflash the radio.
 This time the reflash should be successful and you should see:
 ```
 Erasing chip.
@@ -308,7 +308,7 @@ You have now successfully reflashed the radio. Now `reboot` and your loop should
 
 ## Dealing with the CareLink USB Stick
 
-**Note:** Generally, the Carelink stick is no longer supported. We *highly* recommend moving forward with a different radio stick. See [the hardware currently recommended in the docs](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/hardware.html), or ask on Gitter. 
+**Note:** Generally, the Carelink stick is no longer supported. We *highly* recommend moving forward with a different radio stick. See [the hardware currently recommended in the docs](<../Gear Up/hardware-overview>), or ask on Gitter. 
 
 The `model` command is a quick way to verify whether you can communicate with the pump. Test this with `openaps use <my_pump_name> model` (after you do a `killall-g oref0-pump-loop`).
 

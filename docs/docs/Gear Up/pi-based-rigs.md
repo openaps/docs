@@ -132,7 +132,7 @@ Here's a rough-and-ready budget version of a rig put together: contents of a 200
 ### Summary of what you need: 
 * Raspberry Pi Zero 
 * RFM69HCW 
-* [microSD Card]((http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card))
+* [microSD Card](<../Gear Up/edison-explorer-board#sd-card>)
 * Bread board
 * Jumper wires
 * Soldering iron
@@ -178,10 +178,10 @@ After that, you're ready to install OpenAPS.
 ## Hardware information for Pi-based setups with the Adafruit RHM69HCW Bonnet
 
 Summary of what you need for a Pi/Bonnet rig:
-* [Explorer HAT](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#Bonnet)
-* [Pi0WH (recommended) or Pi 3](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#pi)
-* [Antenna](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#antenna)
-* [SD Card](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#sd-card)
+* [Explorer HAT](<#bonnet>)
+* [Pi0WH (recommended) or Pi 3](<#pi>)
+* [Antenna](<#antenna>)
+* [SD Card](<#sd-card>)
 
 #### Bonnet: 
 

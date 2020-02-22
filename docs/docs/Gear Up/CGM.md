@@ -10,7 +10,7 @@ OpenAPS currently primarily supports these different CGM systems:
 
 With Dexcom G4, the Share platform is not required; but is valuable for uploading BG data to the cloud (and into Nightscout, which can then send BGs to the rig). However, without Share, a G4 receiver can instead be plugged in directly to the OpenAPS rig. For Dexcom G5 you can also use a compatible receiver (software upgraded G4 with Share receiver or a G5 Mobile Receiver), or also pull data from the Dexcom Share servers into Nightscout for use with an Internet-connected OpenAPS rig. The same applies for G6 as it does for a G5. 
 
-Also note that an easy way to [loop offline](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#c-send-g5-or-g6-bgs-direct-to-rig-xdrip-js-lookout-logger) is to choose the `xdrip-js` setup option during `oref0-setup` (in 0.7.0 and later versions) to have the rig pull directly from a G5 or G6 receiver. 
+Also note that an easy way to [loop offline](<../Customize-Iterate/offline-looping-and-monitoring#c-send-g5-or-g6-bgs-direct-to-rig-xdrip-js-lookout-logger>) is to choose the `xdrip-js` setup option during `oref0-setup` (in 0.7.0 and later versions) to have the rig pull directly from a G5 or G6 receiver. 
 
 ### Using the Medtronic CGM
 
@@ -28,4 +28,4 @@ Your OpenAPS implementation can also pull CGM data from a Nightscout site in add
 
 ### Offline looping options
 
-See [this page for much more detail on all of your offline looping options](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html) with various CGM types. 
+See [this page for much more detail on all of your offline looping options](<../Customize-Iterate/offline-looping-and-monitoring>) with various CGM types. 

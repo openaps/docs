@@ -55,7 +55,7 @@ These purple lines are helpful in understanding, at a glance, *why* OpenAPS is m
 
 ## Understanding the basic logic (written version) 
 
-Here is a written explanation of the code that you can explore. For some visual and practical examples, see the [OpenAPS algorithm examples](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html#openaps-algorithm-examples) section.
+Here is a written explanation of the code that you can explore. For some visual and practical examples, see the [OpenAPS algorithm examples](<#openaps-algorithm-examples>) section.
 
 The OpenAPS reference design algorithm, oref0, determines insulin dosing based on a number of scenarios that it forecasts with different types of predictions. Two of these scenarios, the “eventual” (eventualBG) and “IOB-based” (IOBpredBGs) ones, attempt to predict BGs in situations without (much) carb absorption. Another scenario, the “zero-temp” (ZTpredBGs) one, attempts to predict the “worst likely case” if observed carb absorption suddenly ceases and if a zero-temp were applied until BG begins rising at/above target. The final two scenarios, the COB-based (COBpredBGs) one and the unannounced meal (UAM)-based (UAMpredBGs) one, attempt to predict how long an observed BG rise will continue, to dose appropriately for announced and unannounced meals, and for anything else that causes a sustained rise in BG.
 
