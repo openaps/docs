@@ -8,14 +8,13 @@ Log in to your rig and run the following command (aka "the setup script"):
     
     `cd && ~/src/oref0/bin/oref0-setup.sh`
 
-If this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, it is likely that you forgot to enter `edison` at the first prompt for changing the password.
+If this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, you likely forgot to enter `edison` at the first prompt for changing the password.
 
 ## Be prepared to enter the following information into the setup script:
 
 The screenshot below shows an example of the questions you'll be prompted to reply to during the setup script (oref0-setup).  Your answers will depend on the particulars of your setup.  Also, don't expect the rainbow colored background - that's just to help you see each of the sections it will ask you about!
 
 * 6-digit serial number of your pump
-* whether you are using an 512/712 model pump (those require special setup steps that other model pumps do not)
 * whether you are using an Explorer board
    * if not an Explorer board, and not a Carelink stick, you'll need to enter the mmeowlink port for TI stick.  See [here](https://github.com/oskarpearson/mmeowlink/wiki/Installing-MMeowlink) for directions on finding your port
     * if you're using a Carelink, you will NOT be using mmeowlink. After you finish setup you need to check if the line `radio_type = carelink` is present in your `pump.ini` file.
@@ -59,9 +58,11 @@ Make sure that at the end of the setup script, your log rotate file is set to `d
 
 ## 512 and 712 Pump users only - important extra setup steps
 
-If you have one of the x12 model pumps, you can still successfully use OpenAPS for basic looping (but not some advanced featuers like SMB).  You'll need to complete some extra setup tweaks before your loop will be successful, however.
+**For releases 0.7.0 and beyond, all of this is done automatically; please skip this step.**
 
-Note: If you have an old rig running oref0 0.5.3 or below, you'll need to follow historical instructions. The instructions below reflect the adjusted oref0-setup.sh in 0.6.0 and beyond, that does some of this work manually.
+Note: If you have an old rig running oref0 0.5.3 or below, you'll need to follow historical instructions. The instructions below reflect the adjusted oref0-setup.sh in 0.6.x which does some of this work manually. 
+
+If you have one of the x12 model pumps, you can still successfully use OpenAPS for basic looping (but not some advanced features like SMB).  You'll need to complete some extra setup tweaks before your loop will be successful, however.
 
 ### Most important step - make sure you said yes (y) in oref0-setup.sh 
 

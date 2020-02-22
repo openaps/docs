@@ -4,7 +4,7 @@ Beyond just services, such as IFTTT and Papertrail, there are times where your m
 
 ## IP address of rig
 
-In order to connect to your rig wirelessly, sometimes you'll need it's IP address.  There's several places you can get your rig's IP address if you aren't currently logged in, including:
+In order to connect to your rig wirelessly, sometimes you'll need its IP address.  There's several places you can get your rig's IP address if you aren't currently logged in, including:
 
 * Papertrail through doing a search for `network` and reading the rig's private IP address
 * Logging into your home router, if rig is on your home network

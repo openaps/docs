@@ -124,7 +124,7 @@ Press enter and answer all the setup questions.  A successful setup script will 
 **Troubleshooting**: If your rig gets stuck at the point shown below, simply login to the rig again and run the setup script one more time.  Usually, running the setup script a second time will clear that glitch.
 !["install piBakery"](../Images/build-your-rig/pi-setup-stuck.png)
 
-Once your setup script finishes, **make sure to [watch the pump loop logs](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#step-5-watch-your-pump-loop-log)**
+Once your setup script finishes, **make sure to [watch the pump loop logs](<../Build Your Rig/step-4-watching-log>)**
 
 **NOTE**: If you are using RFM69HCW as RF module:
 

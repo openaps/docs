@@ -8,8 +8,6 @@ Nightscout is an excellent tool to capture your CGM history, as well as log your
 
 By logging and collecting a recent history of your basal, bolus, carb, and BG patterns, you can also take advantage of the Autotune feature which uses Nightscout databases (see below). You can log carbs and boluses using the Nightscout "careportal," and tell it about your basal insulin using a "profile."
 
-If you aren't using Nightscout, you can upload your Dexcom G4 receiver to Dexcom Studio or if you use Dexcom G5 the data is in the cloud at Dexcom Clarity.  If you use a Medtronic CGM, upload your CGM data to CareLink.  If you use an Animas Vibe, upload your data to Tidepool or Diasend.  We suggest you get in the habit of doing this regularly so that you have ongoing data to show trends in your overall estimated average glucose (eAG, a good indicator in trends in A1c) and variations in your "time in range."
-
 Later in these docs is a link to donate your data to a project called [OpenHumans](<../Give Back-Pay It Forward/data-commons-data-donation>).  There is no requirement to share your data or participate in OpenHumans.  If you choose to, you can donate your data whether you are looping or not.  Individuals within the project who share their data do so willingly and you should do the same only if you feel comfortable. 
 
 ## Practice good CGM habits

@@ -111,6 +111,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    Useful apps for accessing your rig <docs/Customize-Iterate/useful-mobile-apps>
    IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
    Offline Looping <docs/Customize-Iterate/offline-looping-and-monitoring>
+   iPhone Shortcuts <docs/Customize-Iterate/iPhone Shortcuts Integration>
 
 .. toctree::
    :maxdepth: 2

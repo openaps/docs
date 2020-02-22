@@ -45,7 +45,6 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the rig battery and prevent it from operating).
 * A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](<../Troubleshooting/carelink>).
 * If you see the error `failed to get string preference .pump_serial`, that usually means you copied your preferences over or ran runagain, instead of following the directions and using the full interactive setup script, when upgrading to a new version/installing a new version (such as going from 0.6.x to 0.7.0). To resolve, run `oref0-setup.sh` manually per the [directions](<../Customize-Iterate/update-your-rig#step-2-re-run-oref0-setup>). (*This means you'll enter your responses into the interactive setup script again*.) 
-* 512/712 users - make sure you follow the additional instructions for the 512/712 before asking for help troubleshooting. You have a few additional steps you need to do.
 
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   

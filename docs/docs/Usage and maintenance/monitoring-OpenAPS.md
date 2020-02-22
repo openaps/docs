@@ -333,20 +333,18 @@ If your loop is failing, lights are staying on, and you see repeated error messa
 ## Apache-chainsaw
 ![Apache picture](../Images/apache_chainsaw.jpg)
 If your computer and rig are on the same wifi network you can use Apache Chainsaw2 from a pc (running windows/mac/linux) to watch your logs. Chainsaw2 main advantages are:
-1) Easy setup.
-1) Strong filtering capabilities.
-1) Strong finding capabilities.
-1) Coloring capabilities.
-1) Adding marker capabilities.
-1) Logs can be searched for a long time (kept localy on the rig).
-1) Can tail new data.
-
-example picture:
+* Easy setup.
+* Strong filtering capabilities.
+* Strong finding capabilities.
+* Coloring capabilities.
+* Adding marker capabilities.
+* Logs can be searched for a long time (kept localy on the rig).
+* Can tail new data.
 
 ### To setup apache chainsaw on your computer, follow the following instructons:
 1) Download the following version of apache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
-1) Unzip the file.
-1) On your pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
+2) Unzip the file.
+3) On your pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
     ```
     <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE log4j:configuration >
@@ -373,17 +371,17 @@ example picture:
     ```
     Make sure to replace the password, with your rig's password, and 192.168.1.20 with the ip/hostname of your rig.
 1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin/chainsaw (linux and mac)
-1) From the file menu choose 'load chainsaw configuration'
-1) Choose use chainsaw configuration file.
-1) press open file.
-1) choose the file openaps.xml
-1) (optional) mark the checkbox "always start chainsaw with this configuration."
+2) From the file menu choose 'load chainsaw configuration'
+4) Choose use chainsaw configuration file.
+5) press open file.
+6) choose the file openaps.xml
+7) (optional) mark the checkbox "always start chainsaw with this configuration."
 
 Chainsaw has a welcome tab and a good tutorial, use them.
 Still here are a few highlights:
-1) To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
-1) To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
-1) To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
+* To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
+* To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
+* To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
 
 ********************************
 
@@ -446,7 +444,7 @@ Once you've installed, you will need to pair the watch to your Edison.
 
 * Wait a few seconds, and run it again, until you get `bluetoothd: no process found` returned.  Then start it back up again:
 
-`sudo /usr/local/bin/bluetoothd --experimental &`
+`sudo bluetoothd --experimental &`
 
 * Wait at least 10 seconds, and then run:
 

@@ -52,6 +52,8 @@ The connections between the LiPo battery and its red and black wires are fragile
 
 We recommend an Explorer Board with a built-in radio ([see above](<#explorer-board-block>)), because if you get an Explorer Board, you don't need an additional radio stick or CC-Debugger. 
 
+The following options are not yet documented for oref0 versions < 0.7.0, and may not work anymore:
+
 If you don't use an Explorer board, you can use a number of radio sticks: a [TI-USB-Sticks](http://www.ti.com/tool/cc1111emk868-915), running [subg_rfspy](https://github.com/ps2/subg_rfspy); [Wireless Things ERF](https://www.wirelessthings.net/erf-0-1-pin-spaced-radio-module); [Wireless Things Slice of Radio](https://www.wirelessthings.net/slice-of-radio-wireless-rf-transciever-for-the-raspberry-pi) a Slice of Radio; or a Rileylink. For details about setup with these other stick and board options, [the best instructions will be found in the mmeowlink wiki](https://github.com/oskarpearson/mmeowlink/wiki) for setting up your board and stick. Note you may also need a CC debugger for these, and also note that it will be more work as the documentation is designed for the Edison/Explorer Board setup as the easiest path forward. 
 
 ### USB Cables

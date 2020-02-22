@@ -43,7 +43,7 @@ An 8 GB SD card should provide plenty of space for the linux operating system, O
 #### Note about Pi+HAT cases
 Because we are still optimizing the software to be as power-efficient as possible, we have not narrowed down on the best recommended battery.  You may want to use a soft case for ease of access to the components, flexible arrangement and the ability to use a variety of battery sizes.  If you are using the 2000 mAh battery above, you can use this [3d printed hard case](https://www.thingiverse.com/thing:3010231) to protect the rig and battery in a relatively compact package.  The [design is built in OnShape](https://cad.onshape.com/documents/74459dfcb527ad12c33660aa/w/2be92a72bb7f1c83eb091de2/e/b4fa9c3be204ffa3dea128a1), which has a free access level subscription for public domain documents.  You can make a copy and tweak the design to your liking.
 
-Alternatives 3d printed cases for Pi0+HAT include this [hard case with room for 2x2000 mAh Li-Po batteries](https://www.thingiverse.com/thing:3038806/) and this [hard case with room for 2x18650 batteries (6800 mAh total, 86x77x25mm)](https://www.thingiverse.com/thing:3502320/).
+Alternative 3d printed cases for Pi0+HAT include this [hard case with room for 2x2000 mAh Li-Po batteries](https://www.thingiverse.com/thing:3038806/) and this [hard case with room for 2x18650 batteries (6800 mAh total, 86x77x25mm)](https://www.thingiverse.com/thing:3502320/).
 
 *** 
 
@@ -179,7 +179,7 @@ When prompted in oref0-setup.sh, you will need to select the "TI Stick (SPI-conn
 
 The high level parts list (see below for more details, and links):
 
-* [Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-board-block)
+* [Explorer Board Block]<#explorer-board-block>
 * [Edison](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#edison)
 * [Nuts and Bolts to attach the Edison to the Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#nuts-and-bolts)
 * [At least one Lithium battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#lithium-ion-polymer-lipo-battery-or-other-battery-supply)
