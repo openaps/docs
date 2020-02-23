@@ -20,11 +20,16 @@ See the top left of the docs for the search box. It's best to search *inside* th
 
 You may notice that the left hand side of the documentation has navigation. It is organized in order of setting up OpenAPS, and has various sections on finding your gear; what you should do before you build a rig; how to setup up your rig; and additional  features and tips and tricks for optimizing your looping setup. This navigation is long, you can mouse over the section and scroll down to see all the pages listed in the top-level navigation!
 
+<details>
+  <summary><b>Click here</b> to expand some pictures that show the left hand navigation</summary>
+
 ![Show documentation navigation](../Images/Understand_documentation_basic_1.png)
 
 ![Show documentation navigation 2](../Images/Understand_documentation_basic_2.png)
 
 ![Show troubleshooting section of docs](../Images/Troublshooting_docs_section.png)
+
+</details>
 
 You'll also notice that there is more content than just these high-level pages! If you click on a link in the left, many of them expand to show the sub-sections include, which make it easy to jump directly to the section you're looking for. If there is a `+`, that means there is more content you can expand.
 

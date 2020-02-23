@@ -73,6 +73,9 @@ Full error is usually:
 Or (on an intel edison):
 `cannot connect to CC111x radio on /dev/spidev5.1`
 
+Or (on a Raspberry Pi):
+`cannot connect to CC111x radio on /dev/spidev0.0`
+
 Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT:
   * checking with `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to see if it is resolved yet
   * Make sure the Explorer board or HAT has not become loose and is sitting correctly on the Edison board or Pi
@@ -81,7 +84,9 @@ Basic steps using an Intel Edison with Explorer Board or a Raspberry Pi with Exp
   * Reboot, or fully power down and start up your rig
 
 If you are using an Intel Edison with Explorer Board or a Raspberry Pi with Explorer HAT, and that does not resolve your issue, or if the two LEDs next to the microUSB ports on your Explorer board (respectively D1/D2 on Explorer HAT) stay on even after an mmtune, you may need to re-flash your radio chip:
-  * Stop the reboot loop: `sudo service cron stop && killall -g oref0-pump-loop && shutdown -c`
+  * Stop the reboot loop: `sudo service cron stop && killall-g oref0-pump-loop && shutdown -c`
+  * (for versions >0.7.0) Install MRAA (you only need to do this once per rig): `oref0-mraa-install`
+  * Reboot manually, and if necessary stop the reboot loop again: `sudo service cron stop && killall-g oref0-pump-loop && shutdown -c`
   * Install ccprog tools on your Edison: `cd ~/src; git clone https://github.com/ps2/ccprog.git`
   * Build (compile) ccprog so you can run it: `cd ccprog; make ccprog`
   * If using a Raspberry Pi with Explorer HAT make sure you've installed MRAA (folder `~/src/mraa` present)
