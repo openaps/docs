@@ -9,9 +9,6 @@ There are several ways to communicate with other participants and contributors i
 ### Slack
 There is a [Slack channel](https://omniapsslack.azurewebsites.net/) that you can add yourself to - then look for the `#OpenAPS` channel to post questions. That slack can also be used to stay up to date on other, broader DIY diabetes projects such as communication around other pumps that are being explored and worked on, but aren't yet DIY loopable.
 
-### Google Group 
-A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev) - everyone is encouraged and welcome to join! You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter. However, please note that troubleshooting questions about rig setups are best posted to Slack - email tends to be slower and you will likely be redirected to another channel if you're actively working to resolve a setup problem.
-
 ### Gitter
 [Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. It is a great place to introduce yourself and get some help from those who are a few steps further down the road. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
 
@@ -77,5 +74,5 @@ One of the above channels is the best place for real-time or near-time troublesh
 ### Other online forums
 Those in the #OpenAPS community are frequently found in other forums, such as on Twitter (using [the #OpenAPS hashtag](https://twitter.com/search?f=tweets&vertical=default&q=%23OpenAPS&src=typd), as well as [#WeAreNotWaiting](https://twitter.com/search?f=tweets&vertical=default&q=%23WeAreNotWaiting&src=typd)) and on Facebook in the ["CGM In The Cloud"](https://www.facebook.com/groups/cgminthecloud/) and ["Looped"](https://www.facebook.com/groups/TheLoopedGroup/)group.
 
-### Google Group - everyone is welcome to join!
-A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev). You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume. However, please note that troubleshooting questions about rig setups are best posted to Slack or Gitter - email tends to be slower and you will likely be redirected to another channel if you're actively working to resolve a setup problem.
+### Google Group 
+A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev) - everyone is encouraged and welcome to join! You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter. However, please note that troubleshooting questions about rig setups are best posted to Gitter or Slack - email tends to be slower and you will likely be redirected to another channel if you're actively working to resolve a setup problem.
