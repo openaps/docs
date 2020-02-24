@@ -120,7 +120,7 @@ This documentation supports a self-driven Do-It-Yourself (DIY) implementation of
    :caption: Troubleshooting
    
    Overview and Linux reference <docs/Troubleshooting/General_linux_troubleshooting>
-   oref0-setup Troubleshooting<docs/Troubleshooting/oref0-setup-troubleshooting
+   oref0-setup Troubleshooting<docs/Troubleshooting/oref0-setup-troubleshooting>
    Common error messages <docs/Troubleshooting/Common-error-messages>
    Wifi and hotspot issues <docs/Troubleshooting/Wifi-and-hotspot-issues>
    Pump-rig communications troubleshooting <docs/Troubleshooting/Pump-rig-communications-troubleshooting>
