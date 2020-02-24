@@ -7,13 +7,13 @@ There are several ways to communicate with other participants and contributors i
 **Note:** It's best practice not to share your pump's serial number, so make sure not to include it in pictures or pasted text output when seeking help on pump communication. Ditto for Nightscout URL and API secret and other private information that could enable someone to access your setup.
 
 ### Slack
-There is a [Slack channel](https://omniapsslack.azurewebsites.net/) that you can add yourself to - then look for the `#OpenAPS` channel to post questions. This is the best place to get real-time support with anything related to OpenAPS. It is a great place to introduce yourself and get some help from those who are a few steps further down the road. That slack can also be used to stay up to date on other, broader DIY diabetes projects such as communication around other pumps that are being explored and worked on, but aren't yet DIY loopable.
+There is a [Slack channel](https://omniapsslack.azurewebsites.net/) that you can add yourself to - then look for the `#OpenAPS` channel to post questions. That slack can also be used to stay up to date on other, broader DIY diabetes projects such as communication around other pumps that are being explored and worked on, but aren't yet DIY loopable.
 
 ### Google Group 
 A google group focused on #OpenAPS development work can be found [here](https://groups.google.com/d/forum/openaps-dev) - everyone is encouraged and welcome to join! You can add yourself directly to the group. It's worth setting your preferences to receive all email from the group; there's not a huge volume, and this is one of the ways we share updates about hardware or release announcements if you're not hanging out on Gitter or Facebook or Twitter. However, please note that troubleshooting questions about rig setups are best posted to Slack - email tends to be slower and you will likely be redirected to another channel if you're actively working to resolve a setup problem.
 
 ### Gitter
-[Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
+[Gitter](https://gitter.im/) is a messaging/chat service similar to IRC. It provides integration with GitHub and several other services. It's the best place to get real-time support with anything related to OpenAPS. It is a great place to introduce yourself and get some help from those who are a few steps further down the road. (Here's [why we often recommend asking questions on Gitter](https://diyps.org/2016/08/17/why-you-should-post-questions-in-gitter/).)
 
 * The [nightscout/intend-to-bolus]( https://gitter.im/nightscout/intend-to-bolus) channel is where you will find active #OpenAPS discussions ranging from technical issues with openaps tools to control theory to general information. 
 * For Autotune conversations, use the [openaps/autotune channel](https://gitter.im/openaps/autotune)
