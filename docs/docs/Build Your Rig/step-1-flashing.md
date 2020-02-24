@@ -97,7 +97,11 @@ If you do not have your Edison password at this point, don't panic.  We are only
 ### If you’re using a Mac - starting flash:
   - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  
     - If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
-    - If you receive an `Error: Running Homebrew as root is extremely dangerous and no longer supported. As Homebrew does not drop privileges on installation you would be giving all build scripts full access to your system.` see the troubleshooting section below.
+    - If you receive an 
+        ```
+        Error: Running Homebrew as root is extremely dangerous and no longer supported. As Homebrew does not drop privileges on installation you would be giving all build scripts full access to your system.
+        ``` 
+        see the troubleshooting section below.
 
 ### If you're using a Windows PC - starting flash:
   - In the "flash window" from the Download Image instructions above, run `flashall.bat`
@@ -187,7 +191,11 @@ U-boot & Kernel System Flash Success...
 in something closer to 10 seconds than 10 minutes, then you likely didn't set up swap properly.  To verify, `cat flash.log` and look for `dfu-util: Cannot allocate memory of size 1610612736 bytes` near the end.
 Alternatively, [this newer version of DFU Util](https://sourceforge.net/projects/dfu-util/files/latest/download) (DFU Util v0.9) seems to work better on computers with lots of RAM.
 
-c) If you recieve an `Error: Running Homebrew as root is extremely dangerous and no longer supported. As Homebrew does not drop privileges on installation you would be giving all build scripts full access to your system.` it means that you have a recent copy of homebrew (that's good) which doesn't allow sudo to even do a `brew list`. 
+c) If you recieve an 
+```
+Error: Running Homebrew as root is extremely dangerous and no longer supported. As Homebrew does not drop privileges on installation you would be giving all build scripts full access to your system.
+``` 
+it means that you have a recent copy of homebrew (that's good) which doesn't allow sudo to even do a `brew list`. 
 
    * The _easiest_ - but perhaps not so forward compatible - thing is to figure out what the brew command was trying to do and edit the `flashall.sh` script accordingly.
    ** The v0.2.0 version of `flashapp.sh` has `$(brew list gnu-getopt | grep bin/getopt)`.
