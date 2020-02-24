@@ -6,7 +6,9 @@
 
 Log in to your rig and run the following command (aka "the setup script"):
     
-    `cd && ~/src/oref0/bin/oref0-setup.sh`
+```
+cd && ~/src/oref0/bin/oref0-setup.sh
+```
 
 If this is your first time logging into the rig since running bootstrap script, you will have to change your rig's password on this first login.  You will enter the default password first of `edison` and then be prompted to enter your new password twice in a row.  If you get an error, you likely forgot to enter `edison` at the first prompt for changing the password.
 
@@ -37,11 +39,9 @@ After the setup script finishes building your loop (called myopenaps), it will a
 
 **************************
 
-## Log rotate fix
+## Log rotate fix for versions < 0.6.1
 
-<details>
-    <summary><b>Click here to expand notes about checking log rotate, which was fixed in 0.6.1:</b></summary>
-<br>
+This was fixed in version 0.6.1, but if you are running an older version you should complete the following:
     
 Make sure that at the end of the setup script, your log rotate file is set to `daily` as described below.  Most users will have the `compress` line properly edited already, but the log rotate file seems to be left at `weekly` for many users.  If you leave the setup at `weekly`, you will likely get a `device full` error in your pump logs within a week...so please check this before moving on!
 
@@ -53,8 +53,6 @@ Make sure that at the end of the setup script, your log rotate file is set to `d
 * Press ESC and then type `:wq` to save and quit
 
 ![Log rotation examples](../Images/Edison/log_rotation.png)
-
-</details> 
 
 ## 512 and 712 Pump users only - important extra setup steps
 
