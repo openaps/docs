@@ -46,7 +46,7 @@ In case you want to test even more advanced stuff you've read about on gitter ch
 
 ## Step 2: Re-run oref0-setup
 
-Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](<../Build Your Rig/step-3-setup-script#be-prepared-to-enter-the-following-information-into-oref0-setup>) for a guide of what the setup script will be prompting you to enter.
+Now that you've updated your `oref0` version, you will want to run the oref0-setup script (`cd && ~/src/oref0/bin/oref0-setup.sh`) again. See [this section](<../Build Your Rig/step-3-setup-script#be-prepared-to-enter-the-following-information-into-the-setup-script>) for a guide of what the setup script will be prompting you to enter.
 
 ## Step 3: Remember to set your preferences!
 
