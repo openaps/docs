@@ -8,7 +8,7 @@ You won't hurt anything by running the script multiple times. If you already hav
 
 ## Should I enact cron?
 
-Cron is the scheduler that runs the loop. I.e. this is the automation feature to automate your closed loop. If you're using a test pump, it's pretty safe to go ahead and automate your loop. But if you're not sure, you can always come back and do this later.
+Cron is the scheduler that runs the loop. This is the automation feature to automate your closed loop. If you're using a test pump, it's pretty safe to go ahead and automate your loop. But if you're not sure, you can always come back and do this later.
 
 If you're troubleshooting and looking to use `openaps` manually, cron must be momentarily disabled to free access to local resources.  To check if cron is running use `crontab -e` or `crontab -l`.  If you see a file filled with content, chances are cron is enabled.
 
@@ -37,15 +37,14 @@ Make sure to check through the following list before asking on Gitter if your se
 * Check and make sure your pump is near your rig. Closer is better, e.g. check if it works when the pump and rig are at most 20 inches (50 cm) apart.
 * Check that your pump battery is not empty.
 * Check and make sure your pump is not suspended or stuck in rewind or prime screens. If it's a test pump, you don't even have to fill a reservoir, but put your pinky finger or eraser-end of a pencil in for slight pressure when priming so the pump will "sense" it and stop. Make sure to back out of the prime screen.
-* If using a pump that has been without power for some time, it is a good practice to set a small temporary basal rate and bolus before trying to loop with that pump.  Otherwise, you could see seemingly-unrelated errors in your log files as OpenAPS attempts to loop with missing information from the history. ([Best practice is to use the pump before you start looping with it](http://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/collect-data-and-prepare.html#use-your-gear), regardless, so this is likely to be an issue for a "test" pump setup rather than one you have been using.)
+* If using a pump that has been without power for some time, it is a good practice to set a small temporary basal rate and bolus before trying to loop with that pump.  Otherwise, you could see seemingly-unrelated errors in your log files as OpenAPS attempts to loop with missing information from the history. ([Best practice is to use the pump before you start looping with it](<../While You Wait For Gear/collect-data-and-prepare#use-your-gear>), regardless, so this is likely to be an issue for a "test" pump setup rather than one you have been using.)
 * Check to make sure you have a carb ratio set manually in your Medtronic insulin pump, if it is not done, the following display will appear in your pump.log: Could not parse input data: [SyntaxError: /root/myopenaps/monitor/iob.json: Unexpected end of input]
 * Check to make sure your carelink and/or radio stick is plugged in.
 * Check to make sure your receiver is plugged in, if you're plugging a receiver in.
 * Don't have data in Nightscout? Make sure there is no trailing slash `/` on the URL that you are entering and that the API secret is correct. Check your Nightscout URL, too - it's one of the most common errors to mistype that. (And FWIW, you shouldn't be typing things like that in the first place: that's what copy and paste are for.)
 * Check and make sure your receiver is >50% charged (if battery low, it may drain the rig battery and prevent it from operating).
-* A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](http://openaps.readthedocs.io/en/latest/docs/Resources/troubleshooting.html#dealing-with-the-carelink-usb-stick).
-* If you see the error `failed to get string preference .pump_serial`, that usually means you copied your preferences over or ran runagain, instead of following the directions and using the full interactive setup script, when upgrading to a new version/installing a new version (such as going from 0.6.x to 0.7.0). To resolve, run `oref0-setup.sh` manually per the [directions](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/update-your-rig.html#step-2-re-run-oref0-setup). (*This means you'll enter your responses into the interactive setup script again*.) 
-
+* A reboot may be required after running oref0-setup if the Carelink is unable to communicate with the pump (e.g. you see "Attempting to use a port that is not open" errors in pump-loop.log). Additional Carelink troubleshooting steps can be found in [Dealing with the CareLink USB Stick](<../Troubleshooting/Carelink>).
+* If you see the error `failed to get string preference .pump_serial`, that usually means you copied your preferences over or ran runagain, instead of following the directions and using the full interactive setup script, when upgrading to a new version/installing a new version (such as going from 0.6.x to 0.7.0). To resolve, run `oref0-setup.sh` manually per the [directions](<../Usage and maintenance/update-your-rig#step-2-re-run-oref0-setup>). (*This means you'll enter your responses into the interactive setup script again*.) 
 
 ## Running commands manually to see what's not working from an oref0-setup.sh setup process
   
@@ -54,7 +53,7 @@ You've probably run into an error in your setup where someone has recommended "r
  * Start by killing anything that's currently running. ` killall-g oref0-pump-loop`
  * Look and see what's running in your cron. `crontab -l`
  * If you want to do more than one command of debugging, it's best to disable your cronjobs, use `/etc/init.d/cron stop`. Don't forget to start the cronjobs afterwards or reboot your rig to make sure the cronjobs will be running.
- * Run whichever alias is failing to see what commands it is running. I.e. if the pump loop is failing, it's `openaps pump-loop`, which you can run to show what's inside it by `openaps alias show pump-loop`. 
+ * Run whichever alias is failing to see what commands it is running. E.g. if the pump loop is failing, it's `openaps pump-loop`, which you can run to show what's inside it by `openaps alias show pump-loop`. 
  * Run each of those commands next individually, and that should give you a better idea of where it's failing or getting stuck. Do this, and share back (if needed) with your troubleshooter about where you think it's getting stuck.  If that still doesn't give you or your troubleshooter enough info, keep drilling down further:
    * **For example**, if your pump-loop.log always shows `Error, retrying` after `Old pumphistory:`, then you'd want to run `openaps refresh-old-pumphistory` manually to reproduce the problem and see if you can get more error details.
    * If necessary, you can drill down further.  So in this example, you might want to run `openaps alias show refresh-old-pumphistory` to see what *that* alias does, and then `openaps gather` to drill down further.

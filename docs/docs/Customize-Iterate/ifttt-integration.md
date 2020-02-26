@@ -8,7 +8,7 @@ You can also create desktop widgets on your Android device to directly enter dat
 
 **Note for iPhone users** In June 2018 Apple released iOS 12 which renamed Workflow to Shortcuts and unfortunately 
 removed the IFTTT integration. You can however achieve the same result of a button press on an iPhone sending 
-instructions to your Nightscout site by following the [iPhone Shortcuts Integration](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/iPhone%20Shortcuts%20Integration.html) instructions. 
+instructions to your Nightscout site by following the [iPhone Shortcuts Integration](<./iPhone Shortcuts Integration>) instructions. 
 
 ## IFTTT Setup for phones
 
@@ -149,9 +149,9 @@ Reservoir Change
 
 * Login to your Nightscout site host (azure or heroku) and (1) add your Maker Key to the MAKER_KEY line and (2) add "maker" to your ENABLE line.
 
-![IFTTT NS marker key](../../Images/IFTTT_NSkey.png)
+![IFTTT NS marker key](../Images/IFTTT_NSkey.png)
 
-![IFTTT NS enable](../../Images/IFTTT_enable.png)
+![IFTTT NS enable](../Images/IFTTT_enable.png)
 
 ## Install IFTTT app on your Android
 
