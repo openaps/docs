@@ -8,7 +8,6 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 - [What do you do with the loop when you shower?](#what-do-you-do-with-the-loop-when-you-shower)
 - [What do you do when you change sites?](#what-do-you-do-when-you-change-sites)
 - [How do I switch to a different Medtronic pump?](#how-do-i-switch-to-a-different-medtronic-pump)
-https://draft-openaps-reorg.readthedocs.io/en/reapply-cleanup/docs/Usage%20and%20maintenance/usability-considerations.html#how-do-i-switch-to-a-different-medtronic-pump
 - [What do you do when you exercise?](#what-do-you-do-when-you-exercise)
 - [What do you do if you want to be off the pump for long periods during a day when you're really active?  Like for the beach or water park or sporting activity or similar?](#what-do-you-do-if-you-want-to-be-off-the-pump-for-long-periods-during-a-day-when-you-re-really-active-like-for-the-beach-or-water-park-or-sporting-activity-or-similar)
 - [What if I want to turn off the loop for a while?](#what-if-i-want-to-turn-off-the-loop-for-a-while)
