@@ -132,7 +132,7 @@ Here's a rough-and-ready budget version of a rig put together: contents of a 200
 ### Summary of what you need: 
 * Raspberry Pi Zero 
 * RFM69HCW 
-* [microSD Card](<../Gear Up/edison-explorer-board#sd-card>)
+* [microSD Card](<#sd-card>)
 * Bread board
 * Jumper wires
 * Soldering iron
@@ -188,7 +188,7 @@ Summary of what you need for a Pi/Bonnet rig:
 There is be a Pi+Bonnet rig as an option for closing the loop with OpenAPS. This hardware is available from Adafruit, and is called the [Adafruit RFM69HCW Transceiver Radio Bonnet - 868 or 915 MHz - RadioFruit](https://www.adafruit.com/product/4072). As of October 2019, this hardware is supported via automated setup via `oref0-setup.sh`.  
 
 #### PI 
-You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/#buy-now-modal)
+You also need a Raspberry Pi. Many users are opting for the "Raspberry Pi Zero WH" - with headers - so you don't have to solder, and can simply add the HAT onto the Pi. See this [PiZeroWH from Adafruit](https://www.adafruit.com/product/3708), or [from other sellers around the world](https://www.raspberrypi.org/products/)
 
 As an alternative, you can also use the bonnet with a Raspberry Pi 2/3/4. 
 
@@ -331,7 +331,7 @@ Here's a rough-and-ready budget version of a rig put together: contents of a 200
 ### Summary of what you need: 
 * Raspberry Pi Zero 
 * RFM69HCW 
-* [microSD Card]((<../Gear Up/pi-based-rigs#sd-card))
+* [microSD Card]((<../Gear Up/pi-based-rigs#sd-card>))
 * Bread board
 * Jumper wires
 * Soldering iron

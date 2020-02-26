@@ -311,7 +311,7 @@ Once your setup script finishes, **make sure to [watch the pump loop logs](<../B
 
 **NOTE**: If you are using RFM69HCW as RF module:
 
-If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](<../Gear Up/edison#soldering>), while running interactive setup use following option:
+If you have connected your RFM69HCW module as described in [Soldering RFM69HCW](<../Gear Up/pi-based-rigs#soldering>), while running interactive setup use following option:
 ```
 3) RFM69HCW (DIY: SPI)
 ```

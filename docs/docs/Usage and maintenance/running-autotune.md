@@ -144,7 +144,7 @@ If you are not running autotune as part of a closed loop, you can still run it a
 <br>
  
 * MAC USERS: Follow these steps instead of 1a / 1b above if you want to run autotune on your Mac. (Mac users can instead do the above instructions if they prefer to create a Linux virtual machine to run it on):
-* To run AutoTune using a Mac you will use the Terminal application. Open the Terminal application on your Mac (it is located in the Utilities application folder on your Mac). For more information about using Terminal see [here](<../Understanding OpenAPS-Overview/overview-of-build-process#before-you-get-started>)
+* To run AutoTune using a Mac you will use the Terminal application. Open the Terminal application on your Mac (it is located in the Utilities application folder on your Mac). For more information about using Terminal see [here](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
 * After you open a Terminal window, copy and paste the command for each of the Mac install command steps below, and then hit the return key after you paste each command, which will execute it. If you are asked for a password, enter the password for your Mac.
 * Tip for New Mac Users: If you typically use a Windows machine and you keep trying to do a control-c (copy) and control-v (paste), remember, on a Mac use command-c (copy) and command-v (paste) instead.
 * For example, the first step is to install Homebrew on your Mac. To do this you need to copy and paste the following command from step 1.) of the Mac install commands below and then hit the return key:  `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -300,7 +300,7 @@ oref0-upload-profile --switch ./myopenaps/autotune/profile.json $NS_SITE $API_SE
 
 ### Re-Running Autotune
 
-Remember, to initially set-up Autotune follow the instructions [above](<../How it works/autotune#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig>)
+Remember, to initially set-up Autotune follow the instructions [above](<../How it works/autotune#running-autotune-for-suggested-adjustments-without-an-openaps-rig>)
 
 To subsequently re-run Autotune at a later time:
 * Open Ubuntu/your machine of choice and login if necessary
@@ -335,7 +335,7 @@ To test this fix, type `echo $API_SECRET` and hit enter.  If this returns the AP
 Other things to check:
 
 * If you see error like `TypeError: opts.glucose.map is not a function` check that you have `API_SECRET` in the right format, [as described in this issue](https://github.com/openaps/oref0/issues/397). You either need `API_SECRET=xxxx` where `xxxx` is the string you gave Nightscout, or `API_SECRET=token=xxxxx` where `xxxxx` is the token you generated in Nightscout admin interface.
-* Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](<./understanding-autotune>) with what output you should get and pay attention to depending on data input.
+* Does your Nightscout have data? It definitely needs BG data, but you may also get odd results if you do not have treatment (carb, bolus) data logged. See [this page](<../How it works/understanding-autotune>) with what output you should get and pay attention to depending on data input.
 * Did you pull too much data? Start with one day, and make sure it's a day where you had data in Nightscout. Work your way up to 1 week or 1 month of data. If you run into errors on a longer data pull, there may be something funky in Nightscout that's messing up the data format file and you'll want to exclude that date by picking a batch that does not include that particular date.
 * Make sure when you sub in your Nightscout URL you do not include a "/" at the end of the URL
 * Check your profile.json and make sure it really matches the example - chances are there's a stray character in there.

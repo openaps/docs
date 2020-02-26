@@ -33,7 +33,7 @@ There are two general groups of ways to monitor your rigs:
 
 See below for different ways to access your rig:
 * [If your computer and rig are on the same wifi network](<#if-your-computer-and-rig-are-on-the-same-wifi-network>)
-* [If your iPhone and rig are on the same wifi network](<#if-your-iphone-and-rig-are-on-the-same-wifi-network>)
+* [If your phone and rig are on the same wifi network](<#offline-web-page-from-rig-for-any-phone-user>)
 * [Set up an autossh reverse tunnel to access from a different network](#autossh-reverse-tunnel)
 
 ********************************

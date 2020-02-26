@@ -33,7 +33,7 @@ There are three key assumptions the OpenAPS algorithm makes about how insulin ac
     
     100 = (4 \* 60 \* (75 / 180))
 
-> **NOTE:** The insulin action assumptions described here are set to change with the release of [oref0, version 0.6.0](https://github.com/openaps/oref0/tree/0.6.0-dev). The new assumptions will use exponential functions for the insulin action curves and will allow some user flexibility to use pre-set parameters for different classes of fast-acting insulins (Humalog, Novolog, and Apidra vs. Fiasp, for example). For a discussion of the alternate specifications of insulin action curves, see [oref0 Issue #544](https://github.com/openaps/oref0/issues/544). When oref0, version 0.6.0 is released and the current assumptions are no longer recommended, this documentation will be updated.
+> **NOTE:** The insulin action assumptions described here are set to change with the release of [oref0, version 0.6.0](https://github.com/openaps/oref0/releases/tag/v0.6.0). The new assumptions will use exponential functions for the insulin action curves and will allow some user flexibility to use pre-set parameters for different classes of fast-acting insulins (Humalog, Novolog, and Apidra vs. Fiasp, for example). For a discussion of the alternate specifications of insulin action curves, see [oref0 Issue #544](https://github.com/openaps/oref0/issues/544). When oref0, version 0.6.0 is released and the current assumptions are no longer recommended, this documentation will be updated.
  
 
 ## What The Insulin Activity Assumptions Look Like

@@ -8,7 +8,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
 <details>
         <summary><b>Click here to expand a clickable list to jump to each preference:</b></summary>
         
-- [Editing your preferences.json](#editing-your-preferencesjson)
+- [Editing your preferences.json](#editing-your-preferences-json)
 - [Commonly-adjusted preferences:](#commonly-adjusted-preferences)
    * [max IOB:](#max-iob)
    * [max daily safety multiplier:](#max-daily-safety-multiplier)
@@ -32,7 +32,7 @@ All of the settings specific to OpenAPS (that can't be read from the pump) will 
   * [enableSMB_after_carbs](#enablesmb-after-carbs)
   * [allowSMB_with_high_temptarget](#allowsmb-with-high-temptarget)
   * [maxSMBBasalMinutes](#maxsmbbasalminutes)
-  * [maxUAMSMBBasalMinutes](#maxUAMSMBBasalMinutes)
+  * [maxUAMSMBBasalMinutes](#maxuamsmbbasalminutes)
 - [Exercise-mode related preferences:](#exercise-mode-related-preferences)
   * [exercise_mode](#exercise-mode)
   * [high_temptarget_raises_sensitivity](#high-temptarget-raises-sensitivity)

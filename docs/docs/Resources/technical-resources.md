@@ -35,7 +35,7 @@ These represent a small selection of guides, tutorials, and quick references for
 
 [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
 
-[Codecademy Python Course](https://www.codecademy.com/tracks/python)
+[Codecademy Python Course](https://www.codecademy.com/learn/learn-python)
 
 [Python 2.7 Quick Reference](http://rgruet.free.fr/PQR27/PQR2.7.html)
 
@@ -43,7 +43,7 @@ These represent a small selection of guides, tutorials, and quick references for
 
 ## Useful Apps
 
-[Fing](http://www.overlooksoft.com/download) (Android and Apple): Identify IP address of devices on a network. Useful for finding the IP address of RPi on new networks.
+[Fing](https://www.fing.com/) (Android and Apple): Identify IP address of devices on a network. Useful for finding the IP address of RPi on new networks.
 
 [JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en) (Android): SSH client for Android devices
 
