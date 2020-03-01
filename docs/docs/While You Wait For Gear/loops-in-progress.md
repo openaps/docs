@@ -313,3 +313,4 @@ List of people who are working on closed loops:
 - Andre Champigny (Moncton, New-Brunswick, Canada)
 - Martin Fredheim (Oslo, Norway)
 - John Clifton (Sussex, UK)
+- Paul Cotton  (Cornwall, UK) AndroidAPS
