@@ -107,8 +107,9 @@ If you have an OpenAPS rig and want to run autotune manually, you can do so on t
 If you want to have OpenAPS use your autotune results (e.g. you changed pump settings and just want it to be tuned sooner than 4am), run the following:
 
 ```
-oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD
+oref0-autotune --dir=~/myopenaps --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD
 ```
+* Make sure to sub in your Nightscout URL and the date you want to start with. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 
 ##### Running manually in a *different* directory to not use the results automatically
 
@@ -122,10 +123,10 @@ mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdi
 * Then, run Autotune manually, pointing to the new directory:
 
 ```
-oref0-autotune --dir=~/newdirectory --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD
+oref0-autotune --dir=~/newdirectory --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD
 ``` 
-  * obviously, sub in your NS url and the start date you want to start with
-  * If you change your pump settings, you will need to re-copy your pump settings back into `newdirectory`
+  * Again, sub in your NS URL and the date you want to start with.
+  * If you change your pump settings, you will need to re-copy your pump settings back into `newdirectory`.
 
 **Note:** If you did this correctly in your `newdirectory`, settings will not be used by OpenAPS. You will need to `cd ~/newdirectory/autotune && cat autotune_recommendations.log` to see your autotune recommendations, and autotune will only run when you manually run it. The recommended behavior is to run Autotune inside of your OpenAPS directory, per Phase B, which is the default and will automatically run every night and have OpenAPS use the settings from Autotune automatically.
 
@@ -329,9 +330,9 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 **Step 4: Run autotune on retrospective data from Nightscout**
 * Run 
 ```
-oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD 
+oref0-autotune --dir=~/myopenaps --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD 
 ```
-* ^ Sub in your Nightscout URL. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
+* Make sure to sub in your Nightscout URL and the date you want to start with. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).  The start date should be the older date, the end date is the more recent date.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
@@ -377,7 +378,7 @@ To subsequently re-run Autotune at a later time:
   * `jq . profile.json `(if it prints a colourful version of your profile.json, you’re good to proceed) 
   * `cp profile.json pumpprofile.json`
   * `cp profile.json autotune.json`
-* Then to re-run Autotune, subbing in your URL: `oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.herokuapp.com --start-date=YYYY-MM-DD`
+* Then to re-run Autotune, subbing in your URL and the date you want to start with: `oref0-autotune --dir=~/myopenaps --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD`
 
 #### Why Isn't It Working At All?
 
@@ -418,7 +419,7 @@ Other things to check:
      
 * Also check your pumpprofile.json and autotune.json - if it worked once or twice but then stopped working, it may have a bad file copy. If needed, follow Steps 3-E and 3-F again to re-copy a good profile.json to pumpprofile.json and autotune.json again.
 * If VM is already set up, and you are returning to your VM for another session of autotune, double-check that your VM timezone matches your pump: `sudo dpkg-reconfigure tzdata` 
-* Invalid calculations may be due to the locale settings of your VM (correct settings are `en_US.utf-8` or another locale that uses `.` as the decimal separator). An easy way to overcome such a problem is to add `env LANG=en_US.UTF-8` in front of your command for running autotune, it should look like this: `env LANG=en_US.UTF-8 oref0-autotune --dir=~/myopenaps --ns-host=https://mynightscout.azurewebsites.net --start-date=YYYY-MM-DD`
+* Invalid calculations may be due to the locale settings of your VM (correct settings are `en_US.utf-8` or another locale that uses `.` as the decimal separator). An easy way to overcome such a problem is to add `env LANG=en_US.UTF-8` in front of your command for running autotune, it should look like this: `env LANG=en_US.UTF-8 oref0-autotune --dir=~/myopenaps --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD`
 * Did you turn on Nightscout authentication with the setting `AUTH_DEFAULT_ROLES`?  Currently Autotune will only work with the `readable` setting.  See [issue #397](https://github.com/openaps/oref0/issues/397) in Github.
 * If you are using [NightScoutLoader](https://github.com/gh-davidr/NightscoutLoader) to load the Diasend data to your Nightscout site, ensure the Diasend xls date format is the same as the date format selected in the NightScoutLoader Settings.  For USA users, the Diasend xls date format is "mm/yy/yyyy HH:mm" format which isn't supported by NightScoutLoader at this time.  The NightScoutLoader app currently only supports {"Default", "dd/MM/yy hh:mm", "MM/dd/yy hh:mm", "dd/MM/yy", "MM/dd/yy"] formats. "Default" corresponds to your OS date format for the English locale.  If none of these formats correspond to your Diasend xls data, as a workaround until NightScoutLoader is remedied, either set your system default date format to correspond to Diasend's date format or change the date format in the Diasend xls data file for all Times and Dates to correspond to NightScoutLoader Settings.  For example, the tabs "Name and glucose", "CGM", "Insulin use and carbs", and "Alarms and events" all have date and time data. 
 * Still not working? Post a question in [Gitter](https://gitter.im/openaps/autotune). To best help you troubleshoot: Specify if you're on MDI or using a pump. Specify if you're using xDrip as a data source, or if you are otherwise logging data into Nightscout in a way that's not through Care Portal app directly, etc. 
