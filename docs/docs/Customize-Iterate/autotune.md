@@ -109,7 +109,7 @@ If you want to have OpenAPS use your autotune results (e.g. you changed pump set
 ```
 oref0-autotune --dir=~/myopenaps --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD
 ```
-* Make sure to sub in your Nightscout URL and the date you want to start with. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
+* Make sure to sub in your Nightscout URL and the date you want to start with. Note that you must not use the trailing / on the Nightscout URL or that will cause an error.
 
 ##### Running manually in a *different* directory to not use the results automatically
 
@@ -125,7 +125,7 @@ mkdir -p ~/newdirectory/settings && cp ~/myopenaps/settings/profile.json ~/newdi
 ```
 oref0-autotune --dir=~/newdirectory --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD
 ``` 
-  * Again, sub in your NS URL and the date you want to start with.
+  * Again, sub in your NS URL and the date you want to start with. Do not use the trailing / on the URL.
   * If you change your pump settings, you will need to re-copy your pump settings back into `newdirectory`.
 
 **Note:** If you did this correctly in your `newdirectory`, settings will not be used by OpenAPS. You will need to `cd ~/newdirectory/autotune && cat autotune_recommendations.log` to see your autotune recommendations, and autotune will only run when you manually run it. The recommended behavior is to run Autotune inside of your OpenAPS directory, per Phase B, which is the default and will automatically run every night and have OpenAPS use the settings from Autotune automatically.
@@ -332,7 +332,7 @@ Every comma, quote mark, and bracket matter on this file, so please double-check
 ```
 oref0-autotune --dir=~/myopenaps --ns-host=https://NIGHTSCOUT_URL_HERE --start-date=YYYY-MM-DD 
 ```
-* Make sure to sub in your Nightscout URL and the date you want to start with. Note that you mustn't use the trailing / on the Nightscout URL or that will cause an error.
+* Make sure to sub in your Nightscout URL and the date you want to start with. Note that you must not use the trailing / on the Nightscout URL or that will cause an error.
 * Start with one day to confirm that it works, first. Then run it for one week, and then one month. Compare results and see if the numbers are consistent or changing, and see how that aligns with your gut feeling on whether your basals, ISF, and carb ratio was correct.
 * If you want to run dates in the past, add the following: --end-date=YYYY-MM-DD (otherwise, it will just default to ending yesterday).  The start date should be the older date, the end date is the more recent date.
 * Remember, this is currently based on *one* ISF and carb ratio throughout the day at the moment. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
