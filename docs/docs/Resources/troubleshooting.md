@@ -279,7 +279,7 @@ Erasing chip.
 This code is only tested on CC1110. Unsupported chip id = 0x00.
 Chip erase failed.
 ```
-Repeat the preparation steps above to make sure the radio is not used bevore your flash attempt.
+Repeat the preparation steps above to make sure the radio is not used before your flash attempt.
 Alternatively, you might want to rename the oref0 folder to make absolutely sure the loop service will not start.
 Rename it back to oref0 after you successfully flashed the radio chip.
 
