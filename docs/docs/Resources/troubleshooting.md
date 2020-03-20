@@ -267,7 +267,22 @@ wget https://github.com/EnhancedRadioDevices/subg_rfspy/releases/download/v0.8-e
 
   * Reboot, and try `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start` to make sure it works
   
-  
+When you get errors like the following and the radio LEDs are constantly glowing,
+double check if the service loop is really stopped.
+```
+~/src/ccprog# ./ccprog -p 16,18,7 reset
+Using pins: DC=16, DD=18, RESET=7
+This code is only tested on CC1110. Unsupported chip id = 0x00.
+~/src/ccprog# ./ccprog -p 16,18,7 erase
+Using pins: DC=16, DD=18, RESET=7
+Erasing chip.
+This code is only tested on CC1110. Unsupported chip id = 0x00.
+Chip erase failed.
+```
+Repeat the preparation steps above to make sure the radio is not used bevore your flash attempt.
+Alternatively, you might want to rename the oref0 folder to make absolutely sure the loop service will not start.
+Rename it back to oref0 after you successfully flashed the radio chip.
+
 ### Monitor/mmtune.json is empty or does not exist
 #### Only verified to work with Intel Edison + Explorer Block
 Full error is:
