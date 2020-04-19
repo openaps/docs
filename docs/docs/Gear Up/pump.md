@@ -27,7 +27,7 @@ A double-check for pump compatibility is to look for the ABSENCE of PC connect i
    * This is the case for the 512/712, the 515/715 and 522/722 models. 
    * For 512/712 pumps, you will not be able to use an advanced feature (SMB) but will be able to do basic temp-basal based looping.
 
-Note that not _all_ possible sellers of pumps will accuratly describe the model number: if they are willing to sell a pump they may not have interest in setting it up for looping, and the distinctions about model numbers and firmware version may not be important to them. It will be for you though! Therefore, it's prudent to verify the model by seeing pctures and/or videos of the pump in action. 
+Note that not _all_ possible sellers of pumps will accuratly describe the model number: if they are willing to sell a pump they may not have interest in setting it up for looping, and the distinctions about model numbers and firmware version may not be important to them. It will be for you though! Therefore, it's prudent to verify the model by seeing pictures and/or videos of the pump in action. 
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.  This repair is quite straight-forward and easy.
 
