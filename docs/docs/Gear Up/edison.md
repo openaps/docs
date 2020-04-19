@@ -163,8 +163,8 @@ You will also need jumpers to wire your TI stick to the Raspberry Pi's GPIO head
 ```
 SPI0 CS0 (Pi pin 24) -> debug  pin 5
 SPI0 CLK (Pi pin  23) -> debug pin 6
-SPI0 MISO (Pi pin 21) -> debug pin 8
-SPI0 MOSI (Pi pin 19) -> debug pin 10
+SPI0 MISO (Pi pin 21) -> debug pin 10
+SPI0 MOSI (Pi pin 19) -> debug pin 8
 any Pi 3.3V pin -> debug pin 2
 any Pi ground pin -> debug pin 1
 GPIO 4 (Pi pin 7) -> debug pin 7
