@@ -309,6 +309,7 @@ List of people who are working on closed loops:
 - Sara Gardiner (Bicester, UK)
 - Mark Fletcher (Ipswich. UK)
 - Colum Keegan (Wicklow, Ireland)
+- Seamus Keegan (Wicklow, Ireland)
 - Nicholas Taylor (London, UK)
 - Andre Champigny (Moncton, New-Brunswick, Canada)
 - Martin Fredheim (Oslo, Norway)
