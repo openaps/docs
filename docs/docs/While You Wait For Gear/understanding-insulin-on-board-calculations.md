@@ -2,6 +2,10 @@
 
 The amount of Insulin on Board (IOB) at any given moment is a key input into the `determine-basal` logic, which is where all the calculations for setting temporary basal rates or small microboluses (SMBs) takes place. This amount of insulin on board gets passed into [`oref0/lib/determine-basal/determine-basal.js`](https://github.com/openaps/oref0/blob/master/lib/determine-basal/determine-basal.js) as part of the `iob.json` file. That information is then used to project forward blood glucose (BG) trends, which the `determine-basal` logic then responds to in order to correct course. This piece of the OpenAPS documentation provides an explanation of the assumptions used about how insulin is absorbed and how those assumptions translate into the insulin on board calculations used to project BG trends.
 
+<details>
+    <summary><b>Click here to expand information about insulin activity calculations for older insulin curves with DIA shorter than the 0.7.0 default of 5, as well as information about current variables used in IOB calculations:</b></summary>
+<br>
+
 ## First, some definitions:
 * **dia:** Duration of Insulin Activity. This is the user specified time (in hours) that insulin lasts in their body after a bolus. This value comes from the user's pump settings. 
 
@@ -84,19 +88,22 @@ Similar to calculations above, the code in [oref0/lib/iob/calculate.js](https://
 
 Finally, two sources to benchmark the `iob` curves against can be found [here](http://journals.sagepub.com/doi/pdf/10.1177/193229680900300319) and [here](https://www.hindawi.com/journals/cmmm/2015/281589/).
 
+
 ---
 
 > **A NOTE ABOUT VARIABLE NAMES:**  A separate program&mdash;[oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js)&mdash;creates variables named `activity` and `iob`. Those two variables, however, are not the same as the `activity` and `iob` variables plotted in this documentation page. Those two variables are summations of all insulin treatments still active. 
 
 >The `activity` and `iob` concepts plotted here are expressed in percentage terms and are used to scale the `treatment.insulin` dosage amounts, so the units for the `activityContrib` and `iobContrib` variables are *units of insulin per minute* and *units of insulin remaining at each minute*, repectively. Because the `activity` and `iob` variables in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) are just the sums of all insulin treatments, they're still in the same units of measurements: *units of insulin per minute* and *units of insulin remaining each minute*.
 
+</details>
+
 ---
 
 # Understanding the New IOB Curves Based on Exponential Activity Curves
 
-As mentioned at the top of this page, the next OpenAPS release will have new activity curves available for users to use. 
+As of 0.6.0 OpenAPS has new activity curves available for users to use. 
 
-In the new release, users will be able to select between using a "bilinear" (looks like what was  plotted above: /\) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
+In the new release, users are able to select between using a "bilinear" (looks like what was  plotted above: /\) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
 
 A user can select one of three curve defaul settings:
 
