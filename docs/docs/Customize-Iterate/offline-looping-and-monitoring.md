@@ -26,6 +26,7 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 Android users can use the xDrip+ Android app for offline looping, assuming xDrip+ is used as the CGM data source. There are two ways to get offline looping to work with xDrip+. Firstly, when connected to an Android phone running xDrip+, you can enable the phone to share the CGM information to OpenAPS, after which OpenAPS will automatically fetch the CGM data directly from the phone when connected onto the phone hotspot, even in cases where the phone is actually offline.
 
 To enable the xDrip service for OpenAPS, go to the Inter-app settings section in xDrip settings and enable the xDrip Web Service and Open Web Service settings, then enter xDrip Web Service Secret, which has to match the same secret you have configured for Nightscout. After these settings are turned on,OpenAPS will query your phone for the CGM data automatically without additional configuration settings. You can validate the offline looping works by connecting your rig to the xDrip hotspot and checking the ns-loop.log has a line saying `CGM results loaded from xDrip`.
+Broadcast Locally must be enabled ? 
 
 <details>
 <br>
