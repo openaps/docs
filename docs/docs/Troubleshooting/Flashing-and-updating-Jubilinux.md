@@ -23,19 +23,18 @@ This can mean you have a bad usb cable, or port connection at either end of the 
 * Red light Green light - Some radio boards seem to have red power LEDs (between the USB ports). Others seem to have green. Some users used to having one and not the other sometimes get concerned with the difference when they acquire new hardware. See also [what rig lights mean](https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/understanding-your-Explorer-Board-rig.html?highlight=lights#what-the-lights-mean-and-where-they-are).
 * If you are struggling to maintain a serial connection, don't reboot the board if you can help it, by pulling out the USB. Apart from unessisarily wearing out the port, you have to throw caution to the wind about whether you'll get back on. Instead, gently long-press the tiny black power button on the board until the light between the USB ports turns off. Wait a few seconds, then press it again to boot your Edison. The serial connection will remain up right through the reboot.
 * Unplug your rig battery if you have one connected. Some users' rigs heat up when charging a battery at higher rates through the OTG USB port (closest to the JST battery port, where the charging circuitry is). This can cause unexpected reboots during flashing, or at any time.
-* USB cables and ports - This is much more important than you think. Poor USB connections can cause issue getting a serial connection over the UART port, or flashing over the OTG port. What might work one time, might not work again. Work through these steps...
-** For troubleshooting serial connections...
-*** If you can't get a serial connection, it may be beneficial to forget your second flashing (OTG) USB port for the time being. Especially if you are not sure both your USB cables are good quality data cables. For now, focus on getting a serial connection with a single cable.
-*** Take your best data USB micro cable
-*** If possible, make sure you are on a good USB2 port (USB3 are often blue on the inside). USB ports on the front of desktop PCs are notoriously bad.
-*** Make sure you are connected to UART on your radio board. Simple mistake to make. Only the UART USB will accept serial connections
-*** If you're on Windows, check you're using the right COMM port number in Putty (per device manager)
-*** Swap USB ports on your computer
-*** Restart your computer. Oddly enough, this can seemingly free up stuck system resources. Particularly on Mac's multiple attempts at a serial connection, even after successful ones, seem to lock you ouot of getting subsequent successful ones.
-*** Restart your board with the power button (see above)
-*** Hit enter a few times. This can wake the connection sometimes.
-** For troubleshooting OTG port connections (for flashing, running flashall)...
-*** Click in the terminal/CMD window, hit enter, after executing the flashall command. Sometimes the command doesn't fire if it doesn't immediately find the board. This is especially common if you are rebooting or replugging things.
-
+* USB cables and ports - This is much more important than you think. Poor USB connections can cause issue getting a serial connection over the UART port, or flashing over the OTG port. What might work one time, might not work again. Work through these steps.
+  * For troubleshooting serial connections...
+    * If you can't get a serial connection, it may be beneficial to forget your second flashing (OTG) USB port for the time being. Especially if you are not sure both your USB cables are good quality data cables. For now, focus on getting a serial connection with a single cable.
+    * Take your best data USB micro cable - Label cables that have worked before so you can access them again in a hurry.
+    * If possible, make sure you are on a good USB2 port (USB3 are often blue on the inside). USB ports on the front of desktop PCs are notoriously bad.
+    * Make sure you are connected to UART on your radio board. Simple mistake to make. Only the UART USB will accept serial connections
+    * If you're on Windows, check you're using the right COMM port number in Putty (per device manager)
+    * Swap USB ports on your computer
+    * Restart your computer. Oddly enough, this can seemingly free up stuck system resources. Particularly on Mac's multiple attempts at a serial connection, even after successful ones, seem to lock you ouot of getting subsequent successful ones.
+    * Restart your board with the power button (see above)
+    * Hit enter a few times. This can wake the connection sometimes.
+  * For troubleshooting OTG port connections (for flashing, running flashall)...
+    * Click in the terminal/CMD window, hit enter, after executing the flashall command. Sometimes the command doesn't fire if it doesn't immediately find the board. This is especially common if you are rebooting or replugging things.
 * Which Jubilinux? Check Linux Version Using lsb_release Command (from within Linux) `lsb_release -a` (e.g. Debian 9.13 = jubilinux-v9+0.4.1, Debin 9.12 = jubilinux-v0.3.0)
 
