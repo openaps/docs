@@ -4,6 +4,8 @@ See also [the in-line troubleshooting steps](https://openaps.readthedocs.io/en/l
 
 For different reasons, users may come to need to re-flash, or build an install on hardware that may have been acquired second hand from another user. These tips may also help first timers.
 
+Most importantly: Try to have two rigs, and only attempt to reflash and reinstall one if you have another working rig nearby looping. Give yourself time. If problems occur it can take hours (or days, especially if you are relying on community members advice online in different time zones!). So start early on a day you have some free time up your sleeve.
+
 Here is a list of some things that can go wrong and how you can troubleshoot them.
 
 * __Jubilinux won't flash over Jubilinux__ (for people trying to flash a rig that had Jubilinux / OpenAPS set up previously)
@@ -12,7 +14,19 @@ Here is a list of some things that can go wrong and how you can troubleshoot the
 
 ## Jubilinux won't flash over Jubilinux (for people trying to flash a rig that had Jubilinux / OpenAPS set up previously)
 
-From a flashed and updated Jubilinux i.e. one that has been set up and used previously, you can't reflash with flashall. You must get the Intel flash tool and flash on one of the Intel OEM images, before attempting to clean flash Jubilinux. This is not a big deal for seasoned users. But the Intel flash app and files are becoming hard to find. I wasted days finding out how to progress past this step and sourcing the files.
+From a flashed and updated Jubilinux i.e. one that has been set up and used previously, you can't reflash with flashall. You must get the Intel flash tool and flash  one of the Intel OEM images, before attempting to clean flash Jubilinux. This is not a big deal for experienced users. But the Intel flash app and files are becoming increasingly hard to find (to do, link to files). This can be a big source of frustration with users taking days to even get in the right state to commence flashing.
+
+Thankfully there is a simple way around this...
+
+Go to the u-boot console. This is what you get after hitting enter a few times as the Edison boots e.g. "Press any key to load app" or something similar.
+
+With a terminal emulator (Putty or Mac OS Terminal) connected to the edison serial port, hit return immediately after startup. Once in the u-boot console,  use the command:
+
+Warning: this will zapp any previous Jubilinux install, including your old OpenAPS install and any files or config on your old Edison OS, ready to reflash your Edison. Be sure you don't needs anything off your rig first.
+
+`gpt write mmc 0 $partitions`
+
+Then you can run flashall normally without Intel tools.
 
 ## Jubilinux flashing fails constantly at rootfs, but gets further each time
 
