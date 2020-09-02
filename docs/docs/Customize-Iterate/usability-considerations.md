@@ -17,6 +17,7 @@ Now that you've closed the loop, you probably have a lot of new "first" experien
 - [How can you make adjustments to insulin delivery while on the go? - Optimizing with Temporary Targets:](#how-can-you-make-adjustments-to-insulin-delivery-while-on-the-go----optimizing-with-temporary-targets-)
 - [How do I improve the range of my Edison/Explorer Board?](#how-do-i-improve-the-range-of-my-edison-explorer-board-)
 - [How do I switch between insulin types, or switch to Fiasp? What should I change?](#how-do-i-switch-between-insulin-types--or-switch-to-fiasp--what-should-i-change-)
+- [How do I switch to a different Medtronic pump?](#how-do-i-switch-to-a-different-medtronic-pump-)
 - [Improving the battery life of your Raspberry Pi](#improving-the-battery-life-of-your-raspberry-pi)
 
 </details>
@@ -36,7 +37,7 @@ Boluses always have to be set on the pump for OpenAPS to take them into consider
 The loop is off the shelf hardware - it's no different than your phone or other small gadgets, so leave it in your carry-on bag when going through security. (Dana note: I have traveled [well](https://twitter.com/danamlewis/status/811682733445496833) over 100 times with my loop, and in some cases with 3-4 Pis and batteries and related accessories, and have never had issues going through security because of my loop.)
  
 ## What do you do with your loop when you travel across timezones? How do you update devices for a time zone change?
-You have a couple of options. If you are traveling briefly, or only across a couple of timezones, and would not normally feel the need to adjust the timing of your basals, then you may choose to simply leave your pump, receiver, and Pi/Edison on your home timezone. But, if you would like to adjust to the new timezone (perhaps for a longer trip or a move), you can adjust your rig's timezone using `sudo dpkg-reconfigure tzdata` and then either run `killall -g oref0-pump-loop; oref0-set-device-clocks` to set the devices to match, or just change your pump and receiver time manually.  Make sure to test in your new location to make sure everything is working! We also recommend planning to do this when you have some extra time for troubleshooting, in case you have issues. Also, it's worth noting that your body only changes about an hour or so of timezone a day, so even if you go abroad, there's not a rush to change timezones/the time on your devices - you can wait until 2-3 days into your trip to make the swap, at a time when you have some room to update your rigs.
+You have a couple of options. If you are traveling briefly, or only across a couple of timezones, and would not normally feel the need to adjust the timing of your basals, then you may choose to simply leave your pump, receiver, and Pi/Edison on your home timezone. But, if you would like to adjust to the new timezone (perhaps for a longer trip or a move), you can adjust your rig's timezone using `sudo dpkg-reconfigure tzdata` and then either run `killall-g oref0-pump-loop; oref0-set-device-clocks` to set the devices to match, or just change your pump and receiver time manually.  Make sure to test in your new location to make sure everything is working! We also recommend planning to do this when you have some extra time for troubleshooting, in case you have issues. Also, it's worth noting that your body only changes about an hour or so of timezone a day, so even if you go abroad, there's not a rush to change timezones/the time on your devices - you can wait until 2-3 days into your trip to make the swap, at a time when you have some room to update your rigs.
 
 After the timezone change OpenAPS sometimes gets confused about the BG and/or pump data being "in the future".  The pump and CGM data are not timestamped in UTC, so being unsynchronized with the OpenAPS can cause incorrect behavior.  When the BG or pump data is "in the future" the software may stop pulling current information from the pump, and stop functioning (until the current time in the system reaches the time when the monitor data is no longer "in the future"). It often makes sense to remove all files from OpenAPS <i>monitor</i> folder after changing the timezone.  However, this is sometimes insufficient, as the devices will still have records that are "in the future" from the perspective of your new timezone.  As a result, you should expect Nightscout uploads to fail until the system time catches up to the previous device time, particularly when traveling west.
 
@@ -119,6 +120,32 @@ The most important setting for switching between insulin types in an OpenAPS rig
 Additionally, because Fiasp has a slightly faster peak time, you may need to adjust your behavior around meal-time dosing. If you pre-bolus, you may want to consider *not* pre-bolusing for the first few meals with Fiasp until you understand the differences, to avoid lows during or after the meal.
 
 Some users who switch to Fiasp find that they need to adjust settings. Others do not need to change settings that much, and autosens and/or autotune can help adjust to any variances over time as your body's needs change related to the difference insulin type. YDMV, as always!
+
+## How do I switch to a different Medtronic pump?
+
+First locate the serial number of the Medtronic pump you would like to start using. Then log into your rig and open your "runagain" script so you can edit the serial number.
+
+`cd ~/myopenaps && nano oref0-runagain.sh`
+
+Change the number in `--serial=123456` from your old serial number to your new serial number, save the changes, and exit nano.
+
+Now run the "runagain" script and respond to any prompts it gives you.
+
+`cd ~/myopenaps && bash oref0-runagain.sh`  
+
+When the script is done and you have rebooted, log back into your rig and look at the pump loop logs
+
+`l`
+
+If you see errors regarding the pump history such as `Couldn't invoke_pumphistory_etc - continuing` and `Couldn't refresh_pumphistory_and_meal` then delete your pump history from your rig.
+
+`rm ~/myopenaps/monitor/pumphistory-24h-zoned.json`
+
+Now look at the pump loop logs again.
+
+`l`
+
+After some time, all errors should resolve and you should begin looping successfully with your new pump!
 
 ## Improving the battery life of your Raspberry Pi
 

@@ -4,43 +4,67 @@
 
 ## Hardware Assumptions for this page
 
-1.  Using an explorer board and Edison
-2.  Using an Apple computer
-3.  Using a looping-compatible Medtronic pump. If using a x12 series Medtronic pump, it will require one small [extra step](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/x12-users.html). See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
+1.  Using an Explorer board and Edison
+2.  Using an Apple computer (with either USB-A or USB-C ports)
+3.  Using a looping-compatible Medtronic pump. See [all compatible pumps](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/pump.html#information-about-compatible-insulin-pumps). 
 
 ## High Level Recommended Rig parts list
 
-* [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
+a) [**Explorer Board - link**](https://enhanced-radio-devices.myshopify.com/products/900mhz-explorer-block-pre-order)
 
-* [**Edison - link**](https://www.sparkfun.com/products/13024)
+b) [**Edison - link**](https://www.sparkfun.com/products/13024).  (Intel has discontinued the Edison, and the link is mostly so you can look at what the chip looks like. You can still find Edison chips on EBay. They are often sold as a part of a kit (e.g. Arduino), check with the seller to confirm that the chip is included. (https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2060353.m570.l1312.R2.TR10.TRC3.A0.H0.XIntel+.TRS2&_nkw=intel+edison&_sacat=175673) ~$30-$50 is a typical price for a new-in-box Edison chip, usually more for a kit. Since it's EBay, you will see them occasionally offered for much more, or much less. 
 
-* [**Nuts and Bolts - link**](https://www.sparkfun.com/products/13187)
+c) **Nuts and Bolts**
+Enhanced Radio Devices shipped their Explorer boards with suitable nuts and screws, and plastic spacers in early 2019. 
+My first explorer board did not come with usable nuts and screws, and I had trouble locating suitable spacers. An easy workaround: Once you have two suitable matching sets of screws and nuts (M2, or slightly smaller), you can fashion spacers from a thin tube, e.g. a drinking straw that you cut to a length to snugly fit between the board and the Edison chip. 
 
-* **At least one Lithium Battery** (The larger battery will have a little longer battery life; but may be slightly bigger.)
- * [**2500mAh battery - link**](https://www.adafruit.com/products/328)
- * [**2000mAh battery - link**](https://www.sparkfun.com/products/8483)
+d) **At least one Lithium Battery** Larger capacity batteries allow longer runtime before needing to be recharged. The cylindrical batteries hold up better if you carry the rig in a soft case than the flat ones. Most 3-D-printed cases only work with specific battery sizes.
 
-* **Cables**  (you may already have workable USB cables; you just need 2 to complete this process.  Doesn’t have to be a certain length either, just giving options if you have a preference for shorter or longer cables.)
- * [**3 ft long cable, USB-microB - link**](https://www.adafruit.com/products/592)
- * [**6 inch long cable, USB-microB - link**](https://www.adafruit.com/products/898)
+ * [2500mAh battery - link](https://www.adafruit.com/products/328)
+ * [2000mAh battery - link](https://www.sparkfun.com/products/8483)
+ * [2200mAh Lithium Ion Cylindrical Battery - link](https://www.adafruit.com/product/1781)
+ * [4400mAh Lithium Ion Battery Pack - link](https://www.adafruit.com/product/354)
+ 
+e)* **USB cables**  You may already have workable USB cables; you need two cables that are long enough to connect the rig to the computer to complete this process. "Bad" cables can cause problems during flashing; when in doubt, get a couple of new USB cables.
+
+ Example USB-A to Micro USB cables: 
+ * [3 ft long cable, USB A - Micro USB - link](https://www.adafruit.com/products/592)
+ * [6 inch long cable, USB A - Micro USB - link](https://www.adafruit.com/products/898) 
+ 
+ Example USB-C to Micro USB cables: 
+ * [1 ft long cable, USB C - Micro USB - link](https://www.amazon.com/AmazonBasics-Double-Braided-Type-C-Micro-B/dp/B07CWFNSSN/ref=sr_1_5?crid=1KOKFYDQR41WY&keywords=usb%2Bc%2Bto%2Bmicro%2Busb&qid=1574060073&sprefix=usb%2Bc%2Bto%2Bmicro%2Caps%2C215&sr=8-5&th=1)
 
 ## Getting Physical: Build your rig/put the physical pieces together
 
-The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with the nuts and bolts you order.  
+The Explorer board is where all the communications are housed for the rig, as well as the battery charger.  The Edison is the mini-computer where all the OpenAPS code will be sent and used.  In order for this to work, first you have to screw and connect the Edison and Explorer Board together with nuts and bolts.  
 
-The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.
+The nuts and bolts are tiny, and the spaces are a little tight.  I find it really helps to use a set of tweezers and a small Phillips head screwdriver.  The Edison board should not wobble, and be securely seated when you are done.  
 
-It's easiest to start with the Explorer board and put on 2 nuts and gold screws (nuts on the side with most of the wiring) inside the little outline where the Edison will eventually sit.  Gold screws should be placed as shown, with nuts on the backside.  Then, lay the Edison board on top, aligning the screw holes.  Use a small Phillips head screwdriver to tighten the screws into the gold screws beneath them.  The Edison board should not wobble, and should feel secure when you are done.  Attach your battery into the explorer board plug.  A single red light should appear and stay lit.  During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
+This is a bit challenging to do the first few times - everything is small, you don't want to damage the chip or the board, or lose the spacers, nuts and screws. 
+
+I generally start by looking at the board and chip, to locate where the chip will be seated on the board. 
+
+Then I place the two spacers between the board and the Edison chip where the holes for the screws are, holding the spacers in that area while seating the chip carefully. The spacers should fit tightly, but can't be too long, as that would prevent the chip from clicking into its seat once everything's aligned. Then I arrange the spacers so they don't cover the screw holes. Typically this is the time I can fully seat the Edison, and it clicks into place when it's fully seated. Only then I install the screws, and nuts. I find it helpful to hold each nut by pressing it against the board with one finger while turning the screwdriver. I re-check the seating of the chip befor moving on to the next step. It must be firmly seated.
+
+Did you notice a click when it settled into its place? Good job!
+
+You'll probably drop a nut or spacer at some point during this step. Working at a table can save you lengthy searches for tiny dropped parts. Use a small screwdriver that fits your screws to tighten them - not too tight - on the nuts. You can find tiny screwdrivers in "eye glass repair kits", or at electronic stores, hardware stores, etc. 
+
+### Attach your battery into the explorer board plug.  
+A single red light should appear and stay lit.  
+Note: You *can* flash the chip and install the software without a battery attached. However, a battery reduces the risk of having problems from power glitches during the flashing and installation process (Example: Corrupted Jubilinux installations, frequent rebooting.) #Practice Safe Flashing - Flash with Battery Attached!#
+
+During the course of your OpenAPS rig use, it's good practice to periodically check that the nuts and screws stay tightened.  If they come loose, the Edison can wobble off the connection to the Explorer board and you will either get looping failures (if it's loose) or be unable to connect to the Edison (if it comes completely off).
 
 ![Edison/Explorer Board rig with red light on](../../Images/Edison/Edison_Explorer_Board.png) 
 
+
 ## Software-build your rig
 
-Building the software into your rig is comprised of three steps:
-
+This is a three-step process:
 1. Preparing the Edison (aka flashing the Edison)
 2. Installing the “looping” code (aka setup script for oref0)
-3. Customizing your loop 
+3. Personalizing your settings ("setting your preferences")
 
 ### 1. Preparing/flashing the Edison/reflashing the Edison
 
@@ -48,9 +72,11 @@ The Edison comes with an operating system that doesn’t work easily with OpenAP
 
 Let’s start by downloading the updated operating system (it’s called Jubilinux) to your computer so that we can install it later onto the Edison.  Go to Safari and download [Jubilinux](http://www.jubilinux.org/dist/) (jubilinux 0.3.0 is the only fully supported version; jubilinux 0.2.0 runs Debian jessie, which is NOT supported by Debian any longer).
 
-Now we move to the Edison.  You’ll see two microB USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to plug both of those into our computer’s USB ports using the cables listed in the parts list (Dexcom’s charging cable will work too). 
+Now we move to the Edison. You’ll see two Micro USB ports on your explorer board.  One is labeled OTG (that’s for flashing) and one is labeled UART (that’s for logging into the Edison from a computer).  We will need to use both to flash.  We’re going to connect both of those to our computer’s USB ports using USB-cables that are appropriate for your computer (USB-A to Micro USB for most computers, USB-C to Micro USB for newer MacBooks). 
 
-Note: Before starting to flash an Edison using a Mac, if you are using a Macbook with a USB-C Hub you may encounter some issues with the flashing process, including the wireless LAN setup not functioning correctly, so if you have an option to use a PC or Laptop with directly connected USB cables, it may be better to do so.
+Plug in the battery, if you have not done that yet. 
+
+Note: It's strongly recommended to connect all USB cables directly to the computer. This means, do not use a hub (e.g. a USB-C to USB-A hub), and do not use adapters).  If you use hubs or adapters, you increase the risk to run into problems during flashing that can prevent you from getting the rig ready to loop. Use USB-C to Micro USB cables for the newer MacBooks instead of hubs or adapters. If you do run into problems during flashing and installation, tiny power glitches or connection issues might be the cause. When this happens, try new cables, and remember to keep a battery attached to the rig during flashing.
 
 ![Explorer Board rig with two cables and red light on](../../Images/Edison/ExplorerBoard_two_charging_cables.png) 
 
@@ -62,7 +88,7 @@ The OpenAPS uses Terminal, kind of like Loop uses Xcode.  It’s our interaction
 
 ![Terminal example](../../Images/Edison/Terminal_example.png)
 
-Terminal app is an ugly, plain interface…but it does what we need to do, communicate with the Edison.  Basically, the Edison is a computer that lacks a keyboard and display.  By using a cable connected to the rig, we can login to the Edison and use Terminal as a way of interacting with the Edison. 
+Terminal app is an ugly, plain interface … but it does what we need to do, communicate with the Edison.  Basically, the Edison is a computer that lacks a keyboard and display.  By using a cable connected to the rig, we can login to the Edison and use Terminal as a way of interacting with the Edison. 
 
 When you first launch Terminal, you will probably see something rather plain like below.  The important thing to know is that the Terminal helps show you WHERE you are in your computer or Edison.  So, in the screenshot below, it’s telling me I am in my “iMac4K” user account.  If you are ever a little confused where you are…you can look to the left of the $ prompt and get an idea.
 
@@ -124,6 +150,8 @@ If you have a problem getting to the Edison login prompt, and possibly get a war
 ![Reboot](../../Images/Edison/reboot.png)
 
 #### **1-6.  Return to the other Terminal Window that we left off of in Step 4.**
+
+* Is the battery attached? No? Go get it and plug it in now.
 
 * Enter `reboot`
 
@@ -368,6 +396,6 @@ If the rig isn't online, go back and check your /etc/network/interfaces and /etc
 
 You'll now want to move on to the [rest of the install instuctions](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html).
 
-### 3. Personalising your closed loop
+### 3. Personalizing your settings
 
 Remember to personalize your settings after you finish installing OpenAPS!

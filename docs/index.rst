@@ -62,7 +62,6 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    :caption: Build Your Rig
     
    Installing OpenAPS <docs/Build Your Rig/OpenAPS-install>
-   512/712 pump users <docs/Build Your Rig/x12-users>
    Tell us you’re looping <docs/Build Your Rig/keeping-up-to-date>
 
 .. toctree::
@@ -76,6 +75,7 @@ Note: *We do not recommend using a PDF version of this guide. The docs are updat
    Add more wifi to your rig <docs/Customize-Iterate/on-the-go-wifi-adding>
    Useful apps for accessing your rig </docs/Customize-Iterate/useful-mobile-apps>
    IFTTT and Pebble buttons <docs/Customize-Iterate/ifttt-integration>
+   iPhone Shortcuts buttons <docs/Customize-Iterate/iPhone Shortcuts Integration>
    Autosens <docs/Customize-Iterate/autosens>
    Autotune <docs/Customize-Iterate/autotune>
    Understanding Autotune <docs/Customize-Iterate/understanding-autotune>

@@ -1,4 +1,4 @@
-# Helpful Mobile Apps
+﻿# Helpful Mobile Apps
 
 Beyond just services, such as IFTTT and Papertrail, there are times where your mobile device can provide more access to your rig.  The apps described below can help you login to your rig (both at home and while on the road) to make edits, run commands, troubleshoot, etc.
 
@@ -111,7 +111,7 @@ These are some of my favorite Commands:
 
 **git lock fix** - Probably the most common error in a rig is the `.git lock` error that happens on occasion and by deleting the .git directory, you can get back to looping quickly.  For this command, enter `rm -rf /root/myopenaps/.git` in the command script body.
 
-**mmtune** - If you want to check how well your pump tune strength is you can use this command script to test it `cd ~/myopenaps && sudo service cron stop && killall -g oref0-pump-loop && openaps mmtune && sudo service cron start`
+**mmtune** - If you want to check how well your pump tune strength is you can use this command script to test it `cd ~/myopenaps && sudo service cron stop && killall -g openaps ; killall-g oref0-pump-loop; oref0-mmtune && sudo service cron start`
 
 **Edison temperature** - If you are ever concerned that your rig may be overheating, you can use this command to read if your edison cores are reaching critical temperatures.  For this command, enter `sensors` in the command script body.
 
@@ -129,7 +129,7 @@ Perhaps a more slightly advanced-user (or curious-user) feature of SimpleSSH is 
 
 ## SerialBot (Android)
 
-This app is useful for logging into the rig via a terminal session when not near a computer or using offline looping, can be done via USB serial cable, bluetooth or wifi depending on your setup. Simply selecrt the connection method using the drop down box and type in the rigs connection details.
+This app is useful for logging into the rig via a terminal session when not near a computer or using offline looping, can be done via USB serial cable, bluetooth or wifi depending on your setup. Simply select the connection method using the drop down box and type in the rig's connection details.
 For SSH use the format root@yourigname/ipaddress:22
 This app will use the same commands as other terminal session apps such as PuTTy.
 
@@ -159,8 +159,8 @@ To install frontail, just call `npm i frontail -g`.
 
 For a test run you have to call `frontail /var/log/openaps/pump-loop.log` and visit `<your rigs name>.local:9001` or `<your rigs IP>:9001` in a browser. The browser will show you the same output as the command `l` does.
 
-To make this serves always available, you have to start frontail on startup in daemon mode. 
-To do so, add frontail with your desired options to `/etc/rc.local` bevor the exit call.
+To make this service always available, you have to start frontail on startup in daemon mode. 
+To do so, add frontail with your desired options to `/etc/rc.local` before the exit call.
 
 #### Excample for Pi with pump-loop and cgm-loop log files.
 ```

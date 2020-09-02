@@ -268,14 +268,16 @@ If you want to secure your Nightscout and CGM data, then all rigs need to have o
 
     Name: `oref0rig`
 
-    Permissions:  Add the following 6 permissions. Note that the default window is too small to see them all after you paste them in.
+    Permissions:  Add the following 8 permissions. Note that the default window is too small to see them all after you paste them in.
     ```
     api:devicestatus:create, 
     api:devicestatus:read, 
     api:entries:create, 
     api:entries:read, 
     api:treatments:create, 
-    api:treatments:read
+    api:treatments:read, 
+    api:profile:create, 
+    api:profile:read
     ```
 
     ![AddRole](../Images/nightscout/role-oref0rig.png)

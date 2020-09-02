@@ -23,13 +23,27 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 ### A. xDrip+ for Android users
 
-Android users can use the xDrip+ Android app. The details for setting up  offline looping with xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
+Android users can use the xDrip+ Android app for offline looping, assuming xDrip+ is used as the CGM data source. There are two ways to get offline looping to work with xDrip+. Firstly, when connected to an Android phone running xDrip+, you can enable the phone to share the CGM information to OpenAPS, after which OpenAPS will automatically fetch the CGM data directly from the phone when connected onto the phone hotspot, even in cases where the phone is actually offline.
+
+To enable the xDrip service for OpenAPS, go to the Inter-app settings section in xDrip settings and enable the xDrip Web Service and Open Web Service settings, then enter xDrip Web Service Secret, which has to match the same secret you have configured for Nightscout. After these settings are turned on,OpenAPS will query your phone for the CGM data automatically without additional configuration settings. You can validate the offline looping works by connecting your rig to the xDrip hotspot and checking the ns-loop.log has a line saying `CGM results loaded from xDrip`.
+
+<details>
+<br>
+  
+  <summary><b>Click here</b> to display images of the xDrip settings screens</summary>
+   
+   ![Settings](../Images/xDrip_offline_1.png)
+   ![Secret](../Images/xDrip_offline_2.png)
+
+</details>
+
+The second method involves installing an application called xDripAPS onto your rig. The details for setting up xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
    * There is no direct iOS version of xDrip+. [Spike](https://spike-app.com/) is a different app with a different set of features.
 
-### B. Plug CGM into rig (easiest)
+### B. Plug CGM into rig (easiest for G4/G5)
 
-**EASIEST:** For either Android or iPhone users, you can plug the CGM receiver directly into your rig via USB. This will pull BGs into the rig directly from the receiver and be used for looping.  If you are a G4 user, this should also bring RAW BG data into the rig during sensor restarts or ??? times (although multiple users with pediatric model G4 receivers have reported inability to obtain raw data.  This seems to be related to a firmware difference between adult and pediatric G4 receivers).  The rig will loop using RAW BGs so long as the BG value is under 150 mg/dl.  A few notes about how to make the direct-receiver configuration work:
+**EASIEST:** For either Android or iPhone G4/G5 users, you can plug the CGM receiver directly into your rig via USB. This will pull BGs into the rig directly from the receiver and be used for looping.  If you are a G4 user, this should also bring RAW BG data into the rig during sensor restarts or ??? times (although multiple users with pediatric model G4 receivers have reported inability to obtain raw data.  This seems to be related to a firmware difference between adult and pediatric G4 receivers).  The rig will loop using RAW BGs so long as the BG value is under 150 mg/dl.  A few notes about how to make the direct-receiver configuration work:
 
    * Explorer boards built prior to late January of 2017 are not always working well/automatically with a CGM receiver plugged in.  These boards can be identified by looking to see if they say "2016" on the board's label tag, as shown in the photo below.  The boards can be fixed to use a CGM receiver by making a single trace cut, but doing so will disable the board's the ability to re-flash your Edison. Please make sure you have a second Explorer board or another base block or breakout board that you can use to re-flash the Edison if needed before considering this modification. For more details, see [this issue](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/issues/14), and if you decide to make the cut, see [this document for details on how to cut the copper trace from pin 61 of the 70 pin connector](https://github.com/EnhancedRadioDevices/915MHzEdisonExplorer/wiki#usb-otg-flakiness). Cut in two places and dig out the copper between. Cut by poking a razor point in. Avoid the narrow trace above the one being cut.
    
@@ -47,8 +61,6 @@ Android users can use the xDrip+ Android app. The details for setting up  offlin
 
    * The order of the cables and ports is important.  The OTG cable must be plugged into the OTG port on the Explorer board.  There are two kinds of OTG cables; (1) both ends are micro-USB like the one you can [order here](https://www.amazon.com/dp/B00TQOEST0/ref=cm_sw_r_cp_api_Niqfzb3B4RJJW) or (2) one end is USB and one end is micro-USB like the one you can [order here](https://www.adafruit.com/product/1099).  Both will work, but if you have the second kind, that cable must be the one plugged into the rig directly, and the other non-OTG cable must be plugged into the receiver (as shown in photo below).  That port is labeled on the underside of the port, it is the one closest to the lipo battery plug. A USB battery or wall charger must be plugged into the UART port to supply sufficient voltage to the OTG port (the lipo battery alone is not enough to power the OTG port). 
    
-
-
 <details>
 <br>
   
@@ -63,10 +75,12 @@ Android users can use the xDrip+ Android app. The details for setting up  offlin
 
 ### C. Send G5 or G6 BGs direct to rig (xdrip-js, Lookout/Logger)
 
-On your OpenAPS rig, the xdrip-js library can read directly from the Dexcom transmitter, similar to xdrip+ on the phone. It replaces the iPhone Dexcom mobile app, or xdrip+ on the phone, they cannot be used simultaneously (and you cannot use more than one rig with xdrip-js at a time). However, you can use a Dexcom receiver at the same time as xdrip-js. (The gitter channel for xdrip-js and related stuff is at [https://gitter.im/thebookins/xdrip-js](https://gitter.im/thebookins/xdrip-js) - head there for questions about setup.) There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
+On your OpenAPS rig, the xdrip-js library can read directly from the Dexcom transmitter, similar to xdrip+ on the phone. It can be configured to replace either the Dexcom receiver or the iPhone Dexcom mobile app / xdrip+ on the phone. In Alternate Channel (receiver emulation) mode, xdrip-js can be used simultaneously with a phone app. You cannot use more than one rig with xdrip-js alongside a phone, but it is possible to configure one rig to emulate a phone and one rig to emulate a receiver if desired. (The gitter channel for xdrip-js and related stuff is at [https://gitter.im/thebookins/xdrip-js](https://gitter.im/thebookins/xdrip-js) - head there for questions about setup.) There are two ways to use the xdrip-js library (you can only use one at a time on the rig):
 
 #### Lookout/Logger:
-   
+
+The oref0-setup option for `xdrip-js` installs Logger by default.
+
    * **Lookout** - this application runs on your rig and uses the xdrip-js library to read from the G5 or G6 transmitter directly. It uses the transmitter's built-in calibration algorithm, and you can enter BG calibrations either from the receiver or from a browser on your phone or computer, when connected to a web server that Lookout manages on your rig. The Lookout web pages also allow you to view CGM, pump, and OpenAPS status. Regardless of whether you use the receiver or Lookout to enter calibrations, they will be sent to the transmitter and both devices will report the same resulting BG values (though they may take a reading or two to 'catch up' after a calibration). Depending on your phone's hotspot capabilities, you may be able to access the Lookout web server even when cellular data is not available. Lookout will read Dexcom transmitter BG data and update OpenAPS locally (via xDripAPS), so your rig will continue to loop while offline, as well as send to Nightscout when your rig is online. Since Lookout uses the official transmitter calibration algorithm, it still requires sensor restarts every 7 days, with 2-hour warmups, and cannot be used with transmitters that have reached the Dexcom expiration (105-112 days from their first use).
    
    * **Logger** (xdrip-js-logger) - this application is restarted regularly from your rig's crontab, and uses the xdrip-js library to read from the Dexcom G5 or G6 transmitter directly. It can use non-expired or expired transmitters. It leverages both the in transmitter session calibration algorithms and falls back to LSR calibrations automatically when the sensor has an issue or stops (i.e. after 7 days). For LSR calibration, Logger uses the raw filtered/unfiltered values from the Dexcom transmitter, instead of the official calibrated value, and so can be used with transmitters that are past their standard expiration (including those with replaced batteries). Logger also has the ability to reset an expired transmitter to new so that in transmitter calibrations can be used (even for battery replaced transmitters). Calibrations for Logger are entered through nightscout as BG Treatments, or through the pump (e.g., via the Contour Next Link meter that automatically loads to the pump), or through the command line. BG data is sent to both OpenAPS (via xDripAPS) locally, so your rig will continue to loop while offline, and include Nightscout when online. You can use a receiver with Logger, but the BG values will not necessarily match between the two, and the calibrations on the receiver must be entered separately. Nightscout is the user interface for entering calibration and getting sensor status / requests such as "Needs calibration" as Announcements. Nightscout also shows the transmitter battery status, voltages, resistance, temperature every 12 hours as a note. Nightscout is also used to let Logger know that a new sensor has been inserted and to start a sensor. You can set the time back on a start - i.e. 2 hours (if you soaked the sensor). Logger has command line scripts that run on the rig (cgm-reset, cgm-start, cgm-stop, cgm-battery, and calibrate). There is currently no local web browser for entering calibrations or interacting with Logger, so the only way to view its data is through a terminal, xDripAPS web server, or Nightscout. **NOTE: for expired transmitters, Logger LSR calibration method is an approximation of what the Dexcom transmitter does internally so caution and serious oversite and testing should be exercised when using.**
@@ -207,7 +221,7 @@ To change your target on your Medtronic pump do the following:
 1. Make sure the EDIT SETTINGS screen is open: Main > Bolus > Bolus Setup > Bolus Wizard Setup > Edit Settings
 2. Select BG Target, then press ACT, and change your target.
 
-If you wish to set a true temporary target while offline, you can do so by ssh'ing into the rig and running `oref0-set-local-temptarget <target> <duration> [starttime]`.  So for example, to set a 110 local temp target for 60 minutes, you can run `oref0-set-local-temptarget 110 60`.  In the future, we plan to expose this local temp target functionality using the offline web page interface, but for now it only works via `ssh`.
+If you wish to set a true temporary target while offline, you can do so by ssh'ing into the rig and running `cd /root/myopenaps && oref0-append-local-temptarget <target> <duration> [starttime]`.  So for example, to set a 110 local temp target for 60 minutes, you can run `cd /root/myopenaps && oref0-append-local-temptarget 110 60`.  In the future, we plan to expose this local temp target functionality using the offline web page interface, but for now it only works via `ssh`.
 
 ********************************
 

@@ -44,7 +44,7 @@ See below for different ways to access your rig:
 
 ### If your computer and rig are on the same wifi network
 
-![If your computer and rig are on the same wifi network](../../Images/Computer_rig_same_wifi.png)
+![If your computer and rig are on the same wifi network](../Images/Computer_rig_same_wifi.png)
 
 #### For Mac computers
 
@@ -382,10 +382,10 @@ If your computer and rig are on the same wifi network you can use Apache Chainsa
 
 example picture:
 
-### To setup appache chainsaw on your computer, follow the following instructons:
-1) Download the following version of appache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
+### To setup apache chainsaw on your computer, follow the following instructons:
+1) Download the following version of apache chainsaw from here: https://github.com/tzachi-dar/logging-chainsaw/releases/download/2.0.0.1/apache-chainsaw-2.0.0-standalone.zip (please note this version was changed to fit the openaps project, other releases of appach chainsaw will not work with a rpii).
 1) Unzip the file.
-1) On ypur pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
+1) On your pc, create a configuration file called openaps.xml with the following data (for example notepad openaps.xml):
     ```
     <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE log4j:configuration >
@@ -410,16 +410,16 @@ example picture:
     </log4j:configuration>
 
     ```
-    Make sure to replace the password, with your rigs password, and 192.168.1.20 with the ip/hostname of your rig.
-1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin\chainsaw (linux and mac)
+    Make sure to replace the password, with your rig's password, and 192.168.1.20 with the ip/hostname of your rig.
+1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin/chainsaw (linux and mac)
 1) From the file menu choose 'load chainsaw configuration'
 1) Choose use chainsaw configuration file.
 1) press open file.
 1) choose the file openaps.xml
 1) (optional) mark the checkbox "always start chainsaw with this configuration."
 
-Chainsaw has a welcome tab and a good toturial, use them.
-Still here are a few highligts:
+Chainsaw has a welcome tab and a good tutorial, use them.
+Still here are a few highlights:
 1) To see only pump-loop you can either select 'focus on openaps.pump-loop.log' or on the refine focus on field enter 'logger==openaps.pump-loop'
 1) To filter only messages that contain the words 'autosens ratio' enter on the 'refine focus' logger==openaps.pump-loop && msg~='autosens ratio'
 1) To highlight lines that contain 'refine focus', enter msg~='autosens ratio' on the find tab.
@@ -673,6 +673,6 @@ C. Accessing via your phone
 
 **IPHONE USERS:** To access this from an iphone browser, enter something like the following: http://172.20.10.x:1337/index.html and you should receive an unformatted html page with the data in it. The value you need will be the ip address you see when you first set up bluetooth on your rig, and can be found using `ifconfig bnep0` when your rig is connected to your phone via bluetooth.  If you want to improve the output for a browser, the script can be modified to generate html tags that will allow formatting and could provide colouring if various predicted numbers were looking too low.
 
-**ANDROID USERS:** On Android, you can download http-widget (https://play.google.com/store/apps/details?id=net.rosoftlab.httpwidget1&hl=en_GB) and add a widget to your home screen that will display this data. You will need the IP address that your rig uses. If you are using xdrip as your glucose data source, it is the same as the value you use there.
+**ANDROID USERS:** On Android, you can download [http-widget](https://play.google.com/store/apps/details?id=com.axgs.httpwidget&hl=en_US) and add a widget to your home screen that will display this data. You will need the IP address that your rig uses. If you are using xdrip as your glucose data source, it is the same as the value you use there.
 
-**SAMSUNG GEAR S3 WATCH USERS:** If you use a Samsung Gear S3 watch, you can use the above http-widget with Wearable Widgets (http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.
+**SAMSUNG GEAR S3 WATCH USERS:** If you use a Samsung Gear S3 watch, you can use the above http-widget with [Wearable Widgets](http://wearablewidgets.com) to view what OpenAPS is doing locally, without internet connection.
