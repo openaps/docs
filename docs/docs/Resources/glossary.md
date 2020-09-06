@@ -15,7 +15,6 @@
 
 <b>Bolus</b> - extra insulin given by a pump, usually to correct for a high Blood Glucose (BG) or for carbohydrates
 
-
 <b>CGM</b> - Continuous Glucose Monitor, a temporary glucose sensor that is injected into your skin (the needle is removed) for and provides BG readings approximately every 5 minutes.  Different models exist in the market with various calibration requirements varianing from no calibrations to 2 a day, and official sensor lifetimes varying from 6-10 days. 
 
 <b>closed-loop</b> - closed-loop systems make automatic adjustments to basal delivery, without needing user-approval, based on an algorithm.
@@ -28,7 +27,7 @@
 
 <b>DIA</b> - Duration of Insulin Action, or how long the insulin is active in your body (Ranges 3-6 hours typically).
 
-<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.  While what's displayed in your  Nightscout (NS) IOB pill may match what IOB is in your current loop, it's probably a good practice to not rely on this pill alone for determining IOB.
+<b>IOB</b> - Insulin On Board, or insulin active in your body. Note that most commercially available pumps calculate IOB based on bolus activity only.  Usually, but not always, Net IOB is what Nightscout displays as 'IOB'.  While what's displayed in your Nightscout (NS) IOB pill may match what IOB is in your current loop, it's probably a good practice to not rely on this pill alone for determining IOB.
 
 <b>IOBpredBG</b> - also a variable reported in your Openaps Pill in Nightscout - this is a predicted BG curve that is based on insulin only. It is represented by the purple prediction lines
 <b>ISF</b> - insulin sensitivity factor - the expected decrease in BG as a result of one unit of insulin. 
@@ -56,7 +55,7 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>UAMpredBG's</b> - this variable represents the impact of 'floating carbs' and insulin together in predicting the BG curve, giving a prediction line for the new feature Unannounced Meals (or carbs).
 
-<b>SMB</b> - Super Micro Bolus. An alternetive insulin delivery method introduced in oref1 which allows oref1 to safely dose mealtime insulin more rapidly.
+<b>SMB</b> - Super Micro Bolus. An alternative insulin delivery method introduced in oref1 which allows oref1 to safely dose mealtime insulin more rapidly.
 
 ## OpenAPS-specific terminology 
 
@@ -69,7 +68,7 @@ Example: 1 u of insulin for 40 mg/dL (2.2 mmol/L)
 
 <b>Avg. Delta</b> - average BG delta between 5 min intervals.
 
-<b>Delta</b> - difference between the last two BG values. An asterick (*) is displayed in Nightscout when estimating due to missing BG values.
+<b>Delta</b> - difference between the last two BG values. An asterisk (*) is displayed in Nightscout when estimating due to missing BG values.
 
 <b>Eventual BG</b> - BG after DIA hours (or maybe a bit sooner if most of your insulin was awhile ago), considering the current IOB and COB.
 
