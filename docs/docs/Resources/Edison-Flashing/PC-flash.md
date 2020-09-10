@@ -119,7 +119,7 @@ CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going. [Hea
 If the rig fails to flash correctly or you don't have access to root to type the reboot command you have a couple of options providing you can connect to the rig via PuTTY:
 
 Either:
-* After running the ```flashall.bat``` command in the Windows command prompt window, you can press the little black button on the underside of the rig next to the battery connector, which will turn the rig off, the centre light will go out, pressing again will restart the rig (the same as rebooting the rig via PuTTY).
+* After running the ```flashall.bat``` command in the Windows command prompt window, you can hold down the little black button on the underside of the rig next to the battery connector for 10 seconds, which will turn the rig off, and the centre light will go out. Pressing again for a couple seconds will restart the rig (the same as rebooting the rig via PuTTY).
 
 Or: (this one is eaiser to do)
 * Make sure you can talk to the rig via Putty via the USB cables via the UART port
