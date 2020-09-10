@@ -45,11 +45,12 @@ This can mean you have a bad usb cable, or port connection at either end of the 
     * Make sure you are connected to UART on your radio board. Simple mistake to make. Only the UART USB will accept serial connections
     * If you're on Windows, check you're using the right COMM port number in Putty (per device manager)
     * Swap USB ports on your computer
-    * Restart your computer. Oddly enough, this can seemingly free up stuck system resources. Particularly on Mac's multiple attempts at a serial connection, even after successful ones, seem to lock you ouot of getting subsequent successful ones.
+    * Restart your computer. Oddly enough, this can aparently free up stuck system resources. Particularly on Mac's, multiple attempts at a serial connection, even after successful ones, seem to lock you out of getting subsequent successful ones.
     * Restart your board with the power button (see above)
     * Hit enter a few times. This can wake the connection sometimes.
   * For troubleshooting OTG port connections (for flashing, running flashall)...
     * Click in the terminal/CMD window, hit enter, after executing the flashall command. Sometimes the command doesn't fire if it doesn't immediately find the board. This is especially common if you are rebooting or replugging things.
-* Which Jubilinux? Check Linux Version Using lsb_release Command (from within Linux) `lsb_release -a` (e.g. Debian 9.13 = jubilinux-v9+0.4.1, Debin 9.12 = jubilinux-v0.3.0)
 
-<!-- ToDo: For  aditional troubleshooting steps installing OpenAPS via Bootstrap, Runagain or Setup click here -->
+<!-- To Do: For  aditional troubleshooting steps installing OpenAPS via Bootstrap, Runagain or Setup click here -->
+
+<!--To Do: Which Jubilinux? Check Linux Version Using lsb_release Command (from within Linux) `lsb_release -a` (e.g. Debian 9.13 = jubilinux-v9+0.4.1, Debin 9.12 = jubilinux-v0.3.0)-->
