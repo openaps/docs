@@ -2,7 +2,7 @@
 
 See also [the in-line troubleshooting steps](https://openaps.readthedocs.io/en/latest/docs/Resources/Edison-Flashing/all-computers-flash.html#troubleshooting)
 
-For different reasons, users come to need to re-flash from time to time, or build an install on hardware that may have been acquired second hand from another user.  With both Jubilinux, Edison Intel Tools, and OpenAPS getting less and less updates we are starting to see more and more issues cropping up getting a clean install. These tips may also help first timers.
+For different reasons, users come to need to reflash from time to time, or build an install on hardware that may have been acquired second hand from another user.  With both Jubilinux, Edison Intel Tools, and OpenAPS getting less and less updates we are starting to see more and more issues cropping up getting a clean install. These tips may also help first timers.
 
 Important: Try to have two rigs, and only attempt to reflash and reinstall one if you have another working rig nearby looping. Give yourself time. If problems occur it can take hours (or days, especially if you are relying on community members advice online in different time zones!). So start early on a day you have some free time up your sleeve.
 
@@ -20,7 +20,7 @@ Thankfully there is a simple way around this...
 
 Go to the u-boot console. This is what you get after hitting enter a few times as the Edison boots while connected to serial e.g. "Press any key to load app", or something to that effect.
 
-With a terminal emulator (Putty or Mac OS Terminal) connected to the edison serial port, hit return immediately after startup. Once in the u-boot console,  use the command:
+With a terminal emulator (Putty or Mac OS Terminal) connected to the Edison serial port, hit return immediately after startup. Once in the u-boot console,  use the command:
 
 Warning: this will zapp any previous Jubilinux install, including your old OpenAPS install, and any files or config on your old Edison OS, ready to reflash your Edison. Be sure you don't need anything off your rig first.
 
@@ -45,7 +45,7 @@ This can mean you have a bad usb cable, or port connection at either end of the 
     * Make sure you are connected to UART on your radio board. Simple mistake to make. Only the UART USB will accept serial connections
     * If you're on Windows, check you're using the right COMM port number in Putty (per device manager)
     * Swap USB ports on your computer
-    * Restart your computer. Oddly enough, this can aparently free up stuck system resources. Particularly on Mac's, multiple attempts at a serial connection, even after successful ones, seem to lock you out of getting subsequent successful ones.
+    * Restart your computer. Oddly enough, this can apparently free up stuck system resources. Particularly on Mac's, multiple attempts at a serial connection, even after successful ones, seem to lock you out of getting subsequent successful ones.
     * Restart your board with the power button (see above)
     * Hit enter a few times. This can wake the connection sometimes.
   * For troubleshooting OTG port connections (for flashing, running flashall)...
