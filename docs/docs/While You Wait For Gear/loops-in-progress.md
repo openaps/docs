@@ -316,3 +316,4 @@ List of people who are working on closed loops:
 - John Clifton (Sussex, UK)
 - Pam Kavanagh (Kildare, Ireland)
 - Nigel Lund (Adelaide, Australia)
+- Taivo Liiv (Estonia)
