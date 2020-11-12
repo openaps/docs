@@ -4,6 +4,7 @@ Troubleshooting
 .. toctree::
    :maxdepth: 4
    
+   Flashing-and-updating-Jubilinux
    oref0-setup-troubleshooting
    General_linux_troubleshooting
    Pump-rig-communications-troubleshooting
