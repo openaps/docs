@@ -315,5 +315,6 @@ List of people who are working on closed loops:
 - Martin Fredheim (Oslo, Norway)
 - John Clifton (Sussex, UK)
 - Pam Kavanagh (Kildare, Ireland)
+- Igor Chambon (Sao Paulo, Brazil) 
 - Nigel Lund (Adelaide, Australia)
 - Taivo Liiv (Estonia)
