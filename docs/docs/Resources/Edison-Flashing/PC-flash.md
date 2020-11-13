@@ -104,7 +104,7 @@ Your screens should look like this:
 
 * Return to the screen on the right (the PuTTY window) and enter `reboot` 
 
-You will see many, many messages go by on the screens (mostly on the right-side screen).  
+You will see many, many messages go by on the screens (mostly on the right-side screen). If this fails see below for two workaround options. 
 
 ![flash continues](../../Images/Edison/mid_flash.png)
 
@@ -113,6 +113,26 @@ After several reboots (don’t panic), you should get a ubilinux login prompt (I
 ![Successful flash](../../Images/Edison/successful.png)
 
 CONGRATULATIONS! You just flashed the Edison! Wahoo! Now, let's keep going. [Head back to the main install instructions for the easiest route of installing wifi, dependencies, and installing OpenAPS](http://openaps.readthedocs.io/en/latest/docs/Build%20Your%20Rig/OpenAPS-install.html#steps-2-3-wifi-and-dependencies). (Below is manual instructions, but the main install instructions have an easier path to automate the below.)
+
+#### Errors when flashing the rig
+
+If the rig fails to flash correctly or you don't have access to root to type the reboot command you have a couple of options providing you can connect to the rig via PuTTY:
+
+Either:
+* After running the ```flashall.bat``` command in the Windows command prompt window, you can hold down the little black power button on the underside of the rig next to the battery connector for 10 seconds, which will turn the rig off, and the centre light will go out. Pressing little black power button again for 10 seconds will restart the rig and the flash process will continue (the same as rebooting the rig via PuTTY).
+
+Or: (this one is eaiser to do)
+* Make sure you can talk to the rig via Putty via the USB cables via the UART port
+* Unplug both USB cables from the rig (the Edison is unpowered), it might be eaiser to do this from your PC end of the USB cable
+* Enter the ```flashall.bat``` command from the Windows command prompt window
+* Immediately plug in the two USB cables to connect the rig to the PC
+
+The Edison begins to boot and the PC recognizes the Edison board via the drivers that were loaded onto the PC. The Windows command window will show the progress of the flashall command. If this doesn't work the first time, repeat. The flashall command seems to be able to incrementally correct loading issues if it is done over and over again.
+The Edison is loaded through the OTG port. 
+
+It's really not necessary to have Putty up and running to reflash the Edison. However it is nice to see what is going on.
+The important part is to get the Edison connected quickly after the flashall command is entered. Once that is done you can restart Putty and see the flash process happening from both the Windows Command window and the Putty Terminal screen.
+
 
 ### **1-4 Hostname for Edison**
 
