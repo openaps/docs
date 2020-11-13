@@ -9,3 +9,4 @@ Troubleshooting
    Pump-rig-communications-troubleshooting
    CGM-rig-communications-troubleshooting
    Rig-NS-communications-troubleshooting
+   Flashing-and-updating-Jubilinux
