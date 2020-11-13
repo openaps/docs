@@ -13,7 +13,11 @@ The amount of Insulin on Board (IOB) at any given moment is a key input into the
 
 
 * **activity:** This is percent of insulin treatment that was active in the previous minute." 
+---
 
+<details>
+    <summary><b>Click here to expand information about insulin activity calculations for older insulin curves with DIA shorter than the 0.7.0 default of 5, as well as information about current variables used in IOB calculations:</b></summary>
+<br>
      
 ## Insulin Activity
 
@@ -90,13 +94,15 @@ Finally, two sources to benchmark the `iob` curves against can be found [here](h
 
 >The `activity` and `iob` concepts plotted here are expressed in percentage terms and are used to scale the `treatment.insulin` dosage amounts, so the units for the `activityContrib` and `iobContrib` variables are *units of insulin per minute* and *units of insulin remaining at each minute*, repectively. Because the `activity` and `iob` variables in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) are just the sums of all insulin treatments, they're still in the same units of measurements: *units of insulin per minute* and *units of insulin remaining each minute*.
 
+</details>
+
 ---
 
 # Understanding the New IOB Curves Based on Exponential Activity Curves
 
-As mentioned at the top of this page, the next OpenAPS release will have new activity curves available for users to use. 
+As of 0.6.0 OpenAPS has new activity curves available for users to use. 
 
-In the new release, users will be able to select between using a "bilinear" (looks like what was  plotted above: /\) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
+In the new release, users are able to select between using a "bilinear" (looks like what was  plotted above: `/\`) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
 
 A user can select one of three curve defaul settings:
 
