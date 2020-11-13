@@ -82,9 +82,10 @@ Return to your home screen and you will be able to verify the `Size on Disk` has
 
  **NOTE:**  Before you cleanout your data, please check out the option to upload (or "donate") your data anonymously to the [OpenAPS Data Commons](http://openaps.readthedocs.io/en/latest/docs/Give%20Back-Pay%20It%20Forward/data-commons-data-donation.html) project.  The OpenAPS Data Commons was created to enable a simple way to share data sets from the community, both with traditional researchers who will create traditional research studies, and with groups or individuals from the community who want to review data as part of their own research projects. So before you delete or cleanout any data from your mLab, consider doing an upload to OpenAPS Data Commons first.
 
-If your mLab database issue is `size `, then you will need to cleanout some of the historical data collected by your NS site. There are two methods to cleanout space and delete data in your mLab database:
+If your mLab database issue is `size `, then you will need to cleanout some of the historical data collected by your NS site. There are three methods to cleanout space and delete data in your mLab database:
 
 * mLab direct access
+* mLab API
 * Nightscout admin tools
 
 #### mLab Direct Access
@@ -93,15 +94,78 @@ If your mLab database issue is `size `, then you will need to cleanout some of t
 
 * Click on a collection’s name to open it. 
 
-![mLab collection select](../Images/collection-name.png) 
+![mLab collection select](../Images/mlab_collection-name.png) 
 
 * Click on the button that says “Delete all documents in collection” and then confirm the deletion.
 
-![mLab collection select](../Images/delete-docs.png) 
+![mLab collection select](../Images/mlab_delete-docs.png) 
 
 *  You can confirm that your cleanout has resolved the problem, by checking that your database size is below 500 MB now.  Click on the `Home` link in top left.  Then review the size of the database as shown (note: Screenshots are from different databases...they are just to show how to navigate and what results you are looking for. Minor inconsistencies in continuity of the screenshots should be ignored).
 
 ![mLab collection select](../Images/mlab_size.jpg) 
+
+#### mLab API
+
+Using the mLab API, it is possible to remove old data while retaining recent data. This can useful when you use Nightscout reports. The API supports advanced queries to help you precisely select only the data you wish to remove.
+
+1. Login to your mLab database, as shown above, by clicking on the mLab logo in your Heroku dashboard.
+2. Click on your username in the top right
+
+![mLab user select](../Images/mlab_user.png)
+
+3. Note down your API key, and enable Data API access
+
+![mLab API settings](../Images/mlab_api.png)
+
+4. Return to the mLab dashboard by clicking on the logo in the top left.
+5. Note down the database name where your Nightscout data is stored.
+
+![mLab database name](../Images/mlab_database_name.png)
+
+6. Write your search query. Two examples are shown below. Make sure that you understand the structure of the data in your different collections, different collections have different date identifiers.
+
+**Search query for treatments added in 2017, and before March 20th 2018**
+```json
+{
+    "created_at": {
+        "$regex": "(2017.*)|(2018-0[1-2].*)|(2018-03-[0-1].*)",
+        "$options": "g"
+    }
+}
+```
+
+
+**Search query for entries added before January 25th 2018**
+```json
+{
+    "date": {
+        "$lt": 1516838400000
+    }
+}
+```
+
+7. Test your search query by copy-pasting it in the mLab search interface.
+
+![mlab search button](../Images/mlab_search_button.png)
+
+![mlab search example](../Images/mlab_search_example.png)
+
+8. Convert your search query to URL encoding. A useful tool for this can be found [here](https://meyerweb.com/eric/tools/dencoder/)
+9. Construct the URL for your API call: `https://api.mlab.com/api/1/databases/{database_name}/collections/{collection_name}?q={query}&apiKey={API_key}`  
+For example: `https://api.mlab.com/api/1/databases/heroku_rkc2c09g/collections/treatments?q=%7B"created_at"%3A%7B"%24regex"%3A"%282017.*%29%7C%282018-0%5B1-2%5D.*%29%7C%282018-03-%5B0-1%5D.*%29"%2C"%24options"%3A"g"%7D%7D&apiKey=hiddenhiddenhiddenhidden`
+
+10. Using a tool such as cURL or Postman, perform a PUT request to the URL you constructed above. The body of the request should contain an empty array: `[]`
+
+![postman request](../Images/mlab_postman_example.png)
+
+11. The response of your request should have status code `200 OK`, with a body like:
+
+```json
+{
+    "n": 0,
+    "removed": 30201
+}
+```
 
 #### Nightscout Admin Tools
 
