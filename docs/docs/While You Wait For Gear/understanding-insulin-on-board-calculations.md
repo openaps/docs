@@ -102,7 +102,7 @@ Finally, two sources to benchmark the `iob` curves against can be found [here](h
 
 As of 0.6.0 OpenAPS has new activity curves available for users to use. 
 
-In the new release, users are able to select between using a "bilinear" (looks like what was  plotted above: /\) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
+In the new release, users are able to select between using a "bilinear" (looks like what was  plotted above: `/\`) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
 
 A user can select one of three curve defaul settings:
 
