@@ -16,7 +16,7 @@ In oref0 0.6.0 and beyond, autotune runs every night on your rig automatically. 
 
 Negative IOB happens when you are getting less insulin than your normal basal amount. We created [Autotune](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html) to help deal with these situations and to automatically tune your basal rates for any recurring patterns where you need more or less basal. However, if you're not running autotune, and you're observing patterns of negative IOB (for more than a day or two in a row), indicating a trend, you may need to change your settings. Things to test include:
 
-* Adjusting your DIA. In oref0 0.7.0 and beyond, it will default to using a DIA of 5, unless the value is set higher in the pump. It is also very common for OpenAPS users to have DIA of 6 or 7 set in their pump.
+* Adjusting your DIA. In oref0 0.6.0 and beyond, it will default to using a DIA of 5, unless the value is set higher in the pump. It is also very common for OpenAPS users to have DIA of 6 or 7 set in their pump.
 * Basal rates are too high for the hours preceding the pattern of negative IOB.
 * ISF is wrong. (Usually not this; start with testing and tweaking basals and DIA first.)
 
