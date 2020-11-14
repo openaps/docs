@@ -87,6 +87,7 @@ Finally, two sources to benchmark the `iob` curves against can be found [here](h
 **A NOTE ABOUT VARIABLE NAMES:**  A separate program [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) creates variables named `activity` and `iob`. Those two variables, however, are not the same as the `activity` and `iob` variables plotted in this documentation page. Those two variables are summations of all insulin treatments still active. 
 
 The `activity` and `iob` concepts plotted here are expressed in percentage terms and are used to scale the `treatment.insulin` dosage amounts, so the units for the `activityContrib` and `iobContrib` variables are *units of insulin per minute* and *units of insulin remaining at each minute*, repectively. Because the `activity` and `iob` variables in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) are just the sums of all insulin treatments, they're still in the same units of measurements: *units of insulin per minute* and *units of insulin remaining each minute*.
+
 </details>
 
 ---
