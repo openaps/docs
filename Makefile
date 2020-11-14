@@ -220,6 +220,6 @@ pseudoxml:
 .PHONY: serve
 serve:
 	@echo
-	make clean build html
+	make clean html
 	(cd $(BUILDDIR)/html/; python -m SimpleHTTPServer 8000 )
 

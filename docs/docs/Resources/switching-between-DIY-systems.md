@@ -16,31 +16,11 @@ If you’re coming to try OpenAPS from a Loop system, there’s going to be some
 
 ### Main Hardware Differences:
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Built using</th>
-      <th>Brains sit</th>
-      <th>Communications reside</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Loop<sup></th>
-      <td>xCode on an Apple computer</td>
-      <td>on your iPhone</td>
-      <td>on the Rileylink</td>
-    </tr>
-    <tr>
-      <th>OpenAPS</th>
-      <td>any computer</td>
-      <td>on the “rig” (can be multiple kinds of rigs)</td>
-      <td>on the rig (usually with a built-in radio stick)</td>
-    </tr>
+| System | Built using | Brains sit | Communications reside |
+| ------ | ----------- | ---------- | --------------------- |
+| Loop | xCode on an Apple computer | on your iPhone | on the Rileylink |
+| OpenAPS | any computer | on the "rig" (can be multiple kinds of rigs) | on the rig (usually with a built-in radio stick) |
 
-  </tbody>
-</table>
 
 **Loop** is built using XCode app on an Apple computer.  The brains of the system sit on your iPhone.  The communications reside in the RileyLink, acting as a communicator between the iPhone and pump.  
 
