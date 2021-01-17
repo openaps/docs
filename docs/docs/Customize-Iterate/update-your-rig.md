@@ -22,6 +22,16 @@ However, if it's a brand-new feature that's being tested or is recently added to
 
 *(If you get a message that you need to commit or stash, use command `git stash`*)
 
+Trouble Shooting Installing Master:
+If installing Master fails with something like:
+```
+   File "/usr/local/lib/python2.7/dist-packages/parsedatetime/pdt_locales/icu.py", line 56, in get_icu 
+	result['icu'] = icu = pyicu.Locale(locale) 
+AttributeError: 'module' object has no attribute 'Locale
+```
+
+then run ```pip install parsedatetime==2.5``` and then rerun ```oref0-runagain.sh```
+
 ### Alternative Step 1a (Dev): To get on "dev" branch to test even more recently added new stuff
 
 Or, if the feature you want hasn't been released yet, and you want to test the latest untested development version of `oref0`, run:
