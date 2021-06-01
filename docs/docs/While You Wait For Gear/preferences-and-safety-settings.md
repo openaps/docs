@@ -230,11 +230,11 @@ synonym for high_temptarget_raises_sensitivity
 
 #### high_temptarget_raises_sensitivity
 
-Defaults to false. When set to true, raises sensitivity (lower sensitivity ratio) for temp targets set to  >= 111.  Synonym for exercise_mode. The higher your temp target above 110 will result in more sensitive (lower) ratios, e.g., temp target of 120 results in sensitivy ratio of 0.75, while 140 results in 0.6 (with default halfBasalTarget of 160).
+Defaults to false. When set to true, raises sensitivity (lower sensitivity ratio) for temp targets set to  >= 111.  Synonym for exercise_mode. The higher your temp target above 110 will result in more sensitive (lower) ratios, e.g., temp target of 120 results in sensitivy ratio of 0.75, while 140 results in 0.6 (with default half_basal_exercise_target of 160).
 
 #### low_temptarget_lowers_sensitivity 
 
-Defaults to false. When set to true, can lower sensitivity (higher sensitivity ratio) for temptargets <= 99. The lower your temp target below 100 will result in less sensitive (higher) ratios, e.g., temp target of 95 results in sensitivy ratio of 1.09, while 85 results in 1.33 (with default halfBasalTarget of 160).
+Defaults to false. When set to true, can lower sensitivity (higher sensitivity ratio) for temptargets <= 99. The lower your temp target below 100 will result in less sensitive (higher) ratios, e.g., temp target of 95 results in sensitivy ratio of 1.09, while 85 results in 1.33 (with default half_basal_exercise_target of 160).
 
 #### sensitivity_raises_target
 
