@@ -15,11 +15,15 @@ If you didn't buy your Edison with jubilinux preinstalled, it comes with an oper
 
 ### **1-1 Prepare Windows Computer**
 
-- Install the [Intel Edison drivers for Windows](https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. After it is done downloading, click on the downloaded file and it will execute installation. (this link no longer contains the 'Windows standalone driver', see the note below)
+- Install the [Intel Edison drivers for Windows] https://www.intel.com/content/www/us/en/download/19060/26993/intel-edison-configuration-tool.html?product=83266). Select the top box "Download inteledisondriversetup1.2.1.exe". After it is done downloading, click on the downloaded file and it will execute installation.
+
+- (Old method) Install the [Intel Edison drivers for Windows](https://software.intel.com/en-us/iot/hardware/edison/downloads). Select the "Windows standalone driver" download. After it is done downloading, click on the downloaded file and it will execute installation. (this link no longer contains the 'Windows standalone driver', see the note below)
 
 ******
 
-Note: Intel has announced the Edison will be discontinued at the end of 2017.  As part of this, apparently, the old link to Edison drivers has been removed.  We are unsure if this is a temporary issue or long term.  Therefore, if the link above for Intel Edison Drivers is not working, you can use [this link](https://www.dropbox.com/s/d5ooojru5jxsilp/IntelEdisonDriverSetup1.2.1.exe?dl=0) to download them directly from an OpenAPS user's dropbox.  Obviously screenshots below will be different if Intel has not fixed or repaired their driver downloads page for Edisons.
+Note: Intel has announced the Edison will be discontinued at the end of 2017.  As part of this, apparently, the old link to Edison drivers has been removed.  We are unsure if this is a temporary issue or long term.  Therefore, if the links above for Intel Edison Drivers are not working, you can use [this link](https://www.dropbox.com/s/d5ooojru5jxsilp/IntelEdisonDriverSetup1.2.1.exe?dl=0) to download them directly from an OpenAPS user's dropbox.  Obviously screenshots below will be different if Intel has not fixed or repaired their driver downloads page for Edisons.
+
+If none of these are working ask on the https://gitter.im/nightscout/intend-to-bolus chat.
 
 ********
 
