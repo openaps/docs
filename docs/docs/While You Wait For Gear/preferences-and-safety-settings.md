@@ -340,13 +340,13 @@ Defaults to false. Using the pump bolus wizard to enter carbs will prevent SMBs 
 
 #### rewind_indicates_cartridge_change
 
-Defaults to false. If true, assumes reservoir and insulin have been replaced and resets Insulin Age (IAGE) on nightscout 
+Defaults to false. If true, assumes reservoir and insulin have been replaced and resets Insulin Age (IAGE) on nightscout.
 
 #### prime_indicates_pump_site_change
 
-Defaults to false. If true, assumes cannula has been replaced and resets Cannula Age (CAGE) on nightscout 
+Defaults to false. If true, assumes cannula has been replaced after a fixed prime (ignores manual primes) and resets Cannula Age (CAGE) on nightscout.
 
 #### battery_indicates_battery_change
 
-Defaults to false. If true, assumes battery has been replaced and resets Battery Age (BAGE) on nightscout 
+Defaults to false. If true, assumes battery has been replaced and resets Battery Age (BAGE) on nightscout.
 
