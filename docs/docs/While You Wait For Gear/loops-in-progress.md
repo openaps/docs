@@ -319,3 +319,4 @@ List of people who are working on closed loops:
 - Nigel Lund (Adelaide, Australia)
 - Taivo Liiv (Estonia)
 - Al Jeske (Edmonton, Alberta, CA)
+- Erik Schweighofer (Slovakia)
