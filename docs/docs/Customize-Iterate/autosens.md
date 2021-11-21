@@ -5,6 +5,7 @@ Wouldn't it be great if the system knew when you were running sensitive or resis
 
 When you watch your autosens log (shortcut command is `autosens-looplog`) and sensitivity changes is going to be detected, you might see something like this:
 ******************
+```
 Calculating sensitivity using 8h of non-exluded data
 Setting lastSiteChange to Tue Dec 19 2017 09:42:24 GMT-0600 (CST) using timestamp 2017-12-19T09:42:24-06:00
 u(xxxxxxxxxxxx11hxxxxxxxxxxxx12h=43g(xxxxxxxxxxxx13hxxxxxxxxxxxx14h=xxx45gxxxxxxxxx15hxxxxxxxxxxx16h=xxxxxxxx17hxxxxxx0gx)u(xxxxx18h=x35g(xx46gxxxxxxxxx19hxxxxxxx38gxxxxx20h=xxxxxxxxxxxx21hxxxxxx-x-x-x-x-x-x-22h=x-x-x-x-x-xxxxxxx23hxx0gx
@@ -23,6 +24,7 @@ Sensitivity normal.
 ISF adjusted from 120 to 120
 Using 24h autosens ratio of 1 (ISF 120)
 Autosens refreshed: {"ratio":1}
+```
 ******************
 Here's what each symbol above means:
 
