@@ -51,80 +51,24 @@ your data, customized watchfaces with your OpenAPS data, and integration with IF
   <summary><b>Click here to expand the list of the `Config Variables` you need to enter:</b></summary>
 <br>
 
-<table border="1">
-<thead>
-<tr>
-<th>KEY</th>
-<th>VALUE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>API_SECRET</th>
-<td>Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` or `&` symbols.</td>
-</tr>
-<tr>
-<th>AUTH_DEFAULT_ROLES</th>
-<td>When `readable`, anyone can view Nightscout without a token. Setting it to `denied` will require authentication. Setting it to `denied` requires oref 0.5.0-dev.</td>
-</tr>
-<tr>
-<th>DISPLAY_UNITS</th>
-<td>enter either mg/dl or mmol</td>
-</tr>
-<tr>
-<th>ENABLE</th>
-<td>bridge openaps pump iob basal careportal sage cage maker</br></br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between careportal.<br>**Notice we are not including cob here.**<br>If you are use Lookout or Logger, add xdrip-js to enable the CGM status pill<br>If you have other plugins that you would like to enable, please add them here.)</td>
-</tr>
-<tr>
-<th>DISABLE</th>
-<td>Leave blank</td>
-</tr>
-<tr>
-<th>ALARM_TYPES</th>
-<td>simple</td>
-</tr>
-<tr>
-<th>BG_HIGH</th>
-<td>Enter the numeric value of BG you’d like as an urgent high alarm. (Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).  </td>
-</tr>
-<tr>
-<th>BG_TARGET_TOP</th>
-<td>Enter the numeric value of the top of your target BG.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
-</tr>
-<tr>
-<th>BG_TARGET_BOTTOM</th>
-<td>Enter the numeric value of the bottom of your target BG.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
-</tr>
-<tr>
-<th>BG_LOW</th>
-<td>Enter the numeric value of the BG you’d like as an urgent low alarm.(Note: For users outside the US, this needs to be set in mgdl. Take your desired mmol number and multiply it by 18).</td>
-</tr>
-<tr>
-<th>PUSHOVER lines</th>
-<td>Can be left blank for now.  If you decide to use Pushover later, you can come back and add your info to these lines.</td>
-</tr>
-<tr>
-<th>CUSTOM_TITLE</th>
-<td>This will be the text displayed in the upper left part of the NS website.</td>
-</tr>
-<tr>
-<th>THEME</th>
-<td>change from default to colors</td>
-</tr>
-<tr>
-<th>BRIDGE_USER_NAME</th>
-<td>Enter your Dexcom Share Account login name.  This should be the same account name used in the Share2 or G5 Mobile app.</td>
-</tr>
-<tr>
-<th>BRIDGE_PASSWORD</th>
-<td>Enter your Dexcom Share Account password.</td>
-</tr>
-<tr>
-<th>BRIDGE_MAX_COUNT</th>
-<td>Default value is 1.  Setting this to 7 will update the last 35 minutes of data.</td>
-</tr>
-</tbody>
-</table>
+| KEY | VALUE |
+| --- | ----- |
+| **API_SECRET** | Create your own API_SECRET.  This is like the password to your NS site.  Please write it down somewhere safe or commit it to memory, you will be using it in the future.  It needs to be at least 12 characters long and should NOT use the `@` or `&` symbols. |
+| **AUTH_DEFAULT_ROLES** | When `readable`, anyone can view Nightscout without a token. Setting it to `denied` will require authentication. Setting it to `denied` requires oref 0.5.0-dev. |
+| **DISPLAY_UNITS** | Units will be mg/dL by default. If you want mmol/L, enter `mmol` or `mmol/L` here. |
+| **ENABLE** | `bridge openaps pump iob basal careportal sage cage maker`<br><br>(Enter all of the words without commas.  Just a single space between each word. Make sure autocorrect does not add space between `careportal`.<br>**Notice we are not including `cob` here.**<br>If you are use Lookout or Logger, add `xdrip-js` to enable the CGM status pill.<br>If you have other plugins that you would like to enable, please add them here.) |
+| **DISABLE** | Leave blank |
+| **ALARM_TYPES** | `simple` |
+| **BG_HIGH** | Enter the numeric value of BG you'd like as an urgent high alarm.<br>(Note: For users outside the US, this needs to be set in mg/dL. Take your desired mmol number and multiply it by 18). |
+| **BG_TARGET_TOP** | Enter the numeric value of the top of your target BG.<br>(Note: For users outside the US, this needs to be set in mg/dL. Take your desired mmol number and multiply it by 18). |
+| **BG_TARGET_BOTTOM** | Enter the numeric value of the bottom of your target BG.<br>(Note: For users outside the US, this needs to be set in mg/dL. Take your desired mmol number and multiply it by 18). |
+| **BG_LOW** | Enter the numeric value of the BG you’d like as an urgent low alarm.<br>(Note: For users outside the US, this needs to be set in mg/dL. Take your desired mmol number and multiply it by 18). |
+| **PUSHOVER_\*** lines | Can be left blank for now.  If you decide to use Pushover later, you can come back and add your info to these lines. |
+| **CUSTOM_TITLE** | This will be the text displayed in the upper left part of the NS website. |
+| **THEME** | Change from `default` to `colors` |
+| **BRIDGE_USER_NAME** | Enter your Dexcom Share Account login name.  This should be the same account name used in the Share2 or G5 Mobile app. |
+| **BRIDGE_PASSWORD** | Enter your Dexcom Share Account password. |
+| **BRIDGE_MAX_COUNT** | Default value is 1.  Setting this to 7 will update the last 35 minutes of data. |
 
 </details>
 <br>
@@ -160,72 +104,22 @@ You do not have to enter all the information in the profile if you are using Ope
 
 ![Add vars](../Images/nightscout/add_vars.jpg)
 
-<table border="1">
-<thead>
-<tr>
-<th>KEY</th>
-<th>VALUE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>DEVICESTATUS_ADVANCED</th>
-<td>true</td>
-</tr>
-<tr>
-<th>PUMP_FIELDS</th>
-<td>battery reservoir clock status</td>
-</tr>
-<tr>
-<th>PUMP_RETRO_FIELDS</th>
-<td>battery reservoir clock status</td>
-</tr>
-<tr>
-<th>SHOW_FORECAST</th>
-<td>openaps</td>
-</tr>
-<tr>
-<th>SHOW_PLUGINS</th>
-<td>openaps pump iob sage cage careportal</td>
-</tr>
-<tr>
-<th>PUMP_ENABLE_ALERTS</th>
-<td>true</td>
-</tr>
-<tr>
-<th>PUMP_URGENT_BATT_V</th>
-<td>1.3</br></br>(This is the pump battery voltage that will trigger a red, urgent alert in NS.)</td>
-</tr>
-<tr>
-<th>PUMP_URGENT_RES</th>
-<td>10</br></br>(This is the reservoir volume that will trigger a red, urgent alert in NS.)</td>
-</tr>
-<tr>
-<th>PUMP_URGENT_CLOCK</th>
-<td>30</td>
-</tr>
-<tr>
-<th>OPENAPS_ENABLE_ALERTS</th>
-<td>true</td>
-</tr>
-<tr>
-<th>OPENAPS_FIELDS</th>
-<td>status-symbol status-label iob meal-assist rssi</td>
-</tr>
-<tr>
-<th>OPENAPS_RETRO_FIELDS</th>
-<td>status-symbol status-label iob meal-assist rssi</td>
-</tr>
-<tr>
-<th>OPENAPS_WARN</th>
-<td>20</br></br>(This is the minutes since OpenAPS last successfully looped. This will be a yellow alert in NS.)</td>
-</tr>
-<tr>
-<th>OPENAPS_URGENT</th>
-<td>60</br></br>(Same as the alert above, but will be red in color and have a shorter snooze option.)</td>
-</tr>
-</tbody>
-</table>
+| KEY | VALUE |
+| --- | ----- |
+| **DEVICESTATUS_ADVANCED** | `true` |
+| **SHOW_FORECAST** | `openaps` |
+| **SHOW_PLUGINS** | `openaps pump iob sage cage careportal` |
+| **PUMP_ENABLE_ALERTS** | `true` |
+| **PUMP_FIELDS** | `battery reservoir clock status` |
+| **PUMP_RETRO_FIELDS** | `battery reservoir clock status` |
+| **PUMP_URGENT_BATT_V** | `1.3`<br><br>(This is the pump battery voltage that will trigger a red, urgent alert in NS.) |
+| **PUMP_URGENT_CLOCK** | `30` |
+| **PUMP_URGENT_RES** | `10`<br><br>(This is the reservoir volume that will trigger a red, urgent alert in NS.) |
+| **OPENAPS_ENABLE_ALERTS** | `true` |
+| **OPENAPS_FIELDS** | `status-symbol status-label iob meal-assist rssi` |
+| **OPENAPS_RETRO_FIELDS** | `status-symbol status-label iob meal-assist rssi` |
+| **OPENAPS_WARN** | `20`<br><br>(This is the minutes since OpenAPS last successfully looped. This will be a yellow alert in NS.) |
+| **OPENAPS_URGENT** | `60`<br><br>(Same as the alert above, but will be red in color and have a shorter snooze option.) |
 
 If you are using the Nightscout Bridge to bring in CGM data from Dexcom servers (G4 Share2 app or G5 Mobile app) and are outside the US, you will need to add a setting for `BRIDGE_SERVER` and set the value to `EU`.
 
