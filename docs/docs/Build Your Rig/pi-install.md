@@ -2,7 +2,7 @@
 
 ### Download Raspbian and write it to your microSD card ###
 
-Following the [install instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md), download Raspbian Lite (you do **not** want Raspbian Desktop) and write it to an microSD card using [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#using-raspberry-pi-imager).
+Following the [install instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md), download Raspbian Lite Legacy (you do **not** want Raspbian Desktop, newest versions of Raspbian will cause install to fail) and write it to an microSD card using [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#using-raspberry-pi-imager).
 
 ### Place your wifi and ssh configs on the new microSD card ###
 
