@@ -321,5 +321,6 @@ List of people who are working on closed loops:
 - Al Jeske (Edmonton, Alberta, CA)
 - Erik Schweighofer (Slovakia)
 - Mark & Kylie (Halifax, Nova Scotia, CA)
+- Aidan Gibson (Portland, OR, USA)
 
 
