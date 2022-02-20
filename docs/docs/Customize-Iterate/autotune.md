@@ -350,7 +350,7 @@ oref0-upload-profile ./myopenaps/autotune/profile.json $NS_SITE $API_SECRET
 **Step 5a: Upload resulting profile to Nightscout and switch to it**
 * Run
 ```
-oref0-upload-profile --switch ./myopenaps/autotune/profile.json $NS_SITE $API_SECRET
+oref0-upload-profile ./myopenaps/autotune/profile.json $NS_SITE $API_SECRET --switch=true
 ```
 * ^ Replace `$NS_SITE` with address to your Nightscout, and `$API_SECRET` with your API secret or token
 * In addition to uploading the profile like described above, it will issue a `Profile Switch` event, as [described in AndroidAPS documentation](https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html). This will make AndroidAPS automatically pick up the new profile and switch to it, also *resetting autosens*. Keep this in mind, since, as [diabettech writes](https://www.diabettech.com/artificial-pancreas/automating-hypo-hyper-temp-targets-a-quick-hack/) *Frequent profile switches will stop Autosens from working properly*.
