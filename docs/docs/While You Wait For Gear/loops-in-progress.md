@@ -322,5 +322,5 @@ List of people who are working on closed loops:
 - Erik Schweighofer (Slovakia)
 - Mark & Kylie (Halifax, Nova Scotia, CA)
 - Aidan Gibson (Portland, OR, USA)
-
+- Mike Sutherland (San Diego, CA)
 
