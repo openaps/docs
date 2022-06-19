@@ -13,7 +13,11 @@ The amount of Insulin on Board (IOB) at any given moment is a key input into the
 
 
 * **activity:** This is percent of insulin treatment that was active in the previous minute." 
+---
 
+<details>
+    <summary><b>Click here to expand information about insulin activity calculations for older insulin curves with DIA shorter than the 0.7.0 default of 5, as well as information about current variables used in IOB calculations:</b></summary>
+<br>
      
 ## Insulin Activity
 
@@ -33,14 +37,12 @@ There are three key assumptions the OpenAPS algorithm makes about how insulin ac
     
     100 = (4 \* 60 \* (75 / 180))
 
-> **NOTE:** The insulin action assumptions described here are set to change with the release of [oref0, version 0.6.0](https://github.com/openaps/oref0/tree/0.6.0-dev). The new assumptions will use exponential functions for the insulin action curves and will allow some user flexibility to use pre-set parameters for different classes of fast-acting insulins (Humalog, Novolog, and Apidra vs. Fiasp, for example). For a discussion of the alternate specifications of insulin action curves, see [oref0 Issue #544](https://github.com/openaps/oref0/issues/544). When oref0, version 0.6.0 is released and the current assumptions are no longer recommended, this documentation will be updated.
+**NOTE:** The insulin action assumptions described here are set to change with the release of [oref0, version 0.6.0](https://github.com/openaps/oref0/tree/0.6.0-dev). The new assumptions will use exponential functions for the insulin action curves and will allow some user flexibility to use pre-set parameters for different classes of fast-acting insulins (Humalog, Novolog, and Apidra vs. Fiasp, for example). For a discussion of the alternate specifications of insulin action curves, see [oref0 Issue #544](https://github.com/openaps/oref0/issues/544). When oref0, version 0.6.0 is released and the current assumptions are no longer recommended, this documentation will be updated.
  
-
 ## What The Insulin Activity Assumptions Look Like
 Given a `dia` setting of 3 hours, insulin activity peaks at 75 minutes, and between the 74th and 75th minutes, approximately 1.11 percent of the insulin gets used up.
 
 ![activity_dia_3](../Images/OpenAPS_activity_dia_3.png)
-
 
 Adding up all the insulin used *each minute* between 0 and `end`, will sum to 100 percent of the insulin being used. 
 
@@ -54,11 +56,9 @@ The area under the "curve" can be calculated by taking the [definite integral](h
 
  			    = 99.9 (close enough to 100 -- the actual value for activity is 1.1111111, which gets even closer to 100)
 
-
 For shorter `dia` settings, the `peak` occurs sooner and at a higher rate. For longer `dia` settings, the `peak` occurs later and at a lower rate. But for each triangle, the area underneath is equal to 100 percent.
 
 ![activity_dia_2_8](../Images/OpenAPS_activity_by_dia_2_8.png)
-
 
 ## Cumulative Insulin Activity
 
@@ -84,19 +84,19 @@ Similar to calculations above, the code in [oref0/lib/iob/calculate.js](https://
 
 Finally, two sources to benchmark the `iob` curves against can be found [here](http://journals.sagepub.com/doi/pdf/10.1177/193229680900300319) and [here](https://www.hindawi.com/journals/cmmm/2015/281589/).
 
----
+**A NOTE ABOUT VARIABLE NAMES:**  A separate program [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) creates variables named `activity` and `iob`. Those two variables, however, are not the same as the `activity` and `iob` variables plotted in this documentation page. Those two variables are summations of all insulin treatments still active. 
 
-> **A NOTE ABOUT VARIABLE NAMES:**  A separate program&mdash;[oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js)&mdash;creates variables named `activity` and `iob`. Those two variables, however, are not the same as the `activity` and `iob` variables plotted in this documentation page. Those two variables are summations of all insulin treatments still active. 
+The `activity` and `iob` concepts plotted here are expressed in percentage terms and are used to scale the `treatment.insulin` dosage amounts, so the units for the `activityContrib` and `iobContrib` variables are *units of insulin per minute* and *units of insulin remaining at each minute*, repectively. Because the `activity` and `iob` variables in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) are just the sums of all insulin treatments, they're still in the same units of measurements: *units of insulin per minute* and *units of insulin remaining each minute*.
 
->The `activity` and `iob` concepts plotted here are expressed in percentage terms and are used to scale the `treatment.insulin` dosage amounts, so the units for the `activityContrib` and `iobContrib` variables are *units of insulin per minute* and *units of insulin remaining at each minute*, repectively. Because the `activity` and `iob` variables in [oref0/lib/iob/total.js](https://github.com/openaps/oref0/blob/master/lib/iob/total.js) are just the sums of all insulin treatments, they're still in the same units of measurements: *units of insulin per minute* and *units of insulin remaining each minute*.
+</details>
 
 ---
 
 # Understanding the New IOB Curves Based on Exponential Activity Curves
 
-As mentioned at the top of this page, the next OpenAPS release will have new activity curves available for users to use. 
+As of 0.6.0 OpenAPS has new activity curves available for users to use. 
 
-In the new release, users will be able to select between using a "bilinear" (looks like what was  plotted above: /\) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
+In the new release, users are able to select between using a "bilinear" (looks like what was  plotted above: `/\`) or "exponential" curves. Unlike the bilinear `activity` curve (which varies only based on `dia` values in a user's pump), the new exponential curves will allow users to specify both the `dia` value to use AND where they believe their `peak` insulin activity occurs.
 
 A user can select one of three curve defaul settings:
 

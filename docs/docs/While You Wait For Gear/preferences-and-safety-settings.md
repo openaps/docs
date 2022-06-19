@@ -230,11 +230,11 @@ synonym for high_temptarget_raises_sensitivity
 
 #### high_temptarget_raises_sensitivity
 
-Defaults to false. When set to true, raises sensitivity (lower sensitivity ratio) for temp targets set to  >= 111.  Synonym for exercise_mode. The higher your temp target above 110 will result in more sensitive (lower) ratios, e.g., temp target of 120 results in sensitivy ratio of 0.75, while 140 results in 0.6 (with default halfBasalTarget of 160).
+Defaults to false. When set to true, raises sensitivity (lower sensitivity ratio) for temp targets set to  >= 111.  Synonym for exercise_mode. The higher your temp target above 110 will result in more sensitive (lower) ratios, e.g., temp target of 120 results in sensitivy ratio of 0.75, while 140 results in 0.6 (with default half_basal_exercise_target of 160).
 
 #### low_temptarget_lowers_sensitivity 
 
-Defaults to false. When set to true, can lower sensitivity (higher sensitivity ratio) for temptargets <= 99. The lower your temp target below 100 will result in less sensitive (higher) ratios, e.g., temp target of 95 results in sensitivy ratio of 1.09, while 85 results in 1.33 (with default halfBasalTarget of 160).
+Defaults to false. When set to true, can lower sensitivity (higher sensitivity ratio) for temptargets <= 99. The lower your temp target below 100 will result in less sensitive (higher) ratios, e.g., temp target of 95 results in sensitivy ratio of 1.09, while 85 results in 1.33 (with default half_basal_exercise_target of 160).
 
 #### sensitivity_raises_target
 
@@ -337,3 +337,16 @@ Defaults to false, which means by default only the low end of the pump's BG targ
 Defaults to false. Using the pump bolus wizard to enter carbs will prevent SMBs from being enabled for COB as long as those carbs are active. Using the pump bolus wizard will prevent SMBs from being enabled for up to 6 hours by the "after carbs" or "always" preferences. If anyone wants to get around that, they can add A52_risk_enable (with the capital A) to preferences and set it to "true" to acknowledge and intentionally use that approach, which we know leads to increased A52 errors.
 
 (the recommended method for using SMBs is to enter carbs via NS and easy bolus any desired up-front insulin (generally less than the full amount that would be recommended by the bolus wizard) and then let SMB fill in the rest as it is safe to do so. For situations where the bolus wizard is preferred, such as for carb entry by inexperienced caregivers, or for offline use, we feel that it is safer for OpenAPS to disable SMBs and fall back to AMA until the next meal. In addition to reducing the risk of A52 errors, disabling SMBs when the bolus wizard is in use leads to more predictable AMA behavior (instead of SMB zero-temping) for untrained caregivers in an environment that is usually more prone to walk-away pump communication issues.)
+
+#### rewind_indicates_cartridge_change
+
+Defaults to false. If true, assumes reservoir and insulin have been replaced and resets Insulin Age (IAGE) on nightscout.
+
+#### prime_indicates_pump_site_change
+
+Defaults to false. If true, assumes cannula has been replaced after a fixed prime (ignores manual primes) and resets Cannula Age (CAGE) on nightscout.
+
+#### battery_indicates_battery_change
+
+Defaults to false. If true, assumes battery has been replaced and resets Battery Age (BAGE) on nightscout.
+

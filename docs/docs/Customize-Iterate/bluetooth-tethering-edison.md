@@ -4,19 +4,19 @@ Your cell phone can act as a mobile "hotspot" to allow your rig to access the in
 
 A few things to know about using your phone's hotspot feature:
 
-1. Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot internet connections and BT tethering are available.  
+`1.` Hotspot is a feature of your phone AND cell phone provider.  Please check with your cell phone provider and your service contract to confirm that hotspot internet connections and BT tethering are available.  
 
 Even though some specific phones are fully capable of bluetooth tethering and the phone OS (eg: Android) fully supports it, providers like T-Mobile may arbitrarily disable it on all of their phones without explanation, even though they fully support Wifi Hotspots. Word to the wise: (1) If you can, purchase your phone from the OEM fully unlocked so the carrier can't deprovision bluetooth tethering. In the US some are permanently boot locked and can't be changed. (2) If you get caught in this situation you'll need to call the carrier's customer support network as soon as possible (hopefully within the 14 day return policy) to return it.  After the 14 days you'll need to plead your case with them.
 
-2. Hotspot, when activated, uses your cell phone's data.  Know what your cell phone plan data limits are and consider if you want to change/update based on your frequency of hotspot use.  You can get an estimate of cell data use by resetting your cell data use, at the beginning of the day, within your phone.
+`2.` Hotspot, when activated, uses your cell phone's data.  Know what your cell phone plan data limits are and consider if you want to change/update based on your frequency of hotspot use.  You can get an estimate of cell data use by resetting your cell data use, at the beginning of the day, within your phone.
 
-3. A device (like your rig) can be connected to your phone's hotspot in one of three ways:
+`3.` A device (like your rig) can be connected to your phone's hotspot in one of three ways:
 
-      **BT tether**:  BT tethering (also known as BT PAN *Personal Area Network*) requires your phone and rig to be BT-paired before they can connect (that's what this section of the docs is specifically about).  The advantage of connecting to your hotspot via BT tether is that it will happen automatically.  You do not have to remember to toggle hotspot.  Simply leave your hotspot toggled on as usual, leave the house, and within a few minutes (or sooner) your rig will BT tether to the hotspot.  (Screenshot below shows what you'll see in your network logs as you move from known wifi network to BT tether.  Oref0-online will automatically find BT tether and connect.)  Your rig will then use your cell phone as its internet connection.  When your rig comes back into a known wifi network, it will automatically drop the BT tether and connect with the wifi network.
+* **BT tether**:  BT tethering (also known as BT PAN *Personal Area Network*) requires your phone and rig to be BT-paired before they can connect (that's what this section of the docs is specifically about).  The advantage of connecting to your hotspot via BT tether is that it will happen automatically.  You do not have to remember to toggle hotspot.  Simply leave your hotspot toggled on as usual, leave the house, and within a few minutes (or sooner) your rig will BT tether to the hotspot.  (Screenshot below shows what you'll see in your network logs as you move from known wifi network to BT tether.  Oref0-online will automatically find BT tether and connect.)  Your rig will then use your cell phone as its internet connection.  When your rig comes back into a known wifi network, it will automatically drop the BT tether and connect with the wifi network.
 
-      **Wifi connection**:  You need to set up your wpa_supplicant list to include your hotspot information; network name and password.  The wifi signal for the hotspot is not constantly broadcast by your phone, however.  So when you want to use the wifi connection to your hotspot (for example, you are leaving your home wifi network and traveling), you will need to manually toggle your hotspot on so that the phone will broadcast a wifi signal for the rig to connect to.  The other consideration is that since this is a wifi connection, the rig will not automatically disconnect when you come into one of your other known wifi networks.  You will have to remember to manually disconnect (toggle hotspot off), if you do not wish to continue using cell data when you are home.  Hotspot done by wifi connections also use more phone battery than a BT tether connection.
+* **Wifi connection**:  You need to set up your wpa_supplicant list to include your hotspot information; network name and password.  The wifi signal for the hotspot is not constantly broadcast by your phone, however.  So when you want to use the wifi connection to your hotspot (for example, you are leaving your home wifi network and traveling), you will need to manually toggle your hotspot on so that the phone will broadcast a wifi signal for the rig to connect to.  The other consideration is that since this is a wifi connection, the rig will not automatically disconnect when you come into one of your other known wifi networks.  You will have to remember to manually disconnect (toggle hotspot off), if you do not wish to continue using cell data when you are home.  Hotspot done by wifi connections also use more phone battery than a BT tether connection.
 
-      **USB plug**: You can plug devices into your cell phone to use hotspot.  However, the phone would pull battery power from your rig and would drain your battery fairly quickly.  This is not a recommended connection method for openaps use.
+* **USB plug**: You can plug devices into your cell phone to use hotspot.  However, the phone would pull battery power from your rig and would drain your battery fairly quickly.  This is not a recommended connection method for openaps use.
 
 ### Benefit of Using BT Tethering to Your Phone's Hotspot
 
@@ -100,22 +100,22 @@ root@edisonhost:~# bluetoothd --version
 
 ### Bluetooth setup
 
-1) First, check that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
+`1.` First, check that your wpa_supplicant.conf file doesn't contain any content that will interfere with oref0-online.
 
-   a) Open the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
+a) Open the wpa_supplicant.conf file to make sure it is set up to allow oref0-online to change between connections.
 
-      `nano /etc/wpa_supplicant/wpa_supplicant.conf`
+`nano /etc/wpa_supplicant/wpa_supplicant.conf`
 
-   b) Delete the phrase `update_config=1` from the file if it is present.
+b) Delete the phrase `update_config=1` from the file if it is present.
 
-      ![Remove update_config](../Images/update_config_adjustment.png)
+![Remove update_config](../Images/update_config_adjustment.png)
 
-2) Next, stop cron to make sure oref0-online doesn't interfere:
+`2.` Next, stop cron to make sure oref0-online doesn't interfere:
 
-   `sudo service cron stop`
+`sudo service cron stop`
 
-<details>
-    <summary>3) If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4. <b>If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. (click here to expand instructions)</b></summary>
+`3.` If you are using Jubilinux 0.3.0 (Debian Stretch) or the Raspberry Pi, please skip to #4. <details>
+<summary> <b>If you are using Jubilinux 0.2.0 (Debian Jessie), you will need to manually initialize bluetooth. (click here to expand instructions)</b></summary>
 <br>
 
    a) Restart the Bluetooth daemon to start up the bluetooth services.  (This is normally done automatically by oref0-online once everything is set up, but we want to do things manually this first time):
@@ -136,7 +136,7 @@ As shown in the "success" section below, you should see a single line returned w
 
 </details>
 
-4) Now launch the Bluetooth control program: `bluetoothctl` and type each of the following:
+`4.` Now launch the Bluetooth control program: `bluetoothctl` and type each of the following:
 
 ```
 power off
@@ -249,8 +249,8 @@ Another app which others have found to work better (depending on phone and carri
 
 If you are able to set up a tethering connection (and even obtain a local IP) but your rig is unable to access the internet through your device's mobile connection, the following steps may be helpful:
 
-1) If you're using an Android phone, see if your rig can access the internet when your phone is logged into a wifi network. If it can, the issue may be with your carrier.
+`1.` If you're using an Android phone, see if your rig can access the internet when your phone is logged into a wifi network. If it can, the issue may be with your carrier.
 
-2) Try setting up a tethering connection between your phone and another device (e.g., your laptop) to see if the laptop is able to share the phone's mobile connection. On at least one carrier (Ting), setting up a connection from a PC resulted in a prompt on the phone to activate sharing the phone's mobile connection via Bluetooth, which then resolved the issue.
+`2.` Try setting up a tethering connection between your phone and another device (e.g., your laptop) to see if the laptop is able to share the phone's mobile connection. On at least one carrier (Ting), setting up a connection from a PC resulted in a prompt on the phone to activate sharing the phone's mobile connection via Bluetooth, which then resolved the issue.
 
-3) If all else fails and you have isolated the problem to your mobile connection, consider contacting your mobile carrier's tech support for help as they may be able to do something on their end.
+`3.` If all else fails and you have isolated the problem to your mobile connection, consider contacting your mobile carrier's tech support for help as they may be able to do something on their end.

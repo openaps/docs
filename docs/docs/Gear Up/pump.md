@@ -1,8 +1,6 @@
 # Information about compatible insulin pumps
 
-!["Can I do OpenAPS with this pump?"](../Images/Can_I_close_the_loop_with_this_pump_May_18_2018.png)
-
-As you can see from the flowchart above, most of the commercial pumps currently available are not compatible with OpenAPS; only a small selection of older Medtronic pumps are compatible.  For those pumps which are not compatible, we suggest the advocacy option of calling the pump manufacturer and informing them of the need for availability of pumps for DIY closed looping systems.  Thus far, there has not been a receptive pump company to these requests.  Omnipod, Animas, T-Slim, and newer Medtronic pumps are still not compatible.
+Many commercial pumps currently available are not compatible with OpenAPS; only a small selection of older Medtronic pumps are compatible directly with OpenAPS.  
 
 Currently, only the following Medtronic MiniMed models allow us to remotely set temporary basal rate commands, which is required to do OpenAPS:
 
@@ -12,7 +10,7 @@ Currently, only the following Medtronic MiniMed models allow us to remotely set 
     523/723 (with firmware 2.4A or lower)
     554/754 (European Veo, with firmware 2.6A or lower; OR Canadian Veo with firmware 2.7A or lower)
 
-NOTE: For European/WorldWide users who have access to a `DANA*R/RS`, `Roche Accu-chek Combo` or `Roche Accu-chek Insight` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R`/`DANA*RS`/`Roche Accu-chek Combo`/`Insight` pump. [See here for instructions and details related to AndroidAPS](http://wiki.AndroidAps.org).
+NOTE: For European/WorldWide users who have access to a `DANA*R/RS`, `Roche Accu-chek Combo` or `Roche Accu-chek Insight` insulin pump, you may be able to use AndroidAPS, which leverages OpenAPS's oref0 algorithm but allows you to interface using an Android phone and Bluetooth to communicate directly with the `DANA*R`/`DANA*RS`/`Roche Accu-chek Combo`/`Insight` pump. [See here for instructions and details related to AndroidAPS] (https://androidaps.readthedocs.io/en/latest/). Omnipod is also directly compatible for use with AndroidAPS; again, see their documentation for the latest details. 
 
 ## How to check pump firmware (check for absence of PC Connect)
 
@@ -27,7 +25,7 @@ A double-check for pump compatibility is to look for the ABSENCE of PC connect i
    * This is the case for the 512/712, the 515/715 and 522/722 models. 
    * For 512/712 pumps, you will not be able to use an advanced feature (SMB) but will be able to do basic temp-basal based looping.
 
-Note that not _all_ possible sellers of pumps will accuratly describe the model number: if they are willing to sell a pump they may not have interest in setting it up for looping, and the distinctions about model numbers and firmware version may not be important to them. It will be for you though! Therefore, it's prudent to verify the model by seeing pctures and/or videos of the pump in action. 
+Note that not _all_ possible sellers of pumps will accuratly describe the model number: if they are willing to sell a pump they may not have interest in setting it up for looping, and the distinctions about model numbers and firmware version may not be important to them. It will be for you though! Therefore, it's prudent to verify the model by seeing pictures and/or videos of the pump in action. 
 
 If you have one of the above mentioned pumps, but it has buttons that do not work, use the instructions found on this [Imgur photo album](http://imgur.com/a/iOXAP) to repair your pump.  This repair is quite straight-forward and easy.
 

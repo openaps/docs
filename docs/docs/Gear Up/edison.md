@@ -41,7 +41,9 @@ If you will need to run longer than that while unplugged from wall power, consid
 An 8 GB SD card should provide plenty of space for the linux operating system, OpenAPS code and storage for log files.  The ability to use larger and removable storage is one of the advantages of the Raspberry Pi.  You can get a [MicroSD card and adapter from Adafruit](https://www.adafruit.com/product/2692) when you order your Pi and Hat.  Or you can get an equivalent [8 GB SD card from Amazon](https://www.amazon.com/Kingston-microSDHC-Class-Memory-SDC4/dp/B00200K1TS/ref=sr_1_8?s=wireless&ie=UTF8&qid=1532090813&sr=1-8&keywords=8gb+micro+sd) or other sellers.
 
 #### Note about Pi+HAT cases
-Because we are still optimizing the software to be as power-efficient as possible, we have not narrowed down on the best recommended battery.  You may want to use a soft case for ease of access to the components, flexible arrangement and the ability to use a variety of battery sizes.  If you are using the 2000 mah battery above, you can use this [3d printed hard case](https://www.thingiverse.com/thing:3010231) to protect the rig and battery in a relatively compact package.  The [design is built in OnShape](https://cad.onshape.com/documents/74459dfcb527ad12c33660aa/w/2be92a72bb7f1c83eb091de2/e/b4fa9c3be204ffa3dea128a1), which has a free access level subscription for public domain documents.  You can make a copy and tweak the design to your liking.
+Because we are still optimizing the software to be as power-efficient as possible, we have not narrowed down on the best recommended battery.  You may want to use a soft case for ease of access to the components, flexible arrangement and the ability to use a variety of battery sizes.  If you are using the 2000 mAh battery above, you can use this [3d printed hard case](https://www.thingiverse.com/thing:3010231) to protect the rig and battery in a relatively compact package.  The [design is built in OnShape](https://cad.onshape.com/documents/74459dfcb527ad12c33660aa/w/2be92a72bb7f1c83eb091de2/e/b4fa9c3be204ffa3dea128a1), which has a free access level subscription for public domain documents.  You can make a copy and tweak the design to your liking.
+
+Alternatives 3d printed cases for Pi0+HAT include this [hard case with room for 2x2000 mAh Li-Po batteries](https://www.thingiverse.com/thing:3038806/) and this [hard case with room for 2x18650 batteries (6800 mAh total, 86x77x25mm)](https://www.thingiverse.com/thing:3502320/).
 
 *** 
 
@@ -151,11 +153,33 @@ There is one 3D printable case [available on thingiverse](https://www.thingivers
 
 ***
 
+## Hardware information for Pi-based setups with rewired TI-stick
+
+This hardware setup is **not recommended unless you already have a USB TI stick** and want to continue using it with 0.7.0. This part of the documentation is a work-in-progress and as of 11/9/2019 not fully tested -- if you can help with this, we would appreciate it very much!
+
+You will need a CC-Debugger to re-flash your TI stick with an SPI-compatible firmware, [located here](https://github.com/ps2/subg_rfspy/releases). Any of the v0.8 `spi1_alt2` versions should work.
+
+You will also need jumpers to wire your TI stick to the Raspberry Pi's GPIO header in the following configuration:
+```
+SPI0 CS0 (Pi pin 24) -> debug  pin 5
+SPI0 CLK (Pi pin  23) -> debug pin 6
+SPI0 MISO (Pi pin 21) -> debug pin 10
+SPI0 MOSI (Pi pin 19) -> debug pin 8
+any Pi 3.3V pin -> debug pin 2
+any Pi ground pin -> debug pin 1
+GPIO 4 (Pi pin 7) -> debug pin 7
+```
+
+When prompted in oref0-setup.sh, you will need to select the "TI Stick (SPI-connected)" option.
+
+
+***
+
 ## Hardware information for Intel Edison-based setups
 
 The high level parts list (see below for more details, and links):
 
-* [Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-block)
+* [Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#explorer-board-block)
 * [Edison](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#edison)
 * [Nuts and Bolts to attach the Edison to the Explorer Board Block](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#nuts-and-bolts)
 * [At least one Lithium battery](http://openaps.readthedocs.io/en/latest/docs/Gear%20Up/edison.html#lithium-ion-polymer-lipo-battery-or-other-battery-supply)
@@ -194,25 +218,6 @@ You can also use any charger with a USB plug, including a wall power charger. Th
 You should monitor the rig periodically - **especially the LiPo battery**, checking for swelling or damage. Immediately discontinue use of any battery that shows sign of swelling or damage.
 
 ****
-
-## Hardware information for Pi-based setups with rewired TI-stick
-
-This hardware setup is **not recommended unless you already have a USB TI stick** and want to continue using it with 0.7.0. This part of the documentation is a work-in-progress and as of 11/9/2019 not fully tested -- if you can help with this, we would appreciate it very much!
-
-You will need a CC-Debugger to re-flash your TI stick with an SPI-compatible firmware, [located here](https://github.com/ps2/subg_rfspy/releases). Any of the v0.8 `spi1_alt2` versions should work.
-
-You will also need jumpers to wire your TI stick to the Raspberry Pi's GPIO header in the following configuration:
-```
-SPI0 CS0 (Pi pin 24) -> debug  pin 5
-SPI0 CLK (Pi pin  23) -> debug pin 6
-SPI0 MISO (Pi pin 21) -> debug pin 8
-SPI0 MOSI (Pi pin 19) -> debug pin 10
-any Pi 3.3V pin -> debug pin 2
-any Pi ground pin -> debug pin 1
-GPIO 4 (Pi pin 7) -> debug pin 7
-```
-
-When prompted in oref0-setup.sh, you will need to select the "TI Stick (SPI-connected)" option.
  
 ### Radio stick (only if not using Explorer board)
 

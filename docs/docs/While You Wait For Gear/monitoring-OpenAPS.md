@@ -411,7 +411,7 @@ example picture:
 
     ```
     Make sure to replace the password, with your rig's password, and 192.168.1.20 with the ip/hostname of your rig.
-1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin\chainsaw (linux and mac)
+1) run chainsaw by the command: bin\chainsaw.bat (pc) or bin/chainsaw (linux and mac)
 1) From the file menu choose 'load chainsaw configuration'
 1) Choose use chainsaw configuration file.
 1) press open file.

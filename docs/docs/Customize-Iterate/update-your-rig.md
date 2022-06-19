@@ -11,7 +11,7 @@ However, if it's a brand-new feature that's being tested or is recently added to
 1. `cd ~/src/oref0`
 2. `git fetch` will update the local git repository. This does not change anything in your working directory
 3. `git status` will tell you which branch your working directory is on and how many commits your working directory is behind
-4. `git log origin/master` (replace `master` with the branch you are on) will print the commit descriptions. You only need to review the number of log messages corresponding to the number of commites your working directory is behind.
+4. `git log origin/master` (replace `master` with the branch you are on) will print the commit descriptions. You only need to review the number of log messages corresponding to the number of commits your working directory is behind.
 5. `git diff origin/master..` (replace `master` with the branch you are on) will print the individual file differences between your working copy and the new version.
 
 </details>
@@ -21,6 +21,16 @@ However, if it's a brand-new feature that's being tested or is recently added to
 1. `cd ~/src/oref0 && git checkout master && git pull && sudo npm install -g oref0`
 
 *(If you get a message that you need to commit or stash, use command `git stash`*)
+
+Trouble Shooting Installing Master:
+If installing Master fails with something like:
+```
+   File "/usr/local/lib/python2.7/dist-packages/parsedatetime/pdt_locales/icu.py", line 56, in get_icu 
+	result['icu'] = icu = pyicu.Locale(locale) 
+AttributeError: 'module' object has no attribute 'Locale
+```
+
+then run ```pip install parsedatetime==2.5``` and then rerun ```oref0-runagain.sh```
 
 ### Alternative Step 1a (Dev): To get on "dev" branch to test even more recently added new stuff
 

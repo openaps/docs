@@ -92,11 +92,15 @@ Windows PCs with less than 6 GB of RAM  may need to have the size of the page fi
 
 ## Flashing image onto the Edison
 
+Sometimes, particularly on older Edisons, the flash process will error out during the `Flashing rootfs, (it can take up to 10 minutes... Please be patient)` step, with `bytesdfu-util: Error during download`. If you retry the flash, it will get a bit further each time, until eventually it succeeds. Most likely, the Edison is finding bad SSD sectors and marking them, but not before the flash process errors out.
+
 ### If you’re using a Raspberry Pi - starting flash:
   - In the "flash window" from the Download Image instructions above, run `sudo ./flashall.sh`.  If you receive an `dfu-util: command not found` error, you can install dfu-util by running `sudo apt-get install dfu-util`
+ - If you want the flashall.sh script to keep retrying until it succeeds, you can do `while (sudo ./flashall.sh | tee /tmp/flash.out; grep Error /tmp/flash.out); do echo "Flash failed: retrying"; sleep 5; done`
 
 ### If you’re using a Mac - starting flash:
-  - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.  
+  - In the "flash window" from the Download Image instructions above, run `./flashall.sh`.
+  - If you want the flashall.sh script to keep retrying until it succeeds, you can do `while (./flashall.sh | tee /tmp/flash.out; grep Error /tmp/flash.out); do echo "Flash failed: retrying"; sleep 5; done`  
     - If you receive an `dfu-util: command not found` error, you can install dfu-util by following [the Mac instructions here](https://software.intel.com/en-us/node/637974#manual-flash-process). 
     - If you receive an `Error: Running Homebrew as root is extremely dangerous and no longer supported. As Homebrew does not drop privileges on installation you would be giving all build scripts full access to your system.` see the troubleshooting section below.
 

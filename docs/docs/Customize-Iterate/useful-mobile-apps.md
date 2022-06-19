@@ -129,7 +129,7 @@ Perhaps a more slightly advanced-user (or curious-user) feature of SimpleSSH is 
 
 ## SerialBot (Android)
 
-This app is useful for logging into the rig via a terminal session when not near a computer or using offline looping, can be done via USB serial cable, bluetooth or wifi depending on your setup. Simply selecrt the connection method using the drop down box and type in the rigs connection details.
+This app is useful for logging into the rig via a terminal session when not near a computer or using offline looping, can be done via USB serial cable, bluetooth or wifi depending on your setup. Simply select the connection method using the drop down box and type in the rig's connection details.
 For SSH use the format root@yourigname/ipaddress:22
 This app will use the same commands as other terminal session apps such as PuTTy.
 
