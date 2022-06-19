@@ -20,7 +20,7 @@ doing; what it's been doing; plus generate helpful reports for understanding
 your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features)
 
 
-.. seealso:: Note: for the latest up to date instructions on building your first Nightscout, please follow [the Nightscout instructions](https://nightscout.github.io/nightscout/new_user/). Then come back to this page and scroll down for the `config variables` you'll want to update.
+.. note:: Note: for the latest up to date instructions on building your first Nightscout, please follow [the Nightscout instructions](https://nightscout.github.io/nightscout/new_user/). Then come back to this page and scroll down for the `config variables` you'll want to update.
 
 
 ## Nightscout Setup with Heroku
