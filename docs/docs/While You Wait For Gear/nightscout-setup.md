@@ -19,6 +19,10 @@ with another person, it will be helpful for you to visualize what the loop is
 doing; what it's been doing; plus generate helpful reports for understanding
 your data, customized watchfaces with your OpenAPS data, and integration with IFTTT.  You can read more about latest Nightscout features [here](http://www.nightscout.info/wiki/welcome/website-features)
 
+
+.. seealso:: Note: for the latest up to date instructions on building your first Nightscout, please follow [the Nightscout instructions](https://nightscout.github.io/nightscout/new_user/). Then come back to this page and scroll down for the `config variables` you'll want to update.
+
+
 ## Nightscout Setup with Heroku
 
 * If you plan to use Nightscout with OpenAPS, we recommend using Heroku, as OpenAPS can reach the usage limits of the free Azure plan and cause it to shut down for hours or days. If you end up needing a paid tier, the $7/mo Heroku plan is also much cheaper than the first paid tier of Azure.  Currently, the only added benefit to choosing the $7/mo Heroku plan vs the free Heroku plan is a section showing site use metrics for performance (such as response time).  This has limited benefit to the average OpenAPS user.  **In short, Heroku is the free and OpenAPS-friendly option for NS hosting.**
