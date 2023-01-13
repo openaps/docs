@@ -323,4 +323,4 @@ List of people who are working on closed loops:
 - Mark & Kylie (Halifax, Nova Scotia, CA)
 - Aidan Gibson (Portland, OR, USA)
 - Mike Sutherland (San Diego, CA)
-
+- Carrie Hefner (Vancouver, WA)
