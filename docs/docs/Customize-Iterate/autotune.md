@@ -155,15 +155,13 @@ Log into the NEW rig and run the following command:
 
 **Note:*** the easiest way of running Autotune is now "AutotuneWeb". See the top of this page for instructions on running it via the web service, without having to set it up on your own computer. If you do want to manually set up your own computer to be able to run it over a time period >30 days or other reasons, see below. 
 
-*Caution for AndroidAPS users:* Currently, the master oref0 version with Autotune does not parse AndroidAPS entries correctly. **You must set AndroidAPS to upload all temp basals as "absolute" rates, instead of %, *and* use the dev branch of oref0.**  If you do not do both of these things, your results will be wrong! Future versions of Autotune will allow using AndroidAPS data as long as the option to upload temp basals as absolute values instead of / in addition to percent is enabled in AndroidAPS.
-
 If you are not running autotune as part of a closed loop, you can still run it as a "one-off".(OpenAPS/existing oref0 users may want to use the above instructions instead, however, from phase A or phase B on this page.) For more about autotune, you can read [Dana's autotune blog post for some background/additional detail](http://bit.ly/2jKvzQl) and scroll up in the page to see more details about how autotune works.
 
 **Requirements**: You should have Nightscout BG and treatment data. If you do not regularly enter carbs (meals) into Nightscout (this happens automatically when you use the "Bolus Wizard" on the Medtronic pump and should not be manually added to Nightscout if you use the Bolus Wizard), autotune will try to raise basals at those times of days to compensate. However, you could still look at overnight basal recommendations and probably even ISF recommendations overall. [Read this page for more details on what you should/not pay attention to with missing data.](./understanding-autotune.md)
 
 **Note**: this is currently based on *one* ISF and carb ratio throughout the day. Here is the [issue](https://github.com/openaps/oref0/issues/326) if you want to keep track of the work to make autotune work with multiple ISF or carb ratios.
 
-**Feedback**: Please note autotune is brand new, and still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/openaps/autotune), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
+**Feedback**: Please note autotune is still a work in progress (WIP). Please provide feedback along the way, or after you run it. You can share your thoughts in [Gitter](https://gitter.im/openaps/autotune), or via this short [Google form](https://goo.gl/forms/Cxbkt9H2z05F93Mg2). 
 
 **Step 0: Decide where to run Autotune**
 * (Remember you can use [AutotuneWeb](https://autotuneweb.azurewebsites.net/) if you don't want to run it on your computer.) 
