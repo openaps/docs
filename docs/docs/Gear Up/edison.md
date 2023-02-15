@@ -106,13 +106,56 @@ Solder it to the board. It's the hole near the "o" from Radio. Make sure to not 
 
 This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a bread board, and connect:
 
-| Board | Connect | Connect | Connect | Connect | Connect | Connect | Connect | Connect |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| RPi | 3.3V | GND | MOSI | MISO | SCLK | | CE1_N | |
-| RPi PIN | 17 | 25 | 19 | 21 | 23 | 15 | 26 | 22 |
-| RFM69HCW | VIN or 3.3V | GND | MOSI | MISO | SCK or CLK | G0 or DIO0 | CS or NSS | RST or RESET |
-
-![Picture of RPI0WH with FM69HCW connection diagram](../Images/build-your-rig/rpii2RFM69HCW.JPG)
+<table>
+  <thead>
+    <tr>
+      <td>Board</td>
+      <td>Connect</td>
+      <td>Connect</td>
+      <td>Connect</td>
+      <td>Connect</td>
+      <td>Connect</td>
+      <td>Connect</td>
+      <td>Connect</td>
+      <td>Connect</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RPi</td>
+      <td>3.3V</td>
+      <td>GND</td>
+      <td>MOSI</td>
+      <td>MISO</td>
+      <td>SCLK</td>
+      <td></td>
+      <td>CE1_N</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>RPi PIN</td>
+      <td>17</td>
+      <td>25</td>
+      <td>19</td>
+      <td>21</td>
+      <td>23</td>
+      <td>15</td>
+      <td>26</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>RFM69HCW</td>
+      <td>VIN or 3.3V</td>
+      <td>GND</td>
+      <td>MOSI</td>
+      <td>MISO</td>
+      <td>SCK or CLK</td>
+      <td>G0 or DIO0</td>
+      <td>CS or NSS</td>
+      <td>RST or RESET</td>
+    </tr>
+  </tbody>
+</table>
 
 [See more info here](https://github.com/ecc1/rfm69/blob/master/README.md).
 
