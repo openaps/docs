@@ -109,50 +109,50 @@ This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a 
 <table border="1">
   <thead>
     <tr>
-      <th>Board</th>
-      <th>Connect</th>
-      <th>Connect</th>
-      <th>Connect</th>
-      <th>Connect</th>
-      <th>Connect</th>
-      <th>Connect</th>
-      <th>Connect</th>
-      <th>Connect</th>
+      <th style="padding:7px">Board</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>RPi</th>
-      <td>3.3V</td>
-      <td>GND</td>
-      <td>MOSI</td>
-      <td>MISO</td>
-      <td>SCLK</td>
-      <td></td>
-      <td>CE1_N</td>
-      <td></td>
+      <th style="padding:7px">RPi</th>
+      <td style="padding:7px">3.3V</td>
+      <td style="padding:7px">GND</td>
+      <td style="padding:7px">MOSI</td>
+      <td style="padding:7px">MISO</td>
+      <td style="padding:7px">SCLK</td>
+      <td style="padding:7px"></td>
+      <td style="padding:7px">CE1_N</td>
+      <td style="padding:7px"></td>
     </tr>
     <tr>
-      <th>RPi PIN</th>
-      <td>17</td>
-      <td>25</td>
-      <td>19</td>
-      <td>21</td>
-      <td>23</td>
-      <td>15</td>
-      <td>26</td>
-      <td>22</td>
+      <th style="padding:7px">RPi PIN</th>
+      <td style="padding:7px">17</td>
+      <td style="padding:7px">25</td>
+      <td style="padding:7px">19</td>
+      <td style="padding:7px">21</td>
+      <td style="padding:7px">23</td>
+      <td style="padding:7px">15</td>
+      <td style="padding:7px">26</td>
+      <td style="padding:7px">22</td>
     </tr>
     <tr>
-      <th>RFM69HCW</th>
-      <td>VIN or 3.3V</td>
-      <td>GND</td>
-      <td>MOSI</td>
-      <td>MISO</td>
-      <td>SCK or CLK</td>
-      <td>G0 or DIO0</td>
-      <td>CS or NSS</td>
-      <td style="padding:2px">RST or RESET</td>
+      <th style="padding:7px">RFM69HCW</th>
+      <td style="padding:7px">VIN or 3.3V</td>
+      <td style="padding:7px">GND</td>
+      <td style="padding:7px">MOSI</td>
+      <td style="padding:7px">MISO</td>
+      <td style="padding:7px">SCK or CLK</td>
+      <td style="padding:7px">G0 or DIO0</td>
+      <td style="padding:7px">CS or NSS</td>
+      <td style="padding:7px">RST or RESET</td>
     </tr>
   </tbody>
 </table>
