@@ -106,23 +106,23 @@ Solder it to the board. It's the hole near the "o" from Radio. Make sure to not 
 
 This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a bread board, and connect:
 
-<table>
+<table border="1">
   <thead>
     <tr>
-      <td>Board</td>
-      <td>Connect</td>
-      <td>Connect</td>
-      <td>Connect</td>
-      <td>Connect</td>
-      <td>Connect</td>
-      <td>Connect</td>
-      <td>Connect</td>
-      <td>Connect</td>
+      <th>Board</th>
+      <th>Connect</th>
+      <th>Connect</th>
+      <th>Connect</th>
+      <th>Connect</th>
+      <th>Connect</th>
+      <th>Connect</th>
+      <th>Connect</th>
+      <th>Connect</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>RPi</td>
+      <th>RPi</th>
       <td>3.3V</td>
       <td>GND</td>
       <td>MOSI</td>
@@ -133,7 +133,7 @@ This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a 
       <td></td>
     </tr>
     <tr>
-      <td>RPi PIN</td>
+      <th>RPi PIN</th>
       <td>17</td>
       <td>25</td>
       <td>19</td>
@@ -144,7 +144,7 @@ This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a 
       <td>22</td>
     </tr>
     <tr>
-      <td>RFM69HCW</td>
+      <th>RFM69HCW</th>
       <td>VIN or 3.3V</td>
       <td>GND</td>
       <td>MOSI</td>
@@ -152,7 +152,7 @@ This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a 
       <td>SCK or CLK</td>
       <td>G0 or DIO0</td>
       <td>CS or NSS</td>
-      <td>RST or RESET</td>
+      <td style="padding:2px">RST or RESET</td>
     </tr>
   </tbody>
 </table>
