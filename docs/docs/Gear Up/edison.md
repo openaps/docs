@@ -106,13 +106,56 @@ Solder it to the board. It's the hole near the "o" from Radio. Make sure to not 
 
 This is your connection scheme for the RPi to RFM69HCW. Stick the RFM69HCW on a bread board, and connect:
 
-| Board | Connect | Connect | Connect | Connect | Connect | Connect | Connect | Connect |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| RPi | 3.3V | GND | MOSI | MISO | SCLK | | CE1_N | |
-| RPi PIN | 17 | 25 | 19 | 21 | 23 | 15 | 26 | 22 |
-| RFM69HCW | VIN or 3.3V | GND | MOSI | MISO | SCK or CLK | G0 or DIO0 | CS or NSS | RST or RESET |
-
-![Picture of RPI0WH with FM69HCW connection diagram](../Images/build-your-rig/rpii2RFM69HCW.JPG)
+<table border="1">
+  <thead>
+    <tr>
+      <th style="padding:7px">Board</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+      <th style="padding:7px">Connect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th style="padding:7px">RPi</th>
+      <td style="padding:7px">3.3V</td>
+      <td style="padding:7px">GND</td>
+      <td style="padding:7px">MOSI</td>
+      <td style="padding:7px">MISO</td>
+      <td style="padding:7px">SCLK</td>
+      <td style="padding:7px"></td>
+      <td style="padding:7px">CE1_N</td>
+      <td style="padding:7px"></td>
+    </tr>
+    <tr>
+      <th style="padding:7px">RPi PIN</th>
+      <td style="padding:7px">17</td>
+      <td style="padding:7px">25</td>
+      <td style="padding:7px">19</td>
+      <td style="padding:7px">21</td>
+      <td style="padding:7px">23</td>
+      <td style="padding:7px">15</td>
+      <td style="padding:7px">26</td>
+      <td style="padding:7px">22</td>
+    </tr>
+    <tr>
+      <th style="padding:7px">RFM69HCW</th>
+      <td style="padding:7px">VIN or 3.3V</td>
+      <td style="padding:7px">GND</td>
+      <td style="padding:7px">MOSI</td>
+      <td style="padding:7px">MISO</td>
+      <td style="padding:7px">SCK or CLK</td>
+      <td style="padding:7px">G0 or DIO0</td>
+      <td style="padding:7px">CS or NSS</td>
+      <td style="padding:7px">RST or RESET</td>
+    </tr>
+  </tbody>
+</table>
 
 [See more info here](https://github.com/ecc1/rfm69/blob/master/README.md).
 
