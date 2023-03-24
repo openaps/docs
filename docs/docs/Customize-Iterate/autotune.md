@@ -50,6 +50,7 @@ Below the ISF and carb ratio, you'll see the basal report.
 * The [difference between Autotune and "autosens"](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#the-difference-between-autotune-and-autosens) (aka, [autosensitivity](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html))
 * Different ways to use Autotune
    * Run it with [AutotuneWeb](https://autotuneweb.azurewebsites.net/)
+   * Run it with [Autotune-On-AWS](https://github.com/juehv/Autotune-On-AWS) 
    * [Phase A](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig, but not using it to automatically update your rig's settings
    * [Phase B](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-a-running-autotune-manually-in-openaps) - running it on the OpenAPS rig automatically overnight, and OpenAPS will use these settings (**DEFAULT OPENAPS BEHAVIOR**)
    * [Phase C](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig) - Those who are not running autotune on an OpenAPS rig should use Phase C to run it on the computer of their choice.
