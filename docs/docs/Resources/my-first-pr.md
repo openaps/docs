@@ -18,7 +18,7 @@ For our example we are going to make an edit to the openaps docs.  This does NOT
 ![edit doc](../Images/PR1.png)
 Or you can click on the "Edit in Github" link in the upper right corner, and then click the pencil icon that appears in the top bar of the page contents to be edited.
 ![RTD io](../Images/PR2.png)
-3.  one or the other of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the file.
+3.  one or the other of the options in Step 2 will create a new branch in YOUR repository where your edits will be saved.  Make your edits to the filemmmm.
 ![Edit branch](../Images/PR3.png)
 4. You have been working in the "<>Edit file" tab. Select the "Preview changes" tab for a fresh look to make sure everything you changed looks like you meant it to (typpos sic.). If you see a needed improvement, go back to the edit tab to make more improvements.
 ![preview mode](../Images/PR5.png)
