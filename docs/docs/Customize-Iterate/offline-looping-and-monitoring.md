@@ -23,7 +23,11 @@ Dexcom CGM users have a few different alternatives to retrieve blood glucose val
 
 ### A. xDrip+ for Android users
 
-Android users can use the xDrip+ Android app for offline looping, assuming xDrip+ is used as the CGM data source. There are two ways to get offline looping to work with xDrip+. Firstly, when connected to an Android phone running xDrip+, you can enable the phone to share the CGM information to OpenAPS, after which OpenAPS will automatically fetch the CGM data directly from the phone when connected onto the phone hotspot, even in cases where the phone is actually offline.
+Android users can use the xDrip+ Android app for offline looping, assuming xDrip+ is used as the CGM data source. There are two ways to get offline looping to work with xDrip+: the xDrip+ Web Service, or linking xDrip+ on the phone with xDripAPS on the rig.
+
+#### A.1. xDrip+ Web Service
+
+When connected to an Android phone running xDrip+, you can enable the phone to share the CGM information to OpenAPS, after which OpenAPS will automatically fetch the CGM data directly from the phone when connected onto the phone hotspot, even in cases where the phone is actually offline.
 
 To enable the xDrip service for OpenAPS, go to the Inter-app settings section in xDrip settings and enable the xDrip Web Service and Open Web Service settings, then enter xDrip Web Service Secret, which has to match the same secret you have configured for Nightscout. After these settings are turned on,OpenAPS will query your phone for the CGM data automatically without additional configuration settings. You can validate the offline looping works by connecting your rig to the xDrip hotspot and checking the ns-loop.log has a line saying `CGM results loaded from xDrip`. Use 
 
@@ -42,6 +46,8 @@ to watch the ns-loop.log file for the 'CGM results loaded from xDrip' text.
    ![Secret](../Images/xDrip_offline_2.png)
 
 </details>
+
+#### A.2. xDripAPS
 
 The second method involves installing an application called xDripAPS onto your rig. The details for setting up xDripAPS are described in the [section below](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/offline-looping-and-monitoring.html#xdripaps-offline-looping-for-users-of-the-xdrip-android-app). The naming can be confusing. xDrip+ (maintained by [@jamorham](https://jamorham.github.io/#xdrip-plus)) is the app being actively developed. While Google may lead you to several older versions of the xDrip/xDrip+ Android app, you can always get the latest version here:
    * xDrip+: [https://github.com/NightscoutFoundation/xDrip](https://github.com/NightscoutFoundation/xDrip)
@@ -304,6 +310,7 @@ NOTE: To ensure your OpenAPS rig recieves glucose data through XdripAPS please c
 #### Known limitations of xDripAPS
 * xDripAPS does not process anything other than CGM data. If you use the xDrip+ Android app to enter carbs, these will not be processed by OpenAPS. If you upload to Nightscout simultaneously, OpenAPS will download the carbohydrate entries from Nightscout once it has internet connectivity. For alternative solutions for offline carb entry see above.
 * Changing between xDripAPS and Nightscout as sources for CGM data may lead to problems with the calculation of carbohydrate absorption. This can be avoided by leaving the OpenAPS rig tethered to the phone via Bluetooth or WiFi as long as there are carbs on board.
+* The IP address of the rig can change periodically when using a WiFi hotspot or Bluetooth tethering on a phone, resulting in the need to update it in xDrip+ on the phone. There are some potential work-arounds for this issue. See [this discussion on GitHub](https://github.com/NightscoutFoundation/xDrip/discussions/3399#discussioncomment-8906575) to learn more.
 
 #### Manual installation steps for xDripAPS
 

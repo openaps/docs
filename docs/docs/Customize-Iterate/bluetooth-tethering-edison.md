@@ -239,11 +239,13 @@ Finally, it's time to take a walk.  About a minute after walking out of range of
 
 ### Additional App requirement on Android to enable automatic BT Tethering reconnects
 
-On Android, the Bluetooth tether will shutdown if there is no tethering request within 3 minutes. Installing the application "BTAutoTethering" on your phone from the Play store will resolve this issue and allow the rig to switch to your phone when out of wifi range with no manual intervention. 
+On Android, the Bluetooth tether might shutdown on some phones if there is no tethering request within a few minutes. Installing the application "BTAutoTethering" on your phone from the Play store will resolve this issue and allow the rig to switch to your phone when out of wifi range with no manual intervention.
 
 This app has been used by numerous OpenAPS users, and found to work. It can be found [here](https://play.google.com/store/apps/details?id=nu.mine.qos.btautotethering&hl=en).
 
 Another app which others have found to work better (depending on phone and carrier OS tweaks) is [Blue Car Tethering](https://play.google.com/store/apps/details?id=com.xplota.bluecartetheringauto&hl=en).
+
+**Update June 2024:** Apps that automatically enable tethering may not work anymore, especially on phones made within the past few years. See the [first half of this post on GitHub](https://github.com/NightscoutFoundation/xDrip/discussions/3399#discussioncomment-8906575) to learn more, and for some possible alternatives.
 
 ### Additional Troubleshooting Steps for Some Carriers
 
