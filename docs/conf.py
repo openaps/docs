@@ -24,6 +24,7 @@ import os
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 import alabaster
+import sphinx_rtd_theme
 
 # -- General configuration ------------------------------------------------
 
@@ -150,20 +151,13 @@ html_theme_options = {
   'extra_nav_links': extra_nav_links,
 }
 
-"""
-html_theme = 'default'
-html_theme_options = {
-  'display_github': True,
-  'github_user': 'openaps',
-  'github_repo': 'docs',
-}
-import sphinx_rtd_theme
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path( )]
-"""
+# Match the classic Read the Docs rendering used on the published "latest" docs.
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = []
-# html_theme_path = [alabaster.get_path( )]
+# html_theme_path = []
+# html_theme_path = [alabaster.get_path()]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -433,4 +427,3 @@ def setup(app):
             'enable_eval_rst': True,
             }, True)
     app.add_transform(AutoStructify)
-
