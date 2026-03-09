@@ -19,6 +19,7 @@ The box below is the Bootstrap script, and it will complete steps 2 and 3 for yo
 ```
 #!/bin/bash
 (
+BRANCH=master
 dmesg -D
 echo Scanning for wifi networks:
 ifup wlan0
@@ -47,13 +48,23 @@ echo -e "\nAttempting to bring up wlan0:\n"
 ifdown wlan0; ifup wlan0
 sleep 10
 echo -ne "\nWifi SSID: "; iwgetid -r
+echo -e "\nSyncing time:\n"
+ntpd -gq || ntpdate -u pool.ntp.org || true
+sleep 2
+date
 sleep 5
-curl https://raw.githubusercontent.com/openaps/oref0/master/bin/openaps-install.sh > /tmp/openaps-install.sh
-bash /tmp/openaps-install.sh
+echo "Press Enter to continue installing the current release ($BRANCH) of oref0,"
+read -p "or enter the oref0 branch name to install." -r
+BRANCH=${REPLY:-$BRANCH}
+curl -L https://raw.githubusercontent.com/openaps/oref0/$BRANCH/bin/openaps-install.sh -o /tmp/openaps-install.sh || {
+  ntpd -gq || ntpdate -u pool.ntp.org || true
+  curl -L https://raw.githubusercontent.com/openaps/oref0/$BRANCH/bin/openaps-install.sh -o /tmp/openaps-install.sh
+}
+bash /tmp/openaps-install.sh $BRANCH
 )
 ```
 
-Copy all of those lines; go back to Terminal/PuTTY and paste into the command line (Paste in PuTTY is just a right mouse click). Then, hit `enter`.  The screenshot below is an example of what the pasted text will look like (highlighted in blue for clarity). *(If you have trouble copying from the box, [click here](https://raw.githubusercontent.com/openaps/oref0/dev/bin/openaps-bootstrap.sh) and ctrl-a or command-a to copy the text from there.)*
+Copy all of those lines; go back to Terminal/PuTTY and paste into the command line (Paste in PuTTY is just a right mouse click). Then, hit `enter`.  The screenshot below is an example of what the pasted text will look like (highlighted in blue for clarity).
 
 *************
 Note: **This setup script will require you to have an available working internet connection to be successful.**  If anything fails during the installation, the setup may end early before you get to the setup script questions.  In that case, you can just paste the script above into the command line again and try again.  (Don't try to use the up arrow, it probably won't work.)  If you get repeated failures, bring your questions and error messages into Gitter or FB for help with troubleshooting.
