@@ -49,15 +49,14 @@ ifdown wlan0; ifup wlan0
 sleep 10
 echo -ne "\nWifi SSID: "; iwgetid -r
 echo -e "\nSyncing time:\n"
-ntpd -gq || ntpdate -u pool.ntp.org || true
+service ntp stop || true; ntpd -gq; service ntp start || true; date
 sleep 2
-date
 sleep 5
 echo "Press Enter to continue installing the current release ($BRANCH) of oref0,"
 read -p "or enter the oref0 branch name to install." -r
 BRANCH=${REPLY:-$BRANCH}
 curl -L https://raw.githubusercontent.com/openaps/oref0/$BRANCH/bin/openaps-install.sh -o /tmp/openaps-install.sh || {
-  ntpd -gq || ntpdate -u pool.ntp.org || true
+  service ntp stop || true; ntpd -gq; service ntp start || true; date
   curl -L https://raw.githubusercontent.com/openaps/oref0/$BRANCH/bin/openaps-install.sh -o /tmp/openaps-install.sh
 }
 bash /tmp/openaps-install.sh $BRANCH
