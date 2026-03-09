@@ -139,21 +139,10 @@ extra_nav_links = {
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-# alabaster
-theme_github_user = 'openaps'
-theme_github_repo = 'docs'
-html_theme_options = {
-  'show_related': True,
-  'github_user': theme_github_user,
-  'github_repo': theme_github_repo,
-  'logo': 'openaps-logo.png',
-  # TODO: ???? doesn't work?
-  'extra_nav_links': extra_nav_links,
-}
-
 # Match the classic Read the Docs rendering used on the published "latest" docs.
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
