@@ -408,6 +408,7 @@ if on_rtd:
   rtd_version = os.environ.get('READTHEDOCS_VERSION')
   hosted_root = 'https://openaps.readthedocs.org/en/%s/' % rtd_version
 def setup(app):
+    app.add_stylesheet('openaps-docs.css')
     app.add_config_value('recommonmark_config', {
             # 'url_resolver': lambda url: github_doc_root + url,
             'url_resolver': lambda url: hosted_root + url + '.html',

@@ -1,0 +1,7 @@
+.rst-content pre,
+.rst-content div[class^="highlight"] pre,
+.rst-content .highlight pre,
+.rst-content code.literal,
+code.docutils.literal {
+  background: #e6f4ea;
+}
