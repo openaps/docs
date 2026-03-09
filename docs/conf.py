@@ -407,6 +407,9 @@ on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
   rtd_version = os.environ.get('READTHEDOCS_VERSION')
   hosted_root = 'https://openaps.readthedocs.org/en/%s/' % rtd_version
+  if rtd_version:
+    version = rtd_version
+    release = rtd_version
 def setup(app):
     app.add_stylesheet('openaps-docs.css')
     app.add_config_value('recommonmark_config', {

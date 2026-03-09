@@ -5,3 +5,8 @@
 code.docutils.literal {
   background: #e6f4ea;
 }
+
+.wy-side-nav-search,
+.wy-nav-top {
+  background: #2980b9;
+}
