@@ -50,8 +50,6 @@ sleep 10
 echo -ne "\nWifi SSID: "; iwgetid -r
 echo -e "\nSyncing time:\n"
 service ntp stop || true; ntpd -gq; service ntp start || true; date
-sleep 2
-sleep 5
 echo "Press Enter to continue installing the current release ($BRANCH) of oref0,"
 read -p "or enter the oref0 branch name to install." -r
 BRANCH=${REPLY:-$BRANCH}
